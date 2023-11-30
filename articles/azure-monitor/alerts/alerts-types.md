@@ -29,7 +29,7 @@ The information in this table can help you decide when to use each type of alert
 |Alert type |When to use |Pricing information|
 |---------|---------|---------|
 |Metric alert|Metric data is stored in the system already pre-computed. Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. Use metric alerts if the data you want to monitor is available in metric data.|Each metric alert rule is charged based on the number of time series that are monitored. |
-|Log alert|You can use log alerts to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of Kusto Query Language (KQL) for data manipulation by using log alerts.|Each log alert rule is billed based on the interval at which the log query is evaluated. More frequent query evaluation results in a higher cost. For log alerts configured for [at-scale monitoring](#splitting-by-dimensions-in-log-alert-rules), the cost also depends on the number of time series created by the dimensions resulting from your query. |
+|Log alert|You can use log alerts to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of Kusto Query Language (KQL) for data manipulation by using log alerts.|Each log alert rule is billed based on the interval at which the log query is evaluated. More frequent query evaluation results in a higher cost. For log alerts configured for at-scale monitoring using splitting by dimensions, the cost also depends on the number of time series created by the dimensions resulting from your query. |
 |Activity log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts to be alerted when a specific event happens to a resource like a restart, a shutdown, or the creation or deletion of a resource. Service Health alerts and Resource Health alerts let you know when there's an issue with one of your services or resources.|For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).|
 |Prometheus alerts|Prometheus alerts are used for alerting on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). The alert rules are based on the PromQL open-source query language. |Prometheus alert rules are only charged on the data queried by the rules.  For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/). |
 
@@ -129,7 +129,10 @@ Log alerts can measure two different things, which can be used for different mon
 - **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, Syslog, and application exceptions.
 - **Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. An example is CPU percentage.
 
-You can configure if log alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). This feature is currently in preview.
+You can configure if log alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). This feature is currently in preview. 
+Note that stateful log alerts have these limitations:
+- they can trigger up to 300 alerts per evaluation.
+- you can have a maximum of 5000 alerts with the `fired` alert condition.
 
 > [!NOTE]
 > Log alerts work best when you're trying to detect specific data in the logs, as opposed to when you're trying to detect a lack of data in the logs. Because logs are semi-structured data, they're inherently more latent than metric data on information like a VM heartbeat. To avoid misfires when you're trying to detect a lack of data in the logs, consider using [metric alerts](#metric-alerts). You can send data to the metric store from logs by using [metric alerts for logs](alerts-metric-logs.md).

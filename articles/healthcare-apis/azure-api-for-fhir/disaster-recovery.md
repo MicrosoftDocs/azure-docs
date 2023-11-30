@@ -5,11 +5,13 @@ author: outinyman
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 9/27/2023
 ms.author: ounyman
 ---
 
 # Disaster recovery for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Azure API for FHIR is a fully managed service, based on Fast Healthcare Interoperability Resources (FHIR®). To meet business and compliance requirements you can use the disaster recovery (DR) feature for Azure API for FHIR. 
 

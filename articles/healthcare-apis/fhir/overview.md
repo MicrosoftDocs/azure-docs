@@ -21,7 +21,7 @@ The FHIR service offers the following:
 - High performance, low latency
 - Secure management of Protected Health Information (PHI) in a compliant cloud environment
 - SMART on FHIR for mobile and web clients
-- Controlled access to FHIR data at scale with Azure Active Directory Role-Based Access Control (RBAC)
+- Controlled access to FHIR data at scale with Microsoft Entra role-Based Access Control (RBAC)
 - Audit log tracking for access, creation, and modification events within the FHIR service data store
 
 The FHIR service allows you to quickly create and deploy a FHIR server to leverage the elastic scale of the cloud for ingesting, persisting, and querying FHIR data. The Azure services that power the FHIR service are designed for high performance no matter how much data you're working with.
@@ -46,7 +46,7 @@ The FHIR service enables connection with any health data system or application c
 
 ### Control Data Access at Scale
 
-With the FHIR service, you control your data – at scale. The FHIR service's Role-Based Access Control (RBAC) is rooted in Azure AD identities management, which means you can grant or deny access to health data based on the roles given to individuals in your organization. These RBAC settings for the FHIR service are configurable in Azure Health Data Services at the workspace level. This simplifies system management and guarantees your organization's PHI is safe within a HIPAA and HITRUST-compliant environment.
+With the FHIR service, you control your data – at scale. The FHIR service's Role-Based Access Control (RBAC) is rooted in Microsoft Entra identities management, which means you can grant or deny access to health data based on the roles given to individuals in your organization. These RBAC settings for the FHIR service are configurable in Azure Health Data Services at the workspace level. This simplifies system management and guarantees your organization's PHI is safe within a HIPAA and HITRUST-compliant environment.
 
 ### Secure your data
 
@@ -56,7 +56,7 @@ As part of the Azure family of services, the FHIR service protects your organiza
 
 FHIR servers are essential for interoperability of health data. The FHIR service is designed as a managed FHIR server with a RESTful API for connecting to a broad range of client systems and applications. Some of the key use cases for the FHIR service are listed below: 
 
-- **Startup App Development:** Customers developing a patient- or provider-centric app (mobile or web) can leverage FHIR service as a fully managed backend for health data transactions. The FHIR service enables secure transfer of PHI, and with SMART on FHIR, app developers can take advantage of the robust identities management in Azure AD for authorization of FHIR RESTful API actions. 
+- **Startup App Development:** Customers developing a patient- or provider-centric app (mobile or web) can leverage FHIR service as a fully managed backend for health data transactions. The FHIR service enables secure transfer of PHI, and with SMART on FHIR, app developers can take advantage of the robust identities management in Microsoft Entra ID for authorization of FHIR RESTful API actions. 
 
 - **Healthcare Ecosystems:** While EHRs exist as the primary ‘source of truth’ in many clinical settings, it isn't uncommon for providers to have multiple databases that aren’t connected to one another (often because the data is stored in different formats). Utilizing the FHIR service as a conversion layer between these systems allows organizations to standardize data in the FHIR format. Ingesting and persisting in FHIR enables health data querying and exchange across multiple disparate systems. 
 

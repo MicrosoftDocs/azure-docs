@@ -823,5 +823,5 @@ az group delete --name 'myResourceGroup' --yes --no-wait
 ---
 
 ## Next steps
-- To learn about other Network Watcher tools, see [Azure Network Watcher overview](network-watcher-monitoring-overview.md).
+- To learn about other Network Watcher tools, see [What is Azure Network Watcher?](network-watcher-overview.md)
 - To learn how to troubleshoot virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).

@@ -9,20 +9,25 @@ ms.date: 04/10/2023
 
 # Use GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS)
 
-Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Linux node pools to run compute-intensive Kubernetes workloads. For more information on available GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-skus]. For AKS node pools, we recommend a minimum size of *Standard_NC6*. The NVv4 series (based on AMD GPUs) aren't supported with AKS.
+Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Linux node pools to run compute-intensive Kubernetes workloads. 
 
 This article helps you provision nodes with schedulable GPUs on new and existing AKS clusters.
 
+## Supported GPU-enabled VMs
+To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-skus]. For AKS node pools, we recommend a minimum size of *Standard_NC6s_v3*. The NVv4 series (based on AMD GPUs) aren't supported on AKS.
+
 > [!NOTE]
 > GPU-enabled VMs contain specialized hardware subject to higher pricing and region availability. For more information, see the [pricing][azure-pricing] tool and [region availability][azure-availability].
+
+## Limitations
+* AKS does not support Windows GPU-enabled node pools.
+* If you're using an Azure Linux GPU-enabled node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [auto-upgrade](./auto-upgrade-node-image.md).
+* [NVadsA10](https://learn.microsoft.com/azure/virtual-machines/nva10v5-series) v5-series are not a recommended SKU for GPU VHD.
 
 ## Before you begin
 
 * This article assumes you have an existing AKS cluster. If you don't have a cluster, create one using the [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
 * You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-> [!NOTE]
-> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [Using node OS auto-upgrade](./auto-upgrade-node-image.md#using-node-os-auto-upgrade).
 
 ## Get the credentials for your cluster
 
@@ -32,20 +37,23 @@ This article helps you provision nodes with schedulable GPUs on new and existing
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-## Add the NVIDIA device plugin
+## Options for using NVIDIA GPUs
 
-There are two ways to add the NVIDIA device plugin:
+There are three ways to add the NVIDIA device plugin:
 
 1. [Using the AKS GPU image](#update-your-cluster-to-use-the-aks-gpu-image-preview)
 2. [Manually installing the NVIDIA device plugin](#manually-install-the-nvidia-device-plugin)
+3. Using the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/microsoft-aks.html)
+
+### Use NVIDIA GPU Operator with AKS
+You can use the NVIDIA GPU Operator by skipping the gpu driver installation on AKS. For more information about using the NVIDIA GPU Operator with AKS, see [NVIDIA Documentation](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/microsoft-aks.html).
+
+Adding the node pool tag `SkipGPUDriverInstall=true` will skip installing the GPU driver automatically on newly created nodes in the node pool. Any existing nodes will not be changed - the pool can be scaled to 0 and back up to make the change take effect. You can specify the tag using the `--nodepool-tags` argument to [`az aks create`][az-aks-create] command (for a new cluster) or `--tags` with [`az aks nodepool add`][az-aks-nodepool-add] or [`az aks nodepool update`][az-aks-nodepool-update].
 
 > [!WARNING]
 > We don't recommend manually installing the NVIDIA device plugin daemon set with clusters using the AKS GPU image.
 
 ### Update your cluster to use the AKS GPU image (preview)
-
-> [!NOTE]
-> If using an Azure Linux GPU node pool, automatic security patches aren't applied, and the default behavior for the cluster is *Unmanaged*. For more information, see [Using node OS auto-upgrade](./auto-upgrade-node-image.md#using-node-os-auto-upgrade).
 
 AKS provides a fully configured AKS image containing the [NVIDIA device plugin for Kubernetes][nvidia-github].
 
@@ -95,7 +103,7 @@ Now that you updated your cluster to use the AKS GPU image, you can add a node p
         --cluster-name myAKSCluster \
         --name gpunp \
         --node-count 1 \
-        --node-vm-size Standard_NC6 \
+        --node-vm-size Standard_NC6s_v3 \
         --node-taints sku=gpu:NoSchedule \
         --aks-custom-headers UseGPUDedicatedVHD=true \
         --enable-cluster-autoscaler \
@@ -105,7 +113,7 @@ Now that you updated your cluster to use the AKS GPU image, you can add a node p
 
   The previous example command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
 
-  * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6*.
+  * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6s_v3*.
   * `--node-taints`: Specifies a *sku=gpu:NoSchedule* taint on the node pool.
   * `--aks-custom-headers`: Specifies a specialized AKS GPU image, *UseGPUDedicatedVHD=true*. If your GPU sku requires generation 2 VMs, use *--aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true* instead.
   * `--enable-cluster-autoscaler`: Enables the cluster autoscaler.
@@ -127,7 +135,7 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
         --cluster-name myAKSCluster \
         --name gpunp \
         --node-count 1 \
-        --node-vm-size Standard_NC6 \
+        --node-vm-size Standard_NC6s_v3 \
         --node-taints sku=gpu:NoSchedule \
         --enable-cluster-autoscaler \
         --min-count 1 \
@@ -136,7 +144,7 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
 
     The previous example command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
 
-    * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6*.
+    * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6s_v3*.
     * `--node-taints`: Specifies a *sku=gpu:NoSchedule* taint on the node pool.
     * `--enable-cluster-autoscaler`: Enables the cluster autoscaler.
     * `--min-count`: Configures the cluster autoscaler to maintain a minimum of one node in the node pool.
@@ -188,7 +196,7 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
             value: "gpu"
             effect: "NoSchedule"
           containers:
-          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:1.11
+          - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:v0.14.1
             name: nvidia-device-plugin-ctr
             securityContext:
               allowPrivilegeEscalation: false
@@ -411,6 +419,8 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 [nvidia-github]: https://github.com/NVIDIA/k8s-device-plugin
 
 <!-- LINKS - internal -->
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az_aks_nodepool_update
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
@@ -429,3 +439,4 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[NVadsA10]: /azure/virtual-machines/nva10v5-series

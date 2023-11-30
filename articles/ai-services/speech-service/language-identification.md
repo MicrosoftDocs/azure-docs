@@ -2,14 +2,13 @@
 title: Language identification - Speech service
 titleSuffix: Azure AI services
 description: Language identification is used to determine the language being spoken in audio when compared against a list of provided languages.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 04/19/2023
+ms.date: 9/19/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
@@ -498,7 +497,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 ### Speech to text custom models
 
 > [!NOTE]
-> Language detection with custom models can only be used with real-time speech to text and speech translation. Batch transcription only supports language detection for base models. 
+> Language detection with custom models can only be used with real-time speech to text and speech translation. Batch transcription only supports language detection for default base models. 
 
 ::: zone pivot="programming-language-csharp"
 This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
@@ -592,7 +591,7 @@ var autoDetectSourceLanguageConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fr
 You use Speech translation when you need to identify the language in an audio source and then translate it to another language. For more information, see [Speech translation overview](speech-translation.md).
 
 > [!NOTE]
-> Speech translation with language identification is only supported with Speech SDKs in C#, C++, and Python. 
+> Speech translation with language identification is only supported with Speech SDKs in C#, C++, JavaScript, and Python. 
 > Currently for speech translation with language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 ::: zone pivot="programming-language-csharp"
 
@@ -1095,7 +1094,7 @@ For more information about containers, see the [language identification speech c
 To identify languages with [Batch transcription REST API](batch-transcription.md), you need to use `languageIdentification` property in the body of your [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) request. 
 
 > [!WARNING]
-> Batch transcription only supports language identification for base models. If both language identification and a custom model are specified in the transcription request, the service will fall back to use the base models for the specified candidate languages. This may result in unexpected recognition results.
+> Batch transcription only supports language identification for default base models. If both language identification and a custom model are specified in the transcription request, the service will fall back to use the base models for the specified candidate languages. This may result in unexpected recognition results.
 >
 > If your speech to text scenario requires both language identification and custom models, use [real-time speech to text](#speech-to-text-custom-models) instead of batch transcription.
 

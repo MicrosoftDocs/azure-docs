@@ -14,6 +14,8 @@ ms.custom: devx-track-js, devguide-js
 
 # Copy a blob with JavaScript
 
+[!INCLUDE [storage-dev-guide-selector-copy](../../../includes/storage-dev-guides/storage-dev-guide-selector-copy.md)]
+
 This article provides an overview of copy operations using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme).
 
 ## About copy operations

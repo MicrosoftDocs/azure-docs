@@ -6,7 +6,7 @@ services: azure-monitor
 ms.reviewer: shijain
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/04/2020
+ms.date: 09/28/2023
 ms.author: bwren
 ---
 # Send guest OS metrics to the Azure Monitor metrics store by using an ARM template for a Windows VM
@@ -263,7 +263,7 @@ To deploy the ARM template, we use Azure PowerShell.
 
 1. On the **Monitor** page, select **Metrics**.
 
-   ![Screenshot that shows the Metrics page.](media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png)
+   :::image type="content" source="media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png" lightbox="media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png" alt-text="Screenshot that shows the Metrics page.":::
 
 1. Change the aggregation period to **Last 30 minutes**.
 

@@ -2,10 +2,9 @@
 title: 'Quickstart: Use Azure OpenAI Service with the JavaScript SDK and the completions API'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Go SDK. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
@@ -21,7 +20,7 @@ keywords:
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [Go 1.21.0](https://go.dev/dl/) or higher installed locally.
-- An Azure OpenAI Service resource with the text-davinci-003 model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with the `gpt-35-turbo-instuct` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 ## Set up
 
@@ -47,7 +46,7 @@ import (
 
 func main() {
 	azureOpenAIKey := os.Getenv("AZURE_OPENAI_KEY")
-	modelDeploymentID := "text-davinci-003"
+	modelDeploymentID := "gpt-35-turbo-instruct"
 
 	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
 
@@ -72,7 +71,7 @@ func main() {
 		Prompt:       []string{"What is Azure OpenAI, in 20 words or less"},
 		MaxTokens:    to.Ptr(int32(2048)),
 		Temperature:  to.Ptr(float32(0.0)),
-		DeploymentID: modelDeploymentID,
+		Deployment: modelDeploymentID,
 	}, nil)
 
 	if err != nil {

@@ -13,6 +13,8 @@ ms.reviewer: mmcc
 
 The Azure Monitor Application Insights .NET and .NET Core SDKs have two different methods of collecting custom metrics: `TrackMetric()` and `GetMetric()`. The key difference between these two methods is local aggregation. The `TrackMetric()` method lacks pre-aggregation. The `GetMetric()` method has pre-aggregation. We recommend that you use aggregation, so `TrackMetric()` is no longer the preferred method of collecting custom metrics. This article walks you through using the `GetMetric()` method and some of the rationale behind how it works.
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 ## Pre-aggregating vs. non-pre-aggregating API
 
 The `TrackMetric()` method sends raw telemetry denoting a metric. It's inefficient to send a single telemetry item for each value. The `TrackMetric()` method is also inefficient in terms of performance because every `TrackMetric(item)` goes through the full SDK pipeline of telemetry initializers and processors.
@@ -32,7 +34,7 @@ Throttling is a concern because it can lead to missed alerts. The condition to t
 In summary, we recommend `GetMetric()` because it does pre-aggregation, it accumulates values from all the `Track()` calls, and sends a summary/aggregate once every minute. The `GetMetric()` method can significantly reduce the cost and performance overhead by sending fewer data points while still collecting all relevant information.
 
 > [!NOTE]
-> Only the .NET and .NET Core SDKs have a `GetMetric()` method. If you're using Java, see [Sending custom metrics using micrometer](./java-standalone-config.md#autocollected-micrometer-metrics-including-spring-boot-actuator-metrics). For JavaScript and Node.js, you would still use `TrackMetric()`, but keep in mind the caveats that were outlined in the previous section. For Python, you can use [OpenCensus.stats](./opencensus-python.md#metrics) to send custom metrics, but the metrics implementation is different.
+> Only the .NET and .NET Core SDKs have a `GetMetric()` method. If you're using Java, see [Sending custom metrics using micrometer](./java-standalone-config.md#autocollected-micrometer-metrics-including-spring-boot-actuator-metrics). For JavaScript and Node.js, you would still use `TrackMetric()`, but keep in mind the caveats that were outlined in the previous section. For Python, you can use [OpenCensus.stats](/previous-versions/azure/azure-monitor/app/opencensus-python#metrics) to send custom metrics, but the metrics implementation is different.
 
 ## Get started with GetMetric
 
@@ -311,6 +313,6 @@ SeverityLevel.Error);
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * [Learn more](./worker-service.md) about monitoring worker service applications.
 * Use [log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
-* Get started with [metrics explorer](../essentials/metrics-getting-started.md).
+* Analyze metrics with [metrics explorer](../essentials/analyze-metrics.md).
 * Learn how to enable Application Insights for [ASP.NET Core applications](asp-net-core.md).
 * Learn how to enable Application Insights for [ASP.NET applications](asp-net.md).

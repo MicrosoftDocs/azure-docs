@@ -2,18 +2,17 @@
 title: 'Quickstart: Use Azure OpenAI Service with the C# SDK'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the C# SDK.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/26/2023
+ms.date: 11/15/2023
 keywords:
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.OpenAI/) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)
+[Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.OpenAI/) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)| [Retrieval Augmented Generation (RAG) enterprise chat template](/dotnet/azure/ai/get-started-app-chat-template) |
 
 ## Prerequisites
 
@@ -21,9 +20,8 @@ keywords:
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - The [.NET 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0)
-- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4` models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
-<sup>1</sup> **GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
@@ -40,7 +38,7 @@ keywords:
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up)
 
-## Create .NET application
+## Create a sample application
 
 From the project directory, open the *program.cs* file and replace with the following code:
 
@@ -58,6 +56,7 @@ OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
 
 var chatCompletionsOptions = new ChatCompletionsOptions()
 {
+    DeploymentName = "gpt-35-turbo", //This must match the custom deployment name you chose for your model
     Messages =
     {
         new ChatMessage(ChatRole.System, "You are a helpful assistant."),
@@ -68,9 +67,7 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
     MaxTokens = 100
 };
 
-Response<ChatCompletions> response = client.GetChatCompletions(
-    deploymentOrModelName: "gpt-35-turbo", 
-    chatCompletionsOptions);
+Response<ChatCompletions> response = client.GetChatCompletions(chatCompletionsOptions);
 
 Console.WriteLine(response.Value.Choices[0].Message.Content);
 
@@ -106,6 +103,7 @@ OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
 
 var chatCompletionsOptions = new ChatCompletionsOptions()
 {
+    DeploymentName= "gpt-35-turbo", //This must match the custom deployment name you chose for your model
     Messages =
     {
         new ChatMessage(ChatRole.System, "You are a helpful assistant."),
@@ -116,18 +114,16 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
     MaxTokens = 100
 };
 
-Response<StreamingChatCompletions> response = await client.GetChatCompletionsStreamingAsync(
-    deploymentOrModelName: "gpt-35-turbo",
-    chatCompletionsOptions);
-using StreamingChatCompletions streamingChatCompletions = response.Value;
-
-await foreach (StreamingChatChoice choice in streamingChatCompletions.GetChoicesStreaming())
+await foreach (StreamingChatCompletionsUpdate chatUpdate in client.GetChatCompletionsStreaming(chatCompletionsOptions))
 {
-    await foreach (ChatMessage message in choice.GetMessageStreaming())
+    if (chatUpdate.Role.HasValue)
     {
-        Console.Write(message.Content);
+        Console.Write($"{chatUpdate.Role.Value.ToString().ToUpperInvariant()}: ");
     }
-    Console.WriteLine();
+    if (!string.IsNullOrEmpty(chatUpdate.ContentUpdate))
+    {
+        Console.Write(chatUpdate.ContentUpdate);
+    }
 }
 ```
 

@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Number Lookup overview
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services enable you to retrieve insights and look up a specific phone number using the Azure Communication Services Number Lookup SDK. It is part of the Phone Numbers SDK and can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Azure Communication Services Number Lookup allows you to reliably retrieve number insights before engaging with end-users.
 
@@ -31,7 +31,7 @@ Key features of Azure Communication Services Number Lookup include:
 
 ## Value Proposition
 
-The main benefits the solution will provide to ACS customers can be summarized on the below:
+The main benefits the solution will provide to Azure Communication Services customers can be summarized on the below:
 -  **Reduce Cost:** Optimize your communication expenses by sending messages only to phone numbers that are SMS-ready 
 -  **Increase efficiency:** Better target customers based on subscribers’ data (name, type, location, etc.). You can also decide on the best communication channel to choose based on status (e.g., SMS or email while roaming instead of calls). 
 
@@ -40,9 +40,17 @@ The main benefits the solution will provide to ACS customers can be summarized o
 -  **Validate the number can receive the SMS before you send it:** Check if a number has SMS capabilities or not and decide if needed to use different communication channels. 
  *Contoso bank collected the phone numbers of the people who are interested in their services on their site. Contoso wants to send an invite to register for the promotional offer. Contoso checks before sending the link on the offer if SMS is possible channel for the number that customer provided on the site and don’t waste money to send SMS to non mobile numbers.* 
 -  **Estimate the total cost of an SMS campaign before you launch it:** Get the current carrier of the target number and compare that with the list of known carrier surcharges.
-*Contoso, a marketing company, wants to launch a large SMS campaign to promote a product. Contoso checks the current carrier details for the different numbers he is targeting with this campaign to estimate the cost based on what ACS is charging him.*
+*Contoso, a marketing company, wants to launch a large SMS campaign to promote a product. Contoso checks the current carrier details for the different numbers he is targeting with this campaign to estimate the cost based on what Azure Communication Services is charging him.*
 
 ![Diagram showing call recording architecture using calling client sdk.](../numbers/mvp-use-case.png)
+
+## Pricing
+
+
+| Request                                                     | Price per API query                                              | 
+| ------------------------------------------------------------| -----------------------------------------------------------------|
+| Get Number Type and Carrier details, query per phone number | $0.005                                                           |
+
 
 ## Next steps
 

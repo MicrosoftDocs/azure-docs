@@ -57,7 +57,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
 
     ```json
     {
-        "apiVersion": "2016-09-01",
+        "apiVersion": "2021-06-01",
         "type": "Microsoft.ServiceFabric/clusters",
         "name": "[parameters('clusterName')]",
         "location": "[parameters('clusterLocation')]",
@@ -77,7 +77,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
 
     ```json
     {
-        "apiVersion": "2016-09-01",
+        "apiVersion": "2021-06-01",
         "type": "Microsoft.ServiceFabric/clusters",
         "name": "[parameters('clusterName')]",
         "location": "[parameters('clusterLocation')]",

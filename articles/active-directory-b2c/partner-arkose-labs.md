@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with the Arkose Labs platform
 titleSuffix: Azure AD B2C
 description: Learn to configure Azure Active Directory B2C with the Arkose Labs platform to identify risky and fraudulent users
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 01/18/2023
 ms.author: gasinh
@@ -26,7 +26,7 @@ To get started, you'll need:
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription
 - An Arkose Labs account
-  - Go to arkoselabs.com to [request a demo](https://www.arkoselabs.com/book-a-demo/)
+  - Go to arkoselabs.com to [request a demo](https://www.arkoselabs.com/bot-management-demo/)
 
 ## Scenario description
 
@@ -54,9 +54,9 @@ The following diagram illustrates how the Arkose Labs platform integrates with A
 
 ## Request a demo from Arkose Labs
 
-1. Go to arkoselabs.com to [book a demo](https://www.arkoselabs.com/book-a-demo/).
+1. Go to arkoselabs.com to [book a demo](https://www.arkoselabs.com/bot-management-demo/).
 2. Create an account.
-3. Navigate to the [Arkose Portal](https://dashboard.arkoselabs.com/login) sign-in page.
+3. Navigate to the [Arkose Portal](https://portal.arkoselabs.com/) sign-in page.
 4. In the dashboard, navigate to site settings.
 5. Locate your public key and private key. You'll use this information later. 
 
@@ -102,7 +102,7 @@ The user flow is for sign-up and sign-in, or sign-up. The Arkose Labs user flow 
 
 3. In Azure-Samples, modify [selfAsserted.html](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose/blob/main/Assets/selfAsserted.html) file so `<ARKOSE_PUBLIC_KEY>` matches the value you generated for the client-side validation.
 4. Host the HTML page on a Cross-Origin Resource Sharing (CORS) enabled web endpoint. 
-5. [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+5. [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=/azure/storage/blobs/toc.json).
 6. [CORS support for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
 
     >[!NOTE]

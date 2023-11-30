@@ -23,7 +23,7 @@ This feature is available in all the service tiers. For information about regist
 
 ## Limitations
 
-* You can't currently assign repository-scoped permissions to an Azure Active Directory identity, such as a service principal or managed identity.
+* You can't currently assign repository-scoped permissions to a Microsoft Entra identity, such as a service principal or managed identity.
 
 ## Concepts
 
@@ -422,7 +422,7 @@ In the portal, select the token in the **Tokens** screen, and select **Discard**
 ## Next steps
 
 * To manage scope maps and tokens, use additional commands in the [az acr scope-map][az-acr-scope-map] and [az acr token][az-acr-token] command groups.
-* See the [authentication overview](container-registry-authentication.md) for other options to authenticate with an Azure container registry, including using an Azure Active Directory identity, a service principal, or an admin account.
+* See the [authentication overview](container-registry-authentication.md) for other options to authenticate with an Azure container registry, including using a Microsoft Entra identity, a service principal, or an admin account.
 * Learn about [connected registries](intro-connected-registry.md) and using tokens for [access](overview-connected-registry-access.md).
 
 <!-- LINKS - External -->

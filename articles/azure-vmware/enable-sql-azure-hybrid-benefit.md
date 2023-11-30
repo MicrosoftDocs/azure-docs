@@ -18,7 +18,7 @@ The placement policy defines the hosts that are running SQL Server as well as th
 
 For example, if each host in Azure VMware Solution has 36 cores and you intend to have 2 hosts run SQL Server then the Azure Hybrid Benefit will apply to 72 cores, regardless of the number of SQL Server instances or other virtual machines are on that host. 
 
-You can also choose to view a video tutorial for configuring Azure Hybrid Benefit for SQL Server in Azure VMware Solution [here](https://www.youtube.com/watch?v=vJIQ1K2KTa0).
+[View a video tutorial for configuring Azure Hybrid Benefit for SQL Server in Azure VMware Solution](https://www.youtube.com/watch?v=vJIQ1K2KTa0)
 
 ## Configure host-VM placement policy 
 

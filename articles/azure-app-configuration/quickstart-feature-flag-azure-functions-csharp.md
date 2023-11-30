@@ -2,13 +2,13 @@
 title: Quickstart for adding feature flags to Azure Functions | Microsoft Docs
 description: In this quickstart, use Azure Functions with feature flags from Azure App Configuration and test the function locally.
 services: azure-app-configuration
-author: mcleanbyron
+author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 3/20/2023
-ms.author: mcleans
+ms.author: malev
 ---
 # Quickstart: Add feature flags to an Azure Functions app
 

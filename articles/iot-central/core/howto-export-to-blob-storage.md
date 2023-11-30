@@ -31,6 +31,9 @@ To browse the exported files in the Azure portal, navigate to the file and selec
 
 Blob Storage destinations let you configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
 
+> [!TIP]
+> If the Blob Storage destination is protected by a firewall, you must use a managed identity to connect to it.
+
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
 ### Create an Azure Blob Storage destination

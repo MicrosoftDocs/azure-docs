@@ -101,8 +101,9 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [Can I use virtual networks with a standard or basic cache?](#can-i-use-virtual-networks-with-a-standard-or-basic-cache)
 - [Why does creating an Azure Cache for Redis instance fail in some subnets but not others?](#why-does-creating-an-azure-cache-for-redis-instance-fail-in-some-subnets-but-not-others)
 - [What are the subnet address space requirements?](#what-are-the-subnet-address-space-requirements)
-- [Can I connect to my cache from a peered virtual network?](#can-i-connect-to-my-cache-from-a-peered-virtual-network)
+- [Can I connect to my cache from a peered virtual network?][Is VNet injection supported on a cache where Azure Lighthouse is enabled?](#is-vnet-injection-supported-on-a-cache-where-azure-lighthouse-is-enabled)(#can-i-connect-to-my-cache-from-a-peered-virtual-network)
 - [Do all cache features work when a cache is hosted in a virtual network?](#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)
+- [Is VNet injection supported on a cache where Azure Lighthouse is enabled?](#is-vnet-injection-supported-on-a-cache-where-azure-lighthouse-is-enabled)
 
 ### What are some common misconfiguration issues with Azure Cache for Redis and virtual networks?
 
@@ -235,6 +236,10 @@ For more information about virtual network peering constraints, see Virtual Netw
 When your cache is part of a virtual network, only clients in the virtual network can access the cache. As a result, the following cache management features don't work at this time:
 
 - **Redis Console**: Because Redis Console runs in your local browser---usually on a developer machine that isn't connected to the virtual network---it can't then connect to your cache.
+
+### Is VNet injection supported on a cache where Azure Lighthouse is enabled?
+
+No, if your subscription has Azure Lighthouse enabled, you can't use VNet injection on an Azure Cache for Redis instance. Instead, use private links.
 
 ## Use ExpressRoute with Azure Cache for Redis
 

@@ -2,11 +2,10 @@
 title: Using Azure resources in custom Text Analytics for health
 titleSuffix: Azure AI services
 description: Learn about the steps for using Azure resources with custom text analytics for health.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 04/14/2023
 ms.author: aahi

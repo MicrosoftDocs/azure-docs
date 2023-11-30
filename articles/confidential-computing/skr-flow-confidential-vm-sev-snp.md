@@ -12,7 +12,7 @@ ms.author: amgowda
 
 # Secure Key Release with Confidential VMs How To Guide
 
-The below article describes how to perform a Secure Key Release from Azure Key Value when your applications are running with an AMD SEV-SNP confidential. To learn more about Secure Key Release and Azure Confidential Computing, [go here.](./concept-skr-attestation.md).
+The below article describes how to perform a Secure Key Release from Azure Key Vault when your applications are running with an AMD SEV-SNP based confidential virtual machine. To learn more about Secure Key Release and Azure Confidential Computing, [go here.](./concept-skr-attestation.md).
 
 SKR requires that an application performing SKR shall go through a remote guest attestation flow using Microsoft Azure Attestation (MAA) as described [here](guest-attestation-confidential-vms.md).
 
@@ -20,10 +20,10 @@ SKR requires that an application performing SKR shall go through a remote guest 
 
 To allow Azure Key Vault to release a key to an attested confidential virtual machine, there are certain steps that need to be followed:
 
-1. Assign a managed identity to the confidential virtual machine. System-assigned managed identity or a user-assigned managed identity are allowed.
-1. Set a Key Vault access policy to grant the managed identity the "release" key permission. A policy allows the confidential virtual machine to access the Key Vault and perform the release operation. If using Key Vault Managed HSM, assign "Managed HSM Crypto Service Release User" role membership.
-1. Create a Key Vault key that is marked as exportable and has an associated release policy. Key release policy associates the key to an attested confidential virtual machine and that the key can only be used for the desired purpose.
-1. To perform the release, send an HTTP request to the Key Vault from the confidential virtual machine. HTTP request must include the Confidential VMs attested platform report in the request body. The attested platform report is used to verify the trustworthiness of the state of the Trusted Execution Environment-enabled platform, such as the Confidential VM. The Microsoft Azure Attestation service can be used to create the attested platform report and include it in the request.
+1. Assign a managed identity to the confidential virtual machine. System-assigned managed identity or a user-assigned managed identity are supported.
+1. Set a Key Vault access policy to grant the managed identity the "release" key permission. A policy allows the confidential virtual machine to access the Key Vault and perform the release operation. If using Key Vault Managed HSM, assign the "Managed HSM Crypto Service Release User" role membership.
+1. Create a Key Vault key that is marked as exportable and has an associated release policy. The key release policy associates the key to an attested confidential virtual machine and that the key can only be used for the desired purpose.
+1. To perform the release, send an HTTP request to the Key Vault from the confidential virtual machine. The HTTP request must include the Confidential VMs attested platform report in the request body. The attested platform report is used to verify the trustworthiness of the state of the Trusted Execution Environment-enabled platform, such as the Confidential VM. The Microsoft Azure Attestation service can be used to create the attested platform report and include it in the request.
 
 ![Diagram of the aforementioned operations, which we'll be performing.](media/skr-flow-confidential-vm-sev-snp-attestation/overview.png)
 
@@ -77,9 +77,9 @@ Follow the quickstart instructions on how to "[Deploy confidential VM with ARM t
 
 ## Enable system-assigned managed identity
 
-[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
+[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code.
 
-To enable system-assigned managed identity on a CVM, your account needs the [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD directory role assignments are required.
+To enable system-assigned managed identity on a CVM, your account needs the [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Microsoft Entra directory role assignments are required.
 
 ### [Bicep 1](#tab/bicep)
 
@@ -138,7 +138,7 @@ To enable system-assigned managed identity on a CVM, your account needs the [Vir
 
 ## Add the access policy to Azure Key Vault
 
-Once you turn on a system-assigned managed identity for your CVM, you have to provide it with access to the Azure Key Vault data plane where key objects are stored. To ensure that only our confidential virtual machine can execute the release operation, we'll only grant specific permission required for that.
+Once you enable a system-assigned managed identity for your CVM, you have to provide it with access to the Azure Key Vault data plane where key objects are stored. To ensure that only our confidential virtual machine can execute the release operation, we'll only grant the specific permission required.
 
 > [!NOTE]
 > You can find the managed identity object ID in the virtual machine identity options, in the Azure portal. Alternatively you can retrieve it with [PowerShell](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md), [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli.md), Bicep or ARM templates.
@@ -426,7 +426,7 @@ A [open sourced](https://github.com/Azure/confidential-computing-cvm-guest-attes
 
 ### Guest Attestation result
 
-The result from the Guest Attestation client simply is a base64 encoded string! This encoded string value is a signed JSON Web Token (__JWT__), with a header, body and signature. You can split the string by the `.` (dot) value and base64 decode the results.
+The result from the Guest Attestation client simply is a base64 encoded string. This encoded string value is a signed JSON Web Token (__JWT__), with a header, body and signature. You can split the string by the `.` (dot) value and base64 decode the results.
 
 ```text
 eyJhbGciO...
@@ -552,7 +552,7 @@ The documentation for Microsoft Azure Attestation service has an extensive list 
 
 We can use any scripting or programming language to receive an attested platform report using the AttestationClient binary. Since the virtual machine we deployed in a previous step has managed identity enabled, we should get an __Azure AD token for Key Vault__ from the instance metadata service (__IMDS__).
 
-By configuring the attested platform report as the body payload and the Azure AD token in our __authorization header__, you have everything needed to perform the key `release` operation.
+By configuring the attested platform report as the body payload and the Microsoft Entra token in our __authorization header__, you have everything needed to perform the key `release` operation.
 
 ```powershell
 #Requires -Version 7
@@ -676,7 +676,7 @@ Here we have another header, though this one has a [X.509 certificate chain](htt
 }
 ```
 
-You can read from the "`x5c`" array in PowerShell if you wanted to, this can help you verify that this is a valid certificate. Below is an example:
+You can read from the "`x5c`" array in PowerShell, this can help you verify that this is a valid certificate. Below is an example:
 
 ```powershell
 $certBase64 = "MIIIfDCCBmSgA..XQ=="

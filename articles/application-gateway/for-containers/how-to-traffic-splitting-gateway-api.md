@@ -7,7 +7,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 09/20/2023
 ms.author: greglin
 ---
 
@@ -16,6 +16,12 @@ ms.author: greglin
 This document helps set up an example application that uses the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one http listener
 - [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating an HTTP route that references two backend services having different weights
+
+## Background
+
+Application Gateway for Containers enables you to set weights and shift traffic between different backend targets. See the following example scenario:
+
+![A figure showing traffic splitting with Application Gateway for Containers.](./media/how-to-traffic-splitting-gateway-api/traffic-splitting.png)
 
 ## Prerequisites
 
@@ -33,8 +39,8 @@ This document helps set up an example application that uses the following resour
   
   This command creates the following on your cluster:
   - a namespace called `test-infra`
-  - 2 services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - 2 deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 

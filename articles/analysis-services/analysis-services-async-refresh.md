@@ -54,7 +54,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 ## Authentication
 
-All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token in the Authorization header and must meet the following requirements:
+All calls must be authenticated with a valid Microsoft Entra ID (OAuth 2) token in the Authorization header and must meet the following requirements:
 
 - The token must be either a user token or an application service principal.
 - The token must have the correct audience set to `https://*.asazure.windows.net`.

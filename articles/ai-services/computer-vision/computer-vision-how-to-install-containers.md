@@ -2,11 +2,10 @@
 title: Azure AI Vision 3.2 GA Read OCR container
 titleSuffix: Azure AI services
 description: Use the Read 3.2 OCR containers from Azure AI Vision to extract text from images and documents, on-premises.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 08/29/2023
 ms.author: pafarley

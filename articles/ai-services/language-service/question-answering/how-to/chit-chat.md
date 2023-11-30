@@ -2,12 +2,11 @@
 title: Adding chitchat to a custom question answering project
 titleSuffix: Azure AI services
 description: Adding personal chitchat to your bot makes it more conversational and engaging when you create a project. Custom question answering allows you to easily add a pre-populated set of the top chitchat, into your projects.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: jboback
 ms.author: jboback
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021

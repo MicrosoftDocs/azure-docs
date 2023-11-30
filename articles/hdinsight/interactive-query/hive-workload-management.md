@@ -6,7 +6,7 @@ ms.service: hdinsight
 ms.topic: how-to
 author: reachnijel
 ms.author: nijelsf
-ms.date: 07/19/2022
+ms.date: 09/19/2023
 ---
 
 # Hive LLAP Workload Management (WLM) feature

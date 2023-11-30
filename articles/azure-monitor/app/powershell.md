@@ -2,7 +2,7 @@
 title: Automate Application Insights with PowerShell | Microsoft Docs
 description: Automate creating and managing resources, alerts, and availability tests in PowerShell by using an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 09/12/2023
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.reviewer: vitalyg
 ---
@@ -475,4 +475,4 @@ See these other automation articles:
 * [Create an Application Insights resource](./create-workspace-resource.md)
 * [Create web tests](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert).
 * [Send Azure Diagnostics to Application Insights](../agents/diagnostics-extension-to-application-insights.md).
-* [Create release annotations](annotations.md).
+* [Create release annotations](release-and-work-item-insights.md?tabs=release-annotations).

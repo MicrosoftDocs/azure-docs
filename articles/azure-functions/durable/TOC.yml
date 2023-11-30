@@ -42,7 +42,7 @@
     href: quickstart-netherite.md
   - name: Configure storage provider - MSSQL
     href: quickstart-mssql.md
-  - name: Configure Durable Functions with Azure Active Directory
+  - name: Configure Durable Functions with Microsoft Entra ID
     href: durable-functions-configure-durable-functions-with-credentials.md   
 - name: Tutorials
   items:

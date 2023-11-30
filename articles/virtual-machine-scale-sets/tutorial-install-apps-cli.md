@@ -49,6 +49,10 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 
 
 ## Create a scale set
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
@@ -61,8 +65,7 @@ Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss#az-
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
-  --orchestration-mode Flexible \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -116,7 +119,7 @@ Enter the public IP address of the load balancer in to a web browser. The load b
 Leave the web browser open so that you can see an updated version in the next step.
 
 ## Update app deployment
-Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the `--upgrade-policy-mode` was set to *automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
+Throughout the lifecycle of a scale set, you might need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the `--upgrade-policy-mode` was set to *automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
 
 In your current shell, create a file named *customConfigv2.json* and paste the following configuration. This definition runs an updated *v2* version of the application install script:
 

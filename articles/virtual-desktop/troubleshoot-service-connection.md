@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot service connection Azure Virtual Desktop - Azure
-description: How to resolve issues while setting up service connections in a Azure Virtual Desktop tenant environment.
+description: How to resolve issues while setting up service connections in an Azure Virtual Desktop tenant environment.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 10/15/2020
@@ -32,11 +32,11 @@ A user can start Remote Desktop clients and is able to authenticate, however the
 
 3. If the web client is being used, confirm that there are no cached credentials issues.
 
-4. If the user is part of an Azure Active Directory user group, make sure the user group is a security group instead of a distribution group. Azure Virtual Desktop doesn't support Azure AD distribution groups.
+4. If the user is part of a Microsoft Entra user group, make sure the user group is a security group instead of a distribution group. Azure Virtual Desktop doesn't support Microsoft Entra distribution groups.
 
 ## User loses existing feed and no remote resource is displayed (no feed)
 
-This error usually appears after a user moved their subscription from one Azure Active Directory tenant to another. As a result, the service loses track of their user assignments, since those are still tied to the old Azure Active Directory tenant.
+This error usually appears after a user moved their subscription from one Microsoft Entra tenant to another. As a result, the service loses track of their user assignments, since those are still tied to the old Microsoft Entra tenant.
 
 To resolve this, all you need to do is reassign the users to their application groups.
 
@@ -50,7 +50,7 @@ This could also happen if a CSP Provider created the subscription and then trans
 ## Next steps
 
 - For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
-- To troubleshoot issues while creating a Azure Virtual Desktop environment and host pool in a Azure Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while creating an Azure Virtual Desktop environment and host pool in an Azure Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues related to the Azure Virtual Desktop agent or session connectivity, see [Troubleshoot common Azure Virtual Desktop Agent issues](troubleshoot-agent.md).
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).

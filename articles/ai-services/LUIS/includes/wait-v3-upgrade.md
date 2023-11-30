@@ -1,11 +1,11 @@
 ---
 title: LUIS portal user interface upgrade
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: include 
 ms.date: 10/14/2019
 

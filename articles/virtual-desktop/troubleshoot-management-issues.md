@@ -22,7 +22,7 @@ The following table lists error messages that appear due to management-related i
 |Failed to change session host drain mode |Couldn't change drain mode on the VM. Check the VM status. If the VM isn't available, you can't change drain mode.|
 |Failed to disconnect user sessions |Couldn't disconnect the user from the VM. Check the VM status. If the VM isn't available, you can't disconnect the user session. If the VM is available, check the user session status to see if it's disconnected. |
 |Failed to log off all user(s) within the session host |Could not sign users out of the VM. Check the VM status. If unavailable, users can't be signed out. Check user session status to see if they're already signed out. You can force sign out with PowerShell. |
-|Failed to unassign user from application group|Could not unpublish an application group for a user. Check to see if user is available on Azure AD. Check to see if the user is part of a user group that the application group is published to. |
+|Failed to unassign user from application group|Could not unpublish an application group for a user. Check to see if user is available on Microsoft Entra ID. Check to see if the user is part of a user group that the application group is published to. |
 |There was an error retrieving the available locations |Check location of VM used in the create host pool wizard. If image is not available in that location, add image in that location or choose a different VM location. |
 
 ## Error: Can't add user assignments to an application group

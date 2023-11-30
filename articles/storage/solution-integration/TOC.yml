@@ -35,6 +35,8 @@
     href: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
   - name: Komprise getting started guide
     href: ./validated-partners/data-management/komprise-quick-start-guide.md
+  - name: Komprise tiering guide
+    href: ./validated-partners/data-management/komprise-tiering-guide.md
   - name: Atempo getting started guide
     href: ./validated-partners/data-management/atempo-quick-start-guide.md
   - name: StorageX getting started guide
@@ -48,6 +50,8 @@
     href: .\validated-partners\primary-secondary-storage\partner-overview.md
   - name: ISV file services
     href: .\validated-partners\primary-secondary-storage\isv-file-services.md
+  - name: Nasuni getting started guide
+    href: ./validated-partners/primary-secondary-storage/nasuni-deployment-guide.md
   - name: Tiger Bridge getting started guide
     href: ./validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide.md
   expanded: false

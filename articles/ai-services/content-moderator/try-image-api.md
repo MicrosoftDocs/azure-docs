@@ -2,11 +2,10 @@
 title: Moderate images with the API Console - Content Moderator
 titleSuffix: Azure AI services
 description: Use the Image Moderation API in Azure AI Content Moderator to scan image content.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: how-to
 ms.date: 01/10/2019
 ms.author: pafarley

@@ -2,11 +2,10 @@
 title: Speech service quotas and limits
 titleSuffix: Azure AI services
 description: Quick reference, detailed description, and best practices on the quotas and limits for the Speech service in Azure AI services.
-services: cognitive-services
+#services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 02/17/2023
 ms.author: alexeyo
@@ -24,6 +23,9 @@ The following sections provide you with a quick guide to the quotas and limits t
 
 For information about adjustable quotas for Standard (S0) Speech resources, see [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). The quotas and limits for Free (F0) Speech resources aren't adjustable. 
 
+> [!IMPORTANT]
+> If you switch a Speech resource from Free (F0) to Standard (S0) pricing tier, the change of the corresponding quotas may take up to several hours.
+
 ### Speech to text quotas and limits per resource
 
 This section describes speech to text quotas and limits per Speech resource. Unless otherwise specified, the limits aren't adjustable.
@@ -39,6 +41,7 @@ You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the
 |--|--|--|
 | Concurrent request limit - base model endpoint | 1 <br/><br/>This limit isn't adjustable. | 100 (default value)<br/><br/>The rate is adjustable for Standard (S0) resources. See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). |
 | Concurrent request limit - custom endpoint | 1 <br/><br/>This limit isn't adjustable. | 100 (default value)<br/><br/>The rate is adjustable for Standard (S0) resources. See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). |
+| Max audio length for [real-time diarization](./get-started-stt-diarization.md). | N/A | 240 minutes per file  |
 
 #### Batch transcription
 
@@ -46,11 +49,9 @@ You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the
 |--|--|--|
 | [Speech to text REST API](rest-speech-to-text.md) limit | Not available for F0 | 300 requests per minute |
 | Max audio input file size | N/A | 1 GB |
-| Max input blob size (for example, can contain more than one file in a zip archive). Note the file size limit from the preceding row. | N/A | 2.5 GB |
-| Max blob container size | N/A | 5 GB |
 | Max number of blobs per container | N/A | 10000 |
 | Max number of files per transcription request (when you're using multiple content URLs as input). | N/A | 1000  |
-| Max audio length for transcriptions with diarizaion enabled. | N/A | 240 minutes per file  |
+| Max audio length for transcriptions with diarization enabled. | N/A | 240 minutes per file  |
 
 #### Model customization
 
@@ -109,13 +110,13 @@ These limits aren't adjustable. For more information on batch synthesis latency,
 | Quota | Free (F0)| Standard (S0) |
 |--|--|--|
 | File size (plain text in SSML)<sup>1</sup>  | 3,000 characters per file | 20,000 characters per file |
-| File size (lexicon file)<sup>2</sup> | 3,000 characters per file | 20,000 characters per file |
+| File size (lexicon file)<sup>2</sup> | 30KB per file | 100KB per file|
 | Billable characters in SSML| 15,000 characters per file | 100,000 characters per file |
 | Export to audio library | 1 concurrent task | N/A |
 
 <sup>1</sup> The limit only applies to plain text in SSML and doesn't include tags.
 
-<sup>2</sup> The limit includes all text including tags. The characters of lexicon file aren't charged. Only the lexicon elements in SSML are counted as billable characters. Refer to [billable characters](text-to-speech.md#billable-characters) to learn more.
+<sup>2</sup> The characters of lexicon file aren't charged. Only the lexicon elements in SSML are counted as billable characters. Refer to [billable characters](text-to-speech.md#billable-characters) to learn more.
 
 ### Speaker recognition quotas and limits per resource
 

@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 
 # How to use EXPLAIN to profile query performance in Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 **EXPLAIN** is a handy tool to optimize queries. EXPLAIN statement can be used to get information about how SQL statements are executed. The following output shows an example of the execution of an EXPLAIN statement.
 
 ```sql

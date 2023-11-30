@@ -9,20 +9,52 @@ summary: |
   Here are some answers to common questions about using Azure NAT Gateway.
 
 sections:
-  - name: Outbound connectivity with NAT gateway
+  - name: NAT gateway basics
     questions:
-      - question: How can I use NAT gateway to connect outbound in a setup where load balancer outbound rules or virtual machine public IPs are being used?
+      - question: What is Azure NAT Gateway?
         answer: |
-          NAT gateway automatically connects outbound to the internet as soon as it's associated with a public IP address or prefix and a subnet. NAT gateway takes precedence over load balancer or instance-level public IP addresses on virtual machines for outbound connectivity.
-     
-      - question: Is there a drop in packets when a virtual network configured with Load balancer outbound rules switches to NAT gateway after being configured to a subnet?
+          Azure NAT Gateway is a fully managed, highly resilient outbound connectivity solution for Azure virtual networks. Attach NAT gateway to subnets within a virtual network and to at least one static public IP address to achieve secure and scalable outbound connectivity. 
+
+      - question: What is the pricing for Azure NAT Gateway?
         answer: |
-          No, there's no drop in packets. Existing connections with Load balancer continue to work until those connections officially close. After NAT gateway is added to the subnet of the virtual network, all new connections use NAT gateway for making outbound connections. 
-     
+          See [Azure NAT Gateway pricing](https://azure.microsoft.com/en-us/pricing/details/azure-nat-gateway/). 
+
+      - question: What are the known limits of Azure NAT Gateway?
+        answer: |
+          See [Azure NAT Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#nat-gateway-limits). 
+
+      - question: Can NAT gateway be used across subscriptions?
+        answer: |
+          No, a NAT gateway resource can't be used with more than one subscription at a time. For step by step guidance, see [Create and configure NAT gateway after region move](region-move-nat-gateway.md).
+
+      - question: Can NAT gateway be moved from a region/subscription/resource group to another?
+        answer: |
+          No. NAT gateway can't be moved across subscriptions, regions, or resource groups. A new NAT gateway must be created for the other subscription, region, or resource group.
+      
       - question: Can NAT gateway be used to connect inbound?
         answer: |
           NAT gateway provides outbound connectivity from a virtual network. Return traffic in direct response to an outbound flow can also pass through NAT gateway. No inbound traffic directly from the internet can pass through NAT gateway.
-      
+
+      - question: How can I obtain logs for my NAT gateway resource?  
+        answer: |
+          Network security groups (NSG) flow logs can be used to monitor traffic flow from a resource in a subnet/virtual network using NAT gateway to go outbound.
+          
+          Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+
+      - question: How do I delete a NAT gateway resource?
+        answer: |
+          To delete a NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted. See [remove a NAT gateway from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step-by-step guidance.
+                  
+  - name: Outbound connectivity with NAT gateway
+    questions:
+      - question: How can I use NAT gateway to connect outbound in a setup where I'm currently using a different service for outbound?
+        answer: |
+          NAT gateway automatically connects outbound to the internet after being attached to a public IP address or prefix and a subnet. NAT gateway takes priority over Load balancer with outbound rules, instance-level public IP addresses on virtual machines, and Azure Firewall for outbound connectivity.
+     
+      - question: Are connections disrupted after attaching NAT gateway to a subnet where a different service is currently used for outbound connectivity?
+        answer: |
+          No, there's no disruption in connections. Existing connections with the previous outbound service (Load balancer, Azure Firewall, instance-level public IP addresses) continues to work until those connections close. After NAT gateway is added to the subnet of the virtual network, all new connections use NAT gateway for making outbound connections. 
+     
       - question: Can a NAT gateway public IP connect directly to a private IP address over the internet?
         answer: |
           No. A public IP address of NAT gateway can't connect directly to a private IP over the internet. 
@@ -30,61 +62,66 @@ sections:
       - question: If multiple public IP addresses are assigned to a NAT gateway, is traffic flow disrupted when one of the IP addresses is removed?
         answer: |
           Any active connections associated with a public IP address terminate upon the public IP address being removed. If the NAT gateway resource has multiple public IPs, new traffic is distributed among the assigned IPs.
+
+      - question: What is the difference between SNAT Connection Count and Total SNAT Connection Count metrics for NAT gateway?
+        answer: |
+          The [SNAT Connection Count](nat-metrics.md#snat-connection-count) metric shows the number of new SNAT connections made per second. The [Total SNAT Connection Count](nat-metrics.md#total-snat-connection-count) metric shows the total amount of active connection on NAT gateway. 
+
+      - question: How can I see SNAT port usage on NAT gateway?
+        answer: |
+          There's no SNAT port usage metric for NAT gateway. Use the SNAT Connection Count and Total SNAT Connection Count metrics to help you evaluate the SNATing capacity of your NAT gateway.  
+          
+  - name: Traffic routes
+    questions:
+      - question: What happens to NAT gateway if I force tunnel 0.0.0.0/0 (internet) traffic to an NVA, VPN Gateway or ExpressRoute? 
+        answer: |
+          NAT gateway uses a subnet’s system default internet path to route traffic to the internet. Traffic doesn't pass through NAT gateway if a UDR is created to direct 0.0.0.0/0 traffic to next hop type NVA or a virtual network gateway.
+
+      - question: What configuration must I make on the subnet route table to connect outbound with NAT gateway?
+        answer: |
+          No configuration on the subnet route table is required in order to start connecting outbound with NAT gateway. When NAT gateway is assigned to a subnet, NAT gateway becomes the next hop type for all internet destined traffic. Traffic can start connecting outbound to the internet as soon as NAT gateway is assigned to a subnet and at least one public IP address. 
           
   - name: NAT gateway configurations
     questions:  
+      - question: Can NAT gateway be deployed without a public IP address or subnet?
+        answer: |
+          Yes, NAT gateway can be deployed without a public IP address or prefix and subnet. However, it's not operational until you attach at least one public IP address or prefix and a subnet. 
+          
       - question: Is the NAT gateway public IP address static?  
         answer: |
-          Yes. When NAT gateway is configured on a subnet, all outbound connectivity uses your specified static public IP address(es).  
+          Yes. Public IP addresses on your NAT gateway are fixed and don't change.
 
       - question: How many public IP addresses can be attached to NAT gateway?
         answer: |
-          The NAT gateway resource can use up to 16 public IP addresses. The NAT gateway can use any combination of public IP addresses and public IP address prefixes totaling to 16 addresses. NAT gateway can support the following prefix sizes: /28 (16 addresses), /29 (8 addresses), /30 (4 addresses), and /31 (2 addresses).  
+          NAT gateway can use up to 16 public IP addresses. NAT gateway can use any combination of public IP addresses and public IP prefixes totaling to 16 addresses. NAT gateway can support the following prefix sizes: /28 (16 addresses), /29 (8 addresses), /30 (4 addresses), and /31 (2 addresses).  
 
       - question: How can I use custom IP prefixes (BYOIP) with NAT gateway?
         answer: |
-          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway resource. See [Custom IP address prefix (BYOIP)](../virtual-network/ip-services/custom-ip-address-prefix.md) to learn more. 
-      
-      - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
-        answer: |
-          A zone-redundant public IP address can be attached to a "no zone" NAT gateway only. A NAT gateway designated to a specific zone must be attached to a public IP address from the same zone.      
+          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway. See [Custom IP address prefix (BYOIP)](../virtual-network/ip-services/custom-ip-address-prefix.md) to learn more. 
       
       - question: Can an IPv6 public IP address be used with NAT gateway?
         answer: |
-          No, NAT gateway does not support IPv6 public IP addresses. You can however have a dual-stack configuration with NAT gateway and Load balancer to provide IPv4 and IPv6 outbound connectivity. See [configure dual stack outbound connectivity with a NAT gateway and a public Load balancer](/azure/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer?tabs=dual-stack-outbound-portal) for more information. 
+          No, NAT gateway doesn't support IPv6 public IP addresses. You can however have a dual-stack configuration with NAT gateway and Load balancer to provide IPv4 and IPv6 outbound connectivity. See [configure dual stack outbound connectivity with a NAT gateway and a public Load balancer](tutorial-dual-stack-outbound-nat-load-balancer.md) for more information. 
       
       - question: Can public IP addresses with routing preference "internet" be used with NAT gateway?
         answer: |
-          No, NAT gateway does not support public IP addresses with routing preference "internet". To see a list of Azure services that do support routing configuration type "internet" on public IPs, see [supported services for routing over the public internet](/azure/virtual-network/ip-services/routing-preference-overview#supported-services). 
+          No, NAT gateway doesn't support public IP addresses with routing preference "internet". To see a list of Azure services that do support routing configuration type "internet" on public IPs, see [supported services for routing over the public internet](../virtual-network/ip-services/routing-preference-overview.md#supported-services). 
       
       - question: Can public IP addresses with DDoS protection enabled be used with NAT gateway? 
         answer: |
-          No, public IP addresses with DDoS protection enabled are not supported by NAT gateway. See [DDoS limitations](/azure/ddos-protection/ddos-protection-sku-comparison#limitations) for more information. 
+          No, NAT gateway doesn't support public IP addresses with DDoS protection enabled. See [DDoS limitations](../ddos-protection/ddos-protection-sku-comparison.md#limitations) for more information. 
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
-          No, the address of an existing public IP can't be changed.  Associate either an existing or newly created public IP address to the NAT gateway resource.  Disassociate the old IP address. See [add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
+          No, the address of an existing public IP can't be changed. If you need to change the public IP address on your NAT gateway, see [add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
 
-      - question: If multiple public IP addresses are assigned to a NAT gateway resource, which public IPs does my subnet resources use?
+      - question: If multiple public IP addresses are assigned to a NAT gateway, which public IPs does my subnet resources use?
         answer: |
-          Your subnet resources can use any of the public IP addresses configured to your NAT gateway resource for outbound connectivity. Each time a new outbound connection is made through NAT gateway, the outbound public IP is selected at random. 
+          Your subnet resources can use any of the public IP addresses attached to your NAT gateway for outbound connectivity. Each time a new outbound connection is made through NAT gateway, the outbound public IP is selected at random. 
       
-      - question: Can the address of a public IP be known before the IP address is created and attached to NAT gateway?
+      - question: Can I assign one of my NAT gateway public IP addresses to a specific VM or subnet to use exclusively for connecting outbound?
         answer: |
-          No, you can't know the address of a newly created public IP before the public IP is created and deployed.
-      
-      - question: If NAT gateway has multiple public IP addresses, can one of those IPs be assigned to a specific VM to use explicitly for going outbound?
-        answer: |
-          No. Explicit IP assignment to specific VM instances in a NAT gateway configured subnet isn't supported.
-      
-      - question: Are basic SKU resources (Basic Load Balancer and Basic public IP addresses) compatible with NAT gateway?
-        answer: |
-          No. NAT gateway is compatible with standard SKU resources. Learn more from [VNet NAT basics](./nat-overview.md#azure-nat-gateway-basics)
-          You can upgrade your basic Load balancer and basic public IP address to standard in order to work with NAT gateway.
-          
-          To upgrade a basic Load balancer to standard, see [Upgrade Azure Public Load Balancer](../load-balancer/upgrade-basic-standard.md)
-          To upgrade a basic public IP to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md)
-          To upgrade a basic public IP with an attached VM to standard, see [Upgrade a basic public IP address with an attached VM](../virtual-network/ip-services/public-ip-upgrade-vm.md).
+          No. IP assignment to specific subnets or VM instances in a NAT gateway configured subnet isn't supported.
       
       - question: Can NAT gateway be attached to multiple virtual networks?  
         answer: |
@@ -92,23 +129,25 @@ sections:
 
       - question: Can NAT gateway be attached to multiple subnets? 
         answer: |
-          Yes. NAT gateway can be associated with multiple subnets within a virtual network. It isn't required to be associated with all subnets within a virtual network. Each subnet within a virtual network can be configured with its own NAT gateway. 
+          Yes. NAT gateway can be associated with up to 800 subnets in a virtual network. It isn't required to be associated with all subnets within a virtual network.
       
-      - question: What configuration must I make on the subnet route table to connect outbound with NAT gateway?
-        answer: |
-          No configuration on the subnet route table is required in order to start connecting outbound with NAT gateway. When NAT gateway is assigned to a subnet, NAT gateway becomes the next hop type for all internet destined traffic. Traffic can start connecting outbound to the internet as soon as NAT gateway is assigned to a subnet and at least one public IP address.
-      
-      - question: Can NAT gateway be associated with a gateway subnet? 
+      - question: Can NAT gateway be attached to a gateway subnet? 
         answer: |
           No. NAT gateway can't be associated with a [gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) subnet.
           
       - question: Can multiple NAT gateways be attached to a single subnet?
         answer: |
-          No. NAT gateway operates based on the properties of the subnet it's attached to, and so multiple NAT gateways can't be attached to a single subnet.
+          No. NAT gateway operates based on the properties of the subnet, and so multiple NAT gateways can't be attached to a single subnet.
 
+      - question: Does NAT gateway work in a hub and spoke network architecture?
+        answer: |
+           Traffic from the spoke VNets can be routed to the centralized hub VNet through an NVA or Azure Firewall. NAT gateway can then provide outbound connectivity for all spoke virtual networks from the centralized hub network. To set up NAT gateway in a hub and spoke architecture with NVAs, see [use NAT gateway in a hub and spoke network](./tutorial-hub-spoke-route-nat.md). To use NAT gateway with Azure Firewall in a hub and spoke setup, see [integrate NAT gateway with Azure Firewall](./tutorial-hub-spoke-nat-firewall.md). 
+      
+  - name: Availability zones
+    questions:
       - question: How does NAT gateway work with availability zones?   
         answer: |
-          NAT gateway can be zonal or placed in "no zone". See [NAT gateway and availability zones](./nat-availability-zones.md) for more information. 
+          NAT gateway can be zonal or placed in "no zone". For more information, see [NAT gateway and availability zones](./nat-availability-zones.md). 
 
           A "no zone" NAT gateway is placed into a zone for you by Azure.
 
@@ -116,24 +155,33 @@ sections:
           
           The zonal configuration of NAT gateway can't be changed after deployment.
 
-      - question: Can NAT gateway be moved from a region/subscription/resource group to another?
+      - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
         answer: |
-          No. NAT gateway can't be moved across subscriptions, regions, or resource groups. A new NAT gateway must be created for the other subscription, region, or resource group.
-      
-      - question: How does NAT gateway work in a hub and spoke network architecture?
+          A zone-redundant public IP address can be attached to a "no zone" NAT gateway only. A NAT gateway designated to a specific zone must be attached to a public IP address from the same zone.      
+
+  - name: NAT gateway and basic SKU resources
+    questions: 
+      - question: Are basic SKU resources (Basic Load Balancer and Basic public IP addresses) compatible with NAT gateway?
         answer: |
-           Traffic from the spoke VNets can be routed to the centralized hub VNet through an NVA or Azure Firewall. NAT gateway can then provide outbound connectivity for all spoke virtual networks from the centralized hub network. To set up NAT gateway in a hub and spoke architecture with NVAs, see [use NAT gateway in a hub and spoke network](./tutorial-hub-spoke-route-nat.md). To use NAT gateway with Azure Firewall in a hub and spoke setup, see [integrate NAT gateway with Azure Firewall](./tutorial-hub-spoke-nat-firewall.md). 
-      
-      - question: How can I obtain logs for my NAT gateway resource?  
-        answer: |
-          Network security groups (NSG) flow logs can be used to monitor traffic flow from a resource in a subnet/virtual network using NAT gateway to go outbound.
+          No. NAT gateway is compatible with standard SKU resources. Learn more from [NAT gateway basics](./nat-overview.md#azure-nat-gateway-basics)
+          You can upgrade your basic Load balancer and basic public IP address to standard in order to work with NAT gateway.
           
-          Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+          To upgrade a basic Load balancer to standard, see [Upgrade Azure Public Load Balancer](../load-balancer/upgrade-basic-standard.md).
+          To upgrade a basic public IP to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md).
+          To upgrade a basic public IP with an attached VM to standard, see [Upgrade a basic public IP address with an attached VM](../virtual-network/ip-services/public-ip-upgrade-vm.md).
       
-      - question: How do I delete a NAT gateway resource?
+  - name: Connection timeouts and timers
+    questions:
+      - question: What is the idle timeout for NAT gateway?
         answer: |
-          To delete a NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted. See [remove a NAT gateway from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource) for step-by-step guidance.
-      
+          For TCP connections, the idle timeout timer defaults to 4 minutes and is configurable up to 120 minutes. If you need to maintain long connection flows, use TCP keepalives instead of extending the idle timeout timer. TCP keepalives maintain active connections for a longer period. 
+
+          The UDP idle timeout timer is set to 4 minutes and isn't configurable.
+          
+      - question: What is the SNAT port reuse behavior of NAT gateway?
+        answer: |
+          When a TCP/UDP connection is closed, the port is placed in a cool down period before it can be reused to connect to the same destination endpoint. For more information, see [SNAT port reuse timers](nat-gateway-resource.md#port-reuse-timers). Connections going to a different destination can use a SNAT port right away. For more information, see [SNAT with NAT gateway](/azure/nat-gateway/nat-gateway-snat#nat-gateway-snat-port-selection-and-reuse). 
+          
   - name: NAT gateway integration with other Azure services
     questions:  
       - question: Can I use NAT gateway with Azure App Services? 
@@ -142,7 +190,7 @@ sections:
       
       - question: Can I use NAT gateway with Azure Kubernetes Service? 
         answer: |
-          Yes. For more information about NAT gateway integration with Azure Kubernetes Service, see [Managed NAT Gateway (preview)](../aks/nat-gateway.md).
+          Yes. For more information about NAT gateway integration with Azure Kubernetes Service, see [Managed NAT Gateway](../aks/nat-gateway.md).
 
       - question: Can I use NAT gateway with Azure Firewall?
         answer: |

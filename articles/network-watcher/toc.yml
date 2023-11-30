@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Network Watcher
-    href: network-watcher-monitoring-overview.md
+    href: network-watcher-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -30,29 +30,31 @@
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
   - name: Log VM network traffic
-    href: network-watcher-nsg-flow-logging-portal.md
+    href: nsg-flow-logs-tutorial.md
 - name: Concepts
   items:
   - name: Network Watcher FAQ
     href: frequently-asked-questions.yml
+  - name: Topology
+    href: network-insights-topology.md
   - name: Connection monitor
     href: connection-monitor-overview.md
   - name: Connection monitor schema
     href: connection-monitor-schema.md
   - name: IP flow verify
-    href: network-watcher-ip-flow-verify-overview.md
+    href: ip-flow-verify-overview.md
   - name: NSG diagnostics
     href: network-watcher-network-configuration-diagnostics-overview.md
   - name: Next hop
     href: network-watcher-next-hop-overview.md
   - name: Connection troubleshoot
-    href: network-watcher-connectivity-overview.md
+    href: connection-troubleshoot-overview.md
   - name: VPN troubleshoot
     href: network-watcher-troubleshoot-overview.md
   - name: Packet capture
     href: network-watcher-packet-capture-overview.md
   - name: Effective security rules
-    href: network-watcher-security-group-view-overview.md
+    href: effective-security-rules-overview.md
   - name: NSG flow logs
     href: network-watcher-nsg-flow-logging-overview.md
   - name: VNet flow logs
@@ -75,8 +77,6 @@
       href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
   - name: Data residency
     href: data-residency.md
-  - name: Moving Network Watcher resources
-    href: resource-move.md
 - name: How-to guides
   items:
   - name: Enable Network Watcher
@@ -157,10 +157,6 @@
         href: network-watcher-packet-capture-manage-powershell-vmss.md
       - name: Virtual machine - Azure CLI
         href: network-watcher-packet-capture-manage-cli.md
-      - name: Virtual machine - REST
-        href: network-watcher-packet-capture-manage-rest.md
-      - name: Virtual Machine Scale Set - REST
-        href: network-watcher-packet-capture-manage-rest-vmss.md
     - name: Analyze a packet capture
       items:
       - name: Find anomalies

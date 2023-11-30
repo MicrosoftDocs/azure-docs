@@ -2,11 +2,10 @@
 title: 'Set up web endpoints'                             
 titleSuffix: Azure AI services
 description: set up web endpoints for Custom Commands
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur
@@ -154,7 +153,7 @@ In this section, you'll use an existing default **DeviceState** endpoint. If you
    | Setting | Suggested value | Description |
    | ------- | --------------- | ----------- |
    | Name | UpdateDeviceState | Name for the web endpoint. |
-   | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | The URL of the endpoint you wish your custom command app to talk to. |
+   | URL | ```https://webendpointexample.azurewebsites.net/api/DeviceState``` | The URL of the endpoint you wish your custom command app to talk to. |
    | Method | POST | The allowed interactions (such as GET, POST) with your endpoint.|
    | Headers | Key: app, Value: take the first 8 digits of your applicationId | The header parameters to include in the request header.|
 

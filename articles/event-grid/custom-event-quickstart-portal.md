@@ -1,7 +1,7 @@
 ---
 title: 'Send custom events to web endpoint - Event Grid, Azure portal'
 description: 'Quickstart: Use Azure Event Grid and Azure portal to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
-ms.date: 07/21/2022
+ms.date: 09/25/2023
 ms.topic: quickstart
 ms.custom: mode-ui
 ---
@@ -66,17 +66,16 @@ Before you create a subscription for the custom topic, create an endpoint for th
 1. On the **Review + create** page, select **Create**. 
 1. The deployment may take a few minutes to complete. Select Alerts (bell icon) in the portal, and then select **Go to resource group**. 
 
-    ![Alert - navigate to resource group.](./media/blob-event-quickstart-portal/navigate-resource-group.png)
+    :::image type="content" source="./media/blob-event-quickstart-portal/navigate-resource-group.png" alt-text="Screenshot showing the successful deployment message with a link to navigate to the resource group.":::
 4. On the **Resource group** page, in the list of resources, select the web app that you created. You also see the App Service plan and the storage account in this list. 
 
-    ![Select web site.](./media/blob-event-quickstart-portal/resource-group-resources.png)
+    :::image type="content" source="./media/blob-event-quickstart-portal/resource-group-resources.png" alt-text="Screenshot that shows the Resource Group page with the deployed resources.":::
 5. On the **App Service** page for your web app, select the URL to navigate to the web site. The URL should be in this format: `https://<your-site-name>.azurewebsites.net`.
     
-    ![Navigate to web site.](./media/blob-event-quickstart-portal/web-site.png)
-
+    :::image type="content" source="./media/blob-event-quickstart-portal/web-site.png" alt-text="Screenshot that shows the App Service page with the link to the site highlighted.":::
 6. Confirm that you see the site but no events have been posted to it yet.
 
-   ![View new site.](./media/blob-event-quickstart-portal/view-site.png)
+    :::image type="content" source="./media/blob-event-quickstart-portal/view-site.png" alt-text="Screenshot that shows the Event Grid Viewer sample app.":::    
 
 ## Subscribe to custom topic
 
@@ -98,7 +97,7 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 
 3. View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.
 
-    ![View subscription event](./media/custom-event-quickstart-portal/view-subscription-event.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/view-subscription-event.png" alt-text="Screenshot of the Event Grid Viewer app with the Subscription Validated event.":::
 
 ## Send an event to your topic
 
@@ -113,7 +112,7 @@ The first example uses Azure CLI. It gets the URL and key for the custom topic, 
     :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Select Cloud Shell icon":::
 1. Select **Bash** in the top-left corner of the Cloud Shell window. 
 
-    ![Cloud Shell - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/cloud-shell-bash.png" alt-text="Screenshot that shows the Cloud Shell with Bash selected in the top-left corner.":::
 1. Run the following command to get the **endpoint** for the topic: After you copy and paste the command, update the **topic name** and **resource group name** before you run the command. You publish sample events to this topic endpoint. 
 
     ```azurecli
@@ -200,7 +199,7 @@ If you plan to continue working with this event, don't clean up the resources cr
 
 1. Select **Resource Groups** on the left menu. If you don't see it on the left menu, select **All Services** on the left menu, and select **Resource Groups**. 
 
-    ![Resource groups](./media/custom-event-quickstart-portal/delete-resource-groups.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/delete-resource-groups.png" alt-text="Screenshot that shows the Resource Groups page." :::
 1. Select the resource group to launch the **Resource Group** page. 
 1. Select **Delete resource group** on the toolbar. 
 1. Confirm deletion by entering the name of the resource group, and select **Delete**. 

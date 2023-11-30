@@ -16,7 +16,7 @@ The management SDKs enable you to create, update, and delete Event Grid topics a
 
 | SDK | Package | Reference documentation |  Samples | 
 | -------- | ------- | ----------------------- | ---- | 
-| REST API | | [REST reference](/rest/api/eventgrid/controlplane-version2023-06-01-preview/ca-certificates) | |
+| REST API | | [REST reference](/rest/api/eventgrid/controlplane-preview/ca-certificates) | |
 | .NET | [Azure.ResourceManager.EventGrid](https://www.nuget.org/packages/Azure.ResourceManager.EventGrid/) | [.NET reference](/dotnet/api/overview/azure/resourcemanager.eventgrid-readme?view=azure-dotnet-preview&preserve-view=true) | [.NET samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.ResourceManager.EventGrid/samples) |
 | Java | [azure-resourcemanager-eventgrid](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-eventgrid/) | [Java reference](/java/api/overview/azure/resourcemanager-eventgrid-readme?view=azure-java-preview&preserve-view=true) | [Java samples](https://github.com/azure/azure-sdk-for-java/tree/main/sdk/eventgrid/azure-resourcemanager-eventgrid/src/samples) |
 | JavaScript | [@azure/arm-eventgrid](https://www.npmjs.com/package/@azure/arm-eventgrid) | [JavaScript reference](/javascript/api/overview/azure/arm-eventgrid-readme?view=azure-node-preview&preserve-view=true) | [JavaScript and TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid) |
@@ -33,7 +33,7 @@ The data plane SDKs enable you to post events to topics by taking care of authen
 
 | Programming language | Package | Reference documentation |  Samples | 
 | -------------------- | ---------- | ------------------- | -------- |
-| REST API | | [REST reference](/rest/api/eventgrid/dataplanepreview-version2023-06-01/publish-cloud-events) |
+| REST API | | [REST reference](/rest/api/eventgrid/dataplane-preview/publish-cloud-events) |
 | .NET | [Azure.Messaging.EventGrid](https://www.nuget.org/packages/Azure.Messaging.EventGrid/) | [.NET reference](/dotnet/api/overview/azure/messaging.eventgrid-readme?view=azure-dotnet-preview&preserve-view=true) | [.NET samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid/samples) |
 |Java | [azure-messaging-eventgrid](https://central.sonatype.com/artifact/com.azure/azure-messaging-eventgrid/) |  [Java reference](/java/api/overview/azure/messaging-eventgrid-readme?view=azure-java-preview&preserve-view=true) | [Java samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid/azure-messaging-eventgrid/src/samples/java) |
 | JavaScript | [@azure/eventgrid](https://www.npmjs.com/package/@azure/eventgrid) | [JavaScript reference](/javascript/api/overview/azure/eventgrid-readme?view=azure-node-preview&preserve-view=true) | [JavaScript and TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid) |

@@ -11,9 +11,9 @@ ms.custom: engagement-fy23
 
 # Migrate a SQL Server standalone instance to Azure VMware Solution
 
-In this article, you learn how to migrate Microsoft SQL Server Standalone to Azure VMware Solution. 
+In this article, you learn how to migrate a SQL Server standalone instance to Azure VMware Solution. 
 
-When migrating Microsoft SQL Server Standalone to Azure VMware Solution, VMware HCX offers two migration profiles that can be used:
+When migrating a SQL Server standalone instance to Azure VMware Solution, VMware HCX offers two migration profiles:
 
 - HCX vMotion
 - HCX Cold Migration
@@ -22,61 +22,87 @@ In both cases, consider the size and criticality of the database being migrated.
 For this how-to procedure, we have validated VMware HCX vMotion.
 VMware HCX Cold Migration is also valid, but it requires a longer downtime period.
 
+This scenario was validated using the following editions and configurations:
+
+- Microsoft SQL Server (2019 and 2022)  
+- Windows Server (2019 and 2022) Data Center edition  
+- Windows Server and SQL Server were configured following best practices and recommendations from Microsoft and VMware.  
+- The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
+
 :::image type="content" source="media/sql-server-hybrid-benefit/migrated-sql-standalone-cluster.png" alt-text="Diagram showing the architecture of Standalone SQL Server for  Azure VMware Solution." border="false" lightbox="media/sql-server-hybrid-benefit/migrated-sql-standalone-cluster.png"::: 
+
+## Tested configurations
+This scenario was validated using the following editions and configurations:
+
+- Microsoft SQL Server (2019 and 2022)  
+- Windows Server (2019 and 2022) Data Center edition  
+- Windows Server and SQL Server were configured following best practices and recommendations from Microsoft and VMware.  
+- The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.+
 
 ## Prerequisites
 
 - Review and record the storage and network configuration of every node in the cluster.
-- Back up the full database.
-- Back up the virtual machine running the Microsoft SQL Server instance. 
+- Maintain backups of all the databases.
+- Back up the virtual machine running the SQL Server instance. 
 - Remove all cluster node VMs from any Distributed Resource Scheduler (DRS) groups and rules. 
 
 - Configure VMware HCX between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more information about configuring VMware HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md).
-- Ensure that all the network segments in use by the SQL Server are extended into your Azure VMware Solution private cloud. To verify this step in the procedure, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
+- Ensure that all the network segments in use by the SQL Server and workloads using it are extended into your Azure VMware Solution private cloud. To verify this step in the process, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
-VMware HCX over VPN is supported in Azure VMware Solution for workload migration.
-However, due to the size of database workloads, VMware HCX over VPN isn't recommended for Microsoft SQL Server Failover Cluster Instance and Microsoft SQL Server Always On migrations, especially for production workloads. ExpressRoute connectivity is recommended as more performant and reliable.
-For Microsoft SQL Server Standalone and non-production workloads HCX over VPN can be suitable, depending on the size of the database, to migrate. 
+Either VMware HCX over VPN or ExpressRoute connectivity can be used as the networking configuration for the migration.
 
-Microsoft SQL Server (2019 and 2022) were tested with Windows Server (2019 and 2022) Data Center edition with the virtual machines deployed in the on-premises environment. 
-Windows Server and SQL Server have been configured following best practices and recommendations from Microsoft and VMware.
-The on-premises source infrastructure was VMware vSphere 7.0 Update 3 and VMware vSAN running on Dell PowerEdge servers and Intel Optane P4800X SSD NVMe devices.
+VMWare HCX over VPN, due to its limited bandwidth, is typically suited for workloads that can sustain longer periods of downtime (such as non-production environments). 
+
+
+For any of the following scenarios, ExpressRoute connectivity is recommended for a migration:
+
+For any of the following, ExpressRoute connectivity is recommended for a migration:
+
+- Production environments
+- Workloads with large database sizes
+- Scenarios in which there is a need to minimize downtime the ExpressRoute connectivity is recommended for the migration.migration.  
+- Production environments
+- Workloads with large database sizes
+- Any case where there is a need to minimize downtime
+
+Further downtime considerations are discussed in the next section.
 
 ## Downtime considerations
 
 Downtime during a migration depends on the size of the database to be migrated and the speed of the private network connection to Azure cloud.
-Migration of the Microsoft SQL Server Standalone instance doesn't require database downtime since it will be done using the VMware HCX vMotion mechanism. 
-We recommend migrating during off-peak hours with a pre-approved change window.
+Migration of a  SQL Server standalone instance using the VMware HCX vMotion mechanism is intended to minimize the solution downtime, however we still recommend the migration take place during off-peak hours within an pre-approved change window.
 
-This table indicates the estimated downtime for each Microsoft SQL Server topology.
+The following table indicates the estimated downtime for migration of each SQL Server topology.
 
 | **Scenario** | **Downtime expected** | **Notes** |
 |:---|:-----|:-----|
-| **Standalone instance** | Low | Migration is done using VMware vMotion, the DB is available during migration time, but it isn't recommended to commit any critical data during it. |
-| **Always On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
-| **Always On Failover Cluster Instance** | High | All nodes of the cluster are shutdown and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
+| **SQL Server standalone instance** | Low | Migration is done using VMware vMotion, the database is available during migration time, but it isn't recommended to commit any critical data during it. |
+| **SQL Server Always On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
+| **SQL Server Always On Failover Customer Instance** | High | All nodes of the cluster are shutdown and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
 
-## Migrate Microsoft SQL Server Standalone
+## Executing the migration
 
 1. Log into your on-premises **vCenter Server** and access the VMware HCX plugin. 
-1. Under **Services** select **Migration** > **Migrate**.
-   - Select the Microsoft SQL Server virtual machine.
-   - Set the vSphere cluster in the remote private cloud of the migrated SQL Server cluster as the **Compute Container**.
-   - Select the vSAN Datastore as remote storage.
-   - Select a folder. This isn't mandatory, but we recommend separating the different workloads in your Azure VMware Solution private cloud.
-   - Keep **Same format as source**.
-   - Select **vMotion** as Migration profile. 
-   - In **Extended Options** select **Migrate Custom Attributes**.
-   - Verify that on-premises network segments have the correct remote stretched segment in Azure VMware Solution.
-   - Select **Validate** and ensure that all checks are completed with pass status. 
-   - Select **Go** to start the migration.
+1. Under **Services**, select **Migration** > **Migrate**.
+   1. Select the SQL Server virtual machine.
+   2. Set the vSphere cluster in the remote private cloud, which will now host the migrated SQL Server VM or VMs as the **Compute Container**.
+   3. Select the vSAN Datastore as remote storage.
+   4. Select a folder. This isn't mandatory, but we recommend separating the different workloads in your Azure VMware Solution private cloud.
+   5. Keep **Same format as source**.
+   6. Select **vMotion** as Migration profile. 
+   7. In **Extended Options** select **Migrate Custom Attributes**.
+   8. Verify that on-premises network segments have the correct remote stretched segment in Azure VMware Solution.
+   9. Select **Validate** and ensure that all checks are completed with pass status. 
+   10. Select **Go** to start the migration.
 1. After the migration has completed, access the virtual machine using VMware Remote Console in the vSphere Client.
-   - Verify the network configuration and check connectivity both with on-premises and Azure VMware Solution resources.
-   - Using Microsoft SQL Server Management Studio verify you can access the database.  
+1. Verify the network configuration and check connectivity both with on-premises and Azure VMware Solution resources.
+1. Verify your SQL Server and databases are up and accessible. For example, using SQL Server Management Studio verify you can access the database.  
 
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-standalone-1.png" alt-text="Diagram showing a SQL Server Management Studio connection to the migrated database." border="false" lightbox="media/sql-server-hybrid-benefit/sql-standalone-1.png":::  
 
-## Next steps
+Finally, check the connectivity to SQL Server from other systems and applications in your infrastructure and verify that all applications using the database or databases can still access them.
+
+## More information
 
 - [Enable SQL Azure Hybrid Benefit for Azure VMware Solution](enable-sql-azure-hybrid-benefit.md). 
 - [Create a placement policy in Azure VMware Solution](create-placement-policy.md)  

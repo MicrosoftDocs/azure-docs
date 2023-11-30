@@ -26,7 +26,11 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-23" :::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that reads and logs the RabbitMQ message as a [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
 
@@ -66,40 +70,6 @@ namespace Company.Function
 
 Like with Json objects, an error will occur if the message isn't properly formatted as a C# object. If it is, it's then bound to the variable pocObj, which can be used for what whatever it's needed for.
 
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-23" :::
-
-# [C# Script](#tab/csharp-script)
-
-The following example shows a RabbitMQ trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads and logs the RabbitMQ message.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{​​
-    "bindings": [
-        {​​
-            "name": "myQueueItem",
-            "type": "rabbitMQTrigger",
-            "direction": "in",
-            "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnectionAppSetting"
-        }​​
-    ]
-}​​
-```
-
-Here's the C# script code:
-
-```C#
-using System;
-
-public static void Run(string myQueueItem, ILogger log)
-{​​
-    log.LogInformation($"C# Script RabbitMQ trigger function processed: {​​myQueueItem}​​");
-}​​
-```
 ---
 
 ::: zone-end
@@ -181,7 +151,7 @@ def main(myQueueItem) -> None:
 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a [function.json configuration file](#configuration).
 
 The attribute's constructor takes the following parameters:
 
@@ -194,7 +164,15 @@ The attribute's constructor takes the following parameters:
 |**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `ConnectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"RabbitMQConnection" : "< ActualConnectionstring >"`.|
 |**Port**|Gets or sets the port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`. |
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQTrigger](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/extension/WebJobs.Extensions.RabbitMQ/Trigger/RabbitMQTriggerAttribute.cs) attribute.
+
+Here's a `RabbitMQTrigger` attribute in a method signature for an isolated worker process library:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-16":::
+
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQTrigger](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/extension/WebJobs.Extensions.RabbitMQ/Trigger/RabbitMQTriggerAttribute.cs) attribute.
 
@@ -207,32 +185,6 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
     ...
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQTrigger](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/extension/WebJobs.Extensions.RabbitMQ/Trigger/RabbitMQTriggerAttribute.cs) attribute.
-
-Here's a `RabbitMQTrigger` attribute in a method signature for an isolated worker process library:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-16":::
-
-# [C# script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes. 
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** |  Must be set to `RabbitMQTrigger`.|
-|**direction** | Must be set to "in".|
-|**name** | The name of the variable that represents the queue in function code. |
-|**queueName**| See the **QueueName** attribute above.| 
-|**hostName**|See the **HostName** attribute above.| 
-|**userNameSetting**|See the **UserNameSetting** attribute above.| 
-|**passwordSetting**|See the **PasswordSetting** attribute above.|
-|**connectionStringSetting**|See the **ConnectionStringSetting** attribute above.|
-|**port**|See the **Port** attribute above.|
 
 ---
 
@@ -284,7 +236,11 @@ See the [Example section](#example) for complete examples.
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the RabbitMQ trigger depends on the C# modality used.
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The RabbitMQ bindings currently support only string and serializable object types when running in an isolated process.
+
+# [In-process model](#tab/in-process)
 
 The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
@@ -292,19 +248,6 @@ The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq
 * `string`
 * `byte[]`
 * `POCO` - The message is formatted as a C# object. For complete code, see C# [example](#example).
-
-# [Isolated process](#tab/isolated-process)
-
-The RabbitMQ bindings currently support only string and serializable object types when running in an isolated process.
-
-# [C# script](#tab/csharp-script)
-
-The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
-
-* `An object serializable as JSON` - The message is delivered as a valid JSON string.
-* `string`
-* `byte[]`
-* `POCO` - The message is formatted as a C# object. For a complete example, see C# Script [example](#example).
 
 ---
 

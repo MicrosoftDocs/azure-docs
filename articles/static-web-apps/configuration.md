@@ -30,7 +30,7 @@ You can define configuration for Azure Static Web Apps in the _staticwebapp.conf
 
 ## File location
 
-The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./build-configuration.md). However, the file may be placed in any subfolder within the folder set as the `app_location`.
+The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./build-configuration.md). However, the file may be placed in any subfolder within the folder set as the `app_location`. Additionally, if there is a build step, you must ensure that the build step outputs the file to the root of the output_location.
 
 See the [example configuration](#example-configuration-file) file for details.
 
@@ -175,7 +175,7 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 
 It's common to require authentication for every route in an application. To enable this, add a rule that matches all routes and include the built-in `authenticated` role in the `allowedRoles` array.
 
-The following example configuration blocks anonymous access and redirects all unauthenticated users to the Azure Active Directory sign-in page.
+The following example configuration blocks anonymous access and redirects all unauthenticated users to the Microsoft Entra sign-in page.
 
 ```json
 {
@@ -323,7 +323,7 @@ The `platform` section controls platform specific settings, such as the API lang
 
 ## Networking
 
-The `networking` section controls the network configuration of your static web app. To restrict access to your app, specify a list of allowed IP address blocks in `allowedIpRanges`. See the [quotas](/articles/static-web-apps/quotas.md) page for details on the amount of allowed IP address blocks. 
+The `networking` section controls the network configuration of your static web app. To restrict access to your app, specify a list of allowed IP address blocks in `allowedIpRanges`. For more information about the number of allowed IP address blocks, see [Quotas in Azure Static Web Apps](../static-web-apps/quotas.md). 
 
 > [!NOTE]
 > Networking configuration is only available in the Azure Static Web Apps Standard plan.

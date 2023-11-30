@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Custom Translator offers similar capabilities to what Microsoft Translator Hub does for Statistical Machine Translation (SMT), but exclusively for Neural Machine Translation (NMT) systems.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.date: 07/18/2023
 ms.author: lajanuar
 ms.topic: overview

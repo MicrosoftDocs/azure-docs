@@ -22,7 +22,119 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [In-process](#tab/in-process)
+### [Isolated worker model](#tab/isolated-process)
+
+More samples for the Azure Data Explorer output binding are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-outofproc).
+
+This section contains the following examples:
+
+* [HTTP trigger, write one record](#http-trigger-write-one-record-c-oop)
+* [HTTP trigger, write records with mapping](#http-trigger-write-records-with-mapping-oop)
+
+The examples refer to `Product` class and a corresponding database table:
+
+```cs
+public class Product
+{
+    [JsonProperty(nameof(ProductID))]
+    public long ProductID { get; set; }
+
+    [JsonProperty(nameof(Name))]
+    public string Name { get; set; }
+
+    [JsonProperty(nameof(Cost))]
+    public double Cost { get; set; }
+}
+```
+
+```kusto
+.create-merge table Products (ProductID:long, Name:string, Cost:double)
+```
+
+<a id="http-trigger-write-one-record-c-oop"></a>
+
+#### HTTP trigger, write one record
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database. The function uses data provided in an HTTP POST request as a JSON body.
+
+```cs
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Extensions.Kusto;
+using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples.Common;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples
+{
+    public static class AddProduct
+    {
+        [Function("AddProduct")]
+        [KustoOutput(Database: "productsdb", Connection = "KustoConnectionString", TableName = "Products")]
+        public static async Task<Product> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "addproductuni")]
+            HttpRequestData req)
+        {
+            Product? prod = await req.ReadFromJsonAsync<Product>();
+            return prod ?? new Product { };
+        }
+    }
+}
+
+```
+
+<a id="http-trigger-write-records-with-mapping-oop"></a>
+
+#### HTTP trigger, write records with mapping
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a collection of records to a database. The function uses mapping that transforms a `Product` to `Item`.
+
+To transform data from `Product` to `Item`, the function uses a mapping reference:
+
+```kusto
+.create-merge table Item (ItemID:long, ItemName:string, ItemCost:float)
+
+
+-- Create a mapping that transforms an Item to a Product
+
+.create-or-alter table Product ingestion json mapping "item_to_product_json" '[{"column":"ProductID","path":"$.ItemID"},{"column":"Name","path":"$.ItemName"},{"column":"Cost","path":"$.ItemCost"}]'
+```
+
+```cs
+namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples.Common
+{
+    public class Item
+    {
+        public long ItemID { get; set; }
+
+        public string? ItemName { get; set; }
+
+        public double ItemCost { get; set; }
+    }
+}
+```
+
+```cs
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Extensions.Kusto;
+using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples.Common;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples
+{
+    public static class AddProductsWithMapping
+    {
+        [Function("AddProductsWithMapping")]
+        [KustoOutput(Database: "productsdb", Connection = "KustoConnectionString", TableName = "Products", MappingRef = "item_to_product_json")]
+        public static async Task<Item> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "addproductswithmapping")]
+            HttpRequestData req)
+        {
+            Item? item = await req.ReadFromJsonAsync<Item>();
+            return item ?? new Item { };
+        }
+    }
+}
+```
+### [In-process model](#tab/in-process)
 
 More samples for the Azure Data Explorer output binding are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-csharp).
 
@@ -54,7 +166,7 @@ public class Product
 
 <a id="http-trigger-write-one-record-c"></a>
 
-### HTTP trigger, write one record
+#### HTTP trigger, write one record
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database. The function uses data provided in an HTTP POST request as a JSON body.
 
@@ -92,7 +204,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.Samples.OutputBindingSamples
 
 <a id="http-trigger-write-to-two-tables-c"></a>
 
-### HTTP trigger, write to two tables
+#### HTTP trigger, write to two tables
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that adds records to a database in two different tables (`Products` and `ProductsChangeLog`). The function uses data provided in an HTTP POST request as a JSON body and multiple output bindings.
 
@@ -163,7 +275,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.Samples.OutputBindingSamples
 
 <a id="http-trigger-write-records-using-iasynccollector-c"></a>
 
-### HTTP trigger, write records using IAsyncCollector
+#### HTTP trigger, write records using IAsyncCollector
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that ingests a set of records to a table. The function uses data provided in an HTTP POST body JSON array.
 
@@ -204,118 +316,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.Samples.OutputBindingSamples
 }
 ```
 
-# [Isolated process](#tab/isolated-process)
-
-More samples for the Azure Data Explorer output binding are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-outofproc).
-
-This section contains the following examples:
-
-* [HTTP trigger, write one record](#http-trigger-write-one-record-c-oop)
-* [HTTP trigger, write records with mapping](#http-trigger-write-records-with-mapping-oop)
-
-The examples refer to `Product` class and a corresponding database table:
-
-```cs
-public class Product
-{
-    [JsonProperty(nameof(ProductID))]
-    public long ProductID { get; set; }
-
-    [JsonProperty(nameof(Name))]
-    public string Name { get; set; }
-
-    [JsonProperty(nameof(Cost))]
-    public double Cost { get; set; }
-}
-```
-
-```kusto
-.create-merge table Products (ProductID:long, Name:string, Cost:double)
-```
-
-<a id="http-trigger-write-one-record-c-oop"></a>
-
-### HTTP trigger, write one record
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database. The function uses data provided in an HTTP POST request as a JSON body.
-
-```cs
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Extensions.Kusto;
-using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples.Common;
-
-namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples
-{
-    public static class AddProduct
-    {
-        [Function("AddProduct")]
-        [KustoOutput(Database: "productsdb", Connection = "KustoConnectionString", TableName = "Products")]
-        public static async Task<Product> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "addproductuni")]
-            HttpRequestData req)
-        {
-            Product? prod = await req.ReadFromJsonAsync<Product>();
-            return prod ?? new Product { };
-        }
-    }
-}
-
-```
-
-<a id="http-trigger-write-records-with-mapping-oop"></a>
-
-### HTTP trigger, write records with mapping
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a collection of records to a database. The function uses mapping that transforms a `Product` to `Item`.
-
-To transform data from `Product` to `Item`, the function uses a mapping reference:
-
-```kusto
-.create-merge table Item (ItemID:long, ItemName:string, ItemCost:float)
-
-
--- Create a mapping that transforms an Item to a Product
-
-.create-or-alter table Product ingestion json mapping "item_to_product_json" '[{"column":"ProductID","path":"$.ItemID"},{"column":"Name","path":"$.ItemName"},{"column":"Cost","path":"$.ItemCost"}]'
-```
-
-```cs
-namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples.Common
-{
-    public class Item
-    {
-        public long ItemID { get; set; }
-
-        public string? ItemName { get; set; }
-
-        public double ItemCost { get; set; }
-    }
-}
-```
-
-```cs
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Extensions.Kusto;
-using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples.Common;
-
-namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindingSamples
-{
-    public static class AddProductsWithMapping
-    {
-        [Function("AddProductsWithMapping")]
-        [KustoOutput(Database: "productsdb", Connection = "KustoConnectionString", TableName = "Products", MappingRef = "item_to_product_json")]
-        public static async Task<Item> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "addproductswithmapping")]
-            HttpRequestData req)
-        {
-            Item? item = await req.ReadFromJsonAsync<Item>();
-            return item ?? new Item { };
-        }
-    }
-}
-```
+---
 
 ::: zone-end
 

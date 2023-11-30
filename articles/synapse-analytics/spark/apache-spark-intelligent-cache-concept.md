@@ -93,7 +93,7 @@ You won't see the benefit of this feature if:
 
 * Your workload requires large amounts of shuffle, then disabling the Intelligent Cache will free up available space to prevent your job from failing due to insufficient storage space.  
 
-* You're using a Spark 2.4 pool, you'll need to upgrade your pool to the latest version of Spark. 
+* You're using a Spark 3.1 pool, you'll need to upgrade your pool to the latest version of Spark. 
 
 
 ## Learn more

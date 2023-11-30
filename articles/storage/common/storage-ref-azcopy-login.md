@@ -12,11 +12,11 @@ ms.reviewer: zezha-msft
 
 # azcopy login
 
-Logs in to Azure Active Directory to access Azure Storage resources.
+Logs in to Microsoft Entra ID to access Azure Storage resources.
 
 ## Synopsis
 
-Log in to Azure Active Directory to access Azure Storage resources.
+Log in to Microsoft Entra ID to access Azure Storage resources.
 
 To be authorized to your Azure Storage account, you must assign the **Storage Blob Data Contributor** role to your user account in the context of either the Storage account, parent resource group, or parent subscription.
 
@@ -38,7 +38,7 @@ azcopy login [flags]
 
 ## Examples
 
-Log in interactively with default AAD tenant ID set to common:
+Log in interactively with default Microsoft Entra tenant ID set to common:
 
 `azcopy login`
 
@@ -82,7 +82,7 @@ Subcommand for login to check the login status of your current session.
 
 ## Options
 
-`--aad-endpoint`    (string)    The Azure Active Directory endpoint to use. The default (https://login.microsoftonline.com) is correct for the global Azure cloud. Set this parameter when authenticating in a national cloud. Not needed for Managed Service Identity. To see a list of national cloud Azure AD endpoints, see [Azure AD authentication endpoints](../../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints)
+`--aad-endpoint`    (string)    The Microsoft Entra endpoint to use. The default (https://login.microsoftonline.com) is correct for the global Azure cloud. Set this parameter when authenticating in a national cloud. Not needed for Managed Service Identity. To see a list of national cloud Microsoft Entra endpoints, see [Microsoft Entra authentication endpoints](../../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints)
 
 `--application-id`    (string)    Application ID of user-assigned identity. Required for service principal auth.
 
@@ -101,7 +101,7 @@ Subcommand for login to check the login status of your current session.
 `--service-principal`    Log in via Service Principal Name (SPN) by using a certificate or a secret. The client secret or certificate password must be placed in the appropriate environment variable. Type 
 AzCopy env to see names and descriptions of environment variables.
 
-`--tenant-id`    (string)    The Azure Active Directory tenant ID to use for OAuth device interactive login.
+`--tenant-id`    (string)    The Microsoft Entra tenant ID to use for OAuth device interactive login.
 
 ## Options inherited from parent commands
 
@@ -109,7 +109,7 @@ AzCopy env to see names and descriptions of environment variables.
 
 `--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
 
-`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Microsoft Entra login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 

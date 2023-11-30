@@ -3,9 +3,9 @@ title: Analyze usage in a Log Analytics workspace in Azure Monitor
 description: Methods and queries to analyze the data in your Log Analytics workspace to help you understand usage and potential cause for high usage.
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 08/25/2022
+ms.date: 10/23/2023
 ---
- 
+
 # Analyze usage in a Log Analytics workspace
 Azure Monitor costs can vary significantly based on the volume of data being collected in your Log Analytics workspace. This volume is affected by the set of solutions using the workspace and the amount of data that each solution collects. This article provides guidance on analyzing your collected data to assist in controlling your data ingestion costs. It helps you determine the cause of higher-than-expected usage. It also helps you to predict your costs as you monitor more resources and configure different Azure Monitor features.
 
@@ -54,30 +54,14 @@ See the **Usage** tab for a breakdown of ingestion by solution and table. This i
 Select **Additional Queries** for prebuilt queries that help you further understand your data patterns.
 
 ### Usage and estimated costs
-The **Data ingestion per solution** chart on the [Usage and estimated costs](../usage-estimated-costs.md#usage-and-estimated-costs) page for each workspace shows the total volume of data sent and how much is being sent by each solution over the previous 31 days. This information helps you determine trends such as whether any increase is from overall data usage or usage by a particular solution.
+The **Data ingestion per solution** chart on the [Usage and estimated costs](../cost-usage.md#usage-and-estimated-costs) page for each workspace shows the total volume of data sent and how much is being sent by each solution over the previous 31 days. This information helps you determine trends such as whether any increase is from overall data usage or usage by a particular solution.
 
-## Log queries
-You can use [log queries](log-query-overview.md) in [Log Analytics](log-analytics-overview.md) if you need deeper analysis into your collected data. Each table in a Log Analytics workspace has the following standard columns that can assist you in analyzing billable data:
+## Querying data volumes from the Usage table
 
-- [_IsBillable](log-standard-columns.md#_isbillable) identifies records for which there's an ingestion charge. Use this column to filter out non-billable data.
-- [_BilledSize](log-standard-columns.md#_billedsize) provides the size in bytes of the record.
-
-## Data volume by solution
 Analyze the amount of billable data collected by a particular service or solution. These queries use the [Usage](/azure/azure-monitor/reference/tables/usage) table that collects usage data for each table in the workspace.
 
 > [!NOTE]
 > The clause with `TimeGenerated` is only to ensure that the query experience in the Azure portal looks back beyond the default 24 hours. When you use the **Usage** data type, `StartTime` and `EndTime` represent the time buckets for which results are presented.
-
-**Billable data volume by solution over the past month**
-
-```kusto
-Usage 
-| where TimeGenerated > ago(32d)
-| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
-| where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution 
-| render columnchart
-```
 
 **Billable data volume by type over the past month**
 
@@ -101,6 +85,13 @@ Usage
 | sort by Solution asc, DataType asc
 ```
 
+## Querying data volume from the events directly 
+
+You can use [log queries](log-query-overview.md) in [Log Analytics](log-analytics-overview.md) if you need deeper analysis into your collected data. Each table in a Log Analytics workspace has the following standard columns that can assist you in analyzing billable data:
+
+- [_IsBillable](log-standard-columns.md#_isbillable) identifies records for which there's an ingestion charge. Use this column to filter out non-billable data.
+- [_BilledSize](log-standard-columns.md#_billedsize) provides the size in bytes of the record.
+
 **Billable data volume for specific events**
 
 If you find that a particular data type is collecting excessive data, you might want to analyze the data in that table to determine particular records that are increasing. This example filters specific event IDs in the  `Event` table and then provides a count for each ID. You can modify this query by using the columns from other tables.
@@ -113,33 +104,7 @@ Event
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
 ```
 
-## Data volume by computer
-You can analyze the amount of billable data collected from a virtual machine or a set of virtual machines. The **Usage** table doesn't have the granularity to show data volumes for specific virtual machines, so these queries use the [find operator](/azure/data-explorer/kusto/query/findoperator) to search all tables that include a computer name. The **Usage** type is omitted because this query is only for analytics of data trends.
-
-> [!WARNING]
-> Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the preceding queries.
-
-**Billable data volume by computer for the last full day**
-
-```kusto
-find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project _BilledSize, _IsBillable, Computer, Type
-| where _IsBillable == true and Type != "Usage"
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize BillableDataBytes = sum(_BilledSize) by  computerName 
-| sort by BillableDataBytes desc nulls last
-```
-
-**Count of billable events by computer for the last full day**
-
-```kusto
-find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project _IsBillable, Computer, Type
-| where _IsBillable == true and Type != "Usage"
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize eventCount = count() by computerName  
-| sort by eventCount desc nulls last
-```
-
-## Data volume by Azure resource, resource group, or subscription
+### Data volume by Azure resource, resource group, or subscription
 You can analyze the amount of billable data collected from a particular resource or set of resources. These queries use the [_ResourceId](./log-standard-columns.md#_resourceid) and [_SubscriptionId](./log-standard-columns.md#_subscriptionid) columns for data from resources hosted in Azure.
 
 > [!WARNING]
@@ -184,7 +149,33 @@ find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project
 > [!TIP]
 > For workspaces with large data volumes, doing queries such as the ones shown in this section, which query large volumes of raw data, might need to be restricted to a single day. To track trends over time, consider setting up a [Power BI report](./log-powerbi.md) and using [incremental refresh](./log-powerbi.md#collect-data-with-power-bi-dataflows) to collect data volumes per resource once a day.
 
-## Querying for data volumes excluding known free data types
+### Data volume by computer
+You can analyze the amount of billable data collected from a virtual machine or a set of virtual machines. The **Usage** table doesn't have the granularity to show data volumes for specific virtual machines, so these queries use the [find operator](/azure/data-explorer/kusto/query/findoperator) to search all tables that include a computer name. The **Usage** type is omitted because this query is only for analytics of data trends.
+
+> [!WARNING]
+> Use [find](/azure/data-explorer/kusto/query/findoperator?pivots=azuremonitor) queries sparingly because scans across data types are [resource intensive](./query-optimization.md#query-details-pane) to execute. If you don't need results per subscription, resource group, or resource name, use the [Usage](/azure/azure-monitor/reference/tables/usage) table as in the preceding queries.
+
+**Billable data volume by computer for the last full day**
+
+```kusto
+find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project _BilledSize, _IsBillable, Computer, Type
+| where _IsBillable == true and Type != "Usage"
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize BillableDataBytes = sum(_BilledSize) by  computerName 
+| sort by BillableDataBytes desc nulls last
+```
+
+**Count of billable events by computer for the last full day**
+
+```kusto
+find where TimeGenerated between(startofday(ago(1d))..startofday(now())) project _IsBillable, Computer, Type
+| where _IsBillable == true and Type != "Usage"
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| summarize eventCount = count() by computerName  
+| sort by eventCount desc nulls last
+```
+
+### Querying for data volumes excluding known free data types
 The following query will return the monthly data volume in GB, excluding all data types which are supposed to be free from data ingestion charges:
 
 ```kusto
@@ -452,6 +443,7 @@ W3CIISLog
 ## Next steps
 
 - See [Azure Monitor Logs pricing details](cost-logs.md) for information on how charges are calculated for data in a Log Analytics workspace and different configuration options to reduce your charges.
-- See [Azure Monitor cost and usage](../usage-estimated-costs.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
+- See [Azure Monitor cost and usage](../cost-usage.md) for a description of the different types of Azure Monitor charges and how to analyze them on your Azure bill.
 - See [Azure Monitor best practices - Cost management](../best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.
 - See [Data collection transformations in Azure Monitor (preview)](../essentials/data-collection-transformations.md) for information on using transformations to reduce the amount of data you collected in a Log Analytics workspace by filtering unwanted records and columns.
+

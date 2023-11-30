@@ -1,7 +1,7 @@
 ---
 title: Azure Arc-enabled servers VMware Frequently Asked Questions
 description: Learn how to use Azure Arc-enabled servers on virtual machines running in VMware vSphere environments.
-ms.date: 08/10/2023
+ms.date: 11/20/2023
 ms.topic: faq
 ---
 
@@ -16,17 +16,13 @@ Azure Arc is the overarching brand for a suite of Azure hybrid products that ext
 ## What's the difference between Azure Arc-enabled servers and Azure Arc-enabled VMware vSphere?
 
 > [!NOTE]
-> Arc-enabled VMware vSphere refers to the Arc integration with VMware vSphere environments. VMware vSphere environment. **Azure Arc-enabled VMware vSphere is currently in Public Preview.**
-> Arc-enabled VMware vSphere supports vSphere environments anywhere, either on-premises as well [Azure VMware Solution (AVS)](./../../azure-vmware/deploy-arc-for-azure-vmware-solution.md), VMware Cloud on AWS, and Google Cloud VMware Engine.
+> [Arc-enabled VMware vSphere](../vmware-vsphere/overview.md) supports vSphere environments anywhere, either on-premises as well as [Azure VMware Solution (AVS)](./../../azure-vmware/deploy-arc-for-azure-vmware-solution.md), VMware Cloud on AWS, and Google Cloud VMware Engine.
 
 The easiest way to think of this is as follows:
 
 - Azure Arc-enabled servers interact on the guest operating system level, with no awareness of the underlying infrastructure fabric and the virtualization platform that it’s running on. Since Arc-enabled servers also support bare-metal machines, there may, in fact, not even be a host hypervisor in some cases.
 
 - Azure Arc-enabled VMware vSphere is a superset of Arc-enabled servers that extends management capabilities beyond the guest operating system to the VM itself. This provides lifecycle management and CRUD (Create, Read, Update, and Delete) operations on a VMware vSphere VM. These lifecycle management capabilities are exposed in the Azure portal and look and feel just like a regular Azure VM. See [What is Azure Arc-enabled VMware vSphere](../vmware-vsphere/overview.md) to learn more.
-
-> [!NOTE]
-> Azure Arc-enabled VMware vSphere also provides guest operating system management—in fact, it uses the same components as Azure Arc-enabled servers. However, during Public Preview, not all [Azure services supported by Azure Arc-enabled servers](./manage-vm-extensions.md) are available for Arc-enabled VMware vSphere - currently, Azure Monitor, Update Management, and Microsoft Defender for Cloud are not supported. In addition, Arc-enabled VMware vSphere is [supported by Azure VMware Solution (AVS)](../../azure-vmware/deploy-arc-for-azure-vmware-solution.md).
 
 ## Can I use Azure Arc-enabled server on VMs running in VMware environments?
 

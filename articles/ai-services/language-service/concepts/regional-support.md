@@ -2,11 +2,10 @@
 title: Regional support for Azure AI Language
 titleSuffix: Azure AI services
 description: Learn which Azure regions are supported by the Language service.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 08/23/2023
 ms.author: aahi

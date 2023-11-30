@@ -2,11 +2,10 @@
 title: Use Azure AI Vision container with Kubernetes and Helm
 titleSuffix: Azure AI services
 description: Learn how to deploy the Azure AI Vision container using Kubernetes and Helm.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 05/09/2022
 ms.author: pafarley

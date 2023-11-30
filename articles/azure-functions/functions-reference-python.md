@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
-ms.date: 05/25/2023
+ms.date: 11/14/2023
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
 zone_pivot_groups: python-mode-functions
@@ -51,11 +51,8 @@ Python v1 programming model:
 
 You can also create Python v1 functions in the Azure portal.
 
-The following considerations apply for local Python development:
-
-+ Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
-
-+ Functions doesn't currently support local Python function development on ARM64 devices, including on a Mac with an M1 chip. To learn more, see [x86 emulation on ARM64](functions-run-local.md#x86-emulation-on-arm64).
+> [!TIP]
+> Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
 
 ## Programming model
 
@@ -943,9 +940,8 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.11 (preview) <br/>3.10<br/>3.9<br/> 3.8<br/>3.7 |
+| 4.x | 3.11<br/>3.10<br/>3.9<br/>3.8<br/>3.7 |
 | 3.x | 3.9<br/> 3.8<br/>3.7 |
-| 2.x | 3.7 |
 
 \* Official Python distributions
 
@@ -1256,7 +1252,7 @@ The Azure Functions Python worker requires a specific set of libraries. You can 
 > If your function app's *requirements.txt* file contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by the Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in the *requirements.txt* file might cause unexpected issues.
 
 > [!NOTE]
->  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies. This feature is in preview.
+>  If your package contains certain libraries that might collide with worker's dependencies (for example, protobuf, tensorflow, or grpcio), configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to worker's dependencies.
 
 ### The Azure Functions Python library
 

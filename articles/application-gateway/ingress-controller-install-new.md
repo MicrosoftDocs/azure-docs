@@ -22,7 +22,7 @@ installed in an environment with no pre-existing components.
 
 We recommend the use of [Azure Cloud Shell](https://shell.azure.com/) for all command-line operations below. Launch your shell from shell.azure.com or by clicking the link:
 
-[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+[![Embed launch](./media/launch-cloud-shell/launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 
 Alternatively, launch Cloud Shell from Azure portal using the following icon:
 
@@ -39,7 +39,7 @@ choose to use another environment, ensure the following command-line tools are i
 
 ## Create an Identity
 
-Follow the steps below to create an Azure Active Directory (Azure AD) [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Record the `appId`, `password`, and `objectId` values - these values will be used in the following steps.
+Follow the steps below to create a Microsoft Entra [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Record the `appId`, `password`, and `objectId` values - these values will be used in the following steps.
 
 1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
@@ -76,7 +76,7 @@ This step will add the following components to your subscription:
 - [Application Gateway](./overview.md) v2
 - [Virtual Network](../virtual-network/virtual-networks-overview.md) with two [subnets](../virtual-network/virtual-networks-overview.md)
 - [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
-- [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
+- [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
 
 1. Download the Azure Resource Manager template and modify the template as needed.
     ```bash
@@ -124,16 +124,18 @@ resourceGroupName=$(jq -r ".resourceGroupName.value" deployment-outputs.json)
 az aks get-credentials --resource-group $resourceGroupName --name $aksClusterName
 ```
 
-### Install Azure AD Pod Identity
-  Azure Active Directory Pod Identity provides token-based access to
+<a name='install-azure-ad-pod-identity'></a>
+
+### Install Microsoft Entra Pod Identity
+  Microsoft Entra Pod Identity provides token-based access to
   [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md).
 
-  [Azure AD Pod Identity](https://github.com/Azure/aad-pod-identity) will add the following components to your Kubernetes cluster:
+  [Microsoft Entra Pod Identity](https://github.com/Azure/aad-pod-identity) will add the following components to your Kubernetes cluster:
    * Kubernetes [CRDs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
    * [Managed Identity Controller (MIC)](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic) component
    * [Node Managed Identity (NMI)](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi) component
 
-To install Azure AD Pod Identity to your cluster:
+To install Microsoft Entra Pod Identity to your cluster:
 
    - *Kubernetes RBAC enabled* AKS cluster
 

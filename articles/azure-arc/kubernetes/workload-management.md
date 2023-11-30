@@ -454,7 +454,7 @@ kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-worl
 
 Run the following command for the `large` cluster and open `localhost:8002` in your browser:
 
- ```bash
+```bash
 kubectl port-forward svc/hello-world-service -n stage-kaizen-app-team-hello-world-app-uat-test 8002:8000 --context=large
 ```
 

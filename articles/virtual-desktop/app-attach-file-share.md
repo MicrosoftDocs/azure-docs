@@ -73,7 +73,7 @@ To assign session hosts VMs permissions for the storage account and file share:
 
 2. Add the computer accounts for all session hosts VMs as members of the group.
 
-3. Sync the AD DS group to Azure Active Directory (Azure AD).
+3. Sync the AD DS group to Microsoft Entra ID.
 
 4. Create a storage account.
 

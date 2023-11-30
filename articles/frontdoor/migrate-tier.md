@@ -78,7 +78,7 @@ Azure Front Door Standard and Premium tier bring the latest cloud delivery netwo
 > [!NOTE]
 > If you're not using your own certificate, enabling managed identities and granting access to the Key Vault is not required. You can skip to the [**Migrate**](#migrate) phase.
 
-If you're using your own certificate and you'll need to enable managed identity so Azure Front Door can access the certificate in your Azure Key Vault. Managed identity is a feature of Azure Active Directory that allows you to securely connect to other Azure services without having to manage credentials. For more information, see [What are managed identities for Azure resources?](..//active-directory/managed-identities-azure-resources/overview.md)
+If you're using your own certificate and you'll need to enable managed identity so Azure Front Door can access the certificate in your Azure Key Vault. Managed identity is a feature of Microsoft Entra ID that allows you to securely connect to other Azure services without having to manage credentials. For more information, see [What are managed identities for Azure resources?](..//active-directory/managed-identities-azure-resources/overview.md)
 
 1. Select **Enable** and then select either **System assigned** or **User assigned** depending on the type of managed identities you want to use.
 

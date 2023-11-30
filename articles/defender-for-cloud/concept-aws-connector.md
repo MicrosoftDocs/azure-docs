@@ -33,11 +33,11 @@ The architecture of the authentication process across clouds is as follows:
 
 :::image type="content" source="media/quickstart-onboard-aws/architecture-authentication-across-clouds.png" alt-text="Diagram showing architecture of authentication process across clouds." lightbox="media/quickstart-onboard-aws/architecture-authentication-across-clouds.png":::
 
-1. Microsoft Defender for Cloud CSPM service acquires an Azure AD token with a validity life time of 1 hour that is signed by the Azure AD using the RS256 algorithm. 
+1. Microsoft Defender for Cloud CSPM service acquires a Microsoft Entra token with a validity life time of 1 hour that is signed by the Microsoft Entra ID using the RS256 algorithm. 
 
-1. The Azure AD token is exchanged with AWS short living credentials and Defender for Cloud's CSPM service assumes the CSPM IAM role (assumed with web identity).
+1. The Microsoft Entra token is exchanged with AWS short living credentials and Defender for Cloud's CSPM service assumes the CSPM IAM role (assumed with web identity).
 
-1. Since the principle of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Azure AD token against the Azure AD through a process that includes:
+1. Since the principle of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
 
     - audience validation
     - signing of the token
@@ -45,7 +45,7 @@ The architecture of the authentication process across clouds is as follows:
 
  1.  The Microsoft Defender for Cloud CSPM role is assumed only after the validation conditions defined at the trust relationship have been met. The conditions defined for the role level are used for validation within AWS and allows only the Microsoft Defender for Cloud CSPM application (validated audience) access to the specific role (and not any other Microsoft token).
 
-1. After the Azure AD token validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which CSPM service uses to scan the AWS account.
+1. After the Microsoft Entra token validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which CSPM service uses to scan the AWS account.
 
 ## Native connector plan requirements
 

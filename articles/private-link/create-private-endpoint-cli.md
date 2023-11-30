@@ -128,7 +128,7 @@ az network private-endpoint create \
 
 # [**Static IP**](#tab/static-ip)
 
- ```azurecli-interactive
+```azurecli-interactive
 id=$(az webapp list \
     --resource-group test-rg \
     --query '[].[id]' \

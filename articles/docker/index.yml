@@ -40,7 +40,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Docker Azure site
-            url: https://docs.docker.com/docker-for-azure/why/
+            url: https://docs.docker.com/build/cache/backends/azblob/
           - text: Docker Azure driver
             url: https://docs.docker.com/machine/drivers/azure/
           - text: Learn about Docker

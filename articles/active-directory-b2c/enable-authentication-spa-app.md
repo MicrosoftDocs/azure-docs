@@ -1,11 +1,11 @@
 ---
 title: Enable authentication in a SPA application by using Azure Active Directory B2C building blocks
 description:  This article discusses the building blocks of Azure Active Directory B2C for signing in and signing up users in a SPA application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: kengaderdus
@@ -221,7 +221,7 @@ To specify your Azure AD B2C user flows, do the following:
 
 In this step, implement the methods to initialize the sign-in flow, API access token acquisition, and the sign-out methods. 
 
-For more information, see the [MSAL PublicClientApplication class reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html), and [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-msal-to-sign-in-the-user) articles.
+For more information, see the [Use the Microsoft Authentication Library (MSAL) to sign in the user](../active-directory/develop/tutorial-v2-javascript-spa.md#use-the-msal-to-sign-in-the-user) article.
 
 To sign in the user, do the following:
 

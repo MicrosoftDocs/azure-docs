@@ -134,65 +134,69 @@ This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-ku
         --assign-identity $IDENTITY_ID
     ```
 
-## Disable OutboundNAT for Windows (preview)
+## Disable OutboundNAT for Windows (Preview)
 
-Windows OutboundNAT can cause certain connection and communication issues with your AKS pods. Some of these issues include:
-
-* **Unhealthy backend status**: When you deploy an AKS cluster with [Application Gateway Ingress Control (AGIC)][agic] and [Application Gateway][app-gw] in different VNets, the backend health status becomes "Unhealthy." The outbound connectivity fails because the peered networked IP isn't present in the CNI config of the Windows nodes.
-* **Node port reuse**: Windows OutboundNAT uses port to translate your pod IP to your Windows node host IP, which can cause an unstable connection to the external service due to a port exhaustion issue.
-* **Invalid traffic routing to internal service endpoints**: When you create a load balancer service with `externalTrafficPolicy` set to *Local*, kube-proxy on Windows doesn't create the proper rules in the IPTables to route traffic to the internal service endpoints.
+Windows OutboundNAT can cause certain connection and communication issues with your AKS pods. An example issue is node port reuse. In this example, Windows OutboundNAT uses ports to translate your pod IP to your Windows node host IP, which can cause an unstable connection to the external service due to a port exhaustion issue.
 
 Windows enables OutboundNAT by default. You can now manually disable OutboundNAT when creating new Windows agent pools.
 
-> [!NOTE]
-> OutboundNAT can only be disabled on Windows Server 2019 node pools.
-
 ### Prerequisites
 
-* You need to use `aks-preview` and register the feature flag.
+* If you're using Kubernetes version 1.25 or older, you need to [update your deployment configuration][upgrade-kubernetes].
+* You need to install or update `aks-preview` and register the feature flag.
 
   1. Install or update `aks-preview` using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
 
-        ```azurecli
-        # Install aks-preview
+    ```azurecli-interactive
+    # Install aks-preview
+    az extension add --name aks-preview
 
-        az extension add --name aks-preview
-
-        # Update aks-preview
-
-        az extension update --name aks-preview
-        ```
+    # Update aks-preview
+    az extension update --name aks-preview
+    ```
 
   2. Register the feature flag using the [`az feature register`][az-feature-register] command.
 
-        ```azurecli
-        az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
-        ```
+    ```azurecli-interactive
+    az feature register --namespace Microsoft.ContainerService --name DisableWindowsOutboundNATPreview
+    ```
 
   3. Check the registration status using the [`az feature list`][az-feature-list] command.
 
-        ```azurecli
-        az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
-        ```
+    ```azurecli-interactive
+    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DisableWindowsOutboundNATPreview')].{Name:name,State:properties.state}"
+    ```
 
-  4. Refresh the registration of the `Microsoft.ContainerService` resource provider us
+  4. Refresh the registration of the `Microsoft.ContainerService` resource provider using the [`az provider register`][az-provider-register] command.
 
-        ```azurecli
-        az provider register --namespace Microsoft.ContainerService
-        ```
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerService
+    ```
 
-* Your clusters must have a managed NAT gateway (which may increase the overall cost).
-* If you're using Kubernetes version 1.25 or older, you need to [update your deployment configuration][upgrade-kubernetes].
-* If you need to switch from a load balancer to NAT gateway, you can either add a NAT gateway into the VNet or run [`az aks upgrade`][aks-upgrade] to update the outbound type.
+### Limitations
+
+* You can't set cluster outbound type to LoadBalancer. You can set it to Nat Gateway or UDR:
+  * [NAT Gateway](./nat-gateway.md): NAT Gateway can automatically handle NAT connection and is more powerful than Standard Load Balancer. You might incur extra charges with this option.
+  * [UDR (UserDefinedRouting)](./limit-egress-traffic.md): You must keep port limitations in mind when configuring routing rules.
+  * If you need to switch from a load balancer to NAT Gateway, you can either add a NAT gateway into the VNet or run [`az aks upgrade`][aks-upgrade] to update the outbound type.
+
+> [!NOTE]
+> UserDefinedRouting has the following limitations:
+>
+> * SNAT by Load Balancer (must use the default OutboundNAT) has "64 ports on the host IP".
+> * SNAT by Azure Firewall (disable OutboundNAT) has 2496 ports per public IP.
+> * SNAT by NAT Gateway (disable OutboundNAT) has 64512 ports per public IP.
+> * If the Azure Firewall port range isn't enough for your application, you need to use NAT Gateway.
+> * Azure Firewall doesn't SNAT with Network rules when the destination IP address is in a private IP address range per [IANA RFC 1918 or shared address space per IANA RFC 6598](../firewall/snat-private-range.md).
 
 ### Manually disable OutboundNAT for Windows
 
 * Manually disable OutboundNAT for Windows when creating new Windows agent pools using the [`az aks nodepool add`][az-aks-nodepool-add] command with the `--disable-windows-outbound-nat` flag.
 
     > [!NOTE]
-    > You can use an existing AKS cluster, but you may need to update the outbound type and add a node pool to enable `--disable-windows-outbound-nat`.
+    > You can use an existing AKS cluster, but you might need to update the outbound type and add a node pool to enable `--disable-windows-outbound-nat`.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks nodepool add \
         --resource-group myResourceGroup
         --cluster-name myNatCluster
@@ -228,3 +232,4 @@ For more information on Azure NAT Gateway, see [Azure NAT Gateway][nat-docs].
 [az-network-nat-gateway-create]: /cli/azure/network/nat/gateway#az_network_nat_gateway_create
 [az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+[az-provider-register]: /cli/azure/provider#az_provider_register

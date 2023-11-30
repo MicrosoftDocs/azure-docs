@@ -71,9 +71,17 @@ Follow the procedure detailed below to use the alert details feature. These step
 
 1. When you have finished customizing your alert details, if you're now creating the rule, continue to the next tab in the wizard. If you're editing an existing rule, select the **Review and create** tab. Once the rule validation is successful, select **Save**.
 
+    > [!NOTE]
+    > 
+    > **Service limits**
+    > - The combined size limit for all alert details and [custom details](surface-custom-details-in-alerts.md), collectively, is **64 KB**.
+
 ## Next steps
 
 In this document, you learned how to customize alert details in Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
 
+- Explore the other ways to enrich your alerts:
+    - [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md)
+    - [Surface custom event details in alerts in Microsoft Sentinel](surface-custom-details-in-alerts.md)
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Microsoft Sentinel](entities.md).

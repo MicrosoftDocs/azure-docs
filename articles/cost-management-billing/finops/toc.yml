@@ -61,6 +61,10 @@
       href: capabilities-culture.md
     - name: FinOps and intersecting frameworks
       href: capabilities-frameworks.md
+- name: How-to guides
+  items:
+  - name: Use Cost optimization workbook
+    href: cost-optimization-workbook.md
 - name: Resources
   items:
   - name: FinOps with Azure e-book

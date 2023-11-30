@@ -13,11 +13,6 @@ ms.date: 08/10/2023
 
 # Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
->
-> * [Version 1](v1/data-factory-azure-datalake-connector.md)
-> * [Current version](connector-azure-data-lake-store.md)
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data to and from Azure Data Lake Storage Gen1. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
@@ -34,7 +29,7 @@ This Azure Data Lake Storage Gen1 connector is supported for the following capab
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
 Specifically, with this connector you can:
 
@@ -94,7 +89,7 @@ The following properties are supported for the Azure Data Lake Store linked serv
 
 To use service principal authentication, follow these steps.
 
-1. Register an application entity in Azure Active Directory and grant it access to Data Lake Store. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
+1. Register an application entity in Microsoft Entra ID and grant it access to Data Lake Store. For detailed steps, see [Service-to-service authentication](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Make note of the following values, which you use to define the linked service:
 
     - Application ID
     - Application key
@@ -112,7 +107,7 @@ The following properties are supported:
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. Mark this field as a `SecureString` to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information, such as domain name or tenant ID, under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the service's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the service's cloud environment is used. | No |
 
 **Example:**
 

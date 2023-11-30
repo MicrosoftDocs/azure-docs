@@ -244,7 +244,7 @@ In addition to the BGP tag for each region, Microsoft also tags prefixes based o
 | Skype For Business Online (2) and (3) | 12076:5030 |
 | CRM Online (4) |12076:5040 |
 | Azure Global Services (1) | 12076:5050 |
-| Azure Active Directory |12076:5060 |
+| Microsoft Entra ID |12076:5060 |
 | Azure Resource Manager |12076:5070 |
 | Other Office 365 Online services (2) | 12076:5100 |
 | Microsoft Defender for Identity | 12076:5220 |
@@ -288,7 +288,7 @@ In addition to the BGP tag for each region, Microsoft also tags prefixes based o
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype For Business Online |12076:5130 |
-| Azure Active Directory |12076:5160 |
+| Microsoft Entra ID |12076:5160 |
 | Other Office 365 Online services |12076:5200 |
 
 * *Office 365 communities aren't supported over Microsoft Peering for Microsoft Azure operated by 21Vianet region.*

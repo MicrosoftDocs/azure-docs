@@ -1,0 +1,277 @@
+items:
+- name: Azure HDInsight on AKS documentation
+  href: index.yml
+  items:
+- name: Overview
+  items:
+  - name: What is HDInsight on AKS?
+    href: overview.md
+  - name: What's new?
+    href: whats-new.md 
+  - name: Preview information
+    href: preview.md
+- name: Quickstarts
+  items:
+  - name: Subscription prerequisites
+    href: prerequisites-subscription.md
+  - name: Resource prerequisites
+    href: prerequisites-resources.md
+  - name: One click deployment
+    href: get-started.md
+- name: Concepts
+  items:
+  - name: Versioning
+    href: versions.md 
+  - name: Enterprise security
+    items:
+    - name: Security architecture and security pillars
+      href: concept-security.md
+    - name: Network Security
+      items:
+      - name: Required outbound traffic
+        href: ./required-outbound-traffic.md
+  - name: Resource management
+    href: ./virtual-machine-recommendation-capacity-planning.md
+  - name: Metrics and monitoring
+    href: ./concept-azure-monitor-integration.md
+  - name: Customize clusters
+    href : ./customize-clusters.md
+- name: Releases
+  items:
+  - name: Release notes
+    href: ./release-notes/hdinsight-aks-release-notes.md
+- name: Get started
+  items:
+  - name: Create a cluster pool and cluster
+    href: quickstart-create-cluster.md
+  - name: Introduction to cluster storage
+    href: cluster-storage.md
+  - name: Export ARM templates
+    items:
+    - name: Manual export
+      href: ./create-cluster-using-arm-template.md
+    - name: Script based export
+      href: ./create-cluster-using-arm-template-script.md
+  - name: Secure network traffic  
+    items:
+    - name: Use firewall with Azure CLI
+      href: ./secure-traffic-by-firewall.md
+    - name: Use firewall with Azure portal
+      href: ./secure-traffic-by-firewall-azure-portal.md
+    - name: Use NSG to restrict traffic
+      href: ./secure-traffic-by-nsg.md
+- name: Manage
+  items: 
+  - name: Cluster pools
+    href: manage-cluster-pool.md
+  - name: Clusters
+    href: manage-cluster.md
+  - name: Manual scale
+    href: manual-scale.md
+  - name: Auto scale
+    href: hdinsight-on-aks-autoscale-clusters.md   
+  - name: Access control
+    href: hdinsight-on-aks-manage-authorization-profile.md
+  - name: Service health
+    href: service-health.md  
+  - name: Service configuration
+    href: service-configuration.md
+  - name: Script actions
+    href: manage-script-actions.md
+  - name: Azure Monitor integration
+    items: 
+    - name: Log Analytics
+      href: how-to-azure-monitor-integration.md
+    - name: Azure managed Prometheus and Grafana
+      href: monitor-with-prometheus-grafana.md
+- name: Trino
+  items:
+  - name: What is Trino?
+    href: ./trino/trino-overview.md
+  - name: Create Trino cluster
+    href: ./trino/trino-create-cluster.md
+  - name: Connect and query
+    items:
+    - name: Authentication
+      href: ./trino/trino-authentication.md    
+    - name: Trino CLI
+      href: ./trino/trino-ui-command-line-interface.md
+    - name: Trino Web SSH
+      href: ./trino/trino-ui-web-ssh.md      
+    - name: Trino JDBC driver
+      href: ./trino/trino-ui-jdbc-driver.md
+    - name: Trino with DBeaver
+      href: ./trino/trino-ui-dbeaver.md
+    - name: Trino UI
+      href: ./trino/trino-ui.md
+  - name: Connectors
+    href: ./trino/trino-connectors.md
+    items:
+    - name: Catalogs
+      href: ./trino/trino-add-catalogs.md
+    - name: Configure Delta Lake catalog
+      href: ./trino/trino-add-delta-lake-catalog.md
+    - name: Configure Iceberg catalog
+      href: ./trino/trino-add-iceberg-catalog.md
+  - name: Cluster management
+    items:
+    - name: Trino configuration
+      href: ./trino/trino-service-configuration.md
+    - name: Hive metastore
+      href: ./trino/trino-connect-to-metastore.md      
+    - name: Custom plugins
+      href: ./trino/trino-custom-plugins.md
+    - name: Query logging
+      href: ./trino/trino-query-logging.md
+    - name: Caching
+      href: ./trino/trino-caching.md      
+    - name: JVM Heap settings
+      href: ./trino/trino-jvm-configuration.md           
+    - name: Miscellaneous files
+      href: ./trino/trino-miscellaneous-files.md
+    - name: Fault tolerance
+      href: ./trino/trino-fault-tolerance.md
+    - name: Troubleshoot
+      href: ./trino/trino-configuration-troubleshoot.md
+  - name: How-to guides
+    items:
+    - name: Use Apache Superset with Trino cluster
+      items:
+      - name: Deploy Apache Superset
+        href: ./trino/trino-superset.md
+      - name: Configure Microsoft Entra ID OAuth2 login
+        href: ./trino/configure-azure-active-directory-login-for-superset.md
+      - name: Role Based Access Control
+        href: ./trino/role-based-access-control.md
+      - name: Expose Superset to the internet
+        href: ./trino/configure-ingress.md
+    - name: Read Delta Lake Tables (Synapse or external locations)
+      href: ./trino/trino-create-delta-lake-tables-synapse.md
+    - name: Use query scan statistics
+      href: ./trino/trino-scan-stats.md
+    - name: Use Apache Airflow with Trino cluster
+      href: ./trino/trino-airflow.md
+    - name: Use AWS S3 and Glue with Trino cluster
+      href: ./trino/trino-catalog-glue.md
+- name: Apache Flink®
+  items:
+  - name: What is Apache Flink® in Azure HDInsight on AKS?
+    href: ./flink/flink-overview.md
+  - name: Create Apache Flink cluster
+    href: ./flink/flink-create-cluster-portal.md
+  - name: Tutorials
+    items:
+    - name: Configuration management
+      href: ./flink/flink-configuration-management.md
+    - name: Job management
+      href: ./flink/flink-job-management.md
+    - name: Hive dialect in Flink
+      href: ./flink/hive-dialect-flink.md
+    - name: Table API and SQL
+      href: ./flink/flink-table-api-and-sql.md    
+  - name: How-to guides
+    items:
+    - name: General
+      items:
+      - name:  Flink Command Line Interface (CLI)
+        href: ./flink/use-flink-cli-to-submit-jobs.md
+      - name:  Use Azure portal to access CLI
+        href: ./flink/flink-web-ssh-on-portal-to-flink-sql.md
+      - name:  Azure Cosmos DB (Apache Cassandra)
+        href: ./flink/cosmos-db-for-apache-cassandra.md
+      - name:  Azure Databricks
+        href: ./flink/azure-databricks.md
+      - name:  Azure Data Explorer
+        href: ./flink/integration-of-azure-data-explorer.md       
+      - name:  Azure Event Hubs
+        href: ./flink/flink-how-to-setup-event-hub.md
+      - name:  Azure IoT Hub
+        href: ./flink/azure-iot-hub.md  
+      - name:  Azure Pipelines
+        href: ./flink/use-azure-pipelines-to-run-flink-jobs.md  
+      - name:  Azure Data Factory Managed Airflow
+        href: ./flink/flink-job-orchestration.md  
+      - name:  Delta connectors
+        href: ./flink/use-flink-delta-connector.md  
+      - name:  Elastic and Kibana
+        href: ./flink/sink-kafka-to-kibana.md
+      - name:  Apache Kafka on HDInsight
+        href: ./flink/process-and-consume-data.md
+    - name: Flink SQL
+      items:
+      - name: CDC - Azure PostgreSQL and FlinkSQL 
+        href: ./flink/monitor-changes-postgres-table-flink.md
+      - name: CDC - SQL Server and FlinkSQL 
+        href: ./flink/sink-sql-server-table-using-flink-sql.md
+      - name: Kafka table on FlinkSQL
+        href: ./flink/create-kafka-table-flink-kafka-sql-connector.md
+      - name: Hive Catalog and FlinkSQL
+        href: ./flink/use-hive-catalog.md
+      - name:  Iceberg Catalog
+        href: ./flink/flink-catalog-iceberg-hive.md
+      - name:  Delta Catalog
+        href: ./flink/flink-catalog-delta-hive.md
+    - name: Flink streaming
+      items:
+      - name: ADLS Gen2 - Write with Flink DataStream API
+        href: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
+      - name: Apache NiFi with Flink DataStream API
+        href: ./flink/use-apache-nifi-with-datastream-api.md
+      - name: CDC - SQL Server and Flink DataStream API
+        href: ./flink/change-data-capture-connectors-for-apache-flink.md
+      - name: Hive metastore with Flink DataStream API
+        href: ./flink/use-hive-metastore-datastream.md
+      - name: HBase - Write with Flink DataStream API
+        href: ./flink/use-flink-to-sink-kafka-message-into-hbase.md
+      - name: MongoDB as a source and Sink with Flink DataStream API
+        href: ./flink/datastream-api-mongodb.md
+      - name: Join stream from Kafka with Table on ADLS Gen2 with Flink DataStream API
+        href: ./flink/join-stream-kafka-table-filesystem.md
+      - name: Microsoft Fabric with Flink DataStream API
+        href: ./flink/fabric-lakehouse-flink-datastream-api.md
+    - name: Use cases
+      items:
+      - name: Fraud detection with the Flink DataStream API
+        href: ./flink/fraud-detection-flink-datastream-api.md
+    - name: Troubleshoot
+      items:
+      - name: Flink cluster configuration
+        href: ./flink/flink-cluster-configuration.md   
+- name: Apache Spark™
+  items:
+  - name: What is Apache Spark™ in HDInsight on AKS?
+    href: ./spark/hdinsight-on-aks-spark-overview.md
+  - name: Create Apache Spark cluster
+    href: ./spark/create-spark-cluster.md
+  - name: How-to guides
+    items:
+    - name: Submit and manage jobs
+      href: ./spark/submit-manage-jobs.md
+    - name: Configuration management
+      href: ./spark/configuration-management.md
+    - name: Library management 
+      href: ./spark/library-management.md
+    - name: Connect to One Lake Storage
+      href: ./spark/connect-to-one-lake-storage.md
+    - name: Use Delta Lake scenario in Azure HDInsight on AKS cluster
+      href: ./spark/azure-hdinsight-spark-on-aks-delta-lake.md
+    - name: Use ML Notebook on Spark
+      href: ./spark/use-machine-learning-notebook-on-spark.md
+    - name: Use Hive metastore  
+      href: spark/use-hive-metastore.md
+- name: Resources
+  items:
+  - name: FAQ
+    href: ./faq.md
+  - name: Subscribe to release notes GitHub repo
+    href: ./subscribe-to-release-notes-repo.md  
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Support options
+    href: ./hdinsight-aks-support-help.md
+  - name: Trademarks
+    href: ./trademarks.md
+  - name: Troubleshoot
+    items:
+    - name: Cluster creation errors
+      href: ./create-cluster-error-dictionary.md

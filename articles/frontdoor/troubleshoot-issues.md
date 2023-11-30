@@ -38,6 +38,8 @@ The cause of this issue can be one of three things:
 * Send the request to your origin directly without going through Azure Front Door. See how long your origin normally takes to respond.
 * Send the request through Azure Front Door and see if you're getting any 503 responses. If not, the problem may not be a timeout issue. Create a support request to troubleshoot the issue further.
 * If requests going through Azure Front Door result in a 503 error response code then configure the **Origin response timeout** for Azure Front Door. You can increase the default timeout to up to 4 minutes (240 seconds). To configure the setting, go to overview page of the Front Door profile. Select **Origin response timeout** and enter a value between *16* and *240* seconds.
+    > [!NOTE]
+    > The ability to configure Origin response timeout is only available in Azure Front Door Standard/Premium.
 
     :::image type="content" source="./media/how-to-configure-endpoints/origin-timeout.png" alt-text="Screenshot of the origin timeout settings on the overview page of the Azure Front Door profile.":::
 

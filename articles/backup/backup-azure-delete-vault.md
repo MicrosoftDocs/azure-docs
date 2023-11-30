@@ -51,7 +51,7 @@ To delete a vault, follow these steps:
 
   Alternately, go to the blades manually by following the steps below.
 
-- <a id="portal-mua">**Step 2:**</a> If Multi-User Authorization (MUA) is enabled, seek necessary permissions from the security administrator before vault deletion. [Learn more](./multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management)
+- <a id="portal-mua">**Step 2:**</a> If Multi-User Authorization (MUA) is enabled, seek necessary permissions from the security administrator before vault deletion. [Learn more](./multi-user-authorization.md#authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management)
 
 - <a id="portal-disable-soft-delete">**Step 3:**</a> Disable the soft delete and Security features
 
@@ -279,7 +279,7 @@ If you're sure that all the items backed up in the vault are no longer required 
 
 Follow these steps:
 
-- **Step 1:** Seek the necessary permissions from the security administrator to delete the vault if Multi-User Authorization has been enabled against the vault. [Learn more](./multi-user-authorization.md#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management)
+- **Step 1:** Seek the necessary permissions from the security administrator to delete the vault if Multi-User Authorization has been enabled against the vault. [Learn more](./multi-user-authorization.md#authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management)
 
 - <a id="powershell-install-az-module">**Step 2:**</a> Upgrade to PowerShell 7 version by performing these steps:
 

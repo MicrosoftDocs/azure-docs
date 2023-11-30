@@ -1,8 +1,8 @@
 ---
 title: Source control and development branches - LUIS
 description: How to maintain your Language Understanding (LUIS) app under source control. How to apply updates to a LUIS app while working in a development branch.
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: conceptual
 ms.date: 06/14/2022
 author: aahill

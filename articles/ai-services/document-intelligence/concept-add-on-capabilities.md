@@ -4,56 +4,70 @@ titleSuffix: Azure AI services
 description: How to increase service limit capacity with add-on capabilities.
 author: jaep3347
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 08/25/2023
+ms.date: 11/21/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.1.0'
+monikerRange: '>=doc-intel-3.1.0'
 ---
-
-
-
 
 <!-- markdownlint-disable MD033 -->
 
 # Document Intelligence add-on capabilities
 
-[!INCLUDE [applies to v3.1](includes/applies-to-v3-1-v3-0.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+**This content applies to:** ![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous versions:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru)
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)** | **Latest version:** ![purple-checkmark](media/purple-yes-icon.png) [**v4.0 (preview)**](?view=doc-intel-4.0.0&preserve-view=true)
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+> [!NOTE]
+> Add-on capabilities are available within all models except for the [Business card model](concept-business-card.md).
+:::moniker-end
+
+:::moniker range=">=doc-intel-3.1.0"
+
+Document Intelligence supports more sophisticated and modular analysis capabilities. Use the add-on features to extend the results to include more features extracted from your documents. Some add-on features incur an extra cost. These optional features can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases:
+
+* [`ocrHighResolution`](#high-resolution-extraction)
+
+* [`formulas`](#formula-extraction)
+
+* [`styleFont`](#font-property-extraction)
+
+* [`barcodes`](#barcode-property-extraction)
+
+* [`languages`](#language-detection)
+
+:::moniker-end
+
+:::moniker range="doc-intel-4.0.0"
 
 > [!NOTE]
 >
-> Add-on capabilities for Document Intelligence Studio are available with the Read and Layout models starting with the `2023-02-28-preview` and later releases.
+> Not all add-on capabilities are supported by all models. For more information, *see* [model data extraction](concept-model-overview.md#model-data-extraction).
+
+The following add-on capability is available for `2023-10-31-preview` and later releases:
+
+* [`keyValuePairs`](#key-value-pairs)
+* [`queryFields`](#query-fields)
+
+> [!NOTE]
 >
-> Add-on capabilities are available within all models except for the [Business card model](concept-business-card.md).
+> The query fields implementation in the 2023-10-30-preview API is different from the last preview release. The new implementation is less expensive and works well with structured documents.
 
-Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for`2023-02-28-preview` and later releases:
-
-* [`ocr.highResolution`](#high-resolution-extraction)
-
-* [`ocr.formula`](#formula-extraction)
-
-* [`ocr.font`](#font-property-extraction)
-
-* [`ocr.barcode`](#barcode-property-extraction)
+::: moniker-end
 
 ## High resolution extraction
 
-The task of recognizing small text from large-size documents, like engineering drawings, is a challenge. Often the text is mixed with other graphical elements and has varying fonts, sizes and orientations. Moreover, the text may be broken into separate parts or connected with other symbols. Document Intelligence now supports extracting content from these types of documents with the `ocr.highResolution` capability. You get improved quality of content extraction from A1/A2/A3 documents by enabling this add-on capability.
-
-## Barcode extraction
-
-The Read OCR model extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page. Here, the `confidence` is hard-coded for the API (GA) version (`2023-07-31`).
-
-### Supported barcode types
-
-| **Barcode Type**   | **Example**   |
-| --- | --- |
-| QR Code |:::image type="content" source="media/barcodes/qr-code.png" alt-text="Screenshot of the QR Code.":::|
-| Code 39 |:::image type="content" source="media/barcodes/code-39.png" alt-text="Screenshot of the Code 39.":::|
-| Code 128 |:::image type="content" source="media/barcodes/code-128.png" alt-text="Screenshot of the Code 128.":::|
-| UPC (UPC-A & UPC-E) |:::image type="content" source="media/barcodes/upc.png" alt-text="Screenshot of the UPC.":::|
-| PDF417 |:::image type="content" source="media/barcodes/pdf-417.png" alt-text="Screenshot of the PDF417.":::|
+The task of recognizing small text from large-size documents, like engineering drawings, is a challenge. Often the text is mixed with other graphical elements and has varying fonts, sizes and orientations. Moreover, the text can be broken into separate parts or connected with other symbols. Document Intelligence now supports extracting content from these types of documents with the `ocr.highResolution` capability. You get improved quality of content extraction from A1/A2/A3 documents by enabling this add-on capability.
 
 ## Formula extraction
 
@@ -131,7 +145,7 @@ The `ocr.font` capability extracts all font properties of text extracted in the 
 
 The `ocr.barcode` capability extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page. The `confidence` is hard-coded for as 1.
 
-#### Supported barcode types
+### Supported barcode types
 
 | **Barcode Type**   | **Example**   |
 | --- | --- |
@@ -148,6 +162,67 @@ The `ocr.barcode` capability extracts all identified barcodes in the `barcodes` 
 | `Databar` Expanded |:::image type="content" source="media/barcodes/databar-expanded.gif" alt-text="Screenshot of the Data bar Expanded.":::|
 | `ITF` |:::image type="content" source="media/barcodes/interleaved-two-five.png" alt-text="Screenshot of the interleaved-two-of-five barcode (ITF).":::|
 | `Data Matrix` |:::image type="content" source="media/barcodes/datamatrix.gif" alt-text="Screenshot of the Data Matrix.":::|
+
+## Language detection
+
+It predicts the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
+
+```json
+"languages": [
+    {
+        "spans": [
+            {
+                "offset": 0,
+                "length": 131
+            }
+        ],
+        "locale": "en",
+        "confidence": 0.7
+    },
+]
+```
+
+:::moniker range="doc-intel-4.0.0"
+
+## Key-value Pairs
+
+Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field. In an unstructured document, they could be the date a contract was executed on based on the text in a paragraph. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field can be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
+
+## Query Fields
+
+* Document Intelligence now supports query field extractions. With query field extraction, you can add fields to the extraction process using a query request without the need for added training.
+
+* Use query fields when you need to extend the schema of a prebuilt or custom model or need to extract a few fields with the output of layout.
+
+* Query fields are a premium add-on capability. For best results, define the fields you want to extract using camel case or Pascal case field names for multi-work field names.
+
+* Query fields support a maximum of 20 fields per request. If the document contains a value for the field, the field and value are returned.
+
+* This release has a new implementation of the query fields capability that is priced lower than the earlier implementation and should be validated.
+
+> [!NOTE]
+>
+> Document Intelligence Studio query field extraction is currently available with the Layout and Prebuilt models starting with the `2023-10-31-preview` API and later releases.
+
+### Query field extraction
+
+For query field extraction, specify the fields you want to extract and Document Intelligence analyzes the document accordingly. Here's an example:
+
+* If you're processing a contract in the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document), use the `2023-10-31-preview` version:
+
+    :::image type="content" source="media/studio/query-fields.png" alt-text="Screenshot of the query fields button in Document Intelligence Studio.":::
+
+* You can pass a list of field labels like `Party1`, `Party2`, `TermsOfUse`, `PaymentTerms`, `PaymentDate`, and `TermEndDate`" as part of the `analyze document` request.
+
+   :::image type="content" source="media/studio/query-field-select.png" alt-text="Screenshot of query fields selection window in Document Intelligence Studio.":::
+
+* Document Intelligence is able to analyze and extract the field data and return the values in a structured JSON output.
+
+* In addition to the query fields, the response includes text, tables, selection marks, and other relevant data.
+
+:::moniker-end
 
 ## Next steps
 

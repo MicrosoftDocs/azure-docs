@@ -70,7 +70,7 @@ The following sections detail the tools to implement at different phases of a ca
 - **After a call**
 
 ## Before a call
-**Pre-call readiness** – By using the pre-call checks ACS provides,
+**Pre-call readiness** – By using the pre-call checks Azure Communication Services provides,
   you can learn a user’s connection status before the call and take
   proactive action on their behalf. For example, if you learn a user’s
   connection is poor you can suggest they turn off their video before
@@ -79,7 +79,7 @@ The following sections detail the tools to implement at different phases of a ca
 <!-- This is not possible yet ... ~~You could also
   have callers with poor network conditions join from [PSTN (Public
   Switched Telephone Network) voice
-  calling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/telephony-concept).~~ -->
+  calling](/en-us/azure/communication-services/concepts/telephony/telephony-concept).~~ -->
 
 
 <!-- TODO need to add a Permissions section. - filippos for input
@@ -116,7 +116,7 @@ Maybe you want to build your own Network Diagnostic Tool or to perform a deeper 
   <!-- - ~~If a user has a poor network connection, you can instruct them to
     join their audio from [PSTN (Public Switched Telephone Network)
     voice
-    calling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/telephony-concept)
+    calling](/en-us/azure/communication-services/concepts/telephony/telephony-concept)
     before they join.~~ -->
 
   - For example, if a user's hardware test has an issue, you can notify the users
@@ -141,7 +141,7 @@ Because Azure Communication Services Voice and Video calls run on web and mobile
   behavior on the call they're trying to participate in, referred to as the target call. You should make sure there aren't multiple browser tabs open before a call starts, and also monitor during the whole call lifecycle. You can pro-actively notify customers to close their excess tabs, or help them join a call correctly with useful messaging if they're unable to join a call initially.
 
  - To check if user has multiple instances
-  of ACS running in a browser, see: [How to detect if an application using Azure Communication Services' SDK is active in multiple tabs of a browser](../../how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md).
+  of Azure Communication Services running in a browser, see: [How to detect if an application using Azure Communication Services' SDK is active in multiple tabs of a browser](../../how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md).
 
 ## During a call
 
@@ -187,7 +187,7 @@ Sometimes users can't hear each other, maybe the speaker is too quiet, the liste
 
 Since network conditions can change during a call, users can report poor audio and video quality even if they started the call without issue. Our Media statistics give you detailed quality metrics on each inbound and outbound audio, video, and screen share stream. These detailed insights help you monitor calls in progress, show users their network quality status throughout a call, and debug individual calls.  
 
-- These metrics help indicate issues on the ACS client SDK send and receive media streams. As an example, you can actively monitor the outgoing video stream's `availableBitrate`, notice a persistent drop below the recommended 1.5 Mbps and notify the user their video quality is degraded. 
+- These metrics help indicate issues on the Azure Communication Services client SDK send and receive media streams. As an example, you can actively monitor the outgoing video stream's `availableBitrate`, notice a persistent drop below the recommended 1.5 Mbps and notify the user their video quality is degraded. 
 
 - It's important to note that our Server Log data only give you an overall summary of the call after it ends. Our detailed Media Statistics provide low level metrics throughout the call duration for use in during the call and afterwards for deeper analysis.  
 - To learn more, see: [Media quality statistics](media-quality-sdk.md)

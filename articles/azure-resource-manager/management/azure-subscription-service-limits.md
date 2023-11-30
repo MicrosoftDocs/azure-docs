@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 09/26/2023
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -55,7 +55,9 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## Azure Active Directory limits
+<a name='azure-active-directory-limits'></a>
+
+## Microsoft Entra ID limits
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
@@ -87,7 +89,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-cloud-services-limits](../../../includes/azure-cloud-services-limits.md)]
 
-## Azure Cognitive Search limits
+## Azure AI Search limits
 
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
@@ -103,7 +105,7 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 [!INCLUDE [azure-search-limits-per-service](../../../includes/azure-search-limits-per-service.md)]
 
-To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Cognitive Search](../../search/search-limits-quotas-capacity.md).
+To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](../../search/search-limits-quotas-capacity.md).
 
 <a name='azure-cognitive-services-limits'></a>
 

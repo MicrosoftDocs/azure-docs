@@ -8,7 +8,7 @@ ms.reviewer: franksolomon
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to 
-ms.date: 06/28/2023
+ms.date: 10/05/2023
 ms.custom: template-how-to 
 ---
 
@@ -50,7 +50,8 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
 ---
 
 > [!NOTE]
-> To learn more about resource access while using Azure Machine Learning serverless Spark compute (preview), and attached Synapse Spark pool, see [Ensuring resource access for Spark jobs](apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs).
+>- To learn more about resource access while using Azure Machine Learning serverless Spark compute and attached Synapse Spark pool, see [Ensuring resource access for Spark jobs](apache-spark-environment-configuration.md#ensuring-resource-access-for-spark-jobs).
+>- Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access compute quota to perform testing for a limited time. When you use the serverless Spark compute, Azure Machine Learning allows you to access this shared quota for a short time.
 
 ### Attach user assigned managed identity using CLI v2
 
@@ -85,7 +86,7 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
         }
     }
     ```
-1. Execute the following command in the PowerShell prompt or the command prompt, to attach the user-assigned managed identity to the workspace.
+1. To attach the user-assigned managed identity to the workspace, execute the following command in the PowerShell prompt or the command prompt.
     ```cmd
     armclient PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<AML_WORKSPACE_NAME>?api-version=2022-05-01 '@<JSON_FILE_NAME>.json'
     ```
@@ -94,10 +95,10 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
 > - To ensure successful execution of the Spark job, assign the **Contributor** and **Storage Blob Data Contributor** roles, on the Azure storage account used for data input and output, to the identity that the Spark job uses
 > - Public Network Access should be enabled in Azure Synapse workspace to ensure successful execution of the Spark job using an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md).
 > - If an [attached Synapse Spark pool](./how-to-manage-synapse-spark-pool.md) points to a Synapse Spark pool, in an Azure Synapse workspace that has a managed virtual network associated with it, [a managed private endpoint to storage account should be configured](../synapse-analytics/security/connect-to-a-secure-storage-account.md) to ensure data access.
-> - Serverless Spark compute supports Azure Machine Learning managed virtual network (preview). If a [managed network is provisioned for the serverless Spark compute, the corresponding private endpoints for the storage account should also be provisioned](./how-to-managed-network.md#configure-for-serverless-spark-jobs) to ensure data access.
+> - Serverless Spark compute supports Azure Machine Learning managed virtual network. If a [managed network is provisioned for the serverless Spark compute, the corresponding private endpoints for the storage account should also be provisioned](./how-to-managed-network.md#configure-for-serverless-spark-jobs) to ensure data access.
 
 ## Submit a standalone Spark job
-A Python script developed by [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md) can be used to submit a batch job to process a larger volume of data, after making necessary changes for Python script parameterization. A simple data wrangling batch job can be submitted as a standalone Spark job.
+After making necessary changes for Python script parameterization, a Python script developed by [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md) can be used to submit a batch job to process a larger volume of data. A simple data wrangling batch job can be submitted as a standalone Spark job.
 
 A Spark job requires a Python script that takes arguments, which can be developed with modification of the Python code developed from [interactive data wrangling](./interactive-data-wrangling-with-apache-spark-azure-ml.md). A sample Python script is shown here.
 
@@ -128,14 +129,14 @@ df.to_csv(args.wrangled_data, index_col="PassengerId")
 ```
 
 > [!NOTE]
-> This Python code sample uses `pyspark.pandas`, which is only supported by Spark runtime version 3.2.
+> This Python code sample uses `pyspark.pandas`. Only the Spark runtime version 3.2 or later supports this.
 
 The above script takes two arguments `--titanic_data` and `--wrangled_data`, which pass the path of input data and output folder respectively.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-To create a job, a standalone Spark job can be defined as a YAML specification file, which can be used in the `az ml job create` command, with the `--file` parameter. Define these properties in the YAML file as follows:
+To create a job, a standalone Spark job can be defined as a YAML specification file, which can be used in the `az ml job create` command, with the `--file` parameter. Define these properties in the YAML file:
 
 ### YAML properties in the Spark job specification
 
@@ -169,20 +170,16 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
     - `standard_e32s_v3`
     - `standard_e64s_v3`
   - `runtime_version` - defines the Spark runtime version. The following Spark runtime versions are currently supported:
-    - `3.1`
     - `3.2`
     - `3.3`
       > [!IMPORTANT]
       > Azure Synapse Runtime for Apache Spark: Announcements
-      > * Azure Synapse Runtime for Apache Spark 3.1:
-      >   * End of Life (EOLA) Announcement Date: January 26, 2023 
-      >   * End of Support Date: July 31, 2023. After this date, the runtime will be disabled. 
       > * Azure Synapse Runtime for Apache Spark 3.2:
       >   * EOLA Announcement Date: July 8, 2023
       >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
       > * For continued support and optimal performance, we advise migrating to Apache Spark 3.3.
 
-  An example is shown here:
+  This is an example:
   ```yaml
   resources:
     instance_type: standard_e8s_v3
@@ -225,7 +222,7 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
         path: azureml://datastores/workspaceblobstore/paths/data/wrangled/
         mode: direct
     ```
-- `identity` - this optional property defines the identity used to submit this job. It can have `user_identity` and `managed` values. If the YAML specification does not define an identity, the Spark job uses the default identity.
+- `identity` - this optional property defines the identity used to submit this job. It can have `user_identity` and `managed` values. If the YAML specification doesn't define an identity, the Spark job uses the default identity.
 
 ### Standalone Spark job
 
@@ -271,9 +268,9 @@ resources:
 ```
 
 > [!NOTE]
-> To use an attached Synapse Spark pool, define the `compute` property in the sample YAML specification file shown above, instead of the `resources` property.
+> To use an attached Synapse Spark pool, define the `compute` property in the sample YAML specification file shown earlier, instead of the `resources` property.
 
-The YAML files shown above can be used in the `az ml job create` command, with the `--file` parameter, to create a standalone Spark job as shown:
+The YAML files shown earlier can be used in the `az ml job create` command, with the `--file` parameter, to create a standalone Spark job as shown:
 
 ```azurecli
 az ml job create --file <YAML_SPECIFICATION_FILE_NAME>.yaml --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME>
@@ -319,14 +316,10 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
     - `Standard_E32S_V3`
     - `Standard_E64S_V3`
   - `runtime_version` - a key that defines the Spark runtime version. The following Spark runtime versions are currently supported:
-    - `3.1.0`
     - `3.2.0`   
     - `3.3.0`   
       > [!IMPORTANT]
       > Azure Synapse Runtime for Apache Spark: Announcements
-      > * Azure Synapse Runtime for Apache Spark 3.1:
-      >   * End of Life (EOLA) Announcement Date: January 26, 2023 
-      >   * End of Support Date: July 31, 2023. After this date, the runtime will be disabled. 
       > * Azure Synapse Runtime for Apache Spark 3.2:
       >   * EOLA Announcement Date: July 8, 2023
       >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
@@ -434,9 +427,6 @@ To submit a standalone Spark job using the Azure Machine Learning studio UI:
     2. Select **Spark runtime version**.
       > [!IMPORTANT]
       > Azure Synapse Runtime for Apache Spark: Announcements
-      > * Azure Synapse Runtime for Apache Spark 3.1:
-      >   * End of Life (EOLA) Announcement Date: January 26, 2023 
-      >   * End of Support Date: July 31, 2023. After this date, the runtime will be disabled. 
       > * Azure Synapse Runtime for Apache Spark 3.2:
       >   * EOLA Announcement Date: July 8, 2023
       >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
@@ -519,7 +509,7 @@ A Spark component offers the flexibility to use the same component in multiple [
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-YAML syntax for a Spark component resembles the [YAML syntax for Spark job specification](#yaml-properties-in-the-spark-job-specification) in most ways. These properties are defined differently in the Spark component YAML specification:
+The YAML syntax for a Spark component resembles the [YAML syntax for Spark job specification](#yaml-properties-in-the-spark-job-specification) in most ways. These properties are defined differently in the Spark component YAML specification:
 - `name` - the name of the Spark component.
 - `version` - the version of the Spark component.
 - `display_name` - the name of the Spark component to display in the UI and elsewhere.
@@ -612,12 +602,12 @@ jobs:
 
     resources:
       instance_type: standard_e8s_v3
-      runtime_version: "3.2"
+      runtime_version: "3.3"
 ```
 > [!NOTE]
 > To use an attached Synapse Spark pool, define the `compute` property in the sample YAML specification file shown above, instead of `resources` property.
 
-The above YAML specification file can be used in `az ml job create` command, using the `--file` parameter, to create a pipeline job as shown:
+The above YAML specification file can be used in the `az ml job create` command, using the `--file` parameter, to create a pipeline job as shown:
 
 ```azurecli
 az ml job create --file <YAML_SPECIFICATION_FILE_NAME>.yaml --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP> --workspace-name <AML_WORKSPACE_NAME>
@@ -631,15 +621,15 @@ You can execute the above command from:
 # [Python SDK](#tab/sdk)
 [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-To create an Azure Machine Learning pipeline with a Spark component, you should have familiarity with creation of [Azure Machine Learning pipelines from components, using Python SDK](./tutorial-pipeline-python-sdk.md#create-the-pipeline-from-components). A Spark component is created using `azure.ai.ml.spark` function. The function parameters are defined almost the same way as for the [standalone Spark job](#standalone-spark-job-using-python-sdk). These parameters are defined differently for the Spark component:
+To create an Azure Machine Learning pipeline with a Spark component, you should know about the creation of [Azure Machine Learning pipelines from components, using Python SDK](./tutorial-pipeline-python-sdk.md#create-the-pipeline-from-components). A Spark component is created using `azure.ai.ml.spark` function. The function parameters are defined almost the same way as for the [standalone Spark job](#standalone-spark-job-using-python-sdk). These parameters are defined differently for the Spark component:
 
 - `name` - the name of the Spark component.
 - `display_name` - the name of the Spark component displayed in the UI and elsewhere.
-- `inputs` - this parameter is similar to `inputs` parameter described for the [standalone Spark job](#standalone-spark-job-using-python-sdk), except that the `azure.ai.ml.Input` class is instantiated without the `path` parameter.
-- `outputs` - this parameter is similar to `outputs` parameter described for the [standalone Spark job](#standalone-spark-job-using-python-sdk), except that the `azure.ai.ml.Output` class is instantiated without the `path` parameter.
+- `inputs` - this parameter resembles the `inputs` parameter described for the [standalone Spark job](#standalone-spark-job-using-python-sdk), except that the `azure.ai.ml.Input` class is instantiated without the `path` parameter.
+- `outputs` - this parameter resembles the `outputs` parameter described for the [standalone Spark job](#standalone-spark-job-using-python-sdk), except that the `azure.ai.ml.Output` class is instantiated without the `path` parameter.
 
 > [!NOTE]
-> A Spark component created using `azure.ai.ml.spark` function does not define `identity`,  `compute` or `resources` parameters. The Azure Machine Learning pipeline defines these parameters.
+> A Spark component created using `azure.ai.ml.spark` function does not define the `identity`,  `compute` or `resources` parameters. The Azure Machine Learning pipeline defines these parameters.
 
 You can submit a pipeline job with a Spark component from:
 - an Azure Machine Learning Notebook connected to an Azure Machine Learning compute instance. 
@@ -733,6 +723,36 @@ To troubleshoot a Spark job, you can access the logs generated for that job in A
 
 > [!NOTE]
 > To troubleshoot Spark jobs created during interactive data wrangling in a notebook session, select **Job details** near the top right corner of the notebook UI. A Spark jobs from an interactive notebook session is created under the experiment name **notebook-runs**.
+
+## Improving serverless Spark session start-up time while using session-level Conda packages
+A serverless Spark session [*cold start* with session-level Conda packages](./apache-spark-azure-ml-concepts.md#inactivity-periods-and-tear-down-mechanism) may take 10 to 15 minutes. You can improve the Spark session *cold start* time by setting configuration variable `spark.hadoop.aml.enable_cache` to true. Declaring this configuration variable is optional. To ensure that the configuration variable was set successfully, check status of the latest job in the experiment `cachejobmamangement`. A successful job indicates that the cache was created successfully. A session *cold start* with session level Conda packages typically takes 10 to 15 minutes when the session starts for the first time. However, subsequent session *cold starts* typically take three to five minutes.
+
+# [CLI](#tab/cli)
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+
+Use the `conf` property in the standalone Spark job, or the Spark component YAML specification file, to define the configuration variable `spark.hadoop.aml.enable_cache`.
+
+```yaml
+conf:
+  spark.hadoop.aml.enable_cache: True
+```
+
+# [Python SDK](#tab/sdk)
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+
+Use the `conf` parameter of the `azure.ai.ml.spark` function to define the configuration variable `spark.hadoop.aml.enable_cache`.
+
+```python
+conf={"spark.hadoop.aml.enable_cache": "true"},
+```
+
+# [Studio UI](#tab/ui)
+
+Define configuration variable `spark.hadoop.aml.enable_cache` in the **Configure session** user interface, under **Configuration settings**. Set the value of this variable to `true`.  
+
+:::image type="content" source="./media/how-to-submit-spark-jobs/spark-session-enable-cache.png" lightbox="./media/how-to-submit-spark-jobs/spark-session-enable-cache.png" alt-text="Expandable diagram that shows Spark session configuration tag to enable cache.":::
+
+---
 
 ## Next steps
 

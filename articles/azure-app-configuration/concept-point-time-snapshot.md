@@ -3,9 +3,10 @@ title: Retrieve key-values from a point-in-time
 titleSuffix: Azure App Configuration
 description: Retrieve old key-values using point-in-time revisions in Azure App Configuration, which maintains a record of changes to key-values.
 services: azure-app-configuration
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 05/24/2023
 ---

@@ -41,7 +41,7 @@ To run a load test in your CI/CD workflow, you need to grant permission to the C
 
 ### Create a service connection in Azure Pipelines
 
-In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates an Azure Active Directory service principal object.
+In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates a Microsoft Entra service principal object.
 
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
     
@@ -95,7 +95,7 @@ You can now use the service connection in your Azure Pipelines workflow definiti
 
 # [GitHub Actions](#tab/github)
 
-To access your Azure Load Testing resource from the GitHub Actions workflow, you first create an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. 
+To access your Azure Load Testing resource from the GitHub Actions workflow, you first create a Microsoft Entra [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Microsoft Entra ID. 
 
 Next, you grant permissions to the service principal to create and run a load test with your Azure Load Testing resource.
 

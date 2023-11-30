@@ -2,10 +2,9 @@
 title: 'Quickstart - Get started using GPT-35-Turbo and GPT-4 with Azure OpenAI Service'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with GPT-35-Turbo and GPT-4 on Azure OpenAI Service.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.custom: build-2023, build-2023-dataai, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-go
 ms.topic: quickstart
 author: mrbullwinkle

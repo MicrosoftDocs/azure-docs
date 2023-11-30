@@ -6,17 +6,19 @@ ms.date: 08/10/2023
 ---
 
 # Azure Relay authentication and authorization
-There are two ways to authenticate and authorize access to Azure Relay resources: Azure Active Directory (Azure AD) and Shared Access Signatures (SAS). This article gives you details on using these two types of security mechanisms.
+There are two ways to authenticate and authorize access to Azure Relay resources: Microsoft Entra ID and Shared Access Signatures (SAS). This article gives you details on using these two types of security mechanisms.
 
-## Azure Active Directory 
-Azure AD integration for Azure Relay resources provides Azure role-based access control (Azure RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access an Azure Relay resource.
+<a name='azure-active-directory'></a>
 
-For more information about authenticating with Azure AD, see the following articles:
+## Microsoft Entra ID 
+Microsoft Entra integration for Azure Relay resources provides Azure role-based access control (Azure RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Microsoft Entra ID to return an OAuth 2.0 token. The token can be used to authorize a request to access an Azure Relay resource.
+
+For more information about authenticating with Microsoft Entra ID, see the following articles:
 - [Authenticate with managed identities](authenticate-managed-identity.md)
-- [Authenticate from an Azure Active Directory application](authenticate-application.md)
+- [Authenticate from a Microsoft Entra application](authenticate-application.md)
 
 > [!IMPORTANT]
-> Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store tokens in your code and risk potential security vulnerabilities. We recommend that you use Azure AD with your Azure Relay applications when possible.
+> Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there is no need to store tokens in your code and risk potential security vulnerabilities. We recommend that you use Microsoft Entra ID with your Azure Relay applications when possible.
 
 ### Built-in roles
 For Azure Relay, the management of namespaces and all related resources through the Azure portal and the Azure resource management API is already protected using the Azure RBAC model. Azure provides the below Azure built-in roles for authorizing access to a Relay namespace:

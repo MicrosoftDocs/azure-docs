@@ -1,11 +1,11 @@
 ---
 title: Localization - Azure Active Directory B2C
 description: Specify the Localization element of a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 03/06/2022
 ms.author: kengaderdus

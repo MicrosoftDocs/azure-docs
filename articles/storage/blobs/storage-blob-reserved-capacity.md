@@ -5,7 +5,7 @@ description: Learn about purchasing Azure Storage reserved capacity to save cost
 services: storage
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: akashdubey

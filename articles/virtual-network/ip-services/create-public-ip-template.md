@@ -220,6 +220,6 @@ To use a standard global public IPv4 address, the template section should look s
 For more information on the public IP properties listed in this article, see [Manage public IP addresses](virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## Next steps
-- Associate a [public IP address to a Virtual Machine](./associate-public-ip-address-vm.md#azure-portal)
+- Associate a [public IP address to a Virtual Machine](./associate-public-ip-address-vm.md)
 - Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).

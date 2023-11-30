@@ -4,6 +4,7 @@ description: Documentation of Azure Storage Explorer start-up command-line optio
 services: storage
 author: JasonYeMSFT
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: article
 ms.date: 02/24/2021
 ms.author: chuye

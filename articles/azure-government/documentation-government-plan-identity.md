@@ -9,7 +9,7 @@ ms.date: 06/15/2022
 
 # Planning identity for Azure Government applications
 
-Microsoft Azure Government provides the same ways to build applications and manage identities as Azure Public. Azure Government customers may already have an Azure Active Directory (Azure AD) Public tenant or may create a tenant in Azure AD Government. This article provides guidance on identity decisions based on the application and location of your identity.
+Microsoft Azure Government provides the same ways to build applications and manage identities as Azure Public. Azure Government customers may already have a Microsoft Entra Public tenant or may create a tenant in Microsoft Entra Government. This article provides guidance on identity decisions based on the application and location of your identity.
 
 ## Identity models
 
@@ -17,44 +17,44 @@ Before determining the identity approach for your application, you need to know 
 
 |On-premises identity|Cloud identity|Hybrid identity|
 |---|---|---|
-|On-premises identities belong to on-premises Active Directory environments that most customers use today.|Cloud identities originate, exist only, and are managed in Azure AD.|Hybrid identities originate as on-premises identities, but become hybrid through directory synchronization to Azure AD. After directory synchronization, they exist both on-premises and in the cloud, hence hybrid.|
+|On-premises identities belong to on-premises Active Directory environments that most customers use today.|Cloud identities originate, exist only, and are managed in Microsoft Entra ID.|Hybrid identities originate as on-premises identities, but become hybrid through directory synchronization to Microsoft Entra ID. After directory synchronization, they exist both on-premises and in the cloud, hence hybrid.|
  
 > [!NOTE]
-> Hybrid comes with deployment options (synchronized identity, federated identity, and so on) that all rely on directory synchronization and mostly define how identities are authenticated as discussed in [What is hybrid identity with Azure Active Directory?](../active-directory/hybrid/whatis-hybrid-identity.md).
+> Hybrid comes with deployment options (synchronized identity, federated identity, and so on) that all rely on directory synchronization and mostly define how identities are authenticated as discussed in [What is hybrid identity with Microsoft Entra ID?](../active-directory/hybrid/whatis-hybrid-identity.md).
 >
 
 ## Selecting identity for an Azure Government application
 
 When building any Azure application, you must first decide on the authentication technology:
 
-- **Applications using modern authentication** – Applications using OAuth, OpenID Connect, and/or other modern authentication protocols supported by Azure AD such as newly developed application built using PaaS technologies, for example, Web Apps, Azure SQL Database, and so on.
+- **Applications using modern authentication** – Applications using OAuth, OpenID Connect, and/or other modern authentication protocols supported by Microsoft Entra such as newly developed application built using PaaS technologies, for example, Web Apps, Azure SQL Database, and so on.
 - **Applications using legacy authentication protocols (Kerberos/NTLM)** – Applications typically migrated from on-premises, for example, lift-and-shift applications.
 
 Based on this decision, there are different considerations when building and deploying on Azure Government.
 
 ### Applications using modern authentication in Azure Government
 
-[Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) shows how you can use Azure AD to provide secure sign-in and authorization to your applications. This process is the same for Azure Public and Azure Government once you choose your identity authority.
+[Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) shows how you can use Microsoft Entra ID to provide secure sign-in and authorization to your applications. This process is the same for Azure Public and Azure Government once you choose your identity authority.
 
 #### Choosing your identity authority
 
-Azure Government applications can use Azure AD Government identities, but can you use Azure AD Public identities to authenticate to an application hosted in Azure Government? Yes! Since you can use either identity authority, you need to choose which to use:
+Azure Government applications can use Microsoft Entra Government identities, but can you use Microsoft Entra Public identities to authenticate to an application hosted in Azure Government? Yes! Since you can use either identity authority, you need to choose which to use:
 
--	**Azure AD Public** – Commonly used if your organization already has an Azure AD Public tenant to support Office 365 (Public or GCC) or another application.
--	**Azure AD Government** - Commonly used if your organization already has an Azure AD Government tenant to support Office 365 (GCC High or DoD) or are creating a new tenant in Azure AD Government.
+-	**Microsoft Entra Public** – Commonly used if your organization already has a Microsoft Entra Public tenant to support Office 365 (Public or GCC) or another application.
+-	**Microsoft Entra Government** - Commonly used if your organization already has a Microsoft Entra Government tenant to support Office 365 (GCC High or DoD) or are creating a new tenant in Microsoft Entra Government.
 
-Once decided, the special consideration is where you perform your app registration. If you choose Azure AD Public identities for your Azure Government application, you must register the application in your Azure AD Public tenant. Otherwise, if you perform the app registration in the directory the subscription trusts (Azure Government) the intended set of users can't authenticate.
+Once decided, the special consideration is where you perform your app registration. If you choose Microsoft Entra Public identities for your Azure Government application, you must register the application in your Microsoft Entra Public tenant. Otherwise, if you perform the app registration in the directory the subscription trusts (Azure Government) the intended set of users can't authenticate.
 
 > [!NOTE]
-> Applications registered with Azure AD only allow sign-in from users in the Azure AD tenant the application was registered in. If you have multiple Azure AD Public tenants, it’s important to know which is intended to allow sign-ins from. If you intend to allow users to authenticate to the application from multiple Azure AD tenants the application must be registered in each tenant.
+> Applications registered with Microsoft Entra-only allow sign-in from users in the Microsoft Entra tenant the application was registered in. If you have multiple Microsoft Entra Public tenants, it’s important to know which is intended to allow sign-ins from. If you intend to allow users to authenticate to the application from multiple Microsoft Entra tenants the application must be registered in each tenant.
 >
 
 The other consideration is the identity authority URL. You need the correct URL based on your chosen authority:
 
 |Identity authority|URL|
 |------------------|---|
-|Azure AD Public|login.microsoftonline.com|
-|Azure AD Government|login.microsoftonline.us|
+|Microsoft Entra Public|login.microsoftonline.com|
+|Microsoft Entra Government|login.microsoftonline.us|
 
 ### Applications using legacy authentication protocols (Kerberos/NTLM)
 
@@ -83,7 +83,7 @@ First, see [Connect to Azure Government using portal](./documentation-government
 There are a few important points that set the foundation of this section:
 
 - Azure subscriptions only trust one directory, therefore subscription administration must be performed by an identity from that directory.
-- Azure Public subscriptions trust directories in Azure AD Public whereas Azure Government subscriptions trust directories in Azure AD Government.
+- Azure Public subscriptions trust directories in Microsoft Entra Public whereas Azure Government subscriptions trust directories in Microsoft Entra Government.
 - If you have both Azure Public and Azure Government subscriptions, separate identities for both are required.
 
 The currently supported identity scenarios to simultaneously manage Azure Public and Azure Government subscriptions are:
@@ -100,7 +100,7 @@ The following diagram is the simplest of the scenarios to implement.
 
 :::image type="content" source="./media/documentation-government-plan-identity-cloud-identities-for-subscription-administration.png" alt-text="Multi-cloud subscription administration option using cloud identities for Office 365 and Azure Government." border="false":::
 
-While using cloud identities is the simplest approach, it is also the least secure because passwords are used as an authentication factor. We recommend [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
+While using cloud identities is the simplest approach, it is also the least secure because passwords are used as an authentication factor. We recommend [Microsoft Entra multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
 
 ### Using hybrid and cloud identities for multi-cloud subscription administration
 
@@ -118,13 +118,13 @@ In this scenario, hybrid identities are used to administrator subscriptions in b
 
 ## Frequently asked questions
 
-**Why does Office 365 GCC use Azure AD Public?** </br>
-The first Office 365 US Government environment, Government Community Cloud (GCC), was created when Microsoft had a single cloud directory. The Office 365 GCC environment was designed to use Azure AD Public while still adhering to controls and requirements outlined in FedRAMP Moderate, Criminal Justice Information Services (CJIS), Internal Revenue Service (IRS) 1075, and National Institute of Standards and Technology (NIST) Special Publication (SP) 800-171. Azure Government, with its Azure AD infrastructure, was created later. By that time, GCC had already secured the necessary compliance authorizations (for example, FedRAMP Moderate and CJIS) to meet Federal, State, and Local government requirements while serving hundreds of thousands of customers. Now, many Office 365 GCC customers have two Azure AD tenants: one from the Azure AD subscription that supports Office 365 GCC and the other from their Azure Government subscription, with identities in both.
+**Why does Office 365 GCC use Microsoft Entra Public?** </br>
+The first Office 365 US Government environment, Government Community Cloud (GCC), was created when Microsoft had a single cloud directory. The Office 365 GCC environment was designed to use Microsoft Entra Public while still adhering to controls and requirements outlined in FedRAMP Moderate, Criminal Justice Information Services (CJIS), Internal Revenue Service (IRS) 1075, and National Institute of Standards and Technology (NIST) Special Publication (SP) 800-171. Azure Government, with its Microsoft Entra infrastructure, was created later. By that time, GCC had already secured the necessary compliance authorizations (for example, FedRAMP Moderate and CJIS) to meet Federal, State, and Local government requirements while serving hundreds of thousands of customers. Now, many Office 365 GCC customers have two Microsoft Entra tenants: one from the Microsoft Entra subscription that supports Office 365 GCC and the other from their Azure Government subscription, with identities in both.
 
 **How do I identify an Azure Government tenant?** </br>
 Here’s a way to find out using your browser of choice:
 
-   - Obtain your tenant name (for example, contoso.onmicrosoft.com) or a domain name registered to your Azure AD tenant (for example, contoso.gov).  
+   - Obtain your tenant name (for example, contoso.onmicrosoft.com) or a domain name registered to your Microsoft Entra tenant (for example, contoso.gov).  
    - Navigate to `https://login.microsoftonline.com/<domainname>/.well-known/openid-configuration`
      - \<domainname\> can either be the tenant name or domain name you gathered in the previous step.
      - **An example URL**: `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`
@@ -142,16 +142,16 @@ Here’s a way to find out using your browser of choice:
      - The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Public in North America, the value would be **NA**.
 
 **If I’m an Office 365 GCC customer and want to build solutions in Azure Government do I need to have two tenants?** </br>
-Yes, the Azure AD Government tenant is required for your Azure Government subscription administration.
+Yes, the Microsoft Entra Government tenant is required for your Azure Government subscription administration.
 
 **If I’m an Office 365 GCC customer that has built workloads in Azure Government, where should I authenticate from: Public or Government?** </br>
 See [Choosing your identity authority](#choosing-your-identity-authority) earlier in this article.
 
-**I’m an Office 365 customer and have chosen hybrid identity as my identity model. I also have several Azure subscriptions. Is it possible to use the same Azure AD tenant to handle sign-in for Office 365, applications built in my Azure subscriptions, and/or applications reconfigured to use Azure AD for sign-in?** </br>
-Yes, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to learn more about the relationship between Azure subscriptions and Azure AD. It also contains instructions on how to associate subscriptions to the common directory of your choosing.
+**I’m an Office 365 customer and have chosen hybrid identity as my identity model. I also have several Azure subscriptions. Is it possible to use the same Microsoft Entra tenant to handle sign-in for Office 365, applications built in my Azure subscriptions, and/or applications reconfigured to use Microsoft Entra ID for sign-in?** </br>
+Yes, see [Associate or add an Azure subscription to your Microsoft Entra tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to learn more about the relationship between Azure subscriptions and Microsoft Entra ID. It also contains instructions on how to associate subscriptions to the common directory of your choosing.
 
-**Can an Azure Government subscription be associated with a directory in Azure AD Public?** </br>
-No, the ability to manage Azure Government subscriptions requires identities sourced from a directory in Azure AD Government.
+**Can an Azure Government subscription be associated with a directory in Microsoft Entra Public?** </br>
+No, the ability to manage Azure Government subscriptions requires identities sourced from a directory in Microsoft Entra Government.
 
 ## Next steps
 
@@ -160,4 +160,4 @@ No, the ability to manage Azure Government subscriptions requires identities sou
 - [Azure Government compliance](./documentation-government-plan-compliance.md)
 - [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)
 - [Multi-tenant user management](../active-directory/fundamentals/multi-tenant-user-management-introduction.md)
-- [Azure Active Directory fundamentals documentation](../active-directory/fundamentals/index.yml)
+- [Microsoft Entra fundamentals documentation](../active-directory/fundamentals/index.yml)

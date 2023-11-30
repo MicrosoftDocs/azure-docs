@@ -1,85 +1,73 @@
 ---
-title: Microsoft Defender for DevOps - the benefits and features
-description: Learn about the benefits and features of Microsoft Defender for
+title: Microsoft Defender for Cloud DevOps security - the benefits and features
+description: Learn about the benefits and features of Microsoft DevOps security
 ms.date: 01/24/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
 
-# Overview of Defender for DevOps
+# Overview of Microsoft Defender for Cloud DevOps Security 
 
-> [!IMPORTANT]
-> Microsoft Defender for DevOps is constantly making changes and updates that require Defender for DevOps customers who have onboarded their GitHub environments in Defender for Cloud to provide permissions as part of the application deployed in their GitHub organization. These permissions are necessary to ensure all of the security features of Defender for DevOps operate normally and without issues.
-> 
-> Please see the recent release note for [instructions on how to add these additional permissions](release-notes.md#defender-for-devops-github-application-update).
+Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, GCP, and on-premises resources. 
 
-Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across multicloud environments including Azure, AWS, GCP, and on-premises resources. Defender for DevOps, a service available in Defender for Cloud, empowers security teams to manage DevOps security across multi-pipeline environments.
+DevOps security within Defender for Cloud uses a central console to empower security teams with the ability to protect applications and resources from code to cloud across multi-pipeline environments, including Azure DevOps, GitHub, and GitLab. DevOps security recommendations can then be correlated with other contextual cloud security insights to prioritize remediation in code. Key DevOps security capabilities include:
 
-Defender for DevOps uses a central console to empower security teams with the ability to protect applications and resources from code to cloud across multi-pipeline environments, such as GitHub and Azure DevOps. Findings from Defender for DevOps can then be correlated with other contextual cloud security insights to prioritize remediation in code. Key capabilities in Defender for DevOps include: 
-
-- **Unified visibility into DevOps security posture**: Security administrators now have full visibility into DevOps inventory and the security posture of pre-production application code, which includes findings from code, secret, and open-source dependency vulnerability scans. They can configure their DevOps resources across multi-pipeline and multicloud environments in a single view.
+- **Unified visibility into DevOps security posture**: Security administrators now have full visibility into DevOps inventory and the security posture of preproduction application code across multi-pipeline and multicloud environments, which includes findings from code, secret, and open-source dependency vulnerability scans. They can also [assess the security configurations of their DevOps environment](concept-devops-posture-management-overview.md).
 
 - **Strengthen cloud resource configurations throughout the development lifecycle**: You can enable security of Infrastructure as Code (IaC) templates and container images to minimize cloud misconfigurations reaching production environments, allowing security administrators to focus on any critical evolving threats.
 
-- **Prioritize remediation of critical issues in code**: Apply comprehensive code to cloud contextual insights within Defender for Cloud. Security admins can help developers prioritize critical code fixes with Pull Request annotations and assign developer ownership by triggering custom workflows feeding directly into the tools developers use and love.
+- **Prioritize remediation of critical issues in code**: Apply comprehensive code-to-cloud contextual insights within Defender for Cloud. Security admins can help developers prioritize critical code fixes with pull request annotations and assign developer ownership by triggering custom workflows feeding directly into the tools developers know and love.
 
-Defender for DevOps helps unify, strengthen and manage multi-pipeline DevOps security. 
-
-## Availability
-| Aspect | Details |
-|--|--|
-| Release state: | Preview<br>The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. |
-| Clouds | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
-| Regions: | Australia East, Central US, West Europe |
-| Source Code Management Systems | [Azure DevOps](https://portal.azure.com/#home) <br>[GitHub](https://github.com/) supported versions: GitHub Free, Pro, Team, and GitHub Enterprise Cloud | 
-| Required permissions: | <br> **Azure account** - with permissions to sign into Azure portal. <br> **Contributor** - on the relevant Azure subscription. <br> **Organization Administrator** - in GitHub. <br> **Security Admin role** - in Defender for Cloud. |
+These features help unify, strengthen, and manage multi-pipeline DevOps resources. 
 
 ## Manage your DevOps environments in Defender for Cloud
 
-Defender for DevOps allows you to manage your connected environments and provides your security teams with a high level overview of discovered issues that may exist within them through the [Defender for DevOps console](https://portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/DevOpsSecurity).
+DevOps security in Defender for Cloud allow you to manage your connected environments and provide your security teams with a high-level overview of issues discovered in those environments through the [DevOps security console](https://portal.azure.com/#view/Microsoft_Azure_Security/SecurityMenuBlade/~/DevOpsSecurity).
 
-:::image type="content" source="media/defender-for-devops-introduction/devops-dashboard.png" alt-text="Screenshot of the Defender for DevOps dashboard." lightbox="media/defender-for-devops-introduction/devops-dashboard.png":::
+:::image type="content" source="media/defender-for-devops-introduction/devops-security-overview-2.png" alt-text="Screenshot of the top of the DevOps security page that shows all of your onboarded environments and their metrics." lightbox="media/defender-for-devops-introduction/devops-metrics.png":::
 
-Here, you can [add GitHub](quickstart-onboard-github.md) and [Azure DevOps](quickstart-onboard-devops.md) environments, customize DevOps workbooks to show your desired metrics, view our guides and give feedback, and [configure your pull request annotations](enable-pull-request-annotations.md).
+Here, you can add [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickstart-onboard-github.md), and [GitLab](quickstart-onboard-gitlab.md) environments, customize the [DevOps workbook](custom-dashboards-azure-workbooks.md#use-the-devops-security-workbook) to show your desired metrics, [configure pull request annotations](enable-pull-request-annotations.md), and view our guides and give feedback.
 
 ### Understanding your DevOps security
 
-:::image type="content" source="media/defender-for-devops-introduction/devops-metrics.png" alt-text="Screenshot of the top of the Defender for DevOps page that shows all of your attached environments and their metrics." lightbox="media/defender-for-devops-introduction/devops-metrics.png":::
-
 |Page section| Description |
 |--|--|
-| :::image type="content" source="media/defender-for-devops-introduction/number-vulnerabilities.png" alt-text="Screenshot of the vulnerabilities section of the page."::: | Shows the total number of vulnerabilities found by Defender for DevOps. You can organize the results by severity level. |
-| :::image type="content" source="media/defender-for-devops-introduction/number-findings.png" alt-text="Screenshot of the findings section and the associated recommendations."::: | Presents the total number of findings by scan type and the associated recommendations for any onboarded resources. Selecting a result takes you to corresponding recommendations. |
-| :::image type="content" source="media/defender-for-devops-introduction/connectors-section.png" alt-text="Screenshot of the connectors section."::: | Provides visibility into the number of connectors and repositories that have been onboarded by an environment. |
+| :::image type="content" source="media/defender-for-devops-introduction/security-overview.png" alt-text="Screenshot of the scan finding metrics sections of the page."::: | Total number of DevOps security scan findings (code, secret, dependency, infrastructure-as-code) grouped by severity level and by finding type. |
+| :::image type="content" source="media/defender-for-devops-introduction/connectors-section.png" alt-text="Screenshot of the DevOps environment posture management recommendation card."::: | Provides visibility into the number of DevOps environment posture management recommendations highlighting high severity findings and number of affected resources. |
+| :::image type="content" source="media/defender-for-devops-introduction/advanced-security.png" alt-text="Screenshot of DevOps advanced security coverage per source code management system onboarded."::: | Provides visibility into the number of DevOps resources with advanced security capabilities out of the total number of resources onboarded by environment. |
 
 ### Review your findings
 
-The lower half of the page allows you to review onboarded DevOps resources and the security information related to them.
+The DevOps inventory table allows you to review onboarded DevOps resources and the security information related to them.
 
-:::image type="content" source="media/defender-for-devops-introduction/bottom-of-page.png" alt-text="Screenshot of the lower half of the Defender for DevOps overview page." lightbox="media/defender-for-devops-introduction/bottom-of-page.png":::
+:::image type="content" source="media/defender-for-devops-introduction/inventory-grid.png" alt-text="Screenshot of the devops inventory table on the DevOps security overview page." lightbox="media/defender-for-devops-introduction/bottom-of-page.png":::
 
 On this part of the screen you see:
 
-- **Repositories** - Lists onboarded repositories from GitHub and Azure DevOps. View more information about a specific resource by selecting it.
+- **Name** - Lists onboarded DevOps resources from Azure DevOps, GitHub, and/or GitLab. View the resource health page by clicking it. 
+
+- **DevOps environment** - Describes the DevOps environment for the resource (that is, Azure DevOps, GitHub, GitLab).  Use this column to sort by environment if multiple environments have been onboarded.
+
+- **Advanced security status** -  Shows whether advanced security features are enabled for the DevOps resource. 
+    - `On` - Advanced security is enabled.
+    - `Off` - Advanced security is not enabled.
+    - `Partially enabled` - Certain Advanced security features is not enabled (for example, code scanning is off).
+    - `N/A` - Defender for Cloud doesn't have information about enablement.
+ 
+    > [!NOTE]
+    > Currently, this information is available only for Azure DevOps and GitHub repositories.
 
 - **Pull request annotation status** -  Shows whether PR annotations are enabled for the repository. 
     - `On` - PR annotations are enabled.
     - `Off` - PR annotations aren't enabled.
-    - `NA` - Defender for Cloud doesn't have information about enablement. 
+    - `N/A` - Defender for Cloud doesn't have information about enablement. 
     
     > [!NOTE]
     > Currently, this information is available only for Azure DevOps repositories.
 
-- **Exposed secrets** - Shows the number of secrets identified in the repositories.
+- **Findings** - Shows the total number of code, secret, dependency, and infrastructure-as-code findings identified in the DevOps resource.
 
-- **OSS vulnerabilities** – Shows the number of open source dependency vulnerabilities identified in the repositories. 
-
-    > [!NOTE]
-    > Currently, this information is available only for GitHub repositories.
-
-- **IaC scanning findings** – Shows the number of infrastructure as code misconfigurations identified in the repositories.
-
-- **Code scanning findings** – Shows the number of code vulnerabilities and misconfigurations identified in the repositories.
+This table can be viewed as a flat view at the DevOps resource level (repositories for Azure DevOps and GitHub, projects for GitLab) or in a grouping view showing organizations/projects/groups hierarchy.  Also, the table can be filtered by subscription, resource type, finding type, or severity.
 
 ## Learn more
 
@@ -93,6 +81,8 @@ On this part of the screen you see:
 
 ## Next steps
 
-[Configure the Microsoft Security DevOps GitHub action](github-action.md).
+[Connect your Azure DevOps organizations](quickstart-onboard-devops.md).
 
-[Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md)
+[Connect your GitHub organizations](quickstart-onboard-github.md).
+
+[Connect your GitLab groups](quickstart-onboard-gitlab.md).

@@ -4,7 +4,7 @@ description: This article answers common questions about Azure VM disaster recov
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: rochakm
-ms.date: 04/28/2022
+ms.date: 10/06/2023
 ms.topic: conceptual
 ms.service: site-recovery
 
@@ -48,8 +48,8 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 
 - Site Recovery supports ADE for Azure VMs running Windows.
 - Site Recovery supports:
-    - ADE version 0.1, which has a schema that requires Azure Active Directory (Azure AD).
-    - ADE version 1.1, which doesn't require Azure AD. For version 1.1, Microsoft Azure VMs must have managed disks.
+    - ADE version 0.1, which has a schema that requires Microsoft Entra ID.
+    - ADE version 1.1, which doesn't require Microsoft Entra ID. For version 1.1, Microsoft Azure VMs must have managed disks.
     - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema) about the extension schemas.
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
@@ -68,7 +68,7 @@ Yes, you can delete it if you don't need it.
 
 ### Can I replicate VMs to another subscription?
 
-Yes, you can replicate Azure VMs to any subscription within the same Azure AD tenant. When you enable disaster recovery for VMs, by default the target subscription shown is that of the source VM. You can modify the target subscription, and other settings (such as resource group and virtual network), are populated automatically from the selected subscription.
+Yes, you can replicate Azure VMs to any subscription within the same Microsoft Entra tenant. When you enable disaster recovery for VMs, by default the target subscription shown is that of the source VM. You can modify the target subscription, and other settings (such as resource group and virtual network), are populated automatically from the selected subscription.
 
 ### Can I replicate VMs in an availability zone to another region?
 
@@ -260,11 +260,7 @@ Site Recovery tries to provide the IP address at the time of failover. If anothe
 
 ### What's the *Latest* recovery point?
 
-The *Latest (lowest RPO)* recovery point option does the following:
-
-1. It first processes all the data that has been sent to Site Recovery.
-2. After the service processes the data, it creates a recovery point for each VM, before failing over to the VM. This option provides the lowest recovery point objective (RPO).
-3. The VM created after failover has all the data replicated to Site Recovery, from when the failover was triggered.
+The *Latest (lowest RPO)* recovery point option provides the lowest recovery point objective (RPO). It first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing over to it. It initially attempts to process and apply all data sent to Site Recovery service in the target location and create a recovery point using the processed data. However, if at the time failover was triggered, there is no data uploaded to Site Recovery service waiting to be processed, Azure Site Recovery will not perform any processing and hence, won't create a new recovery point. In this scenario, it will instead failover using the previously processed recovery point only.
 
 ### Do *latest* recovery points impact failover RTO?
 

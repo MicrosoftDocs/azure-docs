@@ -15,7 +15,7 @@ The following sections provide information about how to connect your ServiceNow 
 
 Ensure that you've met the following prerequisites:
 
-* Azure Active Directory is registered.
+* Microsoft Entra ID is registered.
 * You have the supported version of ServiceNow Event Management - ITOM (version New York or later).
 * The [application](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ac4c9c57dbb1d090561b186c1396191a/2.2.0) is installed on the ServiceNow instance.
 

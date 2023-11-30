@@ -103,7 +103,7 @@ For more information, see [About ExpressRoute Direct](./expressroute-erdirect-ab
 
 ### Bandwidth options
 
-You can purchase ExpressRoute circuits for a wide range of bandwidths. The supported bandwidths are listed as followed. Be sure to check with your connectivity provider to determine the bandwidths they support.
+You can purchase ExpressRoute circuits for a wide range of bandwidths. The supported bandwidths are listed as follows. Be sure to check with your connectivity provider to determine the bandwidths they support.
 
 * 50 Mbps
 * 100 Mbps
@@ -113,6 +113,8 @@ You can purchase ExpressRoute circuits for a wide range of bandwidths. The suppo
 * 2 Gbps
 * 5 Gbps
 * 10 Gbps
+
+The built-in redundancy of your circuit is configured using primary and secondary connections, each of the procured bandwidth, to two Microsoft Enterprise Edge routers (MSEEs). The bandwidth available through your secondary connection can be used for more traffic if necessary. Since the secondary connection is meant for redundancy, it isn't guaranteed and shouldn't be used for extra traffic for a sustained period of time. If you plan to use only your primary connection to transmit traffic, the bandwidth for the connection is fixed, and attempting to oversubscribe it results in increased packet drops.
 
 ### Dynamic scaling of bandwidth
 

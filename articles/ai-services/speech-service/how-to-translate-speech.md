@@ -2,11 +2,10 @@
 title: "How to translate speech - Speech service"
 titleSuffix: Azure AI services
 description: Learn how to translate speech from one language to text in another language, including object construction and supported audio input formats.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 06/08/2022

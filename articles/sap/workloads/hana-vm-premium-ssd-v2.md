@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 08/30/2023
+ms.date: 11/17/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -79,20 +79,24 @@ Configuration for SAP **/hana/data** volume:
 | M32ts | 192 GiB | 500 MBps | 20,000 | 224 GB | 425 MBps | 3,000| 
 | M32ls | 256 GiB | 500 MBps | 20,000 | 304 GB | 425 MBps | 3,000 | 
 | M64ls | 512 GiB | 1,000 MBps | 40,000 | 608 GB | 425 MBps | 3,000 | 
-| M32dms_v2, M32ms_v2 | 875 GiB  | 500 MBps | 30,000 | 1056 GB | 425 MBps | 3,000 | 
-| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 1232 GB | 600 MBps | 5,000 | 
-| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 50,000 | 2144 GB | 600 MBps | 5,000 |  
-| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 2464 GB | 800 MBps | 12,000| 
-| M192ids_v2, M192is_v2 | 2,048 GiB | 2,000 MBps | 80,000| 2464 GB | 800 MBps | 12,000| 
-| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 4672 GB | 800 MBps | 12,000 | 
-| M192ims, M192idms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 4912 GB | 800 MBps | 12,000 | 
+| M32(d)ms_v2 | 875 GiB  | 500 MBps | 30,000 | 1056 GB | 425 MBps | 3,000 | 
+| M48(d)s_1_v3, M96(d)s_1_v3 | 974 GiB | 1,560 MBps | 65,000 | 1232 GB | 600 MBps | 5,000 | 
+| M64s, M64(d)s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 1232 GB | 600 MBps | 5,000 | 
+| M64ms, M64(d)ms_v2 | 1,792 GiB | 1,000 MBps | 50,000 | 2144 GB | 600 MBps | 5,000 | 
+| M96(d)s_2_v3 | 1,946 GiB | 3,120 MBps | 130,000 | 2464 GB | 800 MBps | 12,000|  
+| M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 2464 GB | 800 MBps | 12,000| 
+| M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000| 2464 GB | 800 MBps | 12,000| 
+| M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 130,000 | 3424 GB | 1,000 MBps| 15,000 | 
+| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 130,000 | 4672 GB | 800 MBps | 12,000 | 
+| M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 4672 GB | 800 MBps | 12,000 | 
+| M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 4912 GB | 800 MBps | 12,000 | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 3424 GB | 1,000 MBps| 15,000 | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 40,000 | 6,848 GB | 1,000 MBps | 15,000 | 
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 6,848 GB | 1,200 MBps| 17,000 | 
 | M416s_8_v2 | 7,600 GiB | 2,000 MBps | 80,000 | 9,120 GB | 1,250 MBps| 20,000 | 
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 13,680 GB | 1,300 MBps| 25,000 | 
-| M832isx<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 
-| M832isx_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 
+| M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 
+| M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -115,20 +119,24 @@ For the **/hana/log** volume. the configuration would look like:
 | M32ts | 192 GiB | 500 MBps | 20,000 | 96 GB | 275 MBps | 3,000 | 192 GB | 
 | M32ls | 256 GiB | 500 MBps | 20,000 | 128 GB | 275 MBps | 3,000 | 256 GB | 
 | M64ls | 512 GiB | 1,000 MBps | 40,000 | 256 GB | 275 MBps | 3,000 | 512 GB | 
-| M32dms_v2, M32ms_v2 | 875 GiB | 500 MBps | 20,000 | 512 GB | 275 MBps | 3,000 | 875 GB | 
-| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB |
-| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 40,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB | 
-| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
-| M192ids_v2, M192is_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
-| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
-| M192idms_v2, M192ims_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M32(d)ms_v2 | 875 GiB | 500 MBps | 20,000 | 512 GB | 275 MBps | 3,000 | 875 GB | 
+| M48(d)s_1_v3, M96(d)s_1_v3 | 974 GiB | 1,560 MBps | 65,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB |
+| M64s, M64(d)s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB |
+| M64ms, M64(d)ms_v2 | 1,792 GiB | 1,000 MBps | 40,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB | 
+| M96(d)s_2_v3 | 1,946 GiB | 3,120 MBps | 130,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 130,000  | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 130,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 40,000 | 512 GB | 350 MBps | 4,500 | 1,024 GB |
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416s_8_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
 | M416ms_v2 | 11,400 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |
-| M832isx<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
-| M832isx_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
+| M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
+| M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -151,9 +159,9 @@ A few examples on how combining multiple Premium SSD v2 disks with a stripe set 
 | M416ms_v2 | 11,400 GiB | 1 | 13,680 | 25,000 | 3,000 | 22,000 | 1,200 MBps | 125 MBps | 1,075 MBps |
 | M416ms_v2 | 11,400 GiB | 2 | 6,840 | 25,000 | 6,000 | 19,000 | 1,200 MBps | 250 MBps | 950 MBps |
 | M416ms_v2 | 11,400 GiB | 4 | 3,420 | 25,000 | 12,000 | 13,000 | 1,200 MBps | 500 MBps | 700 MBps |
-| M832isx<sup>1</sup> | 14,902 GiB | 2 | 7,451 GB | 40,000 | 6,000 | 34,000 | 2,000 MBps | 250 MBps | 1750 MBps |
-| M832isx<sup>1</sup> | 14,902 GiB | 4 | 3,726 GB | 40,000 | 12,000 | 28,000 | 2,000 MBps | 500 MBps | 1500 MBps |
-| M832isx<sup>1</sup> | 14,902 GiB | 8 | 1,863 GB | 40,000 | 24,000 | 16,000 | 2,000 MBps | 1,000 MBps | 1000 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 2 | 7,451 GB | 40,000 | 6,000 | 34,000 | 2,000 MBps | 250 MBps | 1750 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 4 | 3,726 GB | 40,000 | 12,000 | 28,000 | 2,000 MBps | 500 MBps | 1500 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 8 | 1,863 GB | 40,000 | 24,000 | 16,000 | 2,000 MBps | 1,000 MBps | 1000 MBps |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 
@@ -169,8 +177,8 @@ For **/hana/log**, a similar approach of using two disks could look like:
 | M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2 | 256 GB | 4,000 | 6,000 | 0 | 300 MBps | 250 MBps | 50 MBps |
 | M416ms_v2 | 11,400 GiB | 1 | 512 GB | 5,000 | 3,000 | 2,000 | 400 MBps | 125 MBps | 275 MBps |
 | M416ms_v2 | 11,400 GiB | 2 | 256 GB | 5,000 | 6,000 | 0 | 400 MBps | 250 MBps | 150 MBps |
-| M832isx<sup>1</sup> | 14,902 GiB | 1 | 512 GB | 9,000 | 3,000 | 6,000 | 600 MBps | 125 MBps | 475 MBps |
-| M832isx<sup>1</sup> | 14,902 GiB | 2 | 256 GB | 9,000 | 6,000 | 3,000 | 600 MBps | 250 MBps | 350 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 1 | 512 GB | 9,000 | 3,000 | 6,000 | 600 MBps | 125 MBps | 475 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 2 | 256 GB | 9,000 | 6,000 | 3,000 | 600 MBps | 250 MBps | 350 MBps |
 
 <sup>1</sup> VM type not available by default. Please contact your Microsoft account team
 

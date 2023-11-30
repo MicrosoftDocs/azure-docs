@@ -94,13 +94,13 @@ Because you're using an Azure Cosmos DB output binding, you must have the corres
 
 Except for HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Azure Cosmos DB extension package to your project.
 
-# [In-process](#tab/in-process)
-```command
-dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.10
-```
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 ```command
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB --version 3.0.9
+```
+# [In-process model](#tab/in-process)
+```command
+dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.10
 ```
 ---
 ::: zone-end
@@ -121,14 +121,7 @@ Now, you can add the Azure Cosmos DB output binding to your project.
 ::: zone pivot="programming-language-csharp"
 In a C# class library project, the bindings are defined as binding attributes on the function method. 
 
-# [In-process](#tab/in-process)
-Open the *HttpExample.cs* project file and add the following parameter to the `Run` method definition:
-
-:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db/HttpExample.cs" range="18-20":::
-
-The `documentsOut` parameter is an `IAsyncCollector<T>` type, which represents a collection of JSON documents that are written to your Azure Cosmos DB container when the function completes. Specific attributes indicate the names of the container and its parent database. The connection string for your Azure Cosmos DB account is set by the `ConnectionStringSettingAttribute`.
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Open the *HttpExample.cs* project file and add the following classes:
 
@@ -137,6 +130,13 @@ Open the *HttpExample.cs* project file and add the following classes:
 The `MyDocument` class defines an object that gets written to the database. The connection string for the Storage account is set by the `Connection` property. In this case, you could omit `Connection` because you're already using the default storage account.
 
 The `MultiResponse` class allows you to both write to the specified collection in the Azure Cosmos DB and return an HTTP success message. Because you need to return a `MultiResponse` object, you need to also update the method signature.
+
+# [In-process model](#tab/in-process)
+Open the *HttpExample.cs* project file and add the following parameter to the `Run` method definition:
+
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db/HttpExample.cs" range="18-20":::
+
+The `documentsOut` parameter is an `IAsyncCollector<T>` type, which represents a collection of JSON documents that are written to your Azure Cosmos DB container when the function completes. Specific attributes indicate the names of the container and its parent database. The connection string for your Azure Cosmos DB account is set by the `ConnectionStringSettingAttribute`.
 
 ---
 
@@ -233,7 +233,13 @@ In this code, `arg_name` identifies the binding parameter referenced in your cod
 
 ::: zone pivot="programming-language-csharp"  
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+Replace the existing Run method with the following code:
+
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db-isolated/HttpExample.cs" range="11-34":::
+
+# [In-process model](#tab/in-process)
 
 Add code that uses the `documentsOut` output binding object to create a JSON document. Add this code before the method returns.
 
@@ -288,12 +294,6 @@ public static async Task<IActionResult> Run(
     return new OkObjectResult(responseMessage);
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-Replace the existing Run method with the following code:
-
-:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db-isolated/HttpExample.cs" range="11-34":::
 
 ---
 

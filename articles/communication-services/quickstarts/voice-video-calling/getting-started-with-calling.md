@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows-unity
-ms.custom: mode-other, devx-track-js
+ms.custom: mode-other, devx-track-js, devx-track-azurecli
 ---
 
 # Quickstart: Add voice calling to your app

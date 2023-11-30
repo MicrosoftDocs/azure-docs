@@ -2,11 +2,10 @@
 title: Prepare data for custom summarization
 titleSuffix: Azure AI services
 description: Learn about how to select and prepare data, to be successful in creating custom summarization projects.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 06/01/2022
 ms.author: jboback
@@ -32,7 +31,7 @@ In the abstractive document summarization scenario, each document (whether it ha
 
 ## Custom summarization conversation sample format
 
- In the abstractive conversation summarization scenario, each conversation (whether it has a provided label or not) is expected to be provided in a .json file, which is similar to the input format for our [pre-built conversation summarization service](https://learn.microsoft.com/rest/api/language/2023-04-01/analyze-conversation/submit-job?tabs=HTTP#textconversation).  The following is an example conversation of three turns between two speakers (Agent and Customer).
+ In the abstractive conversation summarization scenario, each conversation (whether it has a provided label or not) is expected to be provided in a .json file, which is similar to the input format for our [pre-built conversation summarization service](/rest/api/language/2023-04-01/analyze-conversation/submit-job?tabs=HTTP#textconversation).  The following is an example conversation of three turns between two speakers (Agent and Customer).
 
 ```json
 {

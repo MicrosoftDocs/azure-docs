@@ -2,10 +2,9 @@
 title: 'Create and manage Azure OpenAI Service deployments with the Azure PowerShell'
 titleSuffix: Azure OpenAI
 description: Learn how to use Azure PowerShell to create an Azure OpenAI resource and manage deployments with the Azure OpenAI Service.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 08/28/2023

@@ -49,7 +49,7 @@ Use more than one environment when you want two or more applications to:
 
 | Type | Description | Plan | Billing considerations |
 |--|--|--|--|
-| Workload profile | Run serverless apps with support for scale-to-zero and pay only for resources your apps use with the consumption profile. You can also run apps with customized hardware and increased cost predictability using dedicated workload profiles. | Consumption and Dedicated | You can choose to run apps under either or both plans using seperate workload profiles. The Dedicated plan has a fixed cost for the entire environment regardless of how many workload profiles you're using. |
+| Workload profile | Run serverless apps with support for scale-to-zero and pay only for resources your apps use with the consumption profile. You can also run apps with customized hardware and increased cost predictability using dedicated workload profiles. | Consumption and Dedicated | You can choose to run apps under either or both plans using separate workload profiles. The Dedicated plan has a fixed cost for the entire environment regardless of how many workload profiles you're using. |
 | Consumption only | Run serverless apps with support for scale-to-zero and pay only for resources your apps use. | Consumption only | Billed only for individual container apps and their resource usage. There's no cost associated with the Container Apps environment. |
 
 ## Logs
@@ -60,6 +60,14 @@ Settings relevant to the Azure Container Apps environment API resource.
 |---|---|
 | `properties.appLogsConfiguration` | Used for configuring the Log Analytics workspace where logs for all apps in the environment are published. |
 | `properties.containerAppsConfiguration.daprAIInstrumentationKey` | App Insights instrumentation key provided to Dapr for tracing |
+
+## Policies
+
+Azure Container Apps environments are automatically deleted if one of the following conditions is detected for longer than 90 days:
+
+- In an idle state
+- In a failed state due to VNet or Azure Policy configuration
+- Blocks infrastructure updates due to VNet or Azure Policy configuration
 
 ## Next steps
 

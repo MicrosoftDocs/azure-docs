@@ -2,11 +2,10 @@
 title: Train your custom voice model - Speech service
 titleSuffix: Azure AI services
 description: Learn how to train a custom neural voice through the Speech Studio portal. Training duration varies depending on how much data you're training.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 08/25/2023
 ms.author: eur
@@ -33,7 +32,7 @@ After you validate your data files, use them to build your Custom Neural Voice m
 
 - [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model): Create a secondary language for your voice model to speak a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US`.
 
-  The language of the training data and the target language must both be one of the [languages that are supported](language-support.md?tabs=tts) for cross lingual voice training. You don't need to prepare training data in the target language, but your test script must be in the target language.
+  The language of the training data and the target language must both be one of the [languages that are supported](language-support.md?tabs=tts#custom-neural-voice) for cross lingual voice training. You don't need to prepare training data in the target language, but your test script must be in the target language.
 
 - [Neural - multi style](?tabs=multistyle#train-your-custom-neural-voice-model): Create a custom neural voice that speaks in multiple styles and emotions, without adding new training data. Multiple style voices are useful for video game characters, conversational chatbots, audiobooks, content readers, and more.
 
@@ -109,9 +108,10 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
    You can select only successfully processed datasets for training. Check your data processing status if you don't see your training set in the list.
 
 1. Select **Next**.
+
 1. Optionally, you can add other custom speaking styles. The maximum number of custom styles varies by languages: `English (United States)` allows up to 10 custom styles, `Chinese (Mandarin, Simplified)` allows up to four custom styles, and `Japanese (Japan)` allows up to five custom styles.
 
-   1. Select **Add a custom style** and enter a custom style name of your choice. This name is used by your application within the `style` element of [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-voice.md#speaking-styles-and-roles). You can also use the custom style name as SSML by using the [Audio Content Creation](how-to-audio-content-creation.md) tool in [Speech Studio](https://speech.microsoft.com/portal/audiocontentcreation).
+   1. Select **Add a custom style** and enter a custom style name of your choice. This name is used by your application within the `style` element of [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-voice.md#use-speaking-styles-and-roles). You can also use the custom style name as SSML by using the [Audio Content Creation](how-to-audio-content-creation.md) tool in [Speech Studio](https://speech.microsoft.com/portal/audiocontentcreation).
    1. Select style samples as training data. Ensure that the training data for custom speaking styles comes from the same speaker as the data used to create the default style.
 
 1. Select **Next**.

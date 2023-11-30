@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Send or receive events using .NET'
-description: A quickstart to create a .NET Core application that sends events to Azure Event Hubs and then receive those events by using the Azure.Messaging.EventHubs package.
+description: A quickstart that shows you how to create a .NET Core application that sends events to and receive events from Azure Event Hubs.
 ms.topic: quickstart
 ms.service: event-hubs
 ms.date: 03/09/2023
@@ -162,7 +162,6 @@ This section shows you how to create a .NET Core console application to send eve
         {
             // if it is too large for the batch
             throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
-            Console.ReadLine();
         }
     }
     
@@ -201,7 +200,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. Authenticate to the blob container using either Azure AD (passwordless) authentication or a connection string to the namespace.
+3. Authenticate to the blob container using either Microsoft Entra ID (passwordless) authentication or a connection string to the namespace.
 
 [!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: Use Chaos Studio to replicate a DNS outage by using the NSG fault
-description: Get started with Azure Chaos Studio Preview by creating a DNS outage by using the network security group fault.
+description: Get started with Azure Chaos Studio by creating a DNS outage by using the network security group fault.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: article
@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Quickstart: Replicate a DNS outage by using the NSG fault
 
-The network security group (NSG) fault enables you to modify your existing NSG rules as part of a chaos experiment in Azure Chaos Studio Preview. By using this fault, you can block network traffic to your Azure resources and simulate a loss of connectivity or outages of dependent resources.
+The network security group (NSG) fault enables you to modify your existing NSG rules as part of a chaos experiment in Azure Chaos Studio. By using this fault, you can block network traffic to your Azure resources and simulate a loss of connectivity or outages of dependent resources.
 
 In this quickstart, you create a chaos experiment that blocks all traffic to external (internet) DNS servers for 15 minutes. With this experiment, you can validate that resources connected to the Azure virtual network associated with the target NSG don't have a dependency on external DNS servers. In this way, you can validate one of the risk-threat model requirements.
 
@@ -49,7 +49,7 @@ First, you register a fault provider on the subscription where your NSG is hoste
 1. Replace `$SUBSCRIPTION_ID` used in the prior step and execute the following command to register the `AzureNetworkSecurityGroupChaos` fault provider:
 
     ```azurecli
-    az rest --method put --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/microsoft.chaos/chaosProviderConfigurations/AzureNetworkSecurityGroupChaos?api-version=2021-06-21-preview" --body @AzureNetworkSecurityGroupChaos.json --resource "https://management.azure.com"
+    az rest --method put --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/microsoft.chaos/chaosProviderConfigurations/AzureNetworkSecurityGroupChaos?api-version=2023-11-01" --body @AzureNetworkSecurityGroupChaos.json --resource "https://management.azure.com"
     ```
 
 1. (Optional) Delete the *AzureNetworkSecurityGroupChaos.json* file you previously created because it's no longer required. Close Cloud Shell.
@@ -171,5 +171,5 @@ If you're not going to continue using any faults related to NSGs:
 1. Replace **$SUBSCRIPTION_ID** with the Azure subscription ID where the NSG fault provider was provisioned. Run the following command:
 
     ```azurecli
-    az rest --method delete --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/microsoft.chaos/chaosProviderConfigurations/AzureNetworkSecurityGroupChaos?api-version=2021-06-21-preview" --resource "https://management.azure.com"
+    az rest --method delete --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/microsoft.chaos/chaosProviderConfigurations/AzureNetworkSecurityGroupChaos?api-version=2023-11-01" --resource "https://management.azure.com"
     ```

@@ -35,7 +35,7 @@ You can use Azure Repos to store your configuration files. Use Azure Pipelines t
 
 ### Sign up for Azure DevOps Services
 
-To use Azure DevOps Services, you need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory. To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either sign in or create a new account.
+To use Azure DevOps Services, you need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Microsoft Entra ID. To create an account, open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either sign in or create a new account.
 
 To configure Azure DevOps for SAP Deployment Automation Framework, see [Configure Azure DevOps for SAP Deployment Automation Framework](configure-devops.md).
 

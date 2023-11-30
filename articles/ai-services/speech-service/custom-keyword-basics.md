@@ -2,11 +2,10 @@
 title: Create a custom keyword quickstart - Speech service
 titleSuffix: Azure AI services
 description: When a user speaks the keyword, your device sends their dictation to the cloud, until the user stops speaking. Customizing your keyword is an effective way to differentiate your device and strengthen your branding.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 11/12/2021
 ms.author: eur

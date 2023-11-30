@@ -2,11 +2,10 @@
 title: "Check text against a custom term list in C# - Content Moderator"
 titleSuffix: Azure AI services
 description: How to moderate text with custom term lists using the Content Moderator SDK for C#.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: pafarley

@@ -138,6 +138,10 @@ Since the scoring script and environment are automatically included with the fou
 
 :::image type="content" source="./media/how-to-use-foundation-models/deploy-options.png" alt-text="Screenshot showing the deploy options on the foundation model card after user selects the deploy button.":::
 
+If you're deploying a Llama model from the model catalog but don't have enough quota available for the deployment, Azure Machine Learning allows you to use quota from a shared quota pool for a limited time. For _Llama-2-70b_ and _Llama-2-70b-chat_ model deployment, access to the shared quota is available only to customers with [Enterprise Agreement subscriptions](/azure/cost-management-billing/manage/create-enterprise-subscription). For more information on shared quota, see [Azure Machine Learning shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota).
+
+:::image type="content" source="media/how-to-use-foundation-models/deploy-llama-model-with-shared-quota.png" alt-text="Screenshot showing the option to deploy a Llama model temporarily, using shared quota." lightbox="media/how-to-use-foundation-models/deploy-llama-model-with-shared-quota.png":::
+
 ### Deploying using code based samples
 
 To enable users to quickly get started with deployment and inferencing, we have published samples in the [Inference samples in the azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/inference). The published samples include Python notebooks and CLI examples. Each model card also links to Inference samples for Real time and Batch inferencing.

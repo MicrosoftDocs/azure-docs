@@ -2,11 +2,10 @@
 title: Speaker recognition overview - Speech service
 titleSuffix: Azure AI services
 description: Speaker recognition provides algorithms that verify and identify speakers by their unique voice characteristics, by using voice biometry. Speaker recognition is used to answer the question “who is speaking?”. This article is an overview of the benefits and capabilities of the speaker recognition feature.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 01/08/2022
 ms.author: eur

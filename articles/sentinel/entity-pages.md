@@ -17,13 +17,18 @@ In these situations, you can select the entity (it will appear as a clickable li
 
 More specifically, entity pages consist of three parts:
 
-- The left-side panel contains the entity's identifying information, collected from data sources like Azure Active Directory, Azure Monitor, Azure Activity, Azure Resource Manager, Microsoft Defender for Cloud, CEF/Syslog, and Microsoft 365 Defender (with all its components).
+- The left-side panel contains the entity's identifying information, collected from data sources like Microsoft Entra ID, Azure Monitor, Azure Activity, Azure Resource Manager, Microsoft Defender for Cloud, CEF/Syslog, and Microsoft 365 Defender (with all its components).
 
 - The center panel shows a [graphical and textual timeline](#the-timeline) of notable events related to the entity, such as alerts, bookmarks, [anomalies](soc-ml-anomalies.md), and activities. Activities are aggregations of notable events from Log Analytics. The queries that detect those activities are developed by Microsoft security research teams, and you can now [add your own custom queries to detect activities](customize-entity-activities.md) of your choosing. 
 
 - The right-side panel presents [behavioral insights](#entity-insights) on the entity. These insights are continuously developed by Microsoft security research teams. They are based on various data sources and provide context for the entity and its observed activities, helping you to quickly identify [anomalous behavior](soc-ml-anomalies.md) and security threats.
 
-If you're investigating an incident using the **[new investigation experience](investigate-incidents.md) (now in Preview)**, you'll be able to see a panelized version of the entity page right inside the incident details page. You have a [list of all the entities in a given incident](investigate-incidents.md#explore-the-incidents-entities), and selecting an entity opens a side panel with three "cards"&mdash;**Info**, **Timeline**, and **Insights**&mdash; showing all the same information described above, within the specific time frame corresponding with that of the alerts in the incident.
+    As of November 2023, the next generation of insights is starting to be made available in **PREVIEW**, in the form of [enrichment widgets](whats-new.md#visualize-data-with-enrichment-widgets-preview). These new insights can integrate data from external sources and get updates in real time, and they can be seen alongside the existing insights. To take advantage of these new widgets, you must [enable the widget experience](enable-enrichment-widgets.md).
+
+    - [See the instructions for enabling the widget experience](enable-enrichment-widgets.md).
+    - [Learn more about enrichment widgets](whats-new.md#visualize-data-with-enrichment-widgets-preview).
+
+If you're investigating an incident using the **[new investigation experience](investigate-incidents.md)**, you'll be able to see a panelized version of the entity page right inside the incident details page. You have a [list of all the entities in a given incident](investigate-incidents.md#explore-the-incidents-entities), and selecting an entity opens a side panel with three "cards"&mdash;**Info**, **Timeline**, and **Insights**&mdash; showing all the same information described above, within the specific time frame corresponding with that of the alerts in the incident.
 
 ## The timeline
 
@@ -51,8 +56,8 @@ The insights are based on the following data sources:
 
 - Syslog (Linux)
 - SecurityEvent (Windows)
-- AuditLogs (Azure AD)
-- SigninLogs (Azure AD)
+- AuditLogs (Microsoft Entra ID)
+- SigninLogs (Microsoft Entra ID)
 - OfficeActivity (Office 365)
 - BehaviorAnalytics (Microsoft Sentinel UEBA)
 - Heartbeat (Azure Monitor Agent)

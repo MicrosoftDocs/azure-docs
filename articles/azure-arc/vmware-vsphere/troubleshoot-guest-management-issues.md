@@ -2,12 +2,18 @@
 title: Troubleshoot Guest Management Issues
 description: Learn about how to troubleshoot the guest management issues for Arc-enabled VMware vSphere.
 ms.topic: reference
-ms.date: 08/18/2023
+ms.date: 11/06/2023
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
+author: Farha-Bano
+ms.author: v-farhabano
+manager: jsuri
+
 # Customer intent: As a VI admin, I want to understand the troubleshooting process for guest management issues.
 ---
 # Troubleshoot Guest Management for Linux VMs
 
-This article provides information on how to troubleshoot and resolve the issues that may occur while you enable guest management on Arc-enabled VMware vSphere virtual machines.  
+This article provides information on how to troubleshoot and resolve the issues that can occur while you enable guest management on Arc-enabled VMware vSphere virtual machines.  
 
 ## Troubleshoot issues while enabling Guest Management on a domain-joined Linux VM
 
@@ -24,7 +30,7 @@ This article provides information on how to troubleshoot and resolve the issues 
 
 ### Additional information
 
-The parameter `ad_gpo_map_batch` according to the [sssd mainpage](https://jhrozek.fedorapeople.org/sssd/1.13.4/man/sssd-ad.5.html):
+The parameter `ad_gpo_map_batch` according to the [sssd main page](https://jhrozek.fedorapeople.org/sssd/1.13.4/man/sssd-ad.5.html):
 
 A comma-separated list of Pluggable Authentication Module (PAM) service names for which GPO-based access control is evaluated based on the BatchLogonRight and DenyBatchLogonRight policy settings.
 
@@ -36,7 +42,7 @@ Default: The default set of PAM service names includes:
 
 - crond:
 
-    `vmtoolsd` PAM is enabled for SSSD evaluation. For any request coming through VMware tools, SSSD will be invoked since VMware tools use this PAM for authenticating to the Linux Guest VM.
+    `vmtoolsd` PAM is enabled for SSSD evaluation. For any request coming through VMware tools, SSSD is invoked since VMware tools use this PAM for authenticating to the Linux Guest VM.
 
 #### References
 

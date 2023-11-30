@@ -31,7 +31,7 @@ This REST connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks, see [Supported data stores](connector-overview.md#supported-data-stores).
 
@@ -140,11 +140,11 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| servicePrincipalId | Specify the Azure Active Directory application's client ID. | Yes |
-| servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalId | Specify the Microsoft Entra application's client ID. | Yes |
+| servicePrincipalKey | Specify the Microsoft Entra application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
-| aadResourceId | Specify the Microsoft Azure Active Directory (Azure AD) resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
-| azureCloudType | For Service Principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| azureCloudType | For Service Principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 
 **Example**                                                                          
 
@@ -213,7 +213,7 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| aadResourceId | Specify the Microsoft Azure Active Directory resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
 
 **Example**
 
@@ -240,7 +240,7 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| aadResourceId | Specify the Azure AD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
 
 

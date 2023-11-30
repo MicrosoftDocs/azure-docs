@@ -1,18 +1,20 @@
 ---
 title: Extract text from images
-titleSuffix: Azure Cognitive Search
-description: Use Optical Character Recognition (OCR) and image analysis to extract text, layout, captions, and tags from image files in Azure Cognitive Search pipelines.
+titleSuffix: Azure AI Search
+description: Use Optical Character Recognition (OCR) and image analysis to extract text, layout, captions, and tags from image files in Azure AI Search pipelines.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 08/29/2022
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
 # Extract text and information from images in AI enrichment
 
-Through [AI enrichment](cognitive-search-concept-intro.md), Azure Cognitive Search gives you several options for creating and extracting searchable text from images, including:
+Through [AI enrichment](cognitive-search-concept-intro.md), Azure AI Search gives you several options for creating and extracting searchable text from images, including:
 
 + [OCR](cognitive-search-skill-ocr.md) for optical character recognition of text and digits
 + [Image Analysis](cognitive-search-skill-image-analysis.md) that describes images through visual features
@@ -41,9 +43,9 @@ Image processing is indexer-driven, which means that the raw inputs must be in a
 
 Images are either standalone binary files or embedded in documents (PDF, RTF, and Microsoft application files). A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated.
 
-Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search. There are three main tasks related to retrieving images from a blob container:
+Azure Blob Storage is the most frequently used storage for image processing in Azure AI Search. There are three main tasks related to retrieving images from a blob container:
 
-+ Enable access to content in the container. If you're using a full access connection string that includes a key, the key gives you permission to the content. Alternatively, you can [authenticate using Azure Active Directory (Azure AD)](search-howto-managed-identities-data-sources.md) or [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md).
++ Enable access to content in the container. If you're using a full access connection string that includes a key, the key gives you permission to the content. Alternatively, you can [authenticate using Microsoft Entra ID](search-howto-managed-identities-data-sources.md) or [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md).
 
 + [Create a data source](search-howto-indexing-azure-blob-storage.md) of type "azureblob" that connects to the blob container storing your files.
 
@@ -153,7 +155,7 @@ This section supplements the [skill reference](cognitive-search-predefined-skill
 
 1. Add templates for OCR and Image Analysis from the portal, or copy the definitions from the [skill reference](cognitive-search-predefined-skills.md) documentation. Insert them into the skills array of your skillset definition.
 
-1. If necessary, [include multi-service key](cognitive-search-attach-cognitive-services.md) in the Azure AI services property of the skillset. Cognitive Search makes calls to a billable Azure AI services resource for OCR and image analysis for transactions that exceed the free limit (20 per indexer per day). Azure AI services must be in the same region as your search service.
+1. If necessary, [include multi-service key](cognitive-search-attach-cognitive-services.md) in the Azure AI services property of the skillset. Azure AI Search makes calls to a billable Azure AI services resource for OCR and image analysis for transactions that exceed the free limit (20 per indexer per day). Azure AI services must be in the same region as your search service.
 
 1. If original images are embedded in PDF or application files like PPTX or DOCX, you'll need to add a Text Merge skill if you want image output and text output together. Working with embedded images is discussed further on in this article.
 
@@ -203,7 +205,7 @@ Whether you're using OCR and image analysis in the same, inputs have virtually t
 
 ## Map outputs to search fields
 
-Cognitive Search is a full text search and knowledge mining solution, so Image Analysis and OCR skill output is always text. Output text is represented as nodes in an internal enriched document tree, and each node must be mapped to fields in a search index or projections in a knowledge store to make the content available in your app. 
+Azure AI Search is a full text search and knowledge mining solution, so Image Analysis and OCR skill output is always text. Output text is represented as nodes in an internal enriched document tree, and each node must be mapped to fields in a search index or projections in a knowledge store to make the content available in your app. 
 
 1. In the skillset, review the "outputs" section of each skill to determine which nodes exist in the enriched document:
 
@@ -346,7 +348,7 @@ Skill outputs include "text" (OCR), "layoutText" (OCR), "merged_content", "capti
                 "",
                 "",
                 "",
-                "Cognitive Search and Augmentation Combining Microsoft Azure AI services and Azure Search"
+                "Azure AI Search and Augmentation Combining Microsoft Azure AI services and Azure Search"
             ]
         }
     ]

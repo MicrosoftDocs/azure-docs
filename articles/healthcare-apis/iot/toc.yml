@@ -31,7 +31,7 @@ items:
 - name: Tutorials
   expanded: false
   items:
-  - name: Receive device messages via Azure IoT Hub
+  - name: Receive device messages through Azure IoT Hub
     href: device-messages-through-iot-hub.md 
 - name: How-tos
   expanded: false
@@ -63,7 +63,7 @@ items:
     - name: Use the monitoring and health checks tabs
       href: how-to-use-monitoring-and-health-checks-tabs.md
     - name: Configure metrics
-      href: how-to-configure-metrics.md
+      href: configure-metrics.md
     - name: Enable diagnostic settings
       href: how-to-enable-diagnostic-settings.md
   - name: Troubleshoot

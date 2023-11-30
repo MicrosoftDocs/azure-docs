@@ -10,7 +10,7 @@ ms.date: 07/26/2023
 ms.custom: MVC, engagement-fy23
 ---
 
-# Migrate machines as physical servers to Azure
+# Migrate machines as physical servers to Azure 
 
 This article shows you how to migrate machines as physical servers to Azure, using the Migration and modernization tool. Migrating machines by treating them as physical servers is useful in a number of scenarios:
 
@@ -44,6 +44,9 @@ Before you begin this tutorial, you should:
 
 - [Review](./agent-based-migration-architecture.md) the migration architecture.
 - [Review](../site-recovery/migrate-tutorial-windows-server-2008.md#limitations-and-known-issues) the limitations related to migrating Windows Server 2008 servers to Azure.
+
+> [!NOTE]
+> If you're planning to upgrade your Windows operating system, Azure Migrate may download the Windows SetupDiag for error details in case upgrade fails. Ensure the VM created in Azure post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there is no access to SetupDiag, you may not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
 
 ## Prepare Azure
 
@@ -155,42 +158,13 @@ Mobility service agent needs to be installed on the servers to get them discover
 > It is recommended to perform discovery and asessment prior to the migration using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For detailed steps, see [Discover physical servers](tutorial-discover-physical.md).
 
 
-## Install the Mobility service
+## Install the Mobility service agent
 
-On machines you want to migrate, you need to install the Mobility service agent. The agent installers are available on the replication appliance. You find the right installer, and install the agent on each machine you want to migrate. Do this as follows:
+A Mobility service agent must be pre-installed on the source physical machines to be migrated before you can initiate replication. The approach you choose to install the Mobility service agent may depend on your organization's preferences and existing tools, but be aware that the "push" installation method built into Azure Site Recovery is not currently supported. Approaches you may want to consider:
 
-1. Sign in to the replication appliance.
-2. Navigate to **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Find the installer for the machine operating system and version. Review [supported operating systems](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines).
-4. Copy the installer file to the machine you want to migrate.
-5. Make sure that you have the passphrase that was generated when you deployed the appliance.
-    - Store the file in a temporary text file on the machine.
-    - You can obtain the passphrase on the replication appliance. From the command line, run **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
-    - Don't regenerate the passphrase. This will break connectivity and you will have to reregister the replication appliance.
-
-> [!NOTE]
-> In the */Platform* parameter, you specify *VMware* if you migrate VMware VMs, or physical machines.
-
-### Install on Windows
-
-1. Extract the contents of installer file to a local folder (for example C:\Temp) on the machine, as follows:
-
-    ```
-    ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-    MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-    cd C:\Temp\Extracted
-    ```
-2. Run the Mobility Service Installer:
-    ```
-   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent /CSType CSLegacy
-    ```
-3. Register the agent with the replication appliance:
-    ```
-    cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-    UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance IP address> /PassphraseFilePath <Passphrase File Path>
-    ```
-
-### Install on Linux
+- [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
+- [Arc for Servers and Custom Script Extensions](../azure-arc/servers/overview.md)
+- [Manual installation](../site-recovery/vmware-physical-mobility-service-overview.md)
 
 1. Extract the contents of the installer tarball to a local folder (for example /tmp/MobSvcInstaller) on the machine, as follows:
     ```
@@ -314,6 +288,7 @@ Do a test migration as follows:
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/test-migrate-inline.png" alt-text="Screenshot showing the result after clicking test migration." lightbox="./media/tutorial-migrate-physical-virtual-machines/test-migrate-expanded.png":::
  
 3. In **Test Migration**, select the Azure VNet in which the Azure VM will be located after the migration. We recommend you use a non-production VNet.
+1. You have an option to upgrade the Windows Server OS during test migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](how-to-upgrade-windows.md).
 4. The **Test migration** job starts. Monitor the job in the portal notifications.
 5. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
 6. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
@@ -339,6 +314,7 @@ After you've verified that the test migration works as expected, you can migrate
     > [!NOTE]
     > For minimal data loss, the recommendation is to bring the application down manually as part of the migration window (don't let the applications accept any connections) and then initiate the migration. The server needs to be kept running, so remaining changes can be synchronized before the migration is completed.
 
+1. You have an option to upgrade the Windows Server OS during migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](how-to-upgrade-windows.md).
 4. A migration job starts for the VM. Track the job in Azure notifications.
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 

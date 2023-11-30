@@ -20,7 +20,7 @@ The Operator Connect and Teams Phone Mobile programs don't allow you to use the 
 
 ## Prerequisites
 
-Confirm that you have [!INCLUDE [project-synergy-nmp-permissions](includes/communications-gateway-nmp-project-synergy-permissions.md)] permissions for the Project Synergy enterprise application and **Reader** access to the Azure portal for your subscription. If you don't have these permissions, ask your administrator to set them up by following [Set up user roles for Azure Communications Gateway](provision-user-roles.md).
+Confirm that you have [!INCLUDE [project-synergy-nmp-permissions](includes/communications-gateway-nmp-project-synergy-permissions.md)] permissions for the Project Synergy enterprise application and **Reader** access to your subscription. If you don't have these permissions, ask your administrator to set them up by following [Set up user roles for Azure Communications Gateway](provision-user-roles.md).
 
 If you're assigning new numbers to an enterprise customer:
 
@@ -42,13 +42,13 @@ If you're assigning new numbers to an enterprise customer:
 |Country | The country for the number. Only required if you're uploading a North American Toll-Free number, otherwise optional.|
 |Ticket number (optional) |The ID of any ticket or other request that you want to associate with this range of numbers. Up to 64 characters. |
 
-## 1. Go to your Communications Gateway resource
+## Go to your Communications Gateway resource
 
 1. Sign in to the [Azure portal](https://azure.microsoft.com/).
 1. In the search bar at the top of the page, search for your Communications Gateway resource.
 1. Select your Communications Gateway resource.
 
-## 2. Select an enterprise customer to manage
+## Select an enterprise customer to manage
 
 When an enterprise customer uses the Teams Admin Center to request service, the Operator Connect APIs create a **consent**. This consent represents the relationship between you and the enterprise.
 
@@ -58,13 +58,13 @@ The Number Management Portal allows you to update the status of these consents. 
 1. Find the enterprise that you want to manage.
 1. If you need to change the status of the relationship, select **Update Relationship Status** from the menu for the enterprise. Set the new status. For example, if you're agreeing to provide service to a customer, set the status to **Agreement signed**. If you set the status to **Consent Declined** or **Contract Terminated**, you must provide a reason.
 
-## 3. Manage numbers for the enterprise
+## Manage numbers for the enterprise
 
 Assigning numbers to an enterprise allows IT administrators at the enterprise to allocate those numbers to their users.
 
 1. Go to the number management page for the enterprise.
-    * If you followed [2. Select an enterprise customer to manage](#2-select-an-enterprise-customer-to-manage), select **Manage numbers** from the menu.
-    * Otherwise, select **Numbers** in the sidebar and search for the enterprise using the enterprise's Azure Active Directory tenant ID.
+    * If you followed [Select an enterprise customer to manage](#select-an-enterprise-customer-to-manage), select **Manage numbers** from the menu.
+    * Otherwise, select **Numbers** in the sidebar and search for the enterprise using the enterprise's Microsoft Entra tenant ID.
 1. To add new numbers for an enterprise:
     1. Select **Upload numbers**.
     1. Fill in the fields based on the information you determined in [Prerequisites](#prerequisites). These settings apply to all the numbers you upload in the **Telephone numbers** section.
@@ -76,13 +76,13 @@ Assigning numbers to an enterprise allows IT administrators at the enterprise to
     1. Select **Release numbers**.
     1. 1. Wait 30 seconds, then refresh the order status. When the order status is **Complete**, the numbers have been removed.
 
-## 4. View civic addresses for an enterprise
+## View civic addresses for an enterprise
 
 You can view civic addresses for an enterprise. The enterprise configures the details of each civic address, so you can't configure these details.
 
 1. Go to the civic address page for the enterprise.
-    * If you followed [2. Select an enterprise customer to manage](#2-select-an-enterprise-customer-to-manage), select **Civic addresses** from the menu.
-    * Otherwise, select **Civic addresses** in the sidebar and search for the enterprise using the enterprise's Azure Active Directory tenant ID.
+    * If you followed [Select an enterprise customer to manage](#select-an-enterprise-customer-to-manage), select **Civic addresses** from the menu.
+    * Otherwise, select **Civic addresses** in the sidebar and search for the enterprise using the enterprise's Microsoft Entra tenant ID.
 1. View the civic addresses. You can see the address, the company name, the description and whether the address was validated when the enterprise configured the address.
 1. Optionally, select an individual address to view additional information provided by the enterprise (for example, the ELIN information).
 

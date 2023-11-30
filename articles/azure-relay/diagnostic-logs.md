@@ -44,7 +44,7 @@ The new settings take effect in about 10 minutes. The logs are displayed in the 
 
 
 ## Schema for hybrid connections events
-Hybrid connections event log JSON strings include the elements listed in the following table:
+Hybrid Connections event log JSON strings include the elements listed in the following table:
 
 | Name | Description |
 | ------- | ------- |
@@ -71,6 +71,60 @@ Here's a sample hybrid connections event in JSON format.
     "category": "HybridConnectionsEvent"
 }
 ```
+
+
+## Schema for VNet/IP Filtering Connection Logs
+Hybrid Connections VNet/IP Filtering Connection Logs include elements listed in the following table:
+
+| Name | Description | Supported in Azure Diagnostics | Supported in AZMSVnetConnectionEvents (Resource specific table) 
+| ---  | ----------- |---| ---| 
+| `SubscriptionId` | Azure subscription ID | Yes | Yes
+| `NamespaceName` | Namespace name | Yes | Yes
+| `IPAddress` | IP address of a client connecting to the Service Bus service | Yes | Yes 
+| `AddressIP` | IP address of client connecting to service bus | Yes | Yes
+| `TimeGenerated [UTC]`|Time of executed operation (in UTC) | Yes | Yes 
+| `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. | Yes | Yes 
+| `Reason` | Provides a reason why the action was done | Yes | Yes
+| `Count` | Number of occurrences for the given action | Yes | Yes
+| `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes
+| `Category` |  Log Category | Yes | No
+| `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
+|  `Type`  | Type of Logs Emitted | No | Yes
+
+> [!NOTE] 
+> Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
+
+## Sample VNet and IP Filtering Logs
+Here's an example of a virtual network log JSON string:
+
+AzureDiagnostics:
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Accept Connection",
+    "Reason": "IP is accepted by IPAddress filter.",
+    "Count": 1,
+    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRIPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.RELAY/NAMESPACES/<RELAY NAMESPACE NAME>",
+    "Category": "VNetAndIPFilteringLogs"
+}
+```
+Resource specific table entry:
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "AddressIp": "1.2.3.4",
+    "Action": "Accept Connection",
+    "Message": "IP is accepted by IPAddress filter.",
+    "Count": 1,
+    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRIPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.RELAY/NAMESPACES/<RELAY NAMESPACE NAME>",
+    "Provider" : "RELAY",
+    "Type": "AZMSVNetConnectionEvents"
+}
+```
+
 
 ## Events and operations captured in diagnostic logs
 

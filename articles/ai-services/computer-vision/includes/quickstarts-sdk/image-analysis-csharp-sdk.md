@@ -1,11 +1,10 @@
 ---
 title: "Quickstart: Image Analysis client library for .NET"
 description: In this quickstart, get started with the Image Analysis client library for .NET.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: ignite-2022
 ms.topic: include
 ms.date: 03/29/2021

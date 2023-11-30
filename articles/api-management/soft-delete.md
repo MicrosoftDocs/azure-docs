@@ -137,9 +137,9 @@ You **can't** reuse the name of an API Management instance in a new deployment:
 
 * While the instance is soft-deleted.
 
-* In a subscription other than the one used to deploy the original instance, even after the original instance has been permanently deleted (purged) from Azure. This restriction applies whether the new subscription used is in the same or a different Azure Active Directory tenant. The restriction is in effect for several days or longer after deletion, depending on the subscription type. 
+* In a subscription other than the one used to deploy the original instance, even after the original instance has been permanently deleted (purged) from Azure. This restriction applies whether the new subscription used is in the same or a different Microsoft Entra tenant. The restriction is in effect for several days or longer after deletion, depending on the subscription type. 
 
-    This restriction is because Azure reserves the service host name to a customer's tenant for a reservation period to prevent the threat of subdomain takeover with dangling DNS entries. For more information, see [Prevent dangling DNS entries and avoid subdomain takeover](/azure/security/fundamentals/subdomain-takeover). To see all dangling DNS entries for subscriptions in an Azure AD tenant, see [Identify dangling DNS entries](/azure/security/fundamentals/subdomain-takeover#identify-dangling-dns-entries). 
+    This restriction is because Azure reserves the service host name to a customer's tenant for a reservation period to prevent the threat of subdomain takeover with dangling DNS entries. For more information, see [Prevent dangling DNS entries and avoid subdomain takeover](/azure/security/fundamentals/subdomain-takeover). To see all dangling DNS entries for subscriptions in a Microsoft Entra tenant, see [Identify dangling DNS entries](/azure/security/fundamentals/subdomain-takeover#identify-dangling-dns-entries). 
 
 
 ## Next steps

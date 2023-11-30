@@ -2,7 +2,7 @@
 title: Java Profiler for Azure Monitor Application Insights
 description: How to configure the Azure Monitor Application Insights for Java Profiler
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 11/15/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -60,7 +60,7 @@ The ApplicationInsights Java Agent monitors CPU, memory, and request duration su
 
 #### Profile now
 
-Within the profiler user interface (see [profiler settings](../profiler/profiler-settings.md)) there's a **Profile now** button. Selecting this button will immediately request a profile in all agents that are attached to the Application Insights instance.
+Within the profiler user interface (see [profiler settings](../profiler/profiler-settings.md)) there's a **Profile now** button. Selecting this button immediately requests a profile in all agents that are attached to the Application Insights instance. The default profiling duration is two minutes. You can change it by overriding `periodicRecordingDurationSeconds` (see [Configuration file](#configuration-file)).
 
 > [!WARNING]
 > Invoking Profile now will enable the profiler feature, and Application Insights will apply default CPU and memory SLA triggers. When your application breaches those SLAs, Application Insights will gather Java profiles. If you wish to disable profiling later on, you can do so within the trigger menu shown in [Installation](#installation).
@@ -84,14 +84,14 @@ For instance, take the following scenario:
 - Therefore the maximum possible size of tenured would be 922 mb.
 - Your threshold was set via the user interface to 75%, therefore your threshold would be 75% of 922 mb, 691 mb.
 
-In this scenario, a profile will occur in the following circumstances:
+In this scenario, a profile occurs in the following circumstances:
 
 - Full garbage collection is executed
 - The Tenured regions occupancy is above 691 mb after collection
 
 ### Request
 
-SLA triggers are based on OpenTelemetry (otel) and they will initiate a profile if certain criteria is fulfilled.
+SLA triggers are based on OpenTelemetry (otel) and they initiate a profile if certain criteria is fulfilled.
 
 Each individual trigger configuration is formed as follows:
 
@@ -109,9 +109,9 @@ For instance, the following scenario would trigger a profile if: more than 75% o
 
 ### Installation
 
-The following steps will guide you through enabling the profiling component on the agent and configuring resource limits that will trigger a profile if breached.
+The following steps guide you through enabling the profiling component on the agent and configuring resource limits that trigger a profile if breached.
 
-1. Configure the resource thresholds that will cause a profile to be collected:
+1. Configure the resource thresholds that cause a profile to be collected:
     
     1. Browse to the Performance -> Profiler section of the Application Insights instance.
        :::image type="content" source="./media/java-standalone-profiler/performance-blade.png" alt-text="Screenshot of the link to open performance pane." lightbox="media/java-standalone-profiler/performance-blade.png":::
@@ -125,7 +125,7 @@ The following steps will guide you through enabling the profiling component on t
 > [!WARNING]
 > The Java profiler does not support the "Sampling" trigger. Configuring this will have no effect.
 
-After these steps have been completed, the agent will monitor the resource usage of your process and trigger a profile when the threshold is exceeded. When a profile has been triggered and completed, it will be viewable from the
+After these steps have been completed, the agent will monitor the resource usage of your process and trigger a profile when the threshold is exceeded. When a profile has been triggered and completed, it's viewable from the
 Application Insights instance within the Performance -> Profiler section. From that screen the profile can be downloaded, once download the JFR recording file can be opened and analyzed within a tool of your choosing, for example JDK Mission Control (JMC).
 
 :::image type="content" source="./media/java-standalone-profiler/configure-blade-inline.png" alt-text="Screenshot of profiler page features and settings." lightbox="media/java-standalone-profiler/configure-blade-inline.png":::
@@ -159,27 +159,28 @@ Example configuration:
       "cpuTriggeredSettings": "profile-without-env-data",
       "memoryTriggeredSettings": "profile-without-env-data",
       "manualTriggeredSettings": "profile-without-env-data",
-      "enableRequestTriggering": true
+      "enableRequestTriggering": true,
+      "periodicRecordingDurationSeconds": 60
     }
   }
 }
 
 ```
 
-`memoryTriggeredSettings` This configuration will be used if a memory profile is requested. This value can be one of:
+`memoryTriggeredSettings` This configuration is used if a memory profile is requested. This value can be one of:
 
 - `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see Warning section above for details.
 - `profile`. Uses the `profile.jfc` configuration that ships with JFR.
 - A path to a custom jfc configuration file on the file system, i.e `/tmp/myconfig.jfc`.
 
-`cpuTriggeredSettings` This configuration will be used if a cpu profile is requested.
+`cpuTriggeredSettings` This configuration is used if a cpu profile is requested.
 This value can be one of:
 
 - `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see Warning section above for details.
 - `profile`. Uses the `profile.jfc` jfc configuration that ships with JFR.
 - A path to a custom jfc configuration file on the file system, i.e `/tmp/myconfig.jfc`.
 
-`manualTriggeredSettings` This configuration will be used if a manual profile is requested.
+`manualTriggeredSettings` This configuration is used if a manual profile is requested.
 This value can be one of:
 
 - `profile-without-env-data` (default value). A profile with certain sensitive events disabled, see
@@ -190,8 +191,10 @@ This value can be one of:
 `enableRequestTriggering` Whether JFR profiling should be triggered based on request configuration.
 This value can be one of:
 
-- `true` Profiling will be triggered if a request trigger threshold is breached.
+- `true` Profiling is triggered if a request trigger threshold is breached.
 - `false` (default value). Profiling will not be triggered by request configuration.
+
+`periodicRecordingDurationSeconds` Profiling recording duration in seconds when a profiling session is started through "Profile now". Default value is `120`.
 
 ## Frequently asked questions
 

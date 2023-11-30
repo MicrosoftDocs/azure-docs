@@ -44,7 +44,7 @@ Your Azure account needs permissions to create a Recovery Services vault, and to
 
 - If you just created a free Azure subscription, you're the account admin, and no further action is needed.
 - If you aren't the admin, work with the admin to get the permissions you need.
-    - **Azure Active Directory**: Application owner and application developer roles to enable replication.
+    - **Microsoft Entra ID**: Application owner and application developer roles to enable replication.
     - **Create a vault**: Admin or owner permissions on the subscription.
     - **Manage Site Recovery operations in the vault**: The *Site Recovery Contributor* built-in Azure role.
     - **Create Azure VMs in the target region**: Either the built-in *Virtual Machine Contributor* role, or specific permissions to:
@@ -78,7 +78,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
-| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Microsoft Entra ID    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 
@@ -89,7 +89,7 @@ If you're using network security groups (NSGs) to control connectivity, create a
 **Tag** | **Allow**
 --- | ---
 Storage tag	 |Allows data to be written from the VM to the cache storage account.
-Azure AD tag | Allows access to all IP addresses that correspond to Azure AD.
+Microsoft Entra ID tag | Allows access to all IP addresses that correspond to Microsoft Entra ID.
 EventsHub tag | Allows access to Site Recovery monitoring.
 AzureSiteRecovery tag | Allows access to the Site Recovery service in any region.
 GuestAndHybridManagement tag | Use if you want to automatically upgrade the Site Recovery Mobility agent that's running on VMs enabled for replication.
@@ -146,7 +146,7 @@ Select the source settings and enable VM replication.
 
 2. In the **Enable replication** page, under **Source** tab, do the following:
     - **Region**: Select the source Azure region in which VMs are currently running.
-    - **Subscription**: Select the subscription in which VMs are running. You can select any subscription that's in the same Azure Active Directory (Azure AD) tenant as the vault.
+    - **Subscription**: Select the subscription in which VMs are running. You can select any subscription that's in the same Microsoft Entra tenant as the vault.
     - **Resource group**: Select the desired resource group from the drop-down.
     - **Virtual machine deployment model**: Retain the default **Resource Manager** setting.
     - **Disaster recovery between availability zones**: Retain the default **No** setting.

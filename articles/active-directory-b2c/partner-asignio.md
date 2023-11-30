@@ -2,11 +2,11 @@
 title: Configure Asignio with Azure Active Directory B2C for multifactor authentication
 titleSuffix: Azure AD B2C
 description: Configure Azure Active Directory B2C with Asignio for multifactor authentication
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: gasinh
@@ -17,7 +17,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Asignio with Azure Active Directory B2C for multifactor authentication
 
-Learn to integrate Azure Active Directory (Azure AD B2C) authentication with [Asignio](https://www.asignio.com/). With this integration, provide passwordless, soft biometric, and multifactor authentication experience to customers. Asignio uses patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature helps to reduce passwords, fraud, phishing, and credential reuse through omni-channel authentication.
+Learn to integrate Microsoft Entra ID (Azure AD B2C) authentication with [Asignio](https://www.web.asignio.com/). With this integration, provide passwordless, soft biometric, and multifactor authentication experience to customers. Asignio uses patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature helps to reduce passwords, fraud, phishing, and credential reuse through omni-channel authentication.
 
 ## Before you begin
 
@@ -36,7 +36,8 @@ Learn more:
 
 ## Prerequisites
 
-* An Azure AD subscription. 
+* An Azure subscription. 
+
 * If you don't have on, get an [Azure free account](https://azure.microsoft.com/free/)
 
 - An Azure AD B2C tenant linked to the Azure subscription
@@ -100,11 +101,11 @@ Complete [Tutorial: Register a web application in Azure Active Directory B2C](tu
 
 ## Configure Asignio as an identity provider in Azure AD B2C
 
-For the following instructions, use the Azure AD tenant with the Azure subscription.
+For the following instructions, use the Microsoft Entra tenant with the Azure subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home) as the Global Administrator of the Azure AD B2C tenant.
 2. In the Azure portal toolbar, select **Directories + subscriptions**.
-3. On **Portal settings | Directories + subscriptions**, in the **Directory name** list, locate your Azure AD directory.
+3. On **Portal settings | Directories + subscriptions**, in the **Directory name** list, locate your Microsoft Entra directory.
 4. Select **Switch**.
 5. In the top-left corner of the Azure portal, select **All services**.
 6. Search for and select **Azure AD B2C**.

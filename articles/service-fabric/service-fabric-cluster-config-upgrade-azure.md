@@ -29,15 +29,15 @@ Azure clusters can be configured through the JSON Resource Manager template. To 
 4. Select **Edit** and update the `fabricSettings` JSON element and add a new element:
 
 ```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
+{
+  "name": "Diagnostics",
+  "parameters": [
+    {
+      "name": "MaxDiskQuotaInMB",
+      "value": "65536"
+    }
+  ]
+}
 ```
 
 You can also customize cluster settings in one of the following ways with Azure Resource Manager:

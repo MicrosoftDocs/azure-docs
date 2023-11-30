@@ -1,8 +1,8 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 03/06/2020
+ms.date: 09/01/2023
 ms.author: eur
 ---
 
@@ -14,7 +14,8 @@ ms.author: eur
 
 To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) instance. This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. 
 
-Create a `SpeechConfig` instance by using your key and region. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal).
+1. Create a `SpeechConfig` instance by using your key and region. 
+1. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a multi-service resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal).
 
 ```cpp
 using namespace std;
@@ -25,16 +26,16 @@ auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechR
 
 You can initialize `SpeechConfig` in a few other ways:
 
-* With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
-* With a host: pass in a host address. A key or authorization token is optional.
-* With an authorization token: pass in an authorization token and the associated region.
+* Use an endpoint, and pass in a Speech service endpoint. A key or authorization token is optional.
+* Use a host, and pass in a host address. A key or authorization token is optional.
+* Use an authorization token with the associated region/location.
 
 > [!NOTE]
-> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
+> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you always create a configuration.
 
 ## Recognize speech from a microphone
 
-To recognize speech by using your device microphone, create an [`AudioConfig`](/cpp/cognitive-services/speech/audio-audioconfig) instance by using `FromDefaultMicrophoneInput()`. Then initialize [`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer) by passing `audioConfig` and `config`.
+To recognize speech by using your device microphone, create an [`AudioConfig`](/cpp/cognitive-services/speech/audio-audioconfig) instance by using the `FromDefaultMicrophoneInput()` member function. Then initialize the[`SpeechRecognizer`](/cpp/cognitive-services/speech/speechrecognizer) object by passing `audioConfig` and `config`.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
@@ -47,11 +48,11 @@ auto result = speechRecognizer->RecognizeOnceAsync().get();
 cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
-If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
+If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`. For more information on how to get the device ID for your audio input device, see [Select an audio input device with the Speech SDK](../../../how-to-select-audio-input-devices.md)
 
 ## Recognize speech from a file
 
-If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig` instance. But instead of calling `FromDefaultMicrophoneInput()`, you call `FromWavFileInput()` and pass the file path:
+If you want to recognize speech from an audio file instead of using a microphone, you still need to create an `AudioConfig` instance. But for this case you don't call `FromDefaultMicrophoneInput()`. You call `FromWavFileInput()` and pass the file path:
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
@@ -78,8 +79,8 @@ auto result = speechRecognizer->RecognizeOnceAsync().get();
 You need to write some code to handle the result. This sample evaluates [`result->Reason`](/cpp/cognitive-services/speech/recognitionresult#reason) and:
 
 * Prints the recognition result: `ResultReason::RecognizedSpeech`.
-* If there is no recognition match, informs the user: `ResultReason::NoMatch`.
-* If an error is encountered, prints the error message: `ResultReason::Canceled`.
+* If there's no recognition match, it informs the user: `ResultReason::NoMatch`.
+* If an error is encountered, it prints the error message: `ResultReason::Canceled`.
 
 ```cpp
 switch (result->Reason)
@@ -185,19 +186,19 @@ speechRecognizer->StopContinuousRecognitionAsync().get();
 
 ## Change the source language
 
-A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to German. In your code, find your [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) instance and add this line directly below it:
+A common task for speech recognition is specifying the input (or source) language. The following example shows how to change the input language to German. In your code, find your [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) instance and add this line directly below it:
 
 ```cpp
 speechConfig->SetSpeechRecognitionLanguage("de-DE");
 ```
 
-[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. Refer to the [list of supported speech to text locales](../../../language-support.md?tabs=stt).
+[`SetSpeechRecognitionLanguage`](/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage) is a parameter that takes a string as an argument. For more information, see the [list of supported speech to text locales](../../../language-support.md?tabs=stt).
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text) with Speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text).
 
 ## Use a custom endpoint
 
@@ -213,5 +214,5 @@ auto speechRecognizer = SpeechRecognizer::FromConfig(speechConfig);
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+For more information about containers, see [Host URLs](../../../speech-container-howto.md#host-urls) in Install and run Speech containers with Docker.
 

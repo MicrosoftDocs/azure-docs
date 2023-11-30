@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/08/2022
+ms.date: 09/28/2023
 ---
 
 # Enable VM insights by using PowerShell

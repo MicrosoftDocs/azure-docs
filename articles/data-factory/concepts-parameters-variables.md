@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/08/2022
+ms.date: 10/20/2023
 ---
 
 # Pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics

@@ -112,9 +112,9 @@ Several layers of technical controls in Managed HSM further protect your key mat
 
   The data plane is where you work with the data that's stored in a managed HSM, which is HSM-backed encryption keys. From the data plane interface, you can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the keys, create a full HSM backup, restore a full backup, and manage security domain.
   
-  To access a managed HSM in either plane, all callers must have proper authentication and authorization. *Authentication* establishes the identity of the caller. *Authorization* determines which operations the caller can execute. A caller can be any one of the security principals that are defined in Azure Active Directory: User, group, service principal, or managed identity.
+  To access a managed HSM in either plane, all callers must have proper authentication and authorization. *Authentication* establishes the identity of the caller. *Authorization* determines which operations the caller can execute. A caller can be any one of the security principals that are defined in Microsoft Entra ID: User, group, service principal, or managed identity.
 
-  Both planes use Azure Active Directory for authentication. For authorization, they use different systems:
+  Both planes use Microsoft Entra ID for authentication. For authorization, they use different systems:
 
   - The management plane uses Azure role-based access control (Azure RBAC), an authorization system that's built on Azure Resource Manager.
   - The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system that's implemented and enforced at the managed HSM level. The local RBAC control model allows designated HSM administrators to have complete control over their HSM pool that even the management group, subscription, or resource group administrators can't override.

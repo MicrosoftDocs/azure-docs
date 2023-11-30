@@ -8,18 +8,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/23/2022
+ms.date: 09/29/2023
 ---
 
 # Copy and transform data in Azure Blob Storage by using Azure Data Factory or Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> - [Version 1](v1/data-factory-azure-blob-connector.md)
-> - [Current version](connector-azure-blob-storage.md)
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Azure Blob Storage. It also describes how to use the Data Flow activity to transform data in Azure Blob Storage. To learn more read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
+This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Azure Blob Storage. It also describes how to use the Data Flow activity to transform data in Azure Blob Storage. To learn more, read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
 
 >[!TIP]
 >To learn about a migration scenario for a data lake or a data warehouse, see the article [Migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md).
@@ -36,7 +32,7 @@ This Azure Blob Storage connector is supported for the following capabilities:
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
 |[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For the Copy activity, this Blob storage connector supports:
 
@@ -54,7 +50,7 @@ For the Copy activity, this Blob storage connector supports:
 
 Use the following steps to create an Azure Blob Storage linked service in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -101,7 +97,7 @@ The following properties are supported for storage account key authentication in
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The `type` property must be set to `AzureBlobStorage` (suggested) or `AzureStorage` (see the following notes). | Yes |
-| containerUri | Specify the Azure Blob container URI which has enabled Anonymous read access by taking this format `https://<AccountName>.blob.core.windows.net/<ContainerName>` and [Configure anonymous public read access for containers and blobs](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container) | Yes |
+| containerUri | Specify the Azure Blob container URI that has enabled Anonymous read access by taking this format `https://<AccountName>.blob.core.windows.net/<ContainerName>` and [Configure anonymous public read access for containers and blobs](../storage/blobs/anonymous-read-access-configure.md#set-the-anonymous-access-level-for-a-container) | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
 **Example:**
@@ -127,7 +123,7 @@ The following properties are supported for storage account key authentication in
 
 **Examples UI**:
 
-The UI experience will be like below. This sample will use the Azure open dataset as the source. If you want to get the open [dataset bing_covid-19_data.csv](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv), you just need to choose **Authentication type** as **Anonymous** and fill in Container URI with `https://pandemicdatalake.blob.core.windows.net/public`.
+The UI experience is as described in the following image. This sample uses the Azure open dataset as the source. If you want to get the open [dataset bing_covid-19_data.csv](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv), you just need to choose **Authentication type** as **Anonymous** and fill in Container URI with `https://pandemicdatalake.blob.core.windows.net/public`.
 
 :::image type="content" source="media/connector-azure-blob-storage/anonymous-ui.png" alt-text="Screenshot of configuration for Anonymous examples UI.":::
 
@@ -143,7 +139,7 @@ The following properties are supported for storage account key authentication in
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
 >[!NOTE]
->A secondary Blob service endpoint is not supported when you're using account key authentication. You can use other authentication types.
+>A secondary Blob service endpoint isn't supported when you're using account key authentication. You can use other authentication types.
 
 >[!NOTE]
 >If you're using the `AzureStorage` type linked service, it's still supported as is. But we suggest that you use the new `AzureBlobStorage` linked service type going forward.
@@ -273,11 +269,11 @@ When you create a shared access signature URI, consider the following points:
 
 ### Service principal authentication
 
-For general information about Azure Storage service principal authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md).
+For general information about Azure Storage service principal authentication, see [Authenticate access to Azure Storage using Microsoft Entra ID](../storage/blobs/authorize-access-azure-active-directory.md).
 
 To use service principal authentication, follow these steps:
 
-1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
+1. Register an application with the Microsoft identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Application key
@@ -294,17 +290,17 @@ These properties are supported for an Azure Blob Storage linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Blob Storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
-| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
+| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication isn't supported when account kind is empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalCredentialType | The credential type to use for service principal authentication. Allowed values are **ServicePrincipalKey** and **ServicePrincipalCert**. | Yes |
 | servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering over the upper-right corner of the Azure portal. | Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment, to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment, to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
 >[!NOTE]
 >
->- If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), service principal authentication is not supported in Data Flow.
+>- If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), service principal authentication isn't supported in Data Flow.
 >- If you access the blob storage through private endpoint using Data Flow, note when service principal authentication is used Data Flow connects to the ADLS Gen2 endpoint instead of Blob endpoint. Make sure you create the corresponding private endpoint in your data factory or Synapse workspace to enable access.
 
 >[!NOTE]
@@ -339,7 +335,7 @@ These properties are supported for an Azure Blob Storage linked service:
 
 A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can directly use this system-assigned managed identity for Blob storage authentication, which is similar to using your own service principal. It allows this designated resource to access and copy data from or to Blob storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 
-For general information about Azure Storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md). To use managed identities for Azure resource authentication, follow these steps:
+For general information about Azure Storage authentication, see [Authenticate access to Azure Storage using Microsoft Entra ID](../storage/blobs/authorize-access-azure-active-directory.md). To use managed identities for Azure resource authentication, follow these steps:
 
 1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
 
@@ -354,7 +350,7 @@ These properties are supported for an Azure Blob Storage linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Blob Storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
-| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
+| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication isn't supported when account kind is empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
 **Example:**
@@ -379,7 +375,7 @@ These properties are supported for an Azure Blob Storage linked service:
 ### User-assigned managed identity authentication
 A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Blob storage authentication, which allows to access and copy data from or to Blob storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 
-For general information about Azure storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md). To use user-assigned managed identity authentication, follow these steps:
+For general information about Azure storage authentication, see [Authenticate access to Azure Storage using Microsoft Entra ID](../storage/blobs/authorize-access-azure-active-directory.md). To use user-assigned managed identity authentication, follow these steps:
 
 1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Blob Storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
 
@@ -395,7 +391,7 @@ These properties are supported for an Azure Blob Storage linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Blob Storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
-| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
+| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication isn't supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
@@ -423,11 +419,11 @@ These properties are supported for an Azure Blob Storage linked service:
 ```
 
 >[!IMPORTANT]
->If you use PolyBase or COPY statement to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics, when you use managed identity authentication for Blob storage, make sure you also follow steps 1 to 3 in [this guidance](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configure Blob storage with an Azure Virtual Network endpoint, you also need to have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu as required by Azure Synapse.
+>If you use PolyBase or COPY statement to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics, when you use managed identity authentication for Blob storage, make sure you also follow steps 1 to 3 in [this guidance](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Those steps will register your server with Microsoft Entra ID and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configure Blob storage with an Azure Virtual Network endpoint, you also need to have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu as required by Azure Synapse.
 
 > [!NOTE]
 >
-> - If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), system-assigned/user-assigned managed identity authentication is not supported in Data Flow.
+> - If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), system-assigned/user-assigned managed identity authentication isn't supported in Data Flow.
 > - If you access the blob storage through private endpoint using Data Flow, note when system-assigned/user-assigned managed identity authentication is used Data Flow connects to the ADLS Gen2 endpoint instead of Blob endpoint. Make sure you create the corresponding private endpoint in ADF to enable access.
 
 > [!NOTE]
@@ -490,17 +486,17 @@ The following properties are supported for Azure Blob Storage under `storeSettin
 | type                     | The **type** property under `storeSettings` must be set to **AzureBlobStorageReadSettings**. | Yes                                           |
 | ***Locate the files to copy:*** |  |  |
 | OPTION 1: static path<br> | Copy from the given container or folder/file path specified in the dataset. If you want to copy all blobs from a container or folder, additionally specify `wildcardFileName` as `*`. |  |
-| OPTION 2: blob prefix<br>- prefix | Prefix for the blob name under the given container configured in a dataset to filter source blobs. Blobs whose names start with `container_in_dataset/this_prefix` are selected. It utilizes the service-side filter for Blob storage, which provides better performance than a wildcard filter.<br><br>When you use prefix and choose to copy to file-based sink with preserving hierarchy, note the sub-path after the last "/" in prefix will be preserved. For example, you have source  `container/folder/subfolder/file.txt`, and configure prefix as `folder/sub`, then the preserved file path is `subfolder/file.txt`. | No                                                          |
+| OPTION 2: blob prefix<br>- prefix | Prefix for the blob name under the given container configured in a dataset to filter source blobs. Blobs whose names start with `container_in_dataset/this_prefix` are selected. It utilizes the service-side filter for Blob storage, which provides better performance than a wildcard filter.<br><br>When you use prefix and choose to copy to file-based sink with preserving hierarchy, note the sub-path after the last "/" in prefix is preserved. For example, you have source  `container/folder/subfolder/file.txt`, and configure prefix as `folder/sub`, then the preserved file path is `subfolder/file.txt`. | No                                                          |
 | OPTION 3: wildcard<br>- wildcardFolderPath | The folder path with wildcard characters under the given container configured in a dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your folder name has wildcard or this escape character inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
 | OPTION 3: wildcard<br>- wildcardFileName | The file name with wildcard characters under the given container and folder path (or wildcard folder path) to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your file name has a wildcard or this escape character inside. See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
-| OPTION 4: a list of files<br>- fileListPath | Indicates to copy a given file set. Point to a text file that includes a list of files you want to copy, one file per line, which is the relative path to the path configured in the dataset.<br/>When you're using this option, do not specify a file name in the dataset. See more examples in [File list examples](#file-list-examples). | No |
+| OPTION 4: a list of files<br>- fileListPath | Indicates to copy a given file set. Point to a text file that includes a list of files you want to copy, one file per line, which is the relative path to the path configured in the dataset.<br/>When you're using this option, don't specify a file name in the dataset. See more examples in [File list examples](#file-list-examples). | No |
 | ***Additional settings:*** |  | |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when **recursive** is set to **true** and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are **true** (default) and **false**.<br>This property doesn't apply when you configure `fileListPath`. | No |
-| deleteFilesAfterCompletion | Indicates whether the binary files will be deleted from source store after successfully moving to the destination store. The file deletion is per file, so when copy activity fails, you will see some files have already been copied to the destination and deleted from source, while others are still remaining on source store. <br/>This property is only valid in binary files copy scenario. The default value: false. | No |
+| deleteFilesAfterCompletion | Indicates whether the binary files will be deleted from source store after successfully moving to the destination store. The file deletion is per file. Therefore, when the copy activity fails, you'll see some files have already been copied to the destination and deleted from source, while others are still remaining on the source store. <br/>This property is only valid in binary files copy scenario. The default value: false. | No |
 | modifiedDatetimeStart    | Files are filtered based on the attribute: last modified. <br>The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to a UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be **NULL**, which means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is **NULL**, the files whose last modified attribute is greater than or equal to the datetime value will be selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is **NULL**, the files whose last modified attribute is less than the datetime value will be selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
-| modifiedDatetimeEnd      | Same as above.                                               | No                                            |
-| enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
-| partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it is not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/>- When you use prefix, partition root path is sub-path before the last "/". <br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path is not specified, no extra column will be generated. | No                                            |
+| modifiedDatetimeEnd      | Same as the previous property.                                               | No                                            |
+| enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as extra source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
+| partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it isn't specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/>- When you use prefix, partition root path is sub-path before the last "/". <br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path isn't specified, no extra column will be generated. | No                                            |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No                                            |
 
 > [!NOTE]
@@ -560,7 +556,7 @@ The following properties are supported for Azure Blob Storage under `storeSettin
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | The `type` property under `storeSettings` must be set to `AzureBlobStorageWriteSettings`. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file or blob name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
-| blockSizeInMB | Specify the block size, in megabytes, used to write data to block blobs. Learn more [about Block Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Allowed value is *between 4 MB and 100 MB*. <br/>By default, the service automatically determines the block size based on your source store type and data. For nonbinary copy into Blob storage, the default block size is 100 MB so it can fit in (at most) 4.95 TB of data. It might be not optimal when your data is not large, especially when you use the self-hosted integration runtime with poor network connections that result in operation timeout or performance issues. You can explicitly specify a block size, while ensuring that `blockSizeInMB*50000` is big enough to store the data. Otherwise, the Copy activity run will fail. | No |
+| blockSizeInMB | Specify the block size, in megabytes, used to write data to block blobs. Learn more [about Block Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Allowed value is *between 4 MB and 100 MB*. <br/>By default, the service automatically determines the block size based on your source store type and data. For nonbinary copy into Blob storage, the default block size is 100 MB so it can fit in (at most) 4.95 TB of data. It might be not optimal when your data isn't large, especially when you use the self-hosted integration runtime with poor network connections that result in operation timeout or performance issues. You can explicitly specify a block size, while ensuring that `blockSizeInMB*50000` is large enough to store the data. Otherwise, the Copy activity run will fail. | No |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No       |
 | metadata |Set custom metadata when copy to sink. Each object under the `metadata` array represents an extra column. The `name` defines the metadata key name, and the `value` indicates the data value of that key. If [preserve attributes feature](./copy-activity-preserve-metadata.md#preserve-metadata) is used, the specified metadata will union/overwrite with the source file metadata.<br/><br/>Allowed data values are:<br/>- `$$LASTMODIFIED`: a reserved variable indicates to store the source files' last modified time. Apply to file-based source with binary format only.<br/><b>- Expression<b><br/>- <b>Static value<b>| No       |
 
@@ -632,7 +628,7 @@ Assume that you have the following source folder structure and want to copy the 
 
 | Sample source structure                                      | Content in FileListToCopy.txt                             | Configuration 
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- Container: `container`<br>- Folder path: `FolderA`<br><br>**In Copy activity source:**<br>- File list path: `container/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line, with the relative path to the path configured in the dataset. |
+| container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- Container: `container`<br>- Folder path: `FolderA`<br><br>**In Copy activity source:**<br>- File list path: `container/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy. It includes one file per line, with the relative path to the path configured in the dataset. |
 
 ### Some recursive and copyBehavior examples
 
@@ -643,9 +639,9 @@ This section describes the resulting behavior of the Copy operation for differen
 | true |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder, Folder1, is created with the same structure as the source:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
 | true |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder, Folder1, is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File5 |
 | true |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder, Folder1, is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File5 contents are merged into one file with an autogenerated file name. |
-| false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder, Folder1, is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 with File3, File4, and File5 is not picked up. |
-| false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder, Folder1, is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File2<br/><br/>Subfolder1 with File3, File4, and File5 is not picked up. |
-| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder, Folder1, is created with the following structure:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 contents are merged into one file with an autogenerated file name. autogenerated name for File1<br/><br/>Subfolder1 with File3, File4, and File5 is not picked up. |
+| false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder, Folder1, is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 with File3, File4, and File5 isn't picked up. |
+| false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder, Folder1, is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File2<br/><br/>Subfolder1 with File3, File4, and File5 isn't picked up. |
+| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder, Folder1, is created with the following structure:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 contents are merged into one file with an autogenerated file name. autogenerated name for File1<br/><br/>Subfolder1 with File3, File4, and File5 isn't picked up. |
 
 ## Preserving metadata during copy
 
@@ -692,7 +688,7 @@ First, set a wildcard to include all paths that are the partitioned folders plus
 
 :::image type="content" source="media/data-flow/part-file-2.png" alt-text="Screenshot of partition source file settings in mapping data flow source transformation.":::
 
-Use the **Partition root path** setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service will add the resolved partitions found in each of your folder levels.
+Use the **Partition root path** setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service adds the resolved partitions found in each of your folder levels.
 
 :::image type="content" source="media/data-flow/partfile1.png" alt-text="Partition root path":::
 
@@ -704,7 +700,7 @@ Use the **Partition root path** setting to define what the top level of the fold
 
 To move source files to another location post-processing, first select "Move" for file operation. Then, set the "from" directory. If you're not using any wildcards for your path, then the "from" setting will be the same folder as your source folder.
 
-If you have a source path with wildcard, your syntax will look like this:
+If you have a source path with wildcard, your syntax is as follows:
 
 `/data/sales/20??/**/*.csv`
 
@@ -719,11 +715,11 @@ And you can specify "to" as:
 In this case, all files that were sourced under `/data/sales` are moved to `/backup/priorSales`.
 
 > [!NOTE]
-> File operations run only when you start the data flow from a pipeline run (a pipeline debug or execution run) that uses the Execute Data Flow activity in a pipeline. File operations *do not* run in Data Flow debug mode.
+> File operations run only when you start the data flow from a pipeline run (a pipeline debug or execution run) that uses the Execute Data Flow activity in a pipeline. File operations *don't* run in Data Flow debug mode.
 
-**Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All datetimes are in UTC. 
+**Filter by last modified:** You can filter the files to be processed by specifying a date range of when they were last modified. All datetimes are in UTC. 
 
-**Enable change data capture:** If true, you will get new or changed files only from the last run. Initial load of full snapshot data will always be gotten in the first run, followed by capturing new or changed files only in next runs. 
+**Enable change data capture:** If true, you'll get new or changed files only from the last run. Initial load of full snapshot data will always be gotten in the first run, followed by capturing new or changed files only in next runs. 
 
 :::image type="content" source="media/data-flow/enable-change-data-capture.png" alt-text="Screenshot showing Enable change data capture.":::
 
@@ -737,9 +733,9 @@ In the sink transformation, you can write to either a container or a folder in A
 
 **File name option:** Determines how the destination files are named in the destination folder. The file name options are:
    - **Default**: Allow Spark to name files based on PART defaults.
-   - **Pattern**: Enter a pattern that enumerates your output files per partition. For example, `loans[n].csv` will create `loans1.csv`, `loans2.csv`, and so on.
+   - **Pattern**: Enter a pattern that enumerates your output files per partition. For example, `loans[n].csv` creates `loans1.csv`, `loans2.csv`, and so on.
    - **Per partition**: Enter one file name per partition.
-   - **As data in column**: Set the output file to the value of a column. The path is relative to the dataset container, not the destination folder. If you have a folder path in your dataset, it will be overridden.
+   - **As data in column**: Set the output file to the value of a column. The path is relative to the dataset container, not the destination folder. If you have a folder path in your dataset, it is overridden.
    - **Output to a single file**: Combine the partitioned output files into a single named file. The path is relative to the dataset folder. Be aware that the merge operation can possibly fail based on node size. We don't recommend this option for large datasets.
 
 **Quote all:** Determines whether to enclose all values in quotation marks.
@@ -768,8 +764,8 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 | type | The `type` property of the dataset must be set to `AzureBlob`. | Yes |
 | folderPath | Path to the container and folder in Blob storage. <br/><br/>A wildcard filter is supported for the path, excluding container name. Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your folder name has a wildcard or this escape character inside. <br/><br/>An example is: `myblobcontainer/myblobfolder/`. See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes for the Copy or Lookup activity, No for the GetMetadata activity |
 | fileName | Name or wildcard filter for the blobs under the specified `folderPath` value. If you don't specify a value for this property, the dataset points to all blobs in the folder. <br/><br/>For the filter, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your file name has a wildcard or this escape character inside.<br/><br/>When `fileName` isn't specified for an output dataset and `preserveHierarchy` isn't specified in the activity sink, the Copy activity automatically generates the blob name with the following pattern: "*Data.[activity run ID GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*". For example: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". <br/><br/>If you copy from a tabular source by using a table name instead of a query, the name pattern is `[table name].[format].[compression if configured]`. For example: "MyTable.csv". | No |
-| modifiedDatetimeStart | Files are filtered based on the attribute: last modified. The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware that enabling this setting will affect the overall performance of data movement when you want to filter huge amounts of files. <br/><br/> The properties can be `NULL`, which means no file attribute filter will be applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is `NULL`, the files whose last modified attribute is greater than or equal to the datetime value will be selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is `NULL`, the files whose last modified attribute is less than the datetime value will be selected.| No |
-| modifiedDatetimeEnd | Files are filtered based on the attribute: last modified. The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware that enabling this setting will affect the overall performance of data movement when you want to filter huge amounts of files. <br/><br/> The properties can be `NULL`, which means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is `NULL`, the files whose last modified attribute is greater than or equal to the datetime value will be selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is `NULL`, the files whose last modified attribute is less than the datetime value will be selected.| No |
+| modifiedDatetimeStart | Files are filtered based on the attribute: last modified. The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware that enabling this setting affects the overall performance of data movement when you want to filter huge amounts of files. <br/><br/> The properties can be `NULL`, which means no file attribute filter will be applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is `NULL`, the files whose last modified attribute is greater than or equal to the datetime value will be selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is `NULL`, the files whose last modified attribute is less than the datetime value will be selected.| No |
+| modifiedDatetimeEnd | Files are filtered based on the attribute: last modified. The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware that enabling this setting affects the overall performance of data movement when you want to filter huge amounts of files. <br/><br/> The properties can be `NULL`, which means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is `NULL`, the files whose last modified attribute is greater than or equal to the datetime value will be selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is `NULL`, the files whose last modified attribute is less than the datetime value will be selected.| No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs-legacy.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) sections. | No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. | No |
 
@@ -811,7 +807,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The `type` property of the Copy activity source must be set to `BlobSource`. | Yes |
-| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when `recursive` is set to `true` and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink.<br/>Allowed values are `true` (default) and `false`. | No |
+| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When `recursive` is set to `true` and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink.<br/>Allowed values are `true` (default) and `false`. | No |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
@@ -888,7 +884,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 
 ## Change data capture 
 
-Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture ** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice. Pleaser refer to [Change Data Capture](concepts-change-data-capture.md) for details.
+Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture ** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice. Please refer to [Change Data Capture](concepts-change-data-capture.md) for details.
  
 . 
 
