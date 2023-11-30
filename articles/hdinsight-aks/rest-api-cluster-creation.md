@@ -51,11 +51,9 @@ Variables required in the script
 
 - Microsoft Entra user ID: Find tenant ID, domain name, user object ID - Partner 	Center | Microsoft Learn 
 
-- HDInsight on AKS VM list: 
+- [HDInsight on AKS VM list](azure/hdinsight-aks/virtual-machine)  /-		recommendation-capacity-planning 
 
-  https://learn.microsoft.com/en-us/azure/hdinsight-aks/virtual-machine-		recommendation-capacity-planning 
 
- 
 To create a cluster, copy the following command to your REST API tool e.g Postman 
 
 ```
