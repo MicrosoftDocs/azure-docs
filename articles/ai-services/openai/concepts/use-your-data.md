@@ -595,8 +595,17 @@ When you chat with a model, providing a history of the chat will help the model 
 | GPT-4 (8k)              | 8000                   | 400                                | 1500                               |
 | GPT-4 32k               | 32000                  | 2000                               | 6400                               |
 
+The table above shows the total number of tokens available for each model type. It also determines the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
 
-**Model**
+
+* The meta prompt (MP): if you limit responses from the model to the grounding data content (`inScope=True` in the API), the maximum number of tokens is 4036 tokens. Otherwise (for example if `inScope=False`) the maximum is 3444 tokens. This number is variable depending on the token length of the user question and conversation history. This estimate includes the base prompt as well as the query rewriting prompts for retrieval.
+* User question and history: Variable but capped at 2000 tokens.
+* Retrieved documents (chunks): The number of tokens used by the retrieved document chunks depends on multiple factors. The upper bound for this is the number of retrieved document chunks multiplied by the chunk size. It will, however, be truncated based on the tokens available tokens for the specific model being used after counting the rest of fields. 
+
+    20% of the available tokens are reserved for the model response. The remaining 80% of available tokens include the meta prompt, the user question and conversation history, and the system message. The remaining token budget is used by the retrieved document chunks. 
+
+
+<!--**Model**
 
 This determines the maximum number of tokens available to be used (`T`), the maximum number of tokens that can be used for the system message (`SM`) and that for the model response (`MR`).  If the system message is more than the max tokens allowed for system messages, the rest of the tokens beyond the maximum will be ignored. This limitation only applies to Azure OpenAI on your data.
 
@@ -618,7 +627,7 @@ For example, if you use a 16k model with default values for `K` (5) and `C` (102
 
 `Min (5 * 1024, (0.8*16000- 3850 – 2000 – 1000)) = Min (5120, 5950) = 5120`
 
-To calculate the number of tokens per request, use the python library called [tiktoken](https://github.com/openai/tiktoken). 
+To calculate the number of tokens per request, use the python library called [tiktoken](https://github.com/openai/tiktoken). -->
 
 ```python 
 import tiktoken 
