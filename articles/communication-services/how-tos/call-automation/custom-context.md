@@ -234,6 +234,42 @@ var sipHeaders = callCustomContext.SipHeaders;
 
 // Proceed to answer or reject call as usual
 ```
+
+### [Java](#tab/java)
+```java
+AcsIncomingCallEventData incomingEvent = <incoming call event from Event Grid>;
+// Retrieve incoming call custom context
+AcsIncomingCallCustomContext callCustomContext = incomingEvent.getCustomContext();
+
+// Inspect dictionary with key/value pairs
+Map<String, String> voipHeaders = callCustomContext.getVoipHeaders();
+Map<String, String> sipHeaders = callCustomContext.getSipHeaders();
+
+// Proceed to answer or reject call as usual
+```
+
+### [JavaScript](#tab/javascript)
+```javascript
+// Retrieve incoming call custom context
+const callCustomContext = incomingEvent.customContext;
+
+// Inspect dictionary with key/value pairs
+const voipHeaders = callCustomContext.voipHeaders;
+const sipHeaders = callCustomContext.sipHeaders;
+
+// Proceed to answer or reject call as usual
+```
+
+### [Python](#tab/python)
+```python
+# Retrieve incoming call custom context
+callCustomContext = incomingEvent.customContext
+
+# Inspect dictionary with key/value pairs
+voipHeaders = callCustomContext.voipHeaders
+sipHeaders = callCustomContext.sipHeaders
+```
+
 -----
 # Additional resources
 
