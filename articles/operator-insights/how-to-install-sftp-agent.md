@@ -16,7 +16,36 @@ The SFTP agent is a software package that is installed onto a Linux Virtual Mach
 
 - You must have an SFTP server containing the files to be uploaded to Azure Operator Insights. This SFTP server must be accessible from the VM where the agent is installed.
 - You must have an Azure Operator Insights Data Product deployment.
-- You must provide one or more VMs with the following specifications to run the agent:
+- You must choose the number of agents and VMs on which to install the agents, using the guidance in the following section.
+
+### Choosing agents and VMs
+
+An agent collect files from _file sources_ that you configure on it. File sources include the details of the SFTP server, the files to collect from it and how to manage those files.
+
+You must choose how to set up your agents, file sources and VMs using the following rules:
+- File sources must not overlap, meaning that they must not collect the same files from the same servers.
+- You must configure each file source on exactly one agent. If you configure a file source on multiple agents, Azure Operator Insights receives duplicate data.
+- Each agent can have multiple file sources.
+- Each agent must run on a separate VM.
+- The number of agents and therefore VMs also depends on:
+    - The scale and redundancy characteristics of your deployment.
+    - The number and size of the files, and how frequently the files are copied.
+
+As a guide, this table documents the throughput that the recommended specification on a standard D4s_v3 Azure VM can achieve.
+
+| File count | File size (KiB) | Time (seconds) | Throughput (Mbps) |
+|------------|-----------------|----------------|-------------------|
+| 64         | 16,384          | 6              | 1,350             |
+| 1,024      | 1,024           | 10             | 910               |
+| 16,384     | 64              | 80             | 100               |
+| 65,536     | 16              | 300            | 25                |
+
+For example, if you need to collect from two file sources, you could:
+
+- Deploy one VM with one agent that collects from both file sources.
+- Deploy two VMs, each with one agent. Each agent (and therefore each VM) collects from one file source.
+
+Each VM running the agent must meet the following specifications.
 
 | Resource | Requirements                                                        |
 |----------|---------------------------------------------------------------------|
@@ -29,23 +58,11 @@ The SFTP agent is a software package that is installed onto a Linux Virtual Mach
 | Other    | SSH or alternative access to run shell commands                     |
 | DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [VMs without public DNS: map Azure host names to IP addresses.](#vms-without-public-dns-map-azure-host-names-to-ip-addresses). |
 
-Each agent instance must run on its own VM. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. The number is also dependent on the number and size of the files, and how frequently the files are copied.
 
-As a guide, this table documents the throughput that the recommended specification on a standard D4s_v3 Azure VM can achieve.
-
-| File count | File size (KiB) | Time (seconds) | Throughput (Mbps) |
-|------------|-----------------|----------------|-------------------|
-| 64         | 16,384          | 6              | 1,350             |
-| 1,024      | 1,024           | 10             | 910               |
-| 16,384     | 64              | 80             | 100               |
-| 65,536     | 16              | 300            | 25                |
-
-
-### Planning for fault tolerance
-
-The SFTP agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
-
-If a persistent error or extended connectivity problems occur, some files might not be uploaded. However, if the error suggests that the upload might be successful if retried, the agent tries to upload the file on the next scheduled run.
+> [!TIP]
+> The SFTP agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
+>
+> If a persistent error or extended connectivity problems occur, some files might not be uploaded. However, if the error suggests that the upload might be successful if retried, the agent tries to upload the file on the next scheduled run.
 
 ### VM security recommendations
 
