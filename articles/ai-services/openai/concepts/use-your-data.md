@@ -630,16 +630,16 @@ For example, if you use a 16k model with default values for `K` (5) and `C` (102
 To calculate the number of tokens per request, use the python library called [tiktoken](https://github.com/openai/tiktoken). -->
 
 ```python 
-import tiktoken 
- 
-class TokenEstimator(object): 
- 
-    GPT2_TOKENIZER = tiktoken.get_encoding("cl100k_base") 
- 
-    def estimate_tokens(self, text: str) -> int: 
-        return len(self.GPT2_TOKENIZER.encode(text)) 
-       
-token_output = TokenEstimator.estimat 
+import tiktoken
+
+class TokenEstimator(object):
+
+    GPT2_TOKENIZER = tiktoken.get_encoding("gpt2")
+
+    def estimate_tokens(self, text: str) -> int:
+        return len(self.GPT2_TOKENIZER.encode(text))
+      
+token_output = TokenEstimator.estimate_tokens(input_text)
 ```
 
 ## Next steps
