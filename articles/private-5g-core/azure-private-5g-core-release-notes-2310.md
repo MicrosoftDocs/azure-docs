@@ -51,13 +51,13 @@ This feature allows a packet core that supports both 4G and 5G networks on a sin
 
 The following table provides a summary of issues fixed in this release.
 
-  |No.  |Feature  | Issue |  SKU Fixed In | <!--ADO Bug--> 
+  |No.  |Feature  | Issue |  SKU Fixed In |
   |-----|-----|-----|-----|----|
   | 1 | Packet Forwarding  | In scenarios of sustained high load (for example, continuous setup of 100s of TCP flows per second) in 4G setups, AP5GC might encounter an internal error, leading to a short period of service disruption resulting in some call failures. | 2310.0-4 | 
-  | 2 | Packet Forwarding | An intermittent fault at the network layer causes an outage of packet forwarding | 2310.0-8 | <!--991011-->
-  | 3 | Diagnosability | During packet capture, uplink userplane packets can be omitted from packet captures | 2310.0-8 | <!--1028506--> 
-  | 4 | Packet Forwarding | Errors in userplane packet detection rules can cause incorrect packet handling | 2310.0-8 | <!--1040181--> 
-  | 5 | Diagnosability | Procedures from different subscribers appear in the same trace | 2310.0-8 | <!--922114 887769--> 
+  | 2 | Packet Forwarding | An intermittent fault at the network layer causes an outage of packet forwarding | 2310.0-8 |
+  | 3 | Diagnosability | During packet capture, uplink userplane packets can be omitted from packet captures | 2310.0-8 |
+  | 4 | Packet Forwarding | Errors in userplane packet detection rules can cause incorrect packet handling | 2310.0-8 |
+  | 5 | Diagnosability | Procedures from different subscribers appear in the same trace | 2310.0-8 |
 
 
 
