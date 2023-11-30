@@ -23,7 +23,9 @@ For more information about encryption in Azure, see [Azure encryption overview](
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-#Virtual network encryption has the following requirements:
+## Requirements
+
+Virtual network encryption has the following requirements:
 
 - Virtual Network encryption is supported on general-purpose and memory optimized VM instance sizes including:
 
