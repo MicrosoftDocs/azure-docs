@@ -1,9 +1,9 @@
 ---
-title: Azure maintenance configuration as an event grid source
-description: The article provides details on Azure maintenance configuration as an event grid source. 
+title: Azure Maintenance Configuration as an Event Grid source
+description: The article provides details on Azure Maintenance Configuration as an Event Grid source. 
 ms.topic: conceptual
 author: ApnaLakshay
-ms.author: ApnaLakshay
+ms.author: lnagpal
 ms.date: 11/29/2023
 ---
 
@@ -17,8 +17,8 @@ Maintenance Configuration emits the following event types:
 
 **Event type** | **Description**
 ---| ---|
-Microsoft.Maintenance.PreMaintenanceEvent | Raised before maintenance start and give user opportunity to perform pre maintenance operations. |
-Microsoft.Maintenance.PostMaintenanceEvent | Raised after maintenance completes and give opportunity to perform post maintenance operations. 
+Microsoft.Maintenance.PreMaintenanceEvent | Raised before maintenance job start and gives user an opportunity to perform pre maintenance operations. |
+Microsoft.Maintenance.PostMaintenanceEvent | Raised after maintenance job completes and gives an opportunity to perform post maintenance operations. 
 
 ## Example event
 
@@ -134,7 +134,7 @@ topic | string | Full resource path to the event source. This field isn't writea
 subject | string | Publisher-defined path to the event subject. |
 eventType | string | One of the registered event types for this event source. |
 eventTime | string | The time the event is generated based on the provider's UTC time. |
-id | string | Unique identifier for the event | 
+ID | string | Unique identifier for the event | 
 data | object | App Configuration event data. | 
 dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
 metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. | 
@@ -150,7 +150,7 @@ source | string | Full resource path to the event source. This field isn't write
 subject | string | Publisher-defined path to the event subject. |
 type | string | One of the registered event types for this event source. |
 time |  string |  The time the event is generated based on the provider's UTC time. |
-id | string |  Unique identifier for the event. |
+ID | string |  Unique identifier for the event. |
 data | object |  App Configuration event data. |
 specversion | string | CloudEvents schema specification version. 
 
@@ -160,20 +160,13 @@ The data object has the following properties:
 
 **Property** | **Type** | **Description** |
 --- | --- | --- |
-correlationId | string | The resource id of specific maintenance schedule instance. |
-maintenanceConfigurationId | string | The resource id of maintenance configuration. |
+correlationId | string | The resource ID of specific maintenance schedule instance. |
+maintenanceConfigurationId | string | The resource ID of maintenance configuration. |
 startDateTime | string | The maintenance schedule start time. |
 endDateTime | string | The maintenance schedule end time. |
-cancellationCutOffDateTime | string | 
-The maintenance schedule instance cancellation cut-off time. | 
-resourceSubscriptionIds | string | The subscription ids from which VMs are included in this schedule instance. |
+cancellationCutOffDateTime | string | The maintenance schedule instance cancellation cut-off time. | 
+resourceSubscriptionIds | string | The subscription IDs from which VMs are included in this schedule instance. |
 status | string | The completion status of maintenance schedule instance. 
-
-<!-- ## Tutorials and how-tos
-
-|Title  |Description  |
-|---------|---------|
-| [Send events from API Management to Event Grid](../api-management/how-to-event-grid.md)| How to subscribe to API Management events using Event Grid. | -->
 
 ## Next steps
 
