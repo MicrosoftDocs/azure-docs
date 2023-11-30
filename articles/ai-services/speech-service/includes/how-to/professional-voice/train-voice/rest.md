@@ -26,7 +26,7 @@ After you validate your data files, use them to build your custom neural voice m
 
 - [Neural](?tabs=neural#create-a-voice-model): Create a voice in the same language of your training data.
 
-- [Neural - cross lingual](?tabs=crosslingual#create-a-voice-model): Create a secondary language for your voice model to speak a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US`.
+- [Neural - cross lingual](?tabs=crosslingual#create-a-voice-model): Create a voice that speaks a different language from your training data. For example, with the `fr-FR` training data, you can create a voice that speaks `en-US`.
 
   The language of the training data and the target language must both be one of the [languages that are supported](../../../../language-support.md?tabs=tts#custom-neural-voice) for cross lingual voice training. You don't need to prepare training data in the target language, but your test script must be in the target language.
 
@@ -45,8 +45,8 @@ To create a neural voice, use the `Models_Create` operation of the custom voice 
 - Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
 - Set the required `trainingSetId` property. See [create a training set](../../../../professional-voice-create-training-set.md).
-- Set the required recipe `kind` property to `Standard` for neural voice training. The recipe kind indicates the training method and can't be changed later. To use a different training method, see [Neural - cross lingual](?tabs=crosslingual#create-a-voice-model) or [Neural - multi style](?tabs=multistyle#create-a-voice-model).
-- Set the required `voiceName` property. The voice name can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+- Set the required recipe `kind` property to `Default` for neural voice training. The recipe kind indicates the training method and can't be changed later. To use a different training method, see [Neural - cross lingual](?tabs=crosslingual#create-a-voice-model) or [Neural - multi style](?tabs=multistyle#create-a-voice-model).
+- Set the required `voiceName` property. The voice name must end with "Neural" and can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
 Make an HTTP POST request using the URI as shown in the following `Models_Create` example. 
@@ -59,7 +59,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type
   "voiceName": "JessicaNeural",
   "description": "Jessica voice",
   "recipe": {
-    "kind": "Standard"
+    "kind": "Default"
   },
   "projectId": "JessicaProjectId",
   "consentId": "JessicaConsentId",
@@ -75,7 +75,7 @@ You should receive a response body in the following format:
   "voiceName": "JessicaNeural",
   "description": "Jessica voice",
   "recipe": {
-    "kind": "Standard",
+    "kind": "Default",
     "version": "V7.2023.03"
   },
   "projectId": "JessicaProjectId",
@@ -99,8 +99,8 @@ To create a cross lingual neural voice, use the `Models_Create` operation of the
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
 - Set the required `trainingSetId` property. See [create a training set](../../../../professional-voice-create-training-set.md).
 - Set the required recipe `kind` property to `CrossLingual` for cross lingual voice training. The recipe kind indicates the training method and can't be changed later. To use a different training method, see [Neural](?tabs=neural#create-a-voice-model) or [Neural - multi style](?tabs=multistyle#create-a-voice-model).
-- Set the required `voiceName` property. The voice name can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
-- Set the required `locale` property for the secondary language for your voice model. You can specify only one target language for a voice model.
+- Set the required `voiceName` property. The voice name must end with "Neural" and can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+- Set the required `locale` property for the language that your voice speaks. The voice speaks a different language from your training data. You can specify only one target language for a voice model.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
 Make an HTTP POST request using the URI as shown in the following `Models_Create` example. 
@@ -117,8 +117,8 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type
   },
   "projectId": "JessicaProjectId",
   "consentId": "JessicaConsentId",
-  "trainingSetId": "Jessica-zh-CN-TrainingSetId",
-  "locale": "zh-CN"
+  "trainingSetId": "Jessica-en-US-TrainingSetId",
+  "locale": "fr-FR"
 } '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2023-12-01-preview"
 ```
 
@@ -135,8 +135,8 @@ You should receive a response body in the following format:
   },
   "projectId": "JessicaProjectId",
   "consentId": "JessicaConsentId",
-  "trainingSetId": "Jessica-zh-CN-TrainingSetId",
-  "locale": "zh-CN",
+  "trainingSetId": "Jessica-en-US-TrainingSetId",
+  "locale": "fr-FR",
   "engineVersion": "2023.11.14.0",
   "status": "NotStarted",
   "createdDateTime": "2023-04-01T05:30:00.000Z",
@@ -152,7 +152,7 @@ To create a multi-style neural voice, use the `Models_Create` operation of the c
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
 - Set the required `trainingSetId` property. See [create a training set](../../../../professional-voice-create-training-set.md).
 - Set the required recipe `kind` property to `MultiStyle` for multiple style voice training. The recipe kind indicates the training method and can't be changed later. To use a different training method, see [Neural](?tabs=neural#create-a-voice-model) or [Neural - cross lingual](?tabs=crosslingual#create-a-voice-model).
-- Set the required `voiceName` property. The voice name can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+- Set the required `voiceName` property. The voice name must end with "Neural" and can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 - Set the required `locale` property for the language for your voice model. 
 - Set the required `presetStyles` property to one or more of the [available preset styles](#available-preset-styles-across-different-languages) for the target language. 
 - Optionally, set the `styleTrainingSetIds` property to provide training data for your custom speaking styles. The maximum number of custom styles varies by languages: English (United States) allows up to 10 custom styles, Chinese (Mandarin, Simplified) allows up to four custom styles, and Japanese (Japan) allows up to five custom styles. 
@@ -235,6 +235,40 @@ The following table summarizes the different preset styles according to differen
 
 ---
 
+## Get training status
+
+To get the training status of a voice model, use the `Models_Get` operation of the custom voice API. Construct the request URI according to the following instructions:
+
+Make an HTTP GET request using the URI as shown in the following `Models_Get` example. 
+- Replace `YourResourceKey` with your Speech resource key.
+- Replace `YourResourceRegion` with your Speech resource region.
+- Replace `JessicaModelId` if you specified a different model ID in the previous step.
+
+```azurecli-interactive
+curl -v -X GET "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2023-12-01-preview" -H "Ocp-Apim-Subscription-Key: YourResourceKey"
+```
+
+You should receive a response body in the following format. You might need to wait for several minutes before the training is completed. Eventually the status will change to either `Succeeded` or `Failed`.
+
+```json
+{
+  "id": "Jessica",
+  "voiceName": "JessicaNeural",
+  "description": "Jessica voice",
+  "recipe": {
+    "kind": "Default",
+    "version": "V7.2023.03"
+  },
+  "projectId": "JessicaProjectId",
+  "consentId": "JessicaConsentId",
+  "trainingSetId": "JessicaTrainingSetId",
+  "locale": "en-US",
+  "engineVersion": "2023.07.04.0",
+  "status": "Succeeded",
+  "createdDateTime": "2023-04-01T05:30:00.000Z",
+  "lastActionDateTime": "2023-04-02T10:15:30.000Z"
+}
+```
 
 ## Next steps
 

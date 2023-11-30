@@ -18,10 +18,9 @@ In this article, you [create a training set](#create-a-training-set) and get it'
 To create a training set, use the `TrainingSets_Create` operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
-- Set the required `description` property. The description can be changed later.
 - Set the required `voiceKind` property to `Male` or `Female`. The kind can't be changed later. 
-- Set the required `locale` property. This should be the locale of the consent. The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
-- Optionally, set the `displayName` property for the training set name. The training set name can be changed later.
+- Set the required `locale` property. This should be the locale of the training set data. The locale of the training set should be the same as the locale of the [consent statement](../../../../professional-voice-create-consent.md). The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
+- Optionally, set the `description` property for the training set description. The training set description can be changed later.
 
 Make an HTTP POST request using the URI as shown in the following `TrainingSets_Create` example. 
 - Replace `YourResourceKey` with your Speech resource key.
@@ -31,7 +30,6 @@ Make an HTTP POST request using the URI as shown in the following `TrainingSets_
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "description": "300 sentences Jessica data in general style.",
-  "displayName": "Training set name",
   "projectId": "JessicaProjectId",
   "locale": "en-US",
   "voiceKind": "Female"
@@ -70,7 +68,7 @@ To upload a training set of audio and scripts, use the `TrainingSets_UploadData`
 Make an HTTP POST request using the URI as shown in the following `TrainingSets_UploadData` example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
-- Replace `JessicaTrainingSetId` if you specified a different training set ID or you let the service generate one in the previous step.
+- Replace `JessicaTrainingSetId` if you specified a different training set ID in the previous step.
 
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{

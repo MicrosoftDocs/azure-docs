@@ -25,7 +25,7 @@ To add consent to a personal voice project from the URL of an audio file, use th
 - Set the required `projectId` property. See [create a project](./personal-voice-create-project.md).
 - Set the required `voiceTalentName` property. The voice talent name can't be changed later.
 - Set the required `companyName` property. The company name can't be changed later.
-- Set the required `audioUrl` property. The public accessible URL of the consent audio file.
+- Set the required `audioUrl` property. The URL of the voice talent consent audio file. Use a URI with the [shared access signatures (SAS)](/azure/storage/common/storage-sas-overview) token.
 - Set the required `locale` property. This should be the locale of the consent. The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
 
 Make an HTTP POST request using the URI as shown in the following `Consents_Create` example. 
@@ -39,7 +39,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type
   "projectId": "JessicaProjectId",
   "voiceTalentName": "Jessica Smith",
   "companyName": "Contoso",
-  "audioUrl": "https://contoso.blob.core.windows.net/public/jessica-consent.wav",
+  "audioUrl": "https://contoso.blob.core.windows.net/public/jessica-consent.wav?mySasToken",
   "locale": "en-US"
 } '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/consents/JessicaConsentId?api-version=2023-12-01-preview"
 ```

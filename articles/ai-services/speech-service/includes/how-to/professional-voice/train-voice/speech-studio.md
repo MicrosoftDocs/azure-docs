@@ -25,7 +25,7 @@ After you validate your data files, use them to build your custom neural voice m
 
 - [Neural](?tabs=neural#train-your-custom-neural-voice-model): Create a voice in the same language of your training data.
 
-- [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model): Create a secondary language for your voice model to speak a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US`.
+- [Neural - cross lingual](?tabs=crosslingual#train-your-custom-neural-voice-model): Create a voice that speaks a different language from your training data. For example, with the `zh-CN` training data, you can create a voice that speaks `en-US`.
 
   The language of the training data and the target language must both be one of the [languages that are supported](../../../../language-support.md?tabs=tts#custom-neural-voice) for cross lingual voice training. You don't need to prepare training data in the target language, but your test script must be in the target language.
 
@@ -72,7 +72,7 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 
    :::image type="content" source="../../../../media/custom-voice/cnv-train-neural-cross-lingual.png" alt-text="Screenshot that shows how to select neural cross lingual training.":::
 
-1. Select the **Target language** that is the secondary language for your voice model. You can select only one target language for a voice model.
+1. Select the **Target language** that your voice speaks. The voice speaks a different language from your training data. You can select only one target language for a voice model.
 1. Select the data that you want to use for training. Duplicate audio names are removed from the training. Make sure that the data you select doesn't contain the same audio names across multiple *.zip* files.
 
    You can select only successfully processed datasets for training. Check your data processing status if you don't see your training set in the list.

@@ -21,7 +21,6 @@ To create an endpoint, use the `Endpoints_Create` operation of the custom voice 
 - Set the required `projectId` property. See [create a project](../../../../professional-voice-create-project.md).
 - Set the required `modelId` property. See [train a voice model](../../../../professional-voice-train-voice.md).
 - Set the required `description` property. The description can be changed later.
-- Optionally, set the `displayName` property for the endpoint name. The endpoint name can be changed later.
 
 Make an HTTP POST request using the URI as shown in the following `Endpoints_Create` example. 
 - Replace `YourResourceKey` with your Speech resource key.
@@ -30,7 +29,6 @@ Make an HTTP POST request using the URI as shown in the following `Endpoints_Cre
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "description": "Endpoint for Jessica voice",
-  "displayName": "Endpoint name",
   "projectId": "JessicaProjectId",
   "modelId": "JessicaModelId",
 } '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/endpoints?api-version=2023-12-01-preview"
