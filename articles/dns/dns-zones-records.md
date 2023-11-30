@@ -7,7 +7,7 @@ ms.service: dns
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 10/09/2023
+ms.date: 11/21/2023
 ms.author: greglin
 ---
 
@@ -78,6 +78,9 @@ A SOA record set gets created automatically at the apex of each zone (name = '\@
 You can modify all properties of the SOA record except for the `host` property. This property gets preconfigured to refer to the primary name server name provided by Azure DNS.
 
 The zone serial number in the SOA record isn't updated automatically when changes are made to the records in the zone. It can be updated manually by editing the SOA record, if necessary.
+
+> [!NOTE]
+> Azure DNS doesn't currently support the use of a dot (**.**) before the '**@**' in the SOA hostmaster mailbox entry. For example: `john.smith@contoso.xyz` (converted to john.smith.contoso.xyz) and `john\.smith@contoso.xyz` are not allowed. 
 
 ### SPF records
 

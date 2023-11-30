@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 09/05/2023
+ms.date: 10/26/2023
 ---
 # About data-aware security posture
 
@@ -37,7 +37,7 @@ Defender CSPM provides visibility and contextual insights into your organization
 
 Attack path analysis helps you to address security issues that pose immediate threats, and have the greatest potential for exploit in your environment. Defender for Cloud analyzes which security issues are part of potential attack paths that attackers could use to breach your environment. It also highlights the security recommendations that need to be resolved in order to mitigate the risks.
 
-You can discover risk of data breaches by attack paths of internet-exposed VMs that have access to sensitive data stores. Hackers can exploit exposed VMs to move laterally across the enterprise to access these stores. Review [attack paths](attack-path-reference.md#attack-paths).
+You can discover risk of data breaches by attack paths of internet-exposed VMs that have access to sensitive data stores. Hackers can exploit exposed VMs to move laterally across the enterprise to access these stores.
 
 ### Cloud Security Explorer
 

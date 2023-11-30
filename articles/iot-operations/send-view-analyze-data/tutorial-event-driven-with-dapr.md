@@ -1,69 +1,37 @@
 ---
 title: Build event-driven apps with Dapr
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Learn how to create a Dapr application that aggregates data and publishing on another topic
-author: PatAltimore
-ms.author: patricka
+author: timlt
+ms.author: timlt
+ms.subservice: mq
 ms.topic: tutorial
 ms.date: 11/13/2023
 
 #CustomerIntent: As an operator, I want to configure IoT MQ to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ---
 
-# Tutorial: Build event-driven apps with Dapr
+# Build event-driven apps with Dapr
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this tutorial, you learn how to subscribe to sensor data on an MQTT topic, and aggregate the data in a sliding window to then publish to a new topic.
+In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application will consume simulated MQTT data published to Azure IoT MQ, apply a windowing function and then publish the result back to IoT MQ. This represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the IoT MQ state store to cache past values needed for the window calculations.
 
-The Dapr application in this tutorial is stateless. It uses the Distributed State Store to cache historical data used for the sliding window calculations.
+The Dapr application performs the following steps:
 
-The application subscribes to the topic `sensor/data` for incoming sensor data, and then publishes to `sensor/window_data` every 60 seconds.
+1. Subscribes to the `sensor/data` topic for sensor data.
+1. When receiving data on this topic, it's pushed to the Azure IoT MQ state store.
+1. Every **10 seconds**, it fetches the data from the state store, and calculates the *min*, *max*, *mean*, *median* and *75th percentile* values on any sensor data timestamped in the last **30 seconds**.
+1. Data older than **30 seconds** is expired from the state store.
+1. The result is published to the `sensor/window_data` topic in JSON format.
 
-> [!TIP]
-> This tutorial [disables Dapr CloudEvents](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-raw/) which enables it to publish and subscribe to raw MQTT events.
+> [!NOTE]
+> This tutorial [disables Dapr CloudEvents](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-raw/) which enables it to publish and subscribe using raw MQTT.
 
 ## Prerequisites
 
-1. [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
-1. [Setup Dapr and MQ Pluggable Components](../develop/howto-develop-dapr-apps.md)
-1. [Docker](https://docs.docker.com/engine/install/) - for building the application container
-1. A Container registry - for hosting the application container
-
-## Create the Dapr application
-
-> [!TIP]
-> For convenience, a pre-built application container is available in the container registry `ghcr.io/azure-samples/explore-iot-operations/mq-event-driven-dapr`. You can use this container to follow along if you haven't built your own.
-
-### Build the container
-
-The following steps clone the GitHub repository containing the sample and then use docker to build the container:
-
-1. Clone the [Explore IoT Operations GitHub](https://github.com/Azure-Samples/explore-iot-operations)
-
-    ```bash
-    git clone https://github.com/Azure-Samples/explore-iot-operations
-    ```
-
-1. Change to the Dapr sample directory and build the image
-
-    ```bash
-    cd explore-iot-operations/tutorials/mq-event-driven-dapr
-    docker build docker build . -t mq-event-driven-dapr
-    ```
-
-### Push to container registry
-
-To consume the application in your Kubernetes cluster, you need to push the image to a container registry such as the [Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli). You could also push to a local container registry such as [minikube](https://minikube.sigs.k8s.io/docs/handbook/registry/) or [Docker](https://hub.docker.com/_/registry).
-
-| Component | Description |
-|-|-|
-| `container-alias` | The image alias containing the fully qualified path to your registry |
-
-```bash
-docker tag mq-event-driven-dapr {container-alias}
-docker push {container-alias}
-```
+* Azure IoT Operations installed - [Deploy Azure IoT Operations](../get-started/quickstart-deploy.md)
+* Dapr runtime and MQ's pluggable components installed - [Use Dapr to develop distributed application workloads](../develop/howto-develop-dapr-apps.md)
 
 ## Deploy the Dapr application
 
@@ -76,7 +44,7 @@ To start, create a yaml file that uses the following definitions:
 | `volumes.dapr-unit-domain-socket` | The socket file used to communicate with the Dapr sidecar |
 | `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQ broker and State Store |
 | `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
-| `containers.mq-event-driven` | The prebuilt dapr application container. **Replace this with your own container if desired**. | 
+| `containers.mq-event-driven` | The prebuilt dapr application container. | 
 
 1. Save the following deployment yaml to a file named `app.yaml`:
 
@@ -102,6 +70,8 @@ To start, create a yaml file that uses the following definitions:
             dapr.io/app-port: "6001"
             dapr.io/app-protocol: "grpc"
         spec:
+          serviceAccountName: mqtt-client
+
           volumes:
           - name: dapr-unix-domain-socket
             emptyDir: {}
@@ -172,12 +142,14 @@ To start, create a yaml file that uses the following definitions:
 
 ## Deploy the simulator
 
-The repository contains a deployment for a simulator that generates sensor data to the `sensor/data` topic.
+Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQ broker using an MQTT client on the `sensor/data` topic.
+
+1. [Download the simulator yaml](https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/tutorials/mq-event-driven-dapr/simulate-data.yaml) from the Explore IoT Operations repository
 
 1. Deploy the simulator:
 
     ```bash
-    kubectl apply -f ./yaml/simulate-data.yaml
+    kubectl apply -f simulate-data.yaml
     ```
 
 1. Confirm the simulator is running:
@@ -268,8 +240,73 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 1. Verify the application is outputting a sliding windows calculation for the various sensors:
 
     ```json
-    {"timestamp": "2023-11-14T05:21:49.807684+00:00", "window_size": 30, "temperature": {"min": 551.805, "max": 599.746, "mean": 579.929, "median": 581.917, "75_per": 591.678, "count": 29}, "pressure": {"min": 290.361, "max": 299.949, "mean": 295.98575862068964, "median": 296.383, "75_per": 298.336, "count": 29}, "vibration": {"min": 0.00114438, "max": 0.00497965, "mean": 0.0033943155172413792, "median": 0.00355337, "75_per": 0.00433423, "count": 29}}
+    {
+        "timestamp": "2023-11-16T21:59:53.939690+00:00",
+        "window_size": 30,
+        "temperature": {
+            "min": 553.024,
+            "max": 598.907,
+            "mean": 576.4647857142858,
+            "median": 577.4905,
+            "75_per": 585.96125,
+            "count": 28
+        },
+        "pressure": {
+            "min": 290.605,
+            "max": 299.781,
+            "mean": 295.521,
+            "median": 295.648,
+            "75_per": 297.64050000000003,
+            "count": 28
+        },
+        "vibration": {
+            "min": 0.00124192,
+            "max": 0.00491257,
+            "mean": 0.0031171810714285715,
+            "median": 0.003199235,
+            "75_per": 0.0038769150000000003,
+            "count": 28
+        }
+    }
     ```
+
+## Optional - Create the Dapr application
+
+The above tutorial uses a prebuilt container of the Dapr application. If you would like to modify and build the code yourself, follow these steps:
+
+### Prerequisites
+
+1. [Docker](https://docs.docker.com/engine/install/) - for building the application container
+1. A Container registry - for hosting the application container
+
+### Build the application
+
+1. Check out the Explore IoT Operations repository:
+
+    ```bash
+    git clone https://github.com/Azure-Samples/explore-iot-operations
+    ```
+
+1. Change to the Dapr tutorial directory in the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository:
+
+    ```bash
+    cd explore-iot-operations/tutorials/mq-event-driven-dapr/src
+    ```
+
+1. Build the docker image:
+
+    ```bash
+    docker build docker build . -t mq-event-driven-dapr
+    ```
+
+1. To consume the application in your Kubernetes cluster, you need to push the image to a container registry such as the [Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli). You could also push to a local container registry such as [minikube](https://minikube.sigs.k8s.io/docs/handbook/registry/) or [Docker](https://hub.docker.com/_/registry).
+
+    ```bash
+    docker tag mq-event-driven-dapr <container-alias>
+    docker push <container-alias>
+    ```
+
+1. Update your `app.yaml` to pull your newly created image.
 
 ## Troubleshooting
 
@@ -281,6 +318,6 @@ Run the following command to view the logs:
 kubectl logs dapr-workload daprd
 ```
 
-## Related content
+## Next steps
 
-- [Use Dapr to develop distributed application workloads](../develop/howto-develop-dapr-apps.md)
+* [Bridge MQTT data between IoT MQ and Azure Event Grid](tutorial-connect-event-grid.md)

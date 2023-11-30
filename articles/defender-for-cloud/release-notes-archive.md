@@ -4,7 +4,7 @@ description: A description of what's new and changed in Microsoft Defender for C
 author: dcurwin
 ms.author: dacurwin
 ms.topic: reference
-ms.date: 09/06/2023
+ms.date: 11/08/2023
 ---
 
 # Archive for what's new in Defender for Cloud?
@@ -57,7 +57,7 @@ Microsoft Defender for Cloud helps security teams to be more productive at reduc
 
 - Automatically discover data resources across cloud estate and evaluate their accessibility, data sensitivity and configured data flows.
 -Continuously uncover risks to data breaches of sensitive data resources, exposure or attack paths that could lead to a data resource using a lateral movement technique.
-- Detect suspicious activities that may indicate an ongoing threat to sensitive data resources.
+- Detect suspicious activities that might indicate an ongoing threat to sensitive data resources.
 
 [Learn more](concept-data-security-posture.md) about data-aware security posture.
 
@@ -1458,8 +1458,6 @@ You'll find these tactics wherever you access recommendation information:
 - **Azure Resource Graph query results** for relevant recommendations include the MITRE ATT&CK® tactics and techniques.
 
 - **Recommendation details pages** show the mapping for all relevant recommendations:
-
-    :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
 
 - **The recommendations page in Defender for Cloud** has a new :::image type="icon" source="media/review-security-recommendations/tactics-filter-recommendations-page.png" border="false"::: filter to select recommendations according to their associated tactic:
 

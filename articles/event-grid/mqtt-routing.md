@@ -4,7 +4,7 @@ description: 'An overview of Routing MQTT Messages and how to configure it.'
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 05/23/2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ---

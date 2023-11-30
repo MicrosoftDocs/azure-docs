@@ -19,7 +19,7 @@ Integrate vital insights from your security products with the Morphisec Data Con
 | **Kusto function url** | https://aka.ms/sentinel-morphisecutpp-parser |
 | **Log Analytics table(s)** | CommonSecurityLog (Morphisec)<br/> |
 | **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
-| **Supported by** | [Morphisec](https://support.morphisec.com/support/home) |
+| **Supported by** | [Morphisec](https://support.morphisec.com/hc/en-us) |
 
 ## Query samples
 
@@ -67,7 +67,7 @@ Install and configure the Linux agent to collect your Common Event Format (CEF) 
 
 1.1 Select or create a Linux machine
 
-Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds.
+Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-premises environment, Azure or other clouds.
 
 1.2 Install the CEF collector on the Linux machine
 

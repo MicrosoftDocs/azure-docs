@@ -2,8 +2,8 @@
 title: 'Custom skill example using Bing Entity Search API'
 titleSuffix: Azure AI Search
 description: Demonstrates using the Bing Entity Search service in a custom skill mapped to an AI-enriched indexing pipeline in Azure AI Search.
-author: LiamCavanagh
-ms.author: liamca
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/01/2022

@@ -329,7 +329,6 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.0.0           | Used to parse an address into constituent elements. |
 > |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.0.0           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
-> |[azure_ai](./generative-ai-azure-overview.md) | 0.1.0 |  Azure OpenAI and Cognitive Services integration for PostgreSQL |
 > |[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)                    | 1.3             | extension to export and import data from Azure Storage|
 > |[bloom](https://www.postgresql.org/docs/12/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -396,8 +395,6 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
 > |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1.1             | functions for verifying relation integrity|
-> |[azure_ai](./generative-ai-azure-overview.md) | 0.1.0 |  Azure OpenAI and Cognitive Services integration for PostgreSQL |
-> |[azure_storage](../../postgresql/flexible-server/concepts-storage-extension.md)                    | 1.3             | extension to export and import data from Azure Storage|
 > |[bloom](https://www.postgresql.org/docs/11/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | support for indexing common datatypes in GiST|

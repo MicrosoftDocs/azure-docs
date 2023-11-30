@@ -42,6 +42,8 @@ items:
     href: elastic-san-snapshots.md
   - name: Delete an Elastic SAN
     href: elastic-san-delete.md
+  - name: Connect to Azure VMware Solutions
+    href: ../../azure-vmware/configure-azure-elastic-san.md?toc=/azure/storage/elastic-san/toc.json
   - name: Manage Encryption
     items:
     - name: Configure customer-managed keys with Key Vault

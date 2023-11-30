@@ -1,7 +1,7 @@
 ---
 title: "Create environment variables"
 description: Create environment variables for Azure AI Content Safety
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety

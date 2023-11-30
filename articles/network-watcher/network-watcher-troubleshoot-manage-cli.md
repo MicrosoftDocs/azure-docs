@@ -1,95 +1,122 @@
 ---
-title: Troubleshoot Azure VNet gateway and connections - Azure CLI
+title: Troubleshoot VPN gateways and connections - Azure CLI
 titleSuffix: Azure Network Watcher
-description: This page explains how to use the Azure Network Watcher troubleshoot Azure CLI.
-services: network-watcher
+description: Learn how to use Azure Network Watcher VPN troubleshoot capability to troubleshoot VPN virtual network gateways and their connections using the Azure CLI.
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 07/25/2022
-ms.author: halkazwini
-ms.custom: engagement-fy23, devx-track-azurecli
+ms.date: 11/30/2023
+ms.custom: devx-track-azurecli
+
+#CustomerIntent: As a network administrator, I want to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
 ---
 
-# Troubleshoot virtual network gateway and connections with Azure Network Watcher using Azure CLI
+# Troubleshoot VPN virtual network gateways and connections using the Azure CLI
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
-> - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
-Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting. Resource troubleshooting can be called through the portal, PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network Gateway or a Connection and returns its findings.
+In this article, you learn how to use Network Watcher VPN troubleshoot capability to diagnose and troubleshoot VPN virtual network gateways and their connections to solve connectivity issues between your virtual network and on-premises network. VPN troubleshoot requests are long running requests, which could take several minutes to return a result. The logs from troubleshooting are stored in a container on a storage account that is specified.
 
-To perform the steps in this article, you need to [install the Azure CLI](/cli/azure/install-azure-cli) for Windows, Linux, or macOS.
+## Prerequisites
 
-## Before you begin
+- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
+- A Network Watcher enabled in the region of the virtual network gateway. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md?tabs=cli).
 
-For a list of supported gateway types visit, [Supported Gateway types](network-watcher-troubleshoot-overview.md#supported-gateway-types).
+- A virtual network gateway. For more information, see [Supported gateway types](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## Overview
+- Azure Cloud Shell or Azure CLI.
+    
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+    
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
-Resource troubleshooting provides the ability troubleshoot issues that arise with Virtual Network Gateways and Connections. When a request is made to resource troubleshooting, logs are being queried and inspected. When inspection is complete, the results are returned. Resource troubleshooting requests are long running requests, which could take multiple minutes to return a result. The logs from troubleshooting are stored in a container on a storage account that is specified.
+## Troubleshoot using an existing storage account
 
-## Retrieve a Virtual Network Gateway Connection
+In this section, you learn how to troubleshoot a VPN virtual network gateway or a VPN connection using an existing storage account.
 
-In this example, resource troubleshooting is being ran on a Connection. You can also pass it a Virtual Network Gateway. The following cmdlet lists the vpn-connections in a resource group.
+# [**Gateway**](#tab/gateway)
 
-```azurecli
-az network vpn-connection list --resource-group resourceGroupName
+Use [az storage account show](/cli/azure/storage/account#az-storage-account-show) to retrieve the resource ID of the storage account. Then use [az network watcher troubleshooting start](/cli/azure/network/watcher/troubleshooting#az-network-watcher-troubleshooting-start) to start troubleshooting the VPN gateway.
+
+```azurecli-interactive
+# Place the storage account ID into a variable.
+storageId=$(az storage account show --name 'mystorageaccount' --resource-group 'myResourceGroup' --query 'id' --output tsv)
+
+# Start VPN troubleshoot session.
+az network watcher troubleshooting start --resource-group 'myResourceGroup' --resource 'myGateway' --resource-type 'vnetGateway' --storage-account $storageId --storage-path 'https://mystorageaccount.blob.core.windows.net/{containerName}'
 ```
 
-Once you have the name of the connection, you can run this command to get its resource Id:
+# [**Connection**](#tab/connection)
 
-```azurecli
-az network vpn-connection show --resource-group resourceGroupName --ids vpnConnectionIds
+Use [az storage account show](/cli/azure/storage/account#az-storage-account-show) to retrieve the resource ID of the storage account. Then use [az network watcher troubleshooting start](/cli/azure/network/watcher/troubleshooting#az-network-watcher-troubleshooting-start) to start troubleshooting the VPN connection.
+
+```azurecli-interactive
+# Place the storage account ID into a variable.
+storageId=$(az storage account show --name 'mystorageaccount' --resource-group 'myResourceGroup' --query 'id' --output tsv)
+
+# Start VPN troubleshoot session.
+az network watcher troubleshooting start --resource-group 'myResourceGroup' --resource 'myConnection' --resource-type 'vpnConnection' --storage-account $storageId --storage-path 'https://mystorageaccount.blob.core.windows.net/{containerName}'
 ```
 
-## Create a storage account
+---
 
-Resource troubleshooting returns data about the health of the resource, it also saves logs to a storage account to be reviewed. In this step, we create a storage account, if an existing storage account exists you can use it.
+After the troubleshooting request is completed, ***Healthy*** or ***UnHealthy*** is returned with action text that provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with more guidance.
 
-1. Create the storage account
+Additionally, detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](network-watcher-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
 
-    ```azurecli
-    az storage account create --name storageAccountName --location westcentralus --resource-group resourceGroupName --sku Standard_LRS
-    ```
+## Troubleshoot using a new storage account
 
-1. Get the storage account keys
+In this section, you learn how to troubleshoot a VPN virtual network gateway or a VPN connection using a new storage account.
 
-    ```azurecli
-    az storage account keys list --resource-group resourcegroupName --account-name storageAccountName
-    ```
+# [**Gateway**](#tab/gateway) 
 
-1. Create the container
+Use [az storage account create](/cli/azure/storage/account#az-storage-account-create) and [az storage container create](/cli/azure/storage/container#az-storage-container-create) to create a new storage account and a container respectively. Then, use [az network watcher troubleshooting start](/cli/azure/network/watcher/troubleshooting#az-network-watcher-troubleshooting-start) to start troubleshooting the VPN gateway.
 
-    ```azurecli
-    az storage container create --account-name storageAccountName --account-key {storageAccountKey} --name logs
-    ```
+```azurecli-interactive
+# Create a new storage account.
+az storage account create --name 'mystorageaccount' --resource-group 'myResourceGroup' --location 'eastus' --sku 'Standard_LRS'
 
-## Run Network Watcher resource troubleshooting
+# Get the storage account keys.
+az storage account keys list --resource-group 'myResourceGroup' --account-name 'mystorageaccount'
 
-You troubleshoot resources with the `az network watcher troubleshooting` cmdlet. We pass the cmdlet the resource group, the name of the Network Watcher, the Id of the connection, the Id of the storage account, and the path to the blob to store the troubleshoot results in.
+# Create a container.
+az storage container create --account-name 'mystorageaccount' --account-key {storageAccountKey} --name 'vpn'
 
-```azurecli
-az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}
+# Start VPN troubleshoot session.
+az network watcher troubleshooting start --resource-group 'myResourceGroup' --resource 'myGateway' --resource-type 'vnetGateway' --storage-account 'mystorageaccount' --storage-path 'https://mystorageaccount.blob.core.windows.net/vpn'
 ```
 
-Once you run the cmdlet, Network Watcher reviews the resource to verify the health. It returns the results to the shell and stores logs of the results in the storage account specified.
+# [**Connection**](#tab/connection)
 
-## Understanding the results
+Use [az storage account create](/cli/azure/storage/account#az-storage-account-create) and [az storage container create](/cli/azure/storage/container#az-storage-container-create) to create a new storage account and a container respectively. Then, use [az network watcher troubleshooting start](/cli/azure/network/watcher/troubleshooting#az-network-watcher-troubleshooting-start) to start troubleshooting the VPN connection.
 
-The action text provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with additional guidance. In the case where there is no additional guidance, the response provides the url to open a support case.  For more information about the properties of the response and what is included, visit [Network Watcher Troubleshoot overview](network-watcher-troubleshoot-overview.md)
+```azurecli-interactive
+# Create a new storage account.
+az storage account create --name 'mystorageaccount' --resource-group 'myResourceGroup' --location 'eastus' --sku 'Standard_LRS'
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
+# Get the storage account keys.
+az storage account keys list --resource-group 'myResourceGroup' --account-name 'mystorageaccount'
 
-## Azure CLI troubleshooting
+# Create a container.
+az storage container create --account-name 'mystorageaccount' --account-key {storageAccountKey} --name 'vpn'
 
-[!INCLUDE [azure-cli-troubleshooting.md](../../includes/azure-cli-troubleshooting.md)]
+# Start VPN troubleshoot session.
+az network watcher troubleshooting start --resource-group 'myResourceGroup' --resource 'myConnection' --resource-type 'vpnConnection' --storage-account 'mystorageaccount' --storage-path 'https://mystorageaccount.blob.core.windows.net/vpn'
+```
 
-## Next steps
+---
 
-If settings have been changed that stop VPN connectivity, see [Manage Network Security Groups](../virtual-network/manage-network-security-group.md) to track down the network security group and security rules that may be in question.
+After the troubleshooting request is completed, ***Healthy*** or ***UnHealthy*** is returned with action text that provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with more guidance.
+
+Additionally, detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](network-watcher-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
+
+## Related content
+
+- [Tutorial: Diagnose a communication problem between virtual networks using the Azure portal](diagnose-communication-problem-between-networks.md).
+
+- [VPN troubleshoot overview](network-watcher-troubleshoot-overview.md).

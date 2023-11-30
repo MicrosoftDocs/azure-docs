@@ -4,7 +4,7 @@ description: This article describes how to work around push delivery's limitatio
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/02/2023
+ms.date: 11/15/2023
 ---
 
 # Deliver events using private link service

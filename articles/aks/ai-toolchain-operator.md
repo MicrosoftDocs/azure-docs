@@ -2,9 +2,7 @@
 title: Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator (Preview)
 description: Learn how to enable the AI toolchain operator add-on on Azure Kubernetes Service (AKS) to simplify OSS AI model management and deployment.
 ms.topic: article
-ms.custom:
-  - azure-kubernetes-service
-  - ignite-2023
+ms.custom: azure-kubernetes-service, ignite-2023, devx-track-azurecli
 ms.date: 11/03/2023
 ---
 

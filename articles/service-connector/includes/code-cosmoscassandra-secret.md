@@ -108,7 +108,7 @@ For more information, see [Build an Apache Cassandra app with .NET SDK and Azure
 
 For more information, see [Build a Java app to manage Azure Cosmos DB for Apache Cassandra data](/azure/cosmos-db/cassandra/manage-data-java-v4-sdk).
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 Set up your Spring App application according to [How to use Spring Data with Azure Cosmos DB for Apache Cassandra](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db). The connection configuration properties are added to Spring Apps by Service Connector.
 
 
@@ -225,5 +225,5 @@ For more information, refer to [Build a Go app with the gocql client to manage A
 For more details, refer to [Build a Cassandra app with Node.js SDK and Azure Cosmos DB](/azure/cosmos-db/cassandra/manage-data-nodejs)
 
 
-### [Other](#tab/other)
-For other languages, you can use the Cassandra contact point and other properties that Service Connector sets to the environment variables to connect the Azure Cosmos DB for Cassandra resource. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).
+### [Other](#tab/none)
+For other languages, you can use the Cassandra contact point and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for Cassandra resource. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).

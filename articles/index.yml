@@ -62,7 +62,6 @@ productDirectory:
       summary: Apply advanced coding and language models to a variety of use cases
       imageSrc: ai-services/media/service-icons/azure-openai.svg
       azureCategories:
-        - featured
         - ai-machine-learning
       url: ai-services/openai/index.yml
     # Card
@@ -109,7 +108,7 @@ productDirectory:
       url: ai-services/computer-vision/overview-identity.md
     # Card
     - title: Content Safety
-      summary: An AI service that detects unwanted contents
+      summary: Use AI to monitor text and image content for safety
       imageSrc: ai-services/media/service-icons/content-safety.svg
       azureCategories:
         - ai-machine-learning
@@ -202,8 +201,7 @@ productDirectory:
       summary: Rapidly connect your fixed and mobile networks with Microsoft Teams
       imageSrc: ./media/index/communications-gateway.svg
       azureCategories:
-        - networking
-        - 5g-space
+        - networking        
       url: communications-gateway/index.yml
     # Card
     - title: Data Science Virtual Machines
@@ -850,7 +848,7 @@ productDirectory:
         - hybrid
         - identity
         - security
-      url: active-directory/index.yml
+      url: /entra/identity/
     # Card
     - title: Azure Arc
       summary: Bring Azure services and management to any infrastructure
@@ -917,7 +915,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/active-directory-b2c.svg
       azureCategories:
         - identity
-      url: active-directory/external-identities/index.yml
+      url: /entra/external-id/
     # Card
     - title: Microsoft Entra Domain Services
       summary: Join Azure virtual machines to a domain without domain controllers
@@ -925,7 +923,7 @@ productDirectory:
       azureCategories:
         - identity
         - security
-      url: active-directory-domain-services/index.yml
+      url: /entra/identity/domain-services/
     # Card
     - title: Azure Information Protection
       summary: Better protect your sensitive information—anytime, anywhere
@@ -1344,7 +1342,6 @@ productDirectory:
       imageSrc: ./media/index/private-5g-core.svg
       azureCategories:
         - networking
-        - 5g-space
       url: private-5g-core/index.yml
       # Card
     - title: Azure Operator Service Manager
@@ -1352,15 +1349,15 @@ productDirectory:
       imageSrc: ./media/index/operator-service-manager.svg
       azureCategories:
         - networking
-        - 5g-space
+        - hybrid
       url: operator-service-manager/index.yml
       # Card
     - title: Azure Operator Insights
       summary: Analyze network data from multiple sources
       imageSrc: ./media/index/operator-insights.svg
       azureCategories:
-        - networking
-        - 5g-space
+        - featured
+        - hybrid
       url: operator-insights/index.yml
     # Card
     - title: Load Balancer
@@ -1542,12 +1539,11 @@ productDirectory:
         - web
       url: azure-signalr/index.yml
     # Card
-    - title: Azure Orbital (Preview)
+    - title: Azure Orbital Ground Station
       summary: Satellite ground station and scheduling services for fast downlinking of data
       imageSrc: /media/logos/logo-azureorbital.svg
       azureCategories:
         - networking
-        - 5g-space
       url: orbital/index.yml
     # Card
     - title: Azure Web PubSub
@@ -1569,7 +1565,7 @@ productDirectory:
       summary: Build your mission-critical mobile networks with a carrier-grade, hybrid cloud platform
       imageSrc: ./media/index/operator-nexus.svg
       azureCategories:
-       - 5g-space
+       - hybrid
       url: operator-nexus/index.yml
     # Card
     - title: Azure Network Function Manager
@@ -1577,7 +1573,6 @@ productDirectory:
       imageSrc: ./media/index/azure-network-function-manager.svg
       azureCategories:
        - networking
-       - 5g-space
       url: network-function-manager/index.yml
     # Card
     - title: Azure Container Storage
@@ -1631,6 +1626,14 @@ productDirectory:
       azureCategories:
        - hybrid
       url: /azure/aks/hybrid/aks-edge-overview  
+    # Card
+    - title: Microsoft Copilot for Azure (Preview)
+      summary: Simplify operations and management from cloud to edge with an AI companion
+      imageSrc: ./media/index/azure-copilot.svg
+      azureCategories:
+       - featured 
+       - management-and-governance
+      url: /azure/copilot
       
 tools:
   title: Languages and tools

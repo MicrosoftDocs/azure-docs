@@ -84,7 +84,7 @@ The following solution snippet demonstrates installing a Helm chart using the He
           },
           "opcUaConnector": {
             "settings": {
-              "discoveryUrl": "opc.tcp://opcplc-000000.alice-springs:50000",
+              "discoveryUrl": "opc.tcp://opcplc-000000:50000",
               "authenticationMode": "Anonymous",
               "autoAcceptUnrustedCertificates": "true"
             }

@@ -1,8 +1,8 @@
 ---
 title: Query data in the Azure Operator Insights Data Product
 description: This article outlines how to access and query the data in the Azure Operator Insights Data Product.
-author: bettylew
-ms.author: bettylew
+author: rcdun
+ms.author: rdunstan
 ms.service: operator-insights
 ms.topic: how-to
 ms.date: 10/22/2023

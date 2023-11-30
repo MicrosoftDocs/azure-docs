@@ -3,6 +3,7 @@ title: Backup Azure Elastic SAN Preview volumes
 description: Learn about snapshots for Azure Elastic SAN Preview, including how to create and use them.
 author: roygara
 ms.service: azure-elastic-san-storage
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: rogarana

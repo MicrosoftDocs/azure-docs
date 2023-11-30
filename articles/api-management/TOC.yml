@@ -246,6 +246,8 @@
     href: api-management-howto-policies.md
   - name: Set or edit policies
     href: set-edit-policies.md
+  - name: Author policies using Microsoft Copilot for Azure
+    href: ../copilot/author-api-management-policies.md?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
   - name: Debug policies in VS Code
     href: api-management-debug-policies.md
   - name: Policy expressions

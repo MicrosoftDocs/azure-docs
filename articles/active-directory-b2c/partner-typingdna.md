@@ -6,7 +6,7 @@ author: gargi-sinha
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh

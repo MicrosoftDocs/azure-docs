@@ -204,18 +204,9 @@ Install-AzAksKubectl -Version latest
 
 ## Long Term Support (LTS)
 
-AKS provides a Long Term Support (LTS) version of Kubernetes for a two-year period. There's only a single minor version of Kubernetes deemed LTS at any one time.  
+AKS provides one year Community Support and one year of Long Term Support (LTS) to back port security fixes from the community upstream in our public repository. Our upstream LTS working group contributes efforts back to the community to provide our customers with a longer support window.
 
-|   | Community Support  |Long Term Support   |
-|---|---|---|
-| **When to use** | When you can keep up with upstream Kubernetes releases | When you need control over when to migrate from one version to another  |
-|  **Support versions** | Three GA minor versions | One Kubernetes version (currently *1.27*) for two years  |
-|  **Pricing** | Included  |  Per hour cluster cost |
-
-The upstream community maintains a minor release of Kubernetes for one year from release. After this period, Microsoft creates and applies security updates to the LTS version of Kubernetes to provide a total of two years of support on AKS.
-
-> [!IMPORTANT]
-> Kubernetes version 1.27 will be the first supported LTS version of Kubernetes on AKS. It is not yet available.
+For more details on LTS, see [Long term support for Azure Kubernetes Service (AKS)](./long-term-support.md).
 
 ## Release and deprecation process
 
