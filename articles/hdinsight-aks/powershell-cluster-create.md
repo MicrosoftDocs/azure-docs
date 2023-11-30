@@ -14,7 +14,7 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 
 To create an HDInsight on AKS cluster by using Azure PowerShell, you must complete the following procedures: 
 
-- [Install Azure PowerShell](/azure/install-azure-powershell)  
+- [Install Azure PowerShell](/powershell/azure/install-azure-powershell)  
 - Create an [Azure resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups)
 - Create an [Azure Data Lase Store Gen2](/azure/storage/blobs/create-data-lake-storage-account) account 
 - Create an [Azure Managed Identity](/entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm)
@@ -44,7 +44,7 @@ The following script demonstrates how to setup an Azure environment with powersh
 - Cluster Type 
 - SKU 
 - Woker Node count 
-- MSI resource id: “/subscriptions/<subscription ID>/resourcegroups/<resource group name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<Managed identity name>" 
+- MSI resource id: `/subscriptions/<subscription ID>/resourcegroups/<resource group name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<Managed identity name>"`
 - MSI client id (See below) 
 - MSI object id (See below) 
 	:::image type="content" source="./media/powershell-cluster-create/overview.png" alt-text="Screenshot shows MSI object id." lightbox="./media/powershell-cluster-create/overview.png":::
