@@ -40,7 +40,7 @@ You will need to connect your Azure Communication Services resource with the Azu
 ## Prerequisites 
 - Azure account with an active subscription and access to Azure portal, for details see [Create an account for free](https://azure.microsoft.com/free/).
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). 
-- An [Azure AI Services resource](../../../../ai-services/multi-service-resource.md) .
+- An [Azure AI Services resource](../../../../articles/ai-services/multi-service-resource.md) .
 
 ### Connecting through the Azure portal
 
