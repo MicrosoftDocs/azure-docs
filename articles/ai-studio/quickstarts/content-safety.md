@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Use this article to moderate text and images with content safety in Azure AI Studio.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
