@@ -14,7 +14,7 @@ Application Insights Java 3.x collects some of the JMX metrics by default, but i
 
 ## How do I collect extra JMX metrics?
 
-JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. Object name and attribute are required for each of the metrics you want collected. Wildcard character asterisk (*) is supported for the object name, [see](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html).
+JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. Object name and attribute are required for each of the metrics you want collected.
 
 ## How do I know what metrics are available to configure?
 
