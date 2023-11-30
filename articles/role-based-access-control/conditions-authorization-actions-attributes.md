@@ -95,4 +95,4 @@ This section lists the authorization attributes you can use in your condition ex
 ## Next steps
 
 - [Examples to delegate Azure role assignment management with conditions (preview)](delegate-role-assignments-examples.md)
-- [Delegate the Azure role assignment task to others with conditions (preview)](delegate-role-assignments-portal.md)
+- [Delegate Azure role assignment management to others with conditions (preview)](delegate-role-assignments-portal.md)
