@@ -26,7 +26,7 @@ This script calculates the size of all Azure Blob Storage containers in a storag
 
 ## Sample script
 
-[!code-powershell[main](~/azure-docs-powershell-samples/storage/calculate-container-size/calculate-container-sizes-in-account.ps1 "Calculate container size")]
+:::code language="powershell source="~/azure-docs-powershell-samples/storage/calculate-container-size/calculate-container-sizes-in-account.ps1":::
 
 ## Clean up deployment
 
