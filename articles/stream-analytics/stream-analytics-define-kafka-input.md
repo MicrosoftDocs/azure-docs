@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 11/30/2023
 ---
 
 # Stream data from Kafka into Azure Stream Analytics (Preview)
