@@ -143,27 +143,28 @@ Warnings are common in skillset execution. As you become familiar with how skill
 
 After an index is created, use **Search explorer** to return results.
 
-1. On the left, select **Indexes*** and then select the index. **Search explorer** is on the first tab.
+1. On the left, select **Indexes** and then select the index. **Search explorer** is on the first tab.
 
-1. Enter a search string to query the index, such as `satya nadella`. The search bar accepts keywords, phrases, and operators (`"Satya Nadella" +"Bill Gates" +"Steve Ballmer"`).
+1. Enter a search string to query the index, such as `satya nadella`. The search bar accepts keywords, quote-enclosed phrases, and operators (`"Satya Nadella" +"Bill Gates" +"Steve Ballmer"`).
 
 Results are returned as verbose JSON, which can be hard to read, especially in large documents. Some tips for searching in this tool include the following techniques:
 
-+ Switch to JSON view to specify parameters.
++ Switch to JSON view to specify parameters that shape results.
++ Add `select` to limit the fields in results.
++ Add `count` to show the number of matches.
++ Use CTRL-F to search within the JSON for specific properties or terms.
 
-+ Add `count` and `select` parameters to show the number of matches and to limit the fields in results.
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Screenshot of the Search explorer page." border="true":::
+
+Here's some JSON you can paste into the view:
 
   ```json
   {
   "search": "\"Satya Nadella\" +\"Bill Gates\" +\"Steve Ballmer\"",
   "count": true,
-  "select": "people, content"
+  "select": "content, people"
   }
   ```
-
-+ Use CTRL-F to search within the JSON for specific properties or terms.
-
-  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Screenshot of the Search explorer page." border="true":::
 
 > [!TIP]
 > Query strings are case-sensitive so if you get an "unknown field" message, check **Fields** or **Index Definition (JSON)** to verify name and case.
