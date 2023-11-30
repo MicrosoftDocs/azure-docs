@@ -14,7 +14,7 @@ This article describes how to enable VM insights on Azure virtual machines by us
 - Azure Virtual Machines
 - Azure Virtual Machine Scale Sets
 
-This script installs VM extensions for Log Analytics/Azure Monitoring Agent (AMA) and Dependency Agent if needed for VM Insights.If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated with the VM's and VMSS. 
+This script installs VM extensions for Log Analytics/Azure Monitoring Agent (AMA) and Dependency Agent if needed for VM Insights. If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated with the VMs and VMSS. 
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
@@ -42,7 +42,6 @@ For a list of the script's argument details and example usage, run `Get-Help`.
 
 ```powershell
 Get-Help Install-VMInsights.ps1 -Detailed
-
 ```
 
 ### [Azure Moniotor Agent](#tab/AMA)
@@ -53,43 +52,44 @@ If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Id
 
 
 ```powershell
-Install-VMInsights.ps1 -SubscriptionId <SubscriptionId> [-ResourceGroup <ResourceGroup>] [-ProcessAndDependencies ] [-Name <vm or MVss name>] -DcrResourceId <DataCollectionRuleResourceId> -UserAssignedManagedIdentityName <UserAssignedIdentityName> -UserAssignedManagedIdentityResourceGroup  <UserAssignedIdentityResourceGroup> 
+Install-VMInsights.ps1 -SubscriptionId <SubscriptionId> `
+[-ResourceGroup <ResourceGroup>] `
+[-ProcessAndDependencies ] `
+[-Name <vm or MVss name>] `
+-DcrResourceId <DataCollectionRuleResourceId> `
+-UserAssignedManagedIdentityName <UserAssignedIdentityName> `
+-UserAssignedManagedIdentityResourceGroup <UserAssignedIdentityResourceGroup> 
+
 ```
 
-Required Arguments: 
+Required Arguments:   
+ +   `-SubscriptionId <String>`  Azure subscription ID.  
+ +   `-DcrResourceId <String> `  Data Collection Rule (DCR) azure resource ID identifier. 
+ +  `-UserAssignedManagedIdentityResourceGroup <String> `  Name of User Assigned Managed Identity (UAMI) resource group.   
+ +   `-UserAssignedManagedIdentityName <String> `  Name of User Assigned Managed Identity (UAMI). 
 
-    -SubscriptionId <String> 
-
-        Azure subscription ID.
-
-    -DcrResourceId <String> 
-
-        Data Collection Rule (DCR) azure resource ID identifier. 
-
-    -UserAssignedManagedIdentityResourceGroup <String> 
-
-        Name of User Assigned Managed Identity (UAMI) resource group. 
-
-    -UserAssignedManagedIdentityName <String> 
-
-        Name of User Assigned Managed Identity (UAMI). 
-
-Optional: 
-  
--ProcessAndDependencies 
-
-  Set this flag to onboard the Dependency Agent with Azure Monitoring Agent (AMA) settings. 
+Optional Arguements:   
+ +   `-ProcessAndDependencies` Set this flag to onboard the Dependency Agent with Azure Monitoring Agent (AMA) settings.  If not specified, only Azure Monitoring Agent (AMA) will be onboarded.  
+ + ` - Name <String>`   Name of the VM or VMSS to be onboarded. If not specified, all VMs and VMSS in the subscription or resource group will be onboarded.
+ +    `- ResourceGroup <String>`  Name of the resource group containing the VM or VMSS to be onboarded. If not specified, all VMs and VMSS in the subscription will be onboarded.
 
 Example:
+```azurepowershell
+Install-VMInsights.ps1  -SubscriptionId 12345678-abcd-abcd-1234-12345678 `
+-ResourceGroup rg-AMAPowershell  `
+-ProcessAndDependencies  `
+-DcrResourceId /subscriptions/12345678-abcd-abcd-1234-12345678/resourceGroups/rg-AMAPowershell/providers/Microsoft.Insights/dataCollectionRules/MSVMI-ama-vmi-default-dcr `
+-UserAssignedManagedIdentityName miamatest1  `
+-UserAssignedManagedIdentityResourceGroup amapowershell  `
+-Name vmAMAPowershellWindows 
+```
 
-Install-VMInsights.ps1   -SubscriptionId 12345678-abcd-abcd-1234-12345678 -ResourceGroup rg-AMAPowershell  -ProcessAndDependencies  -DcrResourceId /subscriptions/12345678-abcd-abcd-1234-12345678/resourceGroups/rg-AMAPowershell/providers/Microsoft.Insights/dataCollectionRules/MSVMI-ama-vmi-default-dcr -UserAssignedManagedIdentityName miamatest1 -UserAssignedManagedIdentityResourceGroup  amapowershell -Name vmAMAPowershellWindows 
-
-the output will be similar to the following:
+The output will be similar to the following:
 
 ```powershell
 Name                                     Account                               SubscriptionName                      Environment                          TenantId
 ----                                     -------                               ----------------                      -----------                          --------
-AzMon001  (12345678-abcd-123…            MSI@9876                              AzMon001                              AzureCloud                           abcd1234-9876-abcd-1234-1234abcd5648
+AzMon001  12345678-abcd-123…             MSI@9876                              AzMon001                              AzureCloud                           abcd1234-9876-abcd-1234-1234abcd5648
 
 Getting list of VMs or VM Scale Sets matching specified criteria.
 VMs and VMSS matching selection criteria :
