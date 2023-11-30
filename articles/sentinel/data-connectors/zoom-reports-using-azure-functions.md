@@ -51,7 +51,8 @@ To integrate with Zoom Reports (using Azure Functions) make sure you have:
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
-**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Zoom and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/ZoomReports/Parsers/Zoom.yaml). The function usually takes 10-15 minutes to activate after solution installation/update.
+>[!NOTE]
+> This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Zoom and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/ZoomReports/Parsers/Zoom.yaml). The function usually takes 10-15 minutes to activate after solution installation/update.
 
 
 **STEP 1 - Configuration steps for the Zoom API**

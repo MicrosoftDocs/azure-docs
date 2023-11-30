@@ -160,7 +160,8 @@ Follow the Rubrik User Guide instructions to [Add a Webhook](https://docs.rubrik
  7. Select the following severity levels: Critical, Warning, Informational 
  8. Repeat the same steps to add webhooks for Ransomware Investigation Analysis and Threat Hunt. 
 
- NOTE: while adding webhooks for Ransomware Investigation Analysis and Threat Hunt, replace **{functionname}**  with **"RubrikRansomwareOrchestrator"** and **"RubrikThreatHuntOrchestrator"** respectively in copied function-url.
+ .{!NOTE]
+ > While adding webhooks for Ransomware Investigation Analysis and Threat Hunt, replace **{functionname}**  with **"RubrikRansomwareOrchestrator"** and **"RubrikThreatHuntOrchestrator"** respectively in copied function-url.
 
 
 *Now we are done with the rubrik Webhook configuration. Once the webhook events triggered , you should be able to see the Anomaly, Ransomware Investigation Analysis, Threat Hunt events from the Rubrik into respective LogAnalytics workspace table called "Rubrik_Anomaly_Data_CL", "Rubrik_Ransomware_Data_CL", "Rubrik_ThreatHunt_Data_CL".*
