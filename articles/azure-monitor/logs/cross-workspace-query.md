@@ -74,7 +74,7 @@ You can identify an app using one of these IDs:
 
 ---
 
-## Query across Log Analytics workspaces and from Application Insights with and without functions
+## Query across workspaces, applications, and resources using functions
 
 Follow the instructions in this section to query without using a function or by using a function.
 
