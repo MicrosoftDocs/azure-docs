@@ -14,9 +14,9 @@ ms.author: v-abhmallick
 
 In this quickstart, you configure backup for an Azure Kubernetes Service (AKS) cluster, and then use the Azure Backup configuration to back up specific items in the cluster.
 
-You can use Azure Backup to back up AKS clusters by using an Azure Backup extension. The extension must be installed in the cluster. An AKS cluster backup includes cluster resources and persistent volumes that are attached to the cluster.
+You can use Azure Backup to back up AKS clusters by using the Azure Backup extension. The extension must be installed in the cluster. An AKS cluster backup includes cluster resources and persistent volumes that are attached to the cluster.
 
-The Azure Backup vault communicates with the cluster via the Backup extension to complete backup and restore operations.
+The Backup vault communicates with the cluster via the Backup extension to complete backup and restore operations.
 
 ## Prerequisites
 

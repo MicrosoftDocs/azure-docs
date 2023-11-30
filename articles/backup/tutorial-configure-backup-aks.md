@@ -10,15 +10,15 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutorial: Configure item-level backup for an AKS cluster and use Azure Backup to back up specific items in the cluster
+# Tutorial: Configure item-level backup for an Azure Kubernetes Service cluster
 
-This tutorial describes how to configure backup for an Azure Kubernetes Service (AKS) cluster and then use the Azure Backup configuration to back up specific items in the cluster.
+This tutorial describes how to configure backup for an Azure Kubernetes Service (AKS) cluster, and then use the Azure Backup configuration to back up specific items in the cluster.
 
 You also learn how to use backup hooks in a backup configuration to achieve application-consistent backups for databases that are deployed in an AKS cluster.
 
-You can use Azure Backup to back up AKS clusters by using an Azure Backup extension. The extension must be installed in the cluster. An AKS cluster backup includes cluster resources and persistent volumes that are attached to the cluster.
+You can use Azure Backup to back up AKS clusters by using the Azure Backup extension. The extension must be installed in the cluster. An AKS cluster backup includes cluster resources and persistent volumes that are attached to the cluster.
 
-The Azure Backup vault communicates with the cluster via the Backup extension to complete backup and restore operations.
+The Backup vault communicates with the cluster via the Backup extension to complete backup and restore operations.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ The Azure Backup vault communicates with the cluster via the Backup extension to
 
 1. In the **Select Resources to Backup** pane, define the cluster resources that you want to back up.
 
-1. You can use the backup configuration for item-level backups and to run custom hooks. For example, you can use it to achieve application consistent backup of databases. Follow these steps:
+1. You can use the backup configuration for item-level backups and to run custom hooks. For example, you can use it to achieve application-consistent backup of databases:
 
     1. For **Backup Instance name**, enter a value and assign it to the backup instance that's configured for the application in the AKS cluster.
 

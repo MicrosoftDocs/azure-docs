@@ -24,7 +24,7 @@ You can use Azure Backup to back up AKS clusters (cluster resources and persiste
 
 - Currently, AKS backup supports once-a-day backup. It also supports more frequent backups (in 4-hour, 8-hour, and 12-hour intervals) per day. This solution allows you to retain your data for restore for up to 360 days. Learn to [create a backup policy](#create-a-backup-policy).
 
-- You must [install the backup extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations for an AKS cluster. Learn more [about the backup extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
+- You must [install the Azure Backup extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations for an AKS cluster. Learn more [about the Backup extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
 
 - Ensure that `Microsoft.KubernetesConfiguration`, `Microsoft.DataProtection`, and the `TrustedAccessPreview` feature flag on `Microsoft.ContainerService` are registered for your subscription before you initiate the backup configuration and restore operations.
 
@@ -95,7 +95,7 @@ To configure backups for AKS cluster, follow these steps:
 
 1. In the resource menu, select **Backup**, and then select **Configure Backup**.
 
-1. To prepare the AKS cluster for backup or restore, select **Install Extension** to install the backup extension in the cluster.
+1. To prepare the AKS cluster for backup or restore, select **Install Extension** to install the Backup extension in the cluster.
 
 1. Provide a storage account and blob container as input.
 
@@ -109,9 +109,9 @@ To configure backups for AKS cluster, follow these steps:
 
     The extension installation begins.
 
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/install-extension.png" alt-text="Screenshot that shows how to review and install the backup extension.":::
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/install-extension.png" alt-text="Screenshot that shows how to review and install the Backup extension.":::
 
-1. When the backup extension is installed successfully, select **Configure Backup** to begin configuring backups for your AKS cluster.
+1. When the Backup extension is installed successfully, select **Configure Backup** to begin configuring backups for your AKS cluster.
 
    You can also perform this action in Backup center.
 
@@ -126,8 +126,8 @@ To configure backups for AKS cluster, follow these steps:
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/grant-permission.png" alt-text="Screenshot that shows how to proceed to the next step after granting permission.":::
 
    > [!NOTE]
-   >- Before you enable Trusted Access, enable the *TrustedAccessPreview* feature flag for the `Microsoft.ContainerServices` resource provider on the subscription.
-   >- If the AKS cluster doesn't have the backup extension installed, you can perform the installation step that configures backup.
+   > - Before you enable Trusted Access, enable the *TrustedAccessPreview* feature flag for the `Microsoft.ContainerServices` resource provider on the subscription.
+   > - If the AKS cluster doesn't have the Backup extension installed, you can perform the installation step that configures backup.
 
 1. Select the backup policy, which defines the schedule for backups and their retention period. Then select **Next**.
 
@@ -193,11 +193,11 @@ As part of the AKS backup capability, you can back up all cluster resources or s
 
 ## Use hooks during AKS backup
 
-This section describes how to use a backup hook to create an application consistent snapshot of the AKS cluster with MySQL deployed (persistent volume that contains the MySQL instance).
+This section describes how to use a backup hook to create an application-consistent snapshot of the AKS cluster with MySQL deployed (persistent volume that contains the MySQL instance).
 
 You can use custom hooks in Azure Backup for AKS to accomplish application-consistent snapshots of volumes, which are used for databases that are deployed as containerized workloads.
 
-By using a backup hook, you can define the commands to freeze and unfreeze a MySQL pod so that an application snapshot of the volume can be taken. The backup extension then orchestrates the steps of running the commands in the hooks and takes the volume snapshot.
+By using a backup hook, you can define the commands to freeze and unfreeze a MySQL pod so that an application snapshot of the volume can be taken. The Backup extension then orchestrates the steps of running the commands in the hooks and takes the volume snapshot.
 
 An application-consistent snapshot of a volume with MySQL deployed is taken by doing the following actions:
 
