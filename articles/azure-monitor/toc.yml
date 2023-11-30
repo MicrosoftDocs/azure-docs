@@ -1220,7 +1220,7 @@ items:
         href: logs/parse-text.md
       - name: Computer groups
         href: logs/computer-groups.md
-      - name: Cross resource queries
+      - name: Cross-service and cross-resource queries
         items:
         - name: Query data across workspaces and resources
           displayName: cross-resource queries
