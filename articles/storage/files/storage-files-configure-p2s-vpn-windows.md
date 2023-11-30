@@ -89,10 +89,10 @@ In order for VPN connections from your on-premises Windows machines to be authen
 1. A root certificate, which will be provided to the virtual machine gateway
 2. A client certificate, which will be signed with the root certificate
 
-You can either use a root certificate that was generated with an enterprise solution, or generate a self-signed certificate. If you're using an enterprise solution, acquire the .cer file for the root certificate that you want to use. If you aren't using an enterprise certificate solution, create a self-signed root certificate using this PowerShell script. You'll create the client certificate after deploying the virtual network gateway.
+You can either use a root certificate that was generated with an enterprise solution, or you can generate a self-signed certificate. If you're using an enterprise solution, acquire the .cer file for the root certificate from your IT organization. If you aren't using an enterprise certificate solution, create a self-signed root certificate using this PowerShell script. You'll create the client certificate after deploying the virtual network gateway.
 
 > [!IMPORTANT]
-> Run this PowerShell script as administrator from an on-premises machine running Windows 10 or later. Don't run the script from a Cloud Shell or VM in Azure.
+> Run this PowerShell script as administrator from an on-premises machine running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell or VM in Azure.
 
 ```PowerShell
 $rootcertname = "CN=P2SRootCert"
@@ -168,7 +168,7 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
    * **Name**: Name your gateway. Naming your gateway not the same as naming a gateway subnet. It's the name of the gateway object you're creating.
    * **Region**: Select the region in which you want to create this resource. The region for the gateway must be the same as the virtual network.
    * **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**.
-   * **SKU**: Select the gateway SKU that supports the features you want to use from the dropdown. See [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+   * **SKU**: Select the gateway SKU that supports the features you want to use from the dropdown. See [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). The Basic SKU doesn't support IKEv2 or RADIUS authentication.
    * **Generation**: Select the generation you want to use. We recommend using a Generation2 SKU. For more information, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
    * **Virtual network**: From the dropdown, select the virtual network to which you want to add this gateway. If you can't see the virtual network for which you want to create a gateway, make sure you selected the correct subscription and region.
    * **Subnet**: This field should be grayed out and list the name of the gateway subnet you created, along with its IP address range. If you instead see a **Gateway subnet address range** field with a text box, then you haven't yet configured a gateway subnet (see [Prerequisites](#prerequisites).)
@@ -193,10 +193,13 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
    :::image type="content" source="media/storage-files-configure-p2s-vpn-windows/point-to-site-configuration.png" alt-text="Screenshot showing how to configure a point-to-site VPN using the Azure portal." lightbox="media/storage-files-configure-p2s-vpn-windows/point-to-site-configuration.png":::
 
    * **Address pool**: Add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
-   * **Tunnel type**: Specify the tunnel type you want to use. 
+   * **Tunnel type**: Specify the tunnel type you want to use. Computers connecting via the native Windows VPN client will try IKEv2 first. If that doesn't connect, they fall back to SSTP (if you select both IKEv2 and SSTP from the dropdown). If you select the OpenVPN tunnel type, you can connect using an OpenVPN Client or the Azure VPN Client.
    * **Authentication type**: Specify the authentication type you want to use. 
    * **Root certificate name**: The file name of the root certificate (.cer file).
-   * **Public certificate data**: Open the root certificate with NotePad and paste the public certificate data in this text field.
+   * **Public certificate data**: Open the root certificate with NotePad and copy/paste the public certificate data in this text field. If you used the PowerShell script in this article to generate a self-signed root certificate, it will be located in `C:\vpn-temp`. Be sure to only paste the text that's in between -----BEGIN CERTIFICATE----- and -----END CERTIFICATE-----. Don't include any additional spaces or characters.
+
+   > [!NOTE]
+   > If you don't see tunnel type or authentication type, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
 
 1. Select **Save** at the top of the page to save all of the configuration settings.
 
@@ -481,6 +484,7 @@ Add-AzVpnClientRootCertificate `
 
 ## See also
 
+- [Configure server settings for P2S VPN Gateway connections](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 - [Networking considerations for direct Azure file share access](storage-files-networking-overview.md)
 - [Configure a point-to-site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
 - [Configure a site-to-site (S2S) VPN for use with Azure Files](storage-files-configure-s2s-vpn.md)
