@@ -193,6 +193,11 @@ openssl x509 -in cert.pem -noout -modulus | md5sum
 openssl rsa -in key.pem -noout -modulus | md5sum
 ```
 
+For sslCertPemFile, it is the public certificate. It should include the certificate chain which includes below certificates and should be in the sequence of the server certificate, the intermediate CA certificate and the root CA certificate:
+* The server certificate: This is the certificate that the server presents to the client during the TLS handshake. It contains the server’s public key, domain name, and other information. The server certificate is signed by an intermediate certificate authority (CA) that vouches for the server’s identity.
+* The intermediate CA certificate: This is the certificate that the intermediate CA presents to the client to prove its authority to sign the server certificate. It contains the intermediate CA’s public key, name, and other information. The intermediate CA certificate is signed by a root CA that vouches for the intermediate CA’s identity.
+* The root CA certificate: This is the certificate that the root CA presents to the client to prove its authority to sign the intermediate CA certificate. It contains the root CA’s public key, name, and other information. The root CA certificate is self-signed and trusted by the client.
+
 
 ## Training guide
 
