@@ -38,7 +38,7 @@ You can filter the list of models in the model catalog by Task, or by license. S
 > [!NOTE] 
 >Models from Hugging Face are subject to third party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
 
-You can quickly test out any pre-trained model using the Sample Inference widget on the model card, providing your own sample input to test the result. Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, finetuning and evaluation of the model.
+You can quickly test out any pre-trained model using the Sample Inference widget on the model card, providing your own sample input to test the result. Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, fine-tuning and evaluation of the model.
 
 ## How to evaluate foundation models using your own test data
 
@@ -63,7 +63,7 @@ Each model can be evaluated for the specific inference task that the model can b
 
 **Compute:** 
 
-1. Provide the Azure Machine Learning Compute cluster you would like to use for finetuning the model. Evaluation needs to run on GPU compute. Ensure that you have sufficient compute quota for the compute SKUs you wish to use.
+1. Provide the Azure Machine Learning Compute cluster you would like to use for fine-tuning the model. Evaluation needs to run on GPU compute. Ensure that you have sufficient compute quota for the compute SKUs you wish to use.
 
 1.  Select **Finish** in the Evaluate wizard to submit your evaluation job. Once the job completes, you can view evaluation metrics for the model. Based on the evaluation metrics, you might decide if you would like to finetune the model using your own training data. Additionally, you can decide if you would like to register the model and deploy it to an endpoint.
 
@@ -84,7 +84,7 @@ You can invoke the finetune settings form by selecting on the **Finetune** butto
 :::image type="content" source="./media/how-to-use-foundation-models/finetune-quick-wizard.png" alt-text="Screenshot showing the finetune settings options in the foundation models finetune settings form.":::
 
 
-**Finetuning task type**
+**Fine-tuning task type**
 
 * Every pre-trained model from the model catalog can be finetuned for a specific set of tasks (For Example: Text classification, Token classification, Question answering). Select the task you would like to use from the drop-down.
 
@@ -99,13 +99,13 @@ You can invoke the finetune settings form by selecting on the **Finetune** butto
 
 * Validation data: Pass in the data you would like to use to validate your model. Selecting **Automatic split** reserves an automatic split of training data for validation. Alternatively, you can provide a different validation dataset.
 * Test data: Pass in the test data you would like to use to evaluate your finetuned model. Selecting **Automatic split** reserves an automatic split of training data for test. 
-* Compute: Provide the Azure Machine Learning Compute cluster you would like to use for finetuning the model. Finetuning needs to run on GPU compute. We recommend using compute SKUs with A100 / V100 GPUs when fine tuning. Ensure that you have sufficient compute quota for the compute SKUs you wish to use.
+* Compute: Provide the Azure Machine Learning Compute cluster you would like to use for fine-tuning the model. Fine-tuning needs to run on GPU compute. We recommend using compute SKUs with A100 / V100 GPUs when fine tuning. Ensure that you have sufficient compute quota for the compute SKUs you wish to use.
 
-3. Select **Finish** in the finetune form to submit your finetuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then register the finetuned model output by the finetuning job and deploy this model to an endpoint for inferencing.
+3. Select **Finish** in the finetune form to submit your fine-tuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then register the finetuned model output by the fine-tuning job and deploy this model to an endpoint for inferencing.
 
-### Finetuning using code based samples
+### Fine-tuning using code based samples
 
-Currently, Azure Machine Learning supports finetuning models for the following language tasks:
+Currently, Azure Machine Learning supports fine-tuning models for the following language tasks:
 
 * Text classification 
 * Token classification
@@ -113,7 +113,7 @@ Currently, Azure Machine Learning supports finetuning models for the following l
 * Summarization
 * Translation
 
-To enable users to quickly get started with finetuning, we have published samples (both Python notebooks and CLI examples) for each task in the [azureml-examples git repo Finetune samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune). Each model card also links to Finetuning samples for supported finetuning tasks.
+To enable users to quickly get started with fine-tuning, we have published samples (both Python notebooks and CLI examples) for each task in the [azureml-examples git repo Finetune samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune). Each model card also links to fine-tuning samples for supported fine-tuning tasks.
 
 ## Deploying foundation models to endpoints for inferencing
 
@@ -134,7 +134,7 @@ Since the scoring script and environment are automatically included with the fou
 
 :::image type="content" source="./media/how-to-use-foundation-models/deploy-options.png" alt-text="Screenshot showing the deploy options on the foundation model card after user selects the deploy button.":::
 
-Curated models from the Azure Machine Learning are in MLflow format. If you are planning to deploy this models under an online endpoints without network connectivity, you need to package the model first. Packaging is not required for models in the HuggingFace format.
+Curated models from the Azure Machine Learning are in MLflow format. If you are planning to deploy this models under an online endpoint without network connectivity, you need to package the model first. Packaging is not required for models in the HuggingFace format.
 
 :::image type="content" source="./media/how-to-use-foundation-models/studio-deploy-package.png" alt-text="Screenshot showing the package option for model deployment.":::
 
