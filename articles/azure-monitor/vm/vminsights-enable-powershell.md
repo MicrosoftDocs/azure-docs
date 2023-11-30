@@ -14,7 +14,7 @@ This article describes how to enable VM insights on Azure virtual machines by us
 - Azure Virtual Machines
 - Azure Virtual Machine Scale Sets
 
-This script installs VM extensions for Log Analytics/Azure Monitoring Agent (AMA) and Dependency Agent if needed for VM Insights. If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated with the VMs and VMSS. 
+This script installs VM extensions for Log Analytics/Azure Monitoring Agent (AMA) and Dependency Agent if needed for VM Insights. If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated with the virtual machines and virtual machine scale sets. 
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
@@ -36,7 +36,7 @@ To enable VM insights for multiple VMs or virtual machine scale set, use the Pow
 - A single VM or virtual machine scale set that's specified by `-Name`.
 
 
-Verify that you're using Azure PowerShell module Az version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+Verify that you're using Az PowerShell module version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 For a list of the script's argument details and example usage, run `Get-Help`.
 
@@ -44,7 +44,11 @@ For a list of the script's argument details and example usage, run `Get-Help`.
 Get-Help Install-VMInsights.ps1 -Detailed
 ```
 
-### [Azure Moniotor Agent](#tab/AMA)
+Use the script to enable VM insights using Azure Monitoring Agent and  Dependency Agent, or Log Analytics Agent.
+
+```powershell
+
+### [Azure Monitor Agent](#tab/AMA)
 
 
 AMA Onboarding 
@@ -55,7 +59,7 @@ If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Id
 Install-VMInsights.ps1 -SubscriptionId <SubscriptionId> `
 [-ResourceGroup <ResourceGroup>] `
 [-ProcessAndDependencies ] `
-[-Name <vm or MVss name>] `
+[-Name <MV or VMSS name>] `
 -DcrResourceId <DataCollectionRuleResourceId> `
 -UserAssignedManagedIdentityName <UserAssignedIdentityName> `
 -UserAssignedManagedIdentityResourceGroup <UserAssignedIdentityResourceGroup> 
@@ -64,11 +68,11 @@ Install-VMInsights.ps1 -SubscriptionId <SubscriptionId> `
 
 Required Arguments:   
  +   `-SubscriptionId <String>`  Azure subscription ID.  
- +   `-DcrResourceId <String> `  Data Collection Rule (DCR) azure resource ID identifier. 
+ +   `-DcrResourceId <String> `  Data Collection Rule (DCR) Azure resource ID identifier. 
  +  `-UserAssignedManagedIdentityResourceGroup <String> `  Name of User Assigned Managed Identity (UAMI) resource group.   
  +   `-UserAssignedManagedIdentityName <String> `  Name of User Assigned Managed Identity (UAMI). 
 
-Optional Arguements:   
+Optional Arguments:   
  +   `-ProcessAndDependencies` Set this flag to onboard the Dependency Agent with Azure Monitoring Agent (AMA) settings.  If not specified, only Azure Monitoring Agent (AMA) will be onboarded.  
  + ` - Name <String>`   Name of the VM or VMSS to be onboarded. If not specified, all VMs and VMSS in the subscription or resource group will be onboarded.
  +    `- ResourceGroup <String>`  Name of the resource group containing the VM or VMSS to be onboarded. If not specified, all VMs and VMSS in the subscription will be onboarded.
@@ -78,13 +82,13 @@ Example:
 Install-VMInsights.ps1  -SubscriptionId 12345678-abcd-abcd-1234-12345678 `
 -ResourceGroup rg-AMAPowershell  `
 -ProcessAndDependencies  `
+-Name vmAMAPowershellWindows `
 -DcrResourceId /subscriptions/12345678-abcd-abcd-1234-12345678/resourceGroups/rg-AMAPowershell/providers/Microsoft.Insights/dataCollectionRules/MSVMI-ama-vmi-default-dcr `
 -UserAssignedManagedIdentityName miamatest1  `
--UserAssignedManagedIdentityResourceGroup amapowershell  `
--Name vmAMAPowershellWindows 
+-UserAssignedManagedIdentityResourceGroup amapowershell
 ```
 
-The output will be similar to the following:
+The output has the following format:
 
 ```powershell
 Name                                     Account                               SubscriptionName                      Environment                          TenantId
@@ -123,11 +127,12 @@ VMSS Instance Upgrade Failures : 0
 ```    
 
 
-Check your VM/VMSS in Azure portal to see if the extensions are installed.
+Check your VM/VMSS in Azure portal to see if the extensions are installed or use the following command:
 
 ```powershell
 
 az vm extension list --resource-group rg-AMAPowershell --vm-name vmAMAPowershellWindows  -o table 
+
 
 Name                      ProvisioningState    Publisher                                   Version    AutoUpgradeMinorVersion
 ------------------------  -------------------  ------------------------------------------  ---------  -------------------------
