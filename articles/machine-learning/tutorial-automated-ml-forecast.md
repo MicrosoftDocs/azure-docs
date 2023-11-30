@@ -9,16 +9,16 @@ ms.topic: tutorial
 author: manashgoswami 
 ms.author: magoswam
 ms.reviewer: ssalgado 
-ms.date: 06/12/2023
+ms.date: 11/25/2023
 ms.custom: automl, ignite-2022
 #Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
 # Tutorial: Forecast demand with no-code automated machine learning in the Azure Machine Learning studio
 
-Learn how to create a [time-series forecasting model](concept-automated-ml.md#time-series-forecasting) without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This model will predict rental demand for a bike sharing service.  
+Learn how to create a [time-series forecasting model](concept-automated-ml.md#time-series-forecasting) without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This model predicts rental demand for a bike sharing service.  
 
-You won't write any code in this tutorial, you'll use the studio interface to perform training.  You'll learn how to do the following tasks:
+You don't write any code in this tutorial, you use the studio interface to perform training.  You learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create and load a dataset.
@@ -40,7 +40,7 @@ Also try automated machine learning for these other model types:
 
 ## Sign in to the studio
 
-For this tutorial, you create your automated ML experiment run in Azure Machine Learning studio, a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
+For this tutorial, you create your automated ML experiment run in Azure Machine Learning studio, a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio isn't supported on Internet Explorer browsers.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -62,9 +62,9 @@ Before you configure your experiment, upload your data file to your workspace in
     
     1. Select **Next** on the bottom left
 
-    1. On the **Datastore and file selection** form, select the default datastore that was automatically set up during your workspace creation, **workspaceblobstore (Azure Blob Storage)**. This is the storage location where you'll upload your data file. 
+    1. On the **Datastore and file selection** form, select the default datastore that was automatically set up during your workspace creation, **workspaceblobstore (Azure Blob Storage)**. This is the storage location where you upload your data file. 
 
-    1. Select **Upload files** from the **Upload** drop-down.. 
+    1. Select **Upload files** from the **Upload** drop-down. 
     
     1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv).
 
@@ -124,7 +124,7 @@ After you load and configure your data, set up your remote compute target and se
              Field | Description | Value for tutorial
             ----|---|---
             Compute name |    A unique name that identifies your compute context. | bike-compute
-            Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
+            Min / Max nodes| To profile data, you must specify one or more nodes.|Min nodes: 1<br>Max nodes: 6
             Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
             Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None 
   
@@ -155,7 +155,7 @@ Complete the setup for your automated ML experiment by specifying the machine le
     Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|Normalized root mean squared error
     Explain best model| Automatically shows explainability on the best model created by automated ML.| Enable
     Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
-    Additional forecasting settings| These settings help improve the accuracy of your model. <br><br> _**Forecast target lags:**_ how far back you want to construct the lags of the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. | <br><br>Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
+    Additional forecasting settings| These settings help improve the accuracy of your model. <br><br> _**Forecast target lags:**_ how far back you want to construct the lags of the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, is generated. | <br><br>Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
     Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
     Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
     
