@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: sagopal
 author: saachigopal
 ms.reviewer: ssalgado
-ms.date: 11/14/2023
+ms.date: 08/11/2021
 ms.topic: how-to
 ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ---
@@ -17,7 +17,7 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-In this article, learn how to use a custom Docker image when you're training models with Azure Machine Learning. You use the example scripts in this article to classify pet images by creating a convolutional neural network. 
+In this article, learn how to use a custom Docker image when you're training models with Azure Machine Learning. You'll use the example scripts in this article to classify pet images by creating a convolutional neural network. 
 
 Azure Machine Learning provides a default Docker base image. You can also use Azure Machine Learning environments to specify a different base image, such as one of the maintained [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) or your own [custom image](../how-to-deploy-custom-container.md). Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when running training jobs.
 
