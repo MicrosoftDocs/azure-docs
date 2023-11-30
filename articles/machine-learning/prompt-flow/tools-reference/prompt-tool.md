@@ -33,7 +33,7 @@ The following sections show the prompt text parsed from the prompt and inputs.
 
 1. Prepare a Jinja template. Learn more about [Jinja](https://jinja.palletsprojects.com/en/3.1.x/).
 
-   In the following example, the prompt incorporates Jinja templating syntax to dynamically generate the welcome message and personalize it based on the user's name. It also presents a menu of options for the user to choose from. Depending on whether the user_name variable is provided, it either addresses the user by name or uses a generic greeting.
+   In the following example, the prompt incorporates Jinja templating syntax to dynamically generate the welcome message and personalize it based on the user's name. It also presents a menu of options for the user to choose from. Depending on whether the `user_name` variable is provided, it either addresses the user by name or uses a generic greeting.
 
     ```jinja
     Welcome to {{ website_name }}!
