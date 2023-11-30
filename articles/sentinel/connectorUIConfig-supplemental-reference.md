@@ -79,7 +79,7 @@ Each of the following elements of the `connectorUiConfig` section needed to conf
 | **dataTypes** | True | Nested JSON<br>[dataTypes](#datatypes) | A list of all data types for your connector, and a query to fetch the time of the last event for each data type. | 6 |
 | **connectivityCriteria** | True | Nested JSON<br>[connectivityCriteria](#connectivitycriteria) | An object that defines how to verify if the connector is connected. | 7 |
 | **permissions** | True | Nested JSON<br>[permissions](#permissions) | The information displayed under the **Prerequisites** section of the UI, which lists the permissions required to enable or disable the connector. | 8 |
-| **instructionSteps** | True | Nested JSON<br>[instructions](#instructionsteps) | An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab. | 9 |
+| **instructionSteps** | True | Nested JSON<br>[instructions](#instructionsteps) | An array of widget parts that explain how to install the connector, and actionable controls displayed on the **Instructions** tab. | 9 |
 
 ### connectivityCriteria
 
@@ -141,8 +141,6 @@ Displays a group of instructions, with various parameters and the ability to nes
 | Type | Array property | Description |
 |-----------|--------------|-------------|
 | **OAuthForm** | [OAuthForm](#oauthform) | Connect with OAuth |
-| **APIKey** | [APIKey](#apikey) | Add placeholders to the API secrets for your connector's UI configuration file. |
-| **BasicAuth** | [BasicAuth](#apikey) | Same format as APIKey, but type is `BasicAuth` |
 | **Textbox** | [Textbox](#textbox) | Basic text and labels |
 | **ConnectionToggleButton** | [ConnectionToggleButton](#connectiontogglebutton) | Trigger the deployment of the DCR based on the connection information provided through placeholder parameters. |
 | **CopyableLabel** | [CopyableLabel](#copyablelabel) | Shows a text field with a copy button at the end. When the button is selected, the field's value is copied.|
@@ -361,15 +359,6 @@ To define a link as an ARM template, use the following example as a guide:
    "description": "1. Click the **Deploy to Azure** button below.\n\n\t[![Deploy To Azure](https://aka.ms/deploytoazurebutton)]({URL to custom ARM template})"
 }
 ```
-
-## Connections configuration template spec
-
-This object includes the template spec name and version of the different connections of the data connector.
-
-|Field |Required |Type |Description |
-|---|---|---|---|
-| **TemplateSpecName** |	True  |String | The name of the template spec which contains the data connector connections. The template includes ARM templates created by the connector, usually the dataConnectors ARM templates.<br><br>Example: `/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Resources/templateSpecs/dataConnectorTemplateSpecName2`|
-| **TemplateSpecVersion** | True | String | The version of the template spec which contains the data connectors connections. The format of the version is "major.minor.patch" (for example, "1.0.0") |
 
 ## Example data connector definition
 

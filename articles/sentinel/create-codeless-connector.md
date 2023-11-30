@@ -322,7 +322,11 @@ To create this connector in a test environment, follow the [Data Collection Rule
 
 ### Example ARM template
 
-This template guide has the following structure, breaking up each section for readability. Also, JSON 
+This template guide has the following structure, which follows the structure for an ARM deployment template excluding sections like functions and output.
+
+Comments are ok, https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/best-practices#comments
+parameters, variables, UI input
+
 
 ```json
 {
@@ -335,9 +339,6 @@ This template guide has the following structure, breaking up each section for re
 ```
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0", 
     "parameters": {
         "location": {
             "type": "string",
@@ -375,7 +376,10 @@ This template guide has the following structure, breaking up each section for re
                 "description": "Workspace name for Log Analytics where Microsoft Sentinel is setup"
             }
         }
-    },
+    }
+```
+
+```json
     "variables": {
         "workspaceResourceId": "[resourceId('microsoft.OperationalInsights/Workspaces', parameters('workspace'))]",
         "_solutionName": "Solution name", // Enter your solution name 
@@ -392,7 +396,19 @@ This template guide has the following structure, breaking up each section for re
         "dataConnectorTemplateNameConnections": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnections')))]",
         "_logAnalyticsTableId1": "MyCustomTableName_CL" //Enter the custom table name (Not needed if you are ingesting data into standard tables)
 		//Enter more variables as needed"":""
-    },
+    }
+```
+
+There are 5 resources, and the first one is a parent resource.
+
+1. contentTemplates
+    - metadata
+1. dataConnectorDefinitions
+1. metadata
+1. contentTemplates
+1. contentPackages
+ 
+```json
     "resources": [
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
@@ -575,7 +591,7 @@ This template guide has the following structure, breaking up each section for re
                             "kind": null,
                             "properties": 
 							{
-								//Enter your log anlytics table properties here
+								//Enter your log analytics table properties here
 								"totalRetentionInDays": 30,
                                 "archiveRetentionInDays": 0,
                                 "plan": "Analytics",
