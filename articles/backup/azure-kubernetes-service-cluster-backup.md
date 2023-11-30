@@ -1,5 +1,5 @@
 ---
-title: Back up Azure Kubernetes Service (AKS) by using Azure Backup
+title: Back up Azure Kubernetes Service by using Azure Backup
 description: Learn how to back up Azure Kubernetes Service (AKS) by using Azure Backup.
 ms.topic: how-to
 ms.service: backup
@@ -45,35 +45,35 @@ Learn [how to create a Backup vault](create-manage-backup-vault.md#create-a-back
 
 Before you configure backups, you need to create a backup policy that defines the frequency of backup and retention duration of backups before getting deleted. You can also create a backup policy during the backup configuration.
 
-To create a backup policy, follow these steps:
+To create a backup policy:
 
 1. Go to **Backup center** and select  **+ Policy** to create a new backup policy.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/create-backup-policy.png" alt-text="Screenshot shows how to start creating a backup policy.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/create-backup-policy.png" alt-text="Screenshot that shows how to start creating a backup policy.":::
 
    Alternatively, go to **Backup center** > **Backup policies** > **Add**.
 
-1. Select **Datasource type** as **Kubernetes Service** and continue.
+1. For **Datasource type**, select **Kubernetes Service** and continue.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-datasource-type.png" alt-text="Screenshot shows the selection of datasource type.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-datasource-type.png" alt-text="Screenshot that shows the selection of the datasource type.":::
 
 1. Enter a name for the backup policy (for example, *Default Policy*) and select the *Backup vault* (the new Backup vault you created) where the backup policy needs to be created.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/enter-backup-policy-name.png" alt-text="Screenshot shows providing the backup policy name.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/enter-backup-policy-name.png" alt-text="Screenshot that shows providing the backup policy name.":::
 
 1. On the **Schedule + retention** tab, select the *backup frequency* – (*Hourly* or *Daily*), and then choose the *retention duration for the backups*.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-frequency.png" alt-text="Screenshot shows selection of backup frequency.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-frequency.png" alt-text="Screenshot that shows selection of backup frequency.":::
 
    You can edit the retention duration with default retention rule. You can't delete the default retention rule.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-retention-period.png" alt-text="Screenshot shows selection of retention period.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-retention-period.png" alt-text="Screenshot that shows selection of retention period.":::
 
    You can also create additional retention rules to store backups taken daily or weekly to be stored for a longer duration.
 
-1. Once the backup frequency and retention settings configurations are complete, select **Next**.
+1. When the backup frequency and retention settings configurations are finished, select **Next**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/review-create-policy.png" alt-text="Screenshot shows the completion of backup policy creation.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/review-create-policy.png" alt-text="Screenshot that shows the completion of backup policy creation.":::
 
 1. On the **Review + create** tab, review the information, and then select **Create**.
 
@@ -81,11 +81,11 @@ To create a backup policy, follow these steps:
 
 AKS backup allows you to back up an entire cluster or specific cluster resources deployed in the cluster, as required. You can also protect a cluster multiple times as per the deployed applications schedule and retention requirements or security requirements.
 
->[!Note]
->You can set up multiple backup instances for the same AKS cluster by:
+> [!NOTE]
+> You can set up multiple backup instances for the same AKS cluster by:
 >
->- Configuring backup in the same Backup vault with a different backup policy.
->- Configuring backup in a different Backup vault.
+> - Configuring backup in the same Backup vault with a different backup policy.
+> - Configuring backup in a different Backup vault.
 
 To configure backups for AKS cluster, follow these steps:
 
@@ -99,111 +99,111 @@ To configure backups for AKS cluster, follow these steps:
 
     Select **Next**.
 
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/add-storage-details-for-backup.png" alt-text="Screenshot shows how to add storage and blob details for backup.":::
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/add-storage-details-for-backup.png" alt-text="Screenshot that shows how to add storage and blob details for backup.":::
 
 1. Review the extension installation details provided, and then select **Create**.
 
     The deployment begins to install the extension.
 
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/install-extension.png" alt-text="Screenshot shows how to review and install the backup extension.":::
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/install-extension.png" alt-text="Screenshot that shows how to review and install the backup extension.":::
 
-1. Once the  backup extension is installed successfully, start configuring backups for your AKS cluster by selecting **Configure Backup**.
+1. When the  backup extension is installed successfully, start configuring backups for your AKS cluster by selecting **Configure Backup**.
 
    You can also perform this action from the **Backup center**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/configure-backup.png" alt-text="Screenshot shows the selection of Configure Backup.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/configure-backup.png" alt-text="Screenshot that shows the selection of Configure Backup.":::
 
 1. Now, select the *Backup vault* to configure backup.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-vault.png" alt-text="Screenshot shows how to choose a vault.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-vault.png" alt-text="Screenshot that shows how to choose a vault.":::
 
    The Backup vault should have *Trusted Access* enabled for the AKS cluster to be backed up. You can enable *Trusted Access* by selecting *Grant Permission*. If it's already enabled, select **Next**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/grant-permission.png" alt-text="Screenshot shows how to proceed to the next step after granting permission.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/grant-permission.png" alt-text="Screenshot that shows how to proceed to the next step after granting permission.":::
 
-   >[!Note]
+   > [!NOTE]
    >- Before you enable *Trusted Access*, enable the *TrustedAccessPreview* feature flag for the `Microsoft.ContainerServices` resource provider on the subscription.
    >- If the AKS cluster doesn't have the backup extension installed, you can perform the installation step that configures backup.
 
 1. Select the *backup policy*, which defines the schedule for backups and their retention period. Then select **Next**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png" alt-text="Screenshot shows how to choose a backup policy.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png" alt-text="Screenshot that shows how to choose a backup policy.":::
 
 1. Select **Add/Edit** to define the **Backup Instance Configuration**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png" alt-text="Screenshot shows how to define the Backup Instance Configuration.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/define-backup-instance-configuration.png" alt-text="Screenshot that shows how to define the Backup Instance Configuration.":::
 
 1. In the *context* pane, define the cluster resources you want to back up.
 
    Learn more about [backup configurations]().
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/define-cluster-resources-for-backup.png" alt-text="Screenshot shows how to define the cluster resources for backup.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/define-cluster-resources-for-backup.png" alt-text="Screenshot that shows how to define the cluster resources for backup.":::
 
 1. Select **Snapshot Resource Group** where Persistent volumes (Azure Disk) Snapshots will be stored. Then select **Validate**.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validate-snapshot-resource-group-selection.png" alt-text="Screenshot that shows how to validate the snapshot resource group.":::
 
-   After validation is complete, if appropriate roles aren't assigned to the vault on Snapshot resource group, an error appears. See the following screenshot to check the error.
+   When validation is finished, if appropriate roles aren't assigned to the vault in the snapshot resource group, an error appears. See the following screenshot to check the error.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validation-error-on-permissions-not-assigned.png" alt-text="Screenshot shows validation error when appropriate permissions aren't assigned.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validation-error-on-permissions-not-assigned.png" alt-text="Screenshot that shows a validation error when appropriate permissions aren't assigned.":::
 
-1. To resolve the error, select the checkbox next to the **Datasource**, and then select **Assign missing roles**.
+1. To resolve the error, select the checkbox next to **Datasource**, and then select **Assign missing roles**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/start-role-assignment.png" alt-text="Screenshot shows how to start assigning roles.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/start-role-assignment.png" alt-text="Screenshot that shows how to start assigning roles.":::
 
-   The following screenshot shows the list of roles you can select.
+   The following screenshot shows the list of roles that you can select:
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-missing-roles.png" alt-text="Screenshot shows how to select missing roles.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-missing-roles.png" alt-text="Screenshot that shows how to select missing roles.":::
 
-1. Once the role assignment is complete, select **Next** and proceed for backup.
+1. When the role assignment is finished, select **Next** and proceed to backup configuration.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/proceed-for-backup.png" alt-text="Screenshot shows how to proceed for backup.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/proceed-for-backup.png" alt-text="Screenshot that shows how to proceed to backup configuration.":::
 
 1. Select **Configure backup**.
 
-1. Once the configuration is complete, select **Next**.
+1. When configuration is finished, select **Next**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/finish-backup-configuration.png" alt-text="Screenshot shows how to finish backup configuration.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/finish-backup-configuration.png" alt-text="Screenshot that shows how to finish backup configuration.":::
 
-   The Backup Instance gets created after the backup configuration is complete.
+   The backup instance is created when backup configuration is finished.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/list-of-backup-instances.png" alt-text="Screenshot shows the list of created backup instances.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/list-of-backup-instances.png" alt-text="Screenshot that shows the list of created backup instances.":::
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/backup-instance-details.png" alt-text="Screenshot shows the backup instance details.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/backup-instance-details.png" alt-text="Screenshot that shows the backup instance details.":::
 
 ### Backup configurations
 
-As part of the AKS backup capability, you can back up all cluster resources or only specific cluster resources. You can use the filters that are available for backup configuration to choose the resources to back up. The defined backup configurations are referenced by the value for **Backup Instance Name**. You can use the following options to choose the value for **Namespaces** for backup:
+As part of the AKS backup capability, you can back up all cluster resources or specific cluster resources. You can use the filters that are available for backup configuration to choose the resources to back up. The defined backup configurations are referenced by the values for **Backup Instance Name**. You can use the following options to choose the **Namespaces** values to back up:
 
-- **All (including future Namespaces)**: This backs up all the current and future values for **Namespaces** with the underlying cluster resources.
+- **All (including future Namespaces)**: This backs up all current and future values for **Namespaces** when the underlying cluster resources are backed up.
 - **Choose from list**: Select the specific values for **Namespaces** in the AKS cluster to back up.
 
-  If you want to check specific cluster resources, you can use labels attached to them in the textbox. Only the resources with entered labels are backed up. You can use multiple labels. You can also back up cluster-scoped resources, secrets, and persistent volumes. Select the specific options under **Other Options**.
+  To select specific cluster resources to back up, you can use labels that are attached to the resources to include the resources in the backup. Only the resources with entered labels are backed up. You can use multiple labels. You can also back up cluster-scoped resources, secrets, and persistent volumes. Select the specific options under **Other Options**.
 
   > [!NOTE]
-  > You should add the labels to every single YAML file that is deployed and to be backed up. This includes both *Namespace scoped resources* such as *Persistent Volume Claims*, and *Cluster scoped resources* such as *Persistent Volumes*.
+  > You should add the labels to every single YAML file that is deployed and to be backed up. This includes *namespace-scoped resources* like *persistent volume claims*, and *cluster-scoped resources* like *persistent volumes*.
 
-  If you also want to back up cluster-scoped resources, secrets, and persistent volumes, select the specific checkboxes under **Other Options**.
+  If you also want to back up cluster-scoped resources, secrets, and persistent volumes, select the items under **Other Options**.
 
 :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/various-backup-configurations.png" alt-text="Screenshot that shows various backup configurations.":::
 
-## Use Hooks during AKS backup
+## Use hooks during AKS backup
 
-This section describes how to use Backup Hook to do Application Consistent Snapshots of the AKS cluster with MySQL deployed (Persistent Volume with containing the MySQL).
+This section describes how to use a backup hook to create an application consistent snapshot of the AKS cluster with MySQL deployed (persistent volume that contains the MySQL instance).
 
-You  can now use the Custom Hooks capability that's available in Azure Backup for AKS to accomplish Application Consistent Snapshots of Volumes, which are used for databases that are deployed as containerized workloads.
+You  can now use the custom hooks capability that's available in Azure Backup for AKS to accomplish application consistent snapshots of volumes, which are used for databases that are deployed as containerized workloads.
 
-By using Backup Hook, you can define the commands to freeze and unfreeze a MySQL pod so that an application snapshot of the volume can be taken. The Backup Extension then orchestrates the steps of running the commands provided in Hooks and takes the Volume snapshot.
+By using a backup hook, you can define the commands to freeze and unfreeze a MySQL pod so that an application snapshot of the volume can be taken. The Backup Extension then orchestrates the steps of running the commands provided in Hooks and takes the volume snapshot.
 
-An application consistent snapshot of a Volume with MySQL deployed is taken by doing the following actions:
+An application consistent snapshot of a volume with MySQL deployed is taken by doing the following actions:
 
-1. The Pod running MySQL is frozen so that no new transaction is performed on the database.
-2. A snapshot is taken of the Volume as backup.
-3. The Pod running MySQL is unfrozen so that transactions can be done again on the database.
+1. The pod running MySQL is frozen so that no new transaction is performed on the database.
+2. A snapshot is taken of the volume as backup.
+3. The pod running MySQL is unfrozen so that transactions can be done again on the database.
 
-To enable a *Backup Hook* as part of the configure backup flow to back up MySQL:
+To enable a *backup hook* as part of the configure backup flow to back up MySQL:
 
-1. Write the Custom Resource for Backup Hook with commands to freeze and unfreeze a PostgreSQL Pod. You can also use the following sample YAML script  `"postgresbackuphook.yaml"` with pre-defined commands.
+1. Write the Custom Resource for backup hook with commands to freeze and unfreeze a PostgreSQL pod. You can also use the following sample YAML script  *postgresbackuphook.yaml*, which has pre-defined commands.
 
       ```json
       apiVersion: clusterbackup.dataprotection.microsoft.com/v1alpha1
@@ -243,7 +243,7 @@ To enable a *Backup Hook* as part of the configure backup flow to back up MySQL:
 
       ```  
 
-2. Before you configure a backup, you must deploy the Backup Hook Custom Resource in the AKS cluster. To deploy the script, run the following command:
+2. Before you configure a backup, you must deploy the backup hook Custom Resource in the AKS cluster. To deploy the script, run the following command:
 
       ```dotnetcli
       kubectl apply -f mysqlbackuphook.yaml
