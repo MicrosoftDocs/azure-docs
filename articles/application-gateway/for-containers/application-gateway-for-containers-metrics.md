@@ -66,4 +66,4 @@ Use the following steps to view Application Gateway for Containers in the Azure 
 
 * [Using Azure Log Analytics in Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-overview)
 * [Configure Azure Log Analytics for Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-configure)
-* [Visualize Azure Cognitive Search Logs and Metrics with Power BI](/azure/search/search-monitor-logs-powerbi)
+* [Visualize Azure AI Search Logs and Metrics with Power BI](/azure/search/search-monitor-logs-powerbi)

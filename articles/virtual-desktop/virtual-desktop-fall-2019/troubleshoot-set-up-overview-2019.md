@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop (classic) troubleshooting overview - Azure
-description: An overview for troubleshooting issues while setting up a Azure Virtual Desktop (classic) tenant environment.
+description: An overview for troubleshooting issues while setting up an Azure Virtual Desktop (classic) tenant environment.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
@@ -12,7 +12,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../troubleshoot-set-up-overview.md).
 
-This article provides an overview of the issues you may encounter when setting up a Azure Virtual Desktop tenant environment and provides ways to resolve the issues.
+This article provides an overview of the issues you may encounter when setting up an Azure Virtual Desktop tenant environment and provides ways to resolve the issues.
 
 ## Provide feedback
 
@@ -48,7 +48,7 @@ Use the following table to identify and resolve issues you may encounter when se
 
 | **Issue**                                                            | **Suggested Solution**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Creating a Azure Virtual Desktop tenant                                                    | If there's an Azure outage, [open an Azure support request](https://azure.microsoft.com/support/create-ticket/); otherwise [open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Azure Virtual Desktop** for the service, select **Deployment** for the problem type, then select **Issues creating a Azure Virtual Desktop tenant** for the problem subtype.|
+| Creating an Azure Virtual Desktop tenant                                                    | If there's an Azure outage, [open an Azure support request](https://azure.microsoft.com/support/create-ticket/); otherwise [open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Azure Virtual Desktop** for the service, select **Deployment** for the problem type, then select **Issues creating an Azure Virtual Desktop tenant** for the problem subtype.|
 | Accessing Marketplace templates in Azure portal       | If there's an Azure outage, [open an Azure support request](https://azure.microsoft.com/support/create-ticket/). <br> <br> Azure Marketplace Azure Virtual Desktop templates are freely available.|
 | Accessing Azure Resource Manager templates from GitHub                                  | See the [Creating Azure Virtual Desktop session host VMs](troubleshoot-set-up-issues-2019.md#creating-azure-virtual-desktop-session-host-vms) section of [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md). If the problem is still unresolved, contact the [GitHub support team](https://github.com/contact). <br> <br> If the error occurs after accessing the template in GitHub, contact [Azure Support](https://azure.microsoft.com/support/create-ticket/).|
 | Session host pool Azure Virtual Network (VNET) and Express Route settings               | [Open an Azure support request](https://azure.microsoft.com/support/create-ticket/), then select the appropriate service (under the Networking category). |
@@ -66,7 +66,7 @@ Use the following table to identify and resolve issues you may encounter when se
 
 ## Next steps
 
-- To troubleshoot issues while creating a tenant and host pool in a Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
+- To troubleshoot issues while creating a tenant and host pool in an Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-windows.md)

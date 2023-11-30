@@ -1,7 +1,7 @@
 ---
 title: Deliver Extended Security Updates for Windows Server 2012
 description: Learn how to deliver Extended Security Updates for Windows Server 2012.
-ms.date: 11/01/2023
+ms.date: 11/07/2023
 ms.topic: conceptual
 ---
 
@@ -80,6 +80,16 @@ The status of the selected machines changes to **Enabled**.
 :::image type="content" source="media/deliver-extended-security-updates/extended-security-updates-enabled-resources.png" alt-text="Screenshot of eligible resources tab showing status of enabled for previously selected servers." lightbox="media/deliver-extended-security-updates/extended-security-updates-enabled-resources.png":::
 
 If any problems occur during the enablement process, see [Troubleshoot delivery of Extended Security Updates for Windows Server 2012](troubleshoot-extended-security-updates.md) for assistance.
+
+## At-scale Azure Policy
+
+For at-scale linking of servers to an Azure Arc Extended Security Update license and locking down license modification or creation, consider the usage of the following built-in Azure policies: 
+
+- [Enable Extended Security Updates (ESUs) license to keep Windows 2012 machines protected after their support lifecycle has ended (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4864134f-d306-4ff5-94d8-ea4553b18c97)
+
+- [Deny Extended Security Updates (ESUs) license creation or modification (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4c660f31-eafb-408d-a2b3-6ed2260bd26c)
+
+Azure policies can be specified to a targeted subscription or resource group for both auditing and management scenarios.
 
 ## Additional scenarios
 

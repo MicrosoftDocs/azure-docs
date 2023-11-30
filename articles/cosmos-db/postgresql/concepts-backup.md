@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022, references_regions
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 11/15/2023
 ---
 
 # Backup and restore in Azure Cosmos DB for PostgreSQL
@@ -51,7 +51,6 @@ Geo-redundant backup is supported in the following Azure regions.
 | Canada Central        | Canada East                    |
 | Central US            | East US 2                      |
 | East Asia             | Southeast Asia                 |
-| East US               | West US                        |
 | East US 2             | Central US                     |
 | Japan East            | Japan West                     |
 | Japan West            | Japan East                     |

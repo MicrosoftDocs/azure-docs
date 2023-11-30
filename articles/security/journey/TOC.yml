@@ -169,6 +169,8 @@
 
   - name: Data security, encryption, and storage
     items:
+    - name: Best practices for protecting secrets
+      href: ../fundamentals/secrets-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Certificate Authority details
       href: ../fundamentals/azure-CA-details.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Data security and encryption

@@ -1,6 +1,6 @@
 ---
 title: Analyzers for linguistic and text processing
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Assign analyzers to searchable text fields in an index to replace default standard Lucene with custom, predefined or language-specific alternatives.
 author: HeidiSteen
 manager: nitinme
@@ -8,10 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/19/2023
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
-# Analyzers for text processing in Azure Cognitive Search
+# Analyzers for text processing in Azure AI Search
 
 An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) that's responsible for processing strings during indexing and query execution. Text processing (also known as lexical analysis) is transformative, modifying a string through actions such as these:
 
@@ -24,7 +26,7 @@ Analysis applies to `Edm.String` fields that are marked as "searchable", which i
 
 For fields of this configuration, analysis occurs during indexing when tokens are created, and then again during query execution when queries are parsed and the engine scans for matching tokens. A match is more likely to occur when the same analyzer is used for both indexing and queries, but you can set the analyzer for each workload independently, depending on your requirements.
 
-Query types that are *not* full text search, such as filters or fuzzy search, don't go through the analysis phase on the query side. Instead, the parser sends those strings directly to the search engine, using the pattern that you provide as the basis for the match. Typically, these query forms require whole-string tokens to make pattern matching work. To ensure whole term tokens are preserved during indexing, you might need [custom analyzers](index-add-custom-analyzers.md). For more information about when and why query terms are analyzed, see [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md).
+Query types that are *not* full text search, such as filters or fuzzy search, don't go through the analysis phase on the query side. Instead, the parser sends those strings directly to the search engine, using the pattern that you provide as the basis for the match. Typically, these query forms require whole-string tokens to make pattern matching work. To ensure whole term tokens are preserved during indexing, you might need [custom analyzers](index-add-custom-analyzers.md). For more information about when and why query terms are analyzed, see [Full text search in Azure AI Search](search-lucene-query-architecture.md).
 
 For more background on lexical analysis, listen to the following video clip for a brief explanation.
 
@@ -32,20 +34,20 @@ For more background on lexical analysis, listen to the following video clip for 
 
 ## Default analyzer  
 
-In Azure Cognitive Search, an analyzer is automatically invoked on all string fields marked as searchable. 
+In Azure AI Search, an analyzer is automatically invoked on all string fields marked as searchable. 
 
-By default, Azure Cognitive Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. The standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
+By default, Azure AI Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. The standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
 
 You can override the default on a field-by-field basis. Alternative analyzers can be a [language analyzer](index-add-language-analyzers.md) for linguistic processing, a [custom analyzer](index-add-custom-analyzers.md), or a built-in analyzer from the [list of available analyzers](index-add-custom-analyzers.md#built-in-analyzers).
 
 ## Types of analyzers
 
-The following list describes which analyzers are available in Azure Cognitive Search.
+The following list describes which analyzers are available in Azure AI Search.
 
 | Category | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. No specification or configuration is required. This general-purpose analyzer performs well for many languages and scenarios.|
-| Built-in analyzers | Consumed as-is and referenced by name. There are two types: language and language-agnostic. </br></br>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#built-in-analyzers) are used when text inputs require specialized processing or minimal processing. Examples of analyzers in this category include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**. </br></br>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure Cognitive Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
+| Built-in analyzers | Consumed as-is and referenced by name. There are two types: language and language-agnostic. </br></br>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#built-in-analyzers) are used when text inputs require specialized processing or minimal processing. Examples of analyzers in this category include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**. </br></br>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure AI Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
 |[Custom analyzers](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refers to a user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 
 A few built-in analyzers, such as **Pattern** or **Stop**, support a limited set of configuration options. To set these options, create a custom analyzer, consisting of the built-in analyzer and one of the alternative options documented in [Built-in analyzers](index-add-custom-analyzers.md#built-in-analyzers). As with any custom configuration, provide your new configuration with a name, such as *myPatternAnalyzer* to distinguish it from the Lucene Pattern analyzer.
@@ -108,7 +110,7 @@ This section offers advice on how to work with analyzers.
 
 ### One analyzer for read-write unless you have specific requirements
 
-Azure Cognitive Search lets you specify different analyzers for indexing and search through the "indexAnalyzer" and "searchAnalyzer" field properties. If unspecified, the analyzer set with the analyzer property is used for both indexing and searching. If the analyzer is unspecified, the default Standard Lucene analyzer is used.
+Azure AI Search lets you specify different analyzers for indexing and search through the "indexAnalyzer" and "searchAnalyzer" field properties. If unspecified, the analyzer set with the analyzer property is used for both indexing and searching. If the analyzer is unspecified, the default Standard Lucene analyzer is used.
 
 A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Be sure to test thoroughly. When text processing differs at search and indexing time, you run the risk of mismatch between query terms and indexed terms when the search and indexing analyzer configurations aren't aligned.
 
@@ -315,7 +317,7 @@ If you are using the .NET SDK code samples, you can append these examples to use
 
 Any analyzer that is used as-is, with no configuration, is specified on a field definition. There is no requirement for creating an entry in the **[analyzers]** section of the index. 
 
-Language analyzers are used as-is. To use them, call [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer), specifying the [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) type providing a text analyzer supported in Azure Cognitive Search.
+Language analyzers are used as-is. To use them, call [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer), specifying the [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) type providing a text analyzer supported in Azure AI Search.
 
 Custom analyzers are similarly specified on the field definition, but for this to work you must specify the analyzer in the index definition, as described in the next section.
 
@@ -371,7 +373,7 @@ private static void CreateIndex(string indexName, SearchIndexClient adminClient)
 
 ## Next steps
 
-A detailed description of query execution can be found in [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md). The article uses examples to explain behaviors that might seem counter-intuitive on the surface.
+A detailed description of query execution can be found in [Full text search in Azure AI Search](search-lucene-query-architecture.md). The article uses examples to explain behaviors that might seem counter-intuitive on the surface.
 
 To learn more about analyzers, see the following articles:
 

@@ -1,10 +1,12 @@
 ---
 title: Shaper cognitive skill
-titleSuffix: Azure Cognitive Search
-description: Extract metadata and structured information from unstructured data and shape it as a complex type in an AI enrichment pipeline in Azure Cognitive Search.
-author: LiamCavanagh
-ms.author: liamca
+titleSuffix: Azure AI Search
+description: Extract metadata and structured information from unstructured data and shape it as a complex type in an AI enrichment pipeline in Azure AI Search.
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 ms.date: 08/12/2021
 ---
@@ -102,7 +104,7 @@ An incoming JSON document providing usable input for this **Shaper** skill could
 
 ###	Skill output
 
-The **Shaper** skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. This output conforms to the index schema. It will be imported and indexed in an Azure Cognitive Search index.
+The **Shaper** skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. This output conforms to the index schema. It will be imported and indexed in an Azure AI Search index.
 
 ```json
 {

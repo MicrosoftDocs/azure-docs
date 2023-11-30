@@ -1,5 +1,5 @@
 ---
-title: "Allow read access to blobs based on tags and custom security attributes (Preview) - Azure ABAC"
+title: "Allow read access to blobs based on tags and custom security attributes - Azure ABAC"
 description: Allow read access to blobs based on tags and custom security attributes by using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC).
 services: active-directory
 author: rolyon
@@ -9,16 +9,12 @@ ms.subservice: conditions
 ms.topic: how-to
 ms.workload: identity
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 05/09/2022
+ms.date: 11/15/2023
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# Allow read access to blobs based on tags and custom security attributes (Preview)
-
-> [!IMPORTANT]
-> Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Allow read access to blobs based on tags and custom security attributes
 
 In this article, you learn how to allow read access to blobs based on blob index tags and custom security attributes by using attribute-based access control (ABAC) conditions. This can make it easier to manage access to blobs.
 
@@ -26,7 +22,6 @@ In this article, you learn how to allow read access to blobs based on blob index
 
 To assign custom security attributes and add role assignments conditions in your Microsoft Entra tenant, you need:
 
-- Microsoft Entra ID P1 or P2 license
 - [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) and [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
 - [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
@@ -57,13 +52,13 @@ Here is what the condition looks like in code:
 )
 ```
 
-For more information about conditions, see [What is Azure attribute-based access control (Azure ABAC)? (preview)](conditions-overview.md).
+For more information about conditions, see [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md).
 
 ## Step 1: Add a new custom security attribute
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Click **Microsoft Entra ID** > **Custom security attributes (Preview)**.
+1. Click **Microsoft Entra ID** > **Custom security attributes**.
 
 1. Add an attribute named `Project` with values of `Baker` and `Cascade`. Or use an existing attribute. For more information, see [Add or deactivate custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-add.md).
 
@@ -195,7 +190,7 @@ For more information about conditions, see [What is Azure attribute-based access
 
 ## Azure PowerShell
 
-You can also use Azure PowerShell to add role assignment conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview)](../storage/blobs/storage-auth-abac-powershell.md).
+You can also use Azure PowerShell to add role assignment conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell](../storage/blobs/storage-auth-abac-powershell.md).
 
 ### Add a condition
 
@@ -272,7 +267,7 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
 
 ## Azure CLI
 
-You can also use Azure CLI to add role assignments conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview)](../storage/blobs/storage-auth-abac-cli.md).
+You can also use Azure CLI to add role assignments conditions. The following commands show how to add conditions. For information, see [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI](../storage/blobs/storage-auth-abac-cli.md).
 
 ### Add a condition
 
@@ -366,6 +361,6 @@ You can also use Azure CLI to add role assignments conditions. The following com
 
 ## Next steps
 
-- [What are custom security attributes in Microsoft Entra ID? (Preview)](../active-directory/fundamentals/custom-security-attributes-overview.md)
-- [Azure role assignment condition format and syntax (preview)](conditions-format.md)
-- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json)
+- [What are custom security attributes in Microsoft Entra ID?](../active-directory/fundamentals/custom-security-attributes-overview.md)
+- [Azure role assignment condition format and syntax](conditions-format.md)
+- [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json)

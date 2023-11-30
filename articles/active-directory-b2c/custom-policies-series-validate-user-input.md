@@ -2,15 +2,15 @@
 title: Validate user inputs by using Azure AD B2C custom policy 
 titleSuffix: Azure AD B2C
 description: Learn how to validate user inputs by using Azure Active Directory B2C custom policy. Learn how to validate user input by limiting user input options. Learn how to validate user input by using Predicates. Learn how to validate user input by using Regular Expressions. Learn how to validate user input by using validation technical profiles    
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/05/2023
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 #  Validate user inputs by using Azure Active Directory B2C custom policy 
 
-Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to make user inputs mandatory but also to validate them. You can mark user inputs as *required*, such as `<DisplayClaim ClaimTypeReferenceId="givenName" Required="true"/>`, but it doesn't mean your users will enter valid data. Azure AD B2C provides various ways to validate a user input. In this article, you'll learn how to write a custom policy that collects the user inputs and validates them by using the following approaches: 
+Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to make user inputs mandatory but also to validate them. You can mark user inputs as *required*, such as `<DisplayClaim ClaimTypeReferenceId="givenName" Required="true"/>`, but it doesn't mean your users will enter valid data. Azure AD B2C provides various ways to validate a user input. In this article, you learn how to write a custom policy that collects the user inputs and validates them by using the following approaches: 
 
 - Restrict the data a user enters by providing a list of options to pick from. This approach uses *Enumerated Values*, which you add when you declare a claim.
  
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to m
 
 - Use the special claim type *reenterPassword* to validate that the user correctly re-entered their password during user input collection. 
 
-- Configure a *Validation Technical Profile* that defines complex business rules that aren't possible to define at claim declaration level. For example, you collect a user input, which needs to be validated against a set of other values in another claim.  
+- Configure a *Validation Technical Profile* that defines complex business rules that aren't possible to define at claim declaration level. For example, you collect a user input, which needs to be validated against a value or a set values in another claim.  
 
 
 ## Prerequisites
@@ -210,7 +210,7 @@ While the *Predicates* define the validation to check against a claim type, the 
 
     We've defined several rules, which when put together described an acceptable password. Next, you can group predicates, to form a set of password policies that you can use in your policy.  
 
-1. Add a `PredicateValidations` element as a child of `BuildingBlocks` section by using the following code. You add the `PredicateValidations` element below the `Predicates` element: 
+1. Add a `PredicateValidations` element as a child of `BuildingBlocks` section by using the following code. You add the `PredicateValidations` element as a child of `BuildingBlocks` section, but below the `Predicates` element: 
 
     ```xml
         <PredicateValidations>

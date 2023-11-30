@@ -1,18 +1,20 @@
 ---
-title: LLM tool in Azure Machine Learning prompt flow (preview)
+title: LLM tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Prompt flow LLM tool enables you to leverage widely used large language models like OpenAI or Azure OpenAI (AOAI) for natural language processing.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ---
 
-# LLM tool (preview)
+# LLM tool
 
 Prompt flow LLM tool enables you to leverage widely used large language models like [OpenAI](https://platform.openai.com/) or [Azure OpenAI (AOAI)](../../../cognitive-services/openai/overview.md) for natural language processing.
 
@@ -22,10 +24,6 @@ Prompt flow provides a few different LLM APIs:
 
 > [!NOTE]
 > We now remove the `embedding` option from LLM tool api setting. You can use embedding api with [Embedding tool](embedding-tool.md).
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisite
 Create OpenAI resources:
@@ -41,7 +39,7 @@ Create OpenAI resources:
 
 ## **Connections**
 
-Set up connections to provisioned resources in Prompt flow.
+Set up connections to provisioned resources in prompt flow.
 
 | Type        | Name     | API KEY  | API Type | API Version |
 |-------------|----------|----------|----------|-------------|
@@ -95,4 +93,4 @@ Set up connections to provisioned resources in Prompt flow.
 
 1. Setup and select the connections to OpenAI resources
 2. Configure LLM model api and its parameters
-3. Prepare the Prompt with [guidance](prompt-tool.md#how-to-write-prompt).
+3. Prepare the prompt with [guidance](prompt-tool.md#how-to-write-prompt).

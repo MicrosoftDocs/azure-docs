@@ -219,6 +219,21 @@
             "source_path_from_root": "/articles/virtual-desktop/tutorial-create-connect-personal-desktop.md",
             "redirect_url": "/azure/virtual-desktop/tutorial-try-deploy-windows-11-desktop",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/azure-stack-hci.md",
+            "redirect_url": "/azure/virtual-desktop/deploy-azure-virtual-desktop",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/safe-url-list.md",
+            "redirect_url": "/azure/virtual-desktop/required-fqdn-endpoint",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/required-url-check-tool.md",
+            "redirect_url": "/azure/virtual-desktop/check-access-validate-required-fqdn-endpoint",
+            "redirect_document_id": true
         }
     ]
 }

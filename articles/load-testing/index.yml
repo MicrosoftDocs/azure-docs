@@ -32,8 +32,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: 'Create & run a load test'
+          - text: 'Create a URL-based load test'
             url: quickstart-create-and-run-load-test.md
+          - text: Create a load test with a JMeter script
+            url: how-to-create-and-run-load-test-with-JMeter-script.md
           - text: 'Automate load tests with CI/CD'
             url: quickstart-add-load-test-cicd.md
       - linkListType: tutorial
@@ -56,6 +58,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Add HTTP requests to URL-based tests
+            url: how-to-add-requests-to-url-based-test.md
           - text: Configure for high scale loads
             url: how-to-high-scale-load.md
           - text: Parameterize load tests
@@ -66,6 +70,8 @@ landingContent:
             url: how-to-configure-user-properties.md
           - text: Customize tests with JMeter plugins
             url: how-to-use-jmeter-plugins.md
+          - text: Read data from a CSV file
+            url: how-to-read-csv-data.md
 
   # Card
   - title: Run load tests
@@ -80,8 +86,6 @@ landingContent:
             url: how-to-test-secured-endpoints.md
           - text: Test a private endpoint with VNET injection
             url: how-to-test-private-endpoint.md
-          - text: Read data from a CSV file
-            url: how-to-read-csv-data.md
 
   # Card
   - title: Analyze test results
