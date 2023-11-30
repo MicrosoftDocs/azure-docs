@@ -1,14 +1,14 @@
 ---
-title: "[Deprecated] WireX Network Forensics Platform via Legacy Agent connector for Microsoft Sentinel"
-description: "Learn how to install the connector [Deprecated] WireX Network Forensics Platform via Legacy Agent to connect your data source to Microsoft Sentinel."
+title: "WireX Network Forensics Platform connector for Microsoft Sentinel"
+description: "Learn how to install the connector WireX Network Forensics Platform to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# [Deprecated] WireX Network Forensics Platform via Legacy Agent connector for Microsoft Sentinel
+# WireX Network Forensics Platform connector for Microsoft Sentinel
 
 The WireX Systems data connector allows security professional to integrate with Microsoft Sentinel to allow you to further enrich your forensics investigations; to not only encompass the contextual content offered by WireX but to analyze data from other sources, and to create custom dashboards to give the most complete picture during a forensic investigation and to create custom workflows.
 

@@ -1,14 +1,14 @@
 ---
-title: "[Deprecated] Citrix WAF (Web App Firewall) via Legacy Agent connector for Microsoft Sentinel"
-description: "Learn how to install the connector [Deprecated] Citrix WAF (Web App Firewall) via Legacy Agent to connect your data source to Microsoft Sentinel."
+title: "Citrix WAF (Web App Firewall) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Citrix WAF (Web App Firewall) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# [Deprecated] Citrix WAF (Web App Firewall) via Legacy Agent connector for Microsoft Sentinel
+# Citrix WAF (Web App Firewall) connector for Microsoft Sentinel
 
  Citrix WAF (Web App Firewall) is an industry leading enterprise-grade WAF solution. Citrix WAF mitigates threats against your public-facing assets, including websites, apps, and APIs. From layer 3 to layer 7, Citrix WAF includes protections such as IP reputation, bot mitigation, defense against the OWASP Top 10 application threats, built-in signatures to protect against application stack vulnerabilities, and more. 
 
