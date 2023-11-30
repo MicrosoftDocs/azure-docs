@@ -8,7 +8,7 @@ ms.date: 05/30/2023
 
 ---
 
-# Create a log query across multiple workspaces and apps in Azure Monitor
+# Create a log query across multiple workspaces, apps, or resources in Azure Monitor
 
 Azure Monitor Logs support querying across multiple Log Analytics workspaces and Application Insights apps in the same resource group, another resource group, or another subscription. This capability provides you with a systemwide view of your data.
 
@@ -122,6 +122,121 @@ applicationsScoping
 
 >[!NOTE]
 > This method can't be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn't supported. If you prefer to use a function for resource scoping in log alerts, you must edit the alert rule in the portal or with an Azure Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
+
+# Use the workspace() expression to query across Log Analytics workspaces
+
+Use the `workspace` expression in an Azure Monitor query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. You can use this expression to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
+
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-query-permissions.md)]
+
+## Syntax
+
+`workspace(`*Identifier*`)`
+
+### Arguments
+
+The `workspace` expression takes the following arguments.
+
+#### Identifier 
+
+Identifies the workspace by using one of the formats in the following table.
+
+| Identifier | Description | Example
+|:---|:---|:---|
+| ID | GUID of the workspace | workspace("00000000-0000-0000-0000-000000000000") |
+| Azure Resource ID | Identifier for the Azure resource | workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Contoso/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
+
+
+> [!NOTE]
+> We strongly recommend identifying a workspace by its unique ID or Azure Resource ID because they remove ambiguity and are more performant.
+
+## Examples
+
+```Kusto
+workspace("00000000-0000-0000-0000-000000000000").Update | count
+```
+```Kusto
+workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Contoso/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+```
+```Kusto
+union 
+( workspace("00000000-0000-0000-0000-000000000000").Heartbeat | where Computer == "myComputer"),
+(app("00000000-0000-0000-0000-000000000000").requests | where cloud_RoleInstance == "myRoleInstance")
+| count  
+```
+```Kusto
+union 
+(workspace("00000000-0000-0000-0000-000000000000").Heartbeat), (app("00000000-0000-0000-0000-000000000000").requests) | where TimeGenerated between(todatetime("2023-03-08 15:00:00") .. todatetime("2023-04-08 15:05:00"))
+```
+
+## Use the app() expression to query across classic Application Insights applications
+
+The `app` expression is used in an Azure Monitor query to retrieve data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This is useful to include application data in an Azure Monitor log query and to query data across multiple applications in an Application Insights query.
+
+> [!IMPORTANT]
+> The app() expression is not used if you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md) since log data is stored in a Log Analytics workspace. Use the workspace() expression to write a query that includes application in multiple workspaces. For multiple applications in the same workspace, you don't need a cross workspace query.
+
+### Syntax
+
+`app(`*Identifier*`)`
+
+
+### Arguments
+
+- *Identifier*: Identifies the app using one of the formats in the table below.
+
+| Identifier | Description | Example
+|:---|:---|:---|
+| ID | GUID of the app | app("00000000-0000-0000-0000-000000000000") |
+| Azure Resource ID | Identifier for the Azure resource |app("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
+
+## Examples
+
+```Kusto
+app("00000000-0000-0000-0000-000000000000").requests | count
+```
+```Kusto
+app("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
+```
+```Kusto
+union 
+(workspace("00000000-0000-0000-0000-000000000000").Heartbeat | where Computer == "myComputer"),
+(app("00000000-0000-0000-0000-000000000000").requests | where cloud_RoleInstance == "myColumnInstance")
+| count  
+```
+```Kusto
+union 
+(workspace("00000000-0000-0000-0000-000000000000").Heartbeat), (app("00000000-0000-0000-0000-000000000000").requests)
+| where TimeGenerated between(todatetime("2023-03-08 15:00:00") .. todatetime("2023-04-08 15:05:00"))
+```
+
+## Use the resource() expression to correlate data between resources
+
+The `resource` expression is used in a Azure Monitor query [scoped to a resource](scope.md#query-scope) to retrieve data from other resources. 
+
+
+### Syntax
+
+`resource(`*Identifier*`)`
+
+### Arguments
+
+- *Identifier*: Resource ID of a resource.
+
+| Identifier | Description | Example
+|:---|:---|:---|
+| Resource | Includes data for the resource. | resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm") |
+| Resource Group or Subscription | Includes data for the resource and all resources that it contains.  | resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup) |
+
+
+### Examples
+
+```Kusto
+union (Heartbeat),(resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm").Heartbeat) | summarize count() by _ResourceId, TenantId
+```
+```Kusto
+union (Heartbeat),(resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup).Heartbeat) | summarize count() by _ResourceId, TenantId
+```
 
 ## Next steps
 
