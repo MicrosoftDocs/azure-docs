@@ -322,11 +322,7 @@ To create this connector in a test environment, follow the [Data Collection Rule
 
 ### Example ARM template
 
-This template guide has the following structure, which follows the structure for an ARM deployment template excluding sections like functions and output.
-
-Comments are ok, https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/best-practices#comments
-parameters, variables, UI input
-
+This guide is an ARM deployment template, but it excludes some sections like `functions` and `output` for efficiency.
 
 ```json
 {
@@ -338,14 +334,25 @@ parameters, variables, UI input
 }
 ```
 
+Comments to guide the template building process will appear in the **metadata** `description` or inline with `//`. They are ok to leave or remove. For more information, see [ARM template best practices - comments](../azure-resource-manager/templates/best-practices.md#comments).
+
+Consider using the ARM template test toolkit (arm-ttk) to validate the template you build. For more information, see [arm-ttk](../azure-resource-manager/templates/test-toolkit.md). 
+
+#### Example ARM template - parameters
+
+For more information, see [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md).
+
 ```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
             "type": "string",
             "minLength": 1,
             "defaultValue": "[resourceGroup().location]",
             "metadata": {
-                "description": "Not used, but needed to pass arm-ttk test `Location-Should-Not-Be-Hardcoded`.  We instead use the `workspace-location` which is derived from the LA workspace"
+                "description": "Not used, but needed to pass the arm-ttk test, 'Location-Should-Not-Be-Hardcoded'. Instead the `workspace-location` derived from the log analytics workspace is used."
             }
         },
         "workspace-location": {
@@ -359,57 +366,70 @@ parameters, variables, UI input
             "defaultValue": "[last(split(subscription().id, '/'))]",
             "type": "string",
             "metadata": {
-                "description": "subscription id where Microsoft Sentinel is setup"
+                "description": "subscription id where Microsoft Sentinel is configured"
             }
         },
         "resourceGroupName": {
             "defaultValue": "[resourceGroup().name]",
             "type": "string",
             "metadata": {
-                "description": "resource group name where Microsoft Sentinel is setup"
+                "description": "resource group name where Microsoft Sentinel is configured"
             }
         },
         "workspace": {
             "defaultValue": "",
             "type": "string",
             "metadata": {
-                "description": "Workspace name for Log Analytics where Microsoft Sentinel is setup"
+                "description": "the log analytics workspace enabled for Microsoft Sentinel"
             }
         }
-    }
+    },
+    // Next is the variables section here
+}
 ```
+
+#### Example ARM template - variables
+
+These recommended variables help simplify the template. Use more or less as needed. For more information, see [Variables in ARM templates](../azure-resource-manager/templates/variables.md).
 
 ```json
     "variables": {
         "workspaceResourceId": "[resourceId('microsoft.OperationalInsights/Workspaces', parameters('workspace'))]",
         "_solutionName": "Solution name", // Enter your solution name 
-        "_solutionVersion": "3.0.0", // ??? What are the rules regarding the solution version. Is it always 3.0.0
-        "_solutionAuthor": "Microsoft", // Enter the name of the author
-        "_packageIcon": "icon icon icon icon", // Enter the solution icen (??? What are the options here?)
-        "_solutionId": "azuresentinel.azure-sentinel-solution-azuresentinel.azure-sentinel-MySolution", //Enter the _solutionId (??? What should be the format?)
-        "dataConnectorVersionConnectorDefinition": "1.0.0", //Is this a fixed value? (When does this change?
-        "dataConnectorVersionConnections": "1.0.0", //Is this a fixed value? (When does this change?)
-        "_solutionTier": "Microsoft", //Enter the solution tier (??? What are the options?)
-        "_dataConnectorContentIdConnectorDefinition": "MySolutionTemplateConnectorDefinition", //Enter the _dataConnectorContentIdConnectorDefinition (??? What is this?) 
+        "_solutionVersion": "3.0.0",
+        "_solutionAuthor": "Contoso", // Enter the name of the author
+        "_packageIcon": "icon icon icon icon", // Enter the solution icon path
+        "_solutionId": "azuresentinel.azure-sentinel-MySolution", // Enter a name for your solution with this format but exchange the 'MySolution' portion
+        "dataConnectorVersionConnectorDefinition": "1.0.0",
+        "dataConnectorVersionConnections": "1.0.0",
+        "_solutionTier": "Community", // Enter the support tier, either Microsoft or Community
+        "_dataConnectorContentIdConnectorDefinition": "MySolutionTemplateConnectorDefinition", // Enter a name for the connector
         "dataConnectorTemplateNameConnectorDefinition": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnectorDefinition')))]",
-        "_dataConnectorContentIdConnections": "MySolutionTemplateConnections", //Enter the _dataConnectorContentIdConnections (??? What is this?) 
+        "_dataConnectorContentIdConnections": "MySolutionTemplateConnections", // Enter a name for the connections this connector makes
         "dataConnectorTemplateNameConnections": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnections')))]",
-        "_logAnalyticsTableId1": "MyCustomTableName_CL" //Enter the custom table name (Not needed if you are ingesting data into standard tables)
-		//Enter more variables as needed"":""
-    }
+        "_logAnalyticsTableId1": "ExampleConnectorAlerts_CL" // Enter the custom table name - not needed if you are ingesting data into standard tables
+		//Enter more variables as needed "":""
+    },
+    // Next is the resources sections here
 ```
+#### Example ARM template - resources
 
-There are 5 resources, and the first one is a parent resource.
+There are 5 resources in this template guide.
 
-1. contentTemplates
+1. **contentTemplates** (a parent resource)
     - metadata
-1. dataConnectorDefinitions
-1. metadata
-1. contentTemplates
-1. contentPackages
- 
+    - dataConnectorDefinitions
+    - dataCollectionRules
+    - tables
+1. **dataConnectorDefinitions**
+1. **metadata**
+1. **contentTemplates** 
+    - RestApiPoller
+1. **contentPackages**
+
 ```json
     "resources": [
+        // resource 1 section
         {
             "type": "Microsoft.OperationalInsights/workspaces/providers/contentTemplates",
             "apiVersion": "2023-04-01-preview",
@@ -425,12 +445,8 @@ There are 5 resources, and the first one is a parent resource.
                 "mainTemplate": {
                     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                     "contentVersion": "[variables('dataConnectorVersionConnectorDefinition')]",
-                    "parameters": {
-                        
-                    },
-                    "variables": {
-                        
-                    },
+                    "parameters": {},
+                    "variables": {},
                     "resources": [
                         {
                             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('DataConnector-', variables('_dataConnectorContentIdConnectorDefinition')))]",
@@ -471,64 +487,8 @@ There are 5 resources, and the first one is a parent resource.
                             "location": "[parameters('workspace-location')]",
                             "kind": "Customizable",
                             "properties": {
-                                //Enter your data connector definition properties here
-								//For example
-								//"connectorUiConfig": {
-								//    "title": " Title (Preview)",
-								//    "publisher": "Publisher",
-								//	"descriptionMarkdown": "..."
-								//	"graphQueriesTableName": "[variables('_logAnalyticsTableId1')]",
-								//   "graphQueries": [
-								//        {
-								//            "metricName": "Total data received",
-								//            "legend": "My Events",
-								//           "baseQuery": "{{graphQueriesTableName}}"
-								//        }
-								//    ],
-								//    "sampleQueries": [
-								//        {
-								//            "description": "Get Sample of events",
-								//            "query": "{{graphQueriesTableName}}\n | take 10"
-								//        },
-								//        {
-								//            "description": "Total Events by uuid",
-								//            "query": "{{graphQueriesTableName}}\n | summarize count() by OriginalEventUid"
-								//        }
-								//    ],
-								//    "dataTypes": [
-								//        {
-								//            "name": "{{graphQueriesTableName}}",
-								//            "lastDataReceivedQuery": "{{graphQueriesTableName}}|summarize Time = max  (TimeGenerated)\n|where isnotempty(Time)"
-								//        }
-								//    ],
-								//    "connectivityCriteria": [
-								//        {
-								//            "type": "HasDataConnectors"
-								//        }
-								//    ],
-								//    "availability": {
-								//        "isPreview": false
-								//    },
-								//    "permissions": {
-								//        "resourceProvider": [
-								//            {
-								//                "provider": "Microsoft.OperationalInsights/workspaces",
-								//                "permissionsDisplayText": "Read and Write permissions are required.",
-								//                "providerDisplayName": "Workspace",
-								//                "scope": "Workspace",
-								//                "requiredPermissions": {
-								//                    "write": true,
-								//                    "read": true,
-								//                    "delete": true
-								//                }
-								//            }
-								//        ],
-								//    },
-								//    "instructionSteps": 
-								//	[
-								//        {
-								//        }            
-								//    ]   
+                                // Enter your data connector definition properties here
+								// "graphQueriesTableName": "[variables('_logAnalyticsTableId1')]",
                             }
                         },
                         {
@@ -538,49 +498,14 @@ There are 5 resources, and the first one is a parent resource.
                             "location": "[parameters('workspace-location')]",
                             "kind": null,
                             "properties": 
-							{
-								//Enter your DCR properties here
-								//For example
-								//"streamDeclarations": {
-                                //    "Custom-InputStream_CL": { 
-                                //        "columns": [
-                                //            {
-                                //                "name": "uuid",
-                                //                "type": "string"
-                                //            },
-                                //            {
-                                //                "name": "published",
-                           	    //                 "type": "datetime"
-                                //            },
-                                //         ]
-                                //    }
-                                //},
-                                //"dataSources": {
-                                //    
-                                //},
+							{ //DCR here
                                 //"destinations": {
                                 //    "logAnalytics": [
                                 //        {
                                 //            "workspaceResourceId": "[variables('workspaceResourceId')]",
-                                //            "workspaceId": "12312312312-1231-123123123123123",
-                                //            "name": "clv2ws1"
                                 //        }
                                 //    ]
                                 //},
-                                //"dataFlows": [
-                                //    {
-                                //        "streams": [
-                                //            "Custom-InputStream_CL" //Note this should be the same as the streamDeclarations property value
-                                //        ],
-                                //        "destinations": [
-                                //            "clv2ws1"
-                                //        ],
-                                //        "transformKql": "source | where ... | project ...",
-                                //        "outputStream": "Custom-TableName_CL"
-                                //    }
-                                //],
-                                //"provisioningState": "Succeeded",
-                                //"dataCollectionEndpointId": "[concat('/subscriptions/',parameters('subscription'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Insights/dataCollectionEndpoints/',parameters('workspace'))]"
 							}
                         },
                         {
@@ -592,46 +517,12 @@ There are 5 resources, and the first one is a parent resource.
                             "properties": 
 							{
 								//Enter your log analytics table properties here
-								"totalRetentionInDays": 30,
-                                "archiveRetentionInDays": 0,
-                                "plan": "Analytics",
-                                "lastPlanModifiedDate": "2023-06-08T15:01:07.6198976Z",
-                                "retentionInDaysAsDefault": false,
-                                "totalRetentionInDaysAsDefault": false,
-                                "schema": {
-                                    "tableSubType": "DataCollectionRuleBased",
-                                    "name": "[variables('_logAnalyticsTableId1')]",
-                                    "tableType": "CustomLog",
-                                    "columns": [
-                                        {
-                                            "name": "Field1",
-                                            "type": "string",
-                                            "isDefaultDisplay": false,
-                                            "isHidden": false
-                                        },
-                                        {
-                                            "name": "Field2",
-                                            "type": "string",
-                                            "isDefaultDisplay": false,
-                                            "isHidden": false
-                                        }
-                                    ],
-                                    "standardColumns": [
-                                        {
-                                            "name": "TenantId",
-                                            "type": "guid",
-                                            "isDefaultDisplay": false,
-                                            "isHidden": false
-                                        }
-                                    ],
-                                    "solutions": [
-                                        "LogManagement"
-                                    ],
-                                    "isTroubleshootingAllowed": true
-                                }
+                                // "schema": {
+                                //    "tableSubType": "DataCollectionRuleBased",
+                                //    "name": "[variables('_logAnalyticsTableId1')]",
 							}			
                         }
-						//Enter more tables if needed
+						// Enter more tables if needed
                     ]
                 },
                 "packageKind": "Solution",
@@ -643,6 +534,10 @@ There are 5 resources, and the first one is a parent resource.
                 "version": "[variables('_solutionVersion')]"
             }
         },
+        // resource 2 section here
+```
+
+```json
         {
             "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',variables('_dataConnectorContentIdConnectorDefinition'))]",
             "apiVersion": "2022-09-01-preview",
