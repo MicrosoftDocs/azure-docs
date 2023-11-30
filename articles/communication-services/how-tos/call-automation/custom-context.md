@@ -104,7 +104,7 @@ const addParticipantResult = await callConnection.addParticipant(addThisPerson);
 
 ### [Python](#tab/python)
 ```python
-// Invite a communication services user and include one VOIP header
+#Invite a communication services user and include one VOIP header
 voip_headers = {"voipHeaderName", "voipHeaderValue"}
 target = CommunicationUserIdentifier("<acs_user_id>")
 result = call_connection_client.add_participant(
@@ -112,7 +112,7 @@ result = call_connection_client.add_participant(
     voip_headers=voip_headers
 )
 
-// Invite a PSTN user and set UUI and custom SIP headers
+#Invite a PSTN user and set UUI and custom SIP headers
 caller_id_number = PhoneNumberIdentifier("+16044561234")
 sip_headers = {}
 sip_headers.add("User-To-User", "value")
@@ -131,17 +131,89 @@ result = call_connection_client.add_participant(
 ### [csharp](#tab/csharp)
 
 ```csharp
+//Transfer to communication services user and include one VOIP header
 var transferDestination = new CommunicationUserIdentifier("<user_id>"); 
 var transferOption = new TransferToParticipantOptions(transferDestination);   
 var transferOption = new TransferToParticipantOptions(transferDestination) {
     OperationContext = "<Your_context>",
     OperationCallbackUri = new Uri("<uri_endpoint>") // Sending event to a non-default endpoint.
 };
-// adding customCallingContext
 transferOption.CustomCallingContext.AddVoip("customVoipHeader1", "customVoipHeaderValue1");
-transferOption.CustomCallingContext.AddVoip("customVoipHeader2", "customVoipHeaderValue2");
-
 TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
+
+//Transfer a PSTN call to phone number and set UUI and custom SIP headers
+var transferDestination = new PhoneNumberIdentifier("<target_phoneNumber>");
+var transferOption = new TransferToParticipantOptions(transferDestination);
+transferOption.CustomCallingContext.AddSipUui("uuivalue");
+transferOption.CustomCallingContext.AddSipX("header1", "headerValue");
+TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption)
+```
+
+### [Java](#tab/java)
+```java
+//Transfer to communication services user and include one VOIP header
+CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<user_id>");
+TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination);
+options.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
+Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
+
+//Transfer a PSTN call to phone number and set UUI and custom SIP headers
+CommunicationIdentifier transferDestination = new PhoneNumberIdentifier("<taget_phoneNumber>");
+TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination);
+options.getCustomCallingContext().addSipUui("UUIvalue");
+options.getCustomCallingContext().addSipX("sipHeaderName", "value");
+Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
+```
+
+### [JavaScript](#tab/javascript)
+```javascript
+//Transfer to communication services user and include one VOIP header
+const transferDestination = { communicationUserId: "<user_id>" };
+const transferee = { communicationUserId: "<transferee_user_id>" };
+const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
+const customCallingContext: CustomCallingContext = [];
+customCallingContext.push({ kind: "voip", key: "customVoipHeader1", value: "customVoipHeaderValue1" })
+options.customCallingContext = customCallingContext;
+const result = await callConnection.transferCallToParticipant(transferDestination, options);
+
+//Transfer a PSTN call to phone number and set UUI and custom SIP headers
+const transferDestination = { phoneNumber: "<taget_phoneNumber>" };
+const transferee = { phoneNumber: "<transferee_phoneNumber>" };
+const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
+const customCallingContext: CustomCallingContext = [];
+customCallingContext.push({ kind: "sipuui", key: "", value: "uuivalue" });
+customCallingContext.push({ kind: "sipx", key: "headerName", value: "headerValue" })
+options.customCallingContext = customCallingContext;
+const result = await callConnection.transferCallToParticipant(transferDestination, options);
+```
+
+### [Python](#tab/python)
+```python
+#Transfer to communication services user and include one VOIP header
+transfer_destination = CommunicationUserIdentifier("<user_id>")
+transferee = CommnunicationUserIdentifer("transferee_user_id")
+voip_headers = {"customVoipHeader1", "customVoipHeaderValue1"}
+result = call_connection_client.transfer_call_to_participant(
+    target_participant=transfer_destination,
+    transferee=transferee,
+    voip_headers=voip_headers,
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>"
+)
+
+#Transfer a PSTN call to phone number and set UUI and custom SIP headers
+transfer_destination = PhoneNumberIdentifer("<target_phoneNumber>")
+transferee = PhoneNumberIdentifer("transferee_phoneNumber")
+sip_headers={}
+sip_headers.add("X-MS-Custom-headerName", "headerValue")
+sip_headers.add("User-To-User","uuivale")
+result = call_connection_client.transfer_call_to_participant(
+    target_participant=transfer_destination,
+    transferee=transferee,
+    sip_headers=sip_headers,
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>"
+)
 ```
 
 Transfer of a VoIP call to a phone number is currently not supported.
