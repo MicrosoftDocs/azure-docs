@@ -18,7 +18,8 @@ ms.date: 11/30/2023
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Flexible Server - PostgreSQL.
-## Release: November 2023
+
+## Release: December 2023
 * Public preview of [Server logs](./how-to-server-logs-portal.md).
 
 ## Release: November 2023
