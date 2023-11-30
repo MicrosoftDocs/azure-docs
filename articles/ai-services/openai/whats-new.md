@@ -27,7 +27,7 @@ keywords:
 
 ### New data source support in Azure OpenAI on your data 
 
-- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.mduse-your-data?tabs=mongo-db.md#ingesting-your-data) as well as  URLs/web addresses to generate responses when chatting with a supported model.  
+- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db.md#ingesting-your-data) as well as  URLs/web addresses to generate responses when chatting with a supported model.  
 
 ### GPT-4 Turbo Preview & GPT-3.5-Turbo-1106 released
 
