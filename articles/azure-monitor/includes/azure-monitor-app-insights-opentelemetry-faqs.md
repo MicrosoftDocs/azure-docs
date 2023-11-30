@@ -58,6 +58,12 @@ Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python]
 
 We recommend using the OpenTelemetry Distro unless you require a feature that is only available with formal support in the Application Insights SDK.
 
+### When should I use the Azure Monitor OpenTelemetry exporter?
+
+For .NET Core, Java, Node.js, and Python, we recommend using the OpenTelemetry distro. It's one line of code to get started.
+
+For all other .NET scenarios, we recommend using our exporter: `Azure.Monitor.OpenTelemetry.Exporter`.
+
 ### What's the current release state of features within the Azure Monitor OpenTelemetry Distro?
 
 The following chart breaks out OpenTelemetry feature support for each language.
