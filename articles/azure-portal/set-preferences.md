@@ -56,7 +56,7 @@ If you want to stop using advanced filters, select the toggle again to restore t
 
 After enabling the **Advanced filters** page, you can create, modify, or delete subscription filters.
 
-:::image type="content" source="media/set-preferences/settings-advanced-filters.png" lightbox=source="media/set-preferences/settings-advanced-filters.png" alt-text="Screenshot showing the Advanced filters screen.":::
+:::image type="content" source="media/set-preferences/settings-advanced-filters.png" lightbox="media/set-preferences/settings-advanced-filters.png" alt-text="Screenshot showing the Advanced filters screen.":::
 
 The **Default** filter shows all subscriptions to which you have access. This filter is used if there are no other filters, or when the active filter fails to include any subscriptions.
 
