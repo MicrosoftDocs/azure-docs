@@ -123,11 +123,11 @@ applicationsScoping
 >[!NOTE]
 > This method can't be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn't supported. If you prefer to use a function for resource scoping in log alerts, you must edit the alert rule in the portal or with an Azure Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
 
-# Use the workspace() expression to query across Log Analytics workspaces
+## Use the workspace() expression to query across Log Analytics workspaces
 
 Use the `workspace` expression in an Azure Monitor query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. You can use this expression to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
 
-## Syntax
+### Syntax
 
 `workspace(`*Identifier*`)`
 
@@ -135,7 +135,7 @@ Use the `workspace` expression in an Azure Monitor query to retrieve data from a
 
 The `workspace` expression takes the following arguments.
 
-#### Identifier 
+### Identifier 
 
 Identifies the workspace by using one of the formats in the following table.
 
@@ -148,7 +148,7 @@ Identifies the workspace by using one of the formats in the following table.
 > [!NOTE]
 > We strongly recommend identifying a workspace by its unique ID or Azure Resource ID because they remove ambiguity and are more performant.
 
-## Examples
+### Examples
 
 ```Kusto
 workspace("00000000-0000-0000-0000-000000000000").Update | count
@@ -188,7 +188,7 @@ The `app` expression is used in an Azure Monitor query to retrieve data from a s
 | ID | GUID of the app | app("00000000-0000-0000-0000-000000000000") |
 | Azure Resource ID | Identifier for the Azure resource |app("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
-## Examples
+### Examples
 
 ```Kusto
 app("00000000-0000-0000-0000-000000000000").requests | count
