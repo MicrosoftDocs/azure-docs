@@ -5,7 +5,7 @@ ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 07/07/2023
+ms.date: 01/17/2024
 ms.custom: template-overview, references_regions
 
 ---
@@ -23,17 +23,19 @@ For more information about encryption in Azure, see [Azure encryption overview](
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Requirements
-
-Virtual network encryption has the following requirements:
+#Virtual network encryption has the following requirements:
 
 - Virtual Network encryption is supported on general-purpose and memory optimized VM instance sizes including:
 
     | VM Series | VM SKU |
     | --- | --- |
     | D-series | **[Dv4 and Dsv4-series](/azure/virtual-machines/dv4-dsv4-series)**, **[Ddv4 and Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series)**, **[Dav4 and Dasv4-series](/azure/virtual-machines/dav4-dasv4-series)** |
+    | D-series V5 | **[Dv5 and Dsv5-series](/azure/virtual-machines/dv5-dsv5-series)**, **[Ddv5 and Ddsv5-series](/azure/virtual-machines/ddv5-ddsv5-series)** |
     | E-series | **[Ev4 and Esv4-series](/azure/virtual-machines/ev4-esv4-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)**, **[Eav4 and Easv4-series](/azure/virtual-machines/eav4-easv4-series)** |
+    | E-series V5 | **[Ev4 and Esv4-series](/azure/virtual-machines/ev5-esv5-series)**, **[Edv4 and Edsv4-series](/azure/virtual-machines/edv5-edsv5-series)** |
+    | LSv3 | **[LSv3-series](/azure/virtual-machines/lsv3-series)**  |
     | M-series | **[Mv2-series](/azure/virtual-machines/mv2-series)** |
+    
 
 - Accelerated Networking must be enabled on the network interface of the virtual machine. For more information about Accelerated Networking, see  [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview).
 
@@ -41,10 +43,17 @@ Virtual network encryption has the following requirements:
 
 - Global Peering is supported in regions where virtual network encryption is supported.
 
-- Traffic to unsupported Virtual Machines is unencrypted. Use Virtual Network Flow Logs to confirm flow encryption between virtual machines. For more information, see [VNet flow logs](../network-watcher/vnet-flow-logs-overview.md).
+- Traffic to unsupported Virtual Machines is unencrypted. Use Virtual Network Flow Logs to confirm flow encryption between virtual machines. For more information, see [Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md).
 
 - The start/stop of existing virtual machines may be required after enabling encryption in a virtual network.
+
 ## Availability
+
+Limited General Availability (GA) of Azure Virtual Network encryption is available in the following regions:
+
+- UK South
+
+- Swiss regions
 
 Azure Virtual Network encryption is available in the following regions during the preview:
 
