@@ -32,7 +32,7 @@ As a prerequisite, we recommend you to read these articles to make the most of t
 For all the code samples, `client` is CallAutomationClient object that can be created as shown and `callConnection` is the CallConnection object obtained from Answer or CreateCall response. You can also obtain it from callback events received by your application.
 
 -----
-# Technical parameters
+## Technical parameters
 Call Automation supports up to 5 custom SIP headers and 1000 custom VOIP headers. Additionally, developers can include a dedicated User-To-User header as part of SIP headers list.
 
 The custom SIP header key must start with a mandatory ‘X-MS-Custom-’ prefix.  The maximum length of a SIP header key is 64 chars, including the X-MS-Custom prefix. The maximum length of SIP header value is 256 chars. The same limitations apply when configuring the SIP headers on your SBC.
@@ -41,7 +41,7 @@ The maximum length of a VOIP header key is 64 chars. These headers can be sent w
 
 -----
 
-# Adding custom context when inviting a participant
+## Adding custom context when inviting a participant
 
 ### [csharp](#tab/csharp)
 
@@ -126,7 +126,7 @@ result = call_connection_client.add_participant(
 ```
 
 -----
-# Adding custom context during call transfer
+## Adding custom context during call transfer
 
 ### [csharp](#tab/csharp)
 
@@ -219,7 +219,7 @@ result = call_connection_client.transfer_call_to_participant(
 Transfer of a VoIP call to a phone number is currently not supported.
 
 -----
-# Reading custom context from an incoming call event
+## Reading custom context from an incoming call event
 
 ### [csharp](#tab/csharp)
 
@@ -271,7 +271,7 @@ sipHeaders = callCustomContext.sipHeaders
 ```
 
 -----
-# Additional resources
+## Additional resources
 
 - For a sample payload of the incoming call, refer to this [guide](../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationincomingcall).
 
