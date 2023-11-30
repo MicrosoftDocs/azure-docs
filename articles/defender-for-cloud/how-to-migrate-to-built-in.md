@@ -4,7 +4,7 @@ description: Learn how to migrate to the built-in Microsoft Defender Vulnerabili
 services: defender-for-cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 11/28/2023
+ms.date: 11/30/2023
 ---
 
 # Migration from Qualys to Microsoft Defender Vulnerability Management
@@ -70,7 +70,7 @@ In the Defender for Cloud portal, you have the ability to change the vulnerabili
 
 1. Ensure that `Endpoint protection` or `Agentless scanning for machines` are toggled to **On**.
 
-    :::image type="content" source="media/how-to-migrate-to-built-in/two-to-on.png" alt-text="Screenshot that shows where to turn on endpoint protection and agentless scanning for machines is located." lightbox="media/how-to-migrate-to-built-in/two-to-on.png":::
+    :::image type="content" source="media/how-to-migrate-to-built-in/two-to-one.png" alt-text="Screenshot that shows where to turn on endpoint protection and agentless scanning for machines is located." lightbox="media/how-to-migrate-to-built-in/two-to-one.png":::
 
 1. Select **Continue**.
 
