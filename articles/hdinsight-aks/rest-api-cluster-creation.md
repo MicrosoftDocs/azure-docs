@@ -48,8 +48,8 @@ Variables required in the script
 
  
 
-- Microsoft Entra user ID: Find tenant ID, domain name, user object ID - Partner 	Center | Microsoft Learn 
-- [HDInsight on AKS VM list](/azure/hdinsight-aks/virtual-machine)
+- [Microsoft Entra user ID](/partner-center/find-ids-and-domain-names)
+- [HDInsight on AKS VM list](/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning)
 - recommendation-capacity-planning 
 
 
