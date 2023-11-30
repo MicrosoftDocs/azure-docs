@@ -80,7 +80,6 @@ To use a custom voice via [Speech Synthesis Markup Language (SSML)](../../../../
 </speak>
 ```
 
-
 ## Suspend an endpoint
 
 You can suspend or resume an endpoint, to limit spend and conserve resources that aren't in use. You won't be charged while the endpoint is suspended. When you resume an endpoint, you can continue to use the same endpoint URL in your application to synthesize speech. 
@@ -158,22 +157,6 @@ curl -v -X DELETE "https://YourResourceRegion.api.cognitive.microsoft.com/custom
 
 You should receive a response header with status code 204.
 
-## Use your custom voice
-
-The custom endpoint is functionally identical to the standard endpoint that's used for text to speech requests. 
-
-One difference is that the `EndpointId` must be specified to use the custom voice via the Speech SDK. You can start with the [text to speech quickstart](../../../../get-started-text-to-speech.md) and then update the code with the `EndpointId` and `SpeechSynthesisVoiceName`. For more information, see [use a custom endpoint](../../../../how-to-speech-synthesis.md#use-a-custom-endpoint).
-
-To use a custom voice via [Speech Synthesis Markup Language (SSML)](../../../../speech-synthesis-markup-voice.md#use-voice-elements), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
-
-```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="YourCustomVoiceName">
-        This is the text that is spoken. 
-    </voice>
-</speak>
-```
-
 ## Switch to a new voice model in your product
 
 Once you've updated your voice model to the latest engine version, or if you want to switch to a new voice in your product, you need to redeploy the new voice model to a new endpoint. Redeploying new voice model on your existing endpoint is not supported. After deployment, switch the traffic to the newly created endpoint. We recommend that you transfer the traffic to the new endpoint in a test environment first to ensure that the traffic works well, and then transfer to the new endpoint in the production environment. During the transition, you need to keep the old endpoint. If there are some problems with the new endpoint during transition, you can switch back to your old endpoint. If the traffic has been running well on the new endpoint for about 24 hours (recommended value), you can delete your old endpoint. 
@@ -183,7 +166,7 @@ Once you've updated your voice model to the latest engine version, or if you wan
 
 ## Next steps
 
-- Learn more about custom neural voice in the [overview](custom-neural-voice.md).
-- Learn more about Speech Studio in the [overview](speech-studio-overview.md).
+- Learn more about custom neural voice in the [overview](../../../../custom-neural-voice.md).
+- Learn more about Speech Studio in the [overview](../../../../speech-studio-overview.md).
 
 

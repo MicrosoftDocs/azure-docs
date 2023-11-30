@@ -92,6 +92,6 @@ This section describes how to suspend or resume a custom neural voice endpoint i
 
 ## Next steps
 
-- Learn more about custom neural voice in the [overview](custom-neural-voice.md).
-- Learn more about Speech Studio in the [overview](speech-studio-overview.md).
+- Learn more about custom neural voice in the [overview](../../../../custom-neural-voice.md).
+- Learn more about Speech Studio in the [overview](../../../../speech-studio-overview.md).
 
