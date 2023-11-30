@@ -22,11 +22,11 @@ For more information, see the [Oracle workloads on Azure Virtual machine](/azu
 
 ## Oracle Database@Azure
 
-In addition to the capabilities of Oracle on Azure virtual machines, Microsoft offers Oracle Database@Azure, which gives customers direct access to Oracle database services running on Oracle Cloud Infrastructure (OCI) and deployed in Microsoft Azure datacenters.  
+Oracle Database@Azure is an Oracle Cloud Database service that runs Oracle Database workloads in your Azure environment. All hardware for Oracle Database@Azure is colocated in Azure's data centers and uses Azure networking. The service benefits from the simplicity, security, and low latency of a single operating environment within Azure. Federated identity and access management for Oracle Database@Azure is provided by Microsoft Entra ID.
 
-Oracle Database@Azure delivers all the performance, scale, and workload availability advantages of Oracle Database on OCI with the security, flexibility, and best-in-class services of Microsoft Azure.  
+### Available database services 
 
-For more information, see the [Oracle Database on Azure](oracle-db/database-overview.md) documentation. 
+Oracle Database@Azure offers [Oracle Exadata Database Service on Dedicated Infrastructure](https://docs.oracle.com/en/engineered-systems/exadata-cloud-service/ecscm/index.html). 
 
 ## Next steps 
 

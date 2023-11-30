@@ -26,7 +26,7 @@ Azure provides support for the following, collaborating with OCI as needed:
 
 See [Contact Microsoft Azure Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4) in the Azure documentation for information on Azure support.
 
-## Oracle Support Scope and Contact Information 
+## Oracle Support Scope and contact information 
 
 Oracle Support can help you with the following types of Oracle Database@Azure issues:
 
