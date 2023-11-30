@@ -382,7 +382,7 @@ In the following example, the input dataset has a structure, and it points to a 
 }
 ```
 
-In this sample, the output dataset has a structure and it points to a table in Salesfoce.
+In this sample, the output dataset has a structure and it points to a table in Salesforce.
 
 ```json
 {
