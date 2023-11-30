@@ -34,6 +34,10 @@
       href: enable-guest-management-at-scale.md
     - name: Install Arc agents using a script
       href: install-arc-agents-using-script.md
+  - name: Procure Extended Security Updates for SCVMM VMs
+    items:
+    - name: Deliver ESUs for SCVMM VMs through Arc
+      href: deliver-esus-for-scvmm-vms-through-arc.md
   - name: Administer
     items:
     - name: Perform recovery operations for Arc resource bridge
