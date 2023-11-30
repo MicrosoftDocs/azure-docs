@@ -65,7 +65,7 @@ az network watcher troubleshooting start --resource-group 'myResourceGroup' --re
 
 ---
 
-After the troubleshooting request is completed, ***Healthy*** or ***UnHealthy*** is returned with action text that provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with additional guidance.
+After the troubleshooting request is completed, ***Healthy*** or ***UnHealthy*** is returned with action text that provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with more guidance.
 
 Additionally, detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](network-watcher-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
 
@@ -111,7 +111,7 @@ az network watcher troubleshooting start --resource-group 'myResourceGroup' --re
 
 ---
 
-After the troubleshooting request is completed, ***Healthy*** or ***UnHealthy*** is returned with action text that provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with additional guidance.
+After the troubleshooting request is completed, ***Healthy*** or ***UnHealthy*** is returned with action text that provides general guidance on how to resolve the issue. If an action can be taken for the issue, a link is provided with more guidance.
 
 Additionally, detailed logs are stored in the storage account container you specified in the previous command. For more information, see [Log files](network-watcher-troubleshoot-overview.md#log-files). You can use Storage explorer or any other way you prefer to access and download the logs. For more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
 
