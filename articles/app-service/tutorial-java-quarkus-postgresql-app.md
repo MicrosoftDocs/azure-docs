@@ -20,9 +20,9 @@ This tutorial shows how to build, configure, and deploy a secure [Quarkus](https
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java/).
 * Knowledge of Java with [Quarkus](https://quarkus.io) development.
 
-## 1. Run the sample application
+## 1. Run the sample
 
-The tutorial uses [Quarkus sample: Hibernate ORM with Panache and RESTEasy](https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app), which comes with a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The easiest way to run it is in a GitHub codespace.
+For your convenience, the sample repository, [Hibernate ORM with Panache and RESTEasy](https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app), includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database, cache, and all environment variables needed by the sample application. The dev container can run in a [GitHub codespace](https://docs.github.com/en/codespaces/overview), which means you can run the sample on any computer with a web browser.
 
 :::row:::
     :::column span="2":::

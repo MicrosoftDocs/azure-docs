@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Learn how to configure a managed network for Azure AI
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
