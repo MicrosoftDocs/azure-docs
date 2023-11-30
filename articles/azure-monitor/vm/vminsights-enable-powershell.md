@@ -127,29 +127,24 @@ VMSS Instance Upgrade Failures : 0
 ```    
 
 
-Check your VM/VMSS in Azure portal to see if the extensions are installed or use the following command:
-
-```powershell
-
-az vm extension list --resource-group rg-AMAPowershell --vm-name vmAMAPowershellWindows  -o table 
-
-
-Name                      ProvisioningState    Publisher                                   Version    AutoUpgradeMinorVersion
-------------------------  -------------------  ------------------------------------------  ---------  -------------------------
-AzureMonitorWindowsAgent  Succeeded            Microsoft.Azure.Monitor                     1.16       True
-DA-Extension              Succeeded            Microsoft.Azure.Monitoring.DependencyAgent  9.10       True
-```
-
 ### [Log Analytics Agent](#tab/LogAnalyticsAgent)
 
-The following example demonstrates using the PowerShell commands in the folder to enable VM insights and understand the expected output:
+Use the following command to enable VM insights using Log Analytics Agent and Dependency Agent.
+
 
 ```powershell
 $WorkspaceId = "<GUID>"
 $WorkspaceKey = "<Key>"
 $SubscriptionId = "<GUID>"
-.\Install-VMInsights.ps1 -WorkspaceId $WorkspaceId -WorkspaceKey $WorkspaceKey -SubscriptionId $SubscriptionId -WorkspaceRegion eastus
 
+Install-VMInsights.ps1 -WorkspaceId $WorkspaceId `
+-WorkspaceKey $WorkspaceKey `
+-SubscriptionId $SubscriptionId `
+-WorkspaceRegion <region>
+```
+The output has the following format:
+
+```powershell 
 Getting list of VMs or virtual machine scale sets matching criteria specified
 
 VMs or virtual machine scale sets matching criteria:
@@ -192,6 +187,19 @@ Failed: (0)
 ```
 
 ---
+
+Check your VM/VMSS in Azure portal to see if the extensions are installed or use the following command:
+
+```powershell
+
+az vm extension list --resource-group <resource group> --vm-name <VM name>  -o table 
+
+
+Name                      ProvisioningState    Publisher                                   Version    AutoUpgradeMinorVersion
+------------------------  -------------------  ------------------------------------------  ---------  -------------------------
+AzureMonitorWindowsAgent  Succeeded            Microsoft.Azure.Monitor                     1.16       True
+DA-Extension              Succeeded            Microsoft.Azure.Monitoring.DependencyAgent  9.10       True
+```
 
 ## Next steps
 
