@@ -84,7 +84,7 @@ export interface ChatAttachment {
   previewUrl?: string;
 }
 
-export type AttachmentType = "image" | "file" | "unknown";
+export type ChatAttachmentType = "image" | "unknown";
 ```
 
 Now let's go back to the previous code to add some extra logic like the following code snippets: 
