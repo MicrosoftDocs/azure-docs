@@ -1,5 +1,5 @@
 ---
-title: Migration from Qualys to Microsoft Defender Vulnerability Management
+title: Upgrade from Qualys to Microsoft Defender Vulnerability Management
 description: Learn how to migrate to the built-in Microsoft Defender Vulnerability Management solution in Microsoft Defender for Cloud
 services: defender-for-cloud
 ms.service: defender-for-cloud
@@ -7,20 +7,11 @@ ms.topic: how-to
 ms.date: 11/30/2023
 ---
 
-# Migration from Qualys to Microsoft Defender Vulnerability Management
+# Upgrade from Qualys to Microsoft Defender Vulnerability Management
 
 Microsoft Defender for Cloud is unifying all vulnerability assessment solutions to utilize the Microsoft Defender Vulnerability Management (MDVM) vulnerability scanner. 
 
 MDVM integrates across many cloud native use cases, such as containers build/runtime scenarios, agentless scanning for Virtual Machines (VM) and more. 
-
-> [!IMPORTANT]
-> The Defender for Cloud servers vulnerability assessment powered by Qualys is now on a retirement path that starts on November 27th and completes on **May 1st, 2024**.
->
-> If you are currently using the built-invulnerability assessment powered by Qualys on at least one machine within a tenant with either of the Defender for Servers plans enabled prior to **December 15th, 2023**, you can continue to use the vulnerability assessment powered by Qualys until **May 1st, 2024**.
->
-> Check out this blog, to learn more about [the change to Microsoft Defender Vulnerability Management](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
->
-> The support for the Bring Your Own License vulnerability assessment solution powered by Qualys or Rapid7 will remain available.
 
 If you're currently using the [built-in vulnerability assessment solution powered by Qualys](deploy-vulnerability-assessment-vm.md), you should start planning for the upcoming deprecations by following the steps on this page.
 
