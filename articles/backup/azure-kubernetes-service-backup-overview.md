@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.service: backup
 ms.custom:
   - ignite-2023
-ms.date: 11/14/2023
+ms.date: 11/30/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -92,44 +92,45 @@ metadata:
   name: bkphookname0
   namespace: default
 spec:
-  # BackupHook Name. This is the name of the hook that will be executed during backup.
-  # compulsory
-  name: hook1
-  # namespaces where this hook will be executed.
-  includednamespaces: 
-  - hrweb
-  excludednamespaces:
-  labelSelector:
-  # PreHooks is a list of BackupResourceHooks to execute prior to backing up an item.
-  preHooks:
-    - exec:
-        # Container is the container in the pod where the command should be executed.
-        container: webcontainer
-        # Command is the command and arguments to execute.
-        command:
-          - /bin/uname
-          - -a
-        # OnError specifies how Velero should behave if it encounters an error executing this hook  
-        onError: Continue
-        # Timeout is the amount of time to wait for the hook to complete before considering it failed.
-        timeout: 10s
-    - exec:
-        command:
-        - /bin/bash
-        - -c
-        - echo hello > hello.txt && echo goodbye > goodbye.txt
-        container: webcontainer
-        onError: Continue
-  # PostHooks is a list of BackupResourceHooks to execute after backing up an item.
-  postHooks:
-    - exec:
-        container: webcontainer
-        command:
-          - /bin/uname
-          - -a
-        onError: Continue
-        timeout: 10s
-
+  # BackupHook is a list of hooks to execute before and after backing up a resource.
+  backupHook:
+    # BackupHook Name. This is the name of the hook that will be executed during backup.
+    # compulsory
+  - name: hook1
+    # Namespaces where this hook will be executed.
+    includedNamespaces: 
+    - hrweb
+    excludedNamespaces:
+    labelSelector:
+    # PreHooks is a list of BackupResourceHooks to execute prior to backing up an item.
+    preHooks:
+      - exec:
+          # Container is the container in the pod where the command should be executed.
+          container: webcontainer
+          # Command is the command and arguments to execute.
+          command:
+            - /bin/uname
+            - -a
+          # OnError specifies how Velero should behave if it encounters an error executing this hook  
+          onError: Continue
+          # Timeout is the amount of time to wait for the hook to complete before considering it failed.
+          timeout: 10s
+      - exec:
+          command:
+            - /bin/bash
+            - -c
+            - echo hello > hello.txt && echo goodbye > goodbye.txt
+          container: webcontainer
+          onError: Continue
+    # PostHooks is a list of BackupResourceHooks to execute after backing up an item.
+    postHooks:
+      - exec:
+          container: webcontainer
+          command:
+            - /bin/uname
+            - -a
+          onError: Continue
+          timeout: 10s
 ```
 
 ### Restore hooks
@@ -145,32 +146,31 @@ metadata:
   name: restorehookname0
   namespace: default
 spec:
-  # Name is the name of this hook.
-  name: myhook-1  
-  # Restored namespaces where this hook will be executed.
-  includednamespaces: 
-  excludednamespaces:
-  labelSelector:
-  # PostHooks is a list of RestoreResourceHooks to execute during and after restoring a resource.
-  postHooks:
-    - exec:
-        # Container is the container in the pod where the command should be executed.
-        container: webcontainer
-        # Command is the command and arguments to execute from within a container after a pod has been restored.
-        command:
-          - /bin/bash
-          - -c
-          - echo hello > hello.txt && echo goodbye > goodbye.txt
-        # OnError specifies how Velero should behave if it encounters an error executing this hook
-        # default value is Continue
-        onError: Continue
-        # Timeout is the amount of time to wait for the hook to complete before considering it failed.
-        execTimeout: 30s
-        # WaitTimeout defines the maximum amount of time Velero should wait for the container to be ready before attempting to run the command.
-        waitTimeout: 5m
-
-
-
+  # RestoreHook is a list of hooks to execute after restoring a resource.
+  restoreHook:
+    # Name is the name of this hook.
+  - name: myhook-1  
+    # Restored Namespaces where this hook will be executed.
+    includedNamespaces: 
+    excludedNamespaces:
+    labelSelector:
+    # PostHooks is a list of RestoreResourceHooks to execute during and after restoring a resource.
+    postHooks:
+      - exec:
+          # Container is the container in the pod where the command should be executed.
+          container: webcontainer
+          # Command is the command and arguments to execute from within a container after a pod has been restored.
+          command:
+            - /bin/bash
+            - -c
+            - echo hello > hello.txt && echo goodbye > goodbye.txt
+          # OnError specifies how Velero should behave if it encounters an error executing this hook
+          # default value is Continue
+          onError: Continue
+          # Timeout is the amount of time to wait for the hook to complete before considering it failed.
+          execTimeout: 30s
+          # WaitTimeout defines the maximum amount of time Velero should wait for the container to be ready before attempting to run the command.
+          waitTimeout: 5m
 ```
 
 Learn [how to use hooks during AKS backup](azure-kubernetes-service-cluster-backup.md#use-hooks-during-aks-backup).
