@@ -1,14 +1,14 @@
 ---
-title: "[Deprecated] Delinea Secret Server via Legacy Agent connector for Microsoft Sentinel"
-description: "Learn how to install the connector [Deprecated] Delinea Secret Server via Legacy Agent to connect your data source to Microsoft Sentinel."
+title: "Delinea Secret Server connector for Microsoft Sentinel"
+description: "Learn how to install the connector Delinea Secret Server to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# [Deprecated] Delinea Secret Server via Legacy Agent connector for Microsoft Sentinel
+# Delinea Secret Server connector for Microsoft Sentinel
 
 Common Event Format (CEF) from Delinea Secret Server 
 
@@ -48,7 +48,7 @@ CommonSecurityLog
 
 ## Prerequisites
 
-To integrate with [Deprecated] Delinea Secret Server via Legacy Agent make sure you have: 
+To integrate with Delinea Secret Server make sure you have: 
 
 - **Delinea Secret Server**: must be configured to export logs via Syslog 
 
