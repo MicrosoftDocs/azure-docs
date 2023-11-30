@@ -105,7 +105,7 @@ After enabling the Log Analytics agent/Azure Monitor agent, you'll be presented 
 
 Vulnerability assessment for machines allows you to select between two vulnerability assessment solutions:
 
-- Microsoft Defender vulnerability management
+- Microsoft Defender Vulnerability Management
 - Microsoft Defender for Cloud integrated Qualys scanner
 
 **To select either of the vulnerability assessment solutions**:

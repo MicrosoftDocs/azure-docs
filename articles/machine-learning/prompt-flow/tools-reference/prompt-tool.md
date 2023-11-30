@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: The prompt tool in prompt flow offers a collection of textual templates that serve as a starting point for creating prompts.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
 ms.topic: reference
@@ -51,7 +51,7 @@ The following sections show the prompt text parsed from the prompt and inputs.
   
 1. Assign values for the variables.
 
-In the preceding example, two variables are automatically detected and listed in the **Inputs** section. Assign values.
+In the preceding example, two variables are automatically detected and listed in the **Inputs** section. You should assign values to the input variables.
 
 ### Sample 1
 
