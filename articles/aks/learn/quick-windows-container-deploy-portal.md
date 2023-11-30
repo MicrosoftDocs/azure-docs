@@ -156,7 +156,7 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
     spec:
       type: LoadBalancer
       ports:
-     - protocol: TCP
+      - protocol: TCP
         port: 80
       selector:
         app: sample
