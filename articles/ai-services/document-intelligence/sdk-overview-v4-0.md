@@ -1,7 +1,7 @@
 ---
-title: Document Intelligence (formerly Form Recognizer) SDK target REST API 2023-07-31 (GA) latest.
+title: Document Intelligence (formerly Form Recognizer) SDK target REST API 2023-10-31-preview
 titleSuffix: Azure AI services
-description: The Document Intelligence 2023-07-31 (GA) software development kits (SDKs) expose Document Intelligence models, features and capabilities that are in active development for C#, Java, JavaScript, or Python programming language.
+description: The Document Intelligence 2023-10-31-preview software development kits (SDKs) expose Document Intelligence models, features and capabilities that are in active development for C#, Java, JavaScript, or Python programming language.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -11,7 +11,7 @@ ms.custom:
 ms.topic: conceptual
 ms.date: 11/21/2023
 ms.author: lajanuar
-monikerRange: 'doc-intel-3.1.0'
+monikerRange: 'doc-intel-4.0.0'
 --- 
 
 
@@ -20,9 +20,11 @@ monikerRange: 'doc-intel-3.1.0'
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 
-# SDK target: REST API 2023-07-31 (GA) latest
+# SDK target: REST API 2023-10-31-preview
 
-![Document Intelligence checkmark](media/yes-icon.png) **REST API version 2023-07-31 (GA)**
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+![Document Intelligence checkmark](media/yes-icon.png) **REST API version 2023-10-31-preview**
 
 Azure AI Document Intelligence is a cloud service that uses machine learning to analyze text and structured data from documents. The Document Intelligence software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Document Intelligence models and capabilities into your applications. Document Intelligence SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
 
@@ -32,10 +34,10 @@ Document Intelligence SDK supports the following languages and platforms:
 
 | Language → Document Intelligence SDK version &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;| Package| Supported API version &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;| Platform support |
 |:----------------------:|:----------|:----------| :----------------:|
-| [**.NET/C# → latest (GA)**](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet&preserve-view=true)|[NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.1.0)|[&bullet; 2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; 2022-08-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
-|[**Java → latest (GA)**](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.1.0/index.html) |[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0) |[&bullet; 2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; 2022-08-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/java/openjdk/install)|
-|[**JavaScript → latest (GA)**](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/5.0.0/index.html)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer)| [&bullet; 2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> &bullet; [2022-08-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
-|[**Python → latest (GA)**](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.3.0/index.html) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.3.0/)| [&bullet; 2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> &bullet; [2022-08-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
+| [**.NET/C# → 1.0.0-beta.1 (preview)**](/dotnet/api/azure.ai.documentintelligence.documentintelligenceadministrationclient?view=azure-dotnet-preview&preserve-view=true)|[NuGet](https://www.nuget.org/packages/Azure.AI.DocumentIntelligence/1.0.0-beta.1)|[&bullet; 2023-10-31 (preview)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)</br>[&bullet; 2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; 2022-08-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
+ |[**Java → 1.0.0-beta.1 (preview)**](/java/api/overview/azure/ai-documentintelligence-readme?view=azure-java-preview&preserve-view=true) |[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.1) |[&bullet; 2023-10-31 (preview)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)</br>[&bullet; 2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; 2022-08-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/java/openjdk/install)|
+|[**JavaScript → 1.0.0-beta.1 (preview)**](/javascript/api/overview/azure/ai-document-intelligence-rest-readme?view=azure-node-preview&preserve-view=true)| [npm](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence)|[&bullet; 2023-10-31 (preview)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)</br>[&bullet; 2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> &bullet; [2022-08-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
+|[**Python → 1.0.0b1 (preview)**](/python/api/overview/azure/ai-documentintelligence-readme?view=azure-python-preview&preserve-view=true) | [PyPI](https://pypi.org/project/azure-ai-documentintelligence/)|[&bullet; 2023-10-31 (preview)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)</br>[&bullet; 2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> &bullet; [2022-08-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br> [&bullet; v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[&bullet; v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
 
 ## Supported Clients
 
@@ -43,8 +45,9 @@ The following tables present the correlation between each SDK version the suppor
 
 ### [C#/.NET](#tab/csharp)
 
-| Language| SDK version | API version (default) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
+| Language| SDK alias | API version (default) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
 | :------ | :-----------|:---------- | :-----------------|
+ |**.NET/C# 1.0.0-beta.1 (preview)**| v4.0 (preview)| 2023-10-31-preview|**DocumentIntelligenceClient**</br>**DocumentIntelligenceAdministrationClient**|
 |**.NET/C# 4.1.0**| v3.1 latest (GA)| 2023-07-31|**DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
 |**.NET/C# 4.0.0**| v3.0 (GA)| 2022-08-31|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
 |**.NET/C# 3.1.x**| v2.1 |  v2.1 |  **FormRecognizerClient**</br>**FormTrainingClient** |
@@ -52,8 +55,9 @@ The following tables present the correlation between each SDK version the suppor
 
 ### [Java](#tab/java)
 
-| Language| SDK version | API version &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
+| Language| SDK alias | API version &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
 | :------ | :-----------|:---------- | :-----------------|
+|**Java 1.0.0-beta.1 (preview)**| v4.0 preview| 2023-10-31 (default)|**DocumentIntelligenceClient**</br>**DocumentIntelligenceAdministrationClient**|
 |**Java 4.1.0**| v3.1 latest (GA)| 2023-07-31 (default)|**DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
 |**Java 4.0.0**</br>| v3.0 (GA)| 2022-08-31|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
 |**Java 3.1.x**| v2.1 |  v2.1 |  **FormRecognizerClient**</br>**FormTrainingClient** |
@@ -61,8 +65,9 @@ The following tables present the correlation between each SDK version the suppor
 
 ### [JavaScript](#tab/javascript)
 
-| Language| SDK version | API version (default) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
+| Language| SDK alias | API version (default) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
 | :------ | :-----------|:---------- | :-----------------|
+|**JavaScript 1.0.0-beta.1**| v4.0 (preview)| 2023-10-31 (default)|**DocumentIntelligenceClient**</br>**DocumentIntelligenceAdministrationClient**|
 |**JavaScript 5.0.0**| v3.1 latest (GA)| 2023-07-31 (default)|**DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
 |**JavaScript 4.0.0**</br>| v3.0 (GA)| 2022-08-31|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
 |**JavaScript 3.1.x**</br>| v2.1 |  v2.1 |  **FormRecognizerClient**</br>**FormTrainingClient** |
@@ -70,9 +75,10 @@ The following tables present the correlation between each SDK version the suppor
 
 ### [Python](#tab/python)
 
-| Language| SDK version | API version (default) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
+| Language| SDK alias | API version (default) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Supported clients|
 | :------ | :-----------|:---------- | :-----------------|
-| **Python 3.3.0**| v3.1 (latest (GA)| 2023-07-31 (default) |  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient**|
+| **Python 1.0.0b1**| v4.0 (preview)| 2023-10-31 (default) |**DocumentIntelligenceClient**</br>**DocumentIntelligenceAdministrationClient**|
+| **Python 3.3.0**| v3.1 latest (GA)| 2023-07-31 (default) |  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient**|
 | **Python 3.2.x**| v3.0 (GA)| 2022-08-31|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient**|
 | **Python 3.1.x**| v2.1 |  v2.1  |  **FormRecognizerClient**</br>**FormTrainingClient** |
 | **Python 3.0.0** | v2.0 |  v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
@@ -88,37 +94,39 @@ The Document Intelligence SDK enables the use and management of the Document Int
 ### [C#/.NET](#tab/csharp)
 
 ```dotnetcli
-dotnet add package Azure.AI.FormRecognizer --version 4.1.0
+dotnet add package Azure.AI.DocumentIntelligence --version 1.0.0-beta.1
 ```
 
 ```powershell
-Install-Package Azure.AI.FormRecognizer -Version 4.1.0
+Install-Package Azure.AI.FormRecognizer -Version 1.0.0-beta.1
 ```
 
 ### [Java](#tab/java)
 
 ```xml
   <dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-ai-formrecognizer</artifactId>
-  <version>4.1.0</version>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-ai-documentintelligence</artifactId>
+    <version>1.0.0-beta.1</version>
   </dependency>
+
 ```
 
 ```kotlin
-implementation("com.azure:azure-ai-formrecognizer:4.1.0")
+implementation("com.azure:azure-ai-documentintelligence:1.0.0-beta.1")
+
 ```
 
 ### [JavaScript](#tab/javascript)
 
-```javascript
-npm i @azure/ai-form-recognizer@5.0.0
+```console
+npm i @azure-rest/ai-document-intelligence@1.0.0-beta.1
 ```
 
 ### [Python](#tab/python)
 
 ```python
-pip install azure-ai-formrecognizer==3.3.0
+pip install azure-ai-documentintelligence==1.0.0b1
 ```
 
 ---
@@ -129,15 +137,14 @@ pip install azure-ai-formrecognizer==3.3.0
 
 ```csharp
 using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
+using Azure.AI.DocumentIntelligence;
 ```
 
 ### [Java](#tab/java)
 
 ```java
-import com.azure.ai.formrecognizer.*;
-import com.azure.ai.formrecognizer.models.*;
-import com.azure.ai.formrecognizer.DocumentAnalysisClient.*;
+import com.azure.ai.documentintelligence.*;
+import com.azure.ai.documentintelligence.models.*;
 
 import com.azure.core.credential.AzureKeyCredential;
 ```
@@ -145,13 +152,13 @@ import com.azure.core.credential.AzureKeyCredential;
 ### [JavaScript](#tab/javascript)
 
 ```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+const { AzureKeyCredential, DocumentIntelligence } = require("@azure-rest/ai-document-intelligence@1.0.0-beta.1");
 ```
 
 ### [Python](#tab/python)
 
 ```python
-from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.core.credentials import AzureKeyCredential
 ```
 
@@ -175,39 +182,43 @@ Here's where to find your Document Intelligence API key in the Azure portal:
 
 ```csharp
 
-//set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+//set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentIntelligenceClient` instance
 string key = "<your-key>";
 string endpoint = "<your-endpoint>";
 AzureKeyCredential credential = new AzureKeyCredential(key);
-DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpoint), new AzureKeyCredential(key));
 ```
 
 ### [Java](#tab/java)
 
 ```java
 
-// create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
-            .credential(new AzureKeyCredential("<your-key>"))
-            .endpoint("<your-endpoint>")
-            .buildClient();
+// create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
+DocumentIntelligenceClient documentIntelligenceClient = new DocumentIntelligenceClientBuilder()
+    .credential(new AzureKeyCredential("<your-key>"))
+    .endpoint("<your-endpoint>")
+    .buildClient();
 ```
 
 ### [JavaScript](#tab/javascript)
 
 ```javascript
 
-// create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+// create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
 async function main() {
-    const client = new DocumentAnalysisClient("<your-endpoint>", new AzureKeyCredential("<your-key>"));
+    const client = DocumentIntelligence(process.env["your-endpoint>"], {
+  key: process.env["<your-key>"],
+});
 ```
 
 ### [Python](#tab/python)
 
 ```python
 
-# create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    document_analysis_client = DocumentAnalysisClient(endpoint="<your-endpoint>", credential=AzureKeyCredential("<your-key>"))
+# create your `DocumentIntelligenceClient` instance and `AzureKeyCredential` variable
+    endpoint = "<your-endpoint>"
+    credential = AzureKeyCredential("<your-key>")
+    document_analysis_client = DocumentIntelligenceClient(endpoint, credential)
 ```
 
 ---
@@ -241,14 +252,14 @@ Here's how to acquire and use the [DefaultAzureCredential](/dotnet/api/azure.ide
 
 1. Set the values of the client ID, tenant ID, and client secret in the Microsoft Entra application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
-1. Create your **`DocumentAnalysisClient`** instance including the **`DefaultAzureCredential`**:
+1. Create your **`DocumentIntelligenceClient`** instance including the **`DefaultAzureCredential`**:
 
     ```csharp
     string endpoint = "<your-endpoint>";
-    var client = new DocumentAnalysisClient(new Uri(endpoint), new DefaultAzureCredential());
+    var client = new DocumentIntelligenceClient(new Uri(endpoint), new DefaultAzureCredential());
     ```
 
-For more information, *see* [Authenticate the client](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer#authenticate-the-client)
+For more information, *see* [Authenticate the client](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/README.md#authenticate-the-client)
 
 ### [Java](#tab/java)
 
@@ -270,17 +281,17 @@ Here's how to acquire and use the [DefaultAzureCredential](/java/api/com.azure.i
 
 1. Set the values of the client ID, tenant ID, and client secret of the Microsoft Entra application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
-1. Create your **`DocumentAnalysisClient`** instance and **`TokenCredential`** variable:
+1. Create your **`DocumentIntelligenceClient`** instance and **`TokenCredential`** variable:
 
     ```java
     TokenCredential credential = new DefaultAzureCredentialBuilder().build();
-    DocumentAnalysisClient documentAnalysisClient = new DocumentAnalysisClientBuilder()
+    DocumentIntelligenceClient documentIntelligenceClient = new DocumentIntelligenceClientBuilder()
         .endpoint("{your-endpoint}")
         .credential(credential)
         .buildClient();
     ```
 
-For more information, *see* [Authenticate the client](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer#authenticate-the-client)
+For more information, *see* [Authentication](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/README.md#authentication)
 
 ### [JavaScript](#tab/javascript)
 
@@ -298,16 +309,16 @@ Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azur
 
 1. Set the values of the client ID, tenant ID, and client secret of the Microsoft Entra application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
-1. Create your **`DocumentAnalysisClient`** instance including the **`DefaultAzureCredential`**:
+1. Create your **`DocumentIntelligenceClient`** instance including the **`DefaultAzureCredential`**:
 
     ```javascript
-    const { DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+    const { DocumentIntelligenceClient } = require("@azure-rest/ai-document-intelligence@1.0.0-beta.1");
     const { DefaultAzureCredential } = require("@azure/identity");
 
-    const client = new DocumentAnalysisClient("<your-endpoint>", new DefaultAzureCredential());
+    const client = new DocumentIntelligenceClient("<your-endpoint>", new DefaultAzureCredential());
     ```
 
-For more information, *see* [Create and authenticate a client](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer/ai-form-recognizer#create-and-authenticate-a-client).
+For more information, *see* [Create and authenticate a client](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest#create-and-authenticate-a-documentintelligenceclient).
 
 ### [Python](#tab/python)
 
@@ -325,20 +336,20 @@ Here's how to acquire and use the [DefaultAzureCredential](/python/api/azure-ide
 
 1. Set the values of the client ID, tenant ID, and client secret of the Microsoft Entra application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
-1. Create your **`DocumentAnalysisClient`** instance including the **`DefaultAzureCredential`**:
+1. Create your **`DocumentIntelligenceClient`** instance including the **`DefaultAzureCredential`**:
 
     ```python
     from azure.identity import DefaultAzureCredential
-    from azure.ai.formrecognizer import DocumentAnalysisClient
+    from azure.ai.documentintelligence import DocumentIntelligenceClient
 
     credential = DefaultAzureCredential()
-    document_analysis_client = DocumentAnalysisClient(
-        endpoint="https://<my-custom-subdomain>.cognitiveservices.azure.com/",
+    client = DocumentIntelligenceClient(
+        endpoint="<your-endpoint>",
         credential=credential
     )
     ```
 
-For more information, *see* [Authenticate the client](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer#authenticate-the-client)
+For more information, *see* [Authenticate the client](https://github.com/Azure/azure-sdk-for-python/blob/7c42462ac662522a6fd21b17d2a20f4cd40d0356/sdk/documentintelligence/azure-ai-documentintelligence/README.md#authenticate-the-client)
 
 ---
 
@@ -348,9 +359,13 @@ Create a client object to interact with the Document Intelligence SDK, and then 
 
 ## Help options
 
-The [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-form-recognizer) forums are available for the developer community to ask and answer questions about Azure AI Document Intelligence and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with **`azure-form-recognizer`**.
+The [Microsoft Q&A](/answers/tags/440/document-intelligence) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ai-document-intelligence) forums are available for the developer community to ask and answer questions about Azure AI Document Intelligence and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure, use the following tags so that we see your question
+
+* Microsoft Q&A: **`Azure AI Document Intelligence`**.
+
+* Stack Overflow: **`azure-ai-document-intelligence`**
 
 ## Next steps
 
 > [!div class="nextstepaction"]
->Explore  [**Document Intelligence REST API 2023-07-31**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) operations.
+>Explore  [**Document Intelligence REST API 2023-10-31-rest**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) operations.
