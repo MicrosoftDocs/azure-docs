@@ -5,7 +5,7 @@ description: Learn how to use your own Docker images, or curated ones from Micro
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: sagopal
+ms.author: ssalgado
 author: saachigopal
 ms.reviewer: ssalgado
 ms.date: 08/11/2021
