@@ -40,12 +40,12 @@ Before you get started in Speech Studio, here are some considerations:
 
 Here's an overview of the steps to create a custom neural voice in Speech Studio:
 
-1. [Create a project](how-to-custom-voice.md) to contain your data, voice models, tests, and endpoints. Each project is specific to a country/region and language. If you are going to create multiple voices, it's recommended that you create a project for each voice.
-1. [Set up voice talent](how-to-custom-voice.md). Before you can train a neural voice, you must submit a recording of the voice talent's consent statement. The voice talent statement is a recording of the voice talent reading a statement that they consent to the usage of their speech data to train a custom voice model.
-1. [Prepare training data](how-to-custom-voice-prepare-data.md) in the right [format](how-to-custom-voice-training-data.md). It's a good idea to capture the audio recordings in a professional quality recording studio to achieve a high signal-to-noise ratio. The quality of the voice model depends heavily on your training data. Consistent volume, speaking rate, pitch, and consistency in expressive mannerisms of speech are required.
-1. [Train your voice model](how-to-custom-voice-create-voice.md). Select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix any errors and submit again.
-1. [Test your voice](how-to-custom-voice-create-voice.md#test-your-voice-model). Prepare test scripts for your voice model that cover the different use cases for your apps. It’s a good idea to use scripts within and outside the training dataset, so you can test the quality more broadly for different content.
-1. [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md) in your apps.
+1. [Create a project](professional-voice-create-project.md) to contain your data, voice models, tests, and endpoints. Each project is specific to a country/region and language. If you are going to create multiple voices, it's recommended that you create a project for each voice.
+1. [Set up voice talent](professional-voice-create-project.md). Before you can train a neural voice, you must submit a recording of the voice talent's consent statement. The voice talent statement is a recording of the voice talent reading a statement that they consent to the usage of their speech data to train a custom voice model.
+1. [Prepare training data](professional-voice-create-training-set.md) in the right [format](how-to-custom-voice-training-data.md). It's a good idea to capture the audio recordings in a professional quality recording studio to achieve a high signal-to-noise ratio. The quality of the voice model depends heavily on your training data. Consistent volume, speaking rate, pitch, and consistency in expressive mannerisms of speech are required.
+1. [Train your voice model](professional-voice-train-voice.md). Select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix any errors and submit again.
+1. [Test your voice](professional-voice-train-voice.md#test-your-voice-model). Prepare test scripts for your voice model that cover the different use cases for your apps. It’s a good idea to use scripts within and outside the training dataset, so you can test the quality more broadly for different content.
+1. [Deploy and use your voice model](professional-voice-deploy-endpoint.md) in your apps.
 
 You can tune, adjust, and use your custom voice, similarly as you would use a prebuilt neural voice. Convert text into speech in real-time, or generate audio content offline with text input. You can do this by using the [REST API](./rest-text-to-speech.md), the [Speech SDK](./get-started-text-to-speech.md), or the [Speech Studio](https://speech.microsoft.com/audiocontentcreation).
 
@@ -83,6 +83,6 @@ An AI system includes not only the technology, but also the people who will use 
 
 ## Next steps
 
-* [Create a project](how-to-custom-voice.md) 
-* [Prepare training data](how-to-custom-voice-prepare-data.md)
-* [Train model](how-to-custom-voice-create-voice.md)
+* [Create a project](professional-voice-create-project.md) 
+* [Prepare training data](professional-voice-create-training-set.md)
+* [Train model](professional-voice-train-voice.md)

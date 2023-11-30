@@ -39,9 +39,9 @@ landingContent:
         - text: What is custom neural voice?
           url: custom-neural-voice.md
         - text: Get started with custom voice
-          url: how-to-custom-voice.md
+          url: professional-voice-create-project.md
         - text: Create and use custom voice models
-          url: how-to-custom-voice-create-voice.md
+          url: professional-voice-train-voice.md
 - title: Reference
   linkLists:
     - linkListType: reference

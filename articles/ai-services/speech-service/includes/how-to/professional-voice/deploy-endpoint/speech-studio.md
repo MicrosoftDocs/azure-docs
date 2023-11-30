@@ -89,3 +89,9 @@ This section describes how to suspend or resume a custom neural voice endpoint i
    :::image type="content" source="../../../../media/custom-voice/cnv-endpoint-resume.png" alt-text="Screenshot of the select resume endpoint option":::
 
 1. In the dialog box that appears, select **Submit**. After you successfully reactivate the endpoint, the status will change from **Suspended** to **Succeeded**.
+
+## Next steps
+
+- Learn more about custom neural voice in the [overview](custom-neural-voice.md).
+- Learn more about Speech Studio in the [overview](speech-studio-overview.md).
+

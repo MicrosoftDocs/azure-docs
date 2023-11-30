@@ -72,7 +72,7 @@ The following regions are supported for Speech service features such as speech t
 
 <sup>6</sup> The region does not support Speaker Recognition.
 
-<sup>7</sup> The region supports the [high performance](how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint) endpoint type for custom neural voice.
+<sup>7</sup> The region supports the [high performance](professional-voice-deploy-endpoint.md#add-a-deployment-endpoint) endpoint type for custom neural voice.
 
 ## Intent recognition
 

@@ -51,7 +51,7 @@ To create a custom neural voice lite project, follow these steps:
 1. Select **Custom neural voice lite** > **Next**. 
 
     > [!NOTE]
-    > To create a custom neural voice Pro project, see [Create a project for custom neural voice](how-to-custom-voice.md).
+    > To create a custom neural voice Pro project, see [Create a project for custom neural voice](professional-voice-create-project.md).
 
 1. Follow the instructions provided by the wizard to create your project. 
 1. Select the new project by name or select **Go to project**. You'll see these menu items in the left panel: **Record and build**, **Review model**, and **Deploy model**.  
@@ -124,10 +124,10 @@ To deploy a CNV lite model, follow these steps:
 1. Select the checkbox to agree to the terms of use and then select **Next**.
 1. Select **Deploy** to deploy the model.
 
-From here, you can use the CNV lite voice model similarly as you would use a CNV professional voice model. For example, you can [suspend or resume](how-to-deploy-and-use-endpoint.md) an endpoint after it's created, to limit spend and conserve resources that aren't in use. You can also access the voice in the [Audio Content Creation](how-to-audio-content-creation.md) tool in the [Speech Studio](https://aka.ms/speechstudio/audiocontentcreation).
+From here, you can use the CNV lite voice model similarly as you would use a CNV professional voice model. For example, you can [suspend or resume](professional-voice-deploy-endpoint.md) an endpoint after it's created, to limit spend and conserve resources that aren't in use. You can also access the voice in the [Audio Content Creation](how-to-audio-content-creation.md) tool in the [Speech Studio](https://aka.ms/speechstudio/audiocontentcreation).
 
 ## Next steps
 
-* [Create a CNV professional project](how-to-custom-voice.md) 
+* [Create a CNV professional project](professional-voice-create-project.md) 
 * [Try the text to speech quickstart](get-started-text-to-speech.md)
 * [Learn more about speech synthesis](how-to-speech-synthesis.md)

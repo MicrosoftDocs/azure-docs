@@ -47,3 +47,9 @@ You should receive a response body in the following format:
 ```
 
 You use the project `id` in subsequent API requests to [add voice talent consent](../../../../professional-voice-create-consent.md) and [create a training set](../../../../professional-voice-create-training-set.md).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Add voice talent consent to the professional voice project.](../../../../professional-voice-create-consent.md)
+

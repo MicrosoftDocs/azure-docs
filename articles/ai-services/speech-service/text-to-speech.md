@@ -77,7 +77,7 @@ Sample code for text to speech is available on GitHub. These samples cover text 
 
 ## Custom neural voice
 
-In addition to prebuilt neural voices, you can create and fine-tune custom neural voices that are unique to your product or brand. All it takes to get started is a handful of audio files and the associated transcriptions. For more information, see [Get started with custom neural voice](how-to-custom-voice.md).
+In addition to prebuilt neural voices, you can create and fine-tune custom neural voices that are unique to your product or brand. All it takes to get started is a handful of audio files and the associated transcriptions. For more information, see [Get started with custom neural voice](professional-voice-create-project.md).
 
 ## Pricing note
 

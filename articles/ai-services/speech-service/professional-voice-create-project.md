@@ -21,9 +21,3 @@ zone_pivot_groups: speech-studio-rest
 [!INCLUDE [REST API include](./includes/how-to/professional-voice/create-project/rest.md)]
 ::: zone-end
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Add voice talent consent to the professional voice project.](./professional-voice-create-consent.md)
-
-

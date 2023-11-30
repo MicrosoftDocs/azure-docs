@@ -52,7 +52,7 @@ Sample code for creating a voice assistant is available on GitHub. The samples c
 Voice assistants that you build by using Speech service can use a full range of customization options.
 
 * [Custom Speech](./custom-speech-overview.md)
-* [Custom voice](how-to-custom-voice.md)
+* [Custom voice](professional-voice-create-project.md)
 * [Custom Keyword](keyword-recognition-overview.md)
 
 > [!NOTE]

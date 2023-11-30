@@ -46,7 +46,7 @@ To create a neural voice, use the `Models_Create` operation of the custom voice 
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
 - Set the required `trainingSetId` property. See [create a training set](../../../../professional-voice-create-training-set.md).
 - Set the required recipe `kind` property to `Standard` for neural voice training. The recipe kind indicates the training method and can't be changed later. To use a different training method, see [Neural - cross lingual](?tabs=crosslingual#create-a-voice-model) or [Neural - multi style](?tabs=multistyle#create-a-voice-model).
-- Set the required `voiceName` property. The voice name can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../how-to-deploy-and-use-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+- Set the required `voiceName` property. The voice name can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
 Make an HTTP POST request using the URI as shown in the following `Models_Create` example. 
@@ -99,7 +99,7 @@ To create a cross lingual neural voice, use the `Models_Create` operation of the
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
 - Set the required `trainingSetId` property. See [create a training set](../../../../professional-voice-create-training-set.md).
 - Set the required recipe `kind` property to `CrossLingual` for cross lingual voice training. The recipe kind indicates the training method and can't be changed later. To use a different training method, see [Neural](?tabs=neural#create-a-voice-model) or [Neural - multi style](?tabs=multistyle#create-a-voice-model).
-- Set the required `voiceName` property. The voice name can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../how-to-deploy-and-use-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+- Set the required `voiceName` property. The voice name can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 - Set the required `locale` property for the secondary language for your voice model. You can specify only one target language for a voice model.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
@@ -152,7 +152,7 @@ To create a multi-style neural voice, use the `Models_Create` operation of the c
 - Set the required `consentId` property. See [add voice talent consent](../../../../professional-voice-create-consent.md).
 - Set the required `trainingSetId` property. See [create a training set](../../../../professional-voice-create-training-set.md).
 - Set the required recipe `kind` property to `MultiStyle` for multiple style voice training. The recipe kind indicates the training method and can't be changed later. To use a different training method, see [Neural](?tabs=neural#create-a-voice-model) or [Neural - cross lingual](?tabs=crosslingual#create-a-voice-model).
-- Set the required `voiceName` property. The voice name can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../how-to-deploy-and-use-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+- Set the required `voiceName` property. The voice name can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 - Set the required `locale` property for the language for your voice model. 
 - Set the required `presetStyles` property to one or more of the [available preset styles](#available-preset-styles-across-different-languages) for the target language. 
 - Optionally, set the `styleTrainingSetIds` property to provide training data for your custom speaking styles. The maximum number of custom styles varies by languages: English (United States) allows up to 10 custom styles, Chinese (Mandarin, Simplified) allows up to four custom styles, and Japanese (Japan) allows up to five custom styles. 
@@ -236,4 +236,8 @@ The following table summarizes the different preset styles according to differen
 ---
 
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Deploy the professional voice endpoint](../../../../professional-voice-deploy-endpoint.md)
 

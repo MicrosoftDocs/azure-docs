@@ -58,7 +58,7 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 
    Optionally, you can also select **Add my own test script** and provide your own test script with up to 100 utterances to test the model at no extra cost. The generated audio files are a combination of the automatic test scripts and custom test scripts. For more information, see [test script requirements](#test-script-requirements).
 
-1. Enter a **Name** to help you identify the model. Choose a name carefully. The model name is used as the voice name in your [speech synthesis request](../../../../how-to-deploy-and-use-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+1. Enter a **Name** to help you identify the model. Choose a name carefully. The model name is used as the voice name in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 1. Optionally, enter the **Description** to help you identify the model. A common use of the description is to record the names of the data that you used to create the model.
 1. Select **Next**.
 1. Review the settings and select the box to accept the terms of use.
@@ -83,7 +83,7 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 
    Optionally, you can also select **Add my own test script** and provide your own test script with up to 100 utterances to test the model at no extra cost. The generated audio files are a combination of the automatic test scripts and custom test scripts. For more information, see [Test script requirements](#test-script-requirements).
 
-1. Enter a **Name** to help you identify the model. Choose a name carefully. The model name is used as the voice name in your [speech synthesis request](../../../../how-to-deploy-and-use-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+1. Enter a **Name** to help you identify the model. Choose a name carefully. The model name is used as the voice name in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 1. Optionally, enter the **Description** to help you identify the model. A common use of the description is to record the names of the data that you used to create the model.
 1. Select **Next**.
 1. Review the settings and select the box to accept the terms of use.
@@ -116,7 +116,7 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
 
 Optionally, you can also select **Add my own test script** and provide your own test script with up to 100 utterances to test the default style at no extra cost. The generated audio files are a combination of the automatic test scripts and custom test scripts. For more information, see [test script requirements](#test-script-requirements).
 
-1. Enter a **Name** to help you identify the model. Choose a name carefully. The model name is used as the voice name in your [speech synthesis request](../../../../how-to-deploy-and-use-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
+1. Enter a **Name** to help you identify the model. Choose a name carefully. The model name is used as the voice name in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 1. Optionally, enter the **Description** to help you identify the model. A common use of the description is to record the names of the data that you used to create the model.
 1. Select **Next**.
 1. Review the settings and select the box to accept the terms of use.
@@ -229,11 +229,11 @@ Azure text to speech engines are updated from time to time to capture the latest
 
 If you want to test each engine version of your voice model, you can select a version from the list, then select **DefaultTests** under **Testing** to listen to the sample audio files. If you want to upload your own test scripts to further test your current engine version, first make sure the version is set as default, then follow the steps in [Test your voice model](#test-your-voice-model).
 
-Updating the engine creates a new version of the model at no extra cost. After you update the engine version for your voice model, you need to deploy the new version to [create a new endpoint](../../../../how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint). You can only deploy the default version.
+Updating the engine creates a new version of the model at no extra cost. After you update the engine version for your voice model, you need to deploy the new version to [create a new endpoint](../../../../professional-voice-deploy-endpoint.md#add-a-deployment-endpoint). You can only deploy the default version.
 
 :::image type="content" source="../../../../media/custom-voice/cnv-engine-redeploy.png" alt-text="Screenshot that shows how to redeploy a new version of your voice model.":::
 
-After you create a new endpoint, you need to [transfer the traffic to the new endpoint in your product](../../../../how-to-deploy-and-use-endpoint.md#switch-to-a-new-voice-model-in-your-product).
+After you create a new endpoint, you need to [transfer the traffic to the new endpoint in your product](../../../../professional-voice-deploy-endpoint.md#switch-to-a-new-voice-model-in-your-product).
 
 To learn more about the capabilities and limits of this feature, and the best practice to improve your model quality, see [Characteristics and limitations for using custom neural voice](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
@@ -257,4 +257,10 @@ To copy your custom neural voice model to another project:
 1. Select **Submit** to copy the model.
 1. Select **View model** under the notification message for the successful copying.
 
-Navigate to the project where you copied the model to [deploy the model copy](../../../../how-to-deploy-and-use-endpoint.md).
+Navigate to the project where you copied the model to [deploy the model copy](../../../../professional-voice-deploy-endpoint.md).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Deploy the professional voice endpoint](../../../../professional-voice-deploy-endpoint.md)
+

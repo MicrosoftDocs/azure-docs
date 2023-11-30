@@ -21,9 +21,3 @@ zone_pivot_groups: speech-studio-rest
 [!INCLUDE [REST API include](./includes/how-to/professional-voice/create-training-set/rest.md)]
 ::: zone-end
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Train the professional voice](./professional-voice-train-voice.md)
-
-

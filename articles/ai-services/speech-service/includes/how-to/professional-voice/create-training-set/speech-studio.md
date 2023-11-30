@@ -130,3 +130,9 @@ Unresolved errors listed in the next table affect the quality of training, but d
 | Mismatch | End silence issue| Extra audio was heard after the last word. Review the script and the audio content to make sure they match, control the noise floor level, and make the last 100 ms silent.|
 | Mismatch | Low signal-noise ratio | Audio SNR level is lower than 20 dB. At least 35 dB is recommended.|
 | Mismatch | No score available |Failed to recognize speech content in this audio. Check the audio and the script content to make sure the audio is valid, and matches the script.|
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Train the professional voice](../../../../professional-voice-train-voice.md)
+

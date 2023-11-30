@@ -11,7 +11,7 @@
 
 You need a training dataset to create a professional voice. A training dataset includes audio and script files. The audio files are recordings of the voice talent reading the script files. The script files are the text of the audio files. 
 
-In this article, you [create a training set](#create-a-training-set) and get it's resource ID. Then, using the resource ID, you can [upload a set of audio and script files](#upload-training-set).
+In this article, you [create a training set](#create-a-training-set) and get it's resource ID. Then, using the resource ID, you can [upload a set of audio and script files](#upload-training-set-data).
 
 ## Create a training set
 
@@ -98,3 +98,9 @@ The response header contains the `Operation-Location` property. Use this URI to 
 Operation-Location: https://eastus.api.cognitive.microsoft.com/customvoice/operations/284b7e37-f42d-4054-8fa9-08523c3de345?api-version=2023-12-01-preview
 Operation-Id: 284b7e37-f42d-4054-8fa9-08523c3de345
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Train the professional voice](../../../../professional-voice-train-voice.md)
+

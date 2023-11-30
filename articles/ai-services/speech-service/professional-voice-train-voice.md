@@ -20,9 +20,3 @@ zone_pivot_groups: speech-studio-rest
 ::: zone pivot="rest-api"
 [!INCLUDE [REST API include](./includes/how-to/professional-voice/train-voice/rest.md)]
 ::: zone-end
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Deploy the professional voice endpoint](./professional-voice-deploy-endpoint.md)
-

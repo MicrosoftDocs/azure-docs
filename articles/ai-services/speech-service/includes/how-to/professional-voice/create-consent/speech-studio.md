@@ -33,3 +33,10 @@ To add a voice talent profile and upload their consent statement, follow these s
 1. Review the voice talent and persona details, and select **Submit**.
 
 After the voice talent status is *Succeeded*, you can proceed to [train your custom voice model](../../../../professional-voice-train-voice.md).
+
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Add training data to the professional voice project](../../../../professional-voice-create-training-set.md)
+

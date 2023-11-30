@@ -60,5 +60,5 @@ keywords: text to speech
 ## Next steps
 
 * [Try the text to speech quickstart](get-started-text-to-speech.md)
-* [Get started with custom neural voice](how-to-custom-voice.md)
+* [Get started with custom neural voice](professional-voice-create-project.md)
 * [Improve synthesis with SSML](speech-synthesis-markup.md)

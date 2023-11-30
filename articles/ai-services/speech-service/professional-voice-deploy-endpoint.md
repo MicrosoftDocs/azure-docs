@@ -21,9 +21,3 @@ zone_pivot_groups: speech-studio-rest
 [!INCLUDE [REST API include](./includes/how-to/professional-voice/deploy-endpoint/rest.md)]
 ::: zone-end
 
-## Next steps
-
-- Learn more about custom neural voice in the [overview](custom-neural-voice.md).
-- Learn more about Speech Studio in the [overview](speech-studio-overview.md).
-
-

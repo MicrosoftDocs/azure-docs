@@ -628,7 +628,7 @@ Another way to customize Custom Commands responses is to select an output voice.
 > [!NOTE]
 > For public voices, neural types are available only for specific regions. For more information, see [Speech service supported regions](./regions.md#speech-service).
 >
-> You can create custom voices on the **Custom voice** project page. For more information, see [Get started with custom voice](./how-to-custom-voice.md).
+> You can create custom voices on the **Custom voice** project page. For more information, see [Get started with custom voice](./professional-voice-create-project.md).
 
 Now the application will respond in the selected voice, instead of the default voice.
 

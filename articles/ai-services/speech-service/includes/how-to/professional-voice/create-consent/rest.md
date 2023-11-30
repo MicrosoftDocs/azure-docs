@@ -61,3 +61,10 @@ The response header contains the `Operation-Location` property. Use this URI to 
 Operation-Location: https://eastus.api.cognitive.microsoft.com/customvoice/operations/070f7986-ef17-41d0-ba2b-907f0f28e314?api-version=2023-12-01-preview
 Operation-Id: 070f7986-ef17-41d0-ba2b-907f0f28e314
 ```
+
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Add training data to the professional voice project](../../../../professional-voice-create-training-set.md)
+
