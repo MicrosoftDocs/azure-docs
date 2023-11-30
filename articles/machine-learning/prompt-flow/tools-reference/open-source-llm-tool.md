@@ -5,9 +5,7 @@ description: The prompt flow Open Source LLM tool enables you to utilize various
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
-ms.custom:
-  - devx-track-python
-  - ignite-2023
+ms.custom: ignite-2023
 ms.topic: reference
 author: gjwoods
 ms.author: GEWOODS

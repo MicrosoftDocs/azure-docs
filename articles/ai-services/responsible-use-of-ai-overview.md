@@ -2,7 +2,7 @@
 title: Overview of Responsible use of AI
 titleSuffix: Azure AI services
 description: Azure AI services provides information and guidelines on how to responsibly use our AI services in applications. Below are the links to articles that provide this guidance for the different services within the Azure AI services suite.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services

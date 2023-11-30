@@ -156,7 +156,7 @@ echo %SPN_AUTHORITY%
 
 ### Upload metrics to Azure Monitor
 
-To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL servers run, the following CLI commands:
+To upload metrics for SQL Managed Instance enabled by Azure Arc and Azure Arc-enabled PostgreSQL, run the following CLI commands:
 
  
 1. Export all metrics to the specified file:
@@ -251,7 +251,7 @@ Upload the usage only once per day. When usage information is exported and uploa
 
 For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
 
-## Next steps
+## Related content
 
 [Upload logs to Azure Monitor](upload-logs.md)
 

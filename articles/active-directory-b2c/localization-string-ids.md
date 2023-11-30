@@ -1,12 +1,12 @@
 ---
 title: Localization string IDs - Azure Active Directory B2C
 description: Specify the IDs for a content definition with an ID of api.signuporsignin in a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 04/19/2022
 ms.author: kengaderdus

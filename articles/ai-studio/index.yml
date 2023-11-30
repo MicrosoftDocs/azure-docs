@@ -5,7 +5,7 @@ summary:  Build cutting-edge, market-ready, responsible applications for your or
 metadata:
   title: Azure AI Studio documentation
   description: Azure AI Studio helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.  
-  ms.service: azure-ai-services
+  ms.service: azure-ai-studio
   ms.topic: landing-page
   ms.collection: collection
   author: eric-urban
@@ -51,6 +51,8 @@ landingContent:
         links:
           - text: Deploy a web app for chat on your data
             url: tutorials/deploy-chat-web-app.md
+          - text: Build your own copilot using prompt flow
+            url: tutorials/deploy-copilot-ai-studio.md
 
   # Card
   - title: Develop apps

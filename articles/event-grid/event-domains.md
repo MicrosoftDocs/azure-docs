@@ -4,7 +4,7 @@ description: This article describes how to use event domains to manage the flow 
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/09/2023
+ms.date: 11/15/2023
 ---
 
 # Understand event domains for managing Event Grid topics

@@ -3,7 +3,7 @@ title: Deploy virtual machines effectively using Microsoft Copilot for Azure (pr
 description: Learn how Microsoft Copilot for Azure (preview) can help you deploy cost-efficient VMs.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -20,6 +20,8 @@ For best results, start on the **Virtual machines** page in Azure. When you ask 
 While it can be helpful to have some familiarity with different VM configuration options such as pricing, scalability, availability, and size can be beneficial, Microsoft Copilot for Azure (preview) is designed to help you regardless of your level of expertise. In all cases, we recommend that you closely review the suggestions to confirm that they meet your needs.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
+
+[!INCLUDE [preview-note](includes/preview-note.md)]
 
 ## Create cost-efficient VMs
 

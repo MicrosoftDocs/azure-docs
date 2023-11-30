@@ -60,4 +60,4 @@
 - name: Resources
   items:
    - name: Azure Arc Jumpstart
-     href: https://azurearcjumpstart.io
+     href: https://aka.ms/AzureArcJumpstart

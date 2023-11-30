@@ -25,7 +25,7 @@ An environment definition is combined of least two files:
 >[!NOTE]
 > Azure Deployment Environments currently supports only ARM templates.
 
-The IaC template contains the environment definition (template), and the environment file, that provides metadata about the template. Your development teams use the environment definitions that you provide in the catalog to deploy environments in Azure.
+The IaC template contains the environment definition (template), and the environment file, which provides metadata about the template. Your development teams use the environment definitions that you provide in the catalog to deploy environments in Azure.
 
 We offer a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
@@ -60,7 +60,7 @@ To add an environment definition:
       - [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/syntax.md): Describes the structure of an ARM template and the properties that are available in the different sections of a template.
       - [Use linked templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell#use-relative-path-for-linked-templates): Describes how to use linked templates with the new ARM template `relativePath` property to easily modularize your templates and share core components between environment definitions.
 
-   - A environment as a YAML file.
+   - An environment as a YAML file.
 
       The *environment.yaml* file contains metadata related to the ARM template.
 
@@ -80,6 +80,8 @@ To add an environment definition:
 
       :::image type="content" source="../deployment-environments/media/configure-environment-definition/create-subfolder-path.png" alt-text="Screenshot that shows a folder path with a subfolder that contains an ARM template and an environment file.":::
 
+      To learn more about the options and data types you can use in environment.yaml, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#what-is-environmentyaml).
+
 1. In your dev center, go to **Catalogs**, select the repository, and then select **Sync**.
 
     :::image type="content" source="../deployment-environments/media/configure-environment-definition/sync-catalog-list.png" alt-text="Screenshot that shows how to sync the catalog." :::
@@ -90,16 +92,7 @@ The service scans the repository to find new environment definitions. After you 
 
 You can specify parameters for your environment definitions to allow developers to customize their environments. 
 
-Parameters are defined in the environment.yaml file. You can use the following options for parameters: 
-
-|Option  |Description  |
-|---------|---------|
-|ID     |Enter an ID for the parameter.|
-|name     |Enter a name for the parameter.|
-|description     |Enter a description for the parameter.|
-|default     |Optional. Enter a default value for the parameter. The default value can be overwritten at creation.|
-|type     |Enter the data type for the parameter.|
-|required|Enter `true` for a required value, and  `false` for an optional value.|
+Parameters are defined in the environment.yaml file. 
 
 The following script is an example of a *environment.yaml* file that includes two parameters; `location` and `name`: 
 
@@ -123,6 +116,7 @@ parameters:
   type: "string"
   required: false
 ```
+To learn more about the parameters and their data types you can use in environment.yaml, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#parameters-in-environmentyaml).
 
 Developers can supply values for specific parameters for their environments through the developer portal.
 

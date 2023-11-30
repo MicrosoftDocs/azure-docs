@@ -2,7 +2,7 @@
 title: 'Quickstart: Generate images with the REST APIs for Azure OpenAI Service'
 titleSuffix: Azure OpenAI Service
 description: Learn how to generate images with Azure OpenAI Service by using the REST APIs and the endpoint and access keys for your Azure OpenAI resource.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom:

@@ -5,6 +5,8 @@
   items:
   - name: What is Azure AI Studio?
     href: what-is-ai-studio.md
+  - name: What are AI services?
+    href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
     displayName: applied, cognitive, form recognizer
   - name: Azure AI FAQ
     href: faq.yml
@@ -20,6 +22,8 @@
   items:
   - name: Deploy a chat web app
     href: tutorials/deploy-chat-web-app.md
+  - name: Build your own copilot using prompt flow
+    href: tutorials/deploy-copilot-ai-studio.md
   - name: Using Azure AI Studio with a screen reader
     href: tutorials/screen-reader.md
 - name: How-to
@@ -162,9 +166,9 @@
     - name: Data protection & encryption
       items:
       - name: Rotate keys
-        href: ../ai-services/rotate-keys.md
+        href: ../ai-services/rotate-keys.md?context=/azure/ai-studio/context/context
       - name: Configure customer-managed keys
-        href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md
+        href: ../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context
 - name: Responsible AI
   items:
   - name: Overview
@@ -179,6 +183,8 @@
       href: ../ai-services/openai/concepts/system-message.md?context=/azure/ai-studio/context/context
 - name: Reference
   items:
+  - name: Azure AI SDK for Python
+    href: /python/api/overview/azure/ai
   - name: Azure CLI
     href: /cli/azure/cognitiveservices
   - name: Azure PowerShell

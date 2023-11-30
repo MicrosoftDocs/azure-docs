@@ -3,7 +3,7 @@ title:  Limited access to Microsoft Copilot for Azure (preview)
 description: This article describes the limited access policy for Microsoft Copilot for Azure (preview).
 ms.date: 11/15/2023
 ms.topic: how-to
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -18,7 +18,7 @@ As part of Microsoft's commitment to responsible AI, we are currently limiting t
 
 ## Registration process
 
-Microsoft Copilot for Azure requires registration (preview) and is currently only available to approved enterprise customers and partners. Customers who wish to use Microsoft Copilot for Azure (preview) are required to submit a [registration form](https://aka.ms/MSCopilotforAzurePreview).
+Microsoft Copilot for Azure (preview) requires registration and is currently only available to approved enterprise customers and partners. Customers who wish to use Microsoft Copilot for Azure (preview) are required to submit a [registration form](https://aka.ms/MSCopilotforAzurePreview).
 
 Access to Microsoft Copilot for Azure (preview) is subject to Microsoft's sole discretion based on eligibility criteria and a vetting process, and customers must acknowledge that they have read and understand the Azure terms of service for Microsoft Copilot for Azure (preview).
 

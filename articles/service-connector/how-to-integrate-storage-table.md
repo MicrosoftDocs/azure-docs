@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 10/24/2023
 ms.custom: event-tier1-build-2022
 ---
-
 # Integrate Azure Table Storage with Service Connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Table Storage to other cloud services using Service Connector. You might still be able to connect to Azure Table Storage in other programming languages without using Service Connector. This page also shows default environment variable names and values you get when you create the service connection.
@@ -16,17 +15,18 @@ This page shows supported authentication methods and clients, and shows sample c
 ## Supported compute services
 
 - Azure App Service
+- Azure Functions
 - Azure Container Apps
 - Azure Spring Apps
 
-Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
-| Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
-|-------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
-| .NET        |![yes icon](./media/green-check.png)|![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) |![yes icon](./media/green-check.png)|
-| Java        |![yes icon](./media/green-check.png)|![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) |![yes icon](./media/green-check.png)|
-| Node.js     |![yes icon](./media/green-check.png)|![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) |![yes icon](./media/green-check.png)|
-| Python      |![yes icon](./media/green-check.png)|![yes icon](./media/green-check.png)| ![yes icon](./media/green-check.png) |![yes icon](./media/green-check.png)|
+| Client type | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
+| ----------- | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Java        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Node.js     | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ## Default environment variable names or application properties and sample code
 

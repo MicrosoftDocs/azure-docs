@@ -134,6 +134,7 @@ The reliability design described in this document is implemented by Microsoft an
 
 ## Next steps
 
+- Learn about [connecting Azure Communications Gateway to your network](connectivity.md)
 - Learn about [how Azure Communications Gateway keeps your network and data secure](security.md)
 - Learn more about [planning an Azure Communications Gateway deployment](get-started.md)
 

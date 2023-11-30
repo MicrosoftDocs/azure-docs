@@ -1,6 +1,6 @@
 ---
 title: Terms and Conditions on Azure portal
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services

@@ -1,5 +1,5 @@
 ---
-ms.date: 05/24/2023
+ms.date: 11/15/2023
 author: jfggdl
 ms.author: jafernan
 title: Overview
@@ -44,7 +44,7 @@ Event Grid offers a rich mixture of features. These features include:
 - **[Built-in cloud integration](mqtt-routing.md)** - route your MQTT messages to Azure services or custom webhooks for further processing.
 - **Flexible and fine-grained [access control model](mqtt-access-control.md)** - group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
 - **X.509 certificate [authentication](mqtt-client-authentication.md)** - authenticate your devices using the IoT industry's standard mechanism for authentication.
-- **[Microsoft Entra ID (formerly Azure Active Directory) authentication](mqtt-client-azure-ad-token-and-rbac.md)** - authenticate your applications using the Azure's standard mechanism for authentication.
+- **[Microsoft Entra ID (formerly Azure Active Directory) authentication](mqtt-client-microsoft-entra-token-and-rbac.md)** - authenticate your applications using the Azure's standard mechanism for authentication.
 - **TLS 1.2 and TLS 1.3 support** - secure your client communication using robust encryption protocols.
 - **Multi-session support** - connect your applications with multiple active sessions to ensure reliability and scalability.
 - **MQTT over WebSockets** - enable connectivity for clients in firewall-restricted environments.
@@ -126,7 +126,7 @@ Your own service or application publishes events to Event Grid that subscriber a
 A multitenant SaaS provider or platform can publish their events to Event Grid through a feature called [Partner Events](partner-events-overview.md). You can [subscribe to those events](subscribe-to-partner-events.md) and automate tasks, for example. Events from the following partners are currently available:
 
 - [Auth0](auth0-overview.md)
-- [Microsoft Graph API](subscribe-to-graph-api-events.md). Through Microsoft Graph API you can get events from [Azure AD](azure-active-directory-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), Conversations, security alerts, and Universal Print.
+- [Microsoft Graph API](subscribe-to-graph-api-events.md). Through Microsoft Graph API you can get events from [Microsoft Entra ID](microsoft-entra-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), Conversations, security alerts, and Universal Print.
 - [Tribal Group](subscribe-to-tribal-group-events.md)
 - [SAP](subscribe-to-sap-events.md)
 

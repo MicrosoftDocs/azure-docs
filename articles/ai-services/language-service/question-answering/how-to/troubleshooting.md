@@ -18,7 +18,7 @@ The curated list of the most frequently asked questions regarding question answe
 <summary><b>How can I improve the throughput performance for query predictions?</b></summary>
 
 **Answer**:
-Throughput performance issues indicate you need to scale up your Cognitive Search. Consider adding a replica to your Cognitive Search to improve performance.
+Throughput performance issues indicate you need to scale up your Azure AI Search. Consider adding a replica to your Azure AI Search to improve performance.
 
 Learn more about [pricing tiers](../Concepts/azure-resources.md).
 </details>
@@ -104,7 +104,7 @@ If you have content from multiple languages, be sure to create a separate projec
 <summary><b>I deleted my existing Search service. How can I fix this?</b></summary>
 
 **Answer**:
-If you delete an Azure Cognitive Search index, the operation is final and the index cannot be recovered.
+If you delete an Azure AI Search index, the operation is final and the index cannot be recovered.
 
 </details>
 
@@ -117,7 +117,7 @@ In case you deleted the `testkbv2` index in your Search service, you can restore
 </details>
 
 <details>
-<summary><b>Can I use the same Azure Cognitive Search resource for projects using multiple languages?</b></summary>
+<summary><b>Can I use the same Azure AI Search resource for projects using multiple languages?</b></summary>
 
 **Answer**:
 To use multiple language and multiple projects, the user has to create a project for each language and the first project created for the language resource has to select the option **I want to select the language when I create a project in this resource**. This will create a separate Azure search service per language.

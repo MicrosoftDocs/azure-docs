@@ -1,8 +1,8 @@
 ---
 title: Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights
 description: Learn how to monitor MCC EDR Ingestion Agents and troubleshoot common issues 
-author: HollyCl
-ms.author: HollyCl
+author: rcdun
+ms.author: rdunstan
 ms.service: operator-insights
 ms.topic: troubleshooting-general #Don't change.
 ms.date: 10/30/2023

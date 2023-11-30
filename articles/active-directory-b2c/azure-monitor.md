@@ -2,12 +2,12 @@
 title: Monitor Azure AD B2C with Azure Monitor
 titleSuffix: Azure AD B2C
 description: Learn how to log Azure AD B2C events with Azure Monitor by using delegated resource management.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C

@@ -2,7 +2,7 @@
 title: How to deploy an orchestration workflow project
 titleSuffix: Azure AI services
 description: Learn about deploying orchestration workflow projects.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

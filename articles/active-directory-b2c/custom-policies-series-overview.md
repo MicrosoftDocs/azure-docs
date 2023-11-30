@@ -2,12 +2,12 @@
 title: Create and run your own custom policies in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to create and run your own custom policies in Azure Active Directory B2C. Learn how to create Azure Active Directory B2C custom policies from scratch in a how-to guide series.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
 ms.date: 11/06/2023

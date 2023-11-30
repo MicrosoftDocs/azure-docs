@@ -32,6 +32,9 @@ You can create up to 100 availability tests per Application Insights resource.
 
 ## Troubleshooting
 
+> [!WARNING]
+> We have recently enabled TLS 1.3 in Availability Tests.  If you are seeing new error messages as a result, please ensure that clients running on Windows Server 2022 with TLS 1.3 enabled can connect to your endpoint. If you are unable to do this, you may consider temporarily disabling TLS 1.3 on your endpoint so that Availability Tests will fall back to older TLS versions.  
+> For additional information, please check the  [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
 
 ## Frequently asked questions

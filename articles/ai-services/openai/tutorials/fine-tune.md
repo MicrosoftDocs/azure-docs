@@ -2,7 +2,7 @@
 title: Azure OpenAI Service fine-tuning gpt-3.5-turbo
 titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's latest fine-tuning capabilities with gpt-3.5-turbo
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: tutorial

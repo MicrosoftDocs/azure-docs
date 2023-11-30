@@ -272,6 +272,7 @@ const state = remoteParticipant.state;
     ```js
         const endpointDetails: EndpointDetails[] = remoteParticipant.endpointDetails;
     ```
+    *Note: A remote participant could be in the call from many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the RemoteParticipant.identifier's raw Id.*
 
 ## Check call properties
 
@@ -287,6 +288,7 @@ Get the local participant Id:
 ```js
 const participantId: string = call.info.participantId;
 ```
+*Note: An ACS identity can use the web calling sdk in many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the ACS identity raw Id.*
 
 Retrieve the thread ID if joining a Teams meeting:
 > [!NOTE]
