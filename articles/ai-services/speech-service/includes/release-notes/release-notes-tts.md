@@ -2,9 +2,15 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 02/28/2023
+ms.date: 12/1/2023
 ms.author: eur
 ---
+
+### December 2023 release
+
+#### Custom voice API
+
+The custom voice API is available for creating and managing [professional](../../professional-voice-create-project.md) and [personal](../../personal-voice-create-project.md) custom neural voice models. 
 
 ### November 2023 release
 

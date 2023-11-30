@@ -20,9 +20,9 @@ This article retains information about the v3 text to speech REST API for refere
 
 ## Required changes
 
-**Suspend endpoint:** Use the custom voice API [suspend endpoint](./professional-voice-deploy-endpoint.md#suspend-an-endpoint?pivots=rest-api) operation to suspend an endpoint. The v3 text to speech REST API [suspend endpoint operation](#suspend-endpoint) is retiring.
+**Suspend endpoint:** Use the custom voice API [suspend endpoint](./professional-voice-deploy-endpoint.md?pivots=rest-api#suspend-an-endpoint) operation to suspend an endpoint. The v3 text to speech REST API [suspend endpoint operation](#suspend-endpoint) is retiring.
 
-**Resume endpoint:** Use the custom voice API [resume endpoint](./professional-voice-deploy-endpoint.md#resume-an-endpoint?pivots=rest-api) operation to suspend an endpoint. The v3 text to speech REST API [resume endpoint operation](#resume-endpoint) is retiring.
+**Resume endpoint:** Use the custom voice API [resume endpoint](./professional-voice-deploy-endpoint.md?pivots=rest-api#resume-an-endpoint) operation to suspend an endpoint. The v3 text to speech REST API [resume endpoint operation](#resume-endpoint) is retiring.
 
 ## Reference documentation for v3 text to speech REST API (retiring)
 
@@ -171,7 +171,7 @@ For more information, see [response headers](#response-headers).
 
 ##### Request parameters
 
-You use these request parameters with calls to the REST API. See [application settings](#application-settings) for information about where to get your region, endpoint ID, and Speech resource key in Speech Studio.
+You use these request parameters with calls to the REST API. 
 
 | Name                        | Location     | Required | Type   | Description                                                                    |
 | --------------------------- | ------ | -------- | ------ | ------------------------------------------------------------------------------ |

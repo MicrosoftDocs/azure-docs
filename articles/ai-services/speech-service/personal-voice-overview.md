@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 11/24/2023
+ms.date: 12/1/2023
 ms.author: eur
 ms.custom: references_regions
 ---
