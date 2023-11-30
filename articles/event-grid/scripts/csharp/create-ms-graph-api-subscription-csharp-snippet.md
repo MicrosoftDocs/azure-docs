@@ -1,3 +1,11 @@
+---
+title: Csharp - Create Graph API subscription to subscribe to Microsoft Graph API events using Event Grid partner topics as a notification destination.
+description: This article provides a sample Azure CLI script that shows how to create a Microsoft Graph API subscription to receive events via Azure Event Grid partner topics.
+ms.devlang: csharp
+ms.topic: sample
+ms.date: 12/08/2023
+---
+
 // Code snippets are only available for the latest version. Current version is 5.x
 
 // Dependencies
@@ -13,5 +21,5 @@ var requestBody = new Subscription
 	ClientState = "secretClientValue",
 };
 
-// To initialize your graphClient, see https://learn.microsoft.com/en-us/graph/sdks/create-client?from=snippets&tabs=csharp
+// To initialize your graphClient, see `https://learn.microsoft.com/graph/sdks/create-client?from=snippets&tabs=csharp`
 var result = await graphClient.Subscriptions.PostAsync(requestBody);

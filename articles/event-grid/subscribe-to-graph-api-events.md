@@ -49,13 +49,13 @@ You request Microsoft Graph API to forward events to an Event Grid partner topic
 
 You should meet these general prerequisites before implementing your application to create and renew Microsoft Graph API subscriptions:
 
-- Become familar with the [high-level steps to subscribe to partner events](subscribe-to-partner-events.md#high-level-steps.md). As described in that article, prior to creating a Graph API subscription you should follow the instructions in:
+- Become familar with the [high-level steps to subscribe to partner events](subscribe-to-partner-events.md#high-level-step.md). As described in that article, prior to creating a Graph API subscription you should follow the instructions in:
 
   - [Register the Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with your Azure subscription.
 
   - [Authorize partner](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
 
-- Have a working knowledge of [Microsoft Graph API notifications](/graph/api/resources/webhooks?view=graph-rest-1.0). As part of your learning, you could use the [Graph API Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to create Graph API subscriptions.
+- Have a working knowledge of [Microsoft Graph API notifications](/graph/api/resources/webhooks). As part of your learning, you could use the [Graph API Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to create Graph API subscriptions.
 - Understand [Partner Events concepts](partner-events-overview.md).
 - Identify the Microsoft Graph API resource from which you want to receive system state change events. See [Microsoft Graph API change notifications](/graph/webhooks#supported-resources) for more information. For example, for tracking changes to users in Microsoft Entra ID you should use the [user](/graph/api/resources/user) resource. Use [group](/graph/api/resources/group) for tracking changes to user groups.
 - Have a tenant administrator account on a Microsoft 365 tenant. You can get a development tenant for free by joining the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program).
@@ -129,7 +129,7 @@ Content-type: application/json
    ```
 - `lifecycleNotificationUrl`: a URI used to define the partner topic to which `microsoft.graph.subscriptionReauthorizationRequired`events are sent. This event signals your application that the Graph API subscription is expiring soon. The URI follows the same pattern as *notificationUrl* described above if using Event Grid as destination to lifecycle events. In that case, the partner topic should be the same as the one specificed in *notificationUrl*.
 - resource: the resource that generates events that announce state changes.
-- expirationDateTime: the expiration time at which the subscription expires and the flow of events stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable per resource type](/graph/api/resources/subscription?view=graph-rest-1.0#subscription-lifetime).
+- expirationDateTime: the expiration time at which the subscription expires and the flow of events stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable per resource type](/graph/api/resources/subscription#subscription-lifetime).
 - client state. This property is optional. It is used for verification of calls to your event handler application during event delivery. For more information, see [Graph API subscription properties](/graph/api/resources/subscription#properties).
 
 > [!IMPORTANT]
@@ -197,9 +197,9 @@ When renewing and/or reauthorizing your Graph API subscription the same partner 
 
 When Specifying a new *expirationDateTime*, it must be at least three hours from the current time. Otherwise, your application may receive `microsoft.graph.subscriptionReauthorizationRequired` events soon after renewal.
 
-For examples about how to reauthorize your Graph API subscription using any of the supported languages, see [subscription reauthorize request](/graph/api/subscription-reauthorize?view=graph-rest-1.0&tabs=http#request).
+For examples about how to reauthorize your Graph API subscription using any of the supported languages, see [subscription reauthorize request](/graph/api/subscription-reauthorize#request).
 
-For examples about how to renew and reauthorize your Graph API subscription using any of the supported languages, see [update subscription request.](/graph/api/subscription-update?view=graph-rest-1.0&tabs=http#request).
+For examples about how to renew and reauthorize your Graph API subscription using any of the supported languages, see [update subscription request.](/graph/api/subscription-update#request).
 
 ### Samples with detailed instructions
 
@@ -227,7 +227,7 @@ Web application samples are available for the following languages:
 
 ## Next steps
 
-Follow the instructions in the following two steps to receive Microsoft Graph API events using Event Grid:
+Follow the instructions in the following two steps to complete set-up to receive Microsoft Graph API events using Event Grid:
 
 - [Activate the partner topic](subscribe-to-partner-events.md#activate-a-partner-topic) created as part of the Microsoft Graph API creation.
 - [Subscribe to events](subscribe-to-partner-events.md#subscribe-to-events) by creating an event subscription to your partner topic.
