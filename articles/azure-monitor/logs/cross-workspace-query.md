@@ -35,45 +35,6 @@ If you manage subscriptions in other Microsoft Entra tenants through [Azure Ligh
 * Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
 * References to a cross resource, such as another workspace, should be explicit and can't be parameterized. See [Gather identifiers for Log Analytics workspaces](?tabs=workspace-identifier#gather-identifiers-for-log-analytics-workspaces-and-application-insights-resources) for examples.
 
-## Gather identifiers for Log Analytics workspaces and Application Insights resources
-
-To reference another workspace in your query, use the [workspace](../logs/workspace-expression.md) identifier. For an app from Application Insights, use the [app](./app-expression.md) identifier.
-
-### [Workspace identifier](#tab/workspace-identifier)
-
-You can identify a workspace using one of these IDs:
-
-* **Workspace ID**: A workspace ID is the unique, immutable, identifier assigned to each workspace represented as a globally unique identifier (GUID).
-
-    `workspace("00000000-0000-0000-0000-000000000000").Update | count`
-
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName*.
-
-    For example:
-
-    ``` 
-    workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
-    ```
-
-### [App identifier](#tab/app-identifier)
-The following examples return a summarized count of requests made against an app named *fabrikamapp* in Application Insights.
-
-You can identify an app using one of these IDs:
-
-* **ID**: This ID is the app GUID of the application.
-
-    `app("00000000-0000-0000-0000-000000000000").requests | count`
-
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the app. The format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.
-
-    For example:
-
-    ```
-    app("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
-    ```
-
----
-
 ## Query across workspaces, applications, and resources using functions
 
 Follow the instructions in this section to query without using a function or by using a function.
