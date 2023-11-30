@@ -265,7 +265,7 @@
     - name: 'Delinea Secret Server'
       href: data-connectors/delinea-secret-server.md
     - name: 'ExtraHop Reveal(x)'
-      href: data-connectors/extrahop-reveal-x-via.md
+      href: data-connectors/extrahop-reveal-x.md
     - name: '[Deprecated] F5 Networks'
       href: data-connectors/f5-networks.md
     - name: '[Deprecated] FireEye Network Security (NX) via Legacy Agent'

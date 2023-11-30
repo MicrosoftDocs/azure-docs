@@ -148,9 +148,9 @@ Data connectors are available as part of the following offerings:
 
 ## Cloud Software Group
 
-- [[Deprecated] Citrix WAF (Web App Firewall) via Legacy Agent](data-connectors/deprecated-citrix-waf-web-app-firewall-via-legacy-agent.md)
-- [[Recommended] Citrix WAF (Web App Firewall) via AMA](data-connectors/recommended-citrix-waf-web-app-firewall-via-ama.md)
+- [Citrix WAF (Web App Firewall)](data-connectors/deprecated-citrix-waf-web-app-firewall-via-legacy-agent.md)
 - [CITRIX SECURITY ANALYTICS](data-connectors/citrix-security-analytics.md)
+
 ## Cloudflare
 
 - [Cloudflare (Preview) (using Azure Functions)](data-connectors/cloudflare-using-azure-functions.md)
