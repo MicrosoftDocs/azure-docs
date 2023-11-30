@@ -49,7 +49,8 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 - The maximum number of participants allowed in a chat thread is 250.
 - The maximum message size allowed is approximately 28 KB.
 - For chat threads with more than 20 participants, read receipts and typing indicator features are not supported.
-- For Teams Interop scenarios, it is the number of Azure Communication Services users, not Teams users that must be below 20 for read receipts and typing indicator features to be supported.
+- For Teams Interop scenarios, it is the number of Azure Communication Services users, not Teams users, that must be below 20 for the typing indicator feature to be supported.
+- For Teams Interop scenarios, read receipts from a user who is outside of your org or who has the read receipt feature turned off in Teams aren't available. For more information, see [read receipts for messages in Microsoft Teams]([../notifications.md](https://support.microsoft.com/en-us/office/use-read-receipts-for-messages-in-microsoft-teams-533f2334-32ef-424b-8d56-ed30e019f856#ID0EBBD=Desktop)).
   
 ## Chat architecture
 
