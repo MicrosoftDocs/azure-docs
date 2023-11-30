@@ -124,9 +124,9 @@ applicationsScoping
 >[!NOTE]
 > This method can't be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn't supported. If you prefer to use a function for resource scoping in log alerts, you must edit the alert rule in the portal or with an Azure Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
 
-## Use the workspace() expression to query across Log Analytics workspaces
+## Query across Log Analytics workspaces using workspace() 
 
-Use the `workspace` expression in an Azure Monitor query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. You can use this expression to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
+Use the `workspace()` expression in an Azure Monitor query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. You can use this expression to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
 
 ### Syntax
 
@@ -168,7 +168,7 @@ union
 (workspace("00000000-0000-0000-0000-000000000000").Heartbeat), (app("00000000-0000-0000-0000-000000000000").requests) | where TimeGenerated between(todatetime("2023-03-08 15:00:00") .. todatetime("2023-04-08 15:05:00"))
 ```
 
-## Use the app() expression to query across classic Application Insights applications
+## Query across classic Application Insights applications using app() 
 
 The `app` expression is used in an Azure Monitor query to retrieve data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This is useful to include application data in an Azure Monitor log query and to query data across multiple applications in an Application Insights query.
 
@@ -209,7 +209,7 @@ union
 | where TimeGenerated between(todatetime("2023-03-08 15:00:00") .. todatetime("2023-04-08 15:05:00"))
 ```
 
-## Use the resource() expression to correlate data between resources
+## Correlate data between resources using resource() 
 
 The `resource` expression is used in a Azure Monitor query [scoped to a resource](scope.md#query-scope) to retrieve data from other resources. 
 
