@@ -28,7 +28,7 @@ The Operator Connect and Teams Phone Mobile programs also require an onboarding 
 
 ## Ensure you have a suitable support plan
 
-We strongly recommend that you have a support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
+We strongly recommend that you have a support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or Premier Support.
 
 ## Choose the Azure tenant to use
 

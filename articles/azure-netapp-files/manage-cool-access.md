@@ -36,7 +36,7 @@ The standard storage with cool access feature provides options for the “coolne
     * An auto QoS capacity pool enabled for standard storage with cool access cannot be converted to a capacity pool using manual QoS.
 * You can't use large volumes with Standard storage with cool access.
 * See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
-* Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) (CRR): 
+* Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) (CRR) and [cross-zone replication](cross-zone-replication-introduction.md): 
     * If the volume is in a CRR relationship as a source volume, you can enable cool access on it only if the [mirror state](cross-region-replication-display-health-status.md#display-replication-status) is `Mirrored`. Enabling cool access on the source volume automatically enables cool access on the destination volume.
     * If the volume is in a CRR relationship as a destination volume (data protection volume), enabling cool access isn't supported for the volume.
     * The cool access setting is updated automatically on the destination volume to be the same as the source volume. When you update the cool access setting on the source volume, the same setting is applied at the destination volume.

@@ -29,7 +29,7 @@ Free disk space (retention disk) | 600 GB
 
 **Component** | **Requirement** 
 --- | ---
-Operating system | Windows Server 2012 R2 <br> Windows Server 2016 <br> Windows Server 2019 <br> Windows Server 2022 <br> **Note**: Windows Server 2019 and 2022 are only supported for modernized architecture. As classic architecture is under deprecation, no new feature supports were added to it. We suggest you use the [modernized architecture](../articles/site-recovery/replication-appliance-support-matrix.md#software-requirements).
+Operating system | Windows Server 2012 R2 <br> Windows Server 2016 <br> **Note**: Windows Server 2019 is only supported for modernized architecture. As classic architecture is under deprecation, no new feature supports will be added to it. We suggest you use the [modernized architecture](../articles/site-recovery/replication-appliance-support-matrix.md#software-requirements).
 Operating system locale | English (en-*)
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))

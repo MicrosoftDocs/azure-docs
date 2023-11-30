@@ -1,8 +1,8 @@
 ---
 title: Manage MCC EDR Ingestion Agents for Azure Operator Insights
 description: Learn how to upgrade, update, roll back and manage MCC EDR Ingestion agents for AOI
-author: HollyCl
-ms.author: HollyCl
+author: rcdun
+ms.author: rdunstan
 ms.service: operator-insights
 ms.topic: how-to #Required; leave this attribute/value as-is
 ms.date: 11/02/2023

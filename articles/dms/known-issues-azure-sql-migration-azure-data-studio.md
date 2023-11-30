@@ -333,6 +333,15 @@ exec sp_addRoleMember 'loginmanager', 'testuser'
 Note: To view error detail, Open Microsoft Integration runtime configurtion manager > Diagnostics > logging > view logs. 
 It will open the Event viewer > Application and Service logs > Connectors - Integration runtime and now filter for errors.
 
+- **Message**: Deployed failure: Index cannot be created on computed column '{0}' of table '{1}' because the underlying object '{2}' has a different owner. Object element: {3}.
+  
+  ` Sample Generated Script:: IF NOT EXISTS (SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID(N'[Sales].[Customer]') AND name = N'AK_Customer_AccountNumber') CREATE UNIQUE NONCLUSTERED INDEX [AK_Customer_AccountNumber] ON [Sales].[Customer] ( [AccountNumber] ASC )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) `
+
+- **Cause**: All function references in the computed column must have the same owner as the table.
+
+- **Recommendation**: Check the doc [Ownership Requirement](https://learn.microsoft.com/sql/relational-databases/indexes/indexes-on-computed-columns?view=sql-server-ver16#ownership-requirements).
+
+
 ## Error code: Ext_RestoreSettingsError
 
 - **Message**: Unable to read blobs in storage container, exception: The remote server returned an error: (403) Forbidden.; The remote server returned an error: (403) Forbidden
