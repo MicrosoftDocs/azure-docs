@@ -160,7 +160,7 @@ Follow the Rubrik User Guide instructions to [Add a Webhook](https://docs.rubrik
  7. Select the following severity levels: Critical, Warning, Informational 
  8. Repeat the same steps to add webhooks for Ransomware Investigation Analysis and Threat Hunt. 
 
- .{!NOTE]
+ >[!NOTE]
  > While adding webhooks for Ransomware Investigation Analysis and Threat Hunt, replace **{functionname}**  with **"RubrikRansomwareOrchestrator"** and **"RubrikThreatHuntOrchestrator"** respectively in copied function-url.
 
 
