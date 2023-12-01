@@ -23,11 +23,11 @@ Inline images are images that are copied and pasted directly into the send box o
 The Chat SDK for JavaScript provides `previewUrl` and `url` for each inline image. Note that some GIF images fetched from `previewUrl` might not be animated, and a static preview image may be returned instead. Developers are expected to use the `url` if the intention is to fetch animated images only.
 
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="javascript"
 [!INCLUDE [Teams Inline Image Interop with JavaScript SDK](./includes/meeting-interop-features-inline-image-javascript.md)] 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp" 
+::: zone pivot="csharp" 
 [!INCLUDE [Teams Inline Image Interop with C# SDK](./includes/meeting-interop-features-inline-image-csharp.md)] 
 ::: zone-end
 
