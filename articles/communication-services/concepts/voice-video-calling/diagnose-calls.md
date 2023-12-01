@@ -121,7 +121,7 @@ related events in the Timeline tab.
 
 ## Call Timeline
 
-When call issues are difficult to troubleshoot you can explore the
+When call issues are difficult to troubleshoot, you can explore the
 timeline tab to see a detailed sequence of events that occurred during
 the call.
 
@@ -204,13 +204,13 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
     1.  If all the participants are from the same Azure subscription,
         they'll appear as "remote participants". However, Call
         Diagnostics won’t show any participant details for Azure
-        Communication Services participants from another resource. , you need to review
+        Communication Services participants from another resource. You need to review
         that same call ID from the specific Azure Communication Services
-        Resource they belong to.
+        Resource the participant belongs to.
 
-    2.  If that ACS resource isn't part of **<u>your Azure subscription
+    <!-- 2.  If that ACS resource isn't part of **<u>your Azure subscription
         and / or hasn't enabled Diagnostics Settings to store call logs,
-        there will not be any data available</u>** for Call Diagnostics.
+        there will not be any data available</u>** for Call Diagnostics. -->
 
 1. If Teams participants join a call, how will they display in Call
     Diagnostics?
@@ -286,9 +286,9 @@ Clear your cache to ensure X, you may need clear your cache occasionally if you 
 
 ## Next steps
 
-- Get an overview managing call quality, see: [Improve and manage call quality](manage-call-quality.md)
+- Learn how to manage call quality, see: [Improve and manage call quality](manage-call-quality.md)
 
-- Continue to learn other best practices to manage call quality, see: [Best practices: Azure Communication Services calling SDKs](../best-practices.md)
+- Continue to learn other quality best practices, see: [Best practices: Azure Communication Services calling SDKs](../best-practices.md)
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
