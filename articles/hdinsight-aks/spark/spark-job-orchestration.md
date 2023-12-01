@@ -20,7 +20,7 @@ The following diagram shows the placement of Airflow, Key Vault, and HDInsight o
 
 Multiple Azure Service Principals are created based on the scope to limit the access it needs and to manage the client credential life cycle independently. 
 
-It is recommended to rotate access keys or secrets periodically (you can use  various [design pattern’s](https://learn.microsoft.com/en-us/azure/key-vault/secrets/tutorial-rotation-dual?tabs=azure-cli) to rotate secrets). 
+It is recommended to rotate access keys or secrets periodically (you can use  various [design pattern’s](/azure/key-vault/secrets/tutorial-rotation-dual?tabs=azure-cli) to rotate secrets). 
 
 ## Setup steps 
 
@@ -60,7 +60,7 @@ It is recommended to rotate access keys or secrets periodically (you can use  va
       :::image type="content" source="./media/spark-job-orchestration/airflow-configuration-environment-variable.png" alt-text="Screenshot shows airflow configuration and environment variables." lightbox="./media/spark-job-orchestration/airflow-configuration-environment-variable.png":::
 
  
-1. Create [Microsoft Entra service principal](/cli/azure/ad/sp/) to access HDInsight on AKS cluster Azure – [Grant access to HDInsight AKS Cluster](https://learn.microsoft.com/en-us/azure/hdinsight-aks/hdinsight-on-aks-manage-authorization-profile#how-to-grant-access), make a note of appId, password, and tenant from the response. 
+1. Create [Microsoft Entra service principal](/cli/azure/ad/sp/) to access HDInsight on AKS cluster Azure – [Grant access to HDInsight AKS Cluster](/azure/hdinsight-aks/hdinsight-on-aks-manage-authorization-profile.md#how-to-grant-access), make a note of appId, password, and tenant from the response. 
 
     `az ad sp create-for-rbac -n <sp name>` 
 
