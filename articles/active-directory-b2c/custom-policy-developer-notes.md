@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 10/05/2023
+ms.date: 12/01/2023
 ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -34,11 +34,11 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with email and password. | GA | GA| |
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with username and password.| GA | GA | |
 | [Profile editing flow](add-profile-editing-policy.md) | GA | GA | |
-| [Self-Service password reset](add-password-reset-policy.md) | GA| GA| |
-| [Force password reset](force-password-reset.md) | GA | NA | |
+| [Self-Service password reset](add-password-reset-policy.md) | GA| GA| Available in Mooncake cloud, but just through custom policy
+| [Force password reset](force-password-reset.md) | GA | NA | Available in Mooncake cloud, but just through custom policy |
 | [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
-| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications |
-| [Smart lockout](threat-management.md) | GA | GA | |
+| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications. Limited CA features are available in Mooncake cloud. Identity Protection is not available. in Mooncake cloud |
+| [Smart lockout](threat-management.md) | GA | GA | Not available in Mooncake cloud |
 
 ## OAuth 2.0 application authorization flows
 
