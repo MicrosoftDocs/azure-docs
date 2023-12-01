@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use the various tools and visualization charts in the Responsible AI image dashboard in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
 ms.reviewer: lagayhar
 ms.author: ilmat
@@ -109,7 +109,7 @@ For image classification and multiclassification, incorrect predictions refer to
 For object detection, incorrect predictions refer to images where:
 
 - At least one object was incorrectly labeled
-- Incorrectly detecting an object class when a ground truth object doesn’t exist
+- Incorrectly detecting an object class when a ground truth object doesn't exist
 - Failing to detect an object class when a ground truth object exists
 
 > [!NOTE]
@@ -165,7 +165,7 @@ The Class view pane breaks down your model predictions by class label. You can i
 
 - **Select label type**: Choose to view images by the predicted or ground truth label.
 - **Select labels to display**: View image instances containing your selection of one or more class labels.
-- **View images per class label**: Identify successful and error image instances per selected class label(s), and the distribution of each class label in your dataset. If a class label has “10/120 examples”, out of 120 total images in the dataset, 10 images belong to that class label.
+- **View images per class label**: Identify successful and error image instances per selected class label(s), and the distribution of each class label in your dataset. If a class label has "10/120 examples", out of 120 total images in the dataset, 10 images belong to that class label.
 
 Class view for multiclass classification:
 
@@ -180,8 +180,8 @@ Class view for object detection:
 For AutoML image classification models, four kinds of explainability methods are supported, namely [Guided backprop](https://arxiv.org/abs/1412.6806), [Guided gradCAM](https://arxiv.org/abs/1610.02391v4), [Integrated Gradients](https://arxiv.org/abs/1703.01365) and [XRAI](https://arxiv.org/abs/1906.02825). To learn more about the four explainability methods, see [Generate explanations for predictions](how-to-auto-train-image-models.md#generate-explanations-for-predictions).
 
 > [!NOTE]
-> -	**These four methods are specific to AutoML image classification only** and will not work with other task types such as object detection, instance segmentation etc. Non-AutoML image classification models can leverage SHAP vision for model interpretability. 
->-	**The explanations are only generated for the predicted class**. For multilabel classification, a threshold on confidence score is required, to select the classes for which the explanations are generated. See the [parameter list](how-to-responsible-ai-vision-insights.md#responsible-ai-vision-insights-component-parameter-automl-specific) for the parameter name.
+> -    **These four methods are specific to AutoML image classification only** and will not work with other task types such as object detection, instance segmentation etc. Non-AutoML image classification models can leverage SHAP vision for model interpretability. 
+>-    **The explanations are only generated for the predicted class**. For multilabel classification, a threshold on confidence score is required, to select the classes for which the explanations are generated. See the [parameter list](how-to-responsible-ai-vision-insights.md#responsible-ai-vision-insights-component-parameter-automl-specific) for the parameter name.
 
 Both AutoML and non-AutoML object detection models can leverage [D-RISE](https://github.com/microsoft/vision-explanation-methods) to generate visual explanations for model predictions.
 

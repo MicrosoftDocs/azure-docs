@@ -450,7 +450,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&rar=true&regions=all
   - name: Feature availability
-    href: https://azure.github.io/azure-netapp-files/map/
+    href: https://aka.ms/anfmap
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos

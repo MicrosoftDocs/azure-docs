@@ -8,9 +8,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.author: hannahhunter
-ms.custom:
-  - ignite-fall-2023
-  - ignite-2023
+ms.custom: ignite-fall-2023, ignite-2023, devx-track-azurecli
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 

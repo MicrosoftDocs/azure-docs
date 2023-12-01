@@ -4,6 +4,7 @@ titleSuffix: Azure IoT MQ
 description: Learn how to configure IoT MQ for bi-directional MQTT bridge with Azure Event Grid MQTT broker PaaS.
 author: PatAltimore
 ms.subservice: mq
+ms.custom: devx-track-azurecli
 ms.author: patricka
 ms.topic: tutorial
 ms.date: 11/15/2023

@@ -184,4 +184,4 @@ App Service Environment has three versions: App Service Environment v1, App Serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Whitepaper on Using App Service Environment v3 in Compliance-Oriented Industries](https://azure.microsoft.com/resources/using-app-service-environment-v3-in-compliance-oriented-industries/)
+> [Whitepaper on Using App Service Environment v3 in Compliance-Oriented Industries](https://gigaom.com/report/using-app-service-environment-v3-in-compliance-oriented-industries/)

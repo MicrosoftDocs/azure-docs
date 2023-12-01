@@ -3,7 +3,7 @@ title: Enable Container insights for Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
 ms.date: 11/14/2023
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: ignite-2022
 ms.reviewer: aul
 ---
 
@@ -302,4 +302,3 @@ The command will return JSON-formatted information about the solution. The `addo
 
 * If you experience issues while you attempt to onboard the solution, review the [Troubleshooting guide](container-insights-troubleshoot.md).
 * With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
-

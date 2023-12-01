@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 11/17/2023
+ms.date: 11/22/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -84,19 +84,20 @@ GPT-4 version 0314 is the first version of the model released.  Version 0613 is 
 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-4 deployments.
 
-
-|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
-|  --- |  --- | --- | --- | --- |
-| `gpt-4` (0314)     | East US, France Central  |  N/A                 | 8,192                | September 2021         |
-| `gpt-4-32k` (0314)  |  East US, France Central |  N/A                | 32,768               | September 2021         |
-| `gpt-4` (0613)     |  Australia East, Canada East, East US, East US 2, France Central, Japan East, Sweden Central, Switzerland North, UK South |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` (0613)  |  Australia East, Canada East, East US, East US 2, France Central, Japan East, Sweden Central, Switzerland North, UK South |  N/A                | 32,768               | September 2021         |
-| `gpt-4` (1106-preview)**<sup>1</sup>** | tbd | Input: 128,000  <br> Output: 4096           | Apr 2023         |
-| `gpt-4-v` (gpt-4-vision-preview)  | Switzerland North |  N/A                | 16384               | September 2021         |
-
-
 > [!NOTE]
 > Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
+
+|  Model ID  | Max Request (tokens) | Training Data (up to)  |
+|  --- |  :--- | :---: |
+| `gpt-4` (0314) | 8,192 | Sep 2021         |
+| `gpt-4-32k`(0314)  | 32,768               | Sep 2021         |
+| `gpt-4` (0613)     | 8,192                | Sep 2021         |
+| `gpt-4-32k` (0613) | 32,768               | Sep 2021         |
+| `gpt-4` (1106-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4096           | Apr 2023         |
+| `gpt-4-v` (gpt-4-vision-preview)   | 16384               | September 2021         |
+
+
+**<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (1106-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **1106-preview**. We don't recommend using this model in production. We will upgrade all deployments of this model to a future stable version. Models designated preview do not follow the standard Azure OpenAI model lifecycle.
 
 > [!NOTE]
 > Regions where GPT-4 (0314) & (0613) are listed as available have access to both the 8K and 32K versions of the model

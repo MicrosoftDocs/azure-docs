@@ -5,7 +5,7 @@ description: Learn about migrating to the latest release of the OpenAI Python li
 author: mrbullwinkle 
 ms.author: mbullwin 
 ms.service: azure-ai-openai
-ms.custom: 
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 11/15/2023
 manager: nitinme
@@ -149,7 +149,7 @@ client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_KEY"),  
     api_version="2023-10-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-    )
+)
     
 deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
     

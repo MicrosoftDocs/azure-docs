@@ -104,7 +104,7 @@ Use one of the following two ways to configure the connection string:
 
 ### [Java](#tab/java)
 
-[!INCLUDE [azure-monitor-app-insights-opentelemetry-java-connection-string](../includes/azure-monitor-app-insights-opentelemetry-java-connection-string.md)]
+To set the connection string, see [Connection string](java-standalone-config.md#connection-string).
 
 ### [Node.js](#tab/nodejs)
 

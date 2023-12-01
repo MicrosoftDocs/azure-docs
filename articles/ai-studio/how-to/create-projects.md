@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: This article describes how to create an Azure AI Studio project.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
@@ -29,13 +29,10 @@ You can create a project in Azure AI Studio in more than one way. The most direc
 1. Enter a name for the project.
 1. Select an Azure AI resource from the dropdown to host your project. If you don't have access to an Azure AI resource yet, select **Create a new resource**.
 
-    > [!TIP]
-    > It's recommended to share an Azure AI resource with your team. This lets you share configurations like data connections with all projects, and centrally manage security settings and spend.
+    :::image type="content" source="../media/how-to/projects-create-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/how-to/projects-create-details.png":::
 
     > [!NOTE]
-    > To create an Azure AI resource, you must have **Owner** or **Contributor** permissions on the selected resource group. 
-
-    :::image type="content" source="../media/how-to/projects-create-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/how-to/projects-create-details.png":::
+    > To create an Azure AI resource, you must have **Owner** or **Contributor** permissions on the selected resource group. It's recommended to share an Azure AI resource with your team. This lets you share configurations like data connections with all projects, and centrally manage security settings and spend.
 
 1. If you're creating a new Azure AI resource, enter a name.
 
@@ -48,9 +45,8 @@ You can create a project in Azure AI Studio in more than one way. The most direc
     > [!TIP]
     > Especially for getting started it's recommended to create a new resource group for your project. This allows you to easily manage the project and all of its resources together. When you create a project, several resources are created in the resource group, including an Azure AI resource, a container registry, and a storage account.
 
-
-1. Enter the **Location** for the Azure AI resource and then select **Next**. The location is the region where the Azure AI resource is hosted. The location of the Azure AI resource is also the location of the project. 
-1. Review the project details and then select **Create a project**. Azure AI services availability differs per region. For example, certain models might not be available in certain regions.
+1. Enter the **Location** for the Azure AI resource and then select **Next**. The location is the region where the Azure AI resource is hosted. The location of the Azure AI resource is also the location of the project. Azure AI services availability differs per region. For example, certain models might not be available in certain regions.
+1. Review the project details and then select **Create a project**. 
 
     :::image type="content" source="../media/how-to/projects-create-review-finish.png" alt-text="Screenshot of the review and finish page within the create project dialog." lightbox="../media/how-to/projects-create-review-finish.png":::
 

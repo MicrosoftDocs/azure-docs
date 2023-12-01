@@ -41,7 +41,7 @@ For Dynamic Scoping and configuration assignment, ensure that you have the follo
 
 ## Service limits
 
-The following are the Dynamic scope limits for **each dynamic scope**.
+The following are the Dynamic scope recommended limits for **each dynamic scope**.
 
 | Resource    | Limit          |
 |----------|----------------------------|
@@ -51,6 +51,8 @@ The following are the Dynamic scope limits for **each dynamic scope**.
 
 > [!NOTE]
 > The above limits are for Dynamic scope in the Guest scope only.
+
+For more information, see [service limits for scheduled patching](scheduled-patching.md#service-limits).
 
 ## Next steps
 
