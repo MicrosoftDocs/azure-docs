@@ -23,7 +23,7 @@ The application routing add-on with nginx delivers the following:
 * Integration with [Azure DNS][azure-dns-overview] for public and private zone management
 * SSL termination with certificates stored in Azure Key Vault.
 
-For additional configuration information related to SSL encryption and DNS integration, review the [application routing add-on configuration][custom-ingress-configurations].
+For additional configuration information related to SSL encryption and DNS integration, review [DNS and SSL configuration][dns-ssl-configuration] and [application routing add-on configuration][custom-ingress-configurations].
 
 With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the Cloud Native Computing Foundation (CNCF), using the application routing add-on is the default method for all AKS clusters.
 
@@ -482,7 +482,7 @@ When the application routing add-on is disabled, some Kubernetes resources might
 
 ## Next steps
 
-* [Configure custom ingress configurations][custom-ingress-configurations] shows how to create an advanced Ingress configuration to encrypt the traffic and use Azure DNS to manage DNS zones.
+* [Configure custom ingress configurations][custom-ingress-configurations] shows how to create an advanced Ingress configuration and [encrypt the traffic and use Azure DNS to manage DNS zones][dns-ssl-configuration].
 
 * Learn about monitoring the ingress-nginx controller metrics included with the application routing add-on with [with Prometheus in Grafana][prometheus-in-grafana] (preview) as part of analyzing the performance and usage of your application.
 
@@ -494,7 +494,8 @@ When the application routing add-on is disabled, some Kubernetes resources might
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [install-azure-cli]: /cli/azure/install-azure-cli
-[custom-ingress-configurations]: app-routing-dns-ssl.md
+[dns-ssl-configuration]: app-routing-dns-ssl.md
+[custom-ingress-configurations]: app-routing-nginx-configuration.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [prometheus-in-grafana]: app-routing-nginx-prometheus.md
 
