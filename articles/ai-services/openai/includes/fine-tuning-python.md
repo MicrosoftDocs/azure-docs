@@ -374,6 +374,8 @@ az cognitiveservices account deployment create
 
 After your custom model deploys, you can use it like any other deployed model. You can use the **Playgrounds** in [Azure OpenAI Studio](https://oai.azure.com) to experiment with your new deployment. You can continue to use the same parameters with your custom model, such as `temperature` and `max_tokens`, as you can with other deployed models. For fine-tuned `babbage-002` and `davinci-002` models you will use the Completions playground and the Completions API. For fine-tuned `gpt-35-turbo-0613` models you will use the Chat playground and the Chat completion API.
 
+# [OpenAI Python 0.28.1](#tab/python)
+
 ```python
 #Note: The openai-python library support for Azure OpenAI is in preview.
 import os
@@ -397,11 +399,40 @@ print(response)
 print(response['choices'][0]['message']['content'])
 ```
 
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+import os
+from openai import AzureOpenAI
+
+client = AzureOpenAI(
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
+  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_version="2023-05-15"
+)
+
+response = client.chat.completions.create(
+    model="gpt-35-turbo-ft", # model = "Custom deployment name you chose for your fine-tuning model"
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+---
+
 ## Analyze your customized model
 
 Azure OpenAI attaches a result file named _results.csv_ to each fine-tune job after it completes. You can use the result file to analyze the training and validation performance of your customized model. The file ID for the result file is listed for each customized model, and you can use the Python SDK to retrieve the file ID and download the result file for analysis.
 
 The following Python example retrieves the file ID of the first result file attached to the fine-tune job for your customized model, and then uses the Python SDK to download the file to your working directory for analysis.
+
+# [OpenAI Python 0.28.1](#tab/python)
 
 ```python
 # Retrieve the file ID of the first result file from the fine-tune job
@@ -419,6 +450,27 @@ with open(result_file_name, "wb") as file:
     result = openai.File.download(id=result_file_id)
     file.write(result)
 ```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+# Retrieve the file ID of the first result file from the fine-tune job
+# for the customized model.
+response = 	client.fine_tuning.jobs.retrieve(job_id)
+if response.status == 'succeeded':
+    result_file_id = response.result_files[0]
+
+retrieve = client.files.retrieve(result_file_id)
+
+# Download the result file.
+print(f'Downloading result file: {result_file_id}')
+
+with open(retrieve.filename, "wb") as file:
+    result = client.files.content(result_file_id).read()
+    file.write(result)
+```
+
+---
 
 The result file is a CSV file that contains a header row and a row for each training step performed by the fine-tune job. The result file contains the following columns:
 
