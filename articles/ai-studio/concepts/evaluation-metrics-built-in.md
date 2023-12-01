@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Discover the supported built-in metrics for evaluating large language models, understand their application and usage, and learn how to interpret them effectively.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
