@@ -3,25 +3,23 @@ title: Supported resources for metric alerts in Azure Monitor
 description: Reference on support metrics and logs for metric alerts in Azure Monitor
 services: monitoring
 ms.topic: conceptual
-ms.date: 3/8/2023
+ms.date: 11/22/2023
 ms.reviwer: harelbr
 ---
 
-# Supported resources for metric alerts in Azure Monitor
+# Supported resources for Azure Monitor metric alerts 
 
-Azure Monitor now supports a [new metric alert type](./alerts-overview.md), which has significant benefits over the older [classic metric alerts](./alerts-classic.overview.md). Metrics are available for a [large list of Azure services](../essentials/metrics-supported.md). The newer alerts support a growing subset of the resource types. This article lists that subset.
+This article lists the subset of [Azure Monitor metrics](../essentials/metrics-supported.md) that are supported by metric alerts.
 
-You can also use newer metric alerts on popular log data stored in a Log Analytics workspace extracted as metrics. For more information, see [Metric Alerts for Logs](./alerts-metric-logs.md).
+You can also use newer alerts on popular log data stored in a Log Analytics workspace extracted as metrics. For more information, see [Metric Alerts for Logs](./alerts-metric-logs.md).
 
-## Portal, PowerShell, CLI, and REST support
-
-Currently, you can create newer metric alerts only in the Azure portal, the [REST API](/rest/api/monitor/metricalerts/), or [Azure Resource Manager templates](./alerts-metric-create-templates.md). Support for configuring newer alerts by using PowerShell and the Azure CLI versions 2.0 and higher is coming soon.
+You can create metric alerts in the Azure portal, the [REST API](/rest/api/monitor/metricalerts/), or [Azure Resource Manager templates](./alerts-metric-create-templates.md). 
 
 ## Metrics and dimensions supported
 
-Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the proper level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics explorer](../essentials/metrics-charts.md).
+Metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the proper level. All supported metrics along with applicable dimensions can be explored and visualized using the [Azure Monitor metrics explorer](../essentials/metrics-charts.md).
 
-Here's the full list of Azure Monitor metric sources supported by the newer alerts:
+Here's the full list of Azure Monitor metric sources supported by metric alerts:
 
 |Resource type  |Dimensions supported |Multi-resource alerts| Metrics available|
 |---------|---------|-----|----------|
@@ -142,64 +140,10 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 
 ## Payload schema
 
-> [!NOTE]
-> You can also use the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations.​
+Use the [common alert schema](./alerts-common-schema.md), which uses a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations.​
 
-The POST operation contains the following JSON payload and schema for all near newer metric alerts when an appropriately configured [action group](./action-groups.md) is used:
-
-```json
-{
-  "schemaId": "AzureMonitorMetricAlert",
-  "data": {
-    "version": "2.0",
-    "status": "Activated",
-    "context": {
-      "timestamp": "2018-02-28T10:44:10.1714014Z",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/microsoft.insights/metricAlerts/StorageCheck",
-      "name": "StorageCheck",
-      "description": "",
-      "conditionType": "SingleResourceMultipleMetricCriteria",
-      "severity":"3",
-      "condition": {
-        "windowSize": "PT5M",
-        "allOf": [
-          {
-            "metricName": "Transactions",
-            "metricNamespace":"microsoft.storage/storageAccounts",
-            "dimensions": [
-              {
-                "name": "AccountResourceId",
-                "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
-              },
-              {
-                "name": "GeoType",
-                "value": "Primary"
-              }
-            ],
-            "operator": "GreaterThan",
-            "threshold": "0",
-            "timeAggregation": "PT5M",
-            "metricValue": 1
-          }
-        ]
-      },
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "resourceGroupName": "Contoso",
-      "resourceName": "diag500",
-      "resourceType": "Microsoft.Storage/storageAccounts",
-      "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
-      "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
-    },
-    "properties": {
-      "key1": "value1",
-      "key2": "value2"
-    }
-  }
-}
-```
 
 ## Next steps
 
-* Learn more about the new [alerts experience](./alerts-overview.md).
-* Learn about [log alerts in Azure](./alerts-unified-log.md).
-* Learn about [alerts in Azure](./alerts-overview.md).
+* Learn more about [Azure Monitor alerts](./alerts-overview.md).
+* See the [alerts payload](./alerts-common-schema.md). 

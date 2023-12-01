@@ -2,7 +2,7 @@
 title: Security policies, standards, and recommendations in Microsoft Defender for Cloud 
 description: Learn about security policies, standards, and recommendations in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 11/27/2023
 ---
 
 # Security policies in Defender for Cloud
@@ -21,7 +21,7 @@ Security standards in Defender for Cloud come from a couple of sources:
 - **Regulatory compliance standards**. In addition to MCSB, when you enable one or more [Defender for Cloud plans](defender-for-cloud-introduction.md) you can add standards from a wide range of predefined regulatory compliance programs. [Learn more](regulatory-compliance-dashboard.md).
 - **Custom standards**. You can create custom security standards in Defender for Cloud, and add built-in and custom recommendations to those custom standards as needed.
 
-Security standards in Defender for Cloud are based on the Defender for Cloud platform, or on [Azure Policy](../governance/policy/overview.md) [initiatives](../governance/policy/concepts/initiative-definition-structure.md). At the time of writing (November 2023) AWS and GCP standards are Defender for Cloud platform-based, and Azure standards are currently based on Azure Policy.
+Security standards in Defender for Cloud are based on [Azure Policy](../governance/policy/overview.md) [initiatives](../governance/policy/concepts/initiative-definition-structure.md) or on the Defender for Cloud native platform. At the time of writing (November 2023) AWS and GCP standards are Defender for Cloud platform-based, and Azure standards are currently based on Azure Policy.
 
 Security standards in Defender for Cloud simplify the complexity of Azure Policy. In most cases, you can work directly with security standards and recommendations in the Defender for Cloud portal, without needing to directly configure Azure Policy.
 

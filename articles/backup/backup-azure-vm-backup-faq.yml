@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 08/14/2023
+  ms.date: 11/30/2023
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 
@@ -228,7 +228,7 @@ sections:
 
       - question: Is there a limit to trigger restore in a day?
         answer: |
-          Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
+          Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours, and 24 hours window gets reset at *UTC 00:00*.
 
       - question: How does restored disk SKU depend on target SA provided?
         answer: |

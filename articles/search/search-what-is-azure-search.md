@@ -19,10 +19,10 @@ ms.custom:
 
 Azure AI Search ([formerly known as "Azure Cognitive Search"](whats-new.md#new-service-name)) provides secure information retrieval at scale over user-owned content in traditional and conversational search applications.
 
-Information retrieval is foundational to any app that surfaces text and vectors. Common scenarios include catalog or document search, data exploration, and increasingly chat-style search modalities over proprietary grounding data. When you create a search service, you'll work with the following capabilities:
+Information retrieval is foundational to any app that surfaces text and vectors. Common scenarios include catalog or document search, data exploration, and increasingly chat-style copilot apps over proprietary grounding data. When you create a search service, you work with the following capabilities:
 
 + A search engine for [full text](search-lucene-query-architecture.md) and [vector search](vector-search-overview.md) over a search index 
-+ Rich indexing, with [integrated data chunking and vectorization (preview)](vector-search-integrated-vectorization.md), [lexical analysis](search-analyzers.md) for text, and [optional AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
++ Rich indexing with [integrated data chunking and vectorization (preview)](vector-search-integrated-vectorization.md), [lexical analysis](search-analyzers.md) for text, and [optional AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
 + Rich query syntax for [vector queries](vector-search-how-to-query.md), text search, [hybrid search](hybrid-search-overview.md), fuzzy search, autocomplete, geo-search and others
 + Azure scale, security, and reach
 + Azure integration at the data layer, machine learning layer, Azure AI services and Azure OpenAI
@@ -54,7 +54,7 @@ On the search service itself, the two primary workloads are *indexing* and *quer
 
 Azure AI Search is well suited for the following application scenarios:
 
-+ Search over your vector and text content, isolated from the internet.
++ Search over your vector and text content. You own or control what's searchable.
 
 + Consolidate heterogeneous content into a user-defined and populated search index composed of vectors and text. 
 
