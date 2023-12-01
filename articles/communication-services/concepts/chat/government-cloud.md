@@ -2,15 +2,15 @@
 title: Support for government clouds
 titleSuffix: An Azure Communication Services concept document
 description: Support for government clouds for Azure Communication Chat service
-author: kaperla
-ms.author: kaperla
+author: kperla97
+ms.author: kperla97
 ms.date: 12/01/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
 ---
 
-# Support for government clouds
+# Chat support for government clouds
 Developers can build a chat application in government cloud for real-time text communications. 
 
 ## Supported cloud parity between Microsoft 365 and Azure 
