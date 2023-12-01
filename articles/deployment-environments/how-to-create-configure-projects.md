@@ -85,7 +85,7 @@ In this quickstart, you assign the Owner role to the system-assigned managed ide
 1. Retrieve Subscription ID:
 
     ```azurecli
-    SUBID=$(az account show -n <subscriptionId> --query id -o tsv)
+    SUBID=$(az account show --name <subscriptionName> --query id -o tsv)
     echo $SUBID
     ```
 

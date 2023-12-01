@@ -1,5 +1,5 @@
 ---
-title: Create and configure a dev center by using the Azure CLI
+title: Create and configure a dev center for Azure Deployment Environments by using the Azure CLI
 titleSuffix: Azure Deployment Environments
 description: Learn how to create and access a dev center for Azure Deployment Environments project using the Azure CLI.
 author: renato-marciano
@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 11/29/2023
 ---
 
-# Create and configure a dev center by using the Azure CLI
+# Create and configure a dev center for Azure Deployment Environments by using the Azure CLI
 
 This quickstart guide shows you how to create and configure a dev center in Azure Deployment Environments.
 
@@ -163,8 +163,8 @@ You can use this [sample catalog](https://github.com/Azure/deployment-environmen
 1. Navigate to your repository, select **<> Code**, and then copy the clone URL.
 1. Make a note of the branch that you're working in.
 1. Take a note of the folder that contains your environment definitions. 
- 
-     :::image type="content" source="media/how-to-create-configure-dev-center/github-info.png" alt-text="Screenshot that shows the GitHub repo with branch, copy URL, and folder highlighted.":::
+
+     :::image type="content" source="media/how-to-create-configure-dev-center/github-info.png" alt-text="Screenshot that shows the GitHub repo with branch, copy URL, and folder highlighted." lightbox="media/how-to-create-configure-dev-center/github-info.png":::
 
 ### Add a catalog to your dev center
 
