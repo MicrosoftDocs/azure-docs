@@ -4,7 +4,7 @@ description: How to configure a point-to-site (P2S) VPN on Windows for use with 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/30/2023
+ms.date: 12/01/2023
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -257,21 +257,23 @@ If you're using an enterprise certificate solution, generate a client certificat
 
 ### Create client certificate from a self-signed root certificate
 
-Run the following PowerShell script to create a client certificate with the URI of the virtual network gateway. This certificate will be signed with the root certificate you created earlier.
+If you're not using an enterprise certificate solution, you can use PowerShell to create a client certificate with the URI of the virtual network gateway. This certificate will be signed with the root certificate you created earlier. When you generate a client certificate from a self-signed root certificate, it's automatically installed on the computer that you used to generate it.
 
-When you generate a client certificate from a self-signed root certificate, it's automatically installed on the computer that you used to generate it. If you want to install a client certificate on another client computer, export it as a .pfx file, along with the entire certificate chain. Doing so will create a .pfx file that contains the root certificate information required for the client to authenticate.
+If you want to install a client certificate on another client computer, export the certificate as a .pfx file, along with the entire certificate chain. Doing so will create a .pfx file that contains the root certificate information required for the client to authenticate. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export the client certificate](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).
 
 #### Identify the self-signed root certificate
 
-If you're creating additional client certificates, or aren't using the same PowerShell session that you used to create your self-signed root certificate, use the following steps to identify the self-signed root certificate that is installed on the computer.
+If you're using the same PowerShell session that you used to create your self-signed root certificate, you can skip ahead to [Generate a client certificate](#generate-a-client-certificate).
 
-1. Get a list of certificates that are installed on your computer.
+If not, use the following steps to identify the self-signed root certificate that's installed on your computer.
+
+1. Get a list of the certificates that are installed on your computer.
 
    ```powershell
    Get-ChildItem -Path "Cert:\CurrentUser\My"
    ```
 
-1. Locate the subject name from the returned list, then copy the thumbprint that is located next to it to a text file. In the following example, there are two certificates. The CN name is the name of the self-signed root certificate from which you want to generate a child certificate. In this case, 'P2SRootCert'.
+1. Locate the subject name from the returned list, then copy the thumbprint that's located next to it to a text file. In the following example, there are two certificates. The CN name is the name of the self-signed root certificate from which you want to generate a child certificate. In this case, it's called *P2SRootCert*.
 
    ```
    Thumbprint                                Subject
@@ -280,13 +282,13 @@ If you're creating additional client certificates, or aren't using the same Powe
    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
    ```
 
-1. Declare a variable for the root certificate using the thumbprint from the previous step. Replace THUMBPRINT with the thumbprint of the root certificate from which you want to generate a child certificate.
+1. Declare a variable for the root certificate using the thumbprint from the previous step. Replace THUMBPRINT with the thumbprint of the root certificate from which you want to generate a client certificate.
 
    ```powershell
    $rootcert = Get-ChildItem -Path "Cert:\CurrentUser\My\<THUMBPRINT>"
    ```
 
-   For example, using the thumbprint for P2SRootCert in the previous step, the variable looks like this:
+   For example, using the thumbprint for *P2SRootCert* in the previous step, the command looks like this:
 
    ```powershell
    $rootcert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
@@ -294,19 +296,21 @@ If you're creating additional client certificates, or aren't using the same Powe
 
 #### Generate a client certificate
 
-Use the `New-AzVpnClientConfiguration` PowerShell cmdlet to generate a client certificate.
+Use the `New-AzVpnClientConfiguration` PowerShell cmdlet to generate a client certificate. If you're using the same PowerShell session that you used to create your self-signed root certificate, you can run the script unchanged. If not, you'll need to [identify the self-signed root certificate](#identify-the-self-signed-root-certificate) and uncomment the variable declarations at the beginning of the script. Replace `<resource-group-name>` with your resource group name and `<vpn-gateway-name>` with the name of the virtual network gateway you just deployed.
 
 > [!IMPORTANT]
-> Run this PowerShell script as administrator from an on-premises machine running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell or VM in Azure. Replace `<resource-group-name>` with your resource group name and `<vpn-gateway-name>` with the name of the virtual network gateway you just deployed.
+> Run this PowerShell script as administrator from the on-premises Windows machine that you want to connect to the Azure file share. The computer must be running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell in Azure. Make sure you sign in to your Azure account before running the script (`Connect-AzAccount`).
 
 ```PowerShell
-#If you left you PowerShell session open when you created the root cert, then 
-#you don't need to define these
 $clientcertpassword = "1234"
-$resourceGroupName = "<resource-group-name>"
-$vpnName = "<vpn-gateway-name>"
-$vpnTemp = "C:\vpn-temp\"
-$certLocation = "Cert:\CurrentUser\My"
+#If you left your PowerShell session open when you created the root cert, then 
+#you don't need to define these variables here because they're already defined.
+#If using a new PowerShell session, uncomment these lines and supply the resource 
+#group name and virtual network gateway name.
+#$resourceGroupName = "<resource-group-name>"
+#$vpnName = "<vpn-gateway-name>"
+#$vpnTemp = "C:\vpn-temp\"
+#$certLocation = "Cert:\CurrentUser\My"
 
 $vpnClientConfiguration = New-AzVpnClientConfiguration `
     -ResourceGroupName $resourceGroupName `
