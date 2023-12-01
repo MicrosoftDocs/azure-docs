@@ -45,3 +45,25 @@ There are three possible relocation strategies that you can use to relocate your
 - [Service redeployment](). Use redeployment to relocate a stateless Azure service.
 
 - [Redeployment with data migration](). Use redeployment with data migration to relocate a stateful Azure service.
+
+
+## Relocation architectural patterns
+
+An architectural pattern is a general, reusable solution to a commonly occurring problem in software architecture within a given context. Architectural patterns can help fast-track the assessment stage of the relocation execution workflow. Each one highlights some of the essential considerations, dependencies, and solutions for you to follow for Azure services relocation.
+
+Based on the nature of the workload, relocation patterns can be the starting point for planning the individual workload or application relocation to a different region (or) the relocation execution flow can be the starting point when considering an extensive relocation program.
+
+The following the following three relocation patterns are complimentary, and you can combine them for your relocation program strategy.
+
+- **Azure Availability Zones**
+Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions. For 3+0 regions their the recommended option to enable resiliency and high availability for your Azure Service. Be aware that 3+0 regions do not have a paired and the capabilities for resiliency and HA introduced by a paired datacenter are not available.
+
+    For information on how to plan for a region move to availability zones, see [Azure availability zone migration baseline](../reliability/availability-zones-baseline.md).
+
+- **Azure Landing Zone**
+Azure landing zones are the output of a multi-subscription Azure environment that accounts for scale, security, governance, networking, and identity. Azure landing zones enable application migrations and greenfield development at enterprise-scale in Azure. These zones consider all platform resources that are required to support the customer’s application portfolio and don’t differentiate between infrastructure as a service or platform as a service.
+
+    For information on how to plan for an Azure Landing Zone relocation, see [CONTENT]()
+
+- **N-Tier Application Solutions**
+Patterns and Practices to relocate n-Tier Application in new regions. For information on relocation patterns for n-tier applications, see [CONTENT]()
