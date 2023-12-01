@@ -903,6 +903,8 @@ items:
       href: logs/private-link-configure.md
   - name: Collect logs from Event Hubs
     href: logs/ingest-logs-event-hub.md
+  - name: Pipeline for edge and Multicloud
+    href: logs/edge-pipeline-overview.md
   - name: Use Microsoft Entra authentication
     href: logs/azure-ad-authentication-logs.md
   - name: Troubleshoot data collection
