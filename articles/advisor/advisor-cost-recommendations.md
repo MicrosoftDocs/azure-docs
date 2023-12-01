@@ -16,7 +16,7 @@ Azure Advisor helps you optimize and reduce your overall Azure spend by identify
 
 1. On the **Advisor** dashboard, select the **Cost** tab.
 
-## Optimize virtual machine (VM) or virtual machine scale set spend by resizing or shutting down underutilized instances
+## Optimize virtual machine (VM) or virtual machine scale set (VMSS) spend by resizing or shutting down underutilized instances
 
 Although certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of your virtual machines or virtual machine scale sets.
 
@@ -103,7 +103,7 @@ In such cases, simply use the Dismiss/Postpone options associated with the recom
 
 We're constantly working on improving these recommendations. Feel free to share feedback on [Advisor Forum](https://aka.ms/advisorfeedback).
 
-## Configure VM/Virtual Machine Scale Sets recommendations
+## Configure VM/VMSS recommendations
 
 You can adjust Advisor virtual machine (VM) and Virtual Machine Scale Sets recommendations. Specifically, you can setup a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting will filter recommendations but will not change how they are generated.
 
