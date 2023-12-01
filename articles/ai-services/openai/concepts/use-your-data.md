@@ -609,10 +609,10 @@ import tiktoken
 
 class TokenEstimator(object):
 
-    GPT_TOKENIZER = tiktoken.get_encoding("cl100k_base")
+    GPT2_TOKENIZER = tiktoken.get_encoding("gpt2")
 
     def estimate_tokens(self, text: str) -> int:
-        return len(self.GPT_TOKENIZER.encode(text))
+        return len(self.GPT2_TOKENIZER.encode(text))
       
 token_output = TokenEstimator.estimate_tokens(input_text)
 ```
