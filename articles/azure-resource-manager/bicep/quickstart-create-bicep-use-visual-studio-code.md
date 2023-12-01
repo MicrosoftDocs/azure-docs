@@ -23,9 +23,9 @@ To set up your environment for Bicep development, see [Install Bicep tools](inst
 
 VS Code with the Bicep extension simplifies development by providing predefined snippets. In this quickstart, you add a snippet that creates a virtual network.
 
-Launch Visual Studio Code and create a new file named main.bicep.
+Launch Visual Studio Code and create a new file named **main.bicep**.
 
-In *main.bicep*, type **vnet**, and then select **res-vnet** from the list, and then press [TAB] or [ENTER]Enter.
+In *main.bicep*, type **vnet**, and then select **res-vnet** from the list, and then press [TAB] or [ENTER].
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-snippet.png" alt-text="Screenshot of adding snippet for virtual network.":::
 
@@ -36,7 +36,7 @@ Your Bicep file now contains the following code:
 
 ```bicep
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
-  name: 'exampleVNet'
+  name: 'name'
   location: location
   properties: {
     addressSpace: {
@@ -60,7 +60,6 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
     ]
   }
 }
-
 ```
 
 Within this snippet, you find all the necessary values for defining a virtual network. You may notice two curly underlines. A yellow one denotes a warning related to an outdated API version, while a red curly underline signals an error caused by a missing parameter definition.
@@ -91,17 +90,21 @@ When you add a space after **location**, notice that intellisense offers the dat
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-param.png" alt-text="Screenshot of adding string type to parameter.":::
 
-You have the following parameter with a default value:
+Give the parameter a default value:
 
 ```bicep
 param location string = resourceGroup().location
 ```
 
-Add a parameter for the storage account name with a default value:
+For more information about the function used in the default value, see [resourceGroup()](./bicep-functions-scope.md#resourcegroup).
+
+Add another parameter for the storage account name with a default value:
 
 ```bicep
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 ```
+
+For more information, see [Interpolation](./data-types.md#strings) and [uniqueString()](./bicep-functions-string.md#uniquestring).
 
 This parameter works fine, but storage accounts have limits on the length of the name. The name must have at least three characters and no more than 24 characters. You can specify those requirements by adding decorators to the parameter.
 
@@ -144,7 +147,7 @@ When you add a space after the symbolic name, a list of resource types is displa
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-resource-type.png" alt-text="Screenshot of selecting storage accounts for resource type.":::
 
-After selecting **Microsoft.Storage/storageAccounts**, you're presented with the available API versions. Select the newest version. For the following screenshot, it is **2023-01-01**.
+After selecting **Microsoft.Storage/storageAccounts**, you're presented with the available API versions. Select the latest version. For the following screenshot, it is **2023-01-01**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-api-version.png" alt-text="Screenshot of select API version for resource type.":::
 
@@ -240,7 +243,6 @@ The visualizer shows the resources defined in the Bicep file with the resource d
 
     :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-select-parameter-file.png" alt-text="Screenshot of Select parameter file.":::
 
-1. Enter a unique storage account name, and then press **[ENTER]**. If you get an error message indicating the storage account is already taken, the storage name you provided is in use. Provide a name that is more likely to be unique.
 1. From **Create parameters file from values used in this deployment?**, select **No**.
 
 It takes a few moments to create the resources. For more information, see [Deploy Bicep files with Visual Studio Code](./deploy-vscode.md).
