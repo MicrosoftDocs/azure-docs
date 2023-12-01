@@ -50,7 +50,7 @@ You request Microsoft Graph API to forward events to an Event Grid partner topic
 
 You should meet these general prerequisites before implementing your application to create and renew Microsoft Graph API subscriptions:
 
-- Become familar with the [high-level steps to subscribe to partner events](subscribe-to-partner-events.md#high-level-steps). As described in that article, prior to creating a Graph API subscription you should follow the instructions in:
+- Become familiar with the [high-level steps to subscribe to partner events](subscribe-to-partner-events.md#high-level-steps). As described in that article, prior to creating a Graph API subscription you should follow the instructions in:
 
   - [Register the Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with your Azure subscription.
 
@@ -128,7 +128,7 @@ Content-type: application/json
    ```azurecli-interactive
     az account list-locations
    ```
-- `lifecycleNotificationUrl`: a URI used to define the partner topic to which `microsoft.graph.subscriptionReauthorizationRequired`events are sent. This event signals your application that the Graph API subscription is expiring soon. The URI follows the same pattern as *notificationUrl* described above if using Event Grid as destination to lifecycle events. In that case, the partner topic should be the same as the one specificed in *notificationUrl*.
+- `lifecycleNotificationUrl`: a URI used to define the partner topic to which `microsoft.graph.subscriptionReauthorizationRequired`events are sent. This event signals your application that the Graph API subscription is expiring soon. The URI follows the same pattern as *notificationUrl* described above if using Event Grid as destination to lifecycle events. In that case, the partner topic should be the same as the one specified in *notificationUrl*.
 - resource: the resource that generates events that announce state changes.
 - expirationDateTime: the expiration time at which the subscription expires and the flow of events stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable per resource type](/graph/api/resources/subscription#subscription-lifetime).
 - client state. This property is optional. It is used for verification of calls to your event handler application during event delivery. For more information, see [Graph API subscription properties](/graph/api/resources/subscription#properties).
@@ -213,16 +213,16 @@ Microsoft Graph API documentation provides code samples with instructions to:
 
 Web application samples are available for the following languages:
 
-1. [C# sample](https://github.com/microsoftgraph/aspnetcore-webhooks-sample)
-1. [Java sample](https://github.com/microsoftgraph/java-spring-webhooks-sample)
-    1. [GraphAPIController](https://github.com/jfggdl/event-grid-ms-graph-api-java-snippet) contains sample code to create, delete, and renew a Graph API subscription. It must be used along with the Java sample application above.
-1. [NodeJS sample](https://github.com/microsoftgraph/nodejs-webhooks-sample).
+- [C# sample](https://github.com/microsoftgraph/aspnetcore-webhooks-sample)
+- [Java sample](https://github.com/microsoftgraph/java-spring-webhooks-sample) 
+  - [GraphAPIController](https://github.com/jfggdl/event-grid-ms-graph-api-java-snippet) contains sample code to create, delete, and renew a Graph API subscription. It must be used along with the Java sample application above.
+- [NodeJS sample](https://github.com/microsoftgraph/nodejs-webhooks-sample).
 
 > [!IMPORTANT]
 > You need to activate your partner topic that is created as part of your Graph API subscription creation. You also need to create an Event Grid event subscription to your web application to receive events. To that end, you use the URL configured in your web application to receive events as a webhook endpoint in your event subscription. [Next steps](#next-steps) for more information.
 
 > [!IMPORTANT]
-> Do you need sample code for another language or have questions? please email us at [ask-graph-and-grid@microsoft.com](mailto:ask-graph-and-grid@microsoft.com?subject=Need%20support%20for%20sample%20in%20other%20language).
+> Do you need sample code for another language or have questions? Please email us at [ask-graph-and-grid@microsoft.com](mailto:ask-graph-and-grid@microsoft.com?subject=Need%20support%20for%20sample%20in%20other%20language).
 
 ## Next steps
 
