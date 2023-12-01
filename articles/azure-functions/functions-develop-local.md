@@ -1,11 +1,10 @@
 ---
 title: Develop and run Azure Functions locally
 description: Learn how to code and test Azure Functions on your local computer before you run them on Azure Functions.
-
 ms.topic: conceptual
-ms.date: 09/22/2022
-
+ms.date: 11/29/2023
 ---
+
 # Code and test Azure Functions locally
 
 While you're able to develop and test Azure Functions in the [Azure portal], many developers prefer a local development experience. When you use Functions, using your favorite code editor and development tools to create and test functions on your local computer becomes easier. Your local functions can connect to live Azure services, and you can debug them on your local computer using the full Functions runtime.
@@ -100,7 +99,13 @@ When you develop your functions locally, any local settings required by your app
 
 ## Triggers and bindings
 
-When you develop your functions locally, you need to take trigger and binding behaviors into consideration. The easiest way to test bindings during local development is to use connection strings that target live Azure services. You can target live services by adding the appropriate connection string settings in the `Values` array in the local.settings.json file. When you do this, local executions during testing impact live service data. Because of this, consider setting-up separate services to use during development and testing, and then switch to different services during production. You can also use a local storage emulator.
+When you develop your functions locally, you need to take trigger and binding behaviors into consideration. For HTTP triggers, you can simply call the HTTP endpoint on the local computer, using `http://localhost/`. For non-HTTP triggered functions, there are several options to run locally:
+
++ The easiest way to test bindings during local development is to use connection strings that target live Azure services. You can target live services by adding the appropriate connection string settings in the `Values` array in the local.settings.json file. When you do this, local executions during testing impact live service data. Because of this, consider setting-up separate services to use during development and testing, and then switch to different services during production.
++ For storage-based triggers, you can use a [local storage emulator](#local-storage-emulator).
++ You can manually run non-HTTP trigger functions by using special administrator endpoints. For more information, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md). 
+
+During local testing, you must be running the host provided by Core Tools (func.exe) locally. For more information, see [Azure Functions Core Tools](functions-run-local.md).
 
 ## Local storage emulator
 
