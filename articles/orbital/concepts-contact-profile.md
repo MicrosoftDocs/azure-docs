@@ -136,7 +136,7 @@ You can also use the Azure Orbital Ground Station API to [modify](/rest/api/orbi
 
 ## Configure a contact profile for applicable partner ground stations
 
-After onboarding with a partner ground station network, you receive a name that identifies your configuration file. When [creating your contact profile](contact-profile.md#create-a-contact-profile-resource), add this configuration name to your link in the 'Third-Party Configuration" parameter. This links your contact profile to the partner network.
+After onboarding with a partner ground station network, you receive a name that identifies your configuration file. When [creating your contact profile](contact-profile.md), add this configuration name to your link in the 'Third-Party Configuration" parameter. This links your contact profile to the partner network.
 
 ## Next steps
 
