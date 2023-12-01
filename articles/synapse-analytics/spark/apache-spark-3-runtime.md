@@ -1,12 +1,12 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 3.1 (EOLA)
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.1.
-author: eskot
+author: ekote
+ms.author: eskot 
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/28/2022
-ms.author: eskot
 ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
