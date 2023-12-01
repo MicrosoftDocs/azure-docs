@@ -16,7 +16,7 @@ The contact profile resource stores pass requirements such as links and endpoint
 
 You can create many contact profiles to represent different types of passes depending on your mission operations. For example, you can create a contact profile for a command and control pass or a contact profile for a downlink-only pass. These resources are mutable and don't undergo an authorization process like spacecraft resources do. One contact profile can be used with many spacecraft resources.
 
-## Understanding links and channels
+## Understand links and channels
 
 A whole band, unique in direction and polarity, is called a link. Channels, which are children under links, specify the center frequency, bandwidth, and endpoints. Typically there's only one channel per link, but some applications require multiple channels per link. 
 
@@ -120,11 +120,11 @@ Refer to the example below to understand how to specify an RHCP channel and an L
   }
 }
 ```
-## Creating a contact profile 
+## Create a contact profile 
 
 Follow these instructions to create a contact profile [via the Azure Portal](contact-profile.md) or [use the Azure Orbital Ground Station API](/rest/api/orbital//azureorbitalgroundstation/contact-profiles/create-or-update/).
 
-## Modifying or deleting a contact profile
+## Modify or delete a contact profile
 
 To modify or delete a contact profile via the [Azure portal](https://aka.ms/orbital/portal), navigate to the contact profile resource. 
 - To modify minimum viable contact duration, minimum elevation, auto tracking, or events hubs telemetry, click 'Overview' on the left panel then click 'Edit properties.'
@@ -134,7 +134,7 @@ To modify or delete a contact profile via the [Azure portal](https://aka.ms/orbi
 
 You can also use the Azure Orbital Ground Station API to [modify](/rest/api/orbital/azureorbitalgroundstation/contact-profiles/create-or-update) or [delete](/rest/api/orbital/azureorbitalgroundstation/contact-profiles/delete) a contact profile.
 
-## Configuring a contact profile for applicable partner ground stations
+## Configure a contact profile for applicable partner ground stations
 
 After onboarding with a partner ground station network, you receive a name that identifies your configuration file. When [creating your contact profile](contact-profile.md#create-a-contact-profile-resource), add this configuration name to your link in the 'Third-Party Configuration" parameter. This links your contact profile to the partner network.
 
