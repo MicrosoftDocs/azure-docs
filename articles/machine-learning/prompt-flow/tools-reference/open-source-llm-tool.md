@@ -37,7 +37,7 @@ This prompt flow supports two different LLM API types:
 ## Prerequisites: Model deployment
 
 1. Pick the model that matched your scenario from the [Azure Machine Learning model catalog](https://ml.azure.com/model/catalog).
-1. Use the **Deploy** button to deploy the model to an Azure Machine Learning Online Inference endpoint.
+1. Use the **Deploy** button to deploy the model to an Azure Machine Learning online inference endpoint.
 
 To learn more, see [Deploy foundation models to endpoints for inferencing.](../../how-to-use-foundation-models.md#deploying-foundation-models-to-endpoints-for-inferencing).
 
@@ -50,10 +50,10 @@ For prompt flow to use your deployed model, you need to set up a connection. Exp
     The keys to set are:
 
     1. **endpoint_url**
-        - This value is found at the previously created Inferencing endpoint.
+        - This value is found at the previously created inferencing endpoint.
     1. **endpoint_api_key**
         - Make sure to set this key as a secret value.
-        - This value is found at the previously created Inferencing endpoint.
+        - This value is found at the previously created inferencing endpoint.
     1. **model_family**
         - Supported values: LLAMA, DOLLY, GPT2, or FALCON
         - This value is dependent on the type of deployment you're targeting.
@@ -65,9 +65,9 @@ The Open Source LLM tool has many parameters, some of which are required. See th
 | Name | Type | Description | Required |
 |------|------|-------------|----------|
 | api | string | This parameter is the API mode and depends on the model used and the scenario selected. *Supported values: (Completion \| Chat)* | Yes |
-| connection | CustomConnection | This parameter is the name of the connection, which points to the Online Inferencing endpoint. | Yes |
+| connection | CustomConnection | This parameter is the name of the connection, which points to the online inferencing endpoint. | Yes |
 | model_kwargs | dictionary | This input is used to provide configuration specific to the model used. For example, the Llama-02 model uses {\"temperature\":0.4}. *Default: {}* | No |
-| deployment_name | string | The name of the deployment to target on the Online Inferencing endpoint. If no value is passed, the Inferencing load balancer traffic settings are used. | No |
+| deployment_name | string | The name of the deployment to target on the online inferencing endpoint. If no value is passed, the inferencing load balancer traffic settings are used. | No |
 | prompt | string | The text prompt that the language model uses to generate its response. | Yes |
 
 ## Outputs

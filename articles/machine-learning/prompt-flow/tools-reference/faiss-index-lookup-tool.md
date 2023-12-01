@@ -38,7 +38,7 @@ The tool accepts the following inputs:
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| path | string | URL or path for the vector store.<br><br>blob URL format:<br>https://`<account_name>`.blob.core.windows.net/`<container_name>`/`<path_and_folder_name>`<br><br>AML datastore URL format:<br>azureml://subscriptions/`<your_subscription>`/resourcegroups/`<your_resource_group>`/workspaces/`<your_workspace>`/data/`<data_path>`<br><br>Relative path to workspace datastore `workspaceblobstore`:<br>`<path_and_folder_name>`<br><br> public http/https URL (for public demonstration):<br>http(s)://`<path_and_folder_name>` | Yes |
+| path | string | URL or path for the vector store.<br><br>Blob URL format:<br>https://`<account_name>`.blob.core.windows.net/`<container_name>`/`<path_and_folder_name>`<br><br>AML datastore URL format:<br>azureml://subscriptions/`<your_subscription>`/resourcegroups/`<your_resource_group>`/workspaces/`<your_workspace>`/data/`<data_path>`<br><br>Relative path to workspace datastore `workspaceblobstore`:<br>`<path_and_folder_name>`<br><br> Public http/https URL (for public demonstration):<br>http(s)://`<path_and_folder_name>` | Yes |
 | vector | list[float] | The target vector to be queried, which the LLM tool can generate. | Yes |
 | top_k | integer | The count of the top-scored entities to return. Default value is 3. | No |
 
