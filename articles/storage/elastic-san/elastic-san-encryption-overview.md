@@ -43,6 +43,6 @@ The following list explains the numbered steps in the diagram:
 
 ## Next steps
 
-- [Configure customer-managed keys for an Elastic SAN volume group](elastic-san-encryption-configure-customer-managed-keys-key-vault.md)
+- [Configure customer-managed keys for An Azure Elastic SAN using Azure Key Vault](elastic-san-configure-customer-managed-keys.md)
 - [Configure Elastic SAN data encryption with customer-managed keys stored in Azure Key Vault Managed HSM](elastic-san-encryption-configure-customer-managed-keys-hsm.md)
 - [Manage customer keys for Azure Elastic SAN data encryption](elastic-san-encryption-manage-customer-keys.md)
