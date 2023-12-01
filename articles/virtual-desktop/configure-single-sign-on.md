@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 11/14/2023
+ms.date: 12/05/2023
 ms.author: helohr
 ---
 # Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication
