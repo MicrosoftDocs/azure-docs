@@ -374,8 +374,6 @@ The following table represents the currently supported custom telemetry types:
 > [!NOTE]
 > Custom Metrics are under preview in Azure Monitor Application Insights. Custom metrics without dimensions are available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
-Consider collecting more metrics beyond what's provided by the instrumentation libraries.
-
 The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
 
 The following table shows the recommended [aggregation types](../essentials/metrics-aggregation-explained.md#aggregation-types) for each of the OpenTelemetry Metric Instruments.
@@ -1380,15 +1378,51 @@ Currently unavailable.
   
 ### Send custom telemetry using the Application Insights Classic API
 
-We recommend you use the OpenTelemetry APIs whenever possible, but there might be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md)s.
+We recommend you use the OpenTelemetry APIs whenever possible, but there might be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md).
   
 #### [ASP.NET Core](#tab/aspnetcore)
   
-Not available in .NET.
+##### Events
+
+1. Add `Microsoft.ApplicationInsights` to your application:
+
+1. Create a `TelemetryClient` instance.
+
+> [!NOTE]
+> It's important to only create once instance of the TelemetryClient per application.
+
+```csharp
+var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" };
+var telemetryClient = new TelemetryClient(telemetryConfiguration);
+```
+
+1. Use the client to send custom telemetry.
+
+```csharp
+telemetryClient.TrackEvent("testEvent");
+```
 
 #### [.NET](#tab/net)
 
-Not available in .NET.
+##### Events
+
+1. Add `Microsoft.ApplicationInsights` to your application:
+
+1. Create a `TelemetryClient` instance.
+
+> [!NOTE]
+> It's important to only create once instance of the TelemetryClient per application.
+
+```csharp
+var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" };
+var telemetryClient = new TelemetryClient(telemetryConfiguration);
+```
+
+1. Use the client to send custom telemetry.
+
+```csharp
+telemetryClient.TrackEvent("testEvent");
+```
 
 #### [Java](#tab/java)
 
