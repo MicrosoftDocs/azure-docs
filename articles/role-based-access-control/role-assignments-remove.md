@@ -21,7 +21,7 @@ ms.devlang: azurecli
 
 To remove role assignments, you must have:
 
-- `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Role Based Access Control Administrator](built-in-roles.mdrole-based-access-control-administrator)
+- `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)
 
 For the REST API, you must use the following version:
 
