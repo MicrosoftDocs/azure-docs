@@ -14,19 +14,19 @@ ms.author: v-abhmallick
 
 This article describes how to configure and back up Azure Kubernetes Service (AKS).
 
-You can use Azure Backup to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) by using an Azure Backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations.
+You can use Azure Backup to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) by using the Backup extension, which must be installed in the cluster. The Backup vault communicates with the cluster via the Backup extension to perform backup and restore operations.
 
 ## Before you start
 
 - Currently, AKS backup supports only Azure Disk Storage-based persistent volumes (enabled by CSI driver). The backups are stored in an operational datastore only (backup data is stored in your tenant and is not moved to a vault). The Backup vault and AKS cluster must be in the same region.
 
-- AKS backup uses a blob container and a resource group to store the backups. The blob container has the AKS cluster resources stored in it, whereas the persistent volume snapshots are stored in the resource group. The AKS cluster and the storage locations must reside in the same region. Learn [how to create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
+- AKS backup uses a blob container and a resource group to store the backups. The blob container holds the AKS cluster resources. Persistent volume snapshots are stored in the resource group. The AKS cluster and the storage locations must be in the same region. Learn [how to create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
-- Currently, AKS backup supports once-a-day backup. It also supports more frequent backups (in 4-hour, 8-hour, and 12-hour intervals) per day. This solution allows you to retain your data for restore for up to 360 days. Learn to [create a backup policy](#create-a-backup-policy).
+- Currently, AKS backup supports once-a-day backup. It also supports more frequent backups (in 4-hour, 8-hour, and 12-hour intervals) per day. This solution allows you to retain your data for restore for up to 360 days. Learn how to [create a backup policy](#create-a-backup-policy).
 
-- You must [install the Azure Backup extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations for an AKS cluster. Learn more [about the Backup extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
+- You must [install the Backup extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations for an AKS cluster. Learn more [about the Backup extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
 
-- Ensure that `Microsoft.KubernetesConfiguration`, `Microsoft.DataProtection`, and the `TrustedAccessPreview` feature flag on `Microsoft.ContainerService` are registered for your subscription before you initiate the backup configuration and restore operations.
+- Ensure that `Microsoft.KubernetesConfiguration`, `Microsoft.DataProtection`, and the `TrustedAccessPreview` feature flag on `Microsoft.ContainerService` are registered for your subscription before you initiate backup configuration and restore operations.
 
 - Ensure that you perform [all the prerequisites](azure-kubernetes-service-cluster-backup-concept.md) before you initiate a backup or restore operation for AKS backup.
 
@@ -34,10 +34,10 @@ For more information on supported scenarios, limitations, and availability, see 
 
 ## Create a Backup vault
 
-A Backup vault is a management entity that stores recovery points that are created over time. The Backup vault also provides an interface for you to perform backup operations. Operations include taking on-demand backups, performing restores, and creating backup policies. Although operational backup of an AKS cluster is a local backup and doesn't store data in the vault, the vault is required for various management operations. AKS backup requires the Backup vault and the AKS cluster to be in the same region.
+A Backup vault is a management entity that stores recovery points that are created over time. A Backup vault also provides an interface for you to perform backup operations. Operations include taking on-demand backups, performing restores, and creating backup policies. Although operational backup of an AKS cluster is a local backup and doesn't store data in the vault, the vault is required for various management operations. AKS backup requires the Backup vault and the AKS cluster to be in the same region.
 
 > [!NOTE]
-> A Backup vault is a new resource that's used to back up newly supported workloads. The Backup vault is different from a Recovery Services vault.
+> A Backup vault is a new resource that's used to back up newly supported workloads. A Backup vault is different from a Recovery Services vault.
 
 Learn [how to create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
@@ -57,9 +57,9 @@ To create a backup policy:
 
 1. For **Datasource type**, select **Kubernetes Service** and continue.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-datasource-type.png" alt-text="Screenshot that shows the selection of the datasource type.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-datasource-type.png" alt-text="Screenshot that shows selecting the datasource type.":::
 
-1. Enter a name for the backup policy (for example, *Default Policy*) and select the *Backup vault* (the new Backup vault you created) where the backup policy needs to be created.
+1. Enter a name for the backup policy (for example, *Default Policy*) and select the Backup vault (the new Backup vault you created) where the backup policy needs to be created.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/enter-backup-policy-name.png" alt-text="Screenshot that shows providing the backup policy name.":::
 
@@ -81,15 +81,15 @@ To create a backup policy:
 
 ## Configure backups
 
-AKS backup allows you to back up an entire cluster or specific cluster resources deployed in the cluster, as required. You can also protect a cluster multiple times as per the deployed applications schedule and retention requirements or security requirements.
+You can use AKS backup to back up an entire cluster or specific cluster resources that are deployed in the cluster. You can also protect a cluster multiple times per the deployed application's schedule and retention requirements or security requirements.
 
 > [!NOTE]
-> You can set up multiple backup instances for the same AKS cluster by:
+> To set up multiple backup instances for the same AKS cluster:
 >
-> - Configuring backup in the same Backup vault with a different backup policy.
-> - Configuring backup in a different Backup vault.
+> - Configure backup in the same Backup vault but using a different backup policy.
+> - Configure backup in a different Backup vault.
 
-To configure backups for AKS cluster, follow these steps:
+To configure backups for AKS cluster:
 
 1. In the Azure portal, go to the AKS cluster that you want to back up.
 
@@ -121,12 +121,12 @@ To configure backups for AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-vault.png" alt-text="Screenshot that shows how to choose a vault.":::
 
-   The Backup vault should have Trusted Access enabled for the AKS cluster to be backed up. You can enable Trusted Access by selecting **Grant Permission**. If it's already enabled, select **Next**.
+   The Backup vault should have Trusted Access enabled for the AKS cluster to be backed up. To enable Trusted Access, select **Grant Permission**. If it's already enabled, select **Next**.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/grant-permission.png" alt-text="Screenshot that shows how to proceed to the next step after granting permission.":::
 
    > [!NOTE]
-   > - Before you enable Trusted Access, enable the *TrustedAccessPreview* feature flag for the `Microsoft.ContainerServices` resource provider on the subscription.
+   > - Before you enable Trusted Access, enable the `TrustedAccessPreview` feature flag for the `Microsoft.ContainerServices` resource provider on the subscription.
    > - If the AKS cluster doesn't have the Backup extension installed, you can perform the installation step that configures backup.
 
 1. Select the backup policy, which defines the schedule for backups and their retention period. Then select **Next**.
@@ -159,7 +159,7 @@ To configure backups for AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-missing-roles.png" alt-text="Screenshot that shows how to select missing roles.":::
 
-1. When the role assignment is finished, select **Next**.
+1. When role assignment is finished, select **Next**.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/proceed-for-backup.png" alt-text="Screenshot that shows how to proceed to backup configuration.":::
 
@@ -182,10 +182,10 @@ As part of the AKS backup capability, you can back up all cluster resources or s
 - **All (including future Namespaces)**: This backs up all current and future values for **Namespaces** when the underlying cluster resources are backed up.
 - **Choose from list**: Select the specific values for **Namespaces** in the AKS cluster to back up.
 
-  To select specific cluster resources to back up, you can use labels that are attached to the resources to include the resources in the backup. Only the resources with entered labels are backed up. You can use multiple labels. You can also back up cluster-scoped resources, secrets, and persistent volumes. Select the specific options under **Other Options**.
+  To select specific cluster resources to back up, you can use labels that are attached to the resources to include the resources in the backup. Only the resources that have the labels that you enter are backed up. You can use multiple labels.
 
   > [!NOTE]
-  > You should add the labels to every single YAML file that is deployed and to be backed up. This includes *namespace-scoped resources* like *persistent volume claims*, and *cluster-scoped resources* like *persistent volumes*.
+  > You should add the labels to every single YAML file that is deployed and to be backed up. This includes namespace-scoped resources like persistent volume claims, and cluster-scoped resources like persistent volumes.
 
   If you also want to back up cluster-scoped resources, secrets, and persistent volumes, select the items under **Other Options**.
 
@@ -193,9 +193,9 @@ As part of the AKS backup capability, you can back up all cluster resources or s
 
 ## Use hooks during AKS backup
 
-This section describes how to use a backup hook to create an application-consistent snapshot of the AKS cluster with MySQL deployed (persistent volume that contains the MySQL instance).
+This section describes how to use a backup hook to create an application-consistent snapshot of the AKS cluster with MySQL deployed (a persistent volume that contains the MySQL instance).
 
-You can use custom hooks in Azure Backup for AKS to accomplish application-consistent snapshots of volumes, which are used for databases that are deployed as containerized workloads.
+You can use custom hooks in AKS backup to accomplish application-consistent snapshots of volumes. The volumes are used for databases that are deployed as containerized workloads.
 
 By using a backup hook, you can define the commands to freeze and unfreeze a MySQL pod so that an application snapshot of the volume can be taken. The Backup extension then orchestrates the steps of running the commands in the hooks and takes the volume snapshot.
 

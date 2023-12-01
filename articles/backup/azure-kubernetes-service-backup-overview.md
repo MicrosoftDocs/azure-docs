@@ -12,27 +12,27 @@ ms.author: v-abhmallick
 
 # What is Azure Kubernetes Service backup?
 
-Backup for [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) is a simple, cloud-native process to back up and restore the containerized applications and data running in an AKS cluster. You can configure scheduled backups for cluster state and application data that's stored on persistent volumes in CSI driver-based Azure Disk Storage. The solution provides granular control to choose a specific namespace or an entire cluster to back up or restore by storing backups locally in a blob container and as disk snapshots. You can use AKS backup for end-to-end scenarios, including operational recovery, cloning developer/test environments, and cluster upgrade scenarios.
+[Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) backup is a simple, cloud-native process you can use to back up and restore containerized applications and data that run in your AKS cluster. You can configure scheduled backups for cluster state and application data that's stored on persistent volumes in CSI driver-based Azure Disk Storage. The solution gives you granular control to choose a specific namespace or an entire cluster to back up or restore by storing backups locally in a blob container and as disk snapshots. You can use AKS backup for end-to-end scenarios, including operational recovery, cloning developer/test environments, and cluster upgrade scenarios.
 
-AKS backup integrates with Backup center, providing a single view that can help you govern, monitor, operate, and analyze backups at scale. Your backups are also available in the Azure portal under **Settings** in the resource menu for an AKS instance.
+AKS backup integrates with Backup center in Azure, providing a single view that can help you govern, monitor, operate, and analyze backups at scale. Your backups are also available in the Azure portal under **Settings** in the resource menu for an AKS instance.
 
 ## How does AKS backup work?
 
-Use AKS backup to back up your AKS workloads and persistent volumes that are deployed in AKS clusters. The solution requires an [Azure Backup extension](/azure/azure-arc/kubernetes/conceptual-extensions) to be installed inside the AKS cluster. The Backup vault communicates to the extension to complete operations that are related to backup and restore. Using the Backup extension is mandatory, and it must be installed inside the AKS cluster to enable backup and restore of the cluster. When you configure AKS backup, you add values for a storage account and a blob container where backups are stored.
+Use AKS backup to back up your AKS workloads and persistent volumes that are deployed in AKS clusters. The solution requires the [Backup extension](/azure/azure-arc/kubernetes/conceptual-extensions) to be installed inside the AKS cluster. The Backup vault communicates to the extension to complete operations that are related to backup and restore. Using the Backup extension is mandatory, and the extension must be installed inside the AKS cluster to enable backup and restore for the cluster. When you configure AKS backup, you add values for a storage account and a blob container where backups are stored.
 
 Along with the Backup extension, a user identity (called an *extension identity*) is created in the AKS cluster's managed resource group. The extension identity is assigned the Storage Account Contributor role on the storage account where backups are stored in a blob container.
 
-To support public, private, and authorized IP-based clusters, AKS backup requires Trusted Access to be enabled between the AKS cluster and the Backup vault. Trusted Access allows the Backup vault to access the AKS cluster because of specific permissions that are assigned to it related to backup operations. For more information on AKS Trusted Access, see [Enable Azure resources to access AKS clusters by using Trusted Access](../aks/trusted-access-feature.md).
+To support public, private, and authorized IP-based clusters, AKS backup requires Trusted Access to be enabled between the AKS cluster and the Backup vault. Trusted Access allows the Backup vault to access the AKS cluster because of specific permissions that are assigned to it for backup operations. For more information on AKS Trusted Access, see [Enable Azure resources to access AKS clusters by using Trusted Access](../aks/trusted-access-feature.md).
 
 > [!NOTE]
 > AKS backup currently allows storing backups in the Operational Tier. The Operational Tier is a local datastore. Backups aren't moved to a vault, but are stored in your own tenant. However, you still use the Backup vault to manage backups.
 
-After the Backup extension is installed and Trusted Access is enabled, you can configure scheduled backups for the clusters per your backup policy. You also can restore the backups to the original or to an alternate cluster in the same subscription and region. You have granular control to choose a specific namespace or an entire cluster as a backup and restore configuration as you set up the specific operation.
+After the Backup extension is installed and Trusted Access is enabled, you can configure scheduled backups for the clusters per your backup policy. You also can restore the backups to the original cluster or to an alternate cluster that's in the same subscription and region. You can choose a specific namespace or an entire cluster as a backup and restore configuration as you set up the specific operation.
 
 The backup solution enables backup operations for your AKS workloads that are deployed in the cluster and for the data that's stored in the persistent volume for the cluster. The AKS workloads are stored in a blob container. The disk-based persistent volumes are backed up as disk snapshots in a snapshot resource group.
 
 > [!NOTE]
-> Currently, the solution supports only persistent volumes in CSI driver-based Azure Disk Storage. During backups, the solution skips other persistent volume types (Azure File Share, blobs).
+> Currently, the solution supports only persistent volumes in CSI driver-based Azure Disk Storage. During backups, the solution skips other persistent volume types, like Azure File Share and blobs.
 
 ## Configure backup
 
@@ -40,27 +40,27 @@ To configure backup for an AKS cluster, first you need to create a Backup vault.
 
 > [!NOTE]
 >
-> - The Backup vault and the AKS cluster that is to be backed up or restored should be in the same region and subscription.
+> - The Backup vault and the AKS cluster that you want to back up or restore must be in the same region and subscription.
 > - Copying backups to the Vault Tier currently is not supported. The **Backup vault storage redundancy** setting (LRS/GRS) doesn't apply to backups that are stored in the Operational Tier.
 
-AKS backup automatically triggers a scheduled backup job. The job copies the cluster resources to a blob container and creates an incremental snapshot of the disk-based persistent volumes as per the backup frequency. Older backups are deleted as per the retention duration that's specified in the backup policy.
+AKS backup automatically triggers a scheduled backup job. The job copies the cluster resources to a blob container and creates an incremental snapshot of the disk-based persistent volumes per the backup frequency. Earlier backups are deleted per the retention duration that's specified in the backup policy.
 
 > [!NOTE]
 > You can use AKS backup to create multiple backup instances for a single AKS cluster by using different backup configurations per backup instance. However, each backup instance of an AKS cluster should be created either in a different Backup vault or by using a separate backup policy in the same Backup vault.
 
 ## Manage backup
 
-When the backup configuration for an AKS cluster is finished, a backup instance is created in the Backup vault. You can view the backup instance for the cluster in the **Backup** section for an AKS instance in the Azure portal. You can perform any backup-related operations for the instance, such as initiating restores, monitoring, stopping protection, and so on, through its corresponding backup instance.
+When backup configuration for an AKS cluster is finished, a backup instance is created in the Backup vault. You can view the backup instance for the cluster in the **Backup** section for an AKS instance in the Azure portal. You can perform any backup-related operations for the instance, such as initiating restores, monitoring, stopping protection, and so on, through its corresponding backup instance.
 
 AKS backup also integrates directly with Backup center to help you manage protection for all your AKS clusters and other backup-supported workloads centrally. Backup center is a single view for all your backup requirements, such as monitoring jobs and the state of backups and restores. Backup center helps you ensure compliance and governance, analyze backup usage, and perform critical operations to back up and restore data.
 
-AKS backup uses managed identity to access other Azure resources. To configure backup of an AKS cluster and to restore from an earlier backup, the Backup vault's managed identity requires a set of permissions on the AKS cluster and the snapshot resource group where snapshots are created and managed. Currently, the AKS cluster requires a set of permissions on the snapshot resource group. Also, the Backup extension creates a user identity and assigns a set of permissions to access the storage account where backups are stored in a blob. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). A managed identity is a special type of service principle that can only be used with Azure resources. Learn more about [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
+AKS backup uses managed identity to access other Azure resources. To configure backup of an AKS cluster and to restore from an earlier backup, the Backup vault's managed identity requires a set of permissions on the AKS cluster and the snapshot resource group where snapshots are created and managed. Currently, the AKS cluster requires a set of permissions on the snapshot resource group. Also, the Backup extension creates a user identity and assigns a set of permissions to access the storage account where backups are stored in a blob. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). A managed identity is a special type of service principle that can be used only with Azure resources. Learn more about [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Restore from a backup
 
-You can restore data from any point in time for which a recovery point exists. A recovery point is created when a backup instance is in protected state, and can be used to restore data until it's retained by the backup policy.
+You can restore data from any point in time for which a recovery point exists. A recovery point is created when a backup instance is in a protected state and can be used to restore data until it's retained by the backup policy.
 
-Azure Backup provides an instant restore experience because the snapshots are stored locally in your subscription. Operational backup gives you the option to restore all the backed-up items or use the granular controls to select specific items from the backup by choosing namespaces and other filter options. Also, you have the ability to perform the restore on the original AKS cluster (the cluster that's backed up) or on an alternate AKS cluster that's in the same region and subscription.
+Azure Backup provides an instant restore experience because snapshots are stored locally in your subscription. Operational backup gives you the option to restore all items that are backed up or to use granular controls to select specific items from the backup by choosing namespaces and other filter options. Also, you can perform the restore on the original AKS cluster (the cluster that's backed up) or on an alternate AKS cluster that's in the same region and subscription.
 
 ## Use custom hooks for backup and restore
 
@@ -68,7 +68,7 @@ You can use custom hooks to take application-consistent snapshots of volumes tha
 
 ### What are custom hooks?
 
-You can use Azure Backup for AKS to execute custom hooks as part of a backup and restore operation. Hooks are commands that are configured to run one or more commands to execute in a pod under a container during the backup operation or after restore. You define these hooks as a custom resource and deploy them in the AKS cluster to be backed up or restored. When the custom resource is deployed in the AKS cluster in the required namespace, you provide the details as input for the flow to configure backup and restore. The Backup extension runs the hooks as defined in a YAML file.
+You can use AKS backup to execute custom hooks as part of a backup and restore operation. Hooks are commands that are configured to run one or more commands to execute in a pod under a container during a backup operation or after restore. You define these hooks as a custom resource and deploy them in the AKS cluster that you want to back up or restore. When the custom resource is deployed in the AKS cluster in the required namespace, you provide the details as input for the flow to configure backup and restore. The Backup extension runs the hooks as defined in a YAML file.
 
 > [!NOTE]
 > Hooks aren't executed in a *shell* on the containers.
