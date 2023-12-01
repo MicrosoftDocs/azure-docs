@@ -52,6 +52,7 @@ Following described are the ways to review your migration schedule once you have
 * The Single Server instance should be in **ready state** and should not be in stopped state during the planned maintenance window for automigration to take place.
 * For Single Server instance with **SSL enabled**, ensure you have all three certificates (**[BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [DigiCertGlobalRootG2 Root CA](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and [DigiCertGlobalRootCA Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)**) available in the trusted root store. Additionally, if you have the certificate pinned to the connection string create a combined CA certificate with all three certificates before scheduled auto-migration to ensure business continuity post-migration.
 * The MySQL engine doesn't guarantee any sort order if there is no 'SORT' clause present in queries. Post in-place automigration, you may observe a change in the sort order. If preserving sort order is crucial, ensure your queries are updated to include 'SORT' clause before the scheduled in-place automigration.
+* If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's .NET client driver version to 8.0.32 to avoid any encoding incompatibilities post migration to Flexible Server.
 
 ## How is the target MySQL Flexible Server auto-provisioned?
 

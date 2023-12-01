@@ -16,15 +16,14 @@ ms.date: 08/29/2023
 > [!NOTE]
 > Managed Airflow for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
 
-Apache Airflow provides a range of backends for storing sensitive information like variables and connections, including Azure Key Vault. This guide shows you how to configure Azure Key Vault as the secret backend for Apache Airflow, enabling you to store and manage your sensitive information in a secure and centralized manner.
+Apache Airflow offers various backends for securely storing sensitive information such as variables and connections. One of these options is Azure Key Vault. This guide is designed to walk you through the process of configuring Azure Key Vault as the secret backend for Apache Airflow within Managed Airflow Environment.
 
 ## Prerequisites 
 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 - **Azure storage account** - If you don't have a storage account, see [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
-- **Azure Data Factory pipeline** - You can follow any of the tutorials and create a new data factory pipeline in case you don't already have one or create one with one select in [Get started and try out your first data factory pipeline](quickstart-get-started.md).
 - **Azure Key Vault** - You can follow [this tutorial to create a new Azure Key Vault](/azure/key-vault/general/quick-create-portal) if you don’t have one.
-- **Service Principal** - You'll need to [create a new service principal](/azure/active-directory/develop/howto-create-service-principal-portal) or use an existing one and grant it permission to access Azure Key Vault (example - grant the **key-vault-contributor role** to the SPN for the key vault, so the SPN can manage it). Additionally, you'll need to get the service principal **Client ID** and **Client Secret** (API Key) to add them as environment variables, as described later in this article.
+- **Service Principal** - You can [create a new service principal](/azure/active-directory/develop/howto-create-service-principal-portal) or use an existing one and grant it permission to access Azure Key Vault (example - grant the **key-vault-contributor role** to the SPN for the key vault, so the SPN can manage it). Additionally, you'll need to get the service principal **Client ID** and **Client Secret** (API Key) to add them as environment variables, as described later in this article.
 
 ## Permissions
 
@@ -86,7 +85,7 @@ Follow these steps to enable the Azure Key Vault as the secret backend for your 
           "retries": 1,
           "retry_delay": timedelta(minutes=5),
        },
-      description="A simple tutorial DAG",
+      description="This DAG shows how to use Azure Key Vault to retrieve variables in Apache Airflow DAG",
       schedule_interval=timedelta(days=1),
       start_date=datetime(2021, 1, 1),
       catchup=False,

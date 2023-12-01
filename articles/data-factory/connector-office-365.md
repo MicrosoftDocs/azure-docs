@@ -29,7 +29,7 @@ This Microsoft 365 (Office 365) connector is supported for the following capabil
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 ADF Microsoft 365 (Office 365) connector and Microsoft Graph Data Connect enables at scale ingestion of different types of datasets from Exchange Email enabled mailboxes, including address book contacts, calendar events, email messages, user information, mailbox settings, and so on.  Refer [here](/graph/data-connect-datasets) to see the complete list of datasets available.
 

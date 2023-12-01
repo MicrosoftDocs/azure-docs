@@ -2,12 +2,12 @@
 title: Microsoft Azure Active Directory B2C external identity video series
 titleSuffix: Azure AD B2C
 description: Learn about external identities in Azure AD B2C in the Microsoft identity platform 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 06/08/2023
 ms.author: gasinh

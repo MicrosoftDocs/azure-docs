@@ -74,7 +74,6 @@ To register an existing SAP system in Azure Center for SAP solutions:
    | East US 2 | East US 2|
    | North Central US | South Central US |
    | South Central US | South Central US |
-   | West Central US | South Central US |
    | Central US | South Central US |
    | West US | West US 3 |
    | West US 2 | West US 2 |

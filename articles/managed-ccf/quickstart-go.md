@@ -6,7 +6,7 @@ ms.author: settiy
 ms.date: 09/11/2023
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-python, mode-api
+ms.custom: mode-api, devx-track-go
 ---
 
 # Quickstart: Create an Azure Managed CCF resource using the Azure SDK for Go
@@ -23,6 +23,7 @@ In this quickstart, you learn how to create a Managed CCF resource using the Azu
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Go 1.18 or higher.
+- [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux.
 
 ## Setup
 

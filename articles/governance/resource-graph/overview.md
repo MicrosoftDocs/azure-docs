@@ -115,7 +115,7 @@ to, the response is a _403_ (Forbidden).
 As a free service, queries to Resource Graph are throttled to provide the best experience and
 response time for all customers. If your organization wants to use the Resource Graph API for
 large-scale and frequent queries, use portal **Feedback** from the
-[Resource Graph portal page](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+[Resource Graph portal page](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade).
 Provide your business case and select the **Microsoft can email you about your feedback** checkbox in
 order for the team to contact you.
 

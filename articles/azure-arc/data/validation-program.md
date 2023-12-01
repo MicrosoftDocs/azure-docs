@@ -18,7 +18,7 @@ Azure Arc-enabled data services team has worked with industry partners to valida
 To see how all Azure Arc-enabled components are validated, see [Validation program overview](../validation-program/overview.md)
 
 > [!NOTE]
-> At the current time, Azure Arc-enabled SQL Managed Instance is generally available in select regions.
+> At the current time, SQL Managed Instance enabled by Azure Arc is generally available in select regions.
 >
 > Azure Arc-enabled PostgreSQL server is available for preview in select regions.
 
@@ -40,14 +40,12 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 | [PowerStore X](https://www.dell.com/en-us/dt/storage/powerstore-storage-appliance/powerstore-x-series.htm)|1.20.6|1.0.0_2021-07-30|15.0.2148.140 | 12.3 (Ubuntu 12.3-1) |
 
 ### Hitachi
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
+|Solution and version |Kubernetes version |Azure Arc-enabled data services version |SQL engine version |PostgreSQL server version|
 |-----|-----|-----|-----|-----|
-|Hitachi Virtual Storage Software Block software-defined storage (VSSB)  | 1.24.12 | 1.20.0_2023-06-13 | 16.0.5100.7242 |  14.5 (Ubuntu 20.04)|
-|Hitachi Virtual Storage Platform (VSP) | 1.24.12 | 1.19.0_2023-05-09 | 16.0.937.6221 |  14.5 (Ubuntu 20.04)|
-|[Hitachi UCP with RedHat OpenShift](https://www.hitachivantara.com/en-us/solutions/modernize-digital-core/infrastructure-modernization/hybrid-cloud-infrastructure.html) | 1.23.12 | 1.16.0_2023-02-14 | 16.0.937.6221 |  14.5 (Ubuntu 20.04)|
-|[Hitachi UCP with VMware Tanzu](https://www.hitachivantara.com/en-us/solutions/modernize-digital-core/infrastructure-modernization/hybrid-cloud-infrastructure.html)  | 1.23.8 | 1.16.0_2023-02-14 | 16.0.937.6221 |  14.5 (Ubuntu 20.04)|
-
-
+|Red Hat OCP 4.12.30|1.25.11|1.25.0_2023-11-14|16.0.5100.7246|Not validated|
+|Hitachi Virtual Storage Software Block software-defined storage (VSSB)|1.24.12 |1.20.0_2023-06-13 |16.0.5100.7242 |14.5 (Ubuntu 20.04)|
+|Hitachi Virtual Storage Platform (VSP) |1.24.12 |1.19.0_2023-05-09 |16.0.937.6221 |14.5 (Ubuntu 20.04)|
+|[Hitachi UCP with RedHat OpenShift](https://www.hitachivantara.com/en-us/solutions/modernize-digital-core/infrastructure-modernization/hybrid-cloud-infrastructure.html) |1.23.12 |1.16.0_2023-02-14 |16.0.937.6221 |14.5 (Ubuntu 20.04)|
 
 ### HPE
 
@@ -67,8 +65,9 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version|
 |-----|-----|-----|-----|-----|
-|Lenovo ThinkAgile MX1020 |1.24.6| 1.14.0_2022-12-13 |16.0.816.19223|Not validated|
-|Lenovo ThinkAgile MX3520 |1.22.6| 1.10.0_2022-08-09 |16.0.312.4243| 12.3 (Ubuntu 12.3-1)|
+|[Lenovo ThinkEdge SE455 V3](https://lenovopress.lenovo.com/lp1724-lenovo-thinkedge-se455-v3-server)|1.26.6|1.24.0_2023-10-10|16.0.5100.7246|Not validated|
+|Lenovo ThinkAgile MX1020 |1.26.6|1.24.0_2023-10-10 |16.0.5100.7246|Not validated|
+|Lenovo ThinkAgile MX3520 |1.22.6|1.10.0_2022-08-09 |16.0.312.4243| 12.3 (Ubuntu 12.3-1)|
 
 ### Nutanix
 
@@ -131,7 +130,7 @@ These tests verify that the product is compliant with the requirements of runnin
 The tests for data services cover the following in indirectly connected mode
 
 1. Deploy data controller in indirect mode
-2. Deploy [Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+2. Deploy [SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)
 3. Deploy [Azure Arc-enabled PostgreSQL server](create-postgresql-server.md)
 
 More tests will be added in future releases of Azure Arc-enabled data services.
@@ -142,11 +141,12 @@ More tests will be added in future releases of Azure Arc-enabled data services.
 - [Azure Arc-enabled Kubernetes validation](../kubernetes/validation-program.md)
 - [Azure Arc validation program - GitHub project](https://github.com/Azure/azure-arc-validation/)
 
-## Next steps
+## Related content
 
 - [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
 - [Create a data controller - indirectly connected with the CLI](create-data-controller-indirect-cli.md)
 - To create a directly connected data controller, start with [Prerequisites to deploy the data controller in direct connectivity mode](create-data-controller-direct-prerequisites.md).
+
 
 
 

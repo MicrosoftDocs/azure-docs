@@ -1,53 +1,96 @@
 ---
-title: Securing IoT devices in the enterprise with Microsoft Defender for Endpoint
-description: Learn how integrating Microsoft Defender for Endpoint and Microsoft Defender for IoT's security content and network sensors enhances your IoT network security.
+title: Securing IoT devices | Microsoft Defender for IoT
+description: Learn how integrating Microsoft Defender for Endpoint and Microsoft Defender for IoT's security content enhances your IoT network security.
 ms.topic: concept-article
-ms.date: 05/31/2023
+ms.date: 09/13/2023
 ms.custom: enterprise-iot
+#CustomerIntent: As a Defender for IoT customer, I want to understand how I can secure my enterprise IoT devices with Microsoft Defender for IoT so that I can protect my organization from IoT threats.
 ---
 
 # Securing IoT devices in the enterprise
 
-The number of IoT devices continues to grow exponentially across enterprise networks, such as the printers, Voice over Internet Protocol (VoIP) devices, smart TVs, and conferencing systems scattered around many office buildings.
+The number of IoT devices continues to grow exponentially across enterprise networks, such as the printers, Voice over Internet Protocol (VoIP) devices, smart TVs, and conferencing systems scattered around many office buildings. 
 
 While the number of IoT devices continues to grow, they often lack the security safeguards that are common on managed endpoints like laptops and mobile phones. To bad actors, these unmanaged devices can be used as a point of entry for lateral movement or evasion, and too often, the use of such tactics leads to the exfiltration of sensitive information.
 
-[Microsoft Defender for IoT](./index.yml) seamlessly integrates with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) to provide both IoT device discovery and security value for IoT devices, including purpose-built alerts, recommendations, and vulnerability data.
+[Microsoft Defender for IoT](./index.yml) seamlessly integrates with [Microsoft 365 Defender](/microsoft-365/security/defender) and [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) to provide both IoT device discovery and security value for IoT devices, including purpose-built alerts, recommendations, and vulnerability data.
 
-## IoT security across Microsoft 365 Defender and Azure
+## Enterprise IoT security in Microsoft 365 Defender
 
-Defender for IoT provides IoT security functionality across both the Microsoft 365 Defender and [Azure portals](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started).
+Enterprise IoT security in Microsoft 365 Defender provides IoT-specific security value, including alerts, risk and exposure levels, vulnerabilities, and recommendations in Microsoft 365 Defender.
 
-[Add an Enterprise IoT plan](eiot-defender-for-endpoint.md) in the **Settings** \> **Device discovery** \> **Enterprise IoT** page in Microsoft 365 Defender to view IoT-specific alerts, recommendations, and vulnerability data in Microsoft 365 Defender. The extra security value is provided for IoT devices detected by Defender for Endpoint.  
+- If you're a Microsoft 365 E5 (ME5)/ E5 Security and Defender for Endpoint P2 customer, [toggle on support](eiot-defender-for-endpoint.md) for **Enterprise IoT Security** in the Microsoft 365 Defender portal.
 
-Integrating your Enterprise IoT plan with Microsoft 365 Defender requires the following:
+- If you don't have ME5/E5 Security licenses, but you're a Microsoft Defender for Endpoint customer, start with a [free trial](billing.md#free-trial) or purchase standalone, per-device licenses to gain the same IoT-specific security value.
 
-- A Microsoft Defender for Endpoint P2 license
-- Microsoft 365 Defender access as a [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator)
-- Azure access as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner)
-
-## Security value in Microsoft 365 Defender
-
-Defender for IoT's Enterprise IoT plan adds purpose-built alerts, recommendations, and vulnerability data for the IoT devices discovered by Defender for Endpoint agents. The added security value is available in Microsoft 365 Defender, which is Microsoft's central portal for combined enterprise IT and IoT device security.
-
-For example, use the added security recommendations in Microsoft 365 Defender to open a single IT ticket to patch vulnerable applications on both servers and printers. Or, use a recommendation to request that the network team adds firewall rules that apply for both workstations and cameras communicating with a suspicious IP address.
-
-The following image shows the architecture and extra features added with an Enterprise IoT plan in Microsoft 365 Defender:
+The following image shows the architecture and extra features added with **Enterprise IoT security** in Microsoft 365 Defender:
 
 :::image type="content" source="media/enterprise-iot/architecture-endpoint-only.png" alt-text="Diagram of the service architecture when you have an Enterprise IoT plan added to Defender for Endpoint." border="false":::
 
-> [!NOTE]
-> Defender for Endpoint doesn't issue IoT-specific alerts, recommendations, and vulnerability data without an Enterprise IoT plan in Microsoft 365 Defender. Use our [quickstart](eiot-defender-for-endpoint.md) to start seeing this extra security value across your network.
->
 
 For more information, see:
 
-- [Enable Enterprise IoT security in Defender for Endpoint](eiot-defender-for-endpoint.md)
+- [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md)
+- [Defender for IoT subscription billing](billing.md)
+- [Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery)
 - [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Proactively hunt with advanced hunting in Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview)
+
+## Frequently asked questions
+
+This section provides a list of frequently asked questions about securing Enterprise IoT networks with Microsoft Defender for IoT.
+
+### What is the difference between OT and Enterprise IoT?
+
+- **Operational Technology (OT)**: OT network sensors use agentless, patented technology to discover, learn, and continuously monitor network devices for a deep visibility into Operational Technology (OT) / Industrial Control System (ICS) risks. Sensors carry out data collection, analysis, and alerting on-site, making them ideal for locations with low bandwidth or high latency.
+
+- **Enterprise IoT**: Enterprise IoT provides visibility and security for IoT devices in the corporate environment.
+
+    Enterprise IoT network protection extends agentless features beyond operational environments, providing coverage for all IoT devices in your environment. For example, an enterprise IoT environment might include printers, cameras, and purpose-built, proprietary, devices.
+
+### What extra security value can Enterprise IoT provide Microsoft Defender for Endpoint customers?
+
+Enterprise IoT is designed to help customers secure unmanaged devices throughout the organization and extend IT security to also cover IoT devices.
+
+While Microsoft 365 P2 customers already have visibility for discovered IoT devices in the **Device inventory** page in Defender for Endpoint, they can use enterprise IoT security to gain security value with extra alerts, recommendations and vulnerabilities for their discovered IoT devices.
+
+### How can I start using Enterprise IoT?
+
+Microsoft E5 (ME5) and E5 Security customers already have devices supported for enterprise IoT security. If you only have a Defender for Endpoint P2 license, you can purchase standalone, per-device licenses for enterprise IoT monitoring, or use a trial.
+
+For more information, see:
+
+- [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md)
+- [Manage enterprise IoT monitoring support with Microsoft Defender for IoT](manage-subscriptions-enterprise.md)
+
+### What permissions do I need to use Enterprise IoT security with Defender for IoT?
+
+For information on required permissions, see [Prerequisites](eiot-defender-for-endpoint.md#prerequisites).
+
+### Which devices are billable?
+
+For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
+
+### How should I estimate the number of devices I want to monitor?
+
+For more information, see [Calculate monitored devices for Enterprise IoT monitoring](manage-subscriptions-enterprise.md#calculate-monitored-devices-for-enterprise-iot-monitoring).
+
+### How can I cancel Enterprise IoT?
+
+For more information, see [Turn off enterprise IoT security](manage-subscriptions-enterprise.md#turn-off-enterprise-iot-security).
+
+### What happens when the trial ends?
+
+If you haven't added a standalone license by the time your trial ends, your trial is automatically canceled, and you lose access to Enterprise IoT security features.
+
+For more information, see [Defender for IoT subscription billing](billing.md).
+
+### How can I resolve billing issues associated with my Defender for IoT plan?
+
+For any billing or technical issues, open a support ticket for Microsoft 365 Defender.
 
 ## Next steps
 

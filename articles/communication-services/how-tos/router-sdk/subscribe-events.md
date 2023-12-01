@@ -13,8 +13,6 @@ ms.custom: template-how-to
 
 # Subscribe to Job Router events
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 This guide outlines the steps to set up a subscription for Job Router events and how to receive them.
 
 For more details on Event Grid, see the [Event Grid documentation][event-grid-overview].
@@ -172,10 +170,11 @@ dotnet run
         "key": "string",
         "labelOperator": "equal",
         "value": 5,
-        "ttl": "P3Y6M4DT12H30M5S"
+        "ttlSeconds": 50,
+        "expirationTime": "2022-02-17T00:58:25.1736293Z"
       }
     ],
-    "scheduledTimeUtc": "3/28/2007 7:13:50 PM +00:00",
+    "scheduledOn": "3/28/2007 7:13:50 PM +00:00",
     "unavailableForMatching": false
   },
   "eventType": "Microsoft.Communication.RouterJobReceived",
@@ -199,7 +198,7 @@ dotnet run
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | requestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input
-| scheduledTimeUtc | `DateTimeOffset` | ✔️ | | Based on user input
+| scheduledOn | `DateTimeOffset` | ✔️ | | Based on user input
 | unavailableForMatching | `bool` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterJobClassified
@@ -212,7 +211,7 @@ dotnet run
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
   "subject": "job/{job-id}/channel/{channel-id}/queue/{queue-id}",
   "data": {
-    "queueInfo": {
+    "queueDetails": {
       "id": "625fec06-ab81-4e60-b780-f364ed96ade1",
       "name": "Queue 1",
       "labels": {
@@ -257,7 +256,7 @@ dotnet run
 
 | Attribute | Type | Nullable | Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
-| queueInfo | `QueueInfo` | ❌ |
+| queueDetails | `QueueDetails` | ❌ |
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
@@ -721,7 +720,7 @@ dotnet run
         "ttl": "P3Y6M4DT12H30M5S"
       }
     ],
-    "scheduledTimeUtc": "2022-02-17T00:55:25.1736293Z",
+    "scheduledOn": "2022-02-17T00:55:25.1736293Z",
     "unavailableForMatching": false
   },
   "eventType": "Microsoft.Communication.RouterJobWaitingForActivation",
@@ -743,7 +742,7 @@ dotnet run
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | requestedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | Based on user input while creating a job
 | attachedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
-| scheduledTimeUtc | `DateTimeOffset` |✔️ | | Based on user input while creating a job
+| scheduledOn | `DateTimeOffset` |✔️ | | Based on user input while creating a job
 | unavailableForMatching | `bool` |✔️ | | Based on user input while creating a job
 | priority| `int` | ❌ | | Based on user input while creating a job
 
@@ -788,7 +787,7 @@ dotnet run
         "ttl": "P3Y6M4DT12H30M5S"
       }
     ],
-    "scheduledTimeUtc": "2022-02-17T00:55:25.1736293Z",
+    "scheduledOn": "2022-02-17T00:55:25.1736293Z",
     "failureReason": "Error"
   },
   "eventType": "Microsoft.Communication.RouterJobSchedulingFailed",
@@ -810,7 +809,7 @@ dotnet run
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | requestedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | Based on user input while creating a job
 | attachedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
-| scheduledTimeUtc | `DateTimeOffset` |✔️ | | Based on user input while creating a job
+| scheduledOn | `DateTimeOffset` |✔️ | | Based on user input while creating a job
 | failureReason | `string` |✔️ | | System determined
 | priority| `int` |❌ | | Based on user input while creating a job
 
@@ -870,8 +869,8 @@ dotnet run
     "channelId": "FooVoiceChannelId",
     "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1",
     "offerId": "525fec06-ab81-4e60-b780-f364ed96ade1",
-    "offerTimeUtc": "2021-06-23T02:43:30.3847144Z",
-    "expiryTimeUtc": "2021-06-23T02:44:30.3847674Z",
+    "offeredOn": "2021-06-23T02:43:30.3847144Z",
+    "expiresOn": "2021-06-23T02:44:30.3847674Z",
     "jobPriority": 5,
     "jobLabels": {
       "Locale": "en-us",
@@ -901,8 +900,8 @@ dotnet run
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
 | offerId| `string` | ❌ |
-| offerTimeUtc | `DateTimeOffset` | ❌ |
-| expiryTimeUtc| `DateTimeOffset` | ❌ |
+| offeredOn | `DateTimeOffset` | ❌ |
+| expiresOn | `DateTimeOffset` | ❌ |
 | jobPriority| `int` | ❌ |
 | jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | jobTags | `Dictionary<string, object>` | ✔️ | | Based on user input
@@ -1116,7 +1115,7 @@ dotnet run
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
 | totalCapacity | `int` | ❌ |
-| queueAssignments | `List<QueueInfo>` | ❌ |
+| queueAssignments | `List<QueueDetails>` | ❌ |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
@@ -1199,17 +1198,17 @@ dotnet run
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
 | totalCapacity | `int` | ❌ |
-| queueAssignments | `List<QueueInfo>` | ❌ |
+| queueAssignments | `List<QueueDetails>` | ❌ |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 
 ## Model Definitions
 
-### QueueInfo
+### QueueDetails
 
 ```csharp
-public class QueueInfo
+public class QueueDetails
 {
     public string Id { get; set; }
     public string Name { get; set; }

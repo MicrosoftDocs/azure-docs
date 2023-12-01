@@ -83,6 +83,7 @@ Run the following Azure CLI commands, setting variables where indicated with the
 
 
 ```azurecli
+#!/bin/bash
 # Verify currently selected subscription
 az account show
 

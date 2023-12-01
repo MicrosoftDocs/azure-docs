@@ -20,8 +20,6 @@ Use the following steps to create an Azure Spring Apps service instance:
 
 1. Select **Compute** > **Azure Spring Apps**.
 
-   :::image type="content" source="../../media/quickstart/create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal that shows Azure Spring Apps in the list of compute resources." lightbox="../../media/quickstart/create-azure-spring-apps.png":::
-
 1. Fill out the **Basics** form with the following information:
 
    | Setting                   | Suggested value                   | Description                                                                                                                                                                                                                                                                                        |
@@ -35,8 +33,6 @@ Use the following steps to create an Azure Spring Apps service instance:
    | **Software IP plan**      | Pay-as-You-Go                     | The pricing plan that lets you pay as you go with Azure Spring Apps.                                                                                                                                                                                                                               |
    | **Terms**                 | Selected                          | The agreement checkbox associated with [Marketplace offering](https://aka.ms/ascmpoffer). You're required to select this checkbox.                                                                                                                                                                 |
    | **Deploy sample project** | Unchecked                         | The option to use the built-in sample application.                                                                                                                                                                                                                                                 |
-
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-enterprise-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-restful-api-app/create-enterprise-basics.png":::
 
 1. Select **Review and Create** to review your selections. Then, select **Create** to provision the Azure Spring Apps instance.
 

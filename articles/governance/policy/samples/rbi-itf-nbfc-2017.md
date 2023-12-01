@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for Reserve Bank of India - IT Framework for NBFC
 description: Details of the Reserve Bank of India - IT Framework for NBFC Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 10/23/2023
+ms.date: 11/21/2023
 ms.topic: sample
 ms.custom: generated
 ---

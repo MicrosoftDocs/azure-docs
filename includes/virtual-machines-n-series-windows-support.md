@@ -40,7 +40,7 @@ The Nvidia extension always installs the latest driver.
 
 For Windows 11 22H2/21H2, Windows 10 22H2, Server 2019/2022:
 
-- [GRID 16.1 (536.25)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRID 16.2 (537.13)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
 
 The following links to previous versions are provided to support dependencies on older driver versions.
 

@@ -456,9 +456,15 @@ while (conflictFeed.HasMoreResults)
 ```
 ---
 
-### <a id="read-from-conflict-feed-javav2"></a>Java V2 SDKs
+### <a id="read-from-conflict-feed-javav2"></a>Java SDKs
 
-# [Async Java V2 SDK](#tab/async)
+# [Java V4 SDK](#tab/v4async)
+
+[Java V4 SDK](sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos))
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/conflictfeed/async/SampleConflictFeedAsync.java?name=ReadConflictFeed)]
+
+# [Async Java V2 SDK](#tab/v2async)
 
 [Async Java V2 SDK](sdk-java-async-v2.md) (Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
@@ -469,7 +475,7 @@ for (Conflict conflict : response.getResults()) {
     /* Do something with conflict */
 }
 ```
-# [Sync Java V2 SDK](#tab/sync)
+# [Sync Java V2 SDK](#tab/v2sync)
 
 [Sync Java V2 SDK](sdk-java-v2.md) (Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 

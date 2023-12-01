@@ -2,7 +2,7 @@
 title: Custom Neural Voice overview - Speech service
 titleSuffix: Azure AI services
 description: Custom Neural Voice is a text to speech feature that allows you to create a one-of-a-kind, customized, synthetic voice for your applications. You provide your own audio data as a sample.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
