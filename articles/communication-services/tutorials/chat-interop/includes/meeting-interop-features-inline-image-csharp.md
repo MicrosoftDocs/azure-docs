@@ -25,7 +25,7 @@ Find the finalized code of this tutorial on [GitHub TODO](<TODO>).
 
 ## Handle inline images for new messages
 
-In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we've created an event handler for `chatMessageReceived` event, which would be trigger when we receive a new message from the Teams user. We have also appended incoming message content to `messageContainer` directly upon receiving the `chatMessageReceived` event from the `chatClient` like this:
+In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we poll for messages and append new messages to the messageList. We will build on this functionality later to include parsing and fetching of the inline images.
 
 ```c#
   CommunicationUserIdentifier currentUser = new(user_Id_);
