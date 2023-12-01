@@ -590,7 +590,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
     :::column-end:::
 :::row-end:::
 
-Note that the name of the last visited page is shown, and the data is saved to and retrieved from the Azure cache. Remember that the sample app uses the connection string `AZURE_REDIS_CONNECTIONSTRING`, which was created for you by the wizard.
+The home page shows that the name of the last visited restaurant, and the data is saved to and retrieved from the Azure cache. Remember that the sample app uses the connection string `AZURE_REDIS_CONNECTIONSTRING`, which was created for you by the wizard.
 
 -----
 
