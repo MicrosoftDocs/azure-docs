@@ -63,7 +63,7 @@ A `client-secret` is a string value your app can use in place of a certificate t
 :::image type="content" source="media/how-to-manage-users/endpoint-url.png" alt-text="Screenshot of finding the URL from Azure Data Manager for Energy instance.":::
 
 #### Find the `data-partition-id` 
-1. You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance. '
+1. You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance.
 2. One option is to navigate the *Data Partitions* menu item under the Advanced section of your Azure Data Manager for Energy UI.
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance.":::
@@ -133,7 +133,7 @@ Run the below curl command in Azure Cloud Bash to get all the groups that are av
 ## Add users to an OSDU group in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to add the user(s) to the "Users" group using the Entitlement service.
-2. The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email.
+2. The value to be sent for the param `email` is the `Object_ID` (OID) of the user and not the user's email.
 
 ```bash
     curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/<group-name>@<data-partition-id>.dataservices.energy/members' \
