@@ -30,7 +30,7 @@ If you don't know your spacecraft's pass timings or which ground station sites a
 - A registered and authorized spacecraft resource. Learn more on how to [register a spacecraft](register-spacecraft.md).
 - A contact profile with links in accordance with the spacecraft resource above. Learn more on how to [configure a contact profile](contact-profile.md).
 
-## Azure Portal method
+## Azure portal method
 
 1. Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 2. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
@@ -61,38 +61,7 @@ If you don't know your spacecraft's pass timings or which ground station sites a
 
 ## API method
 
-Use the Contacts REST Operation Group to [create a contact](/rest/api/orbital/azureorbitalgroundstation/contacts/create/) in the Azure Orbital Ground Station API.
-
-# Cancel a contact
-
-To cancel a scheduled contact, you must delete the contact resource.
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A registered and authorized spacecraft resource. Learn more on how to [register a spacecraft](register-spacecraft.md).
-- A contact profile with links in accordance with the spacecraft resource above. Learn more on how to [configure a contact profile](contact-profile.md).
-- A [scheduled contact](schedule-contact.md) for the above spacecraft and contact profile.
-
-## Azure Portal method
-
-1. Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
-2. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
-3. In the **Spacecraft** page, select the name of the spacecraft for the scheduled contact.
-4. Select **Contacts** from the left menu bar in the spacecraft’s overview page.
-
-   :::image type="content" source="media/orbital-eos-delete-contact.png" alt-text="Select a scheduled contact" lightbox="media/orbital-eos-delete-contact.png":::
-
-5. Select the name of the contact to be deleted
-6. Select **Delete** from the top bar of the contact's configuration view
-
-   :::image type="content" source="media/orbital-eos-contact-config-view.png" alt-text="Delete a scheduled contact" lightbox="media/orbital-eos-contact-config-view.png":::
-
-7. The scheduled contact will be canceled once the contact entry is deleted.
-
-## API method
-
-Use the Contacts REST Operation Group to [delete a contact](/rest/api/orbital/azureorbitalgroundstation/contacts/delete/) in the Azure Orbital Ground Station API.
+Use the Contacts REST Operation Group to [create a contact](/rest/api/orbital/azureorbitalgroundstation/contacts/create/) with the Azure Orbital Ground Station API.
 
 ## Next steps
 
