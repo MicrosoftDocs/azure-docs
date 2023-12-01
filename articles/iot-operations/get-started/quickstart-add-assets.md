@@ -265,6 +265,8 @@ To verify the configuration, run the following command to view the Akri instance
 kubectl get akrii -n azure-iot-operations
 ```
 
+Note that it may take a few minutes for the instance to show up.
+
 The output from the previous command looks like the following example. You may need to wait for a few seconds for the Akri instance to be created:
 
 ```console
