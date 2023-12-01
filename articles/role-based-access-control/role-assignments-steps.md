@@ -77,7 +77,7 @@ When you assign a role at a parent scope, those permissions are inherited to the
 
 ## Step 4: Check your prerequisites
 
-To assign roles, you must be signed in with a user that is assigned a role that has role assignments write permission, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role. Similarly, to remove a role assignment, you must have the role assignments delete permission.
+To assign roles, you must be signed in with a user that is assigned a role that has role assignments write permission, such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) at the scope you are trying to assign the role. Similarly, to remove a role assignment, you must have the role assignments delete permission.
 
 - `Microsoft.Authorization/roleAssignments/write`
 - `Microsoft.Authorization/roleAssignments/delete`

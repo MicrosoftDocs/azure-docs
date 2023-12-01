@@ -53,7 +53,7 @@ Once you know the permissions that delegate needs, you use the following steps t
 
     The **Conditions** tab appears.
 
-    You can select any role that includes the `Microsoft.Authorization/roleAssignments/write` or `Microsoft.Authorization/roleAssignments/delete` actions, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator), but [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) has fewer permissions.
+    You can select any role that includes the `Microsoft.Authorization/roleAssignments/write` or `Microsoft.Authorization/roleAssignments/delete` actions, such as [User Access Administrator](built-in-roles.md#user-access-administrator), but [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) has fewer permissions.
 
 1. On the **Members** tab, find and select the delegate.
 
