@@ -74,6 +74,6 @@ If necessary due to outstanding security issues, runtime usage, or other factors
 
 ### End of life date and retirement
 As of the applicable EOL (End-of-Life) date, runtimes are considered retired and deprecated.
-* It isn'tt possible to create new Spark pools using the retired version through Azure Synapse Studio, the Synapse API, or the Azure portal.
+* It isn't possible to create new Spark pools using the retired version through Azure Synapse Studio, the Synapse API, or the Azure portal.
 * The retired runtime version won't be available in Azure Synapse Studio, the Synapse API, or the Azure portal.
 * Spark Pool definitions and associated metadata will remain in the Synapse workspace for a defined period after the applicable End-of-Life (EOL) date. **However, all pipelines, jobs, and notebooks will no longer be able to execute.** 
