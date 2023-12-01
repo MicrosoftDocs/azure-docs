@@ -64,17 +64,10 @@ public struct ChatAttachmentType : System.IEquatable<AttachmentType>
 }
 ```
 
-As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment and a file attachment:
+As an example, the following JSON is an example of what `ChatAttachment` might look like for an image attachment:
 
 ```json
 "attachments": [
-    {
-        "id": "08a182fe-0b29-443e-8d7f-8896bc1908a2",
-        "attachmentType": "file",
-        "name": "business report.pdf",
-        "url": "",
-        "previewUrl": "https://contoso.sharepoint.com/:u:/g/user/h8jTwB0Zl1AY"
-    },
     {
         "id": "9d89acb2-c4e4-4cab-b94a-7c12a61afe30",
         "attachmentType": "image",
@@ -97,12 +90,24 @@ Now let's go back to the replace the code to add some extra logic like the follo
       // Get message attachments that are of type 'image'
       IEnumerable<ChatAttachment> imageAttachments = message.Content.Attachments.Where(x => x.AttachmentType == ChatAttachmentType.Image);
 
+      // Fetch image and render
       var chatAttachmentImageUris = new List<Uri>();
       foreach (ChatAttachment imageAttachment in imageAttachments)
       {
+          client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", communicationTokenCredential.GetToken().Token);
+          var response = await client.GetAsync(imageAttachment.PreviewUri);
+          var randomAccessStream = await response.Content.ReadAsStreamAsync();
+          await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+          {
+              var bitmapImage = new BitmapImage();
+              await bitmapImage.SetSourceAsync(randomAccessStream.AsRandomAccessStream());
+              InlineImage.Source = bitmapImage;
+          });
+
           chatAttachmentImageUris.Add(imageAttachment.PreviewUri);
       }
 
+      // Build message list
       if (message.Type == ChatMessageType.Html || message.Type == ChatMessageType.Text)
       {
           textMessages++;
@@ -111,10 +116,11 @@ Now let's go back to the replace the code to add some extra logic like the follo
           var chatAttachments = chatAttachmentImageUris.Count > 0 ? "[Attachments]:\n" + string.Join(",\n", chatAttachmentImageUris) : "";
           messageList.Add(long.Parse(message.SequenceId), $"{userPrefix}{strippedMessage}\n{chatAttachments}");
       }
-  }
 ```
 
-Noticing in this example, we have grabbed all attachments from the message of type 'Image' and then taken their previewUris to then later be included with the message in the text block.
+Noticing in this example, we have grabbed all attachments from the message of type 'Image' and then we fetch each one of these images. We must use our 'Token' in the 'Bearer' portion of the request header for authorization purposes. Once the image is downloaded we can assign it to the 'InlineImage' element of the view.
+
+We also include a list of the attachment URIs to be shown along with the message in text message list.
 
 ## Demo
 
