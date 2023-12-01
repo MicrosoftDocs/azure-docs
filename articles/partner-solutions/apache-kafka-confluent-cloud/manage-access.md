@@ -25,7 +25,7 @@ The following actions are supported:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
 * An existing Confluent organization.
-* Required permission: Azure subscription Owner, or subscription Contributor with minimum permission AccountAdmin in the Confluent Organization. 
+* Required permission: Azure subscription Owner, or subscription Contributor with minimum permission AccountAdmin in the Confluent Organization.
 
 ## Add a user to a Confluent organization
 
