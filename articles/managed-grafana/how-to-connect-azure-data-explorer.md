@@ -138,10 +138,13 @@ az grafana data-source create --name <azure-managed-grafana-workspace> --definit
   "type": "grafana-azure-data-explorer-datasource",
   "access": "proxy",
   "jsonData": {
+    "clusterUrl": "<cluster-url>",
     "dataConsistency": "strongconsistency",
-    "clusterUrl": "<cluster-url>"
+    "azureCredentials": {
+      "authType": "msi"
+    }
   }
-}'
+}
 ```
 
 ### [App registration](#tab/app-registration-cli)
@@ -163,6 +166,36 @@ az grafana data-source create --name <azure-managed-grafana-workspace> --definit
     }
   },
   "secureJsonData": { "azureClientSecret": "verySecret" }
+}'
+```
+
+### [Current user](#tab/current-user)
+
+Authenticate with the current user method. This method leverages the current Grafana user's Microsoft Entra ID credentials in the configured data source.
+
+When you configure an Azure Data Explorer data source with the Current User authentication method, Grafana queries Azure Data Explorer using the user's credentials.
+
+> [!NOTE]
+> Rollout of the user-based authentication in Azure Managed Grafana is in progress and will be complete in all regions by the end of 2023.
+
+> [!CAUTION]
+> User-based authentication in Grafana data sources is experimental.
+
+> [!CAUTION]
+> This feature is incompatible with use cases that requires always-on machine access to the queried data, including Alerting, Reporting, Query caching and Public dashboards. The Current User authentication method relies on a user being logged in, in an interactive session, for Grafana to reach the database. When user-based authentication is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks for Azure Data Explorer, we recommend setting up another Azure Data Explorer data source using another authentication method.
+
+```azurecli
+az grafana data-source create --name <azure-managed-grafana-workspace> --definition '{
+  "name": "<data-source-name>",
+  "type": "grafana-azure-data-explorer-datasource",
+  "access": "proxy",
+  "jsonData": {
+    "clusterUrl": "<cluster-url>",
+    "dataConsistency": "strongconsistency",
+    "azureCredentials": {
+      "authType": "currentuser"
+    }
+  }
 }'
 ```
 
