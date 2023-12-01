@@ -3,7 +3,7 @@ title: "[Deprecated] Forcepoint CSG via Legacy Agent connector for Microsoft Sen
 description: "Learn how to install the connector [Deprecated] Forcepoint CSG via Legacy Agent to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -99,21 +99,21 @@ This integration requires the Linux Syslog agent to collect your Forcepoint Clou
 
 The integration is made available with two implementations options.
 
-2.1  Splunk Implementation
+2.1  Docker Implementation
 
-Leverages splunk images where the integration component is already installed with all necessary dependencies.
+Leverages docker images where the integration component is already installed with all necessary dependencies.
 
 Follow the instructions provided in the Integration Guide linked below.
 
-[Integration Guide >](https://forcepoint.github.io/docs/csg_and_splunk/)
+[Integration Guide >](https://frcpnt.com/csg-sentinel)
 
-2.2  VeloCloud Implementation
+2.2  Traditional Implementation
 
 Requires the manual deployment of the integration component inside a clean Linux machine.
 
 Follow the instructions provided in the Integration Guide  linked below.
 
-[Integration Guide >](https://forcepoint.github.io/docs/csg_and_velocloud/)
+[Integration Guide >](https://frcpnt.com/csg-sentinel)
 
 3. Validate connection
 

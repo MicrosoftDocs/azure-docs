@@ -165,6 +165,7 @@ After ingesting your data, you can start chatting with the model on your data us
 * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples/Sample08_UseYourOwnData.cs)
 * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/openai/azure-ai-openai/src/samples/java/com/azure/ai/openai/ChatCompletionsWithYourData.java)
 * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/openai/openai/samples/v1-beta/javascript/bringYourOwnData.js)
+* [PowerShell](../use-your-data-quickstart.md?tabs=command-line%2Cpowershell&pivots=programming-language-powershell#example-powershell-commands)
 * [Python](https://github.com/openai/openai-cookbook/blob/main/examples/azure/chat_with_your_own_data.ipynb) 
 
 # [Azure Cosmos DB for MongoDB vCore](#tab/mongo-db)
@@ -238,6 +239,8 @@ To add a new data source to Azure OpenAI on your data, you need the following Az
 
 ## Virtual network support & private endpoint support (Azure AI Search only)
 
+> [!TIP]
+> For instructions on setting up your resources to work on a virtual private network or private endpoint, see [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md)
 
 ### Azure OpenAI resources
 
