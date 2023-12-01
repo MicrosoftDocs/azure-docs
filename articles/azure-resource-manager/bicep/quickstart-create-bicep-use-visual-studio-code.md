@@ -30,7 +30,7 @@ In *main.bicep*, type **vnet**, and then select **res-vnet** from the list, and 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-snippet.png" alt-text="Screenshot of adding snippet for virtual network.":::
 
 > [!TIP]
-> If you don't see those intellisense options in VS Code, make sure you've installed the Bicep extension as specified in [Prerequisites](#prerequisites). If you have installed the extension, give the Bicep language service some time to start after opening your Bicep file. It usually starts quickly, but you'll not have intellisense options until it starts. A notification in the lower right corner indicates that the service is starting. When that notification disappears, the service is running.
+> If you don't see those intellisense options in VS Code, make sure you've installed the Bicep extension as specified in [Prerequisites](#prerequisites). If you have installed the extension, give the Bicep language service some time to start after opening your Bicep file. It usually starts quickly, but you don't have intellisense options until it starts. A notification in the lower right corner indicates that the service is starting. When that notification disappears, the service is running.
 
 Your Bicep file now contains the following code:
 
@@ -80,7 +80,7 @@ name: 'exampleVNet'
 
 The code snippet you added in the last section misses a parameter definition.
 
-At the top of the file, add
+At the top of the file, add:
 
 ```bicep
 param location
@@ -235,7 +235,7 @@ The visualizer shows the resources defined in the Bicep file with the resource d
 
     :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy.png" alt-text="Screenshot of Deploy Bicep file.":::
 
-1. From **Please enter name for deployment** textbox, type **deployStorageAndVNet**, and then press **[ENETER]**.
+1. In the **Please enter name for deployment** text box, type **deployStorageAndVNet**, and then press **[ENTER]**.
 1. From the **Select Resource Group** listbox on the top, select **Create new Resource Group**.
 1. Enter **exampleRG** as the resource group name, and then press **[ENTER]**.
 1. Select a location for the resource group, select **Central US** or a location of your choice, and then press **[ENTER]**.
