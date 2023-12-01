@@ -78,7 +78,7 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
 ]
 ```
 
-Now let's go back to the replace the code to add some extra logic like the following code snippets: 
+Now let's go back to the replace the code to add some extra logic to parse and fetch the image attachments.
 
 ```c#
   CommunicationUserIdentifier currentUser = new(user_Id_);
