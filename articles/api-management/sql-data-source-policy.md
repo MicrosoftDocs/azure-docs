@@ -209,7 +209,7 @@ The following example resolves a GraphQL query by making a single-result T-SQL r
         </sql-statement> 
         <parameters> 
             <parameter name="@familyId">       
-                {context.GraphQL.Arguments.["id"]}
+                @(context.GraphQL.Arguments["id"])
             </parameter> 
         </parameters> 
     </request>
