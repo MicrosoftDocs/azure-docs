@@ -236,11 +236,11 @@ To add a new data source to Azure OpenAI on your data, you need the following Az
 | [Contributor](/azure/role-based-access-control/built-in-roles#contributor) | Your subscription, to access Azure Resource Manager. | You want to deploy a web app. |
 | [Cognitive Services Contributor Role](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) | The Azure AI Search resource, to access Azure OpenAI resource. | You want to deploy a [web app](#using-the-web-app).   |
 
-## Virtual network support & private endpoint support (Azure AI Search only)
+## Virtual network support & private endpoint support
 
 > [!TIP]
 > * For instructions on setting up your resources to work on a virtual private network or private endpoint, see [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md)
-> * Virtual network support & private endpoint are supported for Azure AI search only.
+> * Azure OpenAi, Azure Ai Search, and Azure Storage Accounts can be protected under private endpoints and virtual private networks.
 
 ### Azure OpenAI resources
 
