@@ -45,7 +45,7 @@ Then open the `application.yml` file in the `/resources` folder to configure the
 - `basecallbackuri`: Once you have your DevTunnel host initialized, update this field with that URI.
 - `callerphonenumber`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `targetphonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
-- `cognitiveServiceEndpoint`: update field with your cognitive services endpoint.
+- `cognitiveServiceEndpoint`: update field with your Azure AI services endpoint.
 
 ```yaml
 acs:

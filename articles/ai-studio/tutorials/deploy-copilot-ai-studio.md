@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Use this article to build and deploy a question and answer copilot with prompt flow in Azure AI Studio
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.topic: tutorial
 ms.date: 11/15/2023
 ms.author: eur
