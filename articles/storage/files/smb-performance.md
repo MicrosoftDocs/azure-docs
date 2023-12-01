@@ -4,7 +4,7 @@ description: Learn about different ways to improve performance for premium SMB A
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 12/01/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
