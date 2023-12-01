@@ -31,8 +31,8 @@ This article provides the steps to procure and deliver ESUs to WS 2012 and 2012 
 ## Create Azure Arc ESUs 
 
 1.	From your browser, sign in to the [Azure portal](https://portal.azure.com/).
-2.	On the **Azure Arc** page, select **Extended Security Updates** in the left pane. From here you can view and create ESU Licenses and view eligible resources for ESUs.
-3.	The **Licenses** tab displays Azure Arc WS 2012 licenses that are available. From here you can select an existing license to apply or create a new license.
+2.	On the **Azure Arc** page, select **Extended Security Updates** in the left pane. From here, you can view and create ESU Licenses and view eligible resources for ESUs.
+3.	The **Licenses** tab displays Azure Arc WS 2012 licenses that are available. From here, you can select an existing license to apply or create a new license.
 
     :::image type="content" source="media/deliver-esus-for-scvmm-vms/select-or-create-license.png" alt-text="Screenshot of how to create a new license." lightbox="media/deliver-esus-for-scvmm-vms/select-or-create-license.png":::
 
