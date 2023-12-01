@@ -28,10 +28,20 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* The [Azure CLI](/cli/azure/install-azure-cli) installed on your local computer.
 * Azure CLI version 2.2.0 or later. Run `az --version` to find the version that is installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 * Visual Studio Code. If you don't have it, [download and install it](https://code.visualstudio.com/Download).
 * Git. If you don't have it, [download and install it](https://git-scm.com/download).
 
+### Prerequisites check
+
+Before you start, validate your environment:
+
+* Sign in to the Azure portal and check that your subscription is active.
+
+* Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
+
+  If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
 
 ## Deploy the sample application
 
@@ -74,17 +84,20 @@ Follow these steps to create an Azure load testing resource and a load test by u
     az group create --name $resourceGroup --location $location
     ```
 
-1. Create an Azure load testing resource.
+1. Create an Azure load testing resource with the [`az load create`](/cli/azure/load) command.
 
     Replace the `<load-testing-resource-name>` text placeholder with the name of the load testing resource.
 
     ```azurecli
+    # This script requires the following Azure CLI extensions:
+    # - load
+    
     loadTestResource="<load-testing-resource-name>"
     
     az load create --name $loadTestResource --resource-group $resourceGroup --location $location
     ```
 
-1. Create a load test for simulating load against your sample application.
+1. Create a load test for simulating load against your sample application with the [`az load test create`](/cli/azure/load/test) command.
 
     Replace the `<web-app-hostname>` text placeholder with the App Service hostname of the sample application. This value is of the form `myapp.azurewebsites.net`. Don't include the `https://` part of the URL.
 
