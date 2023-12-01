@@ -54,7 +54,7 @@ SecurityEvent
 
 
 1.  Navigate to the [Environment](https://hunter.cyborgsecurity.io/environment) section of the HUNTER Platform.
-2.  Fill in te **Root URI** of your environment in the section labeled **Microsoft Sentinel**. Replace the <bolded items> with the IDs and Names of your Subscription, Resource Groups and Workspaces.
+2.  Fill in te **Root URI** of your environment in the section labeled **Microsoft Sentinel**. Replace the `<bolded items>` with the IDs and Names of your Subscription, Resource Groups and Workspaces.
 
     `https[]()://portal.azure.com#@**AzureTenantID**/blade/Microsoft_OperationsManagementSuite_Workspace/Logs.ReactView/resourceId/%2Fsubscriptions%2F**AzureSubscriptionID**%2Fresourcegroups%2F**ResourceGroupName**%2Fproviders%2Fmicrosoft.operationalinsights%2Fworkspaces%2F<**WorkspaceName**>/`
 3.  Click **Save**.

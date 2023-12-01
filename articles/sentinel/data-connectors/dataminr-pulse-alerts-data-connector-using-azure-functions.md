@@ -50,7 +50,8 @@ a. Users must have a valid Dataminr Pulse API **client ID** and **secret** to us
 
 > [!NOTE]
    >  This connector uses Azure Functions to connect to the DataminrPulse in which logs are pushed via Dataminr RTAP and it will ingest logs into Microsoft Sentinel. Furthermore, the connector will fetch the ingested data from the custom logs table and create Threat Intelligence Indicators into Microsoft Sentinel Threat Intelligence. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
-> **(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+
+**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **STEP 1- Credentials for the Dataminr Pulse Client ID and Client Secret**
@@ -129,21 +130,21 @@ Use this method for automated deployment of the DataminrPulse connector.
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 3. Enter the below information : 
 
-		Function Name 
-		Workspace ID 
-		Workspace Key 
-		AlertsTableName 
-		BaseURL 
-		ClientId 
-		ClientSecret 
-		AzureClientId 
-		AzureClientSecret 
-		AzureTenantId 
-		AzureResourceGroupName 
-		AzureWorkspaceName 
-		AzureSubscriptionId 
-		Schedule 
-		LogLevel 
+   - Function Name 
+   - Workspace ID 
+   - Workspace Key 
+   - AlertsTableName 
+   - BaseURL 
+   - ClientId 
+   - ClientSecret 
+   - AzureClientId 
+   - AzureClientSecret 
+   - AzureTenantId 
+   - AzureResourceGroupName 
+   - AzureWorkspaceName 
+   - AzureSubscriptionId 
+   - Schedule 
+   - LogLevel 
  
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
@@ -186,22 +187,22 @@ Configure the Function App
 2. In the **Application settings** tab, select **+ New application setting**.
 3. Add each of the following application settings individually, with their respective values (case-sensitive):
 
-		Function Name 
-		Workspace ID 
-		Workspace Key 
-		AlertsTableName 
-		BaseURL 
-		ClientId 
-		ClientSecret
-		AzureClientId 
-		AzureClientSecret 
-		AzureTenantId 
-		AzureResourceGroupName 
-		AzureWorkspaceName 
-		AzureSubscriptionId 
-		Schedule 
-		LogLevel
-		logAnalyticsUri (optional) 
+   - Function Name 
+   - Workspace ID 
+   - Workspace Key 
+   - AlertsTableName 
+   - BaseURL 
+   - ClientId 
+   - ClientSecret
+   - AzureClientId 
+   - AzureClientSecret 
+   - AzureTenantId 
+   - AzureResourceGroupName 
+   - AzureWorkspaceName 
+   - AzureSubscriptionId 
+   - Schedule 
+   - LogLevel
+   - logAnalyticsUri (optional) 
 1. Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
 1. Once all application settings have been entered, click **Save**.
 
