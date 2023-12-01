@@ -35,6 +35,10 @@ items:
       href: concepts/telephony/telephony-concept.md
     - name: Chat
       href: concepts/chat/concepts.md
+      expanded: true
+      items:
+      - name: Government clouds
+        href: concepts/chat/government-cloud.md
     - name: Email
       href: concepts/email/prepare-email-communication-resource.md
     - name: Network Traversal
