@@ -170,7 +170,7 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
    * **Name**: Name your gateway. Naming your gateway not the same as naming a gateway subnet. It's the name of the gateway object you're creating.
    * **Region**: Select the region in which you want to create this resource. The region for the gateway must be the same as the virtual network.
    * **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**.
-   * **SKU**: Select the gateway SKU that supports the features you want to use from the dropdown. See [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). The Basic SKU doesn't support IKEv2 or RADIUS authentication.
+   * **SKU**: Select the gateway SKU that supports the features you want to use from the dropdown. See [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Don't use the Basic SKU because it doesn't support IKEv2 authentication.
    * **Generation**: Select the generation you want to use. We recommend using a Generation2 SKU. For more information, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
    * **Virtual network**: From the dropdown, select the virtual network to which you want to add this gateway. If you can't see the virtual network for which you want to create a gateway, make sure you selected the correct subscription and region.
    * **Subnet**: This field should be grayed out and list the name of the gateway subnet you created, along with its IP address range. If you instead see a **Gateway subnet address range** field with a text box, then you haven't yet configured a gateway subnet (see [Prerequisites](#prerequisites).)
@@ -196,7 +196,7 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
 
    * **Address pool**: Add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
    * **Tunnel type**: Specify the tunnel type you want to use. Computers connecting via the native Windows VPN client will try IKEv2 first. If that doesn't connect, they fall back to SSTP (if you select both IKEv2 and SSTP from the dropdown). If you select the OpenVPN tunnel type, you can connect using an OpenVPN Client or the Azure VPN Client.
-   * **Authentication type**: Specify the authentication type you want to use. 
+   * **Authentication type**: Specify the authentication type you want to use (in this case, choose Azure certificate).
    * **Root certificate name**: The file name of the root certificate (.cer file).
    * **Public certificate data**: Open the root certificate with NotePad and copy/paste the public certificate data in this text field. If you used the PowerShell script in this article to generate a self-signed root certificate, it will be located in `C:\vpn-temp`. Be sure to only paste the text that's in between -----BEGIN CERTIFICATE----- and -----END CERTIFICATE-----. Don't include any additional spaces or characters.
 
@@ -237,7 +237,7 @@ $vpn = New-AzVirtualNetworkGateway `
     -ResourceGroupName $resourceGroupName `
     -Name $vpnName `
     -Location $region `
-    -GatewaySku VpnGw1 `
+    -GatewaySku VpnGw2 `
     -GatewayType Vpn `
     -VpnType RouteBased `
     -IpConfigurations $gatewayIpConfig `
@@ -296,21 +296,17 @@ If not, use the following steps to identify the self-signed root certificate tha
 
 #### Generate a client certificate
 
-Use the `New-AzVpnClientConfiguration` PowerShell cmdlet to generate a client certificate. If you're using the same PowerShell session that you used to create your self-signed root certificate, you can run the script unchanged. If not, you'll need to [identify the self-signed root certificate](#identify-the-self-signed-root-certificate) and uncomment the variable declarations at the beginning of the script. Replace `<resource-group-name>` with your resource group name and `<vpn-gateway-name>` with the name of the virtual network gateway you just deployed.
+Use the `New-AzVpnClientConfiguration` PowerShell cmdlet to generate a client certificate. If you're not using the same PowerShell session that you used to create your self-signed root certificate, you'll need to [identify the self-signed root certificate](#identify-the-self-signed-root-certificate) as described in the previous section. Before running the script, replace `<resource-group-name>` with your resource group name and `<vpn-gateway-name>` with the name of the virtual network gateway you just deployed.
 
 > [!IMPORTANT]
 > Run this PowerShell script as administrator from the on-premises Windows machine that you want to connect to the Azure file share. The computer must be running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell in Azure. Make sure you sign in to your Azure account before running the script (`Connect-AzAccount`).
 
 ```PowerShell
 $clientcertpassword = "1234"
-#If you left your PowerShell session open when you created the root cert, then 
-#you don't need to define these variables here because they're already defined.
-#If using a new PowerShell session, uncomment these lines and supply the resource 
-#group name and virtual network gateway name.
-#$resourceGroupName = "<resource-group-name>"
-#$vpnName = "<vpn-gateway-name>"
-#$vpnTemp = "C:\vpn-temp\"
-#$certLocation = "Cert:\CurrentUser\My"
+$resourceGroupName = "<resource-group-name>"
+$vpnName = "<vpn-gateway-name>"
+$vpnTemp = "C:\vpn-temp\"
+$certLocation = "Cert:\CurrentUser\My"
 
 $vpnClientConfiguration = New-AzVpnClientConfiguration `
     -ResourceGroupName $resourceGroupName `
