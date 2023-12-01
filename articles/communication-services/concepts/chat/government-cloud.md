@@ -1,6 +1,5 @@
 ---
-title: Support for government clouds
-titleSuffix: An Azure Communication Services concept document
+title: Chat support for government clouds
 description: Support for government clouds for Azure Communication Chat service
 author: kperla97
 ms.author: kperla97
