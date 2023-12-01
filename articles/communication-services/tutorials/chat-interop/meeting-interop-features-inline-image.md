@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.custom: mode-other, devx-track-js
+zone_pivot_groups: dev-lang-csharp-javascript
 ---
 
 # Tutorial: Enable inline image support in your Chat app
