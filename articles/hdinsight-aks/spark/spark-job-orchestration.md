@@ -60,7 +60,7 @@ It is recommended to rotate access keys or secrets periodically (you can use  va
       :::image type="content" source="./media/spark-job-orchestration/airflow-configuration-environment-variable.png" alt-text="Screenshot shows airflow configuration and environment variables." lightbox="./media/spark-job-orchestration/airflow-configuration-environment-variable.png":::
 
  
-1. Create [Microsoft Entra service principal](/cli/azure/ad/sp/) to access HDInsight on AKS cluster Azure – [Grant access to HDInsight AKS Cluster](/azure/hdinsight-aks/hdinsight-on-aks-manage-authorization-profile.md#how-to-grant-access), make a note of appId, password, and tenant from the response. 
+1. Create [Microsoft Entra service principal](/cli/azure/ad/sp/) to access HDInsight on AKS cluster Azure – [Grant access to HDInsight AKS Cluster](/azure/hdinsight-aks/hdinsight-on-aks-manage-authorization-profile#how-to-grant-access), make a note of appId, password, and tenant from the response. 
 
     `az ad sp create-for-rbac -n <sp name>` 
 
