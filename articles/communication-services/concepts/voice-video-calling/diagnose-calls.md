@@ -53,15 +53,14 @@ analyze new call data.
 
 Since Call Diagnostics is an application layer on top of data for your
 Azure Communications Service Resource you can query these call data and
-[build workbook reports on top of your data](https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs#what-can-you-do-with-azure-monitor-logs).
-
+[build workbook reports on top of your data](../../../azure-monitor/logs/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs)
 
 You can access Call Diagnostics from any Azure Communication Services
 Resource in your Azure portal. When you open your Azure Communications
 Services Resource, just look for the “Monitoring” section on the left
-side of the screen and select Call Diagnostics.
+side of the screen and select "Call Diagnostics."
 
-Once you have [setup](#to-enable-call-diagnostics) Call Diagnostics for your Azure Communication Services Resource you can search for calls using valid callIDs that took place in that resource.
+Once you have setup Call Diagnostics for your Azure Communication Services Resource you can search for calls using valid callIDs that took place in that resource.
 
 **Call Diagnostics has three main sections:**
 
@@ -110,7 +109,7 @@ and reliability issues that were detected during the call.
 Call Issues highlights detected issues commonly known to affect user’s call
 quality such as poor network conditions, speaking while muted, or device
 failures during a call. If you want to explore a detected issue, select
-the highlighted item and you'll see a prepopulated view of the
+the highlighted item and you'll see a pre-populated view of the
 related events in the Timeline tab.
 
 <!-- (**<u>TODO insert image)</u>** -->
@@ -194,8 +193,7 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 1.  How do I setup Call Diagnostics?
 
     1. Follow instructions to add diagnostic settings for your resource here [Enable logs via Diagnostic Settings in Azure Monitor.](../analytics/enable-logging.md) When prompted to select [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting) select "**allLogs**".
-    1. If you have multiple Azure Communications Services Resource IDs you must enable these settings for each resource ID and query call details for participants within their respective Azure Communications Services Resource ID. Your data volume, retention, and CDC query usage in Log Analytics is billed through existing Azure data meters, monitor your data usage and retention policies for [cost considerations as needed](https://learn.microsoft.com/azure/azure-monitor/logs/cost-logs).
-
+    1. If you have multiple Azure Communications Services Resource IDs you must enable these settings for each resource ID and query call details for participants within their respective Azure Communications Services Resource ID. Your data volume, retention, and CDC query usage in Log Analytics is billed through existing Azure data meters, monitor your data usage and retention policies for [cost considerations as needed](../../../azure-monitor/logs/cost-logs.md)
 
 1. If Azure Communication Services participants join from different
     Azure Communication Services Resources, how will they display in
