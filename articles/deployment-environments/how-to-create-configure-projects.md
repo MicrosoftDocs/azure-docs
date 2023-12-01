@@ -85,15 +85,15 @@ In this quickstart, you assign the Owner role to the system-assigned managed ide
 1. Retrieve Subscription ID:
 
     ```azurecli
-    SUBID=$(az account show -n <name> --query id -o tsv)
+    SUBID=$(az account show -n <subscriptionId> --query id -o tsv)
     echo $SUBID
     ```
 
-1. Retrieve Object ID of Dev Center's Identity using name of dev center resource:
+1. Retrieve the Object ID of the dev center's identity using the name of the dev center resource:
 
     ```azurecli
     OID=$(az ad sp list --display-name <devcenterName> --query [].id -o tsv)
-    echo $SUBID
+    echo $OID
     ```
 
 1. Assign the role of Owner to the dev center on the subscription:
@@ -121,7 +121,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     az configure --defaults group=<resourceGroupName>
     ```
 
-1. Show allowed environment type for project:
+1. Show allowed environment type for the project:
 
     ```azurecli
     az devcenter admin project-allowed-environment-type list --project <projectName> --query [].name
@@ -160,7 +160,7 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
     --scope "/subscriptions/$SUBID"
     ```
 
-1. Optionally, you can assign Dev Environment User:
+1. Optionally, you can assign the Dev Environment User role:
 
     ```azurecli
     az role assignment create --assignee $MYOID \
@@ -173,7 +173,7 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
 
 ## Next steps
 
-In this quickstart, you created a project and granted project access to your development team. To learn about how your development team members can create environments, advance to the next quickstart.
+In this quickstart, you created a project and granted project access to your development team. To learn how your development team members can create environments, advance to the next quickstart.
 
 > [!div class="nextstepaction"]
 > [Create and access an environment by using the Azure CLI](how-to-create-access-environments.md)

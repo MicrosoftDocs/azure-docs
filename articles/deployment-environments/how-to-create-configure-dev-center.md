@@ -176,7 +176,7 @@ You can use this [sample catalog](https://github.com/Azure/deployment-environmen
    echo $SECRETID
    ```
 
-1. Add the catalog. Replace `$REPO_URL` with the URL that you copied from your GiHub fork:
+1. Add the catalog.
 
    ```azurecli
    # Sample catalog example
