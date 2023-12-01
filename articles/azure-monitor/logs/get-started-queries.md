@@ -80,11 +80,13 @@ This query searches the `SecurityEvent` table for records that contain the phras
 
 ## Sort and top
 
-This section explains the `sort` and `top` operators, including their `desc` argument, which is used for sorting.
+This section explains the `sort` and `top` operators, including their `desc` argument, which is used for sorting records.
 
 ### Desc
 
-Descending is the default sorting order for `sort` and `top`, so you would usually omit the `desc` argument. For example, the following queries return data with the same descending sorting order:
+Descending is the default sorting order for `sort` and `top`, so you would usually omit the `desc` argument. 
+
+For example, the data returned in both of the following queries is sorted in descending sorting by the [TimeGenerated column](./log-standard-columns.md#timegenerated):
 
 - ```Kusto
   SecurityEvent	
@@ -98,18 +100,22 @@ Descending is the default sorting order for `sort` and `top`, so you would usual
 
 ### Sort
 
-To get an ordered view, you could use the [`sort` operator](/azure/data-explorer/kusto/query/sort-operator) to sort by the preferred column:
+ To get an ordered view, you can use the [`sort` operator](/azure/data-explorer/kusto/query/sort-operator), which sorts the records returned by the query by the specified column. However, `sort` doesn't limit the number of records that are returned by the query.
+
+For example, the following query returns all available records for the `SecurityEvent` table, which is limited to 30,000 records.
 
 ```Kusto
 SecurityEvent	
 | sort by TimeGenerated
 ```
 
-The preceding query could return too many results though, and it might also take some time. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 30,000 records. This approach isn't optimal.
+The preceding query could return too many results though, and it might also take some time. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 30,000 records. This approach isn't optimal. The best way to get only the latest records is to use the [`top` operator](#top)
 
 ### Top
 
-The best way to get only the latest 10 records is to use the [`top` operator](/azure/data-explorer/kusto/query/topoperator), which sorts the entire table on the server side and then returns the top records:
+Use the [`top` operator](/azure/data-explorer/kusto/query/topoperator) to sort the entire table on the server side and then only return the top records. 
+
+For example, the following query returns the latest 10 records:
 
 ```Kusto
 SecurityEvent
