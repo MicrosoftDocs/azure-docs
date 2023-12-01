@@ -179,8 +179,6 @@ Operation scope is configured for a selected API operation.
 
 1. Select **Save** to propagate changes to the API Management gateway immediately.
 
-[!INCLUDE [api-management-policies-azure-copilot](../../includes/api-management-policies-azure-copilot.md)]
-
 ## Reuse policy configurations
 
 You can create reusable [policy fragments](policy-fragments.md) in your API Management instance. Policy fragments are XML elements containing your configurations of one or more policies. Policy fragments help you configure policies consistently and maintain policy definitions without needing to repeat or retype XML code. 
@@ -224,6 +222,8 @@ To modify the policy evaluation order using the policy editor:
 1. Continue to configure the `base` element in policy definitions at successively broader scopes.
 
     A globally scoped policy has no parent scope, and using the `base` element in it has no effect.
+
+[!INCLUDE [api-management-policies-azure-copilot](../../includes/api-management-policies-azure-copilot.md)]
 
 ## Related content
 
