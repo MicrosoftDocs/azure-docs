@@ -169,7 +169,7 @@ az grafana data-source create --name <azure-managed-grafana-workspace> --definit
 }'
 ```
 
-### [Current user](#tab/current-user)
+### [Current user](#tab/current-user-cli)
 
 Authenticate with the current user method. This method leverages the current Grafana user's Microsoft Entra ID credentials in the configured data source.
 
