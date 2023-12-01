@@ -22,7 +22,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Set up a password reset flow in Azure Active Directory B2C](add-password-reset-policy.md) - Editorial updates
 - [Enrich tokens with claims from external sources using API connectors](add-api-connector-token-enrichment.md) - Editorial updates
 - [Enable custom domains for Azure Active Directory B2C](custom-domain.md) - Editorial updates
-- [Set up sign-in for multi-tenant Microsoft Entra ID using custom policies in Azure Active Directory B2C](identity-provider-azure-ad-multi-tenant.md) - Editorial updates
+- [Set up sign-in for multitenant Microsoft Entra ID using custom policies in Azure Active Directory B2C](identity-provider-azure-ad-multi-tenant.md) - Editorial updates
 - [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md) - Editorial updates
 - [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md) - Editorial updates
 - [What is Azure Active Directory B2C?](overview.md) - Editorial updates
