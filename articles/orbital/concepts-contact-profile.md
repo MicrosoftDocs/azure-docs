@@ -132,7 +132,7 @@ To modify or delete a contact profile via the [Azure portal](https://aka.ms/orbi
 - To edit third-party configurations, click 'Third-Party Configurations' under 'Configurations' on the left panel then click 'Edit' on the desired configuration.
 - To delete a contact profile, click 'Overview' on the left panel then click 'Delete.'
 
-You can also use the Azure Orbital Ground Station API to [modify](rest/api/orbital/azureorbitalgroundstation/contact-profiles/create-or-update) or [delete](rest/api/orbital/azureorbitalgroundstation/contact-profiles/delete) a contact profile.
+You can also use the Azure Orbital Ground Station API to [modify](/rest/api/orbital/azureorbitalgroundstation/contact-profiles/create-or-update) or [delete](/rest/api/orbital/azureorbitalgroundstation/contact-profiles/delete) a contact profile.
 
 ## Configuring a contact profile for applicable partner ground stations
 
