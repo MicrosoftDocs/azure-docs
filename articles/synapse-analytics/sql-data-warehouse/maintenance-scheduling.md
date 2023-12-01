@@ -100,26 +100,26 @@ During preview, some regions might not yet support the full set of available **D
 
    ![Message about region availability](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
-## FAQ
+## Frequently asked questions
 
 ### What is the expected frequency for the maintenance.
 
-Maintenance can happen more than once per month, since maintenance can include OS updates, security patches and drivers, internal Azure infrastructure updates, and DW patches and updates. Every customer has a twice-weekly schedule of maintenance cycles between through Saturday-Sunday, and Tuesday – Thursday.
+Maintenance can happen more than once per month, because maintenance can include OS updates, security patches and drivers, internal Azure infrastructure updates, and DW patches and updates. Every customer has a twice-weekly schedule of maintenance cycles between through Saturday–Sunday, and Tuesday–Thursday.
 
 ### What changes have been made after the maintenance is completed, even though my dedicated SQL pool version remains the same?
 
-After a maintenance update is completed, the SQL pool version may remain unchanged. This is because maintenance can include OS updates, security patches and drivers, internal Azure infrastructure updates, and DW patches and updates.  Only if a Synapse DW patch or update is included in the maintenance will you see a change to the SQL Dedicated Pool version.
+After a maintenance update is completed, the SQL pool version may remain unchanged. This is because maintenance can include OS updates, security patches and drivers, internal Azure infrastructure updates, and DW patches and updates. Only if a Synapse DW patch or update is included in the maintenance will you see a change to the SQL Dedicated Pool version.
 
 ### Is it possible to upgrade the version of my dedicated SQL pool on demand?
 
-- No, scheduled maintenance handles the management of dedicated SQL pools. However, you may have some options to trigger the maintenance once the cycle started, depending on your situation, Verify [Skip or change maintenance schedule](#skip-or-change-maintenance-schedule)
-- It's important to keep in mind that the dedicated SQL Pool is a Platform as a Service (PaaS) feature. This implies that Microsoft Azure handles all kinds of tasks related to the service, such as infrastructure, maintenance, updates, and scalability. Scheduled maintenance can be tracked by setting an alert / notification stay informed of impending maintenance activity.
+- No, scheduled maintenance handles the management of dedicated SQL pools. However, you might have some options to trigger the maintenance once the cycle started, depending on your situation. Verify [Skip or change maintenance schedule](#skip-or-change-maintenance-schedule)
+- It's important to keep in mind that the dedicated SQL Pool is a Platform as a Service (PaaS) feature. This implies that Microsoft Azure handles all kinds of tasks related to the service, such as infrastructure, maintenance, updates, and scalability. Scheduled maintenance can be tracked by setting an alert/notification so you stay informed of impending maintenance activity.
 
 ### What changes, if any, should be made before or after the dedicated SQL pool maintenance is completed?
 
-- During maintenance, your service will be briefly taken offline, similar to what occurs during a pause, resume, or scale operation. Under typical conditions, the overall maintenance operation will be completed in well under 30 minutes. However, it could take a little longer, depending on database activity during the maintenance window. We recommend pausing ETL, table updates, and, especially, transactional operations to avoid longer than normal maintenance. For example:
-- If your instance is extremely busy during the planned window, especially with frequent update and delete activity, then the maintenance operation might take longer than the normal time. To reduce the chance of extended maintenance activity, we recommend limiting activity to mostly read-only queries against the database if possible, and, especially, avoiding long-running transactional queries (see the next item).
-- If there are active transactions when the maintenance begins, they will be canceled and rolled back, potentially causing delays in restoring the online service. To prevent this situation, we recommend ensuring that there are no long-running transactions active at the start of your maintenance window.
+- During maintenance, your service will be briefly taken offline, similar to what occurs during a pause, resume, or scale operation. Typically, the overall maintenance operation is completed in well under 30 minutes. However, it could take a little longer, depending on database activity during the maintenance window. We recommend pausing ETL, table updates, and especially transactional operations to avoid longer than normal maintenance. For example:
+- If your instance is extremely busy during the planned window, especially with frequent update and delete activity, the maintenance operation might take longer than the normal time. To reduce the chance of extended maintenance activity, we recommend limiting activity to mostly read-only queries against the database if possible, and especially avoiding long-running transactional queries (see the next item).
+- If there are active transactions when the maintenance begins, they are canceled and rolled back, potentially causing delays in restoring the online service. To prevent this situation, we recommend ensuring that there are no long-running transactions active at the start of your maintenance window.
 
 ### We were notified about an upcoming dedicated SQL pool scheduled maintenance with tracking ID 0000-000, but it was subsequently canceled or rescheduled. What prompted the cancellation or rescheduling of the maintenance?
 
@@ -131,8 +131,8 @@ There are various factors that could lead to the cancellation of scheduled maint
 
 ### Are there any best practices that I need to consider for our workload during the maintenance window?
 
-- Yes, if possible, you should pause all transactional and ETL workloads during the planned maintenance interval to avoid any errors or delays in restoring the online service.  Long-running transactional operations should be completed prior to an upcoming maintenance period.
-- For workloads to be resilient to interruptions caused by maintenance operations, you should use retry logic for both the connection and the command (query) levels, applying longer retry intervals and/or more retry attempts to withstand an extended connection loss that can extend up to or greater than 30 minutes in some cases.
+- Yes, if possible, pause all transactional and ETL workloads during the planned maintenance interval to avoid errors or delays in restoring the online service. Long-running transactional operations should be completed prior to an upcoming maintenance period.
+- For workloads to be resilient to interruptions caused by maintenance operations, use retry logic for both the connection and the command (query) levels, applying longer retry intervals and/or more retry attempts to withstand an extended connection loss that can extend up to or greater than 30 minutes in some cases.
 
 ## Next steps
 
