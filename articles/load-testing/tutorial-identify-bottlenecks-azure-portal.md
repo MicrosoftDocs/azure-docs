@@ -43,7 +43,9 @@ Now that you have the sample application deployed and running, you can create an
 
 ## Create a load test
 
-In this tutorial, you're creating a load test by uploading a JMeter test script (`jmx` file). The sample application repository already contains a load test configuration file and JMeter test script.
+In this tutorial, you're creating a load test with the Azure CLI by uploading a JMeter test script (`jmx` file). The sample application repository already contains a load test configuration file and JMeter test script.
+
+To create a load test by using the Azure portal, follow the steps in [Quickstart: create a load test with a JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md).
 
 Follow these steps to create an Azure load testing resource and a load test by using the Azure CLI:
 
