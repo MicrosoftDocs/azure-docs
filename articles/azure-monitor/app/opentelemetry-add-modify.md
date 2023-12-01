@@ -1384,7 +1384,7 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there might b
   
 ##### Events
 
-1. Add `Microsoft.ApplicationInsights` to your application:
+1. Add `Microsoft.ApplicationInsights` to your application.
 
 1. Create a `TelemetryClient` instance.
 
@@ -1406,7 +1406,7 @@ telemetryClient.TrackEvent("testEvent");
 
 ##### Events
 
-1. Add `Microsoft.ApplicationInsights` to your application:
+1. Add `Microsoft.ApplicationInsights` to your application.
 
 1. Create a `TelemetryClient` instance.
 
