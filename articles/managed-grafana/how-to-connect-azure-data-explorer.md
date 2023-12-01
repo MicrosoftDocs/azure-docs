@@ -144,7 +144,7 @@ az grafana data-source create --name <azure-managed-grafana-workspace> --definit
       "authType": "msi"
     }
   }
-}
+}'
 ```
 
 ### [App registration](#tab/app-registration-cli)
