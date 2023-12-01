@@ -59,7 +59,7 @@ sections:
       - question: |
           Where can I read about better ways to use Azure OpenAI to get the responses I want from the service?
         answer: | 
-          Check out our [introduction to prompt engineering](./concepts/prompt-engineering.md) While these models are powerful, their behavior is also very sensitive to the prompts they receive from the user. This makes prompt construction an important skill to develop. After you've completed the introduction, check out our article on more [advanced prompt engineering techniques](./concepts/advanced-prompt-engineering.md).
+          Check out our [introduction to prompt engineering](./concepts/prompt-engineering.md). While these models are powerful, their behavior is also very sensitive to the prompts they receive from the user. This makes prompt construction an important skill to develop. After you've completed the introduction, check out our article on [advanced prompt engineering techniques](./concepts/advanced-prompt-engineering.md).
       - question: |
           My guest account has been given access to an Azure OpenAI resource, but I'm unable to access that resource in the Azure OpenAI Studio. How do I enable access?
         answer: | 
@@ -77,7 +77,7 @@ sections:
           
           Alternatively if you're signed into the [Azure portal](https://portal.azure.com) from the Azure OpenAI resource's Overview pane you can select **Go to Azure OpenAI Studio** to automatically sign in with the appropriate organizational context.   
       - question: |
-          When I ask GPT-4 which model it's running it tells me it's running GPT-3. Why does this happen?
+          When I ask GPT-4 which model it's running, it tells me it's running GPT-3. Why does this happen?
         answer: | 
           Azure OpenAI models (including GPT-4) being unable to correctly identify what model is running is expected behavior. 
 
@@ -181,13 +181,13 @@ sections:
   - name: GPT-4 with Vision
     questions:
       - question: |
-          Can I fine-tune the image capabilities in gpt-4?
+          Can I fine-tune the image capabilities in GPT-4?
         answer: |
-          No, we don't support fine-tuning the image capabilities of gpt-4 at this time.
+          No, we don't support fine-tuning the image capabilities of GPT-4 at this time.
       - question: |
-          Can I use gpt-4 to generate images?
+          Can I use GPT-4 to generate images?
         answer: |
-          No, you can use dall-e-3 to generate images and gpt-4-visual-preview to understand images.
+          No, you can use `dall-e-3` to generate images and `gpt-4-visual-preview` to understand images.
       - question: |
           What type of files can I upload?
         answer: |
@@ -203,13 +203,13 @@ sections:
       - question: |
           Where can I learn more about the considerations of GPT-4 with Vision?
         answer: |
-          You can find details about our evaluations, preparation, and mitigation work in the GPT-4 with Vision system card.
+          You can find details about our evaluations, preparation, and mitigation work in the [GPT-4 with Vision system card](tbd).
 
           We have further implemented a system to block the submission of CAPTCHAs.
       - question: |
-          How do rate limits for GPT-4 with Vision work?
+          How do the rate limits for GPT-4 with Vision work?
         answer: |
-          We process images at the token level, so each image we process counts towards your tokens per minute (TPM) limit. See the calculating costs section for details on the formula used to determine token count per image.
+          We process images at the token level, so each image we process counts towards your tokens per minute (TPM) limit. See the [calculating costs](tbd) section for details on the formula used to determine token count per image.
       - question: |
           Can GPT-4 with Vision understand image metadata?
         answer: |
