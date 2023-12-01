@@ -279,29 +279,6 @@ You can [annotate](https://kubernetes.io/docs/concepts/overview/working-with-obj
 > [!NOTE]
 > Annotation keys and values can only be strings. Other types, such as boolean or numeric values must be quoted, i.e. `"true"`, `"false"`, `"100"`.
 
-```yml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: aks-helloworld
-  namespace: hello-web-app-routing
-  annotations:
-    <add annotations here>
-spec:
-  ingressClassName: <IngressClassName>
-  rules:
-  - host: <Hostname>
-    http:
-      paths:
-      - backend:
-          service:
-            name: aks-helloworld
-            port:
-              number: 80
-        path: /
-        pathType: Prefix
-```
-
 Here are some examples annotations for common configurations. Review the [NGINX ingress annotations documentation](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/) for a full list.
 
 ### Custom max body size
