@@ -24,7 +24,7 @@ In this article, you learn how to specify preferred availability zone for your A
 
 By default preferred availability zone isn't set for a new cluster. In that case Azure Cosmos DB for PostgreSQL service would randomly select an availability zone for primary nodes.
 
-Selecting preferred AZ is possible during cluster creation on **Scale** page in **Availability zones** section.
+Selecting preferred AZ is possible during cluster creation on the **Scale** page in the **Availability zones** section.
 
 ## Change preferred availability zone
 
@@ -34,7 +34,7 @@ To avoid disruption, change of the availability zone isn't applied immediately. 
 
 ## Check availability zone for each node
 
-The **Overview** tab for the cluster lists all nodes along with **Availability zone** column that shows actual availability zone for each primary cluster node.
+The **Overview** tab for the cluster lists all nodes along with the **Availability zone** column that shows actual availability zone for each primary cluster node.
 
 ## Next steps
 

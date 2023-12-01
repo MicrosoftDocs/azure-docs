@@ -71,4 +71,5 @@ for clusters in the Azure portal.
 
 ## Next steps
 
-- Learn how to [enable high availability](howto-high-availability.md) in a cluster
+- Learn how to [enable high availability](howto-high-availability.md) in a cluster.
+- Learn about [availability zones](./concepts-availability-zones.md) in Azure Cosmos DB for PostgreSQL.

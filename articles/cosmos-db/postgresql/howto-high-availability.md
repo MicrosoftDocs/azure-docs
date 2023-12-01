@@ -1,13 +1,13 @@
 ---
 title: Configure high availability - Azure Cosmos DB for PostgreSQL
 description: How to enable or disable high availability
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 06/05/2023
+ms.date: 11/28/2023
 ---
 
 # Configure high availability in Azure Cosmos DB for PostgreSQL
@@ -21,8 +21,6 @@ promoted to replace it.
 
 Enabling HA is possible during cluster creation on **Scale** page. Once cluster is provisioned, set **Enable high availability (HA)** checkbox in the **High availability** tab for your cluster in the Azure portal.
 
-:::image type="content" source="media/howto-high-availability/01-ha-slider.png" alt-text="ha slider":::
-
 Click the **Save** button to apply your selection. Enabling HA can take some
 time as the cluster provisions standby nodes and streams data to them.
 
@@ -32,4 +30,5 @@ The **Overview** tab for the cluster lists all nodes along with a **High availab
 
 ## Next steps
 
-Learn more about [high availability](concepts-high-availability.md).
+- Learn more about [high availability](concepts-high-availability.md).
+- Learn more about [availability zones](./concepts-availability-zones.md) in Azure Cosmos DB for PostgreSQL.

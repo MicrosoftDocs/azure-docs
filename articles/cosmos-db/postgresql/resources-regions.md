@@ -61,4 +61,4 @@ request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportB
 
 - Learn how to [create a cluster in the portal](./quickstart-create-portal.md).
 - See details about [availability zone outage resiliency](./concepts-availability-zones.md) in Azure Cosmos DB for PostgreSQL.
-- Check out [backup redundancy options](./concepts-backup.md#backup-redundancy)
+- Check out [backup redundancy options](./concepts-backup.md#backup-redundancy).
