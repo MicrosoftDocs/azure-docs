@@ -192,4 +192,4 @@ There are two options to implement logs in a central location:
 
 - Learn more about [designing and configuring data access in a workspace](manage-access.md).
 - Get [sample workspace architectures for Microsoft Sentinel](../../sentinel/sample-workspace-designs.md).
-- Here's a video on designing the proper structure for your Log Analytics workspace: [ITOps Talk:Log Analytics workspace design deep dive](https://learn.microsoft.com/shows/it-ops-talk/ops115-log-analytics-workspace-design-deep-dive)
+- Here's a video on designing the proper structure for your Log Analytics workspace: [ITOps Talk:Log Analytics workspace design deep dive](/shows/it-ops-talk/ops115-log-analytics-workspace-design-deep-dive)
