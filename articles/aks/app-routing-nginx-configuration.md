@@ -297,7 +297,7 @@ You can change the timeout that the NGINX ingress controller waits to close a co
 nginx.ingress.kubernetes.io/proxy-read-timeout: "120"
 ```
 
-Review [custom timeouts](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#custom-timeouts) for configuration options.
+Review [custom timeouts](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#custom-timeouts) for other configuration options.
 
 ### Backend protocol
 
