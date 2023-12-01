@@ -1,6 +1,6 @@
 ---
 title: Azure Kubernetes Service (AKS) Free Standard and Premium pricing tiers for cluster management
-description: Learn about the Azure Kubernetes Service (AKS) Free Standard and Premium pricing tiers for cluster management
+description: Learn about the Azure Kubernetes Service (AKS) Free, Standard, and Premium pricing plans and what features, deployment patterns, and recommendations to consider between each plan.
 ms.topic: conceptual
 ms.date: 04/07/2023
 ms.custom: references_regions, devx-track-azurecli
@@ -10,11 +10,11 @@ ms.custom: references_regions, devx-track-azurecli
 
 Azure Kubernetes Service (AKS) is now offering three pricing tiers for cluster management: the **Free tier**, the **Standard tier** and the **Premium tier**. All tiers are in the **Base** sku. 
 
-|                  |Free tier|Standard tier|Premium Tier |
+|                  |Free tier|Standard tier|Premium tier |
 |------------------|---------|--------|
 |**When to use**|• You want to experiment with AKS at no extra cost <br> • You're new to AKS and Kubernetes|• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA |• You're running production or mission-critical workloads and need high availability and reliability <br> • You need a financially backed SLA. <br>• All mission critical, at scale or production workloads requiring 2 years of support|
 |**Supported cluster types**|• Development clusters or small scale testing environments <br> • Clusters with fewer than 10 nodes|• Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes| • Enterprise-grade or production workloads <br> • Clusters with up to 5,000 nodes |
-|**Pricing**|• Free cluster management <br> • Pay-as-you-go for resources you consume|• Pay-as-you-go for resources you consume • [Standard Tier Cluster Management Pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/) | • Pay-as-you-go for resources you consume • [Premium Tier Cluster Management Pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/) |
+|**Pricing**|• Free cluster management <br> • Pay-as-you-go for resources you consume|• Pay-as-you-go for resources you consume <br> • [Standard tier Cluster Management Pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/) | • Pay-as-you-go for resources you consume <br> • [Premium tier Cluster Management Pricing](https://azure.microsoft.com/pricing/details/kubernetes-service/) |
 |**Feature comparison**|• Recommended for clusters with fewer than 10 nodes, but can support up to 1,000 nodes <br> • Includes all current AKS features|• Uptime SLA is enabled by default <br> • Greater cluster reliability and resources <br> • Can support up to 5,000 nodes in a cluster <br> • Includes all current AKS features | • Includes all current AKS features from standard tier <br> • [Microsoft maintenance past community support][long-term-support] |
 
 > [!IMPORTANT]
