@@ -29,7 +29,7 @@ Make an HTTP POST request using the URI as shown in the following `Endpoints_Cre
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "description": "Endpoint for Jessica voice",
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "modelId": "JessicaModelId",
 } '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/endpoints?api-version=2023-12-01-preview"
 ```
@@ -40,7 +40,7 @@ You should receive a response body in the following format:
 {
   "id": "9f50c644-2121-40e9-9ea7-544e48bfe3cb",
   "description": "Endpoint for Jessica voice",
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "modelId": "JessicaModelId",
   "properties": {
     "kind": "HighPerformance"
@@ -99,7 +99,7 @@ You should receive a response body in the following format:
 {
   "id": "9f50c644-2121-40e9-9ea7-544e48bfe3cb",
   "description": "Endpoint for Jessica voice",
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "modelId": "JessicaModelId",
   "properties": {
     "kind": "HighPerformance"

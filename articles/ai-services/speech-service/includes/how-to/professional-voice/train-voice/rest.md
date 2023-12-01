@@ -61,7 +61,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type
   "recipe": {
     "kind": "Default"
   },
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "consentId": "JessicaConsentId",
   "trainingSetId": "JessicaTrainingSetId"
 } '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2023-12-01-preview"
@@ -78,7 +78,7 @@ You should receive a response body in the following format:
     "kind": "Default",
     "version": "V7.2023.03"
   },
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "consentId": "JessicaConsentId",
   "trainingSetId": "JessicaTrainingSetId",
   "locale": "en-US",
@@ -115,7 +115,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type
   "recipe": {
     "kind": "CrossLingual"
   },
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "consentId": "JessicaConsentId",
   "trainingSetId": "Jessica-en-US-TrainingSetId",
   "locale": "fr-FR"
@@ -133,7 +133,7 @@ You should receive a response body in the following format:
     "kind": "CrossLingual",
     "version": "V5.2023.07"
   },
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "consentId": "JessicaConsentId",
   "trainingSetId": "Jessica-en-US-TrainingSetId",
   "locale": "fr-FR",
@@ -173,7 +173,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type
   "recipe": {
     "kind": "MultiStyle"
   },
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "consentId": "JessicaConsentId",
   "trainingSetId": "JessicaTrainingSetId",
   "locale": "en-US",
@@ -201,7 +201,7 @@ You should receive a response body in the following format:
     "kind": "MultiStyle",
     "version": "V7.2023.03"
   },
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "consentId": "JessicaConsentId",
   "trainingSetId": "JessicaTrainingSetId",
   "locale": "en-US",
@@ -259,7 +259,7 @@ You should receive a response body in the following format. You might need to wa
     "kind": "Default",
     "version": "V7.2023.03"
   },
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "consentId": "JessicaConsentId",
   "trainingSetId": "JessicaTrainingSetId",
   "locale": "en-US",

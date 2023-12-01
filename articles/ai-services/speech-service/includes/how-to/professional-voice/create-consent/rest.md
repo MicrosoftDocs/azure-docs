@@ -23,15 +23,15 @@ To add consent to a professional voice project from the URL of an audio file, us
 - Set the required `audioUrl` property. The URL of the voice talent consent audio file. Use a URI with the [shared access signatures (SAS)](/azure/storage/common/storage-sas-overview) token.
 - Set the required `locale` property. This should be the locale of the consent. The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
 
-Make an HTTP POST request using the URI as shown in the following `Consents_Create` example. 
+Make an HTTP PUT request using the URI as shown in the following `Consents_Create` example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaConsentId` with a consent ID of your choice. The case sensitive ID will be used in the consent's URI and can't be changed later. 
 
 ```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
+curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "description": "Consent for Jessica voice",
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "voiceTalentName": "Jessica Smith",
   "companyName": "Contoso",
   "audioUrl": "https://contoso.blob.core.windows.net/public/jessica-consent.wav?mySasToken",
@@ -45,7 +45,7 @@ You should receive a response body in the following format:
 {
   "id": "JessicaConsentId",
   "description": "Consent for Jessica voice",
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "voiceTalentName": "Jessica Smith",
   "companyName": "Contoso",
   "locale": "en-US",

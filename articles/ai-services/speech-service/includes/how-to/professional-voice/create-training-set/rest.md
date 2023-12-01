@@ -30,7 +30,7 @@ Make an HTTP POST request using the URI as shown in the following `TrainingSets_
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "description": "300 sentences Jessica data in general style.",
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "locale": "en-US",
   "voiceKind": "Female"
 } '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/trainingsets/JessicaTrainingSetId?api-version=2023-12-01-preview"
@@ -42,7 +42,7 @@ You should receive a response body in the following format:
 {
   "id": "JessicaTrainingSetId",
   "description": "300 sentences Jessica data in general style.",
-  "projectId": "JessicaProjectId",
+  "projectId": "ProjectId",
   "locale": "en-US",
   "voiceKind": "Female",
   "status": "Succeeded",
