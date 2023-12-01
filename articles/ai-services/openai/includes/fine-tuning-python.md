@@ -456,7 +456,7 @@ with open(result_file_name, "wb") as file:
 ```python
 # Retrieve the file ID of the first result file from the fine-tune job
 # for the customized model.
-response = 	client.fine_tuning.jobs.retrieve(job_id)
+response = client.fine_tuning.jobs.retrieve(job_id)
 if response.status == 'succeeded':
     result_file_id = response.result_files[0]
 
