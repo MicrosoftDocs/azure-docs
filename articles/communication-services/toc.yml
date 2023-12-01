@@ -736,6 +736,9 @@ items:
       - name: Manage call quality
         href: concepts/voice-video-calling/manage-call-quality.md
         displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+      - name: Call Diagnostics
+        href: concepts/voice-video-calling/diagnose-calls.md
+        displayName: diagnostics, Survey, feedback, quality, reliability, users, call, quick, debug, diagnose, call debugging, debugging
       - name: End of Call Survey
         href: concepts/voice-video-calling/end-of-call-survey-concept.md
         displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
