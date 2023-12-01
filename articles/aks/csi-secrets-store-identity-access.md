@@ -4,13 +4,13 @@ description: Learn how to integrate the Azure Key Vault Provider for Secrets Sto
 author: nickomang 
 ms.author: nickoman
 ms.topic: article
-ms.date: 10/19/2023
+ms.date: 12/01/2023
 ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Connect your Azure identity provider to the Azure Key Vault Secrets Store CSI Driver in Azure Kubernetes Service (AKS)
 
-The Secrets Store (Container Storage Interface) CSI Driver on Azure Kubernetes Service (AKS) provides various methods of identity-based access to your Azure Key Vault. This article outlines these methods and how to use them to access your key vault and its contents from your AKS cluster.
+The Secrets Store Container Storage Interface (CSI) Driver on Azure Kubernetes Service (AKS) provides various methods of identity-based access to your Azure Key Vault. This article outlines these methods and best practices for when to use RBAC or OIDC security models to access your key vault and its contents from your AKS cluster.
 
 You can use one of the following access methods:
 
