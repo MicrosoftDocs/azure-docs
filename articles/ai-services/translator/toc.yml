@@ -23,9 +23,9 @@ items:
     displayName: character,count,usage,attribution, cognitive
     href: translator-faq.md
 - name: Text Translation
-  expanded: true
   items:
   - name: What is Text Translation?
+    expanded: true
     displayName: deploy, deployment
     href: text-translation-overview.md
   - name: Create a Translator resource
@@ -90,23 +90,6 @@ items:
     - name: Translate behind firewalls
       displayName: domain,IP,filtering,tag,endpoints,CognitiveServicesManagement
       href: firewalls.md
-    - name: Use the Translator container
-      items:
-      - name: Install and run containers
-        displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
-        href: containers/translator-how-to-install-container.md
-      - name: Configure containers
-        displayName: docker,docker-run,billing,settings,key,logging,EULA,telemetry,proxy
-        href: containers/translator-container-configuration.md
-      - name: Use containers in disconnected environments
-        displayName: text,docker,pull,mcr,registry,commitment,parameters
-        href: containers/translator-disconnected-containers.md
-      - name: Deploy user-managed glossary
-        displayName: dynamic, glossary, dictionary, case-sensitive, match
-        href: containers/deploy-user-managed-glossary.md
-      - name: "Container: Translate"
-        displayName: textType,text type,preview,POST,parameters,request,
-        href: containers/translator-container-supported-parameters.md
   - name: Reference
     items:
     - name: v3 Translator reference
@@ -133,6 +116,7 @@ items:
 - name: Document Translation
   items:
     - name: What is Document Translation?
+      expanded: true
       displayName: ocr,batch,features,development,formats,file types
       href: document-translation/overview.md
     - name: Document Translation SDK overview
@@ -193,6 +177,7 @@ items:
 - name: Custom Translator
   items:
   - name: What is Custom Translator?
+    expanded: true
     href: custom-translator/overview.md
   - name: Key terms
     href: custom-translator/key-terms.md
@@ -231,7 +216,6 @@ items:
     - name: Enable private virtual networks
       displayName: vnet, service endpoints, private network, global, backbone
       href: custom-translator/how-to/enable-vnet-service-endpoint.md
-
   - name: Concepts
     items:
     - name: Customization
@@ -267,6 +251,23 @@ items:
       href: custom-translator/platform-upgrade.md
   - name: Custom Translator FAQ
     href: custom-translator/faq.md
+- name: Translator containers
+  items:
+  - name: Install and run containers
+    displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
+    href: containers/translator-how-to-install-container.md
+  - name: Configure containers
+    displayName: docker,docker-run,billing,settings,key,logging,EULA,telemetry,proxy
+    href: containers/translator-container-configuration.md
+  - name: Use containers in disconnected environments
+    displayName: text,docker,pull,mcr,registry,commitment,parameters
+    href: containers/translator-disconnected-containers.md
+  - name: Deploy user-managed glossary
+    displayName: dynamic, glossary, dictionary, case-sensitive, match
+    href: containers/deploy-user-managed-glossary.md
+  - name: "Container: Translate"
+    displayName: textType,text type,preview,POST,parameters,request,
+    href: containers/translator-container-supported-parameters.md    
 - name: Translator solutions
   items:
   - name: Language Studio

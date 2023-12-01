@@ -107,20 +107,6 @@ items:
   - name: Back up and recover models
     displayName: disaster, recovery, region, copy, modelId, model ID
     href: disaster-recovery.md
-  - name: Use containers
-    items:
-    - name: Install and run containers
-      displayName: docker, docker-compose, container, compose, packages, az, acr, cli, import, pull, Azure AI Vision, kubernetes, cpu, EULA, billing
-      href: containers/install-run.md
-    - name: Configure containers
-      displayName: docker, docker-compose, compose, containers, run, billing, keys, logging, EULA, telemetry, proxy
-      href: containers/configuration.md
-    - name: Container image tags
-      displayName: registry, mcr
-      href: containers/image-tags.md
-    - name: Disconnected containers
-      displayName: docker, commitment, plan, environment, usage
-      href: containers/disconnected.md
   - name: Configure secure communications
     items:
     - name: Set up Virtual Networks
@@ -138,6 +124,20 @@ items:
     - name: Use Microsoft Entra authentication
       displayName: headers, subscription, access token, azure active directory, subdomain, role, service principal
       href: ../../ai-services/authentication.md?context=/azure/ai-services/document-intelligence/context/context
+  - name: Document Intelligence Containers
+    items:
+    - name: Install and run containers
+      displayName: docker, docker-compose, container, compose, packages, az, acr, cli, import, pull, Azure AI Vision, kubernetes, cpu, EULA, billing
+      href: containers/install-run.md
+    - name: Configure containers
+      displayName: docker, docker-compose, compose, containers, run, billing, keys, logging, EULA, telemetry, proxy
+      href: containers/configuration.md
+    - name: Container image tags
+      displayName: registry, mcr
+      href: containers/image-tags.md
+    - name: Disconnected containers
+      displayName: docker, commitment, plan, environment, usage
+      href: containers/disconnected.md    
 - name: Samples
   items:
   - name: "C#/.NET"
