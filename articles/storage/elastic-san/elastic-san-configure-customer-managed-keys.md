@@ -473,18 +473,14 @@ New-AzElasticSanVolumeGroup @NewVgArguments
 
 ### [New volume group](#tab/new-vg/azure-cli)
 
-Use the instructions below to configure customer-managed keys during creation of a new volume group using the Azure CLI.
+Use the following instructions to configure customer-managed keys during creation of a new volume group using the Azure CLI.
 
 To configure customer-managed keys for an existing volume group with automatic updating of the key version with Azure CLI, install [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 Next, call `az elastic-san volume-group update` to update the volume group's encryption settings. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account, and set `encryption-key-version` to an empty string to enable automatic updating of the key version. If the volume group was previously configured for customer-managed keys with a specific key version, then setting the key version to an empty string enables automatic updating of the key version going forward. Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
 
 ```azurecli
-KeyVaultUri=$(az keyvault show \
-    --name $KvName \
-    --resource-group $RgName \
-    --query properties.vaultUri \
-    --output tsv)
+KeyVaultUri=$(az keyvault show --name $KvName --resource-group $RgName --query properties.vaultUri --output tsv)
 
 # Use this form of the command with a user-assigned managed identity.
 az elastic-san volume-group update \
@@ -506,6 +502,45 @@ az elastic-san volume-group update \
     --encryption-key-version "" \
     --encryption-key-source Microsoft.Keyvault \
     --encryption-key-vault $KeyVaultUri
+```
+
+```azurecli
+vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
+#### set policy for key permission
+az keyvault set-policy -n $kv_name --object-id $uai_principal_id --key-permissions get wrapkey unwrapkey
+#### create key
+az keyvault key create --vault-name $kv_name -n $key_name2 --protection software
+
+### 2. PUT a volume group with CMK
+az elastic-san volume-group create -e $san_name -n $vg_name2 -g $rg \
+    --encryption EncryptionAtRestWithCustomerManagedKey \
+    --protocol-type Iscsi \
+    --identity "{type:UserAssigned,user-assigned-identity:'$uai_id'}" \
+    --encryption-properties "{key-vault-properties:{key-name:'$key_name2',key-vault-uri:'$vault_uri'},identity:{user-assigned-identity:'$uai_id'}}"
+
+az elastic-san volume create -g $rg -e $san_name -v $vg_name -n $volume_name --size-gib 2     
+```
+
+```azurecli
+#### Get vault_url
+vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
+#### Find your object id and set key policy
+objectId=$(az ad user show --id YOUREMAIL@HERE.COM --query objectId -o tsv)
+az keyvault set-policy -n $kv_name --object-id $objectId --key-permissions backup create delete get import get list update restore
+
+#### Create key
+az keyvault key create --vault-name $kv_name -n $key_name --protection software
+
+### 2. PUT a volume group with PMK and a system assigned identity with it
+#### Get the system identity's principalId from the response of PUT volume group request.
+vg_identity_principal_id=$(az elastic-san volume-group create -e $san_name -n $vg_name -g $rg --encryption EncryptionAtRestWithPlatformKey --protocol-type Iscsi --identity '{type:SystemAssigned}' --query "identity.principalId" -o tsv)
+
+### 3. Grant access to  the system assigned identity to the key vault created in step1
+#### (key permissions: Get, Unwrap Key, Wrap Key)
+az keyvault set-policy -n $kv_name --object-id $vg_identity_principal_id --key-permissions backup create delete get import get list update restore
+
+### 4. PATCH the volume group with the key created in step 1
+az elastic-san volume-group update -e $san_name -n $vg_name -g $rg --encryption EncryptionAtRestWithCustomerManagedKey --encryption-properties "{key-vault-properties:{key-name:'$key_name',key-vault-uri:'$vault_uri'}}"
 ```
 
 ### [Existing volume group](#tab/existing-vg/azure-powershell)
