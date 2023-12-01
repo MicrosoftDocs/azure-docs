@@ -201,7 +201,7 @@ We recommend that you actively monitor the disk space that's in use and increase
 
 ### Storage autogrow
 
-Storage autogrow can help ensure that your server always has enough storage capacity and doesn't become read-only. When you turn on storage autogrow, the storage will automatically expand without affecting the workload. This feature is currently in preview.
+Storage autogrow can help ensure that your server always has enough storage capacity and doesn't become read-only. When you turn on storage autogrow, the storage will automatically expand without affecting the workload.
 
 For servers with more than 1 TiB of provisioned storage, the storage autogrow mechanism activates when the available space falls to less than 10% of the total capacity or 64 GiB of free space, whichever of the two values are smaller. Conversely, for servers with storage under 1 TB, this threshold is adjusted to 20% of the available free space or 64 GiB, depending on which of these values is smaller.
 
