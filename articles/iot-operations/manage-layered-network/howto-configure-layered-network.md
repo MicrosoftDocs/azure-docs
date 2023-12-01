@@ -42,7 +42,7 @@ Layered Network Management is deployed to the dual NIC cluster. The cluster in t
 
 The following diagram illustrates an isolated network environment where each level is logically segmented with subnets. In this test environment, there are multiple clusters one at each level. The clusters can be AKS Edge Essentials or K3S. The Kubernetes cluster in the level 4 network has direct internet access. The Kubernetes clusters in level 3 and below don't have internet access.
 
-![Diagram of a logical segmentation isolated network](./media/howto-configure-layered-network/logical-network-segmentation-subnets.png)
+![Diagram of a logical segmentation isolated network.](./media/howto-configure-layered-network/logical-network-segmentation-subnets.png)
 
 The multiple levels of networks in this test setup are accomplished using subnets within a network:
 
