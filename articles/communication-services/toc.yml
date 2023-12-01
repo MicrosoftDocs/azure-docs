@@ -35,9 +35,6 @@ items:
       href: concepts/telephony/telephony-concept.md
     - name: Chat
       href: concepts/chat/concepts.md
-      items:
-      - name: Government clouds
-        href: concepts/chat/government-cloud.md
     - name: Email
       href: concepts/email/prepare-email-communication-resource.md
     - name: Network Traversal
@@ -785,6 +782,8 @@ items:
       href: how-tos/chat-sdk/archive-chat-threads.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
+    - name: Government clouds
+      href: concepts/chat/government-cloud.md
     - name: Events
       items:
       - name: Overview
