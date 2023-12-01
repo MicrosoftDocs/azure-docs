@@ -99,6 +99,6 @@ Workspace managed virtual network is the recommended way to support network isol
 
 - [Secure workspace resources](../how-to-secure-workspace-vnet.md)
 - [Workspace managed network isolation](../how-to-managed-network.md)
-- [Secure Azure Kubernetes Service inferencing environment](../how-to-secure-online-endpoint.md)
-- [Secure your managed online endpoints with network isolation](../how-to-secure-kubernetes-inferencing-environment.md)
+- [Secure Azure Kubernetes Service inferencing environment](../how-to-secure-kubernetes-inferencing-environment.md)
+- [Secure your managed online endpoints with network isolation](../how-to-secure-online-endpoint.md)
 - [Secure your RAG workflows with network isolation](../how-to-secure-rag-workflows.md)
