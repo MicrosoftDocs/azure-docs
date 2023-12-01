@@ -19,10 +19,6 @@ Azure Cosmos DB for PostgreSQL provides high availability
 gets a standby. If the original node becomes unhealthy, its standby is
 promoted to replace it.
 
-> [!IMPORTANT]
-> Because HA doubles the number of servers in the group, it will also double
-> the cost.
-
 Enabling HA is possible during cluster creation on **Scale** page. Once cluster is provisioned, set **Enable high availability (HA)** checkbox in the **High availability** tab for your cluster in the Azure portal.
 
 :::image type="content" source="media/howto-high-availability/01-ha-slider.png" alt-text="ha slider":::
@@ -34,6 +30,6 @@ The **Overview** tab for the cluster lists all nodes along with a **High availab
 
 :::image type="content" source="media/howto-high-availability/02-ha-column.png" alt-text="the ha column in cluster overview":::
 
-### Next steps
+## Next steps
 
 Learn more about [high availability](concepts-high-availability.md).
