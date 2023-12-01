@@ -17,9 +17,9 @@ ms.date: 11/28/2023
 - pass secured string to deployment script
 - handle nonterminating errors
 
-## Deployment script syntax
+## Syntax
 
-The following Bicep file is an example. For more information, see the latest [Bicep schema](/azure/templates/microsoft.resources/deploymentscripts?tabs=bicep).
+The following Bicep file is an example of the deployment script resource. For more information, see the latest [Deployment script schema](/azure/templates/microsoft.resources/deploymentscripts?tabs=bicep).
 
 ```bicep
 resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
@@ -127,9 +127,81 @@ Property value details:
 - [Sample 1](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault.bicep): create a key vault and use deployment script to assign a certificate to the key vault.
 - [Sample 2](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault-subscription.bicep): create a resource group at the subscription level, create a key vault in the resource group, and then use deployment script to assign a certificate to the key vault.
 - [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault-mi.bicep): create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
-- [Sample 4](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad): manually create a user-assigned managed identity and assign it permission to use the Microsoft Graph API to create Microsoft Entra applications; in the Bicep file, use a deployment script to create a Microsoft Entra application and service principal, and output the object IDs and client ID.
+- [Sample 4](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad): manually create a user-assigned managed identity and assign it permission to use the Microsoft Graph API to create Microsoft Entra applications; in the Bicep file, use a deployment script to create a Microsoft Entra application and service principal, and output the object IDs
+and client ID.
 
-## The placement of the script
+## Use existing storage account
+
+For the script to run and allow for troubleshooting, a storage account and a container instance are required. You can either designate an existing storage account or let the script service create both the storage account and container instance automatically. The requirements for using an existing storage account:
+
+- Supported storage account kinds are:
+
+    | SKU             | Supported Kind     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Storage, StorageV2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Storage, StorageV2 |
+    | Standard_RAGRS  | Storage, StorageV2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    These combinations support file shares. For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
+
+- Storage account firewall rules aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
+- Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares. For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
+
+To specify an existing storage account, add the following Bicep to the property element of `Microsoft.Resources/deploymentScripts`:
+
+```bicep
+param storageAccountName string = 'myStorageAccount'
+
+resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  ...
+  properties: {
+    ...
+    storageAccountSettings: {
+      storageAccountName: storageAccountName
+      storageAccountKey: listKeys(resourceId('Microsoft.Storage/storageAccounts', storageAccountName), '2023-01-01').keys[0].value
+    }
+  }
+}
+```
+
+See [Sample Bicep file](#sample-bicep-files) for a complete `Microsoft.Resources/deploymentScripts` definition sample.
+
+When an existing storage account is used, the script service creates a file share with a unique name. See [Clean up deployment script resources](#clean-up-deployment-script-resources) for how the script service cleans up the file share.
+
+## Configure container instance
+
+Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated. You can also specify subnetIds for running the deployment script in a private network. For more information, see [Access private virtual network](./deployment-script-vnet.md).
+
+
+*** jgao - talk about the container permissions.
+
+*** jgao - shall subnetIds be included in the following example?
+
+```bicep
+param containerGroupName string = 'mycustomaci'
+
+resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+  ...
+  properties: {
+    ...
+    containerSettings: {
+      containerGroupName: containerGroupName
+      subnetIds: [
+        {
+          id: '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
+        }
+      ]
+    }
+  }
+}
+```
+
+## Inline vs. external file
 
 Deployment script can reside within a Bicep file or be stored externally as a separate file.
 
@@ -210,13 +282,15 @@ resource runPowerShellInlineWithOutput 'Microsoft.Resources/deploymentScripts@20
 }
 ```
 
-***jgao - revise inlineScript.ps1
+***jgao - revise inlineScript.ps1. Verify the script is not called from other places.
 
 The external script files must be accessible. To secure your script files that are stored in Azure storage accounts, generate a SAS token and include it in the URI for the template. Set the expiry time to allow enough time to complete the deployment. For more information, see [Deploy private ARM template with SAS token](../templates/secure-template-with-sas-token.md).
 
 You're responsible for ensuring the integrity of the scripts that are referenced by deployment script, either `primaryScriptUri` or `supportingScriptUris`. Reference only scripts that you trust.
 
 ### Use supporting scripts
+
+*** jgao - provide a real world sample here.
 
 You can separate complicated logics into one or more supporting script files. The `supportingScriptUris` property allows you to provide an array of URIs to the supporting script files if needed:
 
@@ -239,6 +313,8 @@ The supporting files are copied to `azscripts/azscriptinput` at the runtime. Use
 
 ## Work with outputs
 
+The approach to handling outputs varies based on the type of script you're using—whether it's Azure PowerShell or Azure CLI.
+
 ### PowerShell scripts
 
 The following Bicep file shows how to pass values between two `deploymentScripts` resources:
@@ -257,120 +333,23 @@ In contrast to the Azure PowerShell deployment scripts, CLI/bash doesn't expose 
 
 In the preceding Bicep sample, a storage account is created and configured to be used by the deployment script. This is necessary for storing the script output. An alternative solution, without specifying your own storage account, involves setting `cleanupPreference` to `OnExpiration`and configuring `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed.
 
-## Use existing storage account
 
-Two supporting resources, a storage account and a container instance, are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The requirements for using an existing storage account:
-
-- Supported storage account kinds are:
-
-    | SKU             | Supported Kind     |
-    |-----------------|--------------------|
-    | Premium_LRS     | FileStorage        |
-    | Premium_ZRS     | FileStorage        |
-    | Standard_GRS    | Storage, StorageV2 |
-    | Standard_GZRS   | StorageV2          |
-    | Standard_LRS    | Storage, StorageV2 |
-    | Standard_RAGRS  | Storage, StorageV2 |
-    | Standard_RAGZRS | StorageV2          |
-    | Standard_ZRS    | StorageV2          |
-
-    These combinations support file shares. For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
-
-- Storage account firewall rules aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
-- Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares.
-
-To specify an existing storage account, add the following Bicep to the property element of `Microsoft.Resources/deploymentScripts`:
-
-```bicep
-param storageAccountName string = 'myStorageAccount'
-
-resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  ...
-  properties: {
-    ...
-    storageAccountSettings: {
-      storageAccountName: storageAccountName
-      storageAccountKey: listKeys(resourceId('Microsoft.Storage/storageAccounts', storageAccountName), '2023-01-01').keys[0].value
-    }
-  }
-}
-```
-
-See [Sample Bicep file](#sample-bicep-files) for a complete `Microsoft.Resources/deploymentScripts` definition sample.
-
-When an existing storage account is used, the script service creates a file share with a unique name. See [Clean up deployment script resources](#clean-up-deployment-script-resources) for how the script service cleans up the file share.
-
-## Configure container instance
-
-Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated. You can also specify subnetIds for running the deployment script in a private network. For more information, see [Access private virtual network](./deployment-script-vnet.md).
-
-
-*** jgao - talk about the container permissions.
-
-*** jgao - shall subnetIds be included in the following example?
-
-```bicep
-param containerGroupName string = 'mycustomaci'
-
-resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
-  ...
-  properties: {
-    ...
-    containerSettings: {
-      containerGroupName: containerGroupName
-      subnetIds: [
-        {
-          id: '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
-        }
-      ]
-    }
-  }
-}
-```
 
 ## Pass secured strings to deployment script
 
-Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values). For an example, see [Sample Bicep file](#sample-bicep-files).
+Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 The max allowed size for environment variables is 64 KB.
 
-*** jgao - shorten the following sample
-
 ```bicep
-param identity string
-param utcValue string = utcNow()
 param location string = resourceGroup().location
 
-var storageAccountName = 'ds${uniqueString(resourceGroup().id)}'
-
-resource dsStorage 'Microsoft.Storage/storageAccounts@2023-01-01' = {
-  name: storageAccountName
-  location: location
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
-}
-
-resource runBashWithOutputs 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
-  name: 'runBashWithOutputs'
+resource ds 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'passEnvVariables'
   location: location
   kind: 'AzureCLI'
-  identity: {
-    type: 'UserAssigned'
-    userAssignedIdentities: {
-      '${identity}': {}
-    }
-  }
   properties: {
-    forceUpdateTag: utcValue
-    storageAccountSettings: {
-      storageAccountName: dsStorage.name
-      storageAccountKey: dsStorage.listKeys().keys[0].value
-    }
     azCliVersion: '2.40.0'
-    timeout: 'PT30M'
-    arguments: '\'foo\' \'bar\''
     environmentVariables: [
       {
         name: 'UserName'
@@ -381,13 +360,10 @@ resource runBashWithOutputs 'Microsoft.Resources/deploymentScripts@2020-10-01' =
         secureValue: 'jDolePassword'
       }
     ]
-    scriptContent: 'result=$(az keyvault list); echo "arg1 is: $1"; echo "arg2 is: $2"; echo "Username is :$Username"; echo "Password is: $Password"; echo $result | jq -c \'{Result: map({id: .id})}\' > $AZ_SCRIPTS_OUTPUT_PATH'
-    cleanupPreference: 'OnSuccess'
+    scriptContent: 'echo "Username is :$Username"; echo "Password is: $Password"'
     retentionInterval: 'P1D'
   }
 }
-
-output result object = runBashWithOutputs.properties.outputs
 ```
 
 ## Handle nonterminating errors

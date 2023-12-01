@@ -8,6 +8,11 @@ ms.date: 11/02/2023
 
 # Use deployment scripts in Bicep
 
+*** jgao - verify the samples using the latest API version
+*** jgao - verify the samples using the latest powershell and cli versions.
+*** jgao - provide the matching powershell and cli samples
+*** jgao - incorporate ARM samples
+
 With the [`deploymentScripts`](/azure/templates/microsoft.resources/deploymentscripts) resource, users can execute scripts in Bicep deployments and review execution results.
 
 These scripts can be used for performing custom steps such as:
@@ -145,7 +150,7 @@ When you use Azure PowerShell deployment scripts, you can use the `Invoke-RestMe
 
 The identity that your deployment script uses needs to be authorized to work with the Microsoft Graph API, with the appropriate permissions for the operations it performs. You must authorize the identity outside of your Bicep file, such as by precreating a user-assigned managed identity and assigning it an app role for Microsoft Graph. For more information, [see this quickstart example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad).
 
-##Access private virtual network
+## Access private virtual network
 
 See [Access private virtual network](./deployment-script-vnet.md).
 
