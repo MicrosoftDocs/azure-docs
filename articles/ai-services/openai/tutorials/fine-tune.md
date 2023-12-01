@@ -488,8 +488,8 @@ print(f'Fine-tuning job {job_id} finished with status: {status}')
 
 # List all fine-tuning jobs for this resource.
 print('Checking other fine-tune jobs for this resource.')
-response = client.files.list().data
-print(f'Found {len(response["data"])} fine-tune jobs.')
+response = client.fine_tuning.jobs.list()
+print(f'Found {len(response.data)} fine-tune jobs.')
 ```
 
 ---
