@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 In this tutorial, you learn how to enable inline image support using the Azure Communication Services Chat SDK for C#.
 
 ## Sample Code
-Find the finalized code of this tutorial on [GitHub TODO](<TODO>).
+Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropInlineImageQuickStart).
 
 ## Prerequisites 
 
@@ -129,5 +129,5 @@ We also include a list of the attachment URIs to be shown along with the message
 * Join meeting
 * Admit user on the Teams side
 * Send a mesage from the Teams side with an image
-* You will see the url included with the message in the application
+* You will see the url included with the message in the application and the last received image rendered at the bottom of the window
 
