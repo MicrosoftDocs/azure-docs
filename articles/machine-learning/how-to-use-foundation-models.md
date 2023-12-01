@@ -134,9 +134,13 @@ Since the scoring script and environment are automatically included with the fou
 
 :::image type="content" source="./media/how-to-use-foundation-models/deploy-options.png" alt-text="Screenshot showing the deploy options on the foundation model card after user selects the deploy button.":::
 
-Curated models from the Azure Machine Learning are in MLflow format. If you are planning to deploy these models under an online endpoint without network connectivity, you need to package the model first. Packaging is not required for models in the HuggingFace format.
+##### Networking
+
+Curated models from the Azure Machine Learning are in MLflow format. If you are planning to deploy these models under an online endpoint without public internet network connectivity, you need to package the model first. 
 
 :::image type="content" source="./media/how-to-use-foundation-models/studio-deploy-package.png" alt-text="Screenshot showing the package option for model deployment.":::
+
+##### Shared quota
 
 If you're deploying a Llama model from the model catalog but don't have enough quota available for the deployment, Azure Machine Learning allows you to use quota from a shared quota pool for a limited time. For _Llama-2-70b_ and _Llama-2-70b-chat_ model deployment, access to the shared quota is available only to customers with [Enterprise Agreement subscriptions](/azure/cost-management-billing/manage/create-enterprise-subscription). For more information on shared quota, see [Azure Machine Learning shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota).
 
