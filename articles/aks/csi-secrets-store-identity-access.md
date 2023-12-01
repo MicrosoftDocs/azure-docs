@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, devx-track-linux
 
 # Connect your Azure identity provider to the Azure Key Vault Secrets Store CSI Driver in Azure Kubernetes Service (AKS)
 
-The Secrets Store Container Storage Interface (CSI) Driver on Azure Kubernetes Service (AKS) provides various methods of identity-based access to your Azure Key Vault. This article outlines these methods and best practices for when to use RBAC or OIDC security models to access your key vault and its contents from your AKS cluster.
+The Secrets Store Container Storage Interface (CSI) Driver on Azure Kubernetes Service (AKS) provides various methods of identity-based access to your Azure Key Vault. This article outlines these methods and best practices for when to use Role-based access control (RBAC) or OpenID Connect (OIDC) security models to access your key vault and AKS cluster.
 
 You can use one of the following access methods:
 
@@ -27,7 +27,7 @@ You can use one of the following access methods:
 
 A [Microsoft Entra Workload ID][workload-identity] is an identity that an application running on a pod uses to authenticate itself against other Azure services, such as workloads in software. The Storage Store CSI Driver integrates with native Kubernetes capabilities to federate with external identity providers.
 
-In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID then uses OpenID Connect (OIDC) to discover public signing keys and verify the authenticity of the service account token before exchanging it for a Microsoft Entra token. For your workload to exchange a service account token projected to its volume for a Microsoft Entra token, you need the Azure Identity client library in the Azure SDK or the Microsoft Authentication Library (MSAL) 
+In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID then uses OIDC to discover public signing keys and verify the authenticity of the service account token before exchanging it for a Microsoft Entra token. For your workload to exchange a service account token projected to its volume for a Microsoft Entra token, you need the Azure Identity client library in the Azure SDK or the Microsoft Authentication Library (MSAL) 
 
 > [!NOTE]
 >
@@ -167,7 +167,7 @@ In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID
 
 ## Access with managed identity 
 
-A [Microsoft Entra Managed ID][managed-identity] is an identity that an administrator uses to authenticate themselves against other Azure services. The managed identity follows role-based access control (RBAC) to federate with external identity providers. 
+A [Microsoft Entra Managed ID][managed-identity] is an identity that an administrator uses to authenticate themselves against other Azure services. The managed identity uses RBAC to federate with external identity providers. 
 
 In this security model, you can grant access to your cluster's resources to team members or tenants sharing a managed role. The role is checked for scope to access the keyvault and other credentials. When you [enabled the Azure Key Vault provider for Secrets Store CSI Driver on your AKS Cluster](./csi-secrets-store-driver.md#create-an-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support), it created a user identity.
 
