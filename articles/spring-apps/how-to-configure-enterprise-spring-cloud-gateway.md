@@ -437,14 +437,14 @@ Use the following steps to enable response cache globally:
 1. On the **Spring Cloud Gateway** page, select **Configuration**.
 1. In the **Response Cache** section, select the **Enable response cache** checkbox, and then set the **Scope** to **Instance**.
 1. Set the **Size** and the **Time to live** for response cache.
-1. Select **save**.
+1. Select **Save**.
 
 Use the following steps to disable response cache:
 
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
 1. On the **Spring Cloud Gateway** page, select **Configuration**.
 1. In the **Response Cache** section, clear the **Enable response cache** checkbox.
-1. Select **save**.
+1. Select **Save**.
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -507,14 +507,14 @@ Use the following steps to enable response cache at the route level:
 1. On the **Spring Cloud Gateway** page, select **Configuration**.
 1. In the **Response Cache** section, select the **Enable response cache** checkbox, and then set the **Scope** to **Route**.
 1. Set the **Size** and the **Time to live** for response cache.
-1. Select **save**.
+1. Select **Save**.
 
 Use the following steps to disable response cache at the route level:
 
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
 1. On the **Spring Cloud Gateway** page, select **Configuration**.
 1. In the **Response Cache** section, clear the **Enable response cache** checkbox.
-1. Select **save**.
+1. Select **Save**.
 
 #### [Azure CLI](#tab/Azure-CLI)
 
