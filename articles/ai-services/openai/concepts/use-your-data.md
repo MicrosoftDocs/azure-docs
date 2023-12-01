@@ -240,7 +240,7 @@ To add a new data source to Azure OpenAI on your data, you need the following Az
 ## Virtual network support & private endpoint support
 
 * For instructions on setting up your resources to work on a virtual private network or private endpoint, see [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md)
-* Azure OpenAi, Azure Ai Search, and Azure Storage Accounts can be protected under private endpoints and virtual private networks.
+* Azure OpenAI, Azure AI Search, and Azure Storage Accounts can be protected under private endpoints and virtual private networks.
 
 ## Document-level access control
 
