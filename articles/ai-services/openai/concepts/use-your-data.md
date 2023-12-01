@@ -239,23 +239,8 @@ To add a new data source to Azure OpenAI on your data, you need the following Az
 
 ## Virtual network support & private endpoint support
 
-> [!TIP]
-> * For instructions on setting up your resources to work on a virtual private network or private endpoint, see [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md)
-> * Azure OpenAi, Azure Ai Search, and Azure Storage Accounts can be protected under private endpoints and virtual private networks.
-
-### Azure OpenAI resources
-
-You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
-
-### Azure AI Search resources
-
-If you have an Azure AI Search resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, complete [an application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in ten business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
-
-:::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
-
-Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
-
-After you approve the request in your search service, you can start using the [chat completions extensions API](/azure/ai-services/openai/reference#completions-extensions). Public network access can be disabled for that search service.
+* For instructions on setting up your resources to work on a virtual private network or private endpoint, see [Use Azure OpenAI on your data securely](../how-to/use-your-data-securely.md)
+* Azure OpenAi, Azure Ai Search, and Azure Storage Accounts can be protected under private endpoints and virtual private networks.
 
 ## Document-level access control
 

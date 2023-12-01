@@ -110,6 +110,8 @@ To set the managed identities via the management API, see [the management API re
 
 ## Security support for Azure AI Search
 
+You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
+
 ### Inbound security: authentication
 As Azure OpenAI will use managed identity to access Azure AI Search, you need to enable Azure AD based authentication in your Azure AI Search. To do it on Azure portal, select **Both** in the **Keys** tab in the Azure portal.
 
@@ -133,7 +135,11 @@ To use Azure OpenAI Studio, you can't disable the API key based authentication f
 
 ### Inbound security: networking
 
-Use **Selected networks** in the Azure portal. Azure AI Search doesn't support bypassing trusted services, so it is the most complex part in the setup. Create a private endpoint for theAzure OpenAI on your data (as a multitenant service managed by Microsoft), and link it to your Azure AI Search resource. This requires you to submit an [application form](https://aka.ms/applyacsvpnaoaioyd).
+Use **Selected networks** in the Azure portal. Azure AI Search doesn't support bypassing trusted services, so it is the most complex part in the setup. Create a private endpoint for the Azure OpenAI on your data resource (as a multitenant service managed by Microsoft), and link it to your Azure AI Search resource. This requires you to submit an [application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in ten business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
+
+:::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
+
+Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
 > [!NOTE]
 > To use Azure OpenAI Studio, you cannot disable public network access, and you need to add your local IP to the IP rules, because Azure AI Studio calls the search API from your browser to list available indexes.
