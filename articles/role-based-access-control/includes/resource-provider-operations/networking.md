@@ -58,6 +58,7 @@ Azure service: [Content Delivery Network](../../../cdn/index.yml)
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/Purge/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/Usages/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/ValidateCustomDomain/action |  |
+> | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/CheckCustomDomainDNSMappingStatus/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/CheckEndpointNameAvailability/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/routeresults/read |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/routeresults/write |  |
@@ -116,12 +117,17 @@ Azure service: [Content Delivery Network](../../../cdn/index.yml)
 > | Microsoft.Cdn/profiles/CheckHostNameAvailability/action |  |
 > | Microsoft.Cdn/profiles/Usages/action |  |
 > | Microsoft.Cdn/profiles/Upgrade/action |  |
+> | Microsoft.Cdn/profiles/queryloganalyticsmetrics/action |  |
+> | Microsoft.Cdn/profiles/queryloganalyticsrankings/action |  |
+> | Microsoft.Cdn/profiles/querywafloganalyticsmetrics/action |  |
+> | Microsoft.Cdn/profiles/querywafloganalyticsrankings/action |  |
 > | Microsoft.Cdn/profiles/afdendpoints/read |  |
 > | Microsoft.Cdn/profiles/afdendpoints/write |  |
 > | Microsoft.Cdn/profiles/afdendpoints/delete |  |
 > | Microsoft.Cdn/profiles/afdendpoints/Purge/action |  |
 > | Microsoft.Cdn/profiles/afdendpoints/Usages/action |  |
 > | Microsoft.Cdn/profiles/afdendpoints/ValidateCustomDomain/action |  |
+> | Microsoft.Cdn/profiles/afdendpoints/CheckCustomDomainDNSMappingStatus/action |  |
 > | Microsoft.Cdn/profiles/afdendpoints/CheckEndpointNameAvailability/action |  |
 > | Microsoft.Cdn/profiles/afdendpoints/routes/read |  |
 > | Microsoft.Cdn/profiles/afdendpoints/routes/write |  |
