@@ -4,7 +4,13 @@ description: Use the Java Message Service (JMS) with Azure Service Bus and the A
 ms.topic: article
 ms.date: 09/20/2021
 ms.devlang: java
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-extended-java
+ms.custom:
+  - seo-java-july2019
+  - seo-java-august2019
+  - seo-java-september2019
+  - devx-track-java
+  - devx-track-extended-java
+  - ignite-2023
 ---
 
 # Use Java Message Service 1.1 with Azure Service Bus standard and AMQP 1.0
@@ -12,7 +18,7 @@ ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-
 > [!WARNING]
 > This article caters to *limited support* for the Java Message Service (JMS) 1.1 API and exists for the Azure Service Bus standard tier only.
 >
-> Full support for the Java Message Service 2.0 API is available only on the [Azure Service Bus premium tier in preview](how-to-use-java-message-service-20.md). We recommend that you use this tier.
+> Full support for the Java Message Service 2.0 API is available only on the [Azure Service Bus premium tier](how-to-use-java-message-service-20.md). We recommend that you use this tier.
 >
 
 This article explains how to use Service Bus messaging features from Java applications by using the popular JMS API standard. These messaging features include queues and publishing or subscribing to topics. A [companion article](service-bus-amqp-dotnet.md) explains how to do the same by using the Azure Service Bus .NET API. You can use these two articles together to learn about cross-platform messaging using the Advanced Message Queuing Protocol (AMQP) 1.0.

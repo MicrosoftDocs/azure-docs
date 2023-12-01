@@ -2,7 +2,7 @@
 title: "Tutorial: Voice-enable your bot - Speech service"
 titleSuffix: Azure AI services
 description: In this tutorial, you'll create an echo bot and configure a client app that lets you speak to your bot and hear it respond back to you.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

@@ -208,13 +208,13 @@ When an edit arises where a chunk attribute is affected, you can easily find the
 
 Users will generate, luckily, much content. And you should be able to provide the ability to search and find content that might not be directly in their content streams, maybe because you don’t follow the creators, or maybe you're just trying to find that old post you did six months ago.
 
-Because you're using Azure Cosmos DB, you can easily implement a search engine using [Azure Cognitive Search](https://azure.microsoft.com/services/search/) in a few minutes without typing any code, other than the search process and UI.
+Because you're using Azure Cosmos DB, you can easily implement a search engine using [Azure AI Search](https://azure.microsoft.com/services/search/) in a few minutes without typing any code, other than the search process and UI.
 
 Why is this process so easy?
 
-Azure Cognitive Search implements what they call [Indexers](/rest/api/searchservice/Indexer-operations), background processes that hook in your data repositories and automagically add, update or remove your objects in the indexes. They support an [Azure SQL Database indexers](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md) and thankfully, [Azure Cosmos DB indexers](../search/search-howto-index-cosmosdb.md). The transition of information from Azure Cosmos DB to Azure Cognitive Search is straightforward. Both technologies store information in JSON format, so you just need to [create your Index](../search/search-what-is-an-index.md) and map the attributes from your Documents you want indexed. That’s it! Depending on the size of your data, all your content will be available to be searched upon within minutes by the best Search-as-a-Service solution in cloud infrastructure.
+Azure AI Search implements what they call [Indexers](/rest/api/searchservice/Indexer-operations), background processes that hook in your data repositories and automagically add, update or remove your objects in the indexes. They support an [Azure SQL Database indexers](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md) and thankfully, [Azure Cosmos DB indexers](../search/search-howto-index-cosmosdb.md). The transition of information from Azure Cosmos DB to Azure AI Search is straightforward. Both technologies store information in JSON format, so you just need to [create your Index](../search/search-what-is-an-index.md) and map the attributes from your Documents you want indexed. That’s it! Depending on the size of your data, all your content will be available to be searched upon within minutes by the best Search-as-a-Service solution in cloud infrastructure.
 
-For more information about Azure Cognitive Search, you can visit the [Hitchhiker’s Guide to Search](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search).
+For more information about Azure AI Search, you can visit the [Hitchhiker’s Guide to Search](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search).
 
 ## The underlying knowledge
 
@@ -262,7 +262,7 @@ This article sheds some light into the alternatives of creating social networks 
 
 :::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagram of interaction between Azure services for social networking" border="false":::
 
-The truth is that there's no silver bullet for this kind of scenarios. It’s the synergy created by the combination of great services that allow us to build great experiences: the speed and freedom of Azure Cosmos DB to provide a great social application, the intelligence behind a first-class search solution like Azure Cognitive Search, the flexibility of Azure App Services to host not even language-agnostic applications but powerful background processes and the expandable Azure Storage and Azure SQL Database for storing massive amounts of data and the analytic power of Azure Machine Learning to create knowledge and intelligence that can provide feedback to your processes and help us deliver the right content to the right users.
+The truth is that there's no silver bullet for this kind of scenarios. It’s the synergy created by the combination of great services that allow us to build great experiences: the speed and freedom of Azure Cosmos DB to provide a great social application, the intelligence behind a first-class search solution like Azure AI Search, the flexibility of Azure App Services to host not even language-agnostic applications but powerful background processes and the expandable Azure Storage and Azure SQL Database for storing massive amounts of data and the analytic power of Azure Machine Learning to create knowledge and intelligence that can provide feedback to your processes and help us deliver the right content to the right users.
 
 ## Next steps
 

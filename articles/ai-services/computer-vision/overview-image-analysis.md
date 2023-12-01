@@ -2,7 +2,7 @@
 title: What is Image Analysis?
 titleSuffix: Azure AI services
 description: The Image Analysis service uses pretrained AI models to extract many different visual features from images. 
-services: cognitive-services 
+#services: cognitive-services 
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision

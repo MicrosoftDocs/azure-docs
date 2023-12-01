@@ -2,7 +2,7 @@
 title: 'Customize a model with Azure OpenAI Service and Azure OpenAI Studio'
 titleSuffix: Azure OpenAI
 description: Learn how to create your own custom model with Azure OpenAI Service by using the Azure OpenAI Studio.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include

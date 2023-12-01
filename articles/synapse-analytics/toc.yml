@@ -732,6 +732,8 @@ items:
       items:
         - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
+        - name: Azure Synapse Apache Spark 3.4 runtime (Public Preview)
+          href: ./spark/apache-spark-34-runtime.md
         - name: Azure Synapse Apache Spark 3.3 runtime (GA)
           href: ./spark/apache-spark-33-runtime.md
         - name: Azure Synapse Apache Spark 3.2 runtime (EOLA)
@@ -1035,7 +1037,7 @@ items:
         href: ../data-factory/format-avro.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Blob Storage
         href: ../data-factory/connector-azure-blob-storage.md?toc=/azure/synapse-analytics/toc.json&tabs=synapse-analytics
-      - name: Azure Cognitive Search
+      - name: Azure AI Search
         href: ../data-factory/connector-azure-search.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Cosmos DB for NoSQL
         href: ../data-factory/connector-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics

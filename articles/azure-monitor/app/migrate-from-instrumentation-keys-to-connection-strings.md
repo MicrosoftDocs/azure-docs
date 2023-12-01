@@ -28,7 +28,7 @@ This article walks through migrating from instrumentation keys to [connection st
 1. Configure the Application Insights SDK by following [How to set connection strings](sdk-connection-string.md#set-a-connection-string).
 
 > [!IMPORTANT]
-> Don't use both a connection string and an instrumentation key. The latter one set supersedes the other, and could result in telemetry not appearing on the portal. [missing data](#missing-data).
+> Don't use both a connection string and an instrumentation key. The latter one set supersedes the other, and could result in telemetry not appearing on the portal. See [missing data](#missing-data).
 
 ## Migration at scale
 

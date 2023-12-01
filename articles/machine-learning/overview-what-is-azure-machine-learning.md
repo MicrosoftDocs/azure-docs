@@ -9,7 +9,12 @@ author: frogglew
 ms.author: saoh
 ms.reviewer: sgilley
 ms.date: 09/22/2022
-ms.custom: event-tier1-build-2022, ignite-2022, build-2023, build-2023-dataai
+ms.custom:
+  - event-tier1-build-2022
+  - ignite-2022
+  - build-2023
+  - build-2023-dataai
+  - ignite-2023
 adobe-target: true
 ---
 
@@ -34,10 +39,13 @@ Enterprises working in the Microsoft Azure cloud can use familiar security and r
 
 ML projects often require a team with a varied skill set to build and maintain. Machine Learning has tools that help enable you to:
 
-* Collaborate with your team via shared notebooks, compute resources, [serverless compute (preview)](how-to-use-serverless-compute.md), data, and environments.
-* Develop models for fairness and explainability and tracking and auditability to fulfill lineage and audit compliance requirements.
-* Deploy ML models quickly and easily at scale, and manage and govern them efficiently with MLOps.
-* Run ML workloads anywhere with built-in governance, security, and compliance.
+* Collaborate with your team via shared notebooks, compute resources, [serverless compute](how-to-use-serverless-compute.md), data, and environments
+
+* Develop models for fairness and explainability, tracking and auditability to fulfill lineage and audit compliance requirements
+
+* Deploy ML models quickly and easily at scale, and manage and govern them efficiently with MLOps
+
+* Run machine learning workloads anywhere with built-in governance, security, and compliance
 
 ### Cross-compatible platform tools that meet your needs
 
@@ -141,9 +149,9 @@ For more information, see [Tune hyperparameters](how-to-tune-hyperparameters.md)
 
 ### Multinode distributed training
 
-Efficiency of training for deep learning and sometimes classical ML training jobs can be drastically improved via multinode distributed training. Machine Learning compute clusters and [serverless compute (preview)](how-to-use-serverless-compute.md) offer the latest GPU options.
+Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters and  [serverless compute](how-to-use-serverless-compute.md) offer the latest GPU options.
 
-Frameworks supported via Azure Machine Learning Kubernetes, Machine Learning compute clusters, and [serverless compute (preview)](how-to-use-serverless-compute.md) include:
+Supported via Azure Machine Learning Kubernetes, Azure Machine Learning compute clusters, and  [serverless compute](how-to-use-serverless-compute.md):
 
 * PyTorch
 * TensorFlow

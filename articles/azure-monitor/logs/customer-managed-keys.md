@@ -110,8 +110,8 @@ There are two permission models in Key Vault to grant access to your cluster and
    To add role assignments, you must have Microsoft.Authorization/roleAssignments/write and Microsoft.Authorization/roleAssignments/delete permissions, such as [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../role-based-access-control/built-in-roles.md#owner).
 
    Open your Key Vault in Azure portal, **click Access configuration** in **Settings**, and select **Azure role-based access control** option. Then enter **Access control (IAM)** and add **Key Vault Crypto Service Encryption User** role assignment.
-
-   [<img src="media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png" alt="Screenshot of Grant Key Vault RBAC permissions." title="Grant Key Vault RBAC permissions" width="80%"/>](media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png#lightbox)
+   <!-- convertborder later -->
+   :::image type="content" source="media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png" lightbox="media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png" alt-text="Screenshot of Grant Key Vault RBAC permissions." border="false":::
 
 1. Assign vault access policy (legacy)
 

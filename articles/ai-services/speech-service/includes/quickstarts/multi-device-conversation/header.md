@@ -1,5 +1,5 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: ralphe
 manager: cpoulain
 ms.service: azure-ai-speech

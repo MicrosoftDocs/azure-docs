@@ -19,7 +19,7 @@ ms.subservice: calling
 
 ![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
 
-This project aims to guide developers to initiate a call from the ACS Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
+This project aims to guide developers to initiate a call from the Azure Communication Services Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
 
 As per your requirements, you might need to offer your customers an easy way to reach out to you without any complex setup.
 

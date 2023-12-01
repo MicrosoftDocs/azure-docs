@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 05/29/2023
+ms.date: 11/02/2023
 ---
 
 # Manage your Defender for APIs deployment
@@ -22,17 +22,21 @@ Defender for APIs is currently in preview.
 
     :::image type="content" source="media/defender-for-apis-manage/api-remove.png" alt-text="Screenshot of the review API information in Cloud Security Explorer." lightbox="media/defender-for-apis-manage/api-remove.png":::
 
+1. **Optional**: You can also select multiple APIs to offboard by selecting the APIs in the checkbox and then selecting **Remove**:
+
+    :::image type="content" source="media/defender-for-apis-manage/select-remove.png" alt-text="Screenshot showing selected APIs to remove." lightbox="media/defender-for-apis-manage/select-remove.png":::
+
 ## Query your APIs with the cloud security explorer
 
 You can use the cloud security explorer to run graph-based queries on the cloud security graph. By utilizing the cloud security explorer, you can proactively identify potential security risks to your APIs.
 
 There are three types of APIs you can query:
 
-- **API Collections** - A group of all types of API collections.
+- **API Collections**: API collections enable software applications to communicate and exchange data. They are an essential component of modern software applications and microservice architectures. API collections include one or more API endpoints that represent a specific resource or operation provided by an organization. API collections provide functionality for specific types of applications or services. API collections are typically managed and configured by API management/gateway services.
 
-- **API Endpoints** - A group of all types of API endpoints.
+- **API Endpoints**: API endpoints represent a specific URL, function, or resource within an API collection. Each API endpoint provides a specific functionality that developers, applications, or other systems can access.
 
-- **API Management services** - API management services are platforms that provide tools and infrastructure for managing APIs, typically through a web-based interface. They often include features such as: API gateway, API portal, API analytics and API security.
+- **API Management services**: API management services are platforms that provide tools and infrastructure for managing APIs, typically through a web-based interface. They often include features such as: API gateway, API portal, API analytics and API security.
 
 **To query APIs in the cloud security graph**:
 
@@ -40,7 +44,7 @@ There are three types of APIs you can query:
 
 1. Navigate to **Microsoft Defender for Cloud** > **Cloud Security Explorer**.
 
-1. From the drop down menu, select APIs.
+1. From the drop-down menu, select APIs:
 
     :::image type="content" source="media/defender-for-apis-manage/cloud-explorer-apis.png" alt-text="Screenshot of Defender for Cloud's cloud security explorer that shows how to select APIs." lightbox="media/defender-for-apis-manage/cloud-explorer-apis.png":::
 

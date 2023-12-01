@@ -2,7 +2,7 @@
 title: Migrate to Azure Kubernetes Service (AKS)
 description: This article shows you how to migrate to Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.date: 05/30/2023
+ms.date: 11/21/2023
 ms.custom: mvc, devx-track-azurecli
 ---
 
@@ -33,6 +33,8 @@ In this article, we summarize migration details for:
 
 * Ensure your target Kubernetes version is within the supported window for AKS. Older versions may not be within the supported range and require a version upgrade for AKS support. For more information, see [AKS supported Kubernetes versions](./supported-kubernetes-versions.md).
 * If you're migrating to a newer version of Kubernetes, review the [Kubernetes version and version skew support policy](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-versions).
+
+An important practice that you should include as part of your migration process is remembering to follow commonly used deployment and testing patterns. Testing your application before deployment is an important step to ensure its quality, functionality, and compatibility with the target environment. It can help you identify and fix any errors, bugs, or issues that might affect the performance, security, or usability of the application or underlying infrastructure.
 
 ## Use Azure Migrate to migrate your applications to AKS
 
