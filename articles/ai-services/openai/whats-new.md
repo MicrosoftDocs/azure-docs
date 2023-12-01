@@ -23,9 +23,6 @@ keywords:
 - Full VPN and private endpoint support for Azure OpenAI on your data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
 - New article for using [Azure OpenAI on your data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
 
-## December 2023
-
-
 ### GPT-4 with Vision now available
 
 GPT-4 with Vision lets you use images and videos in your AI chat conversations. The AI model can analyze and reference the media you share. With enhanced mode, you can use the [Azure AI Vision](/azure/ai-services/computer-vision/overview) features to generate additional insights from the images.
