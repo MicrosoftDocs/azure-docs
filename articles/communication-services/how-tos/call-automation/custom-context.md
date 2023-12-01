@@ -26,20 +26,17 @@ Below are samples on how to get started using custom context headers in Call Aut
 
 As a prerequisite, we recommend you to read these articles to make the most of this guide:
 
-1. Call Automation [concepts guide](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks.
-2. Learn about [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like CommunicationUserIdentifier and PhoneNumberIdentifier used in this guide.
+- Call Automation [concepts guide](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks.
+- Learn about [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like CommunicationUserIdentifier and PhoneNumberIdentifier used in this guide.
 
 For all the code samples, `client` is CallAutomationClient object that can be created as shown and `callConnection` is the CallConnection object obtained from Answer or CreateCall response. You can also obtain it from callback events received by your application.
 
------
 ## Technical parameters
 Call Automation supports up to 5 custom SIP headers and 1000 custom VOIP headers. Additionally, developers can include a dedicated User-To-User header as part of SIP headers list.
 
 The custom SIP header key must start with a mandatory ‘X-MS-Custom-’ prefix.  The maximum length of a SIP header key is 64 chars, including the X-MS-Custom prefix. The maximum length of SIP header value is 256 chars. The same limitations apply when configuring the SIP headers on your SBC.
 
 The maximum length of a VOIP header key is 64 chars. These headers can be sent without ‘x-MS-Custom’ prefix. The maximum length of VOIP header value is 1024 chars.
-
------
 
 ## Adding custom context when inviting a participant
 
