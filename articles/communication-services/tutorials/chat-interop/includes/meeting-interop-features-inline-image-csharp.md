@@ -14,10 +14,10 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Prerequisites 
 
-* You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
+* Go through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
 * Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
-* You've set up a Teams meeting using your business account and have the meeting URL ready.
-* You're using the Chat SDK for C# (Azure.Communication.Chat) 1.3.0 or the latest. See [here](https://www.nuget.org/packages/Azure.Communication.Chat/).
+* Setup a Teams meeting using your business account and have the meeting URL ready.
+* Use Chat SDK for C# (Azure.Communication.Chat) 1.3.0 or the latest. See [here](https://www.nuget.org/packages/Azure.Communication.Chat/).
   
 ## Goal
 
@@ -25,7 +25,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 
 ## Handle inline images for new messages
 
-In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we poll for messages and append new messages to the messageList. We will build on this functionality later to include parsing and fetching of the inline images.
+In the [quickstart](../../../quickstarts/chat/meeting-interop.md), we poll for messages and append new messages to the messageList. We build on this functionality later to include parsing and fetching of the inline images.
 
 ```c#
   CommunicationUserIdentifier currentUser = new(user_Id_);
@@ -78,7 +78,7 @@ As an example, the following JSON is an example of what `ChatAttachment` might l
 ]
 ```
 
-Now let's go back to the replace the code to add some extra logic to parse and fetch the image attachments.
+Now let's go back and replace the code to add extra logic to parse and fetch the image attachments.
 
 ```c#
   CommunicationUserIdentifier currentUser = new(user_Id_);
@@ -118,16 +118,16 @@ Now let's go back to the replace the code to add some extra logic to parse and f
       }
 ```
 
-Noticing in this example, we have grabbed all attachments from the message of type 'Image' and then we fetch each one of these images. We must use our 'Token' in the 'Bearer' portion of the request header for authorization purposes. Once the image is downloaded we can assign it to the 'InlineImage' element of the view.
+Noticing in this example, we grab all attachments from the message of type 'Image' and then we fetch each one of the images. We must use our 'Token' in the 'Bearer' portion of the request header for authorization purposes. Once the image is downloaded, we can assign it to the 'InlineImage' element of the view.
 
 We also include a list of the attachment URIs to be shown along with the message in text message list.
 
 ## Demo
 
 * Run the application from the IDE.
-* Enter a team meating link
-* Join meeting
-* Admit user on the Teams side
-* Send a mesage from the Teams side with an image
-* You will see the url included with the message in the application and the last received image rendered at the bottom of the window
+* Enter a Teams meeting link.
+* Join meeting.
+* Admit user on the Teams side.
+* Send a message from the Teams side with an image.
+* The url included with the message is displayed in the message list and the last received image rendered at the bottom of the window.
 
