@@ -481,7 +481,7 @@ When the application routing add-on is disabled, some Kubernetes resources might
 
 ## Next steps
 
-* [Configure custom ingress configurations][custom-ingress-configurations] shows how to create an advanced Ingress configuration and [encrypt the traffic and use Azure DNS to manage DNS zones][dns-ssl-configuration].
+* [Configure custom ingress configurations][custom-ingress-configurations] shows how to create an advanced Ingress configuration and [configure a custom domain using Azure DNS to manage DNS zones and setup a secure ingress][dns-ssl-configuration].
 
 * Learn about monitoring the ingress-nginx controller metrics included with the application routing add-on with [with Prometheus in Grafana][prometheus-in-grafana] (preview) as part of analyzing the performance and usage of your application.
 
