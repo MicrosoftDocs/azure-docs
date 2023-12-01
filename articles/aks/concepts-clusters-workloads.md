@@ -112,9 +112,9 @@ Reserved CPU is dependent on node type and cluster configuration, which may caus
 Memory utilized by AKS includes the sum of two values.
 
 > [!IMPORTANT]
-> AKS 1.28 includes certain changes to memory reservations. These changes are detailed in the following section.
+> AKS 1.29 previews in January 2024 and includes certain changes to memory reservations. These changes are detailed in the following section.
 
-**AKS 1.28 and later**
+**AKS 1.29 and later**
 
 1. **`kubelet` daemon** has the *memory.available<100Mi* eviction rule by default. This ensures that a node always has at least 100Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` triggers the termination of one of the running pods and frees up memory on the host machine.
 2. **A rate of memory reservations** set according to the lesser value of: *20MB * Max Pods supported on the Node + 50MB* or *25% of the total system memory resources*.
@@ -125,7 +125,7 @@ Memory utilized by AKS includes the sum of two values.
 
     For more information, see [Configure maximum pods per node in an AKS cluster](./azure-cni-overview.md#maximum-pods-per-node).
 
-**AKS versions prior to 1.28**
+**AKS versions prior to 1.29**
 
 1. **`kubelet` daemon** is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, `kubelet` daemon has the *memory.available<750Mi* eviction rule, ensuring a node must always have at least 750Mi allocatable at all times. When a host is below that available memory threshold, the `kubelet` will trigger to terminate one of the running pods and free up memory on the host machine.
 
