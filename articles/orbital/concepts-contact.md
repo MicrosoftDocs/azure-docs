@@ -44,19 +44,19 @@ Use the [Azure portal](https://aka.ms/orbital/portal) or [Azure Orbital Ground S
 
 In order to cancel a scheduled contact, you must delete the contact resource. 
 
-To delete a contact resource via the [Azure portal](https://aka.ms/orbital/portal):
-2. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
-3. In the **Spacecraft** page, click the spacecraft associated with the scheduled contact.
-4. Click **Contacts** from the left menu bar in the spacecraft’s overview page.
+To delete a contact resource via the [Azure portal](https://aka.ms/orbital/portal):  
+1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
+2. In the **Spacecraft** page, click the spacecraft associated with the scheduled contact.
+3. Click **Contacts** from the left menu bar in the spacecraft’s overview page.
 
    :::image type="content" source="media/orbital-eos-delete-contact.png" alt-text="Select a scheduled contact" lightbox="media/orbital-eos-delete-contact.png":::
 
-5. Click the contact to be deleted.
-6. Click **Delete** from the top bar of the contact's configuration view.
+4. Click the contact to be deleted.
+5. Click **Delete** from the top bar of the contact's configuration view.
 
    :::image type="content" source="media/orbital-eos-contact-config-view.png" alt-text="Delete a scheduled contact" lightbox="media/orbital-eos-contact-config-view.png":::
 
-7. The scheduled contact will be canceled once the contact entry is deleted.
+6. The scheduled contact will be canceled once the contact entry is deleted.
 
 Alternatively, use the Contacts REST Operation Group to [delete a contact](/rest/api/orbital/azureorbitalgroundstation/contacts/delete/) with the Azure Orbital Ground Station API.
 
