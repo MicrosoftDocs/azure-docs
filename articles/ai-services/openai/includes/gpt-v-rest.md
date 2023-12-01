@@ -77,7 +77,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
 1. Make the following changes:
     1. Enter your endpoint URL and key in the appropriate fields.
-    1. Enter your GPT-4 Vision deployment name in the appropriate field. 
+    1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
     1. Change the value of the `"image"` field to the base 64 byte data of your image.
 1. Run the application with the `python` command:
 
