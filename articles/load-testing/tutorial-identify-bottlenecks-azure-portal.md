@@ -61,21 +61,30 @@ Follow these steps to create an Azure load testing resource and a load test by u
    cd nodejs-appsvc-cosmosdb-bottleneck
    ```
 
-1. Enter this command to create an Azure load testing resource.
+1. Create a resource group for the Azure load testing resource.
 
-    Replace the `<load-testing-resource-name>`, and the `<load-testing-resource-group-name>` text placeholders.
+    Optionally, you can also reuse the resource group of the sample application you deployed previously.
 
-    Make sure that the resource group already exists. You can reuse the resource group of the sample application, or create a new dedicated resource group for the load testing resource.
+    Replace the `<load-testing-resource-group-name>` text placeholder with the name of the resource group.
+
+    ```azurecli
+    resourceGroup="<load-testing-resource-group-name>"
+    location="East US"
+    
+    az group create --name $resourceGroup --location $location
+    ```
+
+1. Create an Azure load testing resource.
+
+    Replace the `<load-testing-resource-name>` text placeholder with the name of the load testing resource.
 
     ```azurecli
     loadTestResource="<load-testing-resource-name>"
-    resourceGroup="<load-testing-resource-group-name>"
-    location="East US"
     
     az load create --name $loadTestResource --resource-group $resourceGroup --location $location
     ```
 
-1. Use this command to create a load test for simulating load against your sample application.
+1. Create a load test for simulating load against your sample application.
 
     Replace the `<web-app-hostname>` text placeholder with the App Service hostname of the sample application. This value is of the form `myapp.azurewebsites.net`. Don't include the `https://` part of the URL.
 
