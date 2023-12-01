@@ -1333,7 +1333,7 @@ Can manage Azure Front Door domains, but can't grant access to other users.
     "/"
   ],
   "description": "Can manage Azure Front Door domains, but can't grant access to other users.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/0ab34830-df19-4f8c-b84e-aa85b8afa6e8",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0ab34830-df19-4f8c-b84e-aa85b8afa6e8",
   "name": "0ab34830-df19-4f8c-b84e-aa85b8afa6e8",
   "permissions": [
     {
@@ -1378,7 +1378,7 @@ Can view Azure Front Door domains, but can't make changes.
     "/"
   ],
   "description": "Can view Azure Front Door domains, but can't make changes.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/0f99d363-226e-4dca-9920-b807cf8e1a5f",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0f99d363-226e-4dca-9920-b807cf8e1a5f",
   "name": "0f99d363-226e-4dca-9920-b807cf8e1a5f",
   "permissions": [
     {
@@ -1431,7 +1431,7 @@ Can view AFD standard and premium profiles and their endpoints, but can't make c
     "/"
   ],
   "description": "Can view AFD standard and premium profiles and their endpoints, but can't make changes.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/662802e2-50f6-46b0-aed2-e834bacc6d12",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/662802e2-50f6-46b0-aed2-e834bacc6d12",
   "name": "662802e2-50f6-46b0-aed2-e834bacc6d12",
   "permissions": [
     {
@@ -1486,7 +1486,7 @@ Can manage Azure Front Door secrets, but can't grant access to other users.
     "/"
   ],
   "description": "Can manage Azure Front Door secrets, but can't grant access to other users.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3f2eb865-5811-4578-b90a-6fc6fa0df8e5",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/3f2eb865-5811-4578-b90a-6fc6fa0df8e5",
   "name": "3f2eb865-5811-4578-b90a-6fc6fa0df8e5",
   "permissions": [
     {
@@ -1531,7 +1531,7 @@ Can view Azure Front Door secrets, but can't make changes.
     "/"
   ],
   "description": "Can view Azure Front Door secrets, but can't make changes.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/0db238c4-885e-4c4f-a933-aa2cef684fca",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0db238c4-885e-4c4f-a933-aa2cef684fca",
   "name": "0db238c4-885e-4c4f-a933-aa2cef684fca",
   "permissions": [
     {
