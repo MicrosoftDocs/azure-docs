@@ -9,9 +9,9 @@ ms.reviewer: yalavi
 # Smart Detection - Failure Anomalies
 [Application Insights](../app/app-insights-overview.md) automatically alerts you in near real time if your web app experiences an abnormal rise in the rate of failed requests. It detects an unusual rise in the rate of HTTP requests or dependency calls that are reported as failed. For requests, failed requests usually have response codes of 400 or higher. To help you triage and diagnose the problem, an analysis of the characteristics of the failures and related application data is provided in the alert details. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up nor configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
-This feature works for any web app, hosted in the cloud or on your own servers, that generate application request or dependency data. For example, if you have a worker role that calls [TrackRequest()](../app/api-custom-events-metrics.md#trackrequest) or [TrackDependency()](../app/api-custom-events-metrics.md#trackdependency).
+This feature works for any web app, hosted in the cloud or on your own servers that generate application request or dependency data. For example, if you have a worker role that calls [TrackRequest()](../app/api-custom-events-metrics.md#trackrequest) or [TrackDependency()](../app/api-custom-events-metrics.md#trackdependency).
 
-After setting up [Application Insights for your project](../app/app-insights-overview.md), and if your app generates a certain minimum amount of data, Smart Detection of Failure Anomalies takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
+After setting up [Application Insights for your project](../app/app-insights-overview.md), and if your app generates a certain minimum amount of data, Smart Detection of Failure Anomalies takes 24 hours to learn the normal behavior of your app, before it's switched on and can send alerts.
 
 Here's a sample alert:
 
@@ -39,22 +39,22 @@ When an analysis is triggered, the service performs a cluster analysis on the fa
 
 In the example shown before, the analysis discovered that most failures are about a specific result code, request name, Server URL host, and role instance. 
 
-When you instrument your service with these calls, the analyzer looks for an exception and a dependency failure that are associated with requests in the identified cluster. It also looks for an example of any trace logs associated with those requests. The alert you receive includes this additional information that can provide context to the detection and hint on the root cause for the detected problem.
+When you instrument your service with these calls, the analyzer looks for an exception and a dependency failure that are associated with requests in the identified cluster. It also looks for an example of any trace logs, associated with those requests. The alert you receive includes this additional information that can provide context to the detection and hint on the root cause for the detected problem.
 
 ### Alert logic details
-Failure Anomalies detection relies on a proprietary machine learning algorithm, so the reasons for an alert firing or not firing are not always deterministic. With that said, the primary factors that the algorithm uses are: 
+Failure Anomalies detection relies on a proprietary machine learning algorithm, so the reasons for an alert firing or not firing aren't always deterministic. With that said, the primary factors that the algorithm uses are: 
 
 * Analysis of the failure percentage of requests/dependencies in a rolling time window of 20 minutes.
 * A comparison of the failure percentage in the last 20 minutes, to the rate in the last 40 minutes and the past seven days. The algorithm is looking for significant deviations that exceed X-times of the standard deviation.
-* Using an adaptive limit for the minimum failure percentage, which varies based on the app’s volume of requests/dependencies.
-* There is logic that can automatically resolve the fired alert, if the issue is no longer detected for 8-24 hours.
-  Note: in the current design. a notification or action is not sent when a Smart Detection alert is resolved. You can check if a Smart Detection alert was resolved in the Azure portal.
+* The algorithm is using an adaptive limit for the minimum failure percentage, which varies based on the app’s volume of requests/dependencies.
+* The algorithm includes logic that can automatically resolve the fired alert, if the issue is no longer detected for 8-24 hours.
+  Note: in the current design. a notification or action isn't sent when a Smart Detection alert is resolved. You can check if a Smart Detection alert was resolved in the Azure portal.
 
 ## Managing Failure Anomalies alert rules
 
 ### Alert rule creation
 A Failure Anomalies alert rule is created automatically when your Application Insights resource is created. The rule is automatically configured to analyze the telemetry on that resource.
-You can create the rule again using Azure [REST API](https://learn.microsoft.com/rest/api/monitor/smart-detector-alert-rules?view=rest-monitor-2019-06-01) or using a [Resource Manager template](./proactive-arm-config#failure-anomalies-alert-rule). This is useful if the automatic creation of the rule failed for some reason, or if you deleted the rule by chance or on purpose, 
+You can create the rule again using Azure [REST API](https://learn.microsoft.com/rest/api/monitor/smart-detector-alert-rules?view=rest-monitor-2019-06-01) or using a [Resource Manager template](./proactive-arm-config#failure-anomalies-alert-rule). Creating the rule can be useful if the automatic creation of the rule failed for some reason, or if you deleted the rule by chance or on purpose, 
 
 ### Alert rule configuration 
 To configure a Failure Anomalies alert rule in the portal, open the Alerts page and select Alert Rules. Failure Anomalies alert rules are included along with any alerts that you set manually. 
@@ -67,7 +67,7 @@ Click the alert rule to configure it.
 
 You can disable Smart Detection alert rule from the portal or using Azure Resource Manager template ([see template example](./proactive-arm-config#failure-anomalies-alert-rule).
 
-This alert rule is created with an associated [Action Group](./action-groups.md) named "Application Insights Smart Detection". By default, this action group contains Email Azure Resource Manager Role actions and sends notification to users who have  Monitoring Contributor or Monitoring Reader subscription Azure Resource Manager roles in your subscription.  You can remove, change or add the action groups that the rule triggers, as for any other Azure alert rule. Notifications sent from this alert rule follow the [common alert schema](./alerts-common-schema.md).
+This alert rule is created with an associated [Action Group](./action-groups.md) named "Application Insights Smart Detection." By default, this action group contains Email Azure Resource Manager Role actions and sends notification to users who have  Monitoring Contributor or Monitoring Reader subscription Azure Resource Manager roles in your subscription.  You can remove, change or add the action groups that the rule triggers, as for any other Azure alert rule. Notifications sent from this alert rule follow the [common alert schema](./alerts-common-schema.md).
 
 
 ## Delete alerts
@@ -383,7 +383,7 @@ Notice that if you delete an Application Insights resource, the associated Failu
 
 ## Triage and diagnose an alert
 
-An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there is some problem with your app or its environment.
+An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there's some problem with your app or its environment.
 
 To investigate further, click on 'View full details in Application Insights'. The links in this page take you straight to a [search page](../app/diagnostic-search.md) filtered to the relevant requests, exception, dependency, or traces. 
 
@@ -393,7 +393,7 @@ Clicking on 'Diagnose failures' can help you get more details and resolve the is
 
 :::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Diagnostic search." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
-From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example shown before, the failure rate of 78.5% compares with a normal rate of 2.2%, indicates that something bad is going on. On the other hand, only 46 users were affected. This can help you to assess how serious the problem  is.
+From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example shown before, the failure rate of 78.5% compares with a normal rate of 2.2%, indicates that something bad is going on. On the other hand, only 46 users were affected. This information can help you to assess how serious the problem  is.
 
 In many cases, you can diagnose the problem quickly from the request name, exception, dependency failure, and trace data provided.
 
@@ -410,7 +410,7 @@ Click **Alerts** in the Application Insights resource page to get to the most re
 ## If you receive a Smart Detection alert
 *Why I received this alert?*
 
-* We detected an abnormal rise in failed requests rate compared to the normal baseline of the preceding period. After analysis of the failures and associated application data, we think that there is a problem that you should look into.
+* We detected an abnormal rise in failed requests rate compared to the normal baseline of the preceding period. After analysis of the failures and associated application data, we think that there's a problem that you should look into.
 
 *Does the notification mean I definitely have a problem?*
 
@@ -430,9 +430,9 @@ Click **Alerts** in the Application Insights resource page to get to the most re
 
 *I lost the email. Where can I find the notifications in the portal?*
 
-* In the Activity logs. In Azure, open the Application Insights resource for your app, then select Activity logs.
+* You can find Failure Anonaloes alert in the Azure portal, in your Application Insights alerts page.
 
-*Some of the alerts are about known issues and I do not want to receive them.*
+*Some of the alerts are about known issues and I don't want to receive them.*
 
 * You can use [alert action rules](./alerts-processing-rules.md) suppression feature.
 
