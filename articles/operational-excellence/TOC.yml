@@ -26,6 +26,7 @@
         href: migrate-app-configuration.md
       - name: Azure Monitor - Log Analytics
         href: migrate-app-gateway-v2.md
+        
 - name: Resources
   items:
   - name: Operational Excellence in Microsoft Azure Well-Architected Framework
