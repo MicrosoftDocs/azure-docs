@@ -229,7 +229,7 @@ Create a data collection rule for collecting events and sending to storage and e
             },
             {
                 "streams": [
-                "Microsoft-WindowsEvent"
+                "Microsoft-Event"
                 ],
                 "destinations": [
                 "myEh1",
