@@ -155,6 +155,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Schema Registry Reader (Preview)](#schema-registry-reader-preview) | Read and list Schema Registry groups and schemas. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | [Stream Analytics Query Tester](#stream-analytics-query-tester) | Lets you perform query testing without creating a stream analytics job first | 1ec5b3c1-b17e-4e25-8312-2acb3c3c5abf |
 > | **AI + machine learning** |  |  |
+> | [AzureML Compute Operator](#azureml-compute-operator) | Can access and perform CRUD operations on Machine Learning Services managed compute resources (including Notebook VMs). | e503ece1-11d0-4e8e-8e2c-7a6c3bf38815 |
 > | [AzureML Data Scientist](#azureml-data-scientist) | Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself. | f6c7c914-8db3-469d-8ca1-694a8f32e121 |
 > | [Cognitive Services Contributor](#cognitive-services-contributor) | Lets you create, read, update, delete and manage keys of Cognitive Services. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | [Cognitive Services Custom Vision Contributor](#cognitive-services-custom-vision-contributor) | Full access to the project, including the ability to view, create, edit, or delete projects. | c1ff6cc2-c111-46fe-8896-e0ef812ad9f3 |
@@ -7484,9 +7485,50 @@ Lets you perform query testing without creating a stream analytics job first
 ## AI + machine learning
 
 
+### AzureML Compute Operator
+
+Can access and perform CRUD operations on Machine Learning Services managed compute resources (including Notebook VMs). [Learn more](../machine-learning/how-to-assign-roles.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/computes/* |  |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/notebooks/vm/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can access and perform CRUD operations on Machine Learning Services managed compute resources (including Notebook VMs).",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/e503ece1-11d0-4e8e-8e2c-7a6c3bf38815",
+  "name": "e503ece1-11d0-4e8e-8e2c-7a6c3bf38815",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.MachineLearningServices/workspaces/computes/*",
+        "Microsoft.MachineLearningServices/workspaces/notebooks/vm/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "AzureML Compute Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### AzureML Data Scientist
 
-Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself.
+Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself. [Learn more](../machine-learning/how-to-assign-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
