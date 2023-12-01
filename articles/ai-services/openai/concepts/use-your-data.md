@@ -585,7 +585,7 @@ When you chat with a model, providing a history of the chat will help the model 
 }
 ```
 
-## Token usage estimation
+## Token usage estimation for Azure OpenAI on your data
 
 
 | Model                   | Total tokens available | Max tokens for system message | Max tokens for model response |
