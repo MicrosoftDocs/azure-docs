@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Deploy and score transformers based large language models from the Hugging Face hub. 
 services: machine-learning
 ms.service: machine-learning
+ms.subservice: training
 ms.custom: devx-track-python
 ms.topic: how-to
 ms.reviewer: ssalgado
@@ -166,7 +167,7 @@ Follow this link to find [hugging face model example code](https://github.com/Az
 HuggingFace hub has thousands of models with hundreds being updated each day. Only the most popular models in the collection are tested and others may fail with one of the below errors.
 
 ### Gated models
-[Gated models](https://huggingface.co/docs/hub/models-gated) require users to agree to share their contact information and accept the model owners’ terms and conditions in order to access the model. Attempting to deploy such models will fail with a `KeyError`.
+[Gated models](https://huggingface.co/docs/hub/models-gated) require users to agree to share their contact information and accept the model owners' terms and conditions in order to access the model. Attempting to deploy such models will fail with a `KeyError`.
 
 ### Models that need to run remote code
 Models typically use code from the transformers SDK but some models run code from the model repo. Such models need to set the parameter `trust_remote_code` to `True`. Follow this link to learn more about using [remote code](https://huggingface.co/docs/transformers/custom_models#using-a-model-with-custom-code). Such models are not supported from keeping security in mind. Attempting to deploy such models will fail with the following error: `ValueError: Loading <model> requires you to execute the configuration file in that repo on your local machine. Make sure you have read the code there to avoid malicious use, then set the option trust_remote_code=True to remove this error.`

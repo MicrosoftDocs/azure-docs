@@ -4,6 +4,7 @@ description: Learn best practices for mitigating potential harm to people—espe
 author: nhu-do-1
 ms.author: nhudo
 ms.service: machine-learning
+ms.subservice: rai
 ms.reviewer: lagayhar
 ms.topic: conceptual 
 ms.date: 11/04/2022

@@ -37,6 +37,8 @@ Metadata is never cooled and always remains in the hot tier. As such, the activi
 
 Standard storage with cool access is supported for the following regions: 
 
+* Australia Central
+* Australia Central 2
 * Australia East 
 * Australia Southeast
 * Brazil South 
@@ -48,6 +50,9 @@ Standard storage with cool access is supported for the following regions:
 * France Central
 * North Central US 
 * North Europe  
+* Switzerland North 
+* Switzerland West 
+* UAE North 
 
 ## Effects of cool access on data
 
