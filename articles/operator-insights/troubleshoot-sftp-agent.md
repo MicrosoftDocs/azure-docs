@@ -12,13 +12,13 @@ ms.date: 12/06/2023
 
 ## Agent diagnostics overview
 
-Because the ingestion bus agents are software packages, their diagnostics are limited to the functioning of the application.  Microsoft doesn't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or others to send OS-level data, logs and metrics to your on-premises monitoring systems.
+The ingestion bus agents are software packages, so their diagnostics are limited to the functioning of the application.  Microsoft doesn't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or others to send OS-level data, logs and metrics to your own monitoring systems. [Monitor virtual machines with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine) describes tools you can use if your ingestion agents are running on Azure VMs.
 
-The diagnostics provided by Azure Operator Insights itself in Azure Monitor are expected to be sufficient for most other use cases.
+You can also use the diagnostics provided by Azure Operator Insights itself in Azure Monitor to help identify and debug ingestion issues.
 
 The agent writes logs and metrics to files under */var/log/az-sftp-uploader/*.  If the agent is failing to start for any reason, such as misconfiguration, the stdout.log file contains human-readable logs explaining the issue.
 
-Metrics are reported in a simple human-friendly form.  They're provided primarily to help Microsoft Support debug unexpected issues.  The diagnostics provided by Azure Operator Insights itself in Azure Monitor are expected to be sufficient for most other use cases.
+Metrics are reported in a simple human-friendly form.  They're provided primarily to help Microsoft Support debug unexpected issues.
 
 ## Collecting diagnostics
 
@@ -32,8 +32,6 @@ To collect a diagnostics package, SSH to the Virtual Machine and run the command
 ## Troubleshooting common issues
 
 For most of these troubleshooting techniques, you need an SSH connection to the VM running the agent.
-
-If none of these suggested remediation steps help, or you're unsure how to proceed, collect a diagnostics package and contact your support representative.
 
 ### Agent fails to start
 
@@ -57,7 +55,7 @@ Steps to fix:
 
 - Check that the `known_hosts` file on the agent VM contains a valid public SSH key for the SFTP server: 
   - On the agent VM, run `ssh-keygen -l -F *<sftp-server-IP-or-hostname>*` 
-  - If there is no output, then `known_hosts` doesn't contain a matching entry. Follow the instructions in [Learn how to create and configure SFTP Ingestion Agents for Azure Operator Insights](how-to-install-sftp-agent.md) to add a `known_hosts` entry for the SFTP server.
+  - If there's no output, then `known_hosts` doesn't contain a matching entry. Follow the instructions in [Learn how to create and configure SFTP Ingestion Agents for Azure Operator Insights](how-to-install-sftp-agent.md) to add a `known_hosts` entry for the SFTP server.
 
 
 ### No files are uploaded to Azure Operator Insights
