@@ -28,5 +28,5 @@ The following table show supported use cases for Gov Cloud user with Azure Commu
 | 1:1 Chat | ✔️ |
 | Group Chat | ✔️ |
 
-Azure Communication Chat service also allows connecting to Microsoft 365 cloud that meets government security and compliance requirements for Teams Interoprability [scenarios](/interop/guest/government-cloud.md). 
+Azure Communication Chat service also allows connecting to Microsoft 365 cloud that meets government security and compliance requirements for Teams Interoperability [scenarios](/interop/guest/government-cloud.md). 
 
