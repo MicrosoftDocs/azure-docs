@@ -239,6 +239,7 @@ sections:
           Technical limitations:
           - If multiple images are uploaded in one message, augmentation won't be available.
           - Image type `image_hr` is no longer allowed in request payload.
+          - If you upload more than 9 high resolution or more than 20 low resolution images per chat, you may encounter errors.
           - Accessing an image by URL isn't supported. Images must be provided as base64 encoded strings in the request payload.
           - Max allowed size of input images is 4 MB.
           - Max token support is 16k (context+generated = 16,384).

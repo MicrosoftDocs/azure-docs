@@ -15,7 +15,8 @@ Use this article to get started using Azure OpenAI to deploy and use the GPT-4 w
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue. 
-- An Azure OpenAI Service resource. The resource must be in the `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
+- An Azure OpenAI Service resource. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
+
 
 ## Go to Azure OpenAI Studio
 
