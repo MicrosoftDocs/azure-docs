@@ -5,7 +5,7 @@ services: azure-communication-services
 author: Kunaal Punjabi
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/10/2023
+ms.date: 11/20/2023
 ms.topic: include
 ms.topic: include file
 ms.author: kpunjabi
@@ -18,10 +18,9 @@ ms.author: kpunjabi
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Have Python installed, you can install from the [official site](https://www.python.org/).
 
-### For AI features (Public preview)
+### For AI features 
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
-
 
 ## Create a new Python application
 
@@ -59,7 +58,7 @@ Create an audio file, if you don't already have one, to use for playing prompts 
 
 You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../ai-services/Speech-Service/how-to-audio-content-creation.md).
 
-## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service (Public Preview)
+## (Optional) Connect your Azure Cognitive Service to your Azure Communication Service
 
 If you would like to use Text-To-Speech capabilities, then it's required for you to connect your [Azure Cognitive Service to your Azure Communication Service](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 
@@ -87,7 +86,7 @@ To play audio to participants using audio files, you need to make sure the audio
 play_source = FileSource(url=audioUri)
 ```
 
-### Play source - Text-To-Speech (Public Preview)
+### Play source - Text-To-Speech 
 
 To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](../../../../ai-services/Speech-Service/language-support.md?tabs=tts).
 
@@ -115,7 +114,7 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
 )
 ```
 
-### Play source - Text-To-Speech with SSML (Public Preview)
+### Play source - Text-To-Speech with SSML 
 
 If you want to customize your Text-To-Speech output even more with Azure AI services you can use [Speech Synthesis Markup Language SSML](../../../../ai-services/Speech-Service/speech-synthesis-markup.md) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
 

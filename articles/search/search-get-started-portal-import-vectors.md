@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
-ms.date: 11/06/2023
+ms.date: 11/29/2023
 ---
 
 # Quickstart: Integrated vectorization (preview)
@@ -131,6 +131,8 @@ This step creates the following objects:
 
 + Indexer with field mappings and output field mappings (if applicable).
 
+If you get errors, review permissions first. You need **Cognitive Services OpenAI User** on Azure OpenAI and **Storage Blob Data Reader** on Azure Storage. Your blobs must be unstructured (chunked data is pulled from the blob's "content" property).
+
 ## Check results
 
 Search explorer accepts text strings as input and then vectorizes the text for vector query execution.
@@ -139,7 +141,7 @@ Search explorer accepts text strings as input and then vectorizes the text for v
 
 1. Make sure the API version is **2023-10-01-preview**.
 
-1. Enter your search string. Here's a string that gets a count of the chunked documents and selects just the title and chunk fields: `$count=true&$select=title,chunk`.
+1. Select **JSON view** so that you can enter text for your vector query in the **text** vector query parameter.
 
 1. Select **Search**.
 

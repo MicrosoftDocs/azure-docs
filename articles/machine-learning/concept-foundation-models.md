@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn about machine learning foundation models and how to use them at scale in Azure.
 services: machine-learning
 ms.service: machine-learning
+ms.subservice: training
 ms.topic: conceptual
 ms.author: swatig
 author: swatig007

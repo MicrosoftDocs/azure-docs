@@ -30,7 +30,7 @@ This article provides an overview of the current limitations when using [Azure V
 ## Connected group limitations
 
 * A connected group can have up to 250 virtual networks. Virtual networks in a [mesh topology](concept-connectivity-configuration.md#mesh-network-topology) are in a [connected group](concept-connectivity-configuration.md#connected-group), therefore a mesh configuration has a limit of 250 virtual networks.
-* The current preview of connected group has a limitation where traffic from a connected group can't communicate with a private endpoint in this connected group if it has a network security group enabled on it. However, this limitation will be removed once the feature is generally available.
+* The current preview of connected group has a limitation where traffic from a connected group can't communicate with a private endpoint in this connected group. However, this limitation will be removed once the feature is generally available.
 * You can have network groups with or without [direct connectivity](concept-connectivity-configuration.md#direct-connectivity) enabled in the same [hub-and-spoke configuration](concept-connectivity-configuration.md#hub-and-spoke-topology), as long as the total number of virtual networks peered to the hub **doesn't exceed 500** virtual networks.
     * If the network group peered with the hub **has direct connectivity enabled**, these virtual networks are in a *connected group*, therefore the network group has a limit of **250** virtual networks.
     * If the network group peered with the hub **doesn't have direct connectivity enabled**, the network group can have up to the total limit for a hub-and-spoke topology.

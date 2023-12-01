@@ -3,7 +3,7 @@ title: Configure a pipeline SQL Server source stage
 description: Configure a pipeline source stage to read data from Microsoft SQL Server for processing. The source stage is the first stage in a Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

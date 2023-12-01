@@ -4,7 +4,6 @@ titleSuffix: Azure AI Search
 description: Set up a SharePoint indexer to automate indexing of document library content in Azure AI Search.
 author: gmndrg
 ms.author: gimondra
-manager: liamca
 
 ms.service: cognitive-search
 ms.custom:
@@ -61,7 +60,7 @@ Here are the limitations of this feature:
 
 + SharePoint supports a granular authorization model that determines per-user access at the document level. The indexer doesn't pull these permissions into the index, and Azure AI Search doesn't support document-level authorization. When a document is indexed from SharePoint into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should consider [security filters to trim results](search-security-trimming-for-azure-search-with-aad.md) and automate copying the permissions at a file level to a field in the index.
 
-+ (Known issue) Support for delegated permissions is currently broken. For now, use app-based permissions as a workaround. However, once user-delegated permissions do become operational, the new behavior enforces token expiration every 75 minutes, per the libraries used to implement delegated permissions. An expired token requires manual intervention for indexers using [Run Indexer (preview)](/rest/api/searchservice/indexers/run?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). For this reason, you might want app-based permissions as a permanent solution.
++ (Known issue) Support for delegated permissions is currently broken. For now, use app-based permissions as a workaround. However, once user-delegated permissions do become operational, a new behavior enforces token expiration every 75 minutes, per the libraries used to implement delegated permissions. An expired token requires manual indexing using [Run Indexer (preview)](/rest/api/searchservice/indexers/run?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). For this reason, you might want app-based permissions as a permanent solution.
 
 Here are the considerations when using this feature:
 
