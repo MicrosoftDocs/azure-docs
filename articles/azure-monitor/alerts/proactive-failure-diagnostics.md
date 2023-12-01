@@ -385,7 +385,7 @@ Notice that if you delete an Application Insights resource, the associated Failu
 
 An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there's some problem with your app or its environment.
 
-To investigate further, click on 'View full details in Application Insights'. The links in this page take you straight to a [search page](../app/diagnostic-search.md) filtered to the relevant requests, exception, dependency, or traces. 
+To investigate further, click on 'View full details in Application Insights.' The links in this page take you straight to a [search page](../app/diagnostic-search.md) filtered to the relevant requests, exception, dependency, or traces. 
 
 You can also open the [Azure portal](https://portal.azure.com), navigate to the Application Insights resource for your app, and open the Failures page.
 
@@ -416,7 +416,7 @@ Click **Alerts** in the Application Insights resource page to get to the most re
 
 * We try to alert on app disruption or degradation, but only you can fully understand the semantics and the impact on the app or users.
 
-*So, you are looking at my application data?*
+*So, you're looking at my application data?*
 
 * No. The service is entirely automatic. Only you get the notifications. Your data is [private](../app/data-retention-privacy.md).
 
@@ -430,7 +430,7 @@ Click **Alerts** in the Application Insights resource page to get to the most re
 
 *I lost the email. Where can I find the notifications in the portal?*
 
-* You can find Failure Anonaloes alert in the Azure portal, in your Application Insights alerts page.
+* You can find Failure Anomalies alerts in the Azure portal, in your Application Insights alerts page.
 
 *Some of the alerts are about known issues and I don't want to receive them.*
 
