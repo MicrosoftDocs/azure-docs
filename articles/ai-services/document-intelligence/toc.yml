@@ -18,7 +18,7 @@ items:
       - name: Changelog and release history
         displayName: latest, update, beta, package, preview, version
         href: changelog-release-history.md
-      - name: "SDK targets: REST API 2023–10–31-preview"
+      - name: "🆕 SDK targets: REST API 2023–10–31-preview"
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, package, version,AzureKeyCredential, Azure key credential, key, endpoint
         href: sdk-overview-v4-0.md
       - name: "SDK targets: REST API 2023–7–31 latest (GA)"
