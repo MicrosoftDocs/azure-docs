@@ -2,7 +2,6 @@
 title: Identity Protection and Conditional Access in Azure AD B2C
 description: Learn how Identity Protection gives you visibility into risky sign-ins and risk detections. Find out how and Conditional Access lets you enforce organizational policies based on risk events in your Azure AD B2C tenants.
 
-services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview

@@ -2,7 +2,7 @@
 title: Add, modify, and filter Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using Azure Monitor.
 ms.topic: conceptual
-ms.date: 10/10/2023
+ms.date: 11/15/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
@@ -91,7 +91,7 @@ Logs
 Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 * [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
-* [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Azure AI Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
 * [Azure Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
 * [Azure Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
 * [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
@@ -1196,13 +1196,13 @@ The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` a
 
 Spans populate the `requests` and `dependencies` tables in Application Insights.
 
-1. Add `opentelemetry-instrumentation-annotations-1.21.0.jar` (or later) to your application:
+1. Add `opentelemetry-instrumentation-annotations-1.32.0.jar` (or later) to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-instrumentation-annotations</artifactId>
-     <version>1.21.0</version>
+     <version>1.32.0</version>
    </dependency>
    ```
 
@@ -1398,7 +1398,7 @@ Not available in .NET.
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.14</version>
+      <version>3.4.18</version>
     </dependency>
     ```
 

@@ -8,7 +8,7 @@ ms.custom: contperf-fy22q1
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 10/22/2022
+ms.date: 10/20/2023
 ---
 
 # Monitor and Alert Data Factory by using Azure Monitor

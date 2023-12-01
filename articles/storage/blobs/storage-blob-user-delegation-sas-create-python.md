@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS for a blob with Microsoft Entra credentials by using the Python client library for Blob Storage.
 services: storage
 author: pauljewellmsft
-
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/06/2023
-ms.author: pauljewell
 ms.reviewer: dineshm
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python

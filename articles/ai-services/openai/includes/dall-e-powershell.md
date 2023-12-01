@@ -2,7 +2,7 @@
 title: "Quickstart: Generate images with Azure OpenAI Service using PowerShell"
 titleSuffix: Azure OpenAI Service
 description: Learn how to generate images with Azure OpenAI Service by using PowerShell and the endpoint and access keys for your Azure OpenAI resource.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include

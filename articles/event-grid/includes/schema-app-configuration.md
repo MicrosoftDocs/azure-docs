@@ -18,6 +18,8 @@ Event Grid uses [event subscriptions](../concepts.md#event-subscriptions) to rou
 | ---------- | ----------- |
 | Microsoft.AppConfiguration.KeyValueModified | Raised when a key-value is created or replaced. |
 | Microsoft.AppConfiguration.KeyValueDeleted | Raised when a key-value is deleted. |
+| Microsoft.AppConfiguration.SnapshotCreated | Raised when a snapshot is created. |
+| Microsoft.AppConfiguration.SnapshotModified | Raised when a snapshot is modified. |
 
 ## Event schema
 
@@ -54,11 +56,22 @@ An event has the following top-level data:
 
 The data object has the following properties:
 
+### Key-value event
+
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `key` | string | The key of the key-value that was modified or deleted. |
 | `label` | string | The label, if any, of the key-value that was modified or deleted. |
 | `etag` | string | For `KeyValueModified` the etag of the new key-value. For `KeyValueDeleted` the etag of the key-value that was deleted. |
+| `syncToken` | string | The sync token representing the server state after the key-value event. |
+
+### Snapshot event
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `name` | string | The name of the snapshot that was created or modified. |
+| `etag` | string | For `SnapshotCreated` the etag of the new snapshot. For `SnapshotModified` the etag of the snapshot that was modified. |
+| `syncToken` | string | The sync token representing the server state after the snapshot event. |
 
 ## Example event
 
@@ -82,7 +95,7 @@ The following example shows the schema of a key-value modified event:
 }]
 ```
 
-The schema for a key-value deleted event is similar: 
+The following example shows the schema of a key-value deleted event: 
 
 ```json
 [{
@@ -96,6 +109,45 @@ The schema for a key-value deleted event is similar:
   },
   "eventType": "Microsoft.AppConfiguration.KeyValueDeleted",
   "eventTime": "2019-05-31T20:05:03Z",
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+The following example shows the schema of a snapshot created event:
+
+```json
+[{
+  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
+  "topic": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "subject": "https://contoso.azconfig.io/snapshots/Foo",
+  "data": {
+    "Name": "Foo",
+    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0",
+    "syncToken": "zAJw6V16=Njo1IzUxNjQ2NzM=;sn=5164673"
+  },
+  "eventType": "Microsoft.AppConfiguration.SnapshotCreated",
+  "eventTime": "2023-09-02T20:05:03Z",
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+The following example shows the schema of a snapshot modified event:
+
+```json
+[{
+  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
+  "topic": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "subject": "https://contoso.azconfig.io/snapshots/Foo",
+  "data": {
+    "name": "Foo",
+    "label": "FizzBuzz",
+    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0",
+    "syncToken": "zAJw6V16=Njo1IzUxNjQ2NzM=;sn=5164673"
+  },
+  "eventType": "Microsoft.AppConfiguration.SnapshotModified",
+  "eventTime": "2023-09-03T20:05:03Z",
   "dataVersion": "1",
   "metadataVersion": "1"
 }]
@@ -120,7 +172,7 @@ The following example shows the schema of a key-value modified event:
 }]
 ```
 
-The schema for a key-value deleted event is similar: 
+The following example shows the schema of a key-value deleted event: 
 
 ```json
 [{
@@ -138,6 +190,41 @@ The schema for a key-value deleted event is similar:
 }]
 ```
 
+The following example shows the schema of a snapshot created event: 
+
+```json
+[{
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "subject": "https://contoso.azconfig.io/kvsnapshots/Foo",
+  "type": "Microsoft.AppConfiguration.SnapshotCreated",
+  "time": "2023-09-02T20:05:03.0000000Z",
+  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
+  "data": {
+    "name": "Foo",
+    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0",
+    "syncToken": "zAJw6V16=Njo1IzUxNjQ2NzM=;sn=5164673"
+  },
+  "specversion": "1.0"
+}]
+```
+
+The following example shows the schema of a snapshot modified event: 
+
+```json
+[{
+  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "subject": "https://contoso.azconfig.io/snapshots/Foo",
+  "type": "Microsoft.AppConfiguration.SnapshotModified",
+  "time": "2023-09-03T20:05:03.0000000Z",
+  "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
+  "data": {
+    "name": "Foo",
+    "etag": "FnUExLaj2moIi4tJX9AXn9sakm0",
+    "syncToken": "zAJw6V16=Njo1IzUxNjQ2NzM=;sn=5164673"
+  },
+  "specversion": "1.0"
+}]
+```
 ---
 
 

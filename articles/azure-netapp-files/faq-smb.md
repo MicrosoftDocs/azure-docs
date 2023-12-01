@@ -34,7 +34,7 @@ However, you can map multiple NetApp accounts that are under the same subscripti
 
 ## Does Azure NetApp Files support Microsoft Entra ID? 
 
-Both [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Microsoft Entra ID](../active-directory/fundamentals/index.yml) at this time.
+Both [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Microsoft Entra ID](../active-directory/fundamentals/index.yml) at this time. However, you can use Microsoft Entra ID with [hybrid identities](/entra/identity/hybrid/whatis-hybrid-identity) to [Access SMB volumes from Microsoft Entra joined Windows virtual machines](access-smb-volume-from-windows-client.md).
 
 If you're using Azure NetApp Files with Microsoft Entra Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
 
@@ -48,7 +48,7 @@ For more information about this update, see [KB5021130: How to manage the Netlog
 
 ## What versions of Windows Server Active Directory are supported?
 
-Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Directory Domain Services.
+Azure NetApp Files supports Windows Server 2012-2022 versions of Active Directory Domain Services.
 
 ## I’m having issues connecting to my SMB share. What should I do?
 

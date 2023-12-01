@@ -49,6 +49,19 @@ These metrics are available for Azure Database for MySQL:
 |Slow_queries|slow_queries|Count|The total count of slow queries on your server in the selected time range.|
 
 
+## Storage Breakdown Metrics
+
+|Metric display name|Metric|Unit|Description|
+|---|---|---|---|
+|Storage Limit|storage_limit|Bytes|The maximum storage size configured for this server.|
+|Storage Percent|storage_percent|Percent|The percentage of storage used out of the server's maximum storage available.|
+|Storage Used|storage_used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
+|Data Storage Used|data_storage_used|Bytes|The amount of storage used for storing database files.|
+|ibdata1 Storage Used|ibdata1_storage_used|Bytes|The amount of storage used for storing system tablespace (ibdata1) file.|
+|Binlog Storage Used|binlog_storage_used|Bytes|The amount of storage used for storing binary log files.|
+|Other Storage Used|other_storage_used|Bytes| The amount of storage used for other components and metadata files.| 
+|Backup Storage Used|backup_storage_used|Bytes|The amount of backup storage used.|
+
 ## Replication metrics
 
 |Metric display name|Metric|Unit|Description|
@@ -99,20 +112,6 @@ These metrics are available for Azure Database for MySQL:
 |Innodb_buffer_pool_pages_free|Innodb_buffer_pool_pages_free|Count|The total count of free pages in InnoDB buffer pool.|
 |Innodb_buffer_pool_pages_data|Innodb_buffer_pool_pages_data|Count|The total count of pages in the InnoDB buffer pool containing data. The number includes both dirty and clean pages.|
 |Innodb_buffer_pool_pages_dirty|Innodb_buffer_pool_pages_dirty|Count|The total count of pages in the InnoDB buffer pool containing dirty pages.|
-
-
-## Storage Breakdown Metrics
-
-|Metric display name|Metric|Unit|Description|
-|---|---|---|---|
-|Storage Limit|storage_limit|Bytes|The maximum storage size configured for this server.|
-|Storage Percent|storage_percent|Percent|The percentage of storage used out of the server's maximum storage available.|
-|Storage Used|storage_used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
-|Data Storage Used|data_storage_used|Bytes|The amount of storage used for storing database files.|
-|ibdata1 Storage Used|ibdata1_storage_used|Bytes|The amount of storage used for storing system tablespace (ibdata1) file.|
-|Binlog Storage Used|binlog_storage_used|Bytes|The amount of storage used for storing binary log files.|
-|Other Storage Used|other_storage_used|Bytes| The amount of storage used for other components and metadata files.| 
-|Backup Storage Used|backup_storage_used|Bytes|The amount of backup storage used.|
 
 
 

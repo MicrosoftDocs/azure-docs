@@ -2,7 +2,7 @@
 title: Azure OpenAI Service fine-tuning gpt-3.5-turbo
 titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's latest fine-tuning capabilities with gpt-3.5-turbo
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: tutorial
@@ -50,7 +50,7 @@ In this tutorial you learn how to:
 If you haven't already, you need to install the following libraries:
 
 ```cmd
-pip install openai json requests os tiktoken time
+pip install "openai==0.28.1" json requests os tiktoken time
 ```
 
 [!INCLUDE [get-key-endpoint](../includes/get-key-endpoint.md)]

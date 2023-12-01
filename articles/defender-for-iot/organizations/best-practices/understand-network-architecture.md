@@ -98,7 +98,7 @@ Based on the results of the matching process, devices track their network traffi
 
 ## Implementing Defender for IoT deployment with a unidirectional gateway
 
-If you're working with a unidirectional gateway, such as [Waterfall](https://waterfall-security.com/data-diode-solutions/), [Owl Cyber Defense](https://owlcyberdefense.com/products/data-diode-products/), or [Hirschmann](https://hirschmann.com/en/Hirschmann_Produkte/Hirschmann-News/Rail_Data_Diode/index.phtml), where data passes through a data diode in one direction only, use one of the following methods to understand where to place your OT sensors:
+If you're working with a unidirectional gateway, such as [Waterfall](https://waterfall-security.com/), [Owl Cyber Defense](https://owlcyberdefense.com/products/data-diode-products/), or [Hirschmann](https://hirschmann.com/en/Hirschmann_Produkte/Hirschmann-News/Rail_Data_Diode/index.phtml), where data passes through a data diode in one direction only, use one of the following methods to understand where to place your OT sensors:
 
 - **Place your OT sensors outside the network perimeter (Recommended)**. In this scenario, your sensor receives SPAN traffic through the diode, unidirectionally from the network to the sensor's monitoring port. We recommend using this method in large deployments. For example:
 

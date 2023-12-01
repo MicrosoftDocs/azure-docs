@@ -61,12 +61,12 @@ Request Body
         "deploymentConfiguration": {
             "virtualMachineConfiguration": {
                 "imageReference": {
-                    "publisher": "almalinux",
-                    "offer": "almalinux",
-                    "sku": "9-gen1",
+                    "publisher": "microsoftcblmariner",
+                    "offer": "cbl-mariner",
+                    "sku": "cbl-mariner-2",
                     "version": "latest"
                 },
-                "nodeAgentSkuId": "batch.node.el 9",
+                "nodeAgentSkuId": "batch.node.mariner 2.0",
                 "extensions": [
                     {
                         "name": "secretext",

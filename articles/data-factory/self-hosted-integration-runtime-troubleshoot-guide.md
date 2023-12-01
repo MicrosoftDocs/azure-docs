@@ -631,13 +631,6 @@ For Azure Data Factory v2 and Azure Synapse customers:
 - If automatic update is off and you've already upgraded your .NET Framework Runtime to 4.7.2 or later, you can manually download the latest 5.x and install it on your machine.
 - If automatic update is off and you haven't upgraded your .NET Framework Runtime to 4.7.2 or later. When you try to manually install self-hosted integration runtime 5.x and register the key, you will be required to upgrade your .NET Framework Runtime version first.
 
-
-For Azure Data Factory v1 customers:
-- Self-hosted integration runtime 5.X doesn't support Azure Data Factory v1.
-- The self-hosted integration runtime will be automatically upgraded to the latest version of 4.x. And the latest version of 4.x won't expire. 
-- If you try to manually install self-hosted integration runtime 5.x and register the key, you'll be notified that self-hosted integration runtime 5.x doesn't support Azure Data Factory v1.
-    
-    
 ## Self-hosted IR connectivity issues
 
 ### Self-hosted integration runtime can't connect to the cloud service

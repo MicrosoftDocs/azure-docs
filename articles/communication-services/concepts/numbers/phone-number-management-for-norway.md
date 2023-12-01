@@ -48,6 +48,11 @@ More details on eligible subscription types are as follows:
 |Norway|
 |France|
 |Sweden|
+|United States|
+|United Kingdom|
+|Canada|
+|Japan|
+|Australia|
 
 
 

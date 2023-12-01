@@ -1,7 +1,7 @@
 ---
 title: Index of policy samples
 description: Index of built-ins for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 09/14/2023
+ms.date: 11/21/2023
 ms.topic: sample
 ms.author: davidsmatlak
 author: davidsmatlak
@@ -52,12 +52,14 @@ Azure:
 - [NIST SP 800-53 Rev. 4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-53 Rev. 5](./nist-sp-800-53-r5.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
+- [NL BIO Cloud Theme](./nl-bio-cloud-theme.md)
 - [PCI DSS 3.2.1](./pci-dss-3-2-1.md)
 - [PCI DSS 4.0](./pci-dss-4-0.md)
 - [RBI ITF Banks v2016](./rbi-itf-banks-2016.md)
 - [RBI ITF NBFC v2017](./rbi-itf-nbfc-2017.md)
 - [RMIT Malaysia](./rmit-malaysia.md)
 - [SWIFT CSP-CSCF v2021](./swift-csp-cscf-2021.md)
+- [SWIFT CSP-CSCF v2022](./swift-csp-cscf-2022.md)
 - [UK OFFICIAL and UK NHS](./ukofficial-uknhs.md)
 
 The following are the [Regulatory Compliance](../concepts/regulatory-compliance.md) built-ins in

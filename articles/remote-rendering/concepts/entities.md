@@ -73,21 +73,63 @@ ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType<CutPlaneComp
 
 ### Querying transforms
 
-Transform queries are synchronous calls on the object. It's important to note that transforms queried through the API are local space transforms, relative to the object's parent. Exceptions are root objects, for which local space and world space are identical.
-
-> [!NOTE]
-> There is no dedicated API to query the world space transform of arbitrary objects.
+Transform queries are synchronous calls on the object. It's important to note that transforms stored on the API side are local space transforms, relative to the object's parent. Exceptions are root objects, for which local space and world space are identical.
 
 ```cs
 // local space transform of the entity
 Double3 translation = entity.Position;
 Quaternion rotation = entity.Rotation;
+Float3 scale = entity.Scale;
 ```
 
 ```cpp
 // local space transform of the entity
 Double3 translation = entity->GetPosition();
 Quaternion rotation = entity->GetRotation();
+Float3 scale = entity->GetScale();
+```
+
+In case all tree transform components (position, rotation and scale) need to be retrieved or set simultaneously, it's recommended to use the entity's `LocalTransform` property:
+
+```cs
+// local space transform of the entity
+Transform localTransform = entity.LocalTransform;
+Double3 translation = localTransform.Position;
+Quaternion rotation = localTransform.Rotation;
+Float3 scale = localTransform.Scale;
+```
+
+```cpp
+// local space transform of the entity
+Transform localTransform = entity->GetLocalTransform();
+Double3& translation = localTransform.Position;
+Quaternion& rotation = localTransform.Rotation;
+Float3& scale = localTransform.Scale;
+```
+
+There's also a helper function to retrieve an entity's global (world space) transform:
+
+```cs
+// global space transform of the entity
+Transform globalTransform = entity.GlobalTransform;
+Double3 translation = globalTransform.Position;
+```
+
+```cpp
+// global space transform of the entity
+Transform globalTransform = entity->GetGlobalTransform();
+Double3& translation = globalTransform.Position;
+```
+
+When `GlobalTransform` is called, the global transform is computed on-the-fly by traversing up the entity hierarchy. This traversal involves significant computation, but compared to doing the same operations on the client side through class `Entity`, the built-in function is faster. Still, calling `GlobalTransform` on a larger set of entities might impose a performance bottleneck.
+
+`LocalToGlobalMatrix` is a variant of `GlobalTransform` that computes the global transform as a matrix, which is convenient in the context of Unity:
+
+```cs
+UnityEngine.Matrix4x4 globalMatrix = entity.LocalToGlobalMatrix.toUnity();
+UnityEngine.Vector3 localPos = new UnityEngine.Vector3(0, 0, 0);
+UnityEngine.Vector3 globalPos = globalMatrix.MultiplyPoint(localPos);
+
 ```
 
 ### Querying spatial bounds

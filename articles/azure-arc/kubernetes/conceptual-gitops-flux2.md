@@ -1,7 +1,7 @@
 ---
 title: "Application deployments with GitOps (Flux v2)"
 description: "This article provides a conceptual overview of GitOps in Azure for use in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters."
-ms.date: 10/04/2023
+ms.date: 10/18/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, references-regions
 ---
@@ -87,6 +87,8 @@ Each `fluxConfigurations` resource in Azure is associated with one Flux `GitRepo
 > The `fluxconfig-agent` monitors for new or updated `fluxConfiguration` resources in Azure. The agent requires connectivity to Azure for the desired state of the `fluxConfiguration` to be applied to the cluster. If the agent is unable to connect to Azure, there will be a delay in making changes in the cluster until the agent can connect. If the cluster is disconnected from Azure for more than 48 hours, then the request to the cluster will time-out, and the changes will need to be reapplied in Azure.
 >
 > Sensitive customer inputs like private key and token/password are stored for less than 48 hours in the Kubernetes Configuration service. If you update any of these values in Azure, make sure that your clusters connect with Azure within 48 hours.
+
+You can monitor Flux configuration status and compliance in the Azure portal, or use dashboards to monitor status, compliance, resource consumption, and reconciliation activity. For more information, see [Monitor GitOps (Flux v2) status and activity](monitor-gitops-flux-2.md).
 
 ### Version support
 

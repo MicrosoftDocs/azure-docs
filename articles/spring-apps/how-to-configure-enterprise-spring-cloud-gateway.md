@@ -59,13 +59,13 @@ You can now view the state of the Spring Cloud Gateway on the **Spring Cloud Gat
 Use the following Azure CLI commands to enable or disable VMware Spring Cloud Gateway:
 
 ```azurecli
-az spring spring-cloud-gateway create \
+az spring gateway create \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
 ```azurecli
-az spring spring-cloud-gateway delete \
+az spring gateway delete \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name>
 ```
@@ -91,7 +91,7 @@ Use the following steps to restart VMware Spring Cloud Gateway by using the Azur
 Use the following Azure CLI command to restart the gateway:
 
 ```azurecli
-az spring spring-cloud-gateway restart \
+az spring gateway restart \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
@@ -177,7 +177,7 @@ VMware Spring Cloud Gateway supports authentication and authorization through si
 
 | Property       | Required? | Description                                                                                                                                                                                                                                                                                  |
 |----------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `issuerUri`    | Yes       | The URI that's asserted as its issuer identifier. For example, if `issuer-uri` is `https://example.com`, an OpenID Provider Configuration Request is made to `https://example.com/.well-known/openid-configuration`. The result is expected to be an OpenID Provider Configuration Response. |
+| `issuerUri`    | Yes       | The URI that is asserted as its issuer identifier. For example, if `issuerUri` is `https://example.com`, an OpenID Provider Configuration Request is made to `https://example.com/.well-known/openid-configuration`. The result is expected to be an OpenID Provider Configuration Response. |
 | `clientId`     | Yes       | The OpenID Connect client ID from your identity provider.                                                                                                                                                                                                                                    |
 | `clientSecret` | Yes       | The OpenID Connect client secret from your identity provider.                                                                                                                                                                                                                                |
 | `scope`        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes that your identity provider allows.                                                                                                                                                              |
@@ -379,7 +379,20 @@ az spring gateway restart \
 
 ### Set up autoscale settings
 
-You can set autoscale modes for VMware Spring Cloud Gateway by using the Azure CLI.
+You can set autoscale modes for VMware Spring Cloud Gateway.
+
+#### [Azure portal](#tab/Azure-portal)
+
+The following list shows the options available for Autoscale demand management:
+
+* The **Manual scale** option maintains a fixed instance count. You can scale out to a maximum of 10 instances. This value changes the number of separate running instances of the Spring Cloud Gateway.
+* The **Custom autoscale** option scales on any schedule, based on any metrics.
+
+On the Azure portal, choose how you want to scale. The following screenshot shows the **Custom autoscale** option and mode settings:
+
+:::image type="content" source="media/spring-cloud-autoscale/custom-autoscale.png" alt-text="Screenshot of the Azure portal that shows the Autoscale setting page with the Custom autoscale option highlighted.":::
+
+#### [Azure CLI](#tab/Azure-CLI) 
 
 Use the following command to create an autoscale setting:
 
@@ -404,9 +417,9 @@ az monitor autoscale rule create \
     --condition "GatewayHttpServerRequestsSecondsCount > 100 avg 1m"
 ```
 
-For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
-
 ---
+
+For more information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
 ## Configure environment variables
 
@@ -458,7 +471,47 @@ For other supported environment variables, see the following sources:
 - [AppDynamics environment variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 - [Elastic environment variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
 
-#### Manage APM in VMware Spring Cloud Gateway
+#### Configure APM integration on the service instance level (recommended)
+
+To enable APM monitoring in your VMware Spring Cloud Gateway, you can create APM configuration on the service instance level and bind it to Spring Cloud Gateway. In this way, you can conveniently configure the APM only once and bind the same APM to Spring Cloud Gateway and to your apps.
+
+##### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to set up APM by using the Azure portal:
+
+1. Configure APM on the service instance level with the APM name, type, and properties. For more information, see the [Manage APMs on the service instance level (recommended)](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+
+   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png" alt-text="Screenshot of Azure portal that shows the Azure Spring Apps APM editor page." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png":::
+
+1. Select **Spring Cloud Gateway** on the navigation pane, then select **APM**.
+
+1. Choose the APM name in the **APM reference names** list. The list includes all the APM names configured in step 1.
+
+1. Select **Save** to bind APM reference names to Spring Cloud Gateway. Your gateway restarts to enable APM monitoring.
+
+##### [Azure CLI](#tab/Azure-CLI)
+
+Use the following steps to set up APM in Spring Cloud Gateway by using the Azure CLI:
+
+1. Configure APM on the service instance level with the APM name, type, and properties. For more information, see the [Manage APMs on the service instance level (recommended)](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+
+1. Use the following command to update gateway with APM reference names:
+
+   ```azurecli
+   az spring gateway update \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --apms <APM-reference-name>
+   ```
+
+   The value for `--apms` is a space-separated list of APM reference names, which you created in step 1.
+
+   > [!NOTE]
+   > Spring Cloud Gateway is deprecating APM types. Use APM reference names to configure APM in a gateway.
+
+---
+
+#### Manage APM in VMware Spring Cloud Gateway (deprecated)
 
 You can use the Azure portal or the Azure CLI to set up APM in VMware Spring Cloud Gateway. You can also specify the types of APM Java agents to use and the corresponding APM environment variables that they support.
 

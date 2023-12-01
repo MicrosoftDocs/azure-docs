@@ -4,7 +4,7 @@
   href: overview.md
 - name: Availability zone support
   items:
-  - name: What are Azure availability zones and regions?
+  - name: What are Azure availability zones?
     href: availability-zones-overview.md
   - name: Services and regions with availability zone support
     href: availability-zones-service-support.md
@@ -26,7 +26,7 @@
         href: migrate-functions.md
       - name: Azure Cache for Redis
         href: migrate-cache-redis.md
-      - name: Azure Cognitive Search
+      - name: Azure AI Search
         href: migrate-search-service.md
       - name: Azure Container instances
         href: migrate-container-instances.md
@@ -64,12 +64,12 @@
       href: reliability-batch.md
     - name: Azure Cache for Redis
       href: ../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure Cognitive Search
+    - name: Azure AI Search
       href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Communications Gateway
       href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Container Apps
-      href: ../container-apps/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-azure-container-apps.md
     - name: Azure Container Instances
       href: reliability-containers.md
     - name: Azure Container Registry
@@ -85,7 +85,7 @@
     - name: Azure Database for PostgreSQL - Flexible Server
       href: reliability-postgre-flexible.md
     - name: Azure Data Manager for Energy
-      href: ../energy-data-services/reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-energy-data-services.md
     - name: Azure DDoS Protection
       href: ../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#is-the-service-zone-resilient-
     - name: Azure Disk Encryption 
@@ -138,6 +138,8 @@
       href: ../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Site Recovery
       href: ../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Spring Apps
+      href: reliability-spring-apps.md
     - name: Azure Blob Storage
       href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Storage Mover
@@ -217,14 +219,14 @@
         - name: Azure App Service
           href: reliability-app-service.md#cross-region-disaster-recovery-and-business-continuity
         - name: Azure Backup
-          href: ../backup/backup-overview.md
+          href: reliability-backup.md
         - name: Azure Batch
           href: reliability-batch.md#cross-region-disaster-recovery-and-business-continuity
         - name: Azure Bastion
           href: ../bastion/bastion-faq.md#dr
         - name: Azure Cache for Redis
           href: ../azure-cache-for-redis/cache-how-to-geo-replication.md
-        - name: Azure Cognitive Search
+        - name: Azure AI Search
           href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Azure Container Instances
           href: reliability-containers.md#disaster-recovery
@@ -263,7 +265,7 @@
         - name: Azure Virtual WAN
           href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md
         - name: Azure Web Application Firewall
-          href: ../application-gateway/application-gateway-faq.yml#how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway
+          href: ../application-gateway/application-gateway-faq.yml#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway
       - name: Strategic services
         items:
         - name: Azure Databox
@@ -298,20 +300,24 @@
       href: reliability-app-service.md
     - name: Azure Application Gateway (V2)
       href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Backup
+      href: reliability-backup.md
     - name: Azure Batch
       href: reliability-batch.md
-    - name: Azure Cognitive Search
+    - name: Azure AI Search
       href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Communications Gateway
       href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Container Apps
-      href: ../container-apps/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-azure-container-apps.md
     - name: Azure Container Instances
       href: reliability-containers.md
     - name: Azure Container Registry
       href: ../container-registry/container-registry-geo-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Cosmos DB
       href: ../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name : Azure Cosmos DB for MongoDB vCore
+      href : ../cosmos-db/mongodb/vcore/failover-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Data Explorer
       href: /azure/data-explorer/create-cluster-database-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Data Factory
@@ -321,7 +327,9 @@
     - name: Azure Database for PostgreSQL - Flexible Server
       href: reliability-postgresql-flexible-server.md
     - name: Azure Data Manager for Energy
-      href: ../energy-data-services/reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-energy-data-services.md
+    - name: Azure Deployment Environments
+      href: reliability-deployment-environments.md
     - name: Azure DDoS Protection
       href: ../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Disk Encryption 
@@ -376,6 +384,8 @@
       href: ../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Site Recovery
       href: ../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Spring Apps
+      href: reliability-spring-apps.md
     - name: Azure Blob Storage
       href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Storage Mover

@@ -119,15 +119,15 @@ This table shows the parameters related to the deployer VM.
 
 The VM image is defined by using the following structure:
 
-```python
-{
-  "os_type"         = ""
-  "source_image_id" = ""
-  "publisher"       = "Canonical"
-  "offer"           = "0001-com-ubuntu-server-focal"
-  "sku"             = "20_04-lts"
-  "version"         = "latest"
-  "type"            = "marketplace"
+```terraform
+xxx_vm_image  = {
+  os_type         = ""
+  source_image_id = ""
+  publisher       = "Canonical"
+  offer           = "0001-com-ubuntu-server-focal"
+  sku             = "20_04-lts"
+  version         = "latest"
+  type            = "marketplace"
 }
 ```
 

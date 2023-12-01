@@ -2,7 +2,7 @@
 title:  Perform ongoing administration for Arc-enabled VMware vSphere
 description: Learn how to perform administrator operations related to Azure Arc-enabled VMware vSphere
 ms.topic: how-to 
-ms.date: 08/18/2023
+ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ms.custom: devx-track-azurecli
@@ -10,9 +10,9 @@ ms.custom: devx-track-azurecli
 
 # Perform ongoing administration for Arc-enabled VMware vSphere
 
-In this article, you'll learn how to perform various administrative operations related to Azure Arc-enabled VMware vSphere (preview):
+In this article, you learn how to perform various administrative operations related to Azure Arc-enabled VMware vSphere:
 
-- Upgrading the Azure Arc resource bridge (preview)
+- Upgrading the Azure Arc resource bridge
 - Updating the credentials
 - Collecting logs from the Arc resource bridge
 
@@ -23,7 +23,7 @@ Each of these operations requires either SSH key to the resource bridge VM or th
 Azure Arc-enabled VMware vSphere requires the Arc resource bridge to connect your VMware vSphere environment with Azure. Periodically, new images of Arc resource bridge will be released to include security and feature updates.
 
 > [!NOTE]
-> To upgrade the Arc resource bridge VM to the latest version, you will need to perform the onboarding again with the **same resource IDs**. This will cause some downtime as operations performed through Arc during this time might fail.
+> To upgrade the Arc resource bridge VM to the latest version, you need to perform the onboarding again with the **same resource IDs**. This will cause some downtime as operations performed through Arc during this time might fail.
 
 To upgrade to the latest version of the resource bridge, perform the following steps:
 
@@ -77,7 +77,7 @@ az account set -s <subscription id>
 az arcappliance get-credentials -n <name of the appliance> -g <resource group name> 
 az arcappliance update-infracredentials vmware --kubeconfig kubeconfig
 ```
-For more details on the commands see [`az arcappliance get-credentials`](/cli/azure/arcappliance#az-arcappliance-get-credentials) and [`az arcappliance update-infracredentials vmware`](/cli/azure/arcappliance/update-infracredentials#az-arcappliance-update-infracredentials-vmware).
+For more details on the commands, see [`az arcappliance get-credentials`](/cli/azure/arcappliance#az-arcappliance-get-credentials) and [`az arcappliance update-infracredentials vmware`](/cli/azure/arcappliance/update-infracredentials#az-arcappliance-update-infracredentials-vmware).
 
 
 To update the credentials used by the VMware cluster extension on the resource bridge. This command can be run from anywhere with `connectedvmware` CLI extension installed.

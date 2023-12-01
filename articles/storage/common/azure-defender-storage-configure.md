@@ -9,7 +9,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 01/18/2023
-ms.author: dacurwin
+ms.author: normesta
 ms.reviewer: ozgun
 ms.custom:
 ---
@@ -30,8 +30,8 @@ Learn more about Microsoft Defender for Storage [capabilities](../../defender-fo
 |Aspect|Details|
 |----|:----|
 |Release state:|General Availability (GA)|
-|Feature availability:|- Activity monitoring (security alerts) - General Availability (GA)<br>- Malware Scanning – Preview, **General Availability (GA) on September 1, 2023** <br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview|
-|Pricing:|- Defender for Storage: $10/storage accounts/month\*<br>- Malware Scanning (add-on): Free during public preview\*\*<br><br>Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.<br><br>\* Storage accounts that exceed 73 million monthly transactions will be charged $0.1492 for every 1 million transactions that exceed the threshold.<br>\*\* Malware Scanning is offered for free during the public preview but will **start being billed on September 1, 2023, at $0.15/GB (USD) of data ingested.** Customers are encouraged to use the “Monthly capping” feature to define the cap on GB scanned per month per storage account and control costs using this feature.|
+|Feature availability:|- Activity monitoring (security alerts) - General Availability (GA)<br>- Malware Scanning – General Availability (GA) <br>- Sensitive data threat detection (Sensitive Data Discovery) – General Availability (GA)|
+|Pricing:| Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.|
 | Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
 |Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
 |Clouds:|:::image type="icon" source="../../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the classic plan)<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="../../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|

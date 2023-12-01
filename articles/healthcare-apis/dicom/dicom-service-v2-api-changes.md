@@ -4,7 +4,7 @@ description: This guide gives an overview of the changes in the v2 API for the D
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: reference
 ms.date: 10/13/2023
 ms.author: mmitrik
@@ -26,7 +26,7 @@ Failed validation of attributes not required by the API results in the file bein
 A warning is given about each failing attribute per instance. When a sequence contains an attribute that fails validation, or when there are multiple issues with a single attribute, only the first failing attribute reason is noted.
 
 There are some notable behaviors for optional attributes that fail validation:
- * Searches for the attribute that failed validation returns the study/series/instance.
+ * Searches for the attribute that failed validation returns the study/series/instance if the value is corrected in one of the few ways [mentioned below](#search-results-might-be-incomplete-for-extended-query-tags-with-validation-warnings).
  * The attributes aren't returned when retrieving metadata via WADO `/metadata` endpoints.
  
 Retrieving a study/series/instance always returns the original binary files with the original attributes, even if those attributes failed validation.  
@@ -42,10 +42,48 @@ Single frame retrieval is supported by adding the following `Accept` header:
 ### Search 
 
 #### Search results might be incomplete for extended query tags with validation warnings
-In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag return `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings on [searchable tags](dicom-services-conformance-statement-v2.md#searchable-attributes), subsequent searches containing these tags don't consider any DICOM SOP instance that produced a warning. This behavior might result in incomplete search results. To correct an attribute, delete the stored instance and upload the corrected data.
+In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag return `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings for [searchable attributes](dicom-services-conformance-statement-v2.md#searchable-attributes) at the time the instance was stored, those attributes may not be used to search for the stored instance. However, any [searchable attributes](dicom-services-conformance-statement-v2.md#searchable-attributes) that failed validation will be able to return results if the values are overwritten by instances in the same study/series that are stored after the failed one, or if the values are already stored correctly by a previous instance. If the attribute values are not overwritten, then they will not produce any search results.
+
+An attribute can be corrected in the following ways:
+- Delete the stored instance and upload a new instance with the corrected data
+- Upload a new instance in the same study/series with corrected data
 
 #### Fewer Study, Series, and Instance attributes are returned by default
 The set of attributes returned by default has been reduced to improve performance. See the detailed list in the [search response](./dicom-services-conformance-statement-v2.md#search-response) documentation.
+
+Attributes added newly to default tags.
+
+|Tag level| Tag          | Attribute Name |
+|:-----------| :----------- | :------------- |
+|Study | (0008, 1030) | StudyDescription |
+|Series | (0008, 1090) | ManufacturerModelName |
+
+Attributes removed from default tags.
+
+|Tag level| Tag          | Attribute Name |
+|:-----------| :----------- | :------------- |
+|Study | (0008, 0005) | SpecificCharacterSet |
+|Study | (0008, 0030) | StudyTime |
+|Study | (0008, 0056) | InstanceAvailability |
+|Study | (0008, 0201) | TimezoneOffsetFromUTC |
+|Study | (0010, 0040) | PatientSex |
+|Study | (0020, 0010) | StudyID |
+|Series | (0008, 0005) | SpecificCharacterSet |
+|Series | (0008, 0201) | TimezoneOffsetFromUTC |
+|Series | (0008, 103E) | SeriesDescription |
+|Series | (0040, 0245) | PerformedProcedureStepStartTime |
+|Series | (0040, 0275) | RequestAttributesSequence |
+|Instance | (0008, 0005) | SpecificCharacterSet |
+|Instance | (0008, 0016) | SOPClassUID |
+|Instance | (0008, 0056) | InstanceAvailability |
+|Instance | (0008, 0201) | TimezoneOffsetFromUTC |
+|Instance | (0020, 0013) | InstanceNumber |
+|Instance | (0028, 0010) | Rows |
+|Instance | (0028, 0011) | Columns |
+|Instance | (0028, 0100) | BitsAllocated |
+|Instance | (0028, 0008) | NumberOfFrames |
+
+All the removed tags are part of additional tags which will be returned when queried with `includefield = all`.
 
 #### Null padded attributes can be searched for with or without padding
 When an attribute was stored using null padding, it can be searched for with or without the null padding in uri encoding. Results retrieved are for attributes stored both with and without null padding.

@@ -3,11 +3,11 @@ metadata:
   title: Azure OpenAI Service frequently asked questions
   titleSuffix: Azure AI services
   description: Get answers to the most popular questions about Azure OpenAI Service
-  services: cognitive-services
+  #services: cognitive-services
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 10/16/2023
+  ms.date: 11/22/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -22,6 +22,14 @@ sections:
           Azure OpenAI doesn't use customer data to retrain models. For more information, see the [Azure OpenAI data, privacy, and security guide](/legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context).    
   - name: General
     questions:
+      - question: |
+          Does Azure OpenAI work with the latest Python library released by OpenAI (version>=1.0)?
+        answer: |
+          Azure OpenAI is supported by the latest release of the [OpenAI Python library (version>=1.0)](https://pypi.org/project/openai/). However, it's important to note migration of your codebase using `openai migrate` is not supported and will not work with code that targets Azure OpenAI.  
+      - question: |
+          I can't find GPT-4 Turbo Preview?
+        answer:
+          GPT-4 Turbo Preview is the `gpt-4` (1106-preview) model. To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **1106-preview**. To check which regions this model is available, refer to the [models page](./concepts/models.md).
       - question: |
           Does Azure OpenAI support GPT-4?
         answer: |
@@ -45,7 +53,7 @@ sections:
         answer: |
           Previously, the process for adding new use cases required customers to reapply to the service. Now, we're releasing a new process that allows you to quickly add new use cases to your use of the service. This process follows the established Limited Access process within Azure AI services. [Existing customers can attest to any and all new use cases here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUM003VEJPRjRSOTZBRVZBV1E5N1lWMk1XUyQlQCN0PWcu). Please note that this is required anytime you would like to use the service for a new use case you didn't originally apply for.
       - question: |
-          I'm trying to use embeddings and received the error "InvalidRequestError: Too many inputs. The max number of inputs is 1." How do I fix this?
+          I'm trying to use embeddings and received the error "InvalidRequestError: Too many inputs. The max number of inputs is 16." How do I fix this?
         answer: | 
           This error typically occurs when you try to send a batch of text to embed in a single API request as an array. Currently Azure OpenAI only supports arrays of embeddings with multiple inputs for the `text-embedding-ada-002` Version 2 model. This model version supports an array consisting of up to 16 inputs per API request. The array can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
       - question: |
@@ -77,11 +85,25 @@ sections:
 
           Ultimately, the model is performing next [token](/semantic-kernel/prompt-engineering/tokens) prediction in response to your question. The model doesn't have any native ability to query what model version is currently being run to answer your question. To answer this question, you can always go to **Azure OpenAI Studio** > **Management** > **Deployments** > and consult the model name column to confirm what model is currently associated with a given deployment name.
 
-          The questions, "What model are you running?" or "What is the latest model from OpenAI?" produce similar quality results to asking the model what the weather will be today. It might return the correct result, but purely by chance. On its own, the model has no real-world information other than what was part of its training/training data. In the case of GPT-4, as of August 2023 the underlying training data goes only up to September 2021. GPT-4 was not released until March 2023, so barring OpenAI releasing a new version with updated training data, or a new version that is fine-tuned to answer those specific questions, it's expected behavior for GPT-4 to respond that GPT-3 is the latest model release from OpenAI.
+          The questions, "What model are you running?" or "What is the latest model from OpenAI?" produce similar quality results to asking the model what the weather will be today. It might return the correct result, but purely by chance. On its own, the model has no real-world information other than what was part of its training/training data. In the case of GPT-4, as of August 2023 the underlying training data goes only up to September 2021. GPT-4 wasn't released until March 2023, so barring OpenAI releasing a new version with updated training data, or a new version that is fine-tuned to answer those specific questions, it's expected behavior for GPT-4 to respond that GPT-3 is the latest model release from OpenAI.
 
           If you wanted to help a GPT based model to accurately respond to the question "what model are you running?", you would need to provide that information to the model through techniques like [prompt engineering of the model's system message](/azure/ai-services/openai/concepts/advanced-prompt-engineering?pivots=programming-language-chat-completions), [Retrieval Augmented Generation (RAG)](/azure/machine-learning/concept-retrieval-augmented-generation?view=azureml-api-2) which is the technique used by [Azure OpenAI on your data](/azure/ai-services/openai/concepts/use-your-data) where up-to-date information is injected to the system message at query time, or via [fine-tuning](/azure/ai-services/openai/how-to/fine-tuning?pivots=programming-language-studio) where you could fine-tune specific versions of the model to answer that question in a certain way based on model version. 
 
           To learn more about how GPT models are trained and work we recommend watching [Andrej Karpathy's talk from Build 2023 on the state of GPT](https://www.youtube.com/watch?v=bZQun8Y4L2A).
+      - question: |
+          I asked the model when it's knowledge cutoff is and it gave me a different answer than what is on the Azure OpenAI model's page. Why does this happen?
+        answer:
+          This is expected behavior. The models aren't able to answer questions about themselves. If you want to know when the knowledge cutoff for the model's training data is, consult the [models page](./concepts/models.md).
+      - question: |
+          I asked the model a question about something that happened recently before the knowledge cutoff and it got the answer wrong. Why does this happen?
+        answer: |
+          This is expected behavior. First there's no guarantee that every recent event that has occurred was part of the model's training data. And even when information was part of the training data, without using additional techniques like Retrieval Augmented Generation (RAG) to help ground the model's responses there's always a chance of ungrounded responses occurring. Both Azure OpenAI's [use your data feature](./concepts/use-your-data.md) and [Bing Chat](https://www.microsoft.com/edge/features/bing-chat?form=MT00D8) use Azure OpenAI models combined with Retrieval Augmented Generation to help further ground model responses. 
+          
+          The frequency that a given piece of information appeared in the training data can also impact the likelihood that the model will respond in a certain way. 
+
+          Asking the latest GPT-4 Turbo Preview model about something that changed more recently like "Who is the prime minister of New Zealand?", is likely to result in the fabricated response `Jacinda Ardern`. However, asking the model "When did `Jacinda Ardern` step down as prime minister?" Tends to yield an accurate response which demonstrates training data knowledge going to at least January of 2023.   
+                    
+          So while it is possible to probe the model with questions to guess its training data knowledge cutoff, the [model's page](./concepts/models.md) is the best place to check a model's knowledge cutoff.       
       - question: |
           Where do I access pricing information for legacy models which are no longer available for new deployments? 
         answer: | 
@@ -164,7 +186,7 @@ sections:
       - question: |
           Will my web app be overwritten when I deploy the app again from the Azure AI Studio?
         answer:
-          Your app code will not be overwritten when you update your app. The app will be updated to use the Azure OpenAI resource, Azure Cognitive Search index (if you're using Azure OpenAI on your data), and model settings selected in the Azure OpenAI Studio without any change to the appearance or functionality. 
+          Your app code won't be overwritten when you update your app. The app will be updated to use the Azure OpenAI resource, Azure AI Search index (if you're using Azure OpenAI on your data), and model settings selected in the Azure OpenAI Studio without any change to the appearance or functionality. 
   - name: Using your data
     questions:
       - question: |
@@ -178,19 +200,19 @@ sections:
       - question: |
           What data sources does Azure OpenAI on your data support?
         answer:
-          Azure OpenAI on your data supports ingestion from Azure Cognitive Search, Azure Blob Storage, and uploading local files. You can learn more about Azure OpenAI on your data from the [conceptual article](./concepts/use-your-data.md) and [quickstart](./use-your-data-quickstart.md).
+          Azure OpenAI on your data supports ingestion from Azure AI Search, Azure Blob Storage, and uploading local files. You can learn more about Azure OpenAI on your data from the [conceptual article](./concepts/use-your-data.md) and [quickstart](./use-your-data-quickstart.md).
       - question: |
           How much does it cost to use Azure OpenAI on your data?
         answer:
-          When using Azure OpenAI on your data, you incur costs when you use Azure Cognitive Search, Azure Blob Storage, Azure Web App Service, semantic search and OpenAI models. There's no additional cost for using the "your data" feature in the Azure AI Studio.
+          When using Azure OpenAI on your data, you incur costs when you use Azure AI Search, Azure Blob Storage, Azure Web App Service, semantic search and OpenAI models. There's no additional cost for using the "your data" feature in the Azure AI Studio.
       - question: |
           How can I customize or automate the index creation process?
         answer:
-          You can prepare the index yourself using a [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395). Using this script will create an Azure Cognitive Search index with all the information needed to better leverage your data, with your documents broken down into manageable chunks. Please see the README file with the data preparation code for details on how to run it.
+          You can prepare the index yourself using a [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395). Using this script will create an Azure AI Search index with all the information needed to better leverage your data, with your documents broken down into manageable chunks. Please see the README file with the data preparation code for details on how to run it.
       - question: | 
           How can I update my index?
         answer:
-          You can upload additional data to your Azure Blob Container and use it as your data source when you create a new index. The new index will include all of the data in your container.
+          You can [schedule an automatic index refresh](concepts/use-your-data.md#schedule-automatic-index-refreshes-azure-ai-search-only), or upload additional data to your Azure Blob Container and use it as your data source when you create a new index. The new index will include all of the data in your container.
       - question: | 
           What file types does Azure OpenAI on your data support?
         answer:
@@ -204,23 +226,32 @@ sections:
         answer: 
           Yes, the token limit on the system message is 400. If the system message is more than 400 tokens, the rest of the tokens beyond the first 400 will be ignored. This limitation only applies to the Azure OpenAI [on your data feature](/azure/ai-services/openai/concepts/use-your-data).
       - question: |
-          Do the query language and the data source language need to be the same?
+          Does Azure OpenAI on your data support function calling?
         answer:
-          You must send queries in the same language of your data. Your data can be in any of the languages supported by [Azure Cognitive Search](/azure/search/search-language-support).
+          Azure OpenAI on your data currently doesn't support function calling. 
       - question: |
-          If Semantic Search is enabled for my Azure Cognitive Search resource, will it be automatically applied to Azure OpenAI on your data in the Azure OpenAI Studio?
+          Does the query language and the data source language need to be the same?
         answer:
-          When you select "Azure Cognitive Search" as the data source, you can choose to apply semantic search. 
-          If you select "Azure Blob Container" or "Upload files" as the data source, you can create the index as usual. Afterwards you would re-ingest the data using the "Azure Cognitive Search" option to select the same index and apply Semantic Search. You will then be ready to chat on your data with semantic search applied.
+          You must send queries in the same language of your data. Your data can be in any of the languages supported by [Azure AI Search](/azure/search/search-language-support).
+      - question: |
+          If Semantic Search is enabled for my Azure AI Search resource, will it be automatically applied to Azure OpenAI on your data in the Azure OpenAI Studio?
+        answer:
+          When you select "Azure AI Search" as the data source, you can choose to apply semantic search. 
+          If you select "Azure Blob Container" or "Upload files" as the data source, you can create the index as usual. Afterwards you would re-ingest the data using the "Azure AI Search" option to select the same index and apply Semantic Search. You will then be ready to chat on your data with semantic search applied.
       - question: |
           How can I add vector embeddings when indexing my data?
         answer:
-          When you select "Azure Blob Container", "Azure Cognitive Search", or "Upload files" as the data source, you can also select an Ada embedding model deployment to use when ingesting your data. This will create an Azure Cognitive Search index with vector embeddings.
+          When you select "Azure Blob Container", "Azure AI Search", or "Upload files" as the data source, you can also select an Ada embedding model deployment to use when ingesting your data. This will create an Azure AI Search index with vector embeddings.
       - question: |
           Why is index creation failing after I added an embedding model?
         answer:
           Index creation can fail when adding embeddings to your index if the rate limit on your Ada embedding model deployment is too low, or if you have a very large set of documents. You can use this [script provided on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395) to create the index with embeddings manually.
-
+  - name: Customer Copyright Commitment
+    questions:
+      - question: |
+          How do I obtain coverage under the Customer Copyright Commitment? 
+        answer:
+          The Customer Copyright Commitment is a provision to be included in the December 1, 2023, Microsoft Product Terms that describes Microsoft’s obligation to defend customers against certain third-party intellectual property claims relating to Output Content. If the subject of the claim is Output Content generated from the Azure OpenAI Service (or any other Generative AI Service that allows customers to configure the safety systems), then to receive coverage, customer must have implemented all mitigations required by the Azure OpenAI Service documentation in the offering that delivered the Output Content. The required mitigations are documented [here](/legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context) and updated on an ongoing basis. For new services, features, models, or use cases, new CCC requirements will be posted and take effect at or following the launch of such service, feature, model, or use case. Otherwise, customers will have six months from the time of publication to implement new mitigations to maintain coverage under the CCC. If a customer tenders a claim, the customer will be required to demonstrate compliance with the relevant requirements. These mitigations are required for Generative AI Services that allow customers to configure the safety systems, including Azure OpenAI Service; they do not impact coverage for customers using other Generative AI Services and Copilots.
 additionalContent: |
 
   ## Next steps

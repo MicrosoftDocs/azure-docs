@@ -1,5 +1,5 @@
 ---
-title: Configure Microsoft authentication
+title: Configure Azure App Service & Functions for Microsoft account login
 description: Learn how to configure Microsoft Account authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article

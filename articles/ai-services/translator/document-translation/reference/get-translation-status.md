@@ -2,7 +2,7 @@
 title: Get translation status
 titleSuffix: Azure AI services
 description: The get translation status method returns the status for a document translation request.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: lajanuar
 author: laujan

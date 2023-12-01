@@ -183,7 +183,6 @@ Based on the preceding assumptions, here's the estimated price:
 
 For more information, see the following articles and guides:
 
-- [Migrate data from an on-premises relational Data Warehouse database to Azure by using Azure Data Factory](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/)
 - [Netezza connector](./connector-netezza.md)
 - [ODBC connector](./connector-odbc.md)
 - [Azure Blob storage connector](./connector-azure-blob-storage.md)

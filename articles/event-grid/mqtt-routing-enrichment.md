@@ -2,8 +2,10 @@
 title: 'Enrichments for MQTT Routed Messages'
 description: 'An overview of the Enrichments for MQTT Routed Messages and how to configure them.'
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 05/23/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
@@ -14,7 +16,7 @@ The enrichments support enables you to add up to 20 custom key-value properties 
 - Reduce computing load on endpoints. For example, enriching the message with the MQTT publish request's payload format indicator or the content type informs endpoints how to process the message's payload without trying multiple parsers first.
 - Filter your routed messages through Event Grid event subscriptions based on the added data. For example, enriching a client attribute enables you to filter the messages to be routed to the endpoint based on the different attribute's values.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)] 
+ 
 
 ## Configuration
 
@@ -54,12 +56,12 @@ The enrichment value could be a static string for static enrichments or one of t
 
 Use the following steps to configure routing enrichments:
 
-- Go to your namespace in the Azure portal.
-- Under Routing, Check Enable Routing
-- Under routing topic, select the Event Grid topic that you have created where all MQTT messages will be routed.
-- Under Message Enrichments, select +Add Enrichment
-  - Add up to 20 key-value pairs and select their type appropriately.
-- Select Apply
+1. Go to your namespace in the Azure portal.
+2. Under **Routing**, Check **Enable routing**.
+3. Under routing topic, select the Event Grid topic that you have created where all MQTT messages will be routed.
+4. Under **Message Enrichments**, select **+ Add Enrichment**.
+5. Add up to 20 key-value pairs and select their type appropriately.
+6. Select **Apply**.
 
 :::image type="content" source="./media/mqtt-routing-enrichment/routing-enrichment-portal-configuration.png" alt-text="Screenshot showing the routing enrichment configuration through the portal.":::
 
