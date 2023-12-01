@@ -14,9 +14,9 @@ keywords:
 
 # Use GPT-4 with Vision
 
-The model GPT-4 with Vision answers general questions about what's present in the images or video you show it. 
+The GPT-4 with Vision model answers general questions about what's present in the images or video you show it. 
 
-While it does understand the relationship between objects in images, it isn't optimized to answer detailed questions about the location of certain objects. For example, you can ask it what color a car is or what some ideas for dinner might be based on what is in your fridge, but if you show it an image of a room and ask it where the chair is, it might not answer correctly.
+While it does understand the relationship between objects in images, it isn't optimized to answer detailed questions about the locations of certain objects. For example, you can ask it what color a car is or what some ideas for dinner might be based on what's in your fridge, but if you show it an image of a room and ask it where the chair is, it might not answer correctly.
 
 It's important to note the following:
 - GPT-4 with Vision doesn't behave differently from GPT-4, with the small exception of the system prompt OpenAI uses for the model.

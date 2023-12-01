@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 11/21/2023
 ms.author: lajanuar
 ---
 
@@ -45,7 +45,7 @@ ms.author: lajanuar
 
 The following table shows the available models for each current preview and stable API:
 
-|Model|[2023-10-31-preview](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument)|[2023-07-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
+|Model|[2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
 |----------------|-----------|---|--|---|
 |[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
 |[Business Card](concept-business-card.md)                | deprecated|✔️|✔️|✔️ |
@@ -88,12 +88,15 @@ The following table shows the available models for each current preview and stab
 | [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
-For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are four add-on capabilities available for the `2023-07-31` (GA) API version:
+For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are seven add-on capabilities available for the `2023-07-31` (GA) and later API version:
 
-* [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
-* [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
-* [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
-* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
+* [`ocrHighResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
+* [`formulas`](concept-add-on-capabilities.md#formula-extraction)
+* [`styleFont`](concept-add-on-capabilities.md#font-property-extraction)
+* [`barcodes`](concept-add-on-capabilities.md#barcode-property-extraction)
+* [`languages`](concept-add-on-capabilities.md#language-detection)
+* [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs) (2023-10-31-preview)
+* [`queryFields`](concept-add-on-capabilities.md#query-fields) (2023-31-preview)
 
 ## Analysis features
 
@@ -117,7 +120,7 @@ For all models, except Business card model, Document Intelligence now supports a
 
 ✓ - Enabled</br>
 O - Optional</br>
-\* - Premium features incur additional costs
+\* - Premium features incur extra costs
 
 ### Read OCR
 
@@ -146,7 +149,6 @@ The Layout analysis model analyzes and extracts text, tables, selection marks, a
 >
 > [Learn more: layout model](concept-layout.md)
 
-
 ### Health insurance card
 
 :::image type="icon" source="media/studio/health-insurance-logo.png":::
@@ -174,7 +176,6 @@ The US tax document models analyze and extract key fields and line items from a 
   |US Tax 1098-T|Extract qualified tuition details.|**prebuilt-tax.us.1098T**|
   |US Tax 1099|Extract Information from 1099 forms.|**prebuilt-tax.us.1099(variations)**|
   
-
 ***Sample W-2 document processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
 
 :::image type="content" source="./media/studio/w-2.png" alt-text="Screenshot of a sample W-2.":::
@@ -289,7 +290,7 @@ A composed model is created by taking a collection of custom models and assignin
 
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| [prebuilt-read](concept-read.md#data-detection-and-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
+| [prebuilt-read](concept-read.md#read-model-data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
 | [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-tax.us.w2](concept-tax-document.md#field-extraction-w-2) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
 | [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
@@ -338,7 +339,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 ***Sample document processed using the [Sample Labeling tool](https://fott-2-1.azurewebsites.net/layout-analyze)***:
 
-:::image type="content" source="media/overview-layout.png" alt-text="Screenshot of layout analysis using the Sample Labeling tool.":::
+:::image type="content" source="media/overview-layout.png" alt-text="Screenshot of `layout` analysis using the Sample Labeling tool.":::
 
 > [!div class="nextstepaction"]
 >

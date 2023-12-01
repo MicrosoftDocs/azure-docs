@@ -21,6 +21,8 @@ While it can be helpful to have some familiarity with different VM configuration
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Create cost-efficient VMs
 
 Microsoft Copilot for Azure (preview) can guide you in suggesting different options to save costs as you deploy a virtual machine. If you're new to creating VMs, Microsoft Copilot for Azure (preview) can help you understand the best ways to reduce costs More experienced users can confirm the best ways to make sure VMs align with both use cases and budget needs, or find ways to make a specific VM size more cost-effective by enabling certain features that might help lower overall cost.

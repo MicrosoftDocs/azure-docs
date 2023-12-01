@@ -21,6 +21,8 @@ To contact a satellite, it must be registered and authorized as a spacecraft res
 - [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher to submit a spacecraft authorization request.
 - Private spacecraft: an active spacecraft license and [relevant ground station licenses](initiate-licensing.md).
 - An active contract with the partner network(s) you wish to integrate with Azure Orbital Ground Station.
+     - [KSAT Lite](https://azuremarketplace.microsoft.com/marketplace/apps/kongsbergsatelliteservicesas1657024593438.ksatlite?exp=ubp8&tab=Overview)
+     - [Viasat RTE](https://azuremarketplace.microsoft.com/marketplace/apps/viasatinc1628707641775.viasat-real-time-earth?tab=overview)
 
 ## Sign in to Azure
 
@@ -100,9 +102,11 @@ Submit a spacecraft authorization request in order to schedule [contacts](concep
 
 | **Field** | **Value** |
 | --- | --- |
-| When did the problem start? |	Select the current date & time |
-| Description |	List your spacecraft's **frequency bands** and **desired ground stations** |
-| File upload |	Upload any **pertinent licensing material**, if applicable |
+| When did the problem start? | Select the **current date & time**. |
+| Select Ground Stations | Select all desired **Microsoft or partner ground stations** that you are licensed for. If you do not see appropriate partner ground station(s), your subscription must be approved to access those sites by the Azure Orbital Ground Station team. |
+| Do you Accept and Acknowledge the Azure Orbital Supplemental Terms? | Review the terms in the link by hovering over the information icon then select **Yes**. |
+| Description | List your spacecraft's **frequency band(s)**. |
+| File upload | Upload any **pertinent licensing material**, if applicable. |
 
 6. Complete the **Advanced diagnostic information** and **Support method** sections of the **Details** tab.
 7. Select the **Review + create** tab, or select the **Review + create** button.

@@ -184,6 +184,7 @@ If you want to turn off the on-upload malware scanning or sensitive data threat 
 
 To disable the entire Defender for Storage plan for the storage account, you can use the following code snippet:
 
+
 ```
 resource "azurerm_storage_account" "example" { ... }
 
@@ -194,7 +195,7 @@ resource "azapi_resource_action" "disable_defender_for_Storage" {
 
   body = jsonencode({
     properties = {
-      isEnabled = true
+      isEnabled = false
       overrideSubscriptionLevelSettings = false
     }
   })

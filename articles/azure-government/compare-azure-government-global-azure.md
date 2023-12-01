@@ -120,7 +120,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||API Management Portal|portal.azure-api.net|portal.azure-api.us||
 ||App Configuration|azconfig.io|azconfig.azure.us||
 ||App Service|azurewebsites.net|azurewebsites.us||
-||Azure Cognitive Search|search.windows.net|search.windows.us||
+||Azure AI Search|search.windows.net|search.windows.us||
 ||Azure Functions|azurewebsites.net|azurewebsites.us||
 
 ## Service availability

@@ -2,6 +2,7 @@
 title: Configure agent authentication for the Container Insights agent
 description: This article describes how to configure authentication for the containerized agent used by Container insights.
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 10/18/2023
 ms.reviewer: aul
 ---

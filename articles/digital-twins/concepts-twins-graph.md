@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about digital twins, and how their relationships form a digital twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/06/2023
+ms.date: 10/3/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -65,9 +65,15 @@ Here's some example client code that uses the [DigitalTwins APIs](/rest/api/digi
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
-### Create twins and relationships in bulk with the Jobs API
+### Create twins and relationships in bulk with the Import Jobs API
 
-You can upload many twins and relationships in a single API call using the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api). Twins and relationships created with this API can optionally include initialization of their properties. For detailed instructions and examples that use this API, see [bulk import instructions for twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-jobs-api) and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-jobs-api).
+You can upload many twins and relationships in a single API call using the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api). Twins and relationships created with this API can optionally include initialization of their properties. For detailed instructions and examples that use this API, see [bulk import instructions for twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-import-jobs-api) and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-import-jobs-api).
+
+## Delete graph elements
+
+To delete specific twins and relationships, use the [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digital-twins-delete) and [DigitalTwins DeleteRelationship](/rest/api/digital-twins/dataplane/twins/digital-twins-delete-relationship) APIs (also available in as CLI commands and SDK calls). 
+
+To delete all models, twins, and relationships in an instance at once, use the [Delete Jobs API](concepts-apis-sdks.md#bulk-delete-with-the-delete-jobs-api).
 
 ## JSON representations of graph elements
 
