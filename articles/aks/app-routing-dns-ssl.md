@@ -18,14 +18,14 @@ This article shows you how to set up an advanced Ingress configuration to encryp
 The application routing add-on with nginx delivers the following:
 
 * Easy configuration of managed nginx Ingress controllers.
-* Integration with an external DNS such as [Azure DNS][azure-dns-overview] for public and private zone management
+* Integration with an external DNS such as [Azure DNS][azure-dns-overview] for global and private zone management
 * SSL termination with certificates stored in a key vault, such as [Azure Key Vault][azure-key-vault-overview].
 
 ## Prerequisites
 
 - An AKS cluster with the [application routing add-on][app-routing-add-on-basic-configuration].
 - Azure Key Vault if you want to configure SSL termination and store certificates in the vault hosted in Azure.
-- Azure DNS if you want to configure public and private zone management and host them in Azure.
+- Azure DNS if you want to configure global and private zone management and host them in Azure.
 - To attach an Azure Key Vault or Azure DNS Zone, you need the [Owner][rbac-owner], [Azure account administrator][rbac-classic], or [Azure co-administrator][rbac-classic] role on your Azure subscription.
 
 ## Connect to your AKS cluster
@@ -108,7 +108,7 @@ az aks approuting update -g <ResourceGroupName> -n <ClusterName> --enable-kv --a
 
 To enable support for DNS zones, see the following prerequisites:
 
-* The app routing add-on can be configured to automatically create records on one or more Azure public and private DNS zones for hosts defined on Ingress resources. All global Azure DNS zones need to be in the same resource group, and all private Azure DNS zones need to be in the same resource group. If you don't have an Azure DNS zone, you can [create one][create-an-azure-dns-zone].
+* The app routing add-on can be configured to automatically create records on one or more Azure global and private DNS zones for hosts defined on Ingress resources. All global Azure DNS zones need to be in the same resource group, and all private Azure DNS zones need to be in the same resource group. If you don't have an Azure DNS zone, you can [create one][create-an-azure-dns-zone].
 
 ### Create a global Azure DNS zone
 

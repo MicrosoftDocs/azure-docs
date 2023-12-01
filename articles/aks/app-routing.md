@@ -23,7 +23,7 @@ The application routing add-on with nginx delivers the following:
 * Integration with [Azure DNS][azure-dns-overview] for public and private zone management
 * SSL termination with certificates stored in Azure Key Vault.
 
-For additional configuration information related to SSL encryption and DNS integration, review [DNS and SSL configuration][dns-ssl-configuration] and [application routing add-on configuration][custom-ingress-configurations].
+For other configuration information related to SSL encryption and DNS integration, review [DNS and SSL configuration][dns-ssl-configuration] and [application routing add-on configuration][custom-ingress-configurations].
 
 With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the Cloud Native Computing Foundation (CNCF), using the application routing add-on is the default method for all AKS clusters.
 
@@ -36,10 +36,9 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 ## Limitations
 
 - The application routing add-on supports up to five Azure DNS zones.
-- All public Azure DNS zones integrated with the add-on have to be in the same resource group.
+- All global Azure DNS zones integrated with the add-on have to be in the same resource group.
 - All private Azure DNS zones integrated with the add-on have to be in the same resource group.
 - Editing any resources in the `app-routing-system` namespace, including the Ingress-nginx ConfigMap isn't supported.
-- Snippet annotations on the Ingress resources through `nginx.ingress.kubernetes.io/configuration-snippet` aren't supported.
 
 ## Enable application routing using Azure CLI
 

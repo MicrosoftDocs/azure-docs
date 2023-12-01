@@ -1,5 +1,5 @@
 ---
-title: Advanced ingress and NGINX ingress controller configuation
+title: Advanced ingress and NGINX ingress controller configuration
 description: Understand the advanced configuration options that are supported with the application routing add-on with the NGINX ingress controller for Azure Kubernetes Service. 
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
@@ -29,7 +29,7 @@ az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
 
 ## Configuration of the NGINX ingress controller
 
-The application routing add-on uses a Kubernetes [custom resource definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called [`NginxIngressController`](https://github.com/Azure/aks-app-routing-operator/blob/main/config/crd/bases/approuting.kubernetes.azure.com_nginxingresscontrollers.yaml) to configure NGINX ingress controllers. You can create additional ingress controllers or modify existing configuration.
+The application routing add-on uses a Kubernetes [custom resource definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called [`NginxIngressController`](https://github.com/Azure/aks-app-routing-operator/blob/main/config/crd/bases/approuting.kubernetes.azure.com_nginxingresscontrollers.yaml) to configure NGINX ingress controllers. You can create more ingress controllers or modify existing configuration.
 
 `NginxIngressController` CRD has a `loadBalancerAnnotations` field to control the behavior of the NGINX ingress controller's service by setting [load balancer annotations](https://learn.microsoft.com/azure/aks/load-balancer-standard). 
 
@@ -44,9 +44,9 @@ You can modify the configuration of the default ingress controller by editing it
 kubectl edit nginxingresscontroller default -n app-routing-system
 ```
 
-### Create an additional public facing NGINX ingress controller
+### Create an another public facing NGINX ingress controller
 
-To create an additional NGINX ingress controller with a public facing Azure Load Balancer:
+To create another NGINX ingress controller with a public facing Azure Load Balancer:
 
 1. Copy the following YAML manifest into a new file named **nginx-public-controller.yaml** and save the file to your local computer.
 
@@ -306,7 +306,7 @@ Here are some examples annotations for common configurations. Review the [NGINX 
 
 ### Custom max body size
 
-For NGINX, an 413 error will be returned to the client when the size in a request exceeds the maximum allowed size of the client request body. To override the default value, use the annotation: 
+For NGINX, a 413 error is returned to the client when the size in a request exceeds the maximum allowed size of the client request body. To override the default value, use the annotation: 
 
 ```yml
 nginx.ingress.kubernetes.io/proxy-body-size: 4m
@@ -314,7 +314,7 @@ nginx.ingress.kubernetes.io/proxy-body-size: 4m
 
 ### Custom connection timeout
 
-You can change the timeout that the NGINX ingress controller waits to close a connection with your workload. All timeout values are unitless and in seconds. To override the default timeout, use the following annotation to set a valid 120 seconds proxy read timeout:
+You can change the timeout that the NGINX ingress controller waits to close a connection with your workload. All timeout values are unitless and in seconds. To override the default timeout, use the following annotation to set a valid 120-seconds proxy read timeout:
 
 ```yml
 nginx.ingress.kubernetes.io/proxy-read-timeout: "120"
@@ -334,7 +334,7 @@ or
 ingress.kubernetes.io/backend-protocol: "GRPC"
 ```
 
-Review [backend protocols](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#backend-protocol) for additional configration options.
+Review [backend protocols](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#backend-protocol) for other configuration options.
 
 ### Cross-Origin Resource Sharing (CORS)
 
@@ -344,7 +344,7 @@ To enable Cross-Origin Resource Sharing (CORS) in an Ingress rule, use the annot
 nginx.ingress.kubernetes.io/enable-cors: "true"
 ```
 
-Review [enable CORS](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#enable-cors) for additional configuration options.
+Review [enable CORS](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#enable-cors) for other configuration options.
 
 ### Disable SSL redirect
 
@@ -354,11 +354,11 @@ By default the controller redirects (308) to HTTPS if TLS is enabled for an ingr
 nginx.ingress.kubernetes.io/ssl-redirect: "false"
 ```
 
-Review [server-side HTTPS enforcement through redirect](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#server-side-https-enforcement-through-redirect) for additional configuration options.
+Review [server-side HTTPS enforcement through redirect](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#server-side-https-enforcement-through-redirect) for other configuration options.
 
 ### URL rewriting
 
-In some scenarios the exposed URL in the backend service differs from the specified path in the Ingress rule. Without a rewrite any request will return 404. This is particularly useful with [path based routing](https://kubernetes.github.io/ingress-nginx/user-guide/ingress-path-matching/). You can set path expected by the service using the annotation:
+In some scenarios, the exposed URL in the backend service differs from the specified path in the Ingress rule. Without a rewrite any request returns 404. This is particularly useful with [path based routing](https://kubernetes.github.io/ingress-nginx/user-guide/ingress-path-matching/). You can set path expected by the service using the annotation:
 
 ```yml
 nginx.ingress.kubernetes.io/rewrite-target": /
