@@ -121,8 +121,8 @@ You must also check for and remove any resources in the recovered region that ha
 
 You then have two choices for ongoing management:
 
-1. Use the operational backup region as the new primary region and use the recovered region as a backup. No further action is required.
-1. Make the recovered region the new active primary region by following the instructions in [Move resources to a different region](./region-move-private-mobile-network-resources.md) to switch back to the recovered region.
+- Use the operational backup region as the new primary region and use the recovered region as a backup. No further action is required.
+- Make the recovered region the new active primary region by following the instructions in [Move resources to a different region](./region-move-private-mobile-network-resources.md) to switch back to the recovered region.
 
 #### Testing
 
