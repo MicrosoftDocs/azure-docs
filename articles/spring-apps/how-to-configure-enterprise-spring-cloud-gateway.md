@@ -422,25 +422,29 @@ az monitor autoscale rule create \
 For more information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
 ## Configure response cache
-This configuration provides a way to define a HTTP response cache that can be applied at the route level or globally.
+
+Response cache configuration provides a way to define a HTTP response cache that can be applied globally or at the route level.
 
 ### Enable response cache globally
-Once response cache is globally enabled, all applicable routes will be enabled for response cache automatically.
+
+Once response cache is globally enabled, all applicable routes are enabled for response cache automatically.
 
 #### [Azure portal](#tab/Azure-portal)
 
 Use the following steps to enable response cache globally:
+
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
-1. On the **Spring Cloud Gateway** page, select **Configuration** tab.
-1. In **Response Cache** section, select **Enable response cache** checkbox, and set the **Scope** to **Instance** in this section.
-1. Then you can set the **Size** and **Time to live** for response cache.
-1. Click **save** button.
+1. On the **Spring Cloud Gateway** page, select **Configuration**.
+1. In the **Response Cache** section, select the **Enable response cache** checkbox, and then set the **Scope** to **Instance**.
+1. Set the **Size** and the **Time to live** for response cache.
+1. Select **save**.
 
 Use the following steps to disable response cache:
+
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
-1. On the **Spring Cloud Gateway** page, select **Configuration** tab.
-1. In **Response Cache** section, unselect **Enable response cache** checkbox.
-1. Click **save** button.
+1. On the **Spring Cloud Gateway** page, select **Configuration**.
+1. In the **Response Cache** section, clear the **Enable response cache** checkbox.
+1. Select **save**.
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -467,10 +471,9 @@ az spring gateway update \
 
 ---
 
-
 ### Enable response cache at the route level
 
-You can use the `LocalResponseCache` filter at whichever route you need to enable response cache. Here is an example about how to use this response filter in routing rule configuration JSON file.
+To enable response cache in any route, use the `LocalResponseCache` filter. The following example shows how to use the `LocalResponseCache` filter in routing rule configuration:
 
 ```json
 {
@@ -492,31 +495,30 @@ You can use the `LocalResponseCache` filter at whichever route you need to enabl
 }
 ```
 
-You can learn more about `LocalResponseCache` filter from following links.
-- [How to configure `LocalResponseCache` filter in routing rules](./how-to-configure-enterprise-spring-cloud-gateway-filters.md#localresponsecache).
-- [More details of `LocalResponseCache` filter from VMware](https://aka.ms/vmware/scg/filters/localresponsecache).
+To learn more about the `LocalResponseCache` filter, see [How to configure `LocalResponseCache` filter in routing rules](./how-to-configure-enterprise-spring-cloud-gateway-filters.md#localresponsecache) and [More details of `LocalResponseCache` filter from VMware](https://aka.ms/vmware/scg/filters/localresponsecache).
 
 Instead of configuring the `size` and `timeToLive` for the `LocalResponseCache` filter individually, you can set these parameters at the Spring Cloud Gateway level. This allows you to use the `LocalResponseCache` filter without specifying these values initially, while retaining the flexibility to override them later.
 
 #### [Azure portal](#tab/Azure-portal)
 
-Use the following steps to set the `size` and `timeToLive`:
+Use the following steps to enable response cache at the route level:
 
-1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
-1. On the **Spring Cloud Gateway** page, select **Configuration** tab.
-1. In **Response Cache** section, select **Enable response cache** checkbox, and set the **Scope** to **Route** in this section.
-1. Then you can set the **Size** and **Time to live** for response cache.
-1. Click **save** button.
-
-Use the following steps to unset the `size` and `timeToLive`:
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
 1. On the **Spring Cloud Gateway** page, select **Configuration**.
-1. In **Response Cache** section, unselect **Enable response cache** checkbox.
-1. Click **save** button.
+1. In the **Response Cache** section, select the **Enable response cache** checkbox, and then set the **Scope** to **Route**.
+1. Set the **Size** and the **Time to live** for response cache.
+1. Select **save**.
+
+Use the following steps to disable response cache at the route level:
+
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
+1. On the **Spring Cloud Gateway** page, select **Configuration**.
+1. In the **Response Cache** section, clear the **Enable response cache** checkbox.
+1. Select **save**.
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following Azure CLI command to set `size` and `timeToLive`:
+Use the following steps to enable response cache at the route level:
 
 ```azurecli
 az spring gateway update \
@@ -528,7 +530,7 @@ az spring gateway update \
     --service <Azure-Spring-Apps-instance-name>
 ```
 
-Use the following Azure CLI command to unset the `size` and `timeToLive`:
+Use the following steps to disable response cache at the route level:
 
 ```azurecli
 az spring gateway update \
@@ -539,7 +541,7 @@ az spring gateway update \
 
 ---
 
-Here is an example to use the `LocalResponseCache` filter when `size` and `timeToLive` is set in Spring Cloud Gateway level.
+The following example shows how to use the `LocalResponseCache` filter when `size` and `timeToLive` is set in the Spring Cloud Gateway level:
 
 ```json
 {
