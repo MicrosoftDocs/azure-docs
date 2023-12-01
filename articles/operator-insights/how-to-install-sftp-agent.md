@@ -206,7 +206,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
             1. **host** the hostname or IP address of the SFTP server.
 
-            1. **base\_path** the path on the SFTP server to copy files from.
+            1. **base\_path** the path to a folder on the SFTP server that files will be uploaded to Azure Operator Insights from.
 
             1. **known\_hosts\_file** the path on the VM to the 'known_hosts' file for the SFTP server.  This file must be in SSH format and contain details of any public SSH keys used by the SFTP server.
 
@@ -241,8 +241,9 @@ For the **Monitoring - Affirmed MCC** Data Product, set the following parameters
 > - Specifying a pattern of files in the `base_path` folder which will be uploaded (by default all files in the folder are uploaded)
 > - Specifying a pattern of files in the `base_path` folder which should not be uploaded
 > - A time and date before which files in the `base_path` folder will not be uploaded
-> - How often the SFTP agent uploads files (by default, every 1 hour)
-> - A settling time, which is a time period after a file is last modified that the agent will wait before it is uploaded (by default, 1 minute)
+> - How often the SFTP agent uploads files (The value provided in the example config file corresponds to every hour).
+> - A settling time, which is a time period after a file is last modified that the agent will wait before it is uploaded (The value provided in the example config file is 5 minutes).
+>
 > For more information about these configuration options, see [SFTP Ingestion Agents configuration reference](sftp-agent-configuration.md).
 
 ## Start the agent software

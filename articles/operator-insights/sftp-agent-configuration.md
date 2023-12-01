@@ -28,7 +28,7 @@ secret_providers:
         tenant_id: ad5421f5-99e4-44a9-8a46-cc30f34e8dc7 
         identity_name: 98f3263d-218e-4adf-b939-eacce6a590d2 
         cert_path: /path/to/local/certkey.pkcs
-  - name: local_filesystem
+  - name: local_file_system
     provider:
       # The file system provider specifies a folder in which secrets are stored.
       # Each secret must be an individual file without a file extension, where the secret name is the file name, and the file contains the secret only.
@@ -46,13 +46,15 @@ file_sources:
       host: 192.0.2.0
       # Optional. The port to connect to on the SFTP server. Defaults to 22.
       port: 22
+      # The path to a folder on the SFTP server that files will be uploaded to Azure Operator Insights from.
+      base_path: /path/to/sftp/folder
       # The path on the VM to the 'known_hosts' file for the SFTP server.  This file must be in SSH format and contain  details of any public SSH keys used by the SFTP server. This is required by the agent to verify it is connecting to the correct SFTP server.
       known_hosts_file: /path/to/known_hosts
       # The name of the user on the SFTP server which the agent will use to connect.
       user: sftp-user
       auth: 
         # The name of the secret provider configured above which contains the secret for the SFTP user.
-        secret_provider: local_filesystem
+        secret_provider: local_file_system
         # The form of authentication to the SFTP server. This can take the values 'password' or 'ssh_key'. The  appropriate field(s) must be configured below depending on which type is specified.
         type: password
         # Only for use with 'type: password'. The name of the file containing the password in the secrets_directory folder
@@ -83,16 +85,16 @@ file_sources:
       # This will be the name of a secret in the Key Vault.   
       # This is created by the Data Product and should not be changed. 
       secret_name: adls-sas-token
-    # The container within the ingestion account.  This *must* be in 
-    # the format Azure Operator Insights expects.  Do not adjust 
-    # without consulting your support representative. 
-    container_name: edrs
-    # Optional. How often, in hours, the sink should refresh its ADLS token. Defaults to 1
+    # The container within the ingestion account. This *must* be exactly the name of the container that Azure Operator Insights expects.
+    # Valid values:
+    # - pmstats
+    container_name: example-container
+    # Optional. How often, in hours, the sink should refresh its ADLS token. Defaults to 1.
     adls_token_cache_period_hours: 1
     # Optional. The maximum number of blobs that can be uploaded to ADLS in parallel. Further blobs will be queued in memory until an upload completes. Defaults to 10.
     # Note: This value is also the maximum number of concurrent SFTP reads for the associated source.  Ensure your SFTP server can handle this many concurrent connections.  If you set this to a value greater than 10 and are using an OpenSSH server, you may need to increase `MaxSessions` and/or `MaxStartups` in `sshd_config`.
     maximum_parallel_uploads: 10
     # Optional. The maximum size of each block that is uploaded to Azure. 
-    # Each blob is composed of one or more blocks. Defaults to 32MiB (=33554432 Bytes)
-      block_size_in_bytes  : 33554432
+    # Each blob is composed of one or more blocks. Defaults to 32MiB (=33554432 Bytes).
+    block_size_in_bytes  : 33554432
 ```
