@@ -27,7 +27,7 @@ When you ingest data into Azure OpenAI on your data, the following process is us
 
 1. The ingestion process is started when a client sends data to be processed.
 1. Ingestion assets (indexers, indexes, data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) and container in the search resource) are created in the Azure AI Search resource and Azure storage account.
-1. If the ingestion is triggered by a [scheduled refresh](../concepts/use-your-data.md#schedule-automatic-index-refreshes-azure-ai-search-only), the ingestion process starts at `[3]`.
+1. If the ingestion is triggered by a [scheduled refresh](../concepts/use-your-data.md#schedule-automatic-index-refreshes), the ingestion process starts at `[3]`.
 1.  Azure OpenAI's `preprocessing-jobs` API implements the [Azure AI Search customer skill web API protocol](/azure/search/cognitive-search-custom-skill-web-api), and processes the documents in a queue. 
 1. Azure OpenAI:
     1. Internally uses the indexer created earlier to crack the documents.
