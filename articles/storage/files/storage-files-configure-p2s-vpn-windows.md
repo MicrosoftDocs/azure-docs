@@ -91,7 +91,7 @@ In order for VPN connections from your on-premises Windows machines to be authen
 
 You can either use a root certificate that was generated with an enterprise solution, or you can generate a self-signed certificate. If you're using an enterprise solution, acquire the .cer file for the root certificate from your IT organization.
 
-If you aren't using an enterprise certificate solution, create a self-signed root certificate using this PowerShell script. You'll create the client certificate after deploying the virtual network gateway.
+If you aren't using an enterprise certificate solution, create a self-signed root certificate using this PowerShell script. You'll create the client certificate after deploying the virtual network gateway. If possible, leave your PowerShell session open so you don't need to redefine variables when you create the client certificate later in this article.
 
 > [!IMPORTANT]
 > Run this PowerShell script as administrator from an on-premises machine running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell or VM in Azure.
@@ -201,7 +201,7 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
    * **Public certificate data**: Open the root certificate with NotePad and copy/paste the public certificate data in this text field. If you used the PowerShell script in this article to generate a self-signed root certificate, it will be located in `C:\vpn-temp`. Be sure to only paste the text that's in between -----BEGIN CERTIFICATE----- and -----END CERTIFICATE-----. Don't include any additional spaces or characters.
 
    > [!NOTE]
-   > If you don't see tunnel type or authentication type, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
+   > If you don't see tunnel type or authentication type, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 authentication. If you want to use IKEv2, you need to delete and recreate the gateway using a different gateway SKU.
 
 1. Select **Save** at the top of the page to save all of the configuration settings and upload the root certificate public key information to Azure.
 
@@ -257,20 +257,56 @@ If you're using an enterprise certificate solution, generate a client certificat
 
 ### Create client certificate from a self-signed root certificate
 
-If you aren't using an enterprise certificate solution, run the following PowerShell script to create a client certificate with the URI of the virtual network gateway. This certificate will be signed with the root certificate you created earlier.
+Run the following PowerShell script to create a client certificate with the URI of the virtual network gateway. This certificate will be signed with the root certificate you created earlier.
 
 When you generate a client certificate from a self-signed root certificate, it's automatically installed on the computer that you used to generate it. If you want to install a client certificate on another client computer, export it as a .pfx file, along with the entire certificate chain. Doing so will create a .pfx file that contains the root certificate information required for the client to authenticate.
+
+#### Identify the self-signed root certificate
+
+If you're creating additional client certificates, or aren't using the same PowerShell session that you used to create your self-signed root certificate, use the following steps to identify the self-signed root certificate that is installed on the computer.
+
+1. Get a list of certificates that are installed on your computer.
+
+   ```powershell
+   Get-ChildItem -Path "Cert:\CurrentUser\My"
+   ```
+
+1. Locate the subject name from the returned list, then copy the thumbprint that is located next to it to a text file. In the following example, there are two certificates. The CN name is the name of the self-signed root certificate from which you want to generate a child certificate. In this case, 'P2SRootCert'.
+
+   ```
+   Thumbprint                                Subject
+   ----------                                -------
+   AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
+   7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
+   ```
+
+1. Declare a variable for the root certificate using the thumbprint from the previous step. Replace THUMBPRINT with the thumbprint of the root certificate from which you want to generate a child certificate.
+
+   ```powershell
+   $rootcert = Get-ChildItem -Path "Cert:\CurrentUser\My\<THUMBPRINT>"
+   ```
+
+   For example, using the thumbprint for P2SRootCert in the previous step, the variable looks like this:
+
+   ```powershell
+   $rootcert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
+   ```
+
+#### Generate a client certificate
+
+Use the `New-AzVpnClientConfiguration` PowerShell cmdlet to generate a client certificate.
 
 > [!IMPORTANT]
 > Run this PowerShell script as administrator from an on-premises machine running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell or VM in Azure. Replace `<resource-group-name>` with your resource group name and `<vpn-gateway-name>` with the name of the virtual network gateway you just deployed.
 
 ```PowerShell
+#If you left you PowerShell session open when you created the root cert, then 
+#you don't need to define these
 $clientcertpassword = "1234"
-$resourceGroupName = "myexamplegroup"
-$vpnName = "myvnetgateway"
+$resourceGroupName = "<resource-group-name>"
+$vpnName = "<vpn-gateway-name>"
 $vpnTemp = "C:\vpn-temp\"
 $certLocation = "Cert:\CurrentUser\My"
-$rootcert = ""
 
 $vpnClientConfiguration = New-AzVpnClientConfiguration `
     -ResourceGroupName $resourceGroupName `
