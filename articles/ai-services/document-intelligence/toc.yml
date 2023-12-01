@@ -124,20 +124,20 @@ items:
     - name: Use Microsoft Entra authentication
       displayName: headers, subscription, access token, azure active directory, subdomain, role, service principal
       href: ../../ai-services/authentication.md?context=/azure/ai-services/document-intelligence/context/context
-  - name: Document Intelligence Containers
-    items:
-    - name: Install and run containers
-      displayName: docker, docker-compose, container, compose, packages, az, acr, cli, import, pull, Azure AI Vision, kubernetes, cpu, EULA, billing
-      href: containers/install-run.md
-    - name: Configure containers
-      displayName: docker, docker-compose, compose, containers, run, billing, keys, logging, EULA, telemetry, proxy
-      href: containers/configuration.md
-    - name: Container image tags
-      displayName: registry, mcr
-      href: containers/image-tags.md
-    - name: Disconnected containers
-      displayName: docker, commitment, plan, environment, usage
-      href: containers/disconnected.md    
+- name: Document Intelligence Containers
+  items:
+  - name: Install and run containers
+    displayName: docker, docker-compose, container, compose, packages, az, acr, cli, import, pull, Azure AI Vision, kubernetes, cpu, EULA, billing
+    href: containers/install-run.md
+  - name: Configure containers
+    displayName: docker, docker-compose, compose, containers, run, billing, keys, logging, EULA, telemetry, proxy
+    href: containers/configuration.md
+  - name: Container image tags
+    displayName: registry, mcr
+    href: containers/image-tags.md
+  - name: Disconnected containers
+    displayName: docker, commitment, plan, environment, usage
+    href: containers/disconnected.md
 - name: Samples
   items:
   - name: "C#/.NET"
@@ -244,7 +244,6 @@ items:
     displayName: connectors, automate, automation, workflows
     href: tutorial-logic-apps.md
   - name: "Create Document Intelligence workflows with AI Builder"
-    expanded: true
     items:
     - name:  Custom
       href: /ai-builder/create-form-processing-model?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
