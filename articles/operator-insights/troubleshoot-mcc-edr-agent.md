@@ -12,7 +12,7 @@ ms.date: 12/06/2023
 
 ## Agent diagnostics overview
 
-The ingestion bus agents are software packages, so their diagnostics are limited to the functioning of the application.  Microsoft doesn't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or others to send OS-level data and telemetry to your own monitoring systems. [Monitor virtual machines with Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine) describes tools you can use if your ingestion agents are running on Azure VMs.
+The ingestion bus agents are software packages, so their diagnostics are limited to the functioning of the application.  Microsoft doesn't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or others to send OS-level data and telemetry to your own monitoring systems. [Monitor virtual machines with Azure Monitor](../azure-monitor/vm/monitor-virtual-machine.md) describes tools you can use if your ingestion agents are running on Azure VMs.
 
 You can also use the diagnostics provided by the MCCs, or by Azure Operator Insights itself in Azure Monitor, to help identify and debug ingestion issues.
 
