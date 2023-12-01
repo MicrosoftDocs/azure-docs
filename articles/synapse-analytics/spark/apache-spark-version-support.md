@@ -13,7 +13,7 @@ ms.reviewer: eskot
 
 # Azure Synapse runtimes
 
-Apache Spark pools in Azure Synapse use runtimes to tie together essential component versions such as Azure Synapse optimizations, packages, and connectors with a specific Apache Spark version. Each runtime will be upgraded periodically to include new improvements, features, and patches. When you create a serverless Apache Spark pool, you will have the option to select the corresponding Apache Spark version. Based on this, the pool will come pre-installed with the associated runtime components and packages. The runtimes have the following advantages:
+Apache Spark pools in Azure Synapse use runtimes to tie together essential component versions such as Azure Synapse optimizations, packages, and connectors with a specific Apache Spark version. Each runtime is upgraded periodically to include new improvements, features, and patches. When you create a serverless Apache Spark pool, you have the option to select the corresponding Apache Spark version. Based on this, the pool comes pre-installed with the associated runtime components and packages. The runtimes have the following advantages:
 - Faster session startup times
 - Tested compatibility with specific Apache Spark versions
 - Access to popular, compatible connectors and open-source packages
@@ -71,8 +71,8 @@ Azure Synapse runtime for Apache Spark patches are rolled out monthly containing
 The patch policy differs based on the [runtime lifecycle stage](./runtime-for-apache-spark-lifecycle-and-supportability.md):
 1. Generally Available (GA) runtime: Receive no upgrades on major versions (i.e. 3.x -> 4.x). And will upgrade a minor version (i.e. 3.x -> 3.y) as long as there are no deprecation or regression impacts.
 2. Preview runtime: No major version upgrades unless strictly necessary. Minor versions (3.x -> 3.y) will be upgraded to add latest features to a runtime.
-3. Long Term Support (LTS) runtime will be patched with security fixes only.
-4. End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
+3. Long Term Support (LTS) runtime is patched with security fixes only.
+4. End of life announced (EOLA) runtime will not have bug and feature fixes. Security fixes are backported based on risk assessment.
 
 ## Migration between Apache Spark versions - support
 
