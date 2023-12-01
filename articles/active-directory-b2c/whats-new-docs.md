@@ -35,8 +35,10 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ## October 2023
 
+### Updated articles
+
 - [Set up a force password reset flow in Azure Active Directory B2C](force-password-reset.md) - Editorial updates
-- ['Azure AD B2C: Frequently asked questions (FAQ)'](faq.yml) - Editorial updates
+- [Azure AD B2C: Frequently asked questions (FAQ)](faq.yml) - Editorial updates
 - [Enable JavaScript and page layout versions in Azure Active Directory B2C](javascript-and-page-layout.md) - Added breaking change on script tags
 
 ## September 2023
