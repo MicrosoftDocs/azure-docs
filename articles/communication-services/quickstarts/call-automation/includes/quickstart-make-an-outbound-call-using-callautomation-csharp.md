@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to make an outbound PSTN call using Azure Communication Services Call Automation
 author: anujb-msft
 ms.author: anujb-msft
-ms.date: 06/19/2023
+ms.date: 11/29/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: call-automation
@@ -43,7 +43,7 @@ Next update your `Program.cs` file with the following values:
 - `callbackUriHost`: Once you have your DevTunnel host initialized, update this field with that URI.
 - `acsPhonenumber`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `targetPhonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
-- `cognitiveServiceEndpoint`: update field with your cognitive services endpoint.
+- `cognitiveServiceEndpoint`: update field with your Azure AI services endpoint.
 
 ```csharp
 // Your ACS resource connection string 
