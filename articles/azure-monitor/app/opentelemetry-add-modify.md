@@ -1386,7 +1386,7 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there might b
 
 1. Add `Microsoft.ApplicationInsights` to your application.
 
-1. Create a `TelemetryClient` instance.
+2. Create a `TelemetryClient` instance.
 
 > [!NOTE]
 > It's important to only create once instance of the TelemetryClient per application.
@@ -1396,7 +1396,7 @@ var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" 
 var telemetryClient = new TelemetryClient(telemetryConfiguration);
 ```
 
-1. Use the client to send custom telemetry.
+3. Use the client to send custom telemetry.
 
 ```csharp
 telemetryClient.TrackEvent("testEvent");
@@ -1408,7 +1408,7 @@ telemetryClient.TrackEvent("testEvent");
 
 1. Add `Microsoft.ApplicationInsights` to your application.
 
-1. Create a `TelemetryClient` instance.
+2. Create a `TelemetryClient` instance.
 
 > [!NOTE]
 > It's important to only create once instance of the TelemetryClient per application.
@@ -1418,7 +1418,7 @@ var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" 
 var telemetryClient = new TelemetryClient(telemetryConfiguration);
 ```
 
-1. Use the client to send custom telemetry.
+3. Use the client to send custom telemetry.
 
 ```csharp
 telemetryClient.TrackEvent("testEvent");
