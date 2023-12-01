@@ -9,10 +9,11 @@ ms.custom: Edge Managed Certification Requirements
 ms.service: certification
 ---
 
-> [!Note]
-> The Azure Certified Device program has met its goals and will conclude on February 23, 2024. This means that the Azure Certified Device catalog, along with certifications for Azure Certified Device, Edge Managed, and IoT Plug and Play will no longer be available after this date. However, the Edge Secured-core program will remain active and will be relocated to a new home at https://aka.ms/EdgeSecuredCoreHome.
+
 
 # Edge Managed Certification Requirements
+> [!Note]
+> The Azure Certified Device program has met its goals and will conclude on February 23, 2024. This means that the Azure Certified Device catalog, along with certifications for Azure Certified Device, Edge Managed, and IoT Plug and Play will no longer be available after this date. However, the Edge Secured-core program will remain active and will be relocated to a new home at https://aka.ms/EdgeSecuredCoreHome.
 
 This document outlines the device specific capabilities that will be represented in the Azure Certified Device catalog. A capability is singular device attribute that may describe the device. 
 
