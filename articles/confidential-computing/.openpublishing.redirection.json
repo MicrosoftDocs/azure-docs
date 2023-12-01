@@ -9,7 +9,7 @@
             "source_path_from_root": "/articles/confidential-computing/faq.md",
             "redirect_url": "/azure/confidential-computing/faq-application-enclaves",
             "redirect_document_id": true
-        }
+        },
         {
             "source_path_from_root": "/articles/confidential-computing/confidential-vm-faq-amd.md",
             "redirect_url": "/azure/confidential-computing/confidential-vm-faq",
