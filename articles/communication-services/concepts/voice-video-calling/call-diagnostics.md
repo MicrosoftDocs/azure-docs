@@ -88,11 +88,11 @@ The search field allows you to search by callID. See our documentation to [acces
 
 ## Call Overview
 
-Once you select a call from the Call Search page your call details will
+Once you select a call from the Call Search page, your call details will
 display in the Call Overview tab. You’ll see a call summary highlighting
 the participants in the call and key metrics for their call quality. You
 can select a participant to drill into their call timeline details
-directly, or navigate to the Call Issues tab for further analysis.
+directly or navigate to the Call Issues tab for further analysis.
 
 <!-- (**<u>TODO insert image)</u>** -->
 
@@ -104,10 +104,10 @@ directly, or navigate to the Call Issues tab for further analysis.
 
 ## Call Issues
 
-The Call Issues tab give you a high-level analysis of any media quality
-and reliability issues that were detected during the call.
+The Call Issues tab gives you a high-level analysis of any media quality
+and reliability issues that were detected during the call. 
 
-Key Events highlights detected common issues known to affect user’s call
+Call Issues highlights detected issues commonly known to affect user’s call
 quality such as poor network conditions, speaking while muted, or device
 failures during a call. If you want to explore a detected issue, select
 the highlighted item and you'll see a prepopulated view of the
