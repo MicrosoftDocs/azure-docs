@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to discover, evaluate, fine-tune and deploy Open Source foundation models in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
+ms.subservice: training
 ms.topic: how-to
 ms.reviewer: ssalgado
 author: swatig007
