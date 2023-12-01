@@ -177,6 +177,6 @@ The requests JSON file uses the following properties for defining the load confi
 
 ## Next steps
 
-- Learn how to build [automated regression testing in your CI/CD workflow](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn how to build [automated regression testing in your CI/CD workflow](./quickstart-add-load-test-cicd.md).
 - Learn how to [parameterize load tests with secrets and environment variables](./how-to-parameterize-load-tests.md).
 - Learn how to [load test secured endpoints](./how-to-test-secured-endpoints.md).
