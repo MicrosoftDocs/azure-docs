@@ -55,6 +55,9 @@ This guide will help you get started with recognizing DTMF input provided by par
 | RecognizeFailed | 500	| 8511	| Action failed, encountered failure while trying to play the prompt. | 
 | RecognizeFailed | 500	| 8512	| Unknown internal server error. | 
 
+## Known limitations
+- In-band DTMF is not supported, use RFC 2833 DTMF instead.
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).
