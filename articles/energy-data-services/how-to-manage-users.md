@@ -49,7 +49,7 @@ A `client-secret` is a string value your app can use in place of a certificate t
 3. Create a `client-secret` for the `client-id` that you used to create your Azure Data Manager for Energy instance.
 4. Add one now by clicking on *New Client Secret*.
 5. Record the secret's `value` for later use in your client application code.
-6. The Service Principal [SPN] of the app id and client secret has the Infra Admin access to the instance.
+6. The access token of the app id and client secret has the Infra Admin access to the instance.
 
 > [!CAUTION]
 > Don't forget to record the secret's value. This secret value is never displayed again after you leave this page of 'client secret' creation.
@@ -63,7 +63,7 @@ A `client-secret` is a string value your app can use in place of a certificate t
 :::image type="content" source="media/how-to-manage-users/endpoint-url.png" alt-text="Screenshot of finding the URL from Azure Data Manager for Energy instance.":::
 
 #### Find the `data-partition-id` 
-1. You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance. '
+1. You have two ways to get the list of data partitions in your Azure Data Manager for Energy instance.
 2. One option is to navigate the *Data Partitions* menu item under the Advanced section of your Azure Data Manager for Energy UI.
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance.":::
@@ -116,9 +116,9 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 2. Get the service principal access token using [Generate service principal access token](how-to-manage-users.md#generate-service-principal-access-token).
 3. If you try to directly use user tokens for adding entitlements, it results in 401 error. The service principal access token must be used to add initial users in the system and those users (with admin access) can then manage more users.
 4. Use the service principal access token to do these three steps using the commands outlined in the following sections.
-5. Add the users to the `users@<data-partition-id>.<domain>` OSDU group.
-6. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add the user to.
-7. Add the users to that group.
+   1. Add the users to the `users@<data-partition-id>.<domain>` OSDU group.
+   1. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add the user to.
+   1. Add the users to that group.
 
 ## Get the list of all available groups in a data partition
 
@@ -133,7 +133,7 @@ Run the below curl command in Azure Cloud Bash to get all the groups that are av
 ## Add users to an OSDU group in a data partition
 
 1. Run the below curl command in Azure Cloud Bash to add the user(s) to the "Users" group using the Entitlement service.
-2. The value to be sent for the param **"email"** is the **Object_ID (OID)** of the user and not the user's email.
+2. The value to be sent for the param `email` is the `Object_ID` (OID) of the user and not the user's email.
 
 ```bash
     curl --location --request POST 'https://<URI>/api/entitlements/v2/groups/<group-name>@<data-partition-id>.dataservices.energy/members' \

@@ -1572,10 +1572,8 @@ items:
       href: /cli/azure/monitor/log-analytics
   - name: REST API
     items:
-    - name: Azure Monitor
-      href: /rest/api/monitor/
-    - name: Azure Monitor Logs
-      href: /rest/api/loganalytics/
+    - name: Azure Monitor REST API index
+      href: azure-monitor-rest-api-index.md
     - name: REST API Walkthrough
       displayName: metrics, analyze
       href: essentials/rest-api-walkthrough.md
