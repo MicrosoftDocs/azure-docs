@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kub
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-linux
-ms.date: 11/20/2023
+ms.date: 11/30/2023
 ---
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -344,7 +344,7 @@ mountOptions:
 
 ### Create NFS file share storage class
 
-Create a file named `nfs-sc.yaml` and copy the manifest below.
+Create a file named `nfs-sc.yaml` and copy the manifest below. For a list of supported `mountOptions`, see [NFS mount options][nfs-file-share-mount-options]
 
 ```yml
 apiVersion: storage.k8s.io/v1
@@ -491,9 +491,7 @@ The output of the commands resembles the following example:
 [nfs-overview]:/windows-server/storage/nfs/nfs-overview
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
-[data-plane-api]: https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/internal/shared/shared.go
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-
 
 <!-- LINKS - internal -->
 [csi-drivers-overview]: csi-storage-drivers.md
@@ -504,12 +502,10 @@ The output of the commands resembles the following example:
 [concepts-storage]: concepts-storage.md
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md
-[storage-tiers]: ../storage/files/storage-files-planning.md#storage-tiers
 [private-endpoint-overview]: ../private-link/private-endpoint-overview.md
 [persistent-volume]: concepts-storage.md#persistent-volumes
 [share-snapshots-overview]: ../storage/files/storage-snapshots-files.md
-[access-tiers-overview]: ../storage/blobs/access-tiers-overview.md
-[tag-resources]: ../azure-resource-manager/management/tag-resources.md
 [statically-provision-a-volume]: azure-csi-files-storage-provision.md#statically-provision-a-volume
 [azure-private-endpoint-dns]: ../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration
 [azure-netapp-files-mount-options-best-practices]: ../azure-netapp-files/performance-linux-mount-options.md#rsize-and-wsize
+[nfs-file-share-mount-options]: ../storage/files/storage-files-how-to-mount-nfs-shares.md#mount-options

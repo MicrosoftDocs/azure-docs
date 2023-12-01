@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 11/27/2023
+ms.date: 12/01/2023
 ms.custom: references_regions
 ---
 
@@ -137,4 +137,5 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
 
 ## Next steps
 
-- [Create a VM](create-virtual-machine.md)
+- [Browse and enable SCVMM resources through Azure RBAC](enable-scvmm-inventory-resources.md).
+- [Create a VM using Azure Arc-enabled SCVMM](create-virtual-machine.md).

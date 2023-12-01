@@ -13,6 +13,7 @@ items:
     displayName: get started
     href: studio-overview.md
   - name: Document Intelligence SDKs
+    expanded: true
     items:
       - name: Changelog and release history
         displayName: latest, update, beta, package, preview, version
