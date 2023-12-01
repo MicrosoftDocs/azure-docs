@@ -1,7 +1,7 @@
 - name: Azure Operational Excellence documentation
   href: index.yml
 - name: Overview
-  href: overview.md
+  href: not-yet.md
 - name: Azure region relocation
   items:
   - name: Overview
@@ -11,9 +11,9 @@
     - name: Resource Mover
       href: relocation-strategy-resource-mover.md
     - name: Redeployment
-      href: relocation-strategy-redeployment.md
+      href: not-yet.md
     - name: Redeployment with data migration
-      href: relocation-strategy-redeployment-data-migration.md
+      href: not-yet.md
   - name: Relocation guides by service
     items:
     - name: Overview
@@ -21,11 +21,11 @@
     - name: Relocation guides by service
       items:
       - name: Azure Database for PostgreSQL
-        href: migrate-api-mgt.md
+        href: relocation-postgresql-flexible-server.md
       - name: Azure Key Vault
-        href: migrate-app-configuration.md
+        href: not-yet.md
       - name: Azure Monitor - Log Analytics
-        href: migrate-app-gateway-v2.md
+        href: not-yet.md
         
 - name: Resources
   items:

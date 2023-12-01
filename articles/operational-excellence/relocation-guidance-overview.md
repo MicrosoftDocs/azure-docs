@@ -22,7 +22,7 @@ The following tables provide links to each Azure service relocation document, as
 
 | **Product**  | **ARM Mover** | **Redeployment**| **Redeployment with Data Migration**|
 | --- | --- | --- | --- | 
-[Azure Database for PostgreSQL](reliability-postgresql-flexible-server.md)|	Not Supported | Supported | Supported |
+[Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)|	Not Supported | Supported | Supported |
 [Azure Key Vault]()|	Not Supported | Supported | Supported |
 
 ### ![An icon that signifies this service is mainstream.](./media/relocation/icon-mainstream.svg) Mainstream services

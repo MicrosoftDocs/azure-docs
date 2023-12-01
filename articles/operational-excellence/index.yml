@@ -19,7 +19,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure operational excellence overview
-            url: overview.md
+            url: not-yet.md
   # Card
   - title: Region relocation guidance
     linkLists:
@@ -29,7 +29,4 @@ landingContent:
             url: relocation-overview.md
           - text: Relocation guides by service
             url: relocation-guidance-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Migrate to availability zone support
-            url: availability-zones-migration-overview.md
+
