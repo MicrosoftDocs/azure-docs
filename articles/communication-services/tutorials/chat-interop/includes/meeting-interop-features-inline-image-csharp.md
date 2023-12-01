@@ -16,7 +16,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 
 * Go through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
 * Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
-* Setup a Teams meeting using your business account and have the meeting URL ready.
+* Set up a Teams meeting using your business account and have the meeting URL ready.
 * Use Chat SDK for C# (Azure.Communication.Chat) 1.3.0 or the latest. See [here](https://www.nuget.org/packages/Azure.Communication.Chat/).
   
 ## Goal
