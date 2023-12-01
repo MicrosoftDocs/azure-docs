@@ -47,17 +47,19 @@ To set up SSO with Microsoft Entra ID, see [How to set up single sign-on with Mi
 
 ## Configure the instance count
 
+Use API portal to configure the instance count.
+
 ### [Azure portal](#tab/Portal)
 
-Use the following steps to configure the instance count using the Azure portal:
+Use the following steps to configure instance count:
 
-1. Navigate to your service resource, and then select **API portal**.
-1. Select **Scale out** tab.
-1. Configure **Instance count**, and then click **Save** button.
+1. Navigate to your service instance and select **API portal**.
+1. Select **Scale out**.
+1. Configure **Instance count** and then select **Save**.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to configure the instance count:
+Use the following command to configure instance count:
 
 ```azurecli
 az spring api-portal update --instance-count {number}
@@ -67,33 +69,34 @@ az spring api-portal update --instance-count {number}
 
 ## Assign a public endpoint for API portal
 
-To access API portal, use the following steps to assign a public endpoint:
+Use the following steps to assign a public endpoint to API portal:
 
 1. Select **API portal**.
 1. Select **Overview** to view the running state and resources allocated to API portal.
 1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated within a few minutes.
 1. Save the URL for use later.
 
-You can also use the Azure CLI to assign a public endpoint with the following command:
+You can also use the following Azure CLI command to assign a public endpoint:
 
 ```azurecli
 az spring api-portal update --assign-endpoint
 ```
 
 ## Configure API try-out feature
-API Portal can not only empower developers to view APIs centrally but also allow developers to directly try out APIs by leveraging the "API try-out" feature. By default, it is enabled. This configuration can support you to turn it off across the whole API portal instance. For how to use this feature, see [Try out APIs in API portal](#try-out-apis-in-api-portal).
+
+API portal enables developers to view APIs centrally and allows them to directly try out APIs by leveraging the API try-out feature. API try-out is enabled by default and this configuration helps you to turn it off across the whole API portal instance. For more information on how to use this feature, see [Try out APIs in API portal](#try-out-apis-in-api-portal).
 
 ### [Azure portal](#tab/Portal)
 
-Use the following steps to enable or disable API try-out feature using the Azure portal:
+Use the following steps to enable or disable API try-out:
 
-1. Navigate to your service resource, and then select **API portal**.
-1. Select **Configuration** tab.
-1. Select or unselect the **Enable API try-out**, and then click **Save** button.
+1. Navigate to your service instance and select **API portal**.
+1. Select **Configuration**.
+1. Select or clear the **Enable API try-out** checkbox and then select **Save**.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-To enable API try-out feature, please use following command.
+Use the following command to enable API try-out:
 
 ```azurecli
 az spring api-portal update --enable-api-try-out \
@@ -101,7 +104,7 @@ az spring api-portal update --enable-api-try-out \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
-To disable API try-out feature, please use following command and set `--enable-api-try-out` to `false`.
+Use following command and set `--enable-api-try-out` to `false` to disable API try-out:
 
 ```azurecli
 az spring api-portal update --enable-api-try-out false \
