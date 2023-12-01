@@ -36,13 +36,31 @@ The contact resource contains the start time and end time of the pass and other 
 
 The RX and TX start/end times might differ depending on the individual station masks. Billing meters are engaged between the Reservation Start Time and Reservation End Time.
 
-## Create a contact
+## Schedule a contact
 
-Use the [Azure portal](https://aka.ms/orbital/portal) or [Azure Orbital Ground Station API](/rest/api/orbital/) to [schedule a contact](schedule-contact.md) for your spacecraft resource.
+Use the [Azure portal](https://aka.ms/orbital/portal) or [Azure Orbital Ground Station API](/rest/api/orbital/) to [create a contact resource](schedule-contact.md) for your spacecraft resource.
 
 ## Cancel a scheduled contact
 
-In order to cancel a scheduled contact, you must delete the contact resource. Use the [Azure portal](https://aka.ms/orbital/portal) or [Azure Orbital Ground Station API](/rest/api/orbital/) to [delete a contact](schedule-contact.md).
+In order to cancel a scheduled contact, you must delete the contact resource. 
+
+### Azure portal method
+1. Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
+2. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
+3. In the **Spacecraft** page, select the name of the spacecraft for the scheduled contact.
+4. Select **Contacts** from the left menu bar in the spacecraft’s overview page.
+
+   :::image type="content" source="media/orbital-eos-delete-contact.png" alt-text="Select a scheduled contact" lightbox="media/orbital-eos-delete-contact.png":::
+
+5. Select the name of the contact to be deleted
+6. Select **Delete** from the top bar of the contact's configuration view
+
+   :::image type="content" source="media/orbital-eos-contact-config-view.png" alt-text="Delete a scheduled contact" lightbox="media/orbital-eos-contact-config-view.png":::
+
+7. The scheduled contact will be canceled once the contact entry is deleted.
+
+### API method
+Use the Contacts REST Operation Group to [delete a contact](/rest/api/orbital/azureorbitalgroundstation/contacts/delete/) with the Azure Orbital Ground Station API.
 
 ## Next steps
 
