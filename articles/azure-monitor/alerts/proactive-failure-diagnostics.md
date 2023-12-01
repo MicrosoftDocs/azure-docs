@@ -42,7 +42,6 @@ In the example shown before, the analysis discovered that most failures are abou
 When you instrument your service with these calls, the analyzer looks for an exception and a dependency failure that are associated with requests in the identified cluster. It also looks for an example of any trace logs associated with those requests. The alert you receive includes this additional information that can provide context to the detection and hint on the root cause for the detected problem.
 
 ### Alert logic details
-
 Failure Anomalies detection relies on a proprietary machine learning algorithm, so the reasons for an alert firing or not firing are not always deterministic. With that said, the primary factors that the algorithm uses are: 
 
 * Analysis of the failure percentage of requests/dependencies in a rolling time window of 20 minutes.
@@ -54,61 +53,22 @@ Failure Anomalies detection relies on a proprietary machine learning algorithm, 
 ## Managing Failure Anomalies alert rules
 
 ### Alert rule creation
+A Failure Anomalies alert rule is created automatically when your Application Insights resource is created. The rule is automatically configured to analyze the telemetry on that resource.
+You can create the rule again using Azure [REST API](https://learn.microsoft.com/rest/api/monitor/smart-detector-alert-rules?view=rest-monitor-2019-06-01) or using a [Resource Manager template](./proactive-arm-config#failure-anomalies-alert-rule). This is useful if the automatic creation of the rule failed for some reason, or if you deleted the rule by chance or on purpose, 
 
-Failure Anomalies alert rule is automatically created together with your Application Insights resource and is automatically configured to analyze the telemetry on that resource.
-If for some reason the Failure Anomalies alert rule was not created, or if you deleted it by chance or on purpose, you can create the rule again using Azure [REST API](https://learn.microsoft.com/rest/api/monitor/smart-detector-alert-rules?view=rest-monitor-2019-06-01) or using a Resource Manager template.
-
-Following is a example of a Resource Manager template for creating a Failure Anomalies alert rule.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "microsoft.alertsmanagement/smartdetectoralertrules",
-            "apiVersion": "2019-03-01",
-            "name": "Response Latency Degradation - my-app",
-            "location": "global", 
-            "properties": {
-                  "description": "Response Latency Degradation notifies you of an unusual increase in latency in your app response to requests.",
-                  "state": "Enabled",
-                  "severity": "2",
-                  "frequency": "PT1M",
-                  "detector": {
-                    "id": "FailureAnomaliesDetector",
-                    "parameters": null,
-                    "name": "Failure Anomalies",
-                    "supportedCadences": [
-                      1
-                    ],
-                    "supportedResourceTypes": [
-                      "ApplicationInsights"
-                    ],
-                    "parameterDefinitions": []
-                  },
-                  "scope": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/microsoft.insights/components/my-app"],
-                  "actionGroups": {
-                        "groupIds": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/MyResourceGroup/providers/microsoft.insights/actiongroups/MyActionGroup"]
-                  }
-            }
-        }
-    ]
-}
-```
 ### Alert rule configuration 
-
-You can disable Smart Detection alert rule from the portal or using Azure Resource Manager ([see template example](./proactive-arm-config.md)).
-
-This alert rule is created with an associated [Action Group](./action-groups.md) named "Application Insights Smart Detection". By default, this action group is configured for Email Azure Resource Manager Role actions and sends notification to your subscription Azure Resource Manager Monitoring Contributor and Monitoring Reader users. You can modify this action group, remove it, or add more action group, just as for any other Azure alert rule. Notifications sent from this alert rule follow the [common alert schema](./alerts-common-schema.md).
-
-To configure Failure Anomalies alert rules in the portal, open the Alerts page and select Alert Rules. Failure Anomalies alert rules are included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
+To configure a Failure Anomalies alert rule in the portal, open the Alerts page and select Alert Rules. Failure Anomalies alert rules are included along with any alerts that you set manually. 
 
 :::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="On the Application Insights resource page, click Alerts tile, then Manage alert rules." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
-Click the alert to configure it.
+Click the alert rule to configure it.
 
 :::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Rule configuration screen." lightbox="./media/proactive-failure-diagnostics/032.png":::
+
+You can disable Smart Detection alert rule from the portal or using Azure Resource Manager template ([see template example](./proactive-arm-config#failure-anomalies-alert-rule).
+
+This alert rule is created with an associated [Action Group](./action-groups.md) named "Application Insights Smart Detection". By default, this action group contains Email Azure Resource Manager Role actions and sends notification to users who have  Monitoring Contributor or Monitoring Reader subscription Azure Resource Manager roles in your subscription.  You can remove, change or add the action groups that the rule triggers, as for any other Azure alert rule. Notifications sent from this alert rule follow the [common alert schema](./alerts-common-schema.md).
+
 
 ## Delete alerts
 
@@ -425,17 +385,17 @@ Notice that if you delete an Application Insights resource, the associated Failu
 
 An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there is some problem with your app or its environment.
 
-To investigate further, click on 'View full details in Application Insights' the links in this page will take you straight to a [search page](../app/diagnostic-search.md) filtered to the relevant requests, exception, dependency, or traces. 
+To investigate further, click on 'View full details in Application Insights'. The links in this page take you straight to a [search page](../app/diagnostic-search.md) filtered to the relevant requests, exception, dependency, or traces. 
 
 You can also open the [Azure portal](https://portal.azure.com), navigate to the Application Insights resource for your app, and open the Failures page.
 
-Clicking on 'Diagnose failures' will help you get more details and resolve the issue.
+Clicking on 'Diagnose failures' can help you get more details and resolve the issue.
 
 :::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Diagnostic search." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
-From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example shown before, the failure rate of 78.5% compares with a normal rate of 2.2%, indicates that something bad is going on. On the other hand, only 46 users were affected. If it was your app, you'd be able to assess how serious that is.
+From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example shown before, the failure rate of 78.5% compares with a normal rate of 2.2%, indicates that something bad is going on. On the other hand, only 46 users were affected. This can help you to assess how serious the problem  is.
 
-In many cases, you will be able to diagnose the problem quickly from the request name, exception, dependency failure, and trace data provided.
+In many cases, you can diagnose the problem quickly from the request name, exception, dependency failure, and trace data provided.
 
 In this example, there was an exception from SQL Database due to request limit being reached.
 
