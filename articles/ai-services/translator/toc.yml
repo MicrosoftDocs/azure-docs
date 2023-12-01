@@ -22,7 +22,7 @@ items:
   - name: Translator Service FAQ
     displayName: character,count,usage,attribution, cognitive
     href: translator-faq.md
-- name: Text Translation
+- name: Text Translator
   items:
   - name: What is Text Translation?
     displayName: features,develop,development,free
@@ -172,6 +172,23 @@ items:
         href: document-translation/reference/cancel-translation.md
     - name: Document Translation FAQ
       href: document-translation/faq.md
+- name: Containers
+  items:
+  - name: Install and run containers
+    displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
+    href: containers/translator-how-to-install-container.md
+  - name: Configure containers
+    displayName: docker,docker-run,billing,settings,key,logging,EULA,telemetry,proxy
+    href: containers/translator-container-configuration.md
+  - name: Use containers in disconnected environments
+    displayName: text,docker,pull,mcr,registry,commitment,parameters
+    href: containers/translator-disconnected-containers.md
+  - name: Deploy user-managed glossary
+    displayName: dynamic, glossary, dictionary, case-sensitive, match
+    href: containers/deploy-user-managed-glossary.md
+  - name: "Container: Translate"
+    displayName: textType,text type,preview,POST,parameters,request,
+    href: containers/translator-container-supported-parameters.md
 - name: Custom Translator
   items:
   - name: What is Custom Translator?
@@ -248,23 +265,6 @@ items:
       href: custom-translator/platform-upgrade.md
   - name: Custom Translator FAQ
     href: custom-translator/faq.md
-- name: Translator containers
-  items:
-  - name: Install and run containers
-    displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
-    href: containers/translator-how-to-install-container.md
-  - name: Configure containers
-    displayName: docker,docker-run,billing,settings,key,logging,EULA,telemetry,proxy
-    href: containers/translator-container-configuration.md
-  - name: Use containers in disconnected environments
-    displayName: text,docker,pull,mcr,registry,commitment,parameters
-    href: containers/translator-disconnected-containers.md
-  - name: Deploy user-managed glossary
-    displayName: dynamic, glossary, dictionary, case-sensitive, match
-    href: containers/deploy-user-managed-glossary.md
-  - name: "Container: Translate"
-    displayName: textType,text type,preview,POST,parameters,request,
-    href: containers/translator-container-supported-parameters.md    
 - name: Translator solutions
   items:
   - name: Language Studio

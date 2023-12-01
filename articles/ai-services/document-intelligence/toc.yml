@@ -124,7 +124,7 @@ items:
     - name: Use Microsoft Entra authentication
       displayName: headers, subscription, access token, azure active directory, subdomain, role, service principal
       href: ../../ai-services/authentication.md?context=/azure/ai-services/document-intelligence/context/context
-- name: Document Intelligence Containers
+- name: Containers
   items:
   - name: Install and run containers
     displayName: docker, docker-compose, container, compose, packages, az, acr, cli, import, pull, Azure AI Vision, kubernetes, cpu, EULA, billing
