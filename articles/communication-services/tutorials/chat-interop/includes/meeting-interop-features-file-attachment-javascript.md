@@ -221,7 +221,7 @@ Then you should see the new message being rendered along with file attachments:
 
 ## Handle image attachments
 
-In addition to regular files, image attachment needs to be treated differently. As we wrote in the beginning, the image attachment has `attachmentType` of `image`, which requires the communication token to retrieve the preview image and full scale image.
+Image attachments need to be treated differently to standard `file` attachments. Image attachment have the `attachmentType` of `image`, which requires the communication token to retrieve either the preview or full-size images.
 
 Before we go any further, make sure you have gone through the tutorial that demonstrates [how you can enable inline image support in your chat app](../meeting-interop-features-inline-image.md). To summary, fetching images require a communication token in the request header. Upon getting the image blob, we need to create an `ObjectUrl` that points to this blob. Then we inject this URL to `src` attribute of each inline image.
 
