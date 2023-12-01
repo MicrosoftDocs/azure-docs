@@ -5,7 +5,7 @@ summary: Text to speech from the Speech service enables your applications, tools
 metadata:
   title: Text to speech documentation - Tutorials, API Reference - Azure AI services | Microsoft Docs
   titleSuffix: Azure AI services
-  services: cognitive-services
+  #services: cognitive-services
   author: eric-urban
   manager: nitinme
   ms.service: speech-service

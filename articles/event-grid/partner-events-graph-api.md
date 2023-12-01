@@ -13,7 +13,7 @@ Microsoft Graph API provides a unified programmable model that you can use to re
 
 |Microsoft event source |Resource(s) | Available event types | 
 |:--- | :--- | :----|
-|Microsoft Entra ID| [User](/graph/api/resources/user), [Group](/graph/api/resources/group) | [Microsoft Entra event types](azure-active-directory-events.md) |
+|Microsoft Entra ID| [User](/graph/api/resources/user), [Group](/graph/api/resources/group) | [Microsoft Entra event types](microsoft-entra-events.md) |
 |Microsoft Outlook|[Event](/graph/api/resources/event) (calendar meeting), [Message](/graph/api/resources/message) (email), [Contact](/graph/api/resources/contact) | [Microsoft Outlook event types](outlook-events.md) |
 |Microsoft Teams|[ChatMessage](/graph/api/resources/callrecords-callrecord), [CallRecord](/graph/api/resources/callrecords-callrecord) (meeting) | [Microsoft Teams event types](teams-events.md) |
 |Microsoft SharePoint and OneDrive| [DriveItem](/graph/api/resources/driveitem)| |

@@ -5,7 +5,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: normesta
 
 ms.author: normesta
-ms.date: 09/06/2023
+ms.date: 11/09/2023
 ms.topic: how-to
 ms.service: azure-blob-storage
 ms.reviewer: sadodd 
@@ -656,6 +656,7 @@ This section describes known issues and conditions in the current release of the
 - Storage account failover of geo-redundant storage accounts with the change feed enabled may result in inconsistencies between the change feed logs and the blob data and/or metadata. For more information about such inconsistencies, see [Change feed and blob data inconsistencies](../common/storage-disaster-recovery-guidance.md#change-feed-and-blob-data-inconsistencies).
 - You might see 404 (Not Found) and 412 (Precondition Failed) errors reported on the **$blobchangefeed** and **$blobchangefeedsys** containers. You can safely ignore these errors.
 - BlobDeleted events are not generated when blob versions or snapshots are deleted. A BlobDeleted event is added only when a base (root) blob is deleted.
+- Event records are added only for changes to blobs that result from requests to the Blob Service endpoint (`blob.core.windows.net`). Changes that result from requests to the Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint aren't logged and won't appear in change feed records.
 
 ## Frequently asked questions (FAQ)
 

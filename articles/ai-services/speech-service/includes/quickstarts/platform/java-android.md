@@ -2,7 +2,7 @@
 title: Install the Speech SDK by using Android Studio
 titleSuffix: Azure AI services
 description: Use this guide to install the Speech SDK for Java in Android Studio.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

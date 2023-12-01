@@ -14,7 +14,8 @@ In this article, you learn how to migrate your Azure Kubernetes Service (AKS) cl
 
 ## Prerequisites
 
-Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions to [Install Azure CLI][install-azure-cli]. Run `az --version` to find the version, and run `az upgrade` to upgrade the version if not already on the latest.
+- Azure CLI version 2.54.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- `aks-preview` Azure CLI extension of version 0.5.171 or later installed
 
 > [!NOTE]
 > These steps detail migrating from an unsupported configuration. As such, AKS cannot offer support for issues that arise during the migration process.
@@ -24,7 +25,7 @@ Azure CLI version `2.49.0` or later. If you haven't yet, follow the instructions
 1. Enable the application routing add-on.
 
     ```azurecli-interactive
-    az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons web_application_routing
+    az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
     ```
 
 2. Update your Ingresses, setting `ingressClassName` to `webapprouting.kubernetes.azure.com`. Remove the `kubernetes.io/ingress.class` annotation. You also need to update the host to one that you own, as the application routing add-on doesn't have a managed cluster DNS zone. If you don't have a DNS zone, follow instructions to [create][app-routing-dns-create] and [configure][app-routing-dns-configure] one.
@@ -120,8 +121,8 @@ After migrating to the application routing add-on, learn how to [monitor Ingress
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[app-routing-dns-create]: ./app-routing-configuration.md#create-a-global-azure-dns-zone
-[app-routing-dns-configure]: ./app-routing-configuration.md#configure-the-add-on-to-use-azure-dns-to-manage-dns-zones
+[app-routing-dns-create]: ./app-routing-dns-ssl.md#create-a-global-azure-dns-zone
+[app-routing-dns-configure]: ./app-routing-dns-ssl.md#attach-azure-dns-zone-to-the-application-routing-add-on
 
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

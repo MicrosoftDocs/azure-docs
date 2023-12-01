@@ -7,19 +7,14 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 11/14/2023
 ms.author: helohr
 ---
 # Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication
 
-> [!IMPORTANT]
-> Single sign-on using Microsoft Entra authentication is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article walks you through the process of configuring single sign-on (SSO) using Microsoft Entra authentication for Azure Virtual Desktop. When you enable SSO, users will authenticate to Windows using a Microsoft Entra ID token, obtained for the *Microsoft Remote Desktop* resource application (changing to *Windows Cloud Login* beginning in 2024). This enables them to use passwordless authentication and third-party Identity Providers that federate with Microsoft Entra ID to sign in to your Azure Virtual Desktop resources. When enabled, this feature provides a single sign-on experience when authenticating to the session host and configures the session to provide single sign-on to Microsoft Entra ID-based resources inside the session.
 
-This article walks you through the process of configuring single sign-on (SSO) using Microsoft Entra authentication for Azure Virtual Desktop (preview). When you enable SSO, users will authenticate to Windows using a Microsoft Entra ID token, obtained for the *Microsoft Remote Desktop* resource application (changing to *Windows Cloud Login* beginning in 2024). This enables them to use passwordless authentication and third-party Identity Providers that federate with Microsoft Entra ID to sign in to your Azure Virtual Desktop resources. When enabled, this feature provides a single sign-on experience when authenticating to the session host and configures the session to provide single sign-on to Microsoft Entra ID-based resources inside the session.
-
-For information on using passwordless authentication within the session, see [In-session passwordless authentication (preview)](authentication.md#in-session-passwordless-authentication-preview).
+For information on using passwordless authentication within the session, see [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication).
 
 > [!NOTE]
 > Azure Virtual Desktop (classic) doesn't support this feature.
@@ -138,7 +133,7 @@ To enable SSO on your host pool, you must configure the following RDP property, 
 
 ## Next steps
 
-- Check out [In-session passwordless authentication (preview)](authentication.md#in-session-passwordless-authentication-preview) to learn how to enable passwordless authentication.
+- Check out [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication) to learn how to enable passwordless authentication.
 - For more information about Microsoft Entra Kerberos, see [Deep dive: How Microsoft Entra Kerberos works](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889)
 - If you're accessing Azure Virtual Desktop from our Windows Desktop client, see [Connect with the Windows Desktop client](./users/connect-windows.md).
 - If you're accessing Azure Virtual Desktop from our web client, see [Connect with the web client](./users/connect-web.md).

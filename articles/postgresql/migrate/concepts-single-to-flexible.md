@@ -28,7 +28,7 @@ In this article, we provide compelling reasons for single server customers to mi
 
 - **[Cost Savings](../flexible-server/how-to-deploy-on-azure-free-account.md)** – Flexible server allows you to stop and start server on-demand to lower your TCO. Your compute tier billing is stopped immediately, which allows you to have significant cost savings during development, testing and for time-bound predictable production workloads.
 
-- **[Support for new PG versions](../flexible-server/concepts-supported-versions.md)** - Flexible server currently supports PG version 11 and onwards till version 14. Newer community versions of PostgreSQL will be supported only in flexible server.
+- **[Support for new PG versions](../flexible-server/concepts-supported-versions.md)** - Flexible server currently supports PG version 11 and onwards till version 15. Newer community versions of PostgreSQL will be supported only in flexible server.
 
 - **Minimized Latency** – You can collocate your flexible server in the same availability zone as the application server that results in a minimal latency. This option isn't available in Single server.
 
@@ -134,7 +134,7 @@ We recommend customers to use pre-migration validations in the following way:
 4) Start the migration using the **Validate and Migrate** option on the planned date and time.
 
 > [!NOTE]  
-> Pre-migration validations is enabled for flexible servers in North Europe region. It will be enabled for flexible servers in other Azure regions soon. This functionality is available only in Azure portal. Support for CLI will be introduced at a later point in time.
+> Pre-migration validations is enabled for flexible servers in North Europe and East US 2 regions. It will be enabled for flexible servers in other Azure regions soon. This functionality is available only in Azure portal. Support for CLI will be introduced at a later point in time.
 
 ## Migration of users/roles, ownerships and privileges
 Along with data migration, the tool automatically provides the following built-in capabilities:
@@ -147,8 +147,8 @@ Along with data migration, the tool automatically provides the following built-i
 
 ## Limitations
 
-- You can have only one active migration or validation to your flexible server.
-- The source and target server must be in the same Azure region. Cross region migrations are enabled only for servers in China regions.
+- You can have only one active migration or validation to your Flexible server.
+- The source and target server must be in the same Azure region. Cross region migrations are enabled only for servers in India, China and UAE as Flexible server may not be available in all regions within these geographies.
 - The tool takes care of the migration of data and schema. It doesn't migrate managed service features such as server parameters, connection security details and firewall rules.
 - The migration tool shows the number of tables copied from source to target server. You need to manually validate the data in target server post migration.
 - The tool only migrates user databases and not system databases like template_0, template_1, azure_sys and azure_maintenance.
