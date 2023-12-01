@@ -132,7 +132,7 @@ Follow these steps to create a new console application.
         chat_with_open_ai()
     except Exception as err:
         print("Encountered exception. {}".format(err))
-```
+    ```
 
 1. To increase or decrease the number of tokens returned by Azure OpenAI, change the `max_tokens` parameter. For more information tokens and cost implications, see [Azure OpenAI tokens](/azure/ai-services/openai/overview#tokens) and [Azure OpenAI pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/).
 
