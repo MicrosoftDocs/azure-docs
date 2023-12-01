@@ -18,6 +18,7 @@ ms.date: 11/14/2023
 
 > [!IMPORTANT]
 > These virtual machines are in public preview and not recommended for production usage.
+> Currently these VMs are supported in the West Europe, Central US and East US 2 regions. North Europe will be available in January. 
 
 The DCesv5-series and DCedsv5-series are [Azure confidential VMs](../confidential-computing/confidential-vm-overview.md) which can be used to protect the confidentiality and integrity of your code and data while it's being processed in the public cloud. Organizations can use these VMs to seamlessly bring confidential workloads to the cloud without any code changes to the application. 
 
@@ -31,7 +32,7 @@ These VMs have native support for [confidential disk encryption](disk-encryption
 > There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
 
 > [!NOTE]
-> Certain applications which are time sensitive may experience asynchronous time at VM boot. Whilst a long-term fix is in development, a [workaround is available](../confidential-computing/confidential-vm-faq.md) for Linux and Windows customers today. If you need additional support, please create a support request.
+> Certain applications which are time sensitive may experience asynchronous time at VM boot. Whilst a long-term fix is in development, a [workaround is available](../confidential-computing/confidential-vm-faq.yml#what-can-i-do-if-the-time-on-my-dcesv5-ecesv5-series-vm-differs-from-utc-) for Linux and Windows customers today. If you need additional support, please create a support request.
 
 ### DCesv5 and DCedsv5-series feature support
 
