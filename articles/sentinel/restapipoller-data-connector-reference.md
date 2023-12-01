@@ -126,7 +126,7 @@ APIKey auth examples:
     "ApiKeyIdentifier": "Bearer"
 }
 ``` 
-This example results in the secret defined from user input sent in the following header: **X-MyApp-Auth-Header: Bearer <apikey>**
+This example results in the secret defined from user input sent in the following header: **X-MyApp-Auth-Header: Bearer `apikey`**
 
 ```json
 "auth": { 

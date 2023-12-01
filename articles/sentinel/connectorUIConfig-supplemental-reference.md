@@ -107,6 +107,52 @@ Provide either one query for all of the data connector's data types, or a differ
 |**legend**     |     String    |   The string that appears in the legend to the right of the chart, including a variable reference.<br><br>Example: `{{graphQueriesTableName}}`      |
 |**baseQuery**     | String        |    The query that filters for relevant events, including a variable reference. <br><br>Example: `TableName_CL | where ProviderName == "myprovider"` or `{{graphQueriesTableName}}` |
 
+### permissions
+
+|Array value  |Type  |Description  |
+|---------|---------|---------|
+| **customs** | String | Describes any custom permissions required for your data connection, in the following syntax: <br>`{`<br>`"name":`string`,`<br>`"description":`string<br>`}` <br><br>Example: The **customs** value displays in Microsoft Sentinel **Prerequisites** section with a blue informational icon. In the GitHub example, this value correlates to the line  **GitHub API personal token Key: You need access to GitHub personal token...** |
+| **licenses** | ENUM | Defines the required licenses, as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>Example: The **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
+| **resourceProvider**	| [resourceProvider](#resourceprovider) | Describes any prerequisites for your Azure resource. <br><br>Example: The **resourceProvider** value displays in Microsoft Sentinel **Prerequisites** section as: <br>**Workspace: read and write permission is required.**<br>**Keys: read permissions to shared keys for the workspace are required.**|
+| **tenant** | array of ENUM values<br>Example:<br><br>`"tenant": [`<br>`"GlobalADmin",`<br>`"SecurityAdmin"`<br>`]`<br> | Defines the required permissions, as one or more of the following values: `"GlobalAdmin"`, `"SecurityAdmin"`, `"SecurityReader"`, `"InformationProtection"` <br><br>Example:  displays the **tenant** value in Microsoft Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
+
+#### resourceProvider
+
+|sub array value |Type  |Description  |
+|---------|---------|---------|
+| **provider** | 	ENUM	| Describes the resource provider, with one of the following values: <br>- `Microsoft.OperationalInsights/workspaces` <br>- `Microsoft.OperationalInsights/solutions`<br>- `Microsoft.OperationalInsights/workspaces/datasources`<br>- `microsoft.aadiam/diagnosticSettings`<br>- `Microsoft.OperationalInsights/workspaces/sharedKeys`<br>- `Microsoft.Authorization/policyAssignments` |
+| **providerDisplayName** | 	String	| A list item under **Prerequisites** that displays a red "x" or green checkmark when the **requiredPermissions** are validated in the connector page. Example, `"Workspace"` |
+| **permissionsDisplayText** | 	String	| Display text for *Read*, *Write*, or *Read and Write* permissions that should correspond to the values configured in **requiredPermissions** |
+| **requiredPermissions** | `{`<br>`"action":`Boolean`,`<br>`"delete":`Boolean`,`<br>`"read":`Boolean`,`<br>`"write":`Boolean<br>`}` | Describes the minimum permissions required for the connector. |
+| **scope** | 	ENUM	 | Describes the scope of the data connector, as one of the following values: `"Subscription"`, `"ResourceGroup"`, `"Workspace"` |
+
+### sampleQueries
+
+|array value  |Type  |Description  |
+|---------|---------|---------|
+| **description** | String | A meaningful description for the sample query.<br><br>Example: `Top 10 vulnerabilities detected` |
+| **query** | String | Sample query used to fetch the data type's data. <br><br>Example: `{{graphQueriesTableName}}\n | sort by TimeGenerated\n | take 10` |
+
+### Configure other link options
+
+To define an inline link using markdown, use the following example.
+
+```json
+{
+   "title": "",
+   "description": "Make sure to configure the machine's security according to your organization's security policy\n\n\n[Learn more >](https://aka.ms/SecureCEF)"
+}
+```
+
+To define a link as an ARM template, use the following example as a guide:
+
+```json
+{
+   "title": "Azure Resource Manager (ARM) template",
+   "description": "1. Click the **Deploy to Azure** button below.\n\n\t[![Deploy To Azure](https://aka.ms/deploytoazurebutton)]({URL to custom ARM template})"
+}
+```
+
 ### instructionSteps
 
 This section provides parameters that define the set of instructions that appear on your data connector page in Microsoft Sentinel and has the following structure:
@@ -149,6 +195,8 @@ Displays a group of instructions, with various parameters and the ability to nes
 | **InstallAgent** | [InstallAgent](#installagent) | Displays a link to other portions of Azure to accomplish various installation requirements. |
 
 #### OAuthForm
+
+This component requires that the `OAuth2` type is present in the `auth` property of the .
 
 ```json
 "instructions": [
@@ -204,39 +252,6 @@ Here are some examples of the `Textbox` type. These examples correspond to the p
 }
 ]
 ```
-
-#### APIKey
-
-Create the configuration with placeholders parameters, to reuse across multiple connectors, or to create a connector with data that you don't currently have.
-
-To create placeholder parameters, define another array named `userRequestPlaceHoldersInput` in the [Instructions](#instructions) section of your [CCP JSON configuration] file, using the following syntax:
-
-```json
-"instructions": [
-{
-  "type": "APIKey",
-  "parameters": {
-    "enable": "true",
-    "userRequestPlaceHoldersInput": [
-      {
-        "displayText": "Organization Name",
-        "requestObjectKey": "apiEndpoint",
-        "placeHolderName": "apikey",
-        "placeHolderValue": ""
-      }
-    ]
-  }
-}
-]
-```
-The `userRequestPlaceHoldersInput` parameter includes the following attributes:
-
-|Name  |Type  |Description  |
-|---------|---------|---------|
-|**DisplayText**     |  String       | Defines the text box display value, which is displayed to the user when connecting. |
-|**RequestObjectKey** |String | Defines the ID in the request section of the **pollingConfig** to substitute the placeholder value with the user provided value. <br><br>If you don't use this attribute, use the `PollingKeyPaths` attribute instead. |
-|**PollingKeyPaths** |String | Defines an array of [JsonPath](https://www.npmjs.com/package/JSONPath) objects that directs the API call to anywhere in the template, to replace a placeholder value with a user value.<br><br>**Example**: `"pollingKeyPaths":["$.request.queryParameters.test1"]` <br><br>If you don't use this attribute, use the `RequestObjectKey` attribute instead. |
-|**PlaceHolderName** |String | Defines the name of the placeholder parameter in the JSON template file as a unique value, such as `apikey`. |
 
 #### CopyableLabel
 
@@ -313,52 +328,6 @@ Some **InstallAgent** types appear as a button, others appear as a link. Here ar
 |**policyDefinitionGuid**     | String        |  Required when using the **OpenPolicyAssignment** linkType. For policy-based connectors, defines the GUID of the built-in policy definition.        |
 |**assignMode**     |   ENUM      |   Optional. For policy-based connectors, defines the assign mode, as one of the following values: `Initiative`, `Policy`      |
 |**dataCollectionRuleType**     |  ENUM       |   Optional. For DCR-based connectors, defines the type of data collection rule type as either `SecurityEvent`, or `ForwardEvent`.     |
-
-### permissions
-
-|Array value  |Type  |Description  |
-|---------|---------|---------|
-| **customs** | String | Describes any custom permissions required for your data connection, in the following syntax: <br>`{`<br>`"name":`string`,`<br>`"description":`string<br>`}` <br><br>Example: The **customs** value displays in Microsoft Sentinel **Prerequisites** section with a blue informational icon. In the GitHub example, this value correlates to the line  **GitHub API personal token Key: You need access to GitHub personal token...** |
-| **licenses** | ENUM | Defines the required licenses, as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>Example: The **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
-| **resourceProvider**	| [resourceProvider](#resourceprovider) | Describes any prerequisites for your Azure resource. <br><br>Example: The **resourceProvider** value displays in Microsoft Sentinel **Prerequisites** section as: <br>**Workspace: read and write permission is required.**<br>**Keys: read permissions to shared keys for the workspace are required.**|
-| **tenant** | array of ENUM values<br>Example:<br><br>`"tenant": [`<br>`"GlobalADmin",`<br>`"SecurityAdmin"`<br>`]`<br> | Defines the required permissions, as one or more of the following values: `"GlobalAdmin"`, `"SecurityAdmin"`, `"SecurityReader"`, `"InformationProtection"` <br><br>Example:  displays the **tenant** value in Microsoft Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
-
-#### resourceProvider
-
-|sub array value |Type  |Description  |
-|---------|---------|---------|
-| **provider** | 	ENUM	| Describes the resource provider, with one of the following values: <br>- `Microsoft.OperationalInsights/workspaces` <br>- `Microsoft.OperationalInsights/solutions`<br>- `Microsoft.OperationalInsights/workspaces/datasources`<br>- `microsoft.aadiam/diagnosticSettings`<br>- `Microsoft.OperationalInsights/workspaces/sharedKeys`<br>- `Microsoft.Authorization/policyAssignments` |
-| **providerDisplayName** | 	String	| A list item under **Prerequisites** that displays a red "x" or green checkmark when the **requiredPermissions** are validated in the connector page. Example, `"Workspace"` |
-| **permissionsDisplayText** | 	String	| Display text for *Read*, *Write*, or *Read and Write* permissions that should correspond to the values configured in **requiredPermissions** |
-| **requiredPermissions** | `{`<br>`"action":`Boolean`,`<br>`"delete":`Boolean`,`<br>`"read":`Boolean`,`<br>`"write":`Boolean<br>`}` | Describes the minimum permissions required for the connector. |
-| **scope** | 	ENUM	 | Describes the scope of the data connector, as one of the following values: `"Subscription"`, `"ResourceGroup"`, `"Workspace"` |
-
-### sampleQueries
-
-|array value  |Type  |Description  |
-|---------|---------|---------|
-| **description** | String | A meaningful description for the sample query.<br><br>Example: `Top 10 vulnerabilities detected` |
-| **query** | String | Sample query used to fetch the data type's data. <br><br>Example: `{{graphQueriesTableName}}\n | sort by TimeGenerated\n | take 10` |
-
-### Configure other link options
-
-To define an inline link using markdown, use the following example.
-
-```json
-{
-   "title": "",
-   "description": "Make sure to configure the machine's security according to your organization's security policy\n\n\n[Learn more >](https://aka.ms/SecureCEF)"
-}
-```
-
-To define a link as an ARM template, use the following example as a guide:
-
-```json
-{
-   "title": "Azure Resource Manager (ARM) template",
-   "description": "1. Click the **Deploy to Azure** button below.\n\n\t[![Deploy To Azure](https://aka.ms/deploytoazurebutton)]({URL to custom ARM template})"
-}
-```
 
 ## Example data connector definition
 

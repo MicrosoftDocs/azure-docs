@@ -322,7 +322,7 @@ To create this connector in a test environment, follow the [Data Collection Rule
 
 ### Example ARM template
 
-This guide is an ARM deployment template, but it excludes some sections like `functions` and `output` for efficiency.
+This guide is an ARM deployment template with the following structure:
 
 ```json
 {
@@ -333,10 +333,11 @@ This guide is an ARM deployment template, but it excludes some sections like `fu
     "resources": [],
 }
 ```
+Stitch the sections together to create deployment template for your CCP data connector.
 
-Comments to guide the template building process will appear in the **metadata** `description` or inline with `//`. They are ok to leave or remove. For more information, see [ARM template best practices - comments](../azure-resource-manager/templates/best-practices.md#comments).
+Comments to guide the template building process will appear in the **metadata** `description` or inline with `//` comment notation. Leave the comments or optionally remove them. For more information, see [ARM template best practices - comments](../azure-resource-manager/templates/best-practices.md#comments).
 
-Consider using the ARM template test toolkit (arm-ttk) to validate the template you build. For more information, see [arm-ttk](../azure-resource-manager/templates/test-toolkit.md). 
+Consider using the ARM template test toolkit (arm-ttk) to validate the template you build. For more information, see [arm-ttk](../azure-resource-manager/templates/test-toolkit.md).
 
 #### Example ARM template - parameters
 
@@ -414,17 +415,17 @@ These recommended variables help simplify the template. Use more or less as need
 ```
 #### Example ARM template - resources
 
-There are 5 resources in this template guide.
+There are 5 resources in this template guide. 
 
 1. **contentTemplates** (a parent resource)
     - metadata
-    - dataConnectorDefinitions
-    - dataCollectionRules
-    - tables
-1. **dataConnectorDefinitions**
+    - dataConnectorDefinitions - For more information, see [Data connector user interface](#data-connector-user-interface).
+    - dataCollectionRules - For more information, see [Data collection rule](#data-collection-rule).
+    - tables - For more information, see [Output table definition](#output-table-definition).
+1. **dataConnectorDefinitions** - the same [Data connector user interface](#data-connector-user-interface) section.
 1. **metadata**
 1. **contentTemplates** 
-    - RestApiPoller
+    - RestApiPoller - For more information, see [Data connection rules](#data-connection-rules).
 1. **contentPackages**
 
 ```json
@@ -487,25 +488,23 @@ There are 5 resources in this template guide.
                             "location": "[parameters('workspace-location')]",
                             "kind": "Customizable",
                             "properties": {
-                                // Enter your data connector definition properties here
-								// "graphQueriesTableName": "[variables('_logAnalyticsTableId1')]",
+                                // Enter your data connector definition properties here. This is the 'connectorUiConfig' section.
+                                //  Consider using this variable for the graphQueriesTableName property:
+                                //  "graphQueriesTableName": "[variables('_logAnalyticsTableId1')]",
                             }
                         },
                         {
-                            "name": "MyDCRV1", //Enter your DCR name
+                            "name": "MyDCRV1", // Enter your DCR name
                             "apiVersion": "2021-09-01-preview",
                             "type": "Microsoft.Insights/dataCollectionRules",
                             "location": "[parameters('workspace-location')]",
                             "kind": null,
                             "properties": 
-							{ //DCR here
-                                //"destinations": {
-                                //    "logAnalytics": [
-                                //        {
-                                //            "workspaceResourceId": "[variables('workspaceResourceId')]",
-                                //        }
-                                //    ]
-                                //},
+							{ 
+                                // Enter your DCR properties here.
+                                //  Consider using these variables:
+                                //  "dataCollectionEndpointId": "[concat('/subscriptions/',parameters('subscription'),'/resourceGroups/',parameters('resourceGroupName'),'/providers/Microsoft.Insights/dataCollectionEndpoints/',parameters('workspace'))]",
+                                //  "workspaceResourceId": "[variables('workspaceResourceId')]",
 							}
                         },
                         {
@@ -516,13 +515,12 @@ There are 5 resources in this template guide.
                             "kind": null,
                             "properties": 
 							{
-								//Enter your log analytics table properties here
-                                // "schema": {
-                                //    "tableSubType": "DataCollectionRuleBased",
+								// Enter your log analytics table properties here.
+                                //  Consider using this variable for the name property:
                                 //    "name": "[variables('_logAnalyticsTableId1')]",
 							}			
                         }
-						// Enter more tables if needed
+						// Enter more tables if needed.
                     ]
                 },
                 "packageKind": "Solution",
