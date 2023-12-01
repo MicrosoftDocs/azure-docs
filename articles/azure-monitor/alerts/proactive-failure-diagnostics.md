@@ -407,15 +407,8 @@ Click **Alerts** in the Application Insights resource page to get to the most re
 
 :::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Alerts summary." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
-## What's the difference ...
-Smart Detection of Failure Anomalies complements other similar but distinct features of Application Insights.
-
-* [metric alerts](./alerts-log.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, Smart Detection of Failure Anomalies covers a small range of critical metrics (currently only failed request rate), designed to notify you in near real-time manner once your web app's failed request rate increases compared to web app's normal behavior. Unlike metric alerts, Smart Detection automatically sets and updates thresholds in response changes in the behavior. Smart Detection also starts the diagnostic work for you, saving you time in resolving issues.
-
-* [Smart Detection of performance anomalies](smart-detection-performance.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Smart Detection of Failure Anomalies, the purpose of Smart  Detection of performance anomalies is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for Failure Anomalies is performed continuously on incoming application data, and you will be notified within minutes if server failure rates are greater than expected.
-
 ## If you receive a Smart Detection alert
-*Why have I received this alert?*
+*Why I received this alert?*
 
 * We detected an abnormal rise in failed requests rate compared to the normal baseline of the preceding period. After analysis of the failures and associated application data, we think that there is a problem that you should look into.
 
