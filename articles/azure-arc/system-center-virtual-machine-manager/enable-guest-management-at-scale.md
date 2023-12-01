@@ -51,4 +51,4 @@ An admin can install agents for multiple machines from the Azure portal if the m
 
 ## Next steps
 
-[Manage VM extensions to use Azure management services for your SCVMM VMs](../servers/manage-vm-extensions.md)
+[Manage VM extensions to use Azure management services for your SCVMM VMs](../servers/manage-vm-extensions.md).
