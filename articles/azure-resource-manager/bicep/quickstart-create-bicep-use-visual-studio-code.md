@@ -243,8 +243,6 @@ The visualizer shows the resources defined in the Bicep file with the resource d
 
     :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-select-parameter-file.png" alt-text="Screenshot of Select parameter file.":::
 
-1. From **Create parameters file from values used in this deployment?**, select **No**.
-
 It takes a few moments to create the resources. For more information, see [Deploy Bicep files with Visual Studio Code](./deploy-vscode.md).
 
 You can also deploy the Bicep file by using Azure CLI or Azure PowerShell:
