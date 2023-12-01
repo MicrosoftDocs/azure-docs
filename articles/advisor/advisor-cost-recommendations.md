@@ -105,10 +105,10 @@ We're constantly working on improving these recommendations. Feel free to share 
 
 ## Configure VM/VMSS recommendations
 
-You can adjust Advisor virtual machine (VM) and virtual machine scale sets (VMSS) recommendations. Specifically, you can adjust the average CPU utilization rule and the look back period by subscription. Doing virtual machine (VM) right sizing requires specialized knowledge. To learn about right sizing, visit [Rightsize to maximize your cloud investment with Microsoft Azure](https://azure.microsoft.com/blog/rightsize-to-maximize-your-cloud-investment-with-microsoft-azure/).
+You can adjust Advisor virtual machine (VM) and virtual machine scale sets (VMSS) recommendations. Specifically, you can setup a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting will filter recommendations but will not change how they are generated.
 
 > [!NOTE]
-> To change subscriptions or Advisor compute rules, you must be a subscription Owner.  If you don't have the required permissions, the option is disabled in the user interface. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
+If you don't have the required permissions, the option is disabled in the user interface. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
 
 To adjust Advisor VM/VMSS right sizing rules, follow these steps:
 
@@ -116,7 +116,7 @@ To adjust Advisor VM/VMSS right sizing rules, follow these steps:
 
 1. Select the **VM/VMSS right sizing** tab.
 
-1. Select the subscriptions you’d like to adjust the average CPU utilization rule for, and then click **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing and certain privileges are required; for more information on permissions, see [Permissions in Azure Advisor](permissions.md).
+1. Select the subscriptions you’d like to setup a filter for average CPU utilization, and then click **Edit**.
 
 1. Select the desired average CPU utilization value and click **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 
