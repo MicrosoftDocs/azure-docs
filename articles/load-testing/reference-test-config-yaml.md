@@ -36,6 +36,7 @@ A test configuration uses the following keys:
 | `autoStop.timeWindow` | integer | 60 | Time window in seconds for calculating the *autoStop.errorPercentage*. |
 | `properties` | object |  | List of properties to configure the load test. |
 | `properties.userPropertyFile` | string |  | File to use as an Apache JMeter [user properties file](https://jmeter.apache.org/usermanual/test_plan.html#properties). The file is uploaded to the Azure Load Testing resource alongside the JMeter test script and other configuration files. If the file is in a subfolder on your local machine, use a path relative to the location of the test script. |
+| `zipArtifacts` | array |  | List of zip artifact files load test. For files other than JMeter scripts and user properties, if the file size exceeds 50MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. |
 | `splitAllCSVs` | boolean | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
 | `secrets` | object |  | List of secrets that the Apache JMeter script references. |
 | `secrets.name` | string |  | Name of the secret. This name should match the secret name that you use in the Apache JMeter script. |
@@ -62,6 +63,9 @@ properties:
   userPropertyFile: 'user.properties'
 configurationFiles:
   - 'SampleData.csv'
+zipArtifacts:
+   - sampleArtifact.zip
+   - TestData.zip
 failureCriteria:
   - avg(response_time_ms) > 300
   - percentage(error) > 50
