@@ -20,9 +20,8 @@ A platform engineering team typically sets up a dev center, attaches external ca
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure role-based access control role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
-- [Install the Azure CLI](/cli/azure/install-azure-cli).
-- [Install the dev center CLI extension](how-to-install-devcenter-cli-extension.md)
-- A GitHub account and a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with repo access. 
+- Install the [Azure CLI devcenter extension](how-to-install-devcenter-cli-extension.md).
+- A GitHub account and a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with repo access.
 
 ## Create a dev center
 
@@ -110,7 +109,7 @@ You need an Azure Key Vault to store the GitHub personal access token (PAT) that
 1. Add the GitHub PAT to Key Vault as a secret:
 
    ```azurecli
-   az keyvault secret set --vault-name <kv name> --name GHPAT --value <personalAccessToken> 
+   az keyvault secret set --vault-name <keyvaultName> --name GHPAT --value <personalAccessToken> 
    ```
 
 ## Attach an identity to the dev center
