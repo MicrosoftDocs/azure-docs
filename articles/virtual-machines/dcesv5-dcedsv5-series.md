@@ -16,6 +16,9 @@ ms.date: 11/14/2023
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
 
+> [!IMPORTANT]
+> These virtual machines are in public preview and not recommended for production usage.
+
 The DCesv5-series and DCedsv5-series are [Azure confidential VMs](../confidential-computing/confidential-vm-overview.md) which can be used to protect the confidentiality and integrity of your code and data while it's being processed in the public cloud. Organizations can use these VMs to seamlessly bring confidential workloads to the cloud without any code changes to the application. 
 
 These machines are powered by Intel® 4th Generation Xeon® Scalable processors with All Core Frequency of 2.1 GHz, and use Intel® Turbo Boost Max Technology to reach 2.9 GHz.
@@ -26,6 +29,9 @@ These VMs have native support for [confidential disk encryption](disk-encryption
 
 > [!NOTE]
 > There are some [pricing differences based on your encryption settings](../confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for confidential VMs.
+
+> [!NOTE]
+> Certain applications which are time sensitive may experience asynchronous time at VM boot. Whilst a long-term fix is in development, a [workaround is available](../confidential-computing/confidential-vm-faq.md) for Linux and Windows customers today. If you need additional support, please create a support request.
 
 ### DCesv5 and DCedsv5-series feature support
 
@@ -91,5 +97,5 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a confidential VM in Azure Portal](../confidential-computing/quick-create-confidential-vm-portal-amd.md)
-> [Create a confidential VM in Azure CLI](../confidential-computing/quick-create-confidential-vm-azure-cli-amd.md)
+> [Create a confidential VM in Azure Portal](../confidential-computing/quick-create-confidential-vm-portal.md)
+> [Create a confidential VM in Azure CLI](../confidential-computing/quick-create-confidential-vm-azure-cli.md)

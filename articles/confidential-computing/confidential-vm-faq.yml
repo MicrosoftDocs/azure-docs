@@ -170,3 +170,20 @@ sections:
           For more information on storage fees, see the [pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
           Lastly, for some high security and privacy settings, you might choose to create linked resources, such as a [Managed HSM Pool](../key-vault/managed-hsm/overview.md). 
           Azure bills such resources separately from the confidential VM costs.
+      - question: |
+          What can I do if the time on my DCesv5/ECesv5-series VM differs from UTC?
+        answer: |
+          Rarely some DCesv5/ECesv5-series VMs may experience a small time difference from UTC. A long term fix will be available for this soon. In the meantime here are the workarounds for Windows and Ubuntu Linux VMs:
+
+            ``` Windows
+            sc config vmictimesync start=disabled
+            ```
+
+            ``` Ubuntu Linux
+            sudo apt-get install systemd
+            timedatectl
+            sudo timedatectl set-ntp on
+            timedatectl 
+            ```
+
+          
