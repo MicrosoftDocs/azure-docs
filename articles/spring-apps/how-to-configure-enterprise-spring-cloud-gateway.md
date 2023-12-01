@@ -423,7 +423,7 @@ For more information on the available metrics, see the [User metrics options](./
 
 ## Configure response cache
 
-Response cache configuration provides a way to define a HTTP response cache that can be applied globally or at the route level.
+Response cache configuration provides a way to define an HTTP response cache that can be applied globally or at the route level.
 
 ### Enable response cache globally
 
@@ -497,7 +497,7 @@ To enable response cache in any route, use the `LocalResponseCache` filter. The 
 
 To learn more about the `LocalResponseCache` filter, see [How to configure `LocalResponseCache` filter in routing rules](./how-to-configure-enterprise-spring-cloud-gateway-filters.md#localresponsecache) and [More details of `LocalResponseCache` filter from VMware](https://aka.ms/vmware/scg/filters/localresponsecache).
 
-Instead of configuring the `size` and `timeToLive` for the `LocalResponseCache` filter individually, you can set these parameters at the Spring Cloud Gateway level. This allows you to use the `LocalResponseCache` filter without specifying these values initially, while retaining the flexibility to override them later.
+Instead of configuring the `size` and `timeToLive` for the `LocalResponseCache` filter individually, you can set these parameters at the Spring Cloud Gateway level. This option allows you to use the `LocalResponseCache` filter without specifying these values initially, while retaining the flexibility to override them later.
 
 #### [Azure portal](#tab/Azure-portal)
 

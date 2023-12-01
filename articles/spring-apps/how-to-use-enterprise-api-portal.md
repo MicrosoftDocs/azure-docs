@@ -35,7 +35,7 @@ API portal supports authentication and authorization using single sign-on (SSO) 
 
 | Property | Required? | Description |
 | - | - | - |
-| issuerUri | Yes | The URI that the app asserts as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response. |
+| issuerUri | Yes | The URI that the app asserts as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request is made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response. |
 | clientId | Yes | The OpenID Connect client ID provided by your IdP |
 | clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
 | scope | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
@@ -73,7 +73,7 @@ Use the following steps to assign a public endpoint to API portal:
 
 1. Select **API portal**.
 1. Select **Overview** to view the running state and resources allocated to API portal.
-1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated within a few minutes.
+1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL is generated within a few minutes.
 1. Save the URL for use later.
 
 You can also use the following Azure CLI command to assign a public endpoint:
@@ -84,7 +84,7 @@ az spring api-portal update --assign-endpoint
 
 ## Configure API try-out feature
 
-API portal enables developers to view APIs centrally and allows them to directly try out APIs by leveraging the API try-out feature. API try-out is enabled by default and this configuration helps you to turn it off across the whole API portal instance. For more information on how to use this feature, see [Try out APIs in API portal](#try-out-apis-in-api-portal).
+API portal enables developers to view APIs centrally and allows them to directly try out APIs by using the API try-out feature. API try-out is enabled by default and this configuration helps you to turn it off across the whole API portal instance. For more information on how to use this feature, see [Try out APIs in API portal](#try-out-apis-in-api-portal).
 
 ### [Azure portal](#tab/Portal)
 
@@ -118,7 +118,7 @@ az spring api-portal update --enable-api-try-out false \
 
 This section describes how to view and try out APIs with schema definitions in API portal. Use the following steps to configure API routing with an OpenAPI spec URL on Spring Cloud Gateway for Tanzu.
 
-1. Create an app in Azure Spring Apps that the gateway will route traffic to.
+1. Create an app in Azure Spring Apps that the gateway routes traffic to.
 
 1. Generate the OpenAPI definition and get the URI to access it. The following two URI options are accepted:
 
@@ -185,7 +185,7 @@ This section describes how to view and try out APIs with schema definitions in A
 > [!NOTE]
 > It takes several minutes to sync between Spring Cloud Gateway for Tanzu and API portal.
 
-Select the `endpoint URL` to go to API portal. You'll see all the routes configured in Spring Cloud Gateway for Tanzu.
+Select the `endpoint URL` to go to API portal. You see all the routes configured in Spring Cloud Gateway for Tanzu.
 
 :::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of API portal showing configured routes.":::
 
@@ -194,7 +194,7 @@ Select the `endpoint URL` to go to API portal. You'll see all the routes configu
 Use the following steps to try out APIs:
 
 1. Select the API you would like to try.
-1. Select **EXECUTE**, and the response will be shown.
+1. Select **EXECUTE**, and the response appears.
 
    :::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of API portal.":::
 
