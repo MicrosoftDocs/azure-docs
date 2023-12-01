@@ -89,11 +89,11 @@ A DAG (Directed Acyclic Graph) is the core concept of Airflow, collecting Tasks 
 
 There are three ways to declare a DAG: 
 
-  1. You can use a context manager, which adds the DAG to anything inside it implicitly 
+  - You can use a context manager, which adds the DAG to anything inside it implicitly 
 
-  2. You can use a standard constructor, passing the DAG into any operators you use 
+  - You can use a standard constructor, passing the DAG into any operators you use 
 
-  3. You can use the @dag decorator to turn a function into a DAG generator (from airflow.decorators import dag) 
+  - You can use the @dag decorator to turn a function into a DAG generator (from airflow.decorators import dag) 
 
 DAGs are nothing without Tasks to run, and those are come in the form of either Operators, Sensors or TaskFlow. 
 
@@ -107,9 +107,9 @@ The airflow-python-example-code.py is an example of orchestrating a Spark job su
 
 The DAG has the following steps: 
 
-- get `OAuth Token` 
+1. get `OAuth Token` 
 
-- Invoke Apache Spark Livy Batch API to submit a new job 
+1. Invoke Apache Spark Livy Batch API to submit a new job 
 
 The DAG expects to have setup for the Service Principal, as described during the setup process for the OAuth Client credential and pass the following input configuration for the execution. 
 
@@ -119,16 +119,16 @@ The DAG expects to have setup for the Service Principal, as described during the
 
     :::image type="content" source="./media/spark-job-orchestration/airflow-user-interface-step-1.png" alt-text="Screenshot shows open the Azure data factory managed airflow UI by clicking on monitor icon." lightbox="./media/spark-job-orchestration/airflow-user-interface-step-1.png":::
 
-2. Select the “SparkWordCountExample” DAG from the “DAGs” page.  
+1. Select the “SparkWordCountExample” DAG from the “DAGs” page.  
 
     :::image type="content" source="./media/spark-job-orchestration/airflow-user-interface-step-2.png" alt-text="Screenshot shows select the Spark word count example." lightbox="./media/spark-job-orchestration/airflow-user-interface-step-2.png":::
 
-3. Click on the “execute” icon from the top right corner and select “Trigger DAG w/ config”.  
+1. Click on the “execute” icon from the top right corner and select “Trigger DAG w/ config”.  
 
     :::image type="content" source="./media/spark-job-orchestration/airflow-user-interface-step-3.png" alt-text="Screenshot shows select execute icon." lightbox="./media/spark-job-orchestration/airflow-user-interface-step-3.png":::
 
             
-4. Pass required configuration JSON 
+1. Pass required configuration JSON 
 
     ```JSON
     { 
@@ -142,13 +142,13 @@ The DAG expects to have setup for the Service Principal, as described during the
     } 
     ```
 
-5. Click on “Trigger” button, it starts the execution of the DAG. 
+1. Click on “Trigger” button, it starts the execution of the DAG. 
 
-6. You can visualize the status of DAG tasks from the DAG run 
+1. You can visualize the status of DAG tasks from the DAG run 
 
     :::image type="content" source="./media/spark-job-orchestration/dag-task-status.png" alt-text="Screenshot shows dag task status." lightbox="./media/spark-job-orchestration/dag-task-status.png":::
 
-7. Validate the job from “Apache Spark History Server” 
+1. Validate the job from “Apache Spark History Server” 
 
     :::image type="content" source="./media/spark-job-orchestration/validate-job-execution.png" alt-text="Screenshot shows validate job execution." lightbox="./media/spark-job-orchestration/validate-job-execution.png":::
 
