@@ -333,7 +333,6 @@ Represents the create ingestion request model for the JSON document.
 | videos | [ [IngestionDocumentRequestModel](#ingestiondocumentrequestmodel) ] | Gets or sets the list of video document ingestion requests in the JSON document. | No |
 | moderation | boolean | Gets or sets the moderation flag, indicating if the content should be moderated. | No |
 | generateInsightIntervals | boolean | Gets or sets the interval generation flag, indicating if insight intervals should be generated. | No |
-| documentAuthenticationKind | string | Gets or sets the authentication kind that is to be used for downloading the documents.<br>*Enum:* `"none"`, `"managedIdentity"` | No |
 | filterDefectedFrames | boolean | Frame filter flag indicating frames will be evaluated and all defected (e.g. blurry, lowlight, overexposure) frames will be filtered out. | No |
 
 ### DatetimeFilterModel
