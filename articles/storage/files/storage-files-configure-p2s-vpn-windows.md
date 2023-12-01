@@ -1,6 +1,6 @@
 ---
 title: Configure a point-to-site (P2S) VPN on Windows for use with Azure Files
-description: How to configure a point-to-site (P2S) VPN on Windows for use with Azure Files
+description: How to configure a point-to-site (P2S) VPN on Windows for use with SMB Azure file shares
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
@@ -469,7 +469,19 @@ Remove-Item -Path $vpnTemp -Recurse
 
 ## Mount Azure file share
 
-Now that you've set up your point-to-Site VPN, you can use it to mount the Azure file share to an on-premises machine. The following example will mount the share, list the root directory of the share to prove the share is actually mounted, and then unmount the share.
+Now that you've set up your point-to-site VPN, you can use it to mount the Azure file share to an on-premises machine.
+
+# [Portal](#tab/azure-portal)
+
+To mount the file share using your storage account key, open a Windows command prompt and run the following command. Replace `<YourStorageAccountName>`, `<FileShareName>`, and `<YourStorageAccountKey>` with your own values. If Z: is already in use, replace it with an available drive letter. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**.
+
+```
+net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:localhost\<YourStorageAccountName> <YourStorageAccountKey>
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+The following PowerShell script will mount the share, list the root directory of the share to prove the share is actually mounted, and then unmount the share.
 
 > [!NOTE]
 > It isn't possible to mount the share persistently over PowerShell remoting. To mount persistently, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
@@ -515,6 +527,7 @@ Invoke-Command `
         Remove-PSDrive -Name Z
     }
 ```
+---
 
 ## Rotate VPN Root Certificate
 
