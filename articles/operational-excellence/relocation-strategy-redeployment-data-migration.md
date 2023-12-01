@@ -10,7 +10,7 @@ ms.subservice: availability-zones
 ms.custom: subject-reliability
 ---
 
-## Azure region relocation with Azure Resource Mover
+# Azure region relocation with Azure Resource Mover
 
 This article shows you how to use Azure Resource Mover for moving resources across regions.
 

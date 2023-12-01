@@ -10,7 +10,7 @@ ms.subservice: availability-zones
 ms.custom: subject-reliability
 ---
 
-## Azure region relocation with Azure Resource Mover
+# Azure region relocation with Azure Resource Mover
 
 This article shows you how to use Azure Resource Mover for moving resources across regions.
 
@@ -26,7 +26,7 @@ With ARM, you can:
 :::image type="content" source="media/relocation/resource-mover.png" alt-text="Diagram of how ARM moves resources between one region and another":::
 
 
-### Supported use cases
+## Supported use cases
 
 You can move the following resources across regions with [Azure Resource Mover](/azure/resource-mover/overview)::
 
@@ -40,7 +40,7 @@ You can move the following resources across regions with [Azure Resource Mover](
 - Internal and public load balancers
 - Azure SQL databases and elastic pools
 
-### The ARM relocation process
+## The ARM relocation process
 
 How you move resources across regions depends on the type of resources moved. Regardless, the following process for moving resource is typical:
 
