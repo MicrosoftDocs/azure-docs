@@ -355,9 +355,37 @@ You'll configure the VPN connection using the [Always On VPN](/windows-server/re
 
 # [Portal](#tab/azure-portal)
 
+## Install the client certificate
+
 To install the client certificate required for authentication against the virtual network gateway, follow these steps on the client computer.
 
 [!INCLUDE [Install on Windows](../../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
+
+## Install the VPN client
+
+This section helps you configure the native VPN client that's part of your Windows operating system to connect to your virtual network (IKEv2 and SSTP). This configuration doesn't require additional client software.
+
+### View configuration files
+
+On the client computer, navigate to `C:\vpn-temp` and open the **vpnclientconfiguration** folder to view the following subfolders:
+
+* **WindowsAmd64** and **WindowsX86**, which contain the Windows 64-bit and 32-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just Amd.
+* **Generic**, which contains general information used to create your own VPN client configuration. The Generic folder is provided if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder isn't present.
+
+### Configure VPN client profile
+
+You can use the same VPN client configuration package on each Windows client computer, as long as the version matches the architecture for the client.
+
+>[!NOTE]
+>You must have Administrator rights on the Windows client computer from which you want to connect.
+
+1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the `VpnClientSetupAmd64` installer package. For a 32-bit processor architecture, choose the `VpnClientSetupX86` installer package.
+
+1. Double-click the package to install it. If you see a SmartScreen popup, select **More info**, then **Run anyway**.
+
+1. Connect to your VPN. Go to the **VPN** settings and locate the VPN connection that you created. It's the same name as your virtual network. Select **Connect**. A pop-up message might appear. Select **Continue** to use elevated privileges.
+
+1. On the **Connection status** page, select **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it isn't, use the drop-down arrow to select the correct certificate, and then select **OK**.
 
 # [PowerShell](#tab/azure-powershell)
 
