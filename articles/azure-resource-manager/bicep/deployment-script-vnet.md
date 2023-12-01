@@ -156,7 +156,7 @@ resource dsTest 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   kind: 'AzureCLI'
   properties: {
     forceUpdateTag: utcValue
-    azCliVersion: '2.47.0'
+    azCliVersion: '2.52.0'
     storageAccountSettings: {
       storageAccountName: storageAccountName
     }

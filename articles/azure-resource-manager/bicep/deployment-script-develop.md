@@ -25,7 +25,6 @@ The following Bicep file is an example of the deployment script resource. For mo
 resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   name: 'runPowerShellInline'
   location: resourceGroup().location
-  kind: 'AzurePowerShell'
   tags: {
     tagName1: 'tagValue1'
     tagName2: 'tagValue2'
@@ -36,6 +35,7 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
       '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID': {}
     }
   }
+  kind: 'AzurePowerShell'
   properties: {
     forceUpdateTag: '1'
     containerSettings: {
@@ -50,7 +50,7 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
       storageAccountName: 'myStorageAccount'
       storageAccountKey: 'myKey'
     }
-    azPowerShellVersion: '9.7' // or azCliVersion: '2.47.0'
+    azPowerShellVersion: '10.0' // or azCliVersion: '2.52.0'
     arguments: '-name \\"John Dole\\"'
     environmentVariables: [
       {
@@ -79,13 +79,14 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
 
 Property value details:
 
-- <a id='identity'></a>`identity`: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script or running deployment script in private network. For more information, see [Access private virtual network](#access-private-virtual-network). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) in the script.
-- `tags`: Deployment script tags. If the deployment script service creates the two supporting resources - a storage account and a container instance, the tags are passed to both resources, which can be used to identify them. Another way to identify these supporting resources is through their suffixes, which contain "azscripts". For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-troubleshoot.md).
-- `kind`: Specify the type of script, either **AzurePowerShell** or **AzureCLI**.
-- `forceUpdateTag`: Changing this value between Bicep file deployments forces the deployment script to re-execute. If you use the `newGuid()` or the `utcNow()` functions, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
-- `containerSettings`: Specify the settings to customize Azure Container Instance. Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated. You can also specify subnetIds for running the deployment script in a private network. For more information, see [Access private virtual network](#access-private-virtual-network).
-- `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
-- `azPowerShellVersion`/`azCliVersion`: Specify the module version to be used. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). The version determines which container image to use:
+|Property|Description|
+|<a id='identity'></a>`identity`|For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script or running deployment script in private network. For more information, see [Access private virtual network](#access-private-virtual-network). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) in the script.|
+|`tags`|Deployment script tags. If the deployment script service creates the two supporting resources - a storage account and a container instance, the tags are passed to both resources, which can be used to identify them. Another way to identify these supporting resources is through their suffixes, which contain "azscripts". For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-troubleshoot.md).|
+|`forceUpdateTag`|Changing this value between Bicep file deployments forces the deployment script to re-execute. If you use the `newGuid()` or the `utcNow()` functions, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).|
+|`containerSettings`|Specify the settings to customize Azure Container Instance. Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated. You can also specify subnetIds for running the deployment script in a private network. For more information, see [Access private virtual network](#access-private-virtual-network).|
+|`storageAccountSettings`|Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).|
+|`kind`|Specify the type of script, either **AzurePowerShell** or **AzureCLI**.|
+|`azPowerShellVersion`/`azCliVersion`|Specify the module version to be used. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). The version determines which container image to use:
 
   - **Az version greater than or equal to 9** uses Ubuntu 22.04.
   - **Az version greater than or equal to 6 but less than 9** uses Ubuntu 20.04.
@@ -98,8 +99,8 @@ Property value details:
 
   > [!IMPORTANT]
   > Deployment script uses the available CLI images from Microsoft Container Registry (MCR). It typically takes approximatedly one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If an unsupported version is used, the error message lists the supported versions.
-
-- `arguments`: Specify the parameter values. The values are separated by spaces.
+|
+|`arguments`|Specify the parameter values. The values are separated by spaces.
 
   Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This step is necessary because the arguments are passed as a [command property](/rest/api/container-instances/2022-09-01/container-groups/create-or-update#containerexec)
     to Azure Container Instance, and the command property is an array of string.
@@ -112,15 +113,15 @@ Property value details:
   replace(string(parameters('tables')), '"', '\\"')
   ```
 
-  For more information, see the [sample Bicep file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/deploymentscript-jsonEscape.bicep).
+  For more information, see the [sample Bicep file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/deploymentscript-jsonEscape.bicep).|
 
-- `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
-- `scriptContent`: Specify the script content. It can be an inline script or an external script file imported by using the [`loadTextContent`](./bicep-functions-files.md#loadtextcontent) function. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](./deployment-script-external-file#use-external-scripts). To run an external script, use `primaryScriptUri` instead.
-- `primaryScriptUri`: Specify a publicly accessible URL to the primary deployment script with supported file extensions. For more information, see [Use external scripts](#use-external-scripts).
-- `supportingScriptUris`: Specify an array of publicly accessible URLs to supporting files that are called in either `scriptContent` or `primaryScriptUri`. For more information, see [Use external scripts](#use-external-scripts).
-- `timeout`: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
-- `cleanupPreference`. Specify the preference of cleaning up the two supporting deployment resources, the storage account and the container instance, when the script execution gets in a terminal state. Default setting is **Always**, which means deleting the supporting resources despite the terminal state (Succeeded, Failed, Canceled). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
-- `retentionInterval`: Specify the interval for which the service retains the deployment script resource after the deployment script execution reaches a terminal state. The deployment script resource is deleted when this duration expires. Duration is based on the [ISO 8601 pattern](https://en.wikipedia.org/wiki/ISO_8601). The retention interval is between 1 and 26 hours (PT26H). This property is used when `cleanupPreference` is set to **OnExpiration**. To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
+|`scriptContent`|Specify the script content. It can be an inline script or an external script file imported by using the [`loadTextContent`](./bicep-functions-files.md#loadtextcontent) function. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](./deployment-script-external-file#use-external-scripts). To run an external script, use `primaryScriptUri` instead.|
+|`primaryScriptUri`|Specify a publicly accessible URL to the primary deployment script with supported file extensions. For more information, see [Use external scripts](#use-external-scripts).|
+|`supportingScriptUris`|Specify an array of publicly accessible URLs to supporting files that are called in either `scriptContent` or `primaryScriptUri`. For more information, see [Use external scripts](#use-external-scripts).|
+|`environmentVariables`|Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).|
+|`timeout`|Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.|
+|`cleanupPreference`|Specify the preference of cleaning up the two supporting deployment resources, the storage account and the container instance, when the script execution gets in a terminal state. Default setting is **Always**, which means deleting the supporting resources despite the terminal state (Succeeded, Failed, Canceled). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).|
+|`retentionInterval`|Specify the interval for which the service retains the deployment script resource after the deployment script execution reaches a terminal state. The deployment script resource is deleted when this duration expires. Duration is based on the [ISO 8601 pattern](https://en.wikipedia.org/wiki/ISO_8601). The retention interval is between 1 and 26 hours (PT26H). This property is used when `cleanupPreference` is set to **OnExpiration**. To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).|
 
 ### More samples
 
@@ -334,12 +335,79 @@ In contrast to the Azure PowerShell deployment scripts, CLI/bash doesn't expose 
 In the preceding Bicep sample, a storage account is created and configured to be used by the deployment script. This is necessary for storing the script output. An alternative solution, without specifying your own storage account, involves setting `cleanupPreference` to `OnExpiration`and configuring `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed.
 
 
+## Environment variables
+
+Deployment script uses these environment variables:
+
+|Environment variable|Default value (CLI)|Default value (PowerShell)|System reserved|
+|--------------------|-------------|---------------|
+|AZ_SCRIPTS_AZURE_ENVIRONMENT|AzureCloud|AzureCloud|N|
+|AZ_SCRIPTS_CLEANUP_PREFERENCE|Always|Always|N|
+|AZ_SCRIPTS_OUTPUT_PATH|/mnt/azscripts/azscriptoutput/scriptoutputs.json|N/A|Y|
+|AZ_SCRIPTS_PATH_INPUT_DIRECTORY|/mnt/azscripts/azscriptinput|/mnt/azscripts/azscriptinput|Y|
+|AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY|/mnt/azscripts/azscriptoutput|/mnt/azscripts/azscriptoutput|Y|
+|AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME|userscript.sh|userscript.ps1|Y|
+|AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME|primaryscripturi.config|primaryscripturi.config|Y|
+|AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME|supportingscripturi.config|supportingscripturi.config|Y|
+|AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME|scriptoutputs.json|scriptoutputs.json|Y|
+|AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME|executionresult.json|executionresult.json|Y|
+|AZ_SCRIPTS_USER_ASSIGNED_IDENTITY|||N|
+
+For a sample of using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with outputs from CLI script](#work-with-outputs-from-cli-scripts).
+
+To access the environment variables by using Azure CLI:
+
+```bicep
+param location string = resourceGroup().location
+
+resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'runBashWithOutputs'
+  location: location
+  kind: 'AzureCLI'
+  properties: {
+    azCliVersion: '2.52.0'
+    scriptContent: 'echo "AZ_SCRIPTS_AZURE_ENVIRONMENT is : $AZ_SCRIPTS_AZURE_ENVIRONMENT",echo "AZ_SCRIPTS_CLEANUP_PREFERENCE	is : $AZ_SCRIPTS_CLEANUP_PREFERENCE",echo "AZ_SCRIPTS_OUTPUT_PATH	is : $AZ_SCRIPTS_OUTPUT_PATH",echo "AZ_SCRIPTS_PATH_INPUT_DIRECTORY is : $AZ_SCRIPTS_PATH_INPUT_DIRECTORY",echo "AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY is : $AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY",echo "AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME is : $AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME",echo "AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME	is : $AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME",echo "AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME	is : $AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME",echo "AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME	is : $AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME",echo "AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME	is : $AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME",echo "AZ_SCRIPTS_USER_ASSIGNED_IDENTITY	is : $AZ_SCRIPTS_USER_ASSIGNED_IDENTITY"'
+    retentionInterval: 'P1D'
+  }
+}
+```
+
+To access the environment variables by using Azure PowerShell:
+
+```bicep
+param location string = resourceGroup().location
+
+resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'runBashWithOutputs'
+  location: location
+  kind: 'AzurePowerShell'
+  properties: {
+    azPowerShellVersion: '10.0'
+    scriptContent: '''
+      Write-Output "AZ_SCRIPTS_AZURE_ENVIRONMENT is : ${Env:AZ_SCRIPTS_AZURE_ENVIRONMENT}"
+      Write-Output "AZ_SCRIPTS_CLEANUP_PREFERENCE	is : ${Env:AZ_SCRIPTS_CLEANUP_PREFERENCE}"
+      Write-Output "AZ_SCRIPTS_OUTPUT_PATH	is : ${Env:AZ_SCRIPTS_OUTPUT_PATH}"
+      Write-Output "AZ_SCRIPTS_PATH_INPUT_DIRECTORY is : ${Env:AZ_SCRIPTS_PATH_INPUT_DIRECTORY}"
+      Write-Output "AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY is : ${Env:AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY}"
+      Write-Output "AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME is : ${Env:AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME}"
+      Write-Output "AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME}"
+      Write-Output "AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME}"
+      Write-Output "AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME}"
+      Write-Output "AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME}"
+      Write-Output "AZ_SCRIPTS_USER_ASSIGNED_IDENTITY	is : ${Env:AZ_SCRIPTS_USER_ASSIGNED_IDENTITY}"
+    '''
+    retentionInterval: 'P1D'
+  }
+}
+```
 
 ## Pass secured strings to deployment script
 
 Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 The max allowed size for environment variables is 64 KB.
+
+An Azure CLI script sample:
 
 ```bicep
 param location string = resourceGroup().location
@@ -349,7 +417,7 @@ resource ds 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.40.0'
+    azCliVersion: '2.52.0'
     environmentVariables: [
       {
         name: 'UserName'
@@ -366,35 +434,42 @@ resource ds 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 }
 ```
 
-## Handle nonterminating errors
+An Azure PowerShell script sample:
 
-You can control how PowerShell responds to nonterminating errors by using the `$ErrorActionPreference` variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
+```bicep
+param location string = resourceGroup().location
 
-The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`.
+resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'runBashWithOutputs'
+  location: location
+  kind: 'AzurePowerShell'
+  properties: {
+    azPowerShellVersion: '10.0'
+    environmentVariables: [
+      {
+        name: 'UserName'
+        value: 'jdole'
+      }
+      {
+        name: 'Password'
+        secureValue: 'jDolePassword'
+      }
+    ]
+    scriptContent: '''
+      Write-output "Username is :$Username"
+      Write-output "Password is: $Password"
+    '''
+    retentionInterval: 'P1D'
+  }
+}
+```
+## Handle non-terminating errors
 
-*** jgao - add samples
+You can control how PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7.4#erroractionpreference) variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
 
-## Use environment variables
+The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`. For more information, see [Troubleshoot deployment script](./deployment-script-troubleshoot.md).
 
-Deployment script uses these environment variables:
 
-|Environment variable|Default value|System reserved|
-|--------------------|-------------|---------------|
-|AZ_SCRIPTS_AZURE_ENVIRONMENT|AzureCloud|N|
-|AZ_SCRIPTS_CLEANUP_PREFERENCE|OnExpiration|N|
-|AZ_SCRIPTS_OUTPUT_PATH|<AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY>/<AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME>|Y|
-|AZ_SCRIPTS_PATH_INPUT_DIRECTORY|/mnt/azscripts/azscriptinput|Y|
-|AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY|/mnt/azscripts/azscriptoutput|Y|
-|AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME|Azure PowerShell: userscript.ps1; Azure CLI: userscript.sh|Y|
-|AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME|primaryscripturi.config|Y|
-|AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME|supportingscripturi.config|Y|
-|AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME|scriptoutputs.json|Y|
-|AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME|executionresult.json|Y|
-|AZ_SCRIPTS_USER_ASSIGNED_IDENTITY|/subscriptions/|N|
-
-For more information about using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with outputs from CLI script](#work-with-outputs-from-cli-scripts).
-
-*** jgao - add samples
 
 ## Run script more than once
 
