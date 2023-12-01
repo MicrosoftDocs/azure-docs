@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: build-2023, build-2023-dataai, devx-track-python
 ms.topic: how-to
-ms.date: 11/30/2023
+ms.date: 12/01/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-csharp-python
 keywords: speech to text, openai
