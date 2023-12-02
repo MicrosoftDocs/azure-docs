@@ -65,10 +65,6 @@ SecurityEvent
 
 Identify a Cyborg Security HUNTER hunt package to deploy and use the **Open In Tool** button to quickly open Microsoft Sentinel and stage the hunting content.
 
-![image](https://7924572.fs1.hubspotusercontent-na1.net/hubfs/7924572/HUNTER/Screenshots/openintool-ms-new.png)
-
-
-
 ## Next steps
 
 For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cyborgsecurityinc1689265652101.azure-sentinel-solution-cyborgsecurity-hunter?tab=Overview) in the Azure Marketplace.
