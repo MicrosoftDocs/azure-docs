@@ -88,19 +88,19 @@ This code sample will implement Azure Virtual Network Manager at the management 
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group/providers.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group-scope/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group/main.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group-scope/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group/variables.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group-scope/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group/outputs.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group-scope/outputs.tf)]
 
 :::zone-end
 
