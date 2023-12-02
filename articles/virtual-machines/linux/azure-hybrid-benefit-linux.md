@@ -75,6 +75,8 @@ You can use the `az vm extension` and `az vm update` commands to update new virt
    ```azurecli
    az vm extension
    ```
+> [!Note]
+> The complete az vm extension depends on the particular distribution you are using, please refer to the next section for the complete details.
 
 1. Update with the correct license type
    ```azurecli
@@ -183,23 +185,65 @@ To start using Azure Hybrid Benefit for SUSE:
 
 ---
 
-
-
-### Convert to BYOS using the Azure CLI
+### Convert a Pay As You Go(PAYG) image to BYOS using the Azure CLI
 
 #### [Red Hat (RHEL)](#tab/rhelAzcliByosConv)
-* For RHEL virtual machines, run the command with a `--license-type` parameter of `RHEL_BYOS`.
-
-```azurecli
-# This will enable BYOS on a RHEL virtual machine using Azure Hybrid Benefit
-az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
-```
 
 1. Install the Azure Hybrid Benefit extension on a running virtual machine. You can use the Azure portal or use the following command via the Azure CLI:
+```azurecli
+az vm extension set -n AHBForRHEL --publisher Microsoft.Azure.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
+```
 
-    ```azurecli
-    az vm extension set -n AHBForRHEL --publisher Microsoft.Azure.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
-    ```
+1. Apply the `RHEL_BYOS` license type to the machine:
+
+```azurecli
+# This will enable BYOS on a RHEL(PAYG) virtual machine using Azure Hybrid Benefit
+az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
+```
+1. Once the PAYG to BYOS conversion is complete, you must register the machine with Red Hat for system updates and usage compliance.
+
+1. If you desire to return to PAYG model, you need to setup the "None" licesnse type, otherwise, it will continue to be BYOS.
+```azurecli
+# If the image started as PAYG and was converted to BYOS, the following command will revert it back to PAYG.
+az vm update -g myResourceGroup -n myVmName --license-type NONE
+```
+
+
+#### [SUSE (SLES)](#tab/slesAzcliByosConv)
+
+1. Install the Azure Hybrid Benefit extension on a running virtual machine. You can use the Azure portal or use the following command via the Azure CLI:
+```azurecli
+az vm extension set -n AHBForSLES --publisher SUSE.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
+```
+
+* Apply the `SLES_BYOS` license type to the virtual machine.
+
+```azurecli
+# This will enable BYOS on a SLES virtual machine
+az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
+```
+
+1. Once the PAYG to BYOS conversion is complete, you must register the machine on your own with SUSE for software updates and usage compliance.
+
+1. If you desire to return to PAYG model, you need to setup the "None" licesnse type, otherwise, it will continue to be BYOS.
+```azurecli
+# If the image started as PAYG and was converted to BYOS, the following command will revert it back to PAYG.
+az vm update -g myResourceGroup -n myVmName --license-type NONE
+```
+
+---
+    
+## BYOS to PAYG conversions
+
+
+#### [Red Hat (RHEL)](#tab/rhelazclipaygconv)
+
+Converting to PAYG model is supported for Azure Marketplace images labeled BYOS, machines imported from on-premises or a third party cloud provider.
+
+1. Install the Azure Hybrid Benefit extension on a running virtual machine. You can use the Azure portal or use the following command via the Azure CLI:
+```azurecli
+az vm extension set -n AHBForRHEL --publisher Microsoft.Azure.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
+```
 
 1. After the extension is installed successfully, change the license type based on what you need:
 
@@ -221,42 +265,22 @@ az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
     
     # This will enable Azure Hybrid Benefit to fetch software updates for RHEL BASE SAP HA repositories
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_BASESAPHA
-
     ```
 
-1. Wait five minutes for the extension to read the license type value and install the repositories.
-
-1. You should now be connected to Red Hat Update Infrastructure. The relevant repositories are installed on your machine. You can validate the installation by running the following command on your virtual machine:
-
-    ```bash
-    sudo yum repolist
-    ```
-
-1. If the extension isn't running by itself, you can try the following command on the virtual machine:
-
-    ```bash
-    sudo systemctl start azure-hybrid-benefit.service
-    ```
-
-1. You can use the following command in your RHEL virtual machine to get the current status of the service:
-
-    ```bash
-    sudo ahb-service -status
-    ```
-
-#### [SUSE (SLES)](#tab/slesAzcliByosConv)
-* For SLES virtual machines, run the command with a `--license-type` parameter of `SLES_BYOS`.
-
+1. If you desire to return to BYOS model, you need to setup the "None" licesnse type, otherwise, it will continue to be PAYG.
 ```azurecli
-# This will enable BYOS on a SLES virtual machine
-az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
+# If the image started as BYOS and was converted to PAYG, the following command will revert it back to BYOS.
+az vm update -g myResourceGroup -n myVmName --license-type NONE
 ```
 
-1. Install the Azure Hybrid Benefit extension on a running virtual machine. You can use the Azure portal or use the following command via the Azure CLI:
+#### [SUSE (SLES)](#tab/slesazclipaygconv)
 
-    ```azurecli
-    az vm extension set -n AHBForSLES --publisher SUSE.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
-    ```
+Converting to PAYG model is supported for Azure Marketplace images labeled BYOS, machines imported from on-premises or a third party cloud provider.
+
+1. Install the Azure Hybrid Benefit extension on a running virtual machine. You can use the Azure portal or use the following command via the Azure CLI:
+```azurecli
+az vm extension set -n AHBForSLES --publisher SUSE.AzureHybridBenefit --vm-name myVMName --resource-group myResourceGroup
+```
 
 1. After the extension is installed successfully, change the license type based on what you need:
 
@@ -271,40 +295,17 @@ az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
     az vm update -g myResourceGroup -n myVmName --license-type SLES_HPC
     ```
 
-1. Wait five minutes for the extension to read the license type value and install the repositories.
-
-1. You should now be connected to the SUSE public cloud update infrastructure on Azure. The relevant repositories are installed on your machine. You can verify this change by running the following command to list SUSE repositories on your virtual machine:
-
-    ```bash
-    sudo zypper repos
-    ```
-
+1. If you desire to return to BYOS model, you need to setup the "None" licesnse type, otherwise, it will continue to be PAYG.
+```azurecli
+# If the image started as BYOS and was converted to PAYG, the following command will revert it back to BYOS.
+az vm update -g myResourceGroup -n myVmName --license-type NONE
+```
 
 ---
 
-
-
-
-
-
-
-
-## BYOS to PAYG conversions
-Converting from a Bring-your-own-subscription to a Pay-as-you-go model. 
-#### [Single VM](#tab/paygclisingle)
-
-If the system was originally a PAYG image and you want to return the VM to a PAYG model, use a `--license-type` value of `None`. For example:
-
-```azurecli
-# This will enable PAYG on a virtual machine using Azure Hybrid Benefit
-az vm update -g myResourceGroup -n myVmName --license-type None
-```
-
-If you have a BYOS and want to convert the VM to PAYG, use a `--license-type` value that covers the VM needs as described further in this article. For example, for RHEL systems you can use any of the following:  RHEL_BASE, RHEL_EUS, RHEL_SAPAPPS, RHEL_SAPHA, RHEL_BASEAPAPPS or RHEL_BASESAPHA. 
-
 #### [Multiple VMs](#tab/paygclimultiple)
 
-To switch the licensing model on a large number of virtual machines, you can use the `--ids` parameter in the Azure CLI:
+The following command will convert the machines specified in the argument to BYOS.
 
 ```azurecli
 # This will enable BYOS on a RHEL virtual machine. In this example, ids.txt is an
