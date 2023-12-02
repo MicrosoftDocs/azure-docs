@@ -185,6 +185,7 @@ The following table lists the supported languages for printed text.
 |Urdu|`ur`|
 |Vietnamese|`vi`|
 
+---
 :::moniker-end
 
 ## Custom template
