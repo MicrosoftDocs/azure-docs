@@ -17,7 +17,7 @@ The following table shows government clouds that are currently supported by Azur
 
 | Microsoft 365 cloud| Azure cloud| Support |
 | --- | --- | --- |
-| GCC-H| [US Government](../../../../azure-government/documentation-government-welcome.md) | ✔️ |
+| GCC-H| [US Government](../../../../../azure-government/documentation-government-welcome.md) | ✔️ |
 
 ## Supported use cases
 
