@@ -15,7 +15,7 @@ ms.date:         12/01/2023
 
 Azure Database for PostgreSQL Flexible Server supports both **vertical** and **horizontal** scaling options.
 
-You scale **vertically** by adding more resources to the Flexible server instance, such as increasing the instance-assigned number of CPUs and memory. Network throughput of your instance depends on the values you choose for CPU and memory. Once a Flexible server instance is created, you can independently change the CPU (vCores), the amount of storage, and the backup retention period. The number of vCores can be scaled up or down. The storage size however can only be increased. In addition, uou can scale the backup retention period up or down from 7 to 35 days. The resources can be scaled using multiple tools for instance [Azure portal](./quickstart-create-server-portal.md) or the [Azure CLI](./quickstart-create-server-cli.md).
+You can scale **vertically** by adding more resources to the Flexible server instance, such as increasing the instance-assigned number of CPUs and memory. Network throughput of your instance depends on the values you choose for CPU and memory. Once a Flexible server instance is created, you can independently change the CPU (vCores), the amount of storage, and the backup retention period. The number of vCores can be scaled up or down. The storage size however can only be increased. In addition, uou can scale the backup retention period up or down from 7 to 35 days. The resources can be scaled using multiple tools, for instance,  [Azure portal](./quickstart-create-server-portal.md) or the [Azure CLI](./quickstart-create-server-cli.md).
 
 > [!NOTE]  
 > After you increase the storage size, you can't go back to a smaller storage size.
