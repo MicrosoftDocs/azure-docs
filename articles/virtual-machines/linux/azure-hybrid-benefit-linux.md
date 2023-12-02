@@ -155,7 +155,7 @@ If you deployed an Azure Marketplace image with PAYG licensing model and desire 
     ```
 1. Once the PAYG to BYOS conversion is complete, you must register the machine with Red Hat for system updates and usage compliance.
 
-1. If you desire to return to PAYG model, you need to setup the "None" licesnse type, otherwise, it continues to be BYOS.
+1. If you desire to return to PAYG model, you need to set up the "None" licesnse type, otherwise, it continues to be BYOS.
     ```azurecli
     # If the image started as PAYG and was converted to BYOS, the following command will revert it back to PAYG.
     az vm update -g myResourceGroup -n myVmName --license-type NONE
@@ -178,7 +178,7 @@ If you deployed an Azure Marketplace image with PAYG licensing model and desire 
 
 1. Once the PAYG to BYOS conversion is complete, you must register the machine on your own with SUSE for software updates and usage compliance.
 
-1. If you desire to return to PAYG model, you need to setup the "None" licesnse type, otherwise, it continues to be BYOS.
+1. If you desire to return to PAYG model, you need to set up license_type to "None", otherwise, it continues to be BYOS.
     ```azurecli
     # If the image started as PAYG and was converted to BYOS, the following command will revert it back to PAYG.
     az vm update -g myResourceGroup -n myVmName --license-type NONE
@@ -218,7 +218,7 @@ Converting to PAYG model is supported for Azure Marketplace images labeled BYOS,
     az vm update -g myResourceGroup -n myVmName --license-type RHEL_BASESAPHA
    ```
 
-1. If you desire to return to BYOS model, you need to setup the "None" licesnse type, otherwise, it continues to be PAYG.
+1. If you desire to return to BYOS model, you need to set up license_type to "None", otherwise, it continues to be PAYG.
     ```azurecli
     # If the image started as BYOS and was converted to PAYG, the following command will revert it back to BYOS.
     az vm update -g myResourceGroup -n myVmName --license-type NONE
@@ -244,7 +244,7 @@ Converting to PAYG model is supported for Azure Marketplace images labeled BYOS,
     az vm update -g myResourceGroup -n myVmName --license-type SLES_HPC
     ```
 
-1. If you desire to return to BYOS model, you need to setup the "None" licesnse type, otherwise, it continues to be PAYG.
+1. If you desire to return to BYOS model, you need to set up the "None" licesnse type, otherwise, it continues to be PAYG.
     ```azurecli
     # If the image started as BYOS and was converted to PAYG, the following command will revert it back to BYOS.
     az vm update -g myResourceGroup -n myVmName --license-type NONE
