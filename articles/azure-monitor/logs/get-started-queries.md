@@ -80,13 +80,13 @@ This query searches the `SecurityEvent` table for records that contain the phras
 
 ## Sort and top
 
-This section explains the `sort` and `top` operators, including their `desc` argument, which is used for sorting records.
+This section describes the `sort` and `top` operators and their `desc` argument. Although [`take`](#take) is useful for getting a few records, you can't select or sort the results in any particular order. To get an ordered view, use `sort` and `top`.
 
 ### Desc
 
-Descending is the default sorting order for `sort` and `top`, so you would usually omit the `desc` argument. 
+Use the `desc` argument to sort records in descending order. Descending is the default sorting order for `sort` and `top`, so you can usually omit the `desc` argument. 
 
-For example, the data returned in both of the following queries is sorted in descending sorting by the [TimeGenerated column](./log-standard-columns.md#timegenerated):
+For example, the data returned by both of the following queries is sorted by the [TimeGenerated column](./log-standard-columns.md#timegenerated), in descending order:
 
 - ```Kusto
   SecurityEvent	
@@ -100,16 +100,16 @@ For example, the data returned in both of the following queries is sorted in des
 
 ### Sort
 
- To get an ordered view, you can use the [`sort` operator](/azure/data-explorer/kusto/query/sort-operator), which sorts the records returned by the query by the specified column. However, `sort` doesn't limit the number of records that are returned by the query.
+You can use the [`sort` operator](/azure/data-explorer/kusto/query/sort-operator). `sort` sorts the query results by the column you specify. However, `sort` doesn't limit the number of records that are returned by the query.
 
-For example, the following query returns all available records for the `SecurityEvent` table, which is limited to 30,000 records.
+For example, the following query returns all available records for the `SecurityEvent` table, which is up to a maximum of 30,000 records, and sorts them by the TimeGenerated column.
 
 ```Kusto
 SecurityEvent	
 | sort by TimeGenerated
 ```
 
-The preceding query could return too many results though, and it might also take some time. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 30,000 records. This approach isn't optimal. The best way to get only the latest records is to use the [`top` operator](#top)
+The preceding query could return too many results. Also, it might also take some time to return the results. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 30,000 records. This approach isn't optimal. The best way to only get the latest records is to use the [`top` operator](#top).
 
 ### Top
 
