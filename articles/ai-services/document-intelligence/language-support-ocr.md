@@ -65,7 +65,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 >
 > * Also, It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the text language in your image.
 
-### [Read: handwritten text](#tab/read-hand)
+### [**Read: handwritten text**](#tab/read-hand)
 
 :::moniker range="doc-intel-4.0.0"
 
@@ -107,7 +107,7 @@ The following table lists read model language support for extracting and analyzi
 
 :::moniker-end
 
-### [Read: printed text](#tab/read-print)
+### [**Read: printed text**](#tab/read-print)
 
 :::moniker range=">=doc-intel-3.1.0"
 
@@ -622,7 +622,7 @@ The following table lists read model language support for extracting and analyzi
 
 :::moniker-end
 
-### [Read: language detection](#tab/read-detection)
+### [**Read: language detection**](#tab/read-detection)
 
 The [Read model API](concept-read.md) supports **language detection** for the following languages in your documents. This list can include languages not currently supported for text extraction.
 
@@ -768,7 +768,7 @@ The [Read model API](concept-read.md) supports **language detection** for the fo
 
 ##### Model ID: **prebuilt-layout**
 
-### [Layout: handwritten text](#tab/layout-hand)
+### [**Layout: handwritten text**](#tab/layout-hand)
 
 :::moniker range="doc-intel-4.0.0"
 
@@ -820,7 +820,7 @@ The following table lists layout model language support for extracting and analy
 |Thai (preview) | `th` | Arabic (preview) | `ar` |
 :::moniker-end
 
-### [Layout: printed text](#tab/layout-print)
+### [**Layout: printed text**](#tab/layout-print)
 
 :::moniker range=">=doc-intel-3.1.0"
 
