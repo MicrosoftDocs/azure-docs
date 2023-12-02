@@ -9,6 +9,8 @@ ms.service: azure-communication-services
 ms.subservice: chat
 ---
 
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 # Chat support for government clouds
 Developers can build a chat application in government cloud for real-time text communications. 
 
