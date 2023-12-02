@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 09/29/2023
+ms.date: 12/02/2023
 
 ---
 
