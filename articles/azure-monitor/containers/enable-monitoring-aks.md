@@ -11,6 +11,8 @@ ms.reviewer: aul
 
 Enabling monitoring for a managed Kubernetes cluster hosted on [Azure Kubernetes Service (AKS)](../../aks/index.yml) includes enabling [Container insights](./container-insights-overview.md) for log collection, [Managed Prometheus](../essentials/prometheus-metrics-overview.md) for metrics, and [Managed Grafana](../../managed-grafana/overview.md) for visualization. This article describes how to enable these features on for complete monitoring of an AKS cluster.
 
+Using the Azure portal, you can enable all of the features at the same time. You can also enable them individually by using the Azure portal, Azure CLI, Azure Resource Manager template, Bicep, Terraform, or Azure Policy.
+
 
 > [!IMPORTANT]
 > This article describes default configuration settings. See [Configure agent data collection for Container insights](container-insights-agent-config.md) and [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](prometheus-metrics-scrape-configuration.md) to customize your configuration to ensure that you aren't collecting more data than you require.
@@ -55,7 +57,7 @@ When you create a new AKS cluster in the Azure portal, you can enable Prometheus
 
 This option enables Container insights and optionally Prometheus and Grafana on an existing AKS cluster.
 
-1. Open the cluster's menu in the Azure portal and  select **Insights**.
+1. Either select **Insights** from the cluster's menu OR select **Containers** from the **Monitor** menu, **Unmonitored clusters** tab, and click **Enable** next to a cluster.
    1. If Container insights isn't enabled for the cluster, then you're presented with a screen identifying which of the features have been enabled. Click **Configure monitoring**.
 
     :::image type="content" source="media/aks-onboard/configure-monitoring-screen.png" lightbox="media/aks-onboard/configure-monitoring-screen.png" alt-text="Screenshot that shows the configuration screen for a cluster.":::
@@ -74,16 +76,19 @@ This option enables Container insights and optionally Prometheus and Grafana on 
 
 4. Click **Configure** to save the configuration.
 
----
+### Prometheus only
+
+This option enables Prometheus metrics on a cluster without enabling Container insights.
+
+1. Open the **Azure Monitor workspaces** menu in the Azure portal and select your workspace.
+1. Select **Monitored clusters** in the **Managed Prometheus** section to display a list of AKS clusters.
+1. Select **Configure** next to the cluster you want to enable.
+
+    :::image type="content" source="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" lightbox="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" alt-text="Screenshot that shows an Azure Monitor workspace with a Prometheus configuration.":::
+
 
 ## Enable Container insights
-
-### [Azure portal](#tab/azure-portal)
-
-From the Container insights menu, you can view all of your clusters, quickly identify which aren't monitored, and launch the same configuration experience as described in [From existing cluster](#from-existing-cluster).
-
-1. Open the **Monitor** menu in the Azure portal and  select **Containers**. 
-3. The **Unmonitored clusters** tab lists clusters that don't have Container insights enabled. Click **Enable** next to a cluster and follow the guidance in [Existing cluster](#existing-cluster).
+Use the following options to enable Container insights on your AKS cluster.
 
 
 ### [CLI](#tab/azure-cli)
@@ -253,17 +258,6 @@ Replace and use the managed cluster resources in [Deploy an Azure Kubernetes Ser
 
 
 ## Prometheus
-
-
-#### [Azure portal](#tab/azure-portal)
-
-This option enables Prometheus metrics on a cluster without enabling Container insights.
-
-1. Open the **Azure Monitor workspaces** menu in the Azure portal and select your workspace.
-1. Select **Monitored clusters** in the **Managed Prometheus** section to display a list of AKS clusters.
-1. Select **Configure** next to the cluster you want to enable.
-
-    :::image type="content" source="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" lightbox="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" alt-text="Screenshot that shows an Azure Monitor workspace with a Prometheus configuration.":::
 
 
 #### [CLI](#tab/cli)
