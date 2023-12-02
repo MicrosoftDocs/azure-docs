@@ -119,7 +119,7 @@ Neural models support added languages for the `v3.1` and later APIs.
 
 :::moniker range=">=doc-intel-3.1.0"
 
-[**Handwritten text**](#tab/handwritten)
+## [**Handwritten text**](#tab/handwritten)
 
 The following table lists the supported languages for extracting handwritten texts.
 
@@ -131,7 +131,7 @@ The following table lists the supported languages for extracting handwritten tex
 |German  |`de`|Spanish  |`es`|
 |Italian  |`it`|
 
-[**Printed text**](#tab/printed)
+## [**Printed text**](#tab/printed)
 
 The following table lists the supported languages for printed text.
 
