@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 12/01/2023
 ---
 
-# Quickstart: Create and access Azure Deployment Environments by using the developer portal
+# Quickstart: Create and access an environment in Azure Deployment Environments
 
 This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments project.
 
@@ -26,6 +26,7 @@ An environment in Azure Deployment Environments is a collection of Azure resourc
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
+
 1. From the **New** menu at the top left, select **New environment**.
  
    :::image type="content" source="media/quickstart-create-access-environments/new-environment.png" alt-text="Screenshot showing the new menu with new environment highlighted." lightbox="media/quickstart-create-access-environments/new-environment.png":::
@@ -53,7 +54,7 @@ You can access and manage your environments in the Azure Deployment Environments
 
 1. You can view all of your existing environments. To access the specific resources created as part of an environment, select the **Environment Resources** link.
 
-   :::image type="content" source="media/quickstart-create-access-environments/environment-resources.png" alt-text="Screenshot showing an environment card, with the environment resources link highlighted." lightbox="media/quickstart-create-access-environments/environment-resources.png"::: 
+   :::image type="content" source="media/quickstart-create-access-environments/environment-resources.png" alt-text="Screenshot showing an environment card, with the environment resources link highlighted." lightbox="media/quickstart-create-access-environments/environment-resources.png":::
 
 1. You can view the resources in your environment listed in the Azure portal.
 

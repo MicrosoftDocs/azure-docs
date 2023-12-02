@@ -112,7 +112,10 @@ The managed identity that represents your dev center requires access to the subs
 
 You must give the dev center managed identity permissions to the repository in Azure DevOps.  
 
-1. Sign in to your [Azure DevOps organization](https://dev.azure.com). Your organization must be in the same directory as the Azure subscription that contains your dev center.
+1. Sign in to your [Azure DevOps organization](https://dev.azure.com). 
+
+    > [!NOTE]
+    > Your Azure DevOps organization must be in the same directory as the Azure subscription that contains your dev center.
 
 1. Select **Organization settings**.
  

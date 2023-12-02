@@ -88,7 +88,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
 
 ## Give access to the development team
 
-Before developers can create environments based on the environment types in a project, you must provide access for them through a role assignment at the level of the project. The Deployment Environments User role enables users to create, manage and delete their own environments. You must have sufficient permissions to a project before you can add users to it.
+Before developers can create environments based on the environment types in a project, you must provide access for them through a role assignment at the level of the project. The Deployment Environments User role enables users to create, manage, and delete their own environments. You must have sufficient permissions to a project before you can add users to it.
 
 1. In the Azure portal, go to your project.
 
