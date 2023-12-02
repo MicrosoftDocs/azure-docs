@@ -80,9 +80,11 @@ This query searches the `SecurityEvent` table for records that contain the phras
 
 ## Sort and top
 
-This section describes the `sort` and `top` operators and their `desc` argument. Although [`take`](#take) is useful for getting a few records, you can't select or sort the results in any particular order. To get an ordered view, use `sort` and `top`.
+This section describes the `sort` and `top` operators and their `desc` and `asc` arguments. Although [`take`](#take) is useful for getting a few records, you can't select or sort the results in any particular order. To get an ordered view, use `sort` and `top`.
 
-### Desc
+### Desc and asc
+
+#### Desc
 
 Use the `desc` argument to sort records in descending order. Descending is the default sorting order for `sort` and `top`, so you can usually omit the `desc` argument. 
 
@@ -97,6 +99,10 @@ For example, the data returned by both of the following queries is sorted by the
    SecurityEvent	
    | sort by TimeGenerated
    ```
+   
+#### Asc
+
+To sort in ascending order, specify `asc`.
 
 ### Sort
 
