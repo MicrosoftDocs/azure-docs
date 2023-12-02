@@ -12,12 +12,9 @@ ms.subservice: chat
 # Chat support for government clouds
 Developers can build a chat application in government cloud for real-time text communications. 
 
-## Supported cloud parity between Microsoft 365 and Azure 
-The following table shows government clouds that are currently supported by Azure Communication Services:
-
 | Microsoft 365 cloud| Azure cloud| Support |
 | --- | --- | --- |
-| GCC-H| [US Government](../../../../../azure-government/documentation-government-welcome.md) | ✔️ |
+| GCC-H|[US Government](../../../azure-government/documentation-government-welcome.md) | ✔️ |
 
 ## Supported use cases
 
