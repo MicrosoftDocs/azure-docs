@@ -18,7 +18,7 @@ A platform engineering team typically sets up a dev center, attaches external ca
 
 The following diagram shows the steps to configure a dev center for Azure Deployment Environments in the Azure portal. 
 
-:::image type="content" source="media/quickstart-create-and-configure-devcenter/environments-build-stages.png" alt-text="Diagram showing the stages required to configure a dev center for Deployment Environments." lightbox="media/quickstart-create-and-configure-devcenter/environments-build-stages.png"::::::
+:::image type="content" source="media/quickstart-create-and-configure-devcenter/environments-build-stages.png" alt-text="Diagram showing the stages required to configure a dev center for Deployment Environments." lightbox="media/quickstart-create-and-configure-devcenter/environments-build-stages-expanded.png"::::::
 
 You need to perform the steps in this quickstart and then [create a project](quickstart-create-and-configure-projects.md) before you can [create a deployment environment](quickstart-create-access-environments.md).
 
@@ -50,9 +50,10 @@ To create and configure a dev center in Azure Deployment Environments by using t
     |**Location**|Select the location or region where you want to create the dev center.|
 
 1. Select **Review + Create**.
+
 1. On the **Review** tab, wait for deployment validation, and then select **Create**.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-review.png" alt-text="Screenshot that shows the Review tab of a dev center to validate the deployment details." lightbox="media/quickstart-create-and-configure-devcenter/create-devcenter-review.png":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-review.png" alt-text="Screenshot that shows the Review tab of a dev center to validate the deployment details." lightbox="media/quickstart-create-and-configure-devcenter/create-devcenter-review-expanded.png":::
 
 1. You can check the progress of the deployment in your Azure portal notifications. 
 
@@ -139,7 +140,7 @@ You must give the dev center managed identity permissions to the repository in A
     |**Azure DevOps Groups**|Select **Project Readers**.|
     |**Send email invites (to Users only)**|Clear the checkbox.|
 
-   :::image type="content" source="media/quickstart-create-and-configure-devcenter/devops-add-user-blade.png" alt-text="Screenshot showing Add users, with example entries and Add highlighted." lightbox="media/quickstart-create-and-configure-devcenter/devops-add-user-blade.png":::
+   :::image type="content" source="media/quickstart-create-and-configure-devcenter/devops-add-user-blade.png" alt-text="Screenshot showing Add users, with example entries and Add highlighted." lightbox="media/quickstart-create-and-configure-devcenter/devops-add-user-blade-expanded.png":::
 
 ## Add a catalog to the dev center
 
@@ -167,7 +168,7 @@ In this quickstart, you attach an Azure DevOps repository.
     | **Branch**  | Select the branch. |
     | **Folder path**  | Dev Box retrieves a list of folders in your branch. Select the folder that stores your IaC templates. |
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-catalog-to-devcenter.png" alt-text="Screenshot showing the add catalog pane with examples entries and Add highlighted." lightbox="media/quickstart-create-and-configure-devcenter/add-catalog-to-devcenter.png":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-catalog-to-devcenter.png" alt-text="Screenshot showing the add catalog pane with examples entries and Add highlighted." lightbox="media/quickstart-create-and-configure-devcenter/add-catalog-to-devcenter-expanded.png":::
 
 1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, **Status** is **Connected**. Connecting to a catalog can take a few minutes the first time.
  
