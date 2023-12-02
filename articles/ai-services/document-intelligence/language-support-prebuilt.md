@@ -36,9 +36,18 @@ ms.date: 11/15/2023
 
 Azure AI Document Intelligence models provide multilingual document processing support. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Prebuilt models enable you to add intelligent domain-specific document processing to your apps and flows without having to train and build your own models. The following tables list the available language and locale support by model and feature:
 
-:::moniker range="doc-intel-3.0.0"
+## Business card
 
-## [Business card](#tab/business-card)
+:::moniker range="doc-intel-4.0.0"
+ > [!IMPORTANT]
+> Starting with Document Intelligence **v4.0 (preview)**, and going forward, the business card model (prebuilt-businessCard) is deprecated. To extract data from business card formats, use the following:
+
+| Feature   | version| Model ID |
+|----------  |---------|--------|
+| Business card model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-businessCard`**|
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0 "
 
 ***Model ID: prebuilt-businessCard***
 
@@ -56,9 +65,11 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker-end
 
+## Contract
+
 :::moniker range="doc-intel-4.0.0 ||doc-intel-3.1.0"
 
-## [Contract](#tab/contract)
+### [Contract](#tab/contract)
 
 ***Model ID: prebuilt-contract***
 
@@ -68,9 +79,30 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker-end
 
-:::moniker range=">=doc-intel-3.0.0"
+## General document
 
-## [Health insurance card](#tab/health-insurance-card)
+:::moniker range="doc-intel-4.0.0"
+> [!IMPORTANT]
+> Starting with D:ocument Intelligence **2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
+
+| Feature   | version| Model ID |
+|----------  |---------|--------|
+|`Layout` model with the optional query string parameter **`features=keyValuePairs`** enabled.|&bullet; v4:2023-10-31-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
+|General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-document`**|
+:::moniker-end
+
+:::moniker range="doc-intel-4.0.0 ||doc-intel-3.1.0"
+
+***Model ID: prebuilt-document***
+
+| Language—Locale code | Default |
+|:----------------------|:---------|
+| English (United States)|English (United States)—en-US|
+:::moniker-end
+
+## Health insurance card
+
+:::moniker range=">=doc-intel-3.0.0"
 
 ***Model ID: prebuilt-healthInsuranceCard.us***
 
@@ -80,7 +112,9 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker-end
 
-## [ID document](#tab/id-document)
+## ID document
+
+:::moniker range=">=doc-intel-3.0.0"
 
 ***Model ID: prebuilt-idDocument***
 
@@ -95,7 +129,18 @@ Azure AI Document Intelligence models provide multilingual document processing s
 |Canada|Driver License, Identification Card, Residency Permit (Maple Card)|
 |Australia|Driver License, Photo Card, Key-pass ID (including digital version)|
 
-## [Invoice](#tab/invoice)
+::: moniker-end
+
+:::moniker range=">=doc-intel-2.1.0"
+
+| Region | Document types |
+|--------|----------------|
+|Worldwide|Passport Book, Passport Card|
+|United States|Driver License, Identification Card
+
+:::moniker-end
+
+## Invoice
 
 ***Model ID: prebuilt-invoice***
 
@@ -189,11 +234,17 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; USD | United States (`us`) |
 :::moniker-end
 
-## [Receipt](#tab/receipt)
+:::moniker range="doc-intel-2.1.0"
+  | Supported languages | Details |
+  |:----------------------|:---------|
+  |English (`en`) | United States (`us`)
+:::moniker-end
 
-***Model ID: prebuilt-receipt***
+## Receipt
 
 :::moniker range=">=doc-intel-3.0.0"
+
+***Model ID: prebuilt-receipt***
 
 #### Thermal receipts (retail, meal, parking, etc.)
 
@@ -273,21 +324,37 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ::: moniker range="doc-intel-2.1.0"
 
-### Supported languages and locales v2.1
-
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
 |Receipt| &bullet; English (United States)—en-US</br> &bullet; English (Australia)—en-AU</br> &bullet; English (Canada)—en-CA</br> &bullet; English (United Kingdom)—en-GB</br> &bullet; English (India)—en-IN  | Autodetected |
 
+## Tax documents
+
 ::: moniker-end
 
-### [Tax Documents](#tab/tax)
+:::moniker range="4.0.0"
+  | Model ID | Language—Locale code | Default |
+  |--------|:----------------------|:---------|
+  |**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098E**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098T**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1099**|English (United States)|English (United States)—en-US|
+:::moniker-end
 
- Model ID | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
-|**prebuilt-tax.us.1098**|English (United States)|English (United States)—en-US|
-|**prebuilt-tax.us.1098E**|English (United States)|English (United States)—en-US|
-|**prebuilt-tax.us.1098T**|English (United States)|English (United States)—en-US|
+:::moniker range="3.1.0"
+  | Model ID | Language—Locale code | Default |
+  |--------|:----------------------|:---------|
+  |**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098E**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098T**|English (United States)|English (United States)—en-US|
+:::moniker-end
+
+:::moniker range="3.0.0"
+  | Model ID | Language—Locale code | Default |
+  |--------|:----------------------|:---------|
+  |**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
+:::moniker-end
 
 ---

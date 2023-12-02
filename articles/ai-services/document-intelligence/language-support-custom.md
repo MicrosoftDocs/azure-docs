@@ -37,7 +37,9 @@ ms.date: 11/15/2023
 
 Azure AI Document Intelligence models provide multilingual document processing support. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Custom models are trained using your labeled datasets to extract distinct data from structured, semi-structured, and unstructured documents specific to your use cases. Standalone custom models can be combined to create composed models. The following tables list the available language and locale support by model and feature:
 
-## [Custom classifier](#tab/custom-classifier)
+## Custom Classifier
+
+### [Custom classifier](#tab/custom-classifier)
 
 ***custom classifier model***
 
@@ -99,7 +101,9 @@ Azure AI Document Intelligence models provide multilingual document processing s
 |Vietnamese|`vi`|
 :::moniker-end
 
-## [Custom neural](#tab/custom-neural)
+## Custom neural
+
+### [Custom neural](#tab/custom-neural)
 
 ***custom neural model***
 
@@ -184,7 +188,9 @@ Neural models support added languages for the `v3.1` and later APIs.
 
 :::moniker-end
 
-## [Custom template](#tab/custom-template)
+## Custom template
+
+### [Custom template](#tab/custom-template)
 
 ***custom template model***
 
