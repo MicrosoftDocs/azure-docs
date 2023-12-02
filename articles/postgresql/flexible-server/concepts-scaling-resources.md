@@ -13,14 +13,14 @@ ms.date:         12/01/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Azure Database for PostgreSQL = Flexible Server supports both vertical and horizontal scaling options.
+Azure Database for PostgreSQL Flexible Server supports both **vertical** and **horizontal** scaling options.
 
-You scale vertically by adding more resources to the Flexible server instance, such as increasing the instance-assigned number of CPUs and memory. Network throughput of your instance depends on the values you choose for CPU and memory. Once a Flexible server instance is created, you can independently change the CPU (vCores), the amount of storage, and the backup retention period. The number of vCores can be scaled up or down. The storage size however can only be increased. In addition, uou can scale the backup retention period up or down from 7 to 35 days. The resources can be scaled using multiple tools for instance [Azure portal](./quickstart-create-server-portal.md) or the [Azure CLI](./quickstart-create-server-cli.md).
+You scale **vertically** by adding more resources to the Flexible server instance, such as increasing the instance-assigned number of CPUs and memory. Network throughput of your instance depends on the values you choose for CPU and memory. Once a Flexible server instance is created, you can independently change the CPU (vCores), the amount of storage, and the backup retention period. The number of vCores can be scaled up or down. The storage size however can only be increased. In addition, uou can scale the backup retention period up or down from 7 to 35 days. The resources can be scaled using multiple tools for instance [Azure portal](./quickstart-create-server-portal.md) or the [Azure CLI](./quickstart-create-server-cli.md).
 
 > [!NOTE]  
 > After you increase the storage size, you can't go back to a smaller storage size.
 
-You scale horizontally by creating [read replicas](./concepts-read-replicas.md). Read replicas let you scale your read workloads onto separate flexible server instance without affecting the performance and availability of the primary instance.
+You scale **horizontally** by creating [read replicas](./concepts-read-replicas.md). Read replicas let you scale your read workloads onto separate flexible server instance without affecting the performance and availability of the primary instance.
 
 When you change the number of vCores or the compute tier, the instance is restarted for the new server type to take effect. During this time the system switches over to the new server type, no new connections can be established, and all uncommitted transactions will be rolled back. The overall time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restarts typically takes a minute or less but it can be higher and can take several minutes, depending on transactional activity at the time of the restart. Scaling the storage does not require a server restart in most cases. Similarly, backup retention period changes is an online operation. To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach reduces the time needed to restart the database server.
 
