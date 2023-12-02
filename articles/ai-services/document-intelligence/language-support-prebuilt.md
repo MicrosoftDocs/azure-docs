@@ -69,8 +69,6 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker range="doc-intel-4.0.0 ||doc-intel-3.1.0"
 
-### [Contract](#tab/contract)
-
 ***Model ID: prebuilt-contract***
 
 | Language—Locale code | Default |
@@ -146,7 +144,8 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker range=">=doc-intel-3.1.0"
 
-| Supported languages | Details |
+### [Supported langauges](#tab/languages)
+| Languages | Details |
 |:----------------------|:---------|
 | &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
 | &bullet; Spanish (`es`) |Spain (`es`)|
@@ -178,7 +177,8 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; Chinese (simplified (zh-hans)) | China (zh-hans-cn)|
 | &bullet; Chinese (traditional (zh-hant)) | Hong Kong SAR (zh-hant-hk), Taiwan (zh-hant-tw)|
 
-| Supported Currency Codes | Details |
+### [Supported Currency Codes](#tab/currency)
+|Currency Codes | Details |
 |:----------------------|:---------|
 | &bullet; ARS | Argentine Peso (`ar`) |
 | &bullet; AUD | Australian Dollar (`au`) |
@@ -208,11 +208,12 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; SEK | Swedish Krona (`se`) |
 | &bullet; TWD | New Taiwan Dollar (`tw`) |
 | &bullet; USD | United States Dollar (`us`) |
-
+---
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
 
+### [Supported langauges](#tab/languages)
 | Supported languages | Details |
 |:----------------------|:---------|
 | &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
@@ -223,6 +224,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; Portuguese (`pt`) | Portugal (`pt`), Brazil (`br`)|
 | &bullet; Dutch (`nl`) | Netherlands (`nl`)|
 
+### [Supported Currency Codes](#tab/currency)
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
 | &bullet; BRL | Brazilian Real (`br`) |
@@ -232,6 +234,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; GGP | Guernsey Pound (`gg`) |
 | &bullet; INR | Indian Rupee (`in`) |
 | &bullet; USD | United States (`us`) |
+---
 :::moniker-end
 
 :::moniker range="doc-intel-2.1.0"
@@ -246,8 +249,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ***Model ID: prebuilt-receipt***
 
-#### Thermal receipts (retail, meal, parking, etc.)
-
+### [Thermal receipts](#tab/thermal)
 | Language name | Language code | Language name | Language code |
 |:--------------|:-------------:|:--------------|:-------------:|
 |English|``en``|Lithuanian|`lt`|
@@ -308,8 +310,8 @@ Azure AI Document Intelligence models provide multilingual document processing s
 |Latvian|``lv``|Xitsonga|`ts`|
 |Lingala|``ln``|||
 
-#### Hotel receipts
 
+### [Hotel receipts](#tab/hotel)
 | Supported Languages | Details |
 |:--------------------|:-------:|
 |English|United States (`en-US`)|
@@ -320,6 +322,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 |Portuguese|Portugal (`pt-PT`)|
 |Spanish|Spain (`es-ES`)|
 
+---
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
@@ -328,9 +331,9 @@ Azure AI Document Intelligence models provide multilingual document processing s
 |--------|:----------------------|:---------|
 |Receipt| &bullet; English (United States)—en-US</br> &bullet; English (Australia)—en-AU</br> &bullet; English (Canada)—en-CA</br> &bullet; English (United Kingdom)—en-GB</br> &bullet; English (India)—en-IN  | Autodetected |
 
-## Tax documents
-
 ::: moniker-end
+
+## Tax documents
 
 :::moniker range="doc-intel-4.0.0"
   | Model ID | Language—Locale code | Default |
@@ -356,5 +359,3 @@ Azure AI Document Intelligence models provide multilingual document processing s
   |--------|:----------------------|:---------|
   |**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
 :::moniker-end
-
----
