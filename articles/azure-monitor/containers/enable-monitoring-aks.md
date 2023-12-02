@@ -9,9 +9,41 @@ ms.reviewer: aul
 
 # Enable monitoring for Azure Kubernetes Service (AKS) cluster
 
-Enabling monitoring for a managed Kubernetes cluster hosted on [Azure Kubernetes Service (AKS)](../../aks/index.yml) includes enabling both [Container insights](./container-insights-overview.md) for log collection and [Managed Prometheus](../essentials/prometheus-metrics-overview.md) for metrics. This article describes how to enable both of these features on an AKS cluster. See []() to customize your configuration to ensure that you aren't collecting more data than you require.
+Enabling monitoring for a managed Kubernetes cluster hosted on [Azure Kubernetes Service (AKS)](../../aks/index.yml) includes enabling [Container insights](./container-insights-overview.md) for log collection, [Managed Prometheus](../essentials/prometheus-metrics-overview.md) for metrics, and [Managed Grafana](../../managed-grafana/overview.md) for visualization. This article describes how to enable these features on for complete monitoring of an AKS cluster.
 
-## Enable both features using Azure portal
+
+> [!IMPORTANT]
+> This article describes default configuration settings. See [Configure agent data collection for Container insights](container-insights-agent-config.md) and [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](prometheus-metrics-scrape-configuration.md) to customize your configuration to ensure that you aren't collecting more data than you require.
+
+## Prerequisites
+Each of the features requires a workspace. You can create each workspace 
+
+
+### Container insights
+
+- See [Prerequisites](./container-insights-onboard.md) for Container insights.
+-  You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Microsoft Entra tenant, but you must use the Azure CLI or an Azure Resource Manager template. You can't currently perform this configuration with the Azure portal.
+- If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the *Microsoft.ContainerService* resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
+### Prometheus
+
+- You must either have an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) or [create a new one](../essentials/azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace).
+- The cluster must use [managed identity authentication](../../aks/use-managed-identity.md).
+- The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor workspace:
+  - Microsoft.ContainerService
+  - Microsoft.Insights
+  - Microsoft.AlertsManagement
+
+> [!NOTE]
+> `Contributor` permission is enough for enabling the addon to send data to the Azure Monitor workspace. You will need `Owner` level permission in case you're trying to link your Azure Monitor Workspace to view metrics in Azure Managed Grafana. This is required because the user executing the onboarding step, needs to be able to give the Azure Managed Grafana System Identity `Monitoring Reader` role on the Azure Monitor Workspace to query the metrics. 
+
+
+
+## Enable monitoring with Azure portal
+Using the Azure portal, you can enable both Container insights and Managed Prometheus at the same time. This deploys the containerized version of the Azure Monitor agent which collects data for Container insights and the metrics addon which collects Prometheus metrics.
+
+> [!NOTE]
+> If you want to enabled Managed Prometheus without Container insights, then [enable it from the Azure Monitor workspace](./prometheus-metrics-enable.md) as described below.
 
 ### [New cluster](#tab/new-cluster)
 
@@ -21,10 +53,7 @@ When you create a new AKS cluster in the Azure portal, you can enable Prometheus
 
 ### [Existing cluster](#tab/existing-cluster)
 
-This option enables Container insights on a cluster and gives you the option of also enabling [Managed Prometheus and Managed Grafana](./prometheus-metrics-enable.md) for the cluster.
-
-> [!NOTE]
-> If you want to enabled Managed Prometheus without Container insights, then [enable it from the Azure Monitor workspace](./prometheus-metrics-enable.md).
+This option enables Container insights and optionally Prometheus and Grafana on an existing AKS cluster.
 
 1. Open the cluster's menu in the Azure portal and  select **Insights**.
    1. If Container insights isn't enabled for the cluster, then you're presented with a screen identifying which of the features have been enabled. Click **Configure monitoring**.
@@ -35,7 +64,7 @@ This option enables Container insights on a cluster and gives you the option of 
 
     :::image type="content" source="media/aks-onboard/monitor-settings-button.png" lightbox="media/aks-onboard/monitor-settings-button.png" alt-text="Screenshot that shows the monitoring settings button for a cluster.":::
 
-2. The **Container insights** will be enabled. **Select** the checkboxes for **Enable Prometheus metrics** and **Enable Grafana** if you also want to enable them for the cluster. If you have existing Azure Monitor workspace and Grafana workspace, then they're selected for you. 
+2. **Container insights** will be enabled. **Select** the checkboxes for **Enable Prometheus metrics** and **Enable Grafana** if you also want to enable them for the cluster. If you have existing Azure Monitor workspace and Grafana workspace, then they're selected for you. 
 
     :::image type="content" source="media/prometheus-metrics-enable/configure-container-insights.png" lightbox="media/prometheus-metrics-enable/configure-container-insights.png" alt-text="Screenshot that shows the dialog box to configure Container insights with Prometheus and Grafana.":::
 
@@ -44,22 +73,16 @@ This option enables Container insights on a cluster and gives you the option of 
     :::image type="content" source="media/aks-onboard/advanced-settings.png" lightbox="media/aks-onboard/advanced-settings.png" alt-text="Screenshot that shows the advanced settings dialog box.":::
 
 4. Click **Configure** to save the configuration.
+
 ---
 
 ## Enable Container insights
 
-### Prerequisites
-
-- See [Prerequisites](./container-insights-onboard.md) for Container insights.
--  You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Microsoft Entra tenant, but you must use the Azure CLI or an Azure Resource Manager template. You can't currently perform this configuration with the Azure portal.
-- If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the *Microsoft.ContainerService* resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
-
-
-#### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 From the Container insights menu, you can view all of your clusters, quickly identify which aren't monitored, and launch the same configuration experience as described in [From existing cluster](#from-existing-cluster).
 
-1. Open the **Monitor** menu in the Azure portal and  select **Insights**. 
+1. Open the **Monitor** menu in the Azure portal and  select **Containers**. 
 3. The **Unmonitored clusters** tab lists clusters that don't have Container insights enabled. Click **Enable** next to a cluster and follow the guidance in [Existing cluster](#existing-cluster).
 
 
@@ -231,18 +254,6 @@ Replace and use the managed cluster resources in [Deploy an Azure Kubernetes Ser
 
 ## Prometheus
 
-### Prerequisites
-
-- You must either have an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) or [create a new one](../essentials/azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace).
-- The cluster must use [managed identity authentication](../../aks/use-managed-identity.md).
-- The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor workspace:
-  - Microsoft.ContainerService
-  - Microsoft.Insights
-  - Microsoft.AlertsManagement
-
-> [!NOTE]
-> `Contributor` permission is enough for enabling the addon to send data to the Azure Monitor workspace. You will need `Owner` level permission in case you're trying to link your Azure Monitor Workspace to view metrics in Azure Managed Grafana. This is required because the user executing the onboarding step, needs to be able to give the Azure Managed Grafana System Identity `Monitoring Reader` role on the Azure Monitor Workspace to query the metrics. 
-
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -331,7 +342,7 @@ The output is similar to the following example:
       }
 ```
 
-### [Azure Resource Manager](#tab/resource-manager)
+### [Azure Resource Manager](#tab/arm)
 
 #### Prerequisites
 
