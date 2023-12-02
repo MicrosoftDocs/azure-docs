@@ -80,11 +80,14 @@ To enable single sign-on in your environment, you must:
 > Due to an upcoming change, the steps below should be completed for the following Microsoft Entra Apps:
 > 
 > - Microsoft Remote Desktop (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c).
-> - Windows Cloud Login (App ID 270efc09-cd0d-444b-a71f-39af4910ec45)
+> - Windows Cloud Login (App ID 270efc09-cd0d-444b-a71f-39af4910ec45).
+
+> [!IMPORTANT]
+> To complete this step, the calling user must be assigned the Application Administrator, Cloud Application Administrator, or Global Administrator [directory role](/entra/identity/role-based-access-control/permissions-reference). They must also have the Application-RemoteDesktopConfig.ReadWrite.All, Application.ReadWrite.All or Directory.ReadWrite.All [permission](/graph/permissions-reference).
 
 Before enabling the single sign-on feature, you must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant. This will enable issuing RDP access tokens allowing users to sign in to Azure Virtual Desktop session hosts. This is done by enabling the isRemoteDesktopProtocolEnabled property on the service principal's remoteDesktopSecurityConfiguration object for the apps listed above.
 
-Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration) and set the property **isRemoteDesktopProtocolEnabled** to **true** to enable Microsoft Entra authentication.
+Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration) and set the property **isRemoteDesktopProtocolEnabled** to **true** to enable Microsoft Entra authentication. See the next section for step-by-step instructions using Microsoft Graph Explorer.
 
 ### Configure the target device groups
 
@@ -92,7 +95,10 @@ Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecuri
 > Due to an upcoming change, the steps below should be completed for the following Microsoft Entra Apps:
 > 
 > - Microsoft Remote Desktop (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c).
-> - Windows Cloud Login (App ID 270efc09-cd0d-444b-a71f-39af4910ec45)
+> - Windows Cloud Login (App ID 270efc09-cd0d-444b-a71f-39af4910ec45).
+
+> [!IMPORTANT]
+> To complete this step, the calling user must be assigned the Application Administrator, Cloud Application Administrator, or Global Administrator [directory role](/entra/identity/role-based-access-control/permissions-reference). They must also have the Application-RemoteDesktopConfig.ReadWrite.All, Application.ReadWrite.All or Directory.ReadWrite.All [permission](/graph/permissions-reference).
 
 By default when enabling single sign-on, users are prompted to authenticate to Microsoft Entra ID and allow the Remote Desktop connection when launching a connection to a new session host. Microsoft Entra remembers up to 15 hosts for 30 days before prompting again. If you see this dialogue, select **Yes** to connect.
 
@@ -102,8 +108,87 @@ Follow these steps to hide the dialog:
 
 1. [Create a Dynamic Device Group](/entra/identity/users/groups-create-rule) in Microsoft Entra containing the devices to hide the dialog for. Remember the device group ID for the next step.
     > [!TIP]
-    > It's recommended to use a dynamic device group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. This can be done using the device names or for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview) using [Microsoft Graph API](/graph/api/resources/device).
+    > It's recommended to use a dynamic device group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. This can be done using the device names or for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview) using [Microsoft Graph API](/graph/api/resources/device). While dynamic device groups normally update within 5-10 minutes, in some large tenant this can take up to 24 hours.
 1. Use the [Microsoft Graph API](/graph/use-the-api) to [create a new targetDeviceGroup object](/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups) to suppress the prompt from these devices.
+
+There are multiple ways to configure the service principal using Microsoft Graph API, but an example is provided below that leverages Microsoft Graph Explorer to enable Microsoft Entra authentication and configure a target device group.
+
+Start by giving Graph Explorer permission to update the new properties on the service principal.
+
+1. Navigate to the [consent page](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=de8bc8b5-d9f9-48b1-a8ad-b748da725064&response_type=code&scope=https://graph.microsoft.com/Application-RemoteDesktopConfig.ReadWrite.All) for Graph Explorer (App ID de8bc8b5-d9f9-48b1-a8ad-b748da725064).
+1. Follow the prompts and check the box to Consent on behalf of your organization.
+1. At the end of the flow, you might see an error page with error “AADSTS9002325: Proof Key for Code Exchange is required for cross-origin authorization code redemption”, you can ignore it as the permissions should have been consented successfully.
+1. If you want to confirm:
+  1. Navigate to the [Microsoft Entra ID](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview) section in the Azure Portal.
+  1. Select **Enterprise applications** on the left.
+  1. Remove any **Application type** filters to see all applications.
+  1. Search for **Graph Explorer**.
+  1. Click on the app with Application ID starting with **de8bc8b5-d9f9-48b1-a8ad-b748da725064**.
+  1. Select **Permissions** on the left.
+  1. Look for the **Application-RemoteDesktopConfig.ReadWrite.All** Claim value with Type = Delegated mode under the Admin Consent tab.
+1. Close your browser or sign out of your account to ensure the permission changes are applied.
+
+Repeat the steps to configure the service principal using Graph Explorer for the Microsoft Remote Desktop (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c) and the Windows Cloud Login (App ID 270efc09-cd0d-444b-a71f-39af4910ec45) apps.
+
+1. Navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1. Sign in with your Microsoft Entra ID credentials.
+1. Retrieve the object id of the service principal in your tenant:
+  1. In Graph Explorer, ensure the command type is set to **GET**.
+  1. Type this command in the text box: `https://graph.microsoft.com/v1.0/servicePrincipals(appID='a4a365df-50f1-4397-bc59-1a1564b8bb9c')`.
+  1. Click **Run query**.
+  1. Copy the **Id** attribute in the response. Use this value to replace the \<SPObjectID\> referred to in the steps below.
+1. Enable issuing RDP Access Tokens.
+  1. Change the command type to **PATCH**.
+  1. Change the command in the text box to: `https://graph.microsoft.com/v1.0/servicePrincipals/<SPObjectID>/remoteDesktopSecurityConfiguration`, replacing the SPObjectID  with your value.
+  1. Copy the following in the Request body:
+      ```json
+      {
+        "isRemoteDesktopProtocolEnabled": true,
+        "targetDeviceGroups": []
+      }
+      ```
+  1. Click **Run query**.
+1. Add the device group to the list.
+  1. Change the command type to **POST**.
+  1. Change the command in the text box to: `https://graph.microsoft.com/v1.0/servicePrincipals/<SPObjectID>/remoteDesktopSecurityConfiguration/targetDeviceGroups`, replacing the SPObjectID  with your value.
+  1. Copy the following in the Request body, replacing the GroupObjectID with the object ID from your device group. The GroupName is for your reference and doesn’t need to match the device group name.
+      ```json
+      {
+        "id": "<GroupObjectID>",
+        "displayName": "<GroupName>"
+      }
+      ```
+  1. Click **Run query**.
+1. Check the configuration of the service principal.
+  1. Change the command type to **GET**.
+  1. Change the command in the text box to: `https://graph.microsoft.com/v1.0/servicePrincipals/<SPObjectID>/remoteDesktopSecurityConfiguration`, replacing the SPObjectID  with your value.
+  1. Click **Run query**.
+  1. You should see the following as part of the output:
+      ```json
+      {
+        "isRemoteDesktopProtocolEnabled": true,
+        "targetDeviceGroups": [
+        {
+          "id": "<GroupObjectID>",
+          "displayName": "<GroupName>"
+        }
+        ]
+      }
+      ```
+
+If you later need to remove a device group using Graph Explorer.
+
+1. Navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1. Sign in with your Microsoft Entra ID credentials.
+1. Retrieve the object id of the service principal in your tenant:
+  1. In Graph Explorer, ensure the command type is set to **GET**.
+  1. Type this command in the text box: `https://graph.microsoft.com/v1.0/servicePrincipals(appID='a4a365df-50f1-4397-bc59-1a1564b8bb9c')`.
+  1. Click **Run query**.
+  1. Copy the **Id** attribute in the response. Use this value to replace the \<SPObjectID\> referred to in the steps below.
+1. Remove the device group from the list.
+  1. Change the command type to **DELETE**.
+  1. Change the command in the text box to: `https://graph.microsoft.com/v1.0/servicePrincipals/<SPObjectID>/remoteDesktopSecurityConfiguration/targetDeviceGroups/<GroupObjectID>`, replacing the SPObjectID  with your value and the GroupObjectID with the object ID from your device group.
+  1. Click **Run query**.
 
 ### Create a Kerberos Server object
 
