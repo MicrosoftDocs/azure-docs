@@ -530,7 +530,7 @@
       href: data-connectors/google-cloud-platform-iam-using-azure-functions.md
     - name: Google Workspace (G Suite) (using Azure Functions)
       href: data-connectors/google-workspace-g-suite-using-azure-functions.md
-    - name: GreyNoise Threat Intelligence (Using Azure Functions) (using Azure Functions)
+    - name: GreyNoise Threat Intelligence (using Azure Functions)
       href: data-connectors/greynoise-threat-intelligence-using-azure-functions-using-azure-functions.md
     - name: Holm Security Asset Data (using Azure Functions)
       href: data-connectors/holm-security-asset-data-using-azure-functions.md
