@@ -332,7 +332,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ::: moniker-end
 
-:::moniker range="4.0.0"
+:::moniker range="doc-intel-4.0.0"
   | Model ID | Language—Locale code | Default |
   |--------|:----------------------|:---------|
   |**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
@@ -342,7 +342,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
   |**prebuilt-tax.us.1099**|English (United States)|English (United States)—en-US|
 :::moniker-end
 
-:::moniker range="3.1.0"
+:::moniker range="doc-intel-3.1.0"
   | Model ID | Language—Locale code | Default |
   |--------|:----------------------|:---------|
   |**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
@@ -351,7 +351,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
   |**prebuilt-tax.us.1098T**|English (United States)|English (United States)—en-US|
 :::moniker-end
 
-:::moniker range="3.0.0"
+:::moniker range="doc-intel-3.0.0"
   | Model ID | Language—Locale code | Default |
   |--------|:----------------------|:---------|
   |**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
