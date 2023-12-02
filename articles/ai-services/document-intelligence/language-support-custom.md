@@ -37,19 +37,17 @@ ms.date: 11/15/2023
 
 Azure AI Document Intelligence models provide multilingual document processing support. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Custom models are trained using your labeled datasets to extract distinct data from structured, semi-structured, and unstructured documents specific to your use cases. Standalone custom models can be combined to create composed models. The following tables list the available language and locale support by model and feature:
 
-## Custom Classifier
-
-### [Custom classifier](#tab/custom-classifier)
-
-***custom classifier model***
+## Custom classifier
 
 :::moniker range="doc-intel-3.1.0"
+
 | Language—Locale code | Default |
 |:----------------------|:---------|
 | English (United States)—en-US| English (United States)—en-US|
 :::moniker-end
 
 :::moniker range="doc-intel-4.0.0"
+
 |Language| Code (optional) |
 |:-----|:----:|
 |Afrikaans| `af`|
@@ -99,15 +97,29 @@ Azure AI Document Intelligence models provide multilingual document processing s
 |Ukrainian|`uk`|
 |Urdu|`ur`|
 |Vietnamese|`vi`|
+
 :::moniker-end
 
 ## Custom neural
 
-### [Custom neural](#tab/custom-neural)
+:::moniker range=">=doc-intel-3.1.0"
 
-***custom neural model***
+Neural models support added languages for the `v3.1` and later APIs.
 
-#### Handwritten text
+| Languages | API version |
+|:--:|:--:|
+| English |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`, `v3.0:2022-08-31 (GA)`|
+| German |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Italian |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| French |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Spanish |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Dutch |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+
+:::moniker-end
+
+:::moniker range=">=doc-intel-3.1.0"
+
+[**Handwritten text**](#tab/handwritten)
 
 The following table lists the supported languages for extracting handwritten texts.
 
@@ -119,7 +131,7 @@ The following table lists the supported languages for extracting handwritten tex
 |German  |`de`|Spanish  |`es`|
 |Italian  |`it`|
 
-#### Printed text
+[**Printed text**](#tab/printed)
 
 The following table lists the supported languages for printed text.
 
@@ -173,28 +185,13 @@ The following table lists the supported languages for printed text.
 |Urdu|`ur`|
 |Vietnamese|`vi`|
 
-:::moniker range=">=doc-intel-3.1.0"
-
-Neural models support added languages for the `v3.1` and later APIs.
-
-| Languages | API version |
-|:--:|:--:|
-| English |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`, `v3.0:2022-08-31 (GA)`|
-| German |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Italian |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| French |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Spanish |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Dutch |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-
 :::moniker-end
 
 ## Custom template
 
-### [Custom template](#tab/custom-template)
+:::moniker range=">=doc-intel-3.0.0"
 
-***custom template model***
-
-#### Handwritten text
+## [**Handwritten**](#tab/handwritten)
 
 The following table lists the supported languages for extracting handwritten texts.
 
@@ -206,7 +203,7 @@ The following table lists the supported languages for extracting handwritten tex
 |German  |`de`|Spanish  |`es`|
 |Italian  |`it`|
 
-#### Printed text
+## [**Printed**](#tab/printed)
 
 The following table lists the supported languages for printed text.
 :::row:::
@@ -527,5 +524,5 @@ The following table lists the supported languages for printed text.
   |Zulu|zu|
    :::column-end:::
 :::row-end:::
-
 ---
+:::moniker-end
