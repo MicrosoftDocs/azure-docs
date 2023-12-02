@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use GPT-4 with Vision on your images and videos with the Azure Open AI Service'
+title: 'Quickstart: Use GPT-4 Turbo with Vision on your images and videos with the Azure Open AI Service'
 titleSuffix: Azure OpenAI
-description: Use this article to get started using Azure OpenAI to deploy and use the GPT-4 with Vision model.  
+description: Use this article to get started using Azure OpenAI to deploy and use the GPT-4 Turbo with Vision model.  
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -9,7 +9,7 @@ ms.topic: include
 ms.date: 11/02/2023
 ---
 
-Use this article to get started using Azure OpenAI to deploy and use the GPT-4 with Vision model. 
+Use this article to get started using Azure OpenAI to deploy and use the GPT-4 Turbo with Vision model. 
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ In this chat session, you try out the capabilities of the enhanced Vision model.
 
  
 1. To start, in the **Configurations** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancement** section.
-1. You're required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in one of the GPT-4 with Vision supported regions:  `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast`. Select your resource, and **Save**. 
+1. You're required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in one of the GPT-4 Turbo with Vision supported regions:  `EastUS`, `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast`. Select your resource, and **Save**. 
 1. Provide this System Message to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you're uploading. 
 1. Save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
 1. In the **Chat session** pane, enter the following question: "Describe this image," and upload an image. Then select **Send**.  
