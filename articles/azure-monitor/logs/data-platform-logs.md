@@ -76,6 +76,12 @@ Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is
 
 The experience of using Log Analytics to work with Azure Monitor queries in the Azure portal is similar to the experience of using the Azure Data Explorer Web UI. You can even [include data from a Log Analytics workspace in an Azure Data Explorer query](/azure/data-explorer/query-monitor-data).
 
+## Relationship to Azure Sentinel and Microsoft Defender for Cloud
+
+Security monitoring in Azure is performed by [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) and [Microsoft Sentinel](../../sentinel/overview.md). For more information, see [Security monitoring](../best-practices-plan.md#security-monitoring).
+
+These services store their data in Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor. For more information, see [Product integrations](../monitor-reference.md#product-integrations) and [Other services](../data-sources.md#other-services).
+
 ## Next steps
 
 - Learn about [log queries](./log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
