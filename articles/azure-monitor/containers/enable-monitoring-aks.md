@@ -45,13 +45,13 @@ Using the Azure portal, you can enable both Container insights and Managed Prome
 > [!NOTE]
 > If you want to enabled Managed Prometheus without Container insights, then [enable it from the Azure Monitor workspace](./prometheus-metrics-enable.md) as described below.
 
-### [New cluster](#tab/new-cluster)
+### New cluster
 
 When you create a new AKS cluster in the Azure portal, you can enable Prometheus, Container insights, and Grafana from the **Integrations** tab. In the Azure Monitor section, select either **Default configuration** or **Custom configuration** if you want to specify which workspaces to use. You can perform additional configuration once the cluster is created.
 
 :::image type="content" source="media/prometheus-metrics-enable/aks-integrations.png" lightbox="media/prometheus-metrics-enable/aks-integrations.png" alt-text="Screenshot of integrations tab for new AKS cluster.":::
 
-### [Existing cluster](#tab/existing-cluster)
+### Existing cluster
 
 This option enables Container insights and optionally Prometheus and Grafana on an existing AKS cluster.
 
