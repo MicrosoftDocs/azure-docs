@@ -253,7 +253,7 @@ Converting to PAYG model is supported for Azure Marketplace images labeled BYOS,
 
 #### [Multiple VMs](#tab/paygclimultiple)
 
-The following command will convert the machines specified in the argument to BYOS.
+The following command converts the machines specified in the argument to BYOS.
 
 ```azurecli
 # This will enable BYOS on a RHEL virtual machine. In this example, ids.txt is an
