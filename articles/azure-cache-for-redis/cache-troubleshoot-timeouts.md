@@ -38,6 +38,8 @@ This section discusses troubleshooting for latency and timeout issues that occur
 
 ## Client-side troubleshooting
 
+Here's the client-side troubleshooting.
+
 ### Traffic burst and thread pool configuration
 
 Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis server but not yet consumed on the client side. Check the metric "Errors" (Type: UnresponsiveClients) to validate if your client hosts can keep up with a sudden spike in traffic.
@@ -116,6 +118,8 @@ If you're using `RedisSessionStateProvider`, ensure you set the retry timeout co
 ```
 
 ## Server-side troubleshooting
+
+Here's the server-side troubleshooting.
 
 ### Server maintenance
 
