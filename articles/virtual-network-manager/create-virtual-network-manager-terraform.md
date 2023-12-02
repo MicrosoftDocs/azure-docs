@@ -80,7 +80,7 @@ This code sample will implement Azure Virtual Network Manager at the subscriptio
 This code sample will implement Azure Virtual Network Manager at the management group scope.
  
 > [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh/TestRecord.md).
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-management-group-scope). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/blob/master/quickstart/101-virtual-network-manager-create-management-group-scope/TestRecord.md).
 > 
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
@@ -88,19 +88,19 @@ This code sample will implement Azure Virtual Network Manager at the management 
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/providers.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/main.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/variables.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/outputs.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group/outputs.tf)]
 
 :::zone-end
 
