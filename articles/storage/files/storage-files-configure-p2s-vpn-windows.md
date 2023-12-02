@@ -377,13 +377,13 @@ On the client computer, navigate to `C:\vpn-temp` and open the **vpnclientconfig
 You can use the same VPN client configuration package on each Windows client computer, as long as the version matches the architecture for the client.
 
 >[!NOTE]
->You must have Administrator rights on the Windows client computer from which you want to connect.
+>You must have Administrator rights on the Windows client computer from which you want to connect in order to run the installer package.
 
 1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the `VpnClientSetupAmd64` installer package. For a 32-bit processor architecture, choose the `VpnClientSetupX86` installer package.
 
 1. Double-click the package to install it. If you see a SmartScreen popup, select **More info**, then **Run anyway**.
 
-1. Connect to your VPN. Go to the **VPN** settings and locate the VPN connection that you created. It's the same name as your virtual network. Select **Connect**. A pop-up message might appear. Select **Continue** to use elevated privileges.
+1. Connect to your VPN. Go to **VPN Settings** and locate the VPN connection that you created. It's the same name as your virtual network. Select **Connect**. A pop-up message might appear. Select **Continue** to use elevated privileges.
 
 1. On the **Connection status** page, select **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it isn't, use the drop-down arrow to select the correct certificate, and then select **OK**.
 
