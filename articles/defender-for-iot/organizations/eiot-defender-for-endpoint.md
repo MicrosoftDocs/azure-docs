@@ -93,15 +93,10 @@ Use the query below to help find devices that were discovered on a specific subn
 let IpV6Range = “2001:4898::1050:1050/127”;  
 
 DeviceNetworkInfo  
-
 | where Timestamp > ago(7d)  
-
 | summarize arg_max(Timestamp, *) by DeviceId  
-
 | mv-expand IPAddressEntry=todynamic(IPAddresses)  
-
 | extend IPAddress=tostring(IPAddressEntry.IPAddress)  
-
 | where ipv6_is_match(IPAddress, IpV6Range)  
 ```
 
@@ -109,15 +104,10 @@ DeviceNetworkInfo 
 let IpV4Range = “172.22.138.0/24”;  
 
 DeviceNetworkInfo  
-
 | where Timestamp > ago(7d)  
-
 | summarize arg_max(Timestamp, *) by DeviceId  
-
 | mv-expand IPAddressEntry=todynamic(IPAddresses)  
-
 | extend IPAddress=tostring(IPAddressEntry.IPAddress)  
-
 | where ipv4_is_in_range(IPAddress, IpV4Range)  
 ```
 
@@ -131,7 +121,6 @@ Run the following query in your tenant to understand which of your devices can b
 DeviceInfo  
 
 | summarize arg_max(Timestamp, *) by DeviceId  
-
 | where OnboardingStatus == "Can be onboarded"  
 ```
 
@@ -143,7 +132,6 @@ To find which devices exist in your corporate network by type of device (i.e. ro
 DeviceInfo  
 
 | summarize arg_max(Timestamp, *) by DeviceId  
-
 | where DeviceType == "NetworkDevice" and DeviceSubtype  == "Router"  
 ```
 
@@ -155,9 +143,7 @@ If you manage your devices with a specific naming convention, you can query devi
 DeviceInfo  
 
 | summarize arg_max(Timestamp, *) by DeviceId  
-
 | where OnboardingStatus != "Onboarded"  
-
 | where DeviceName startswith "minint"  
 ```
 
@@ -166,11 +152,9 @@ DeviceInfo 
 ```kusto
 DeviceInfo  
 
-| summarize arg_max(Timestamp, *) by DeviceId  
-
-| where OnboardingStatus != "Onboarded"  
-
-| where DeviceName endswith "-pc"  
+summarize arg_max(Timestamp, *) by DeviceId  
+where OnboardingStatus != "Onboarded"  
+where DeviceName endswith "-pc"  
 ```
 
 ### Find specific device models   
@@ -180,9 +164,7 @@ To find specific models of devices, leveraging the following query:  
 DeviceInfo  
 
 | summarize arg_max(Timestamp, *) by DeviceId  
-
 | summarize ModelCount=dcount(DeviceId) by Model  
-
 | where ModelCount < 5  
 ```
 
