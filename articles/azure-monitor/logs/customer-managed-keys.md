@@ -153,7 +153,7 @@ When entering "''" value for ```key-version```, the cluster always uses the last
 ```azurecli
 az account set --subscription cluster-subscription-id
 
-az monitor log-analytics cluster update --no-wait true --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
+az monitor log-analytics cluster update --no-wait --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
 
 $clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")].[id]" --output tsv
 az resource wait --created --ids $clusterResourceId --include-response-body true
