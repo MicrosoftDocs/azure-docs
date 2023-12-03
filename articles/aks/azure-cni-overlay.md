@@ -29,6 +29,12 @@ You can provide outbound (egress) connectivity to the internet for Overlay pods 
 
 You can configure ingress connectivity to the cluster using an ingress controller, such as Nginx or [HTTP application routing](./http-application-routing.md). You cannot configure ingress connectivity using Azure App Gateway. For details see [Limitations with Azure CNI Overlay](#limitations-with-azure-cni-overlay).
 
+## Limitations
+
+Azure CNI Overlay networking in AKS currently has the following limitations:
+
+* In case you are using your own subnet to deploy the cluster, the names of the subnet, VNET and resource group which contains the VNET, must be 63 characters or less. This comes from the fact that these names will be used as labels in AKS worker nodes, and are therefore subjected to [Kubernetes label syntax rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).  
+
 ## Regional availability for ARM64 node pools
 
 Azure CNI Overlay is currently unavailable for ARM64 node pools in the following regions:
@@ -169,7 +175,7 @@ The `--pod-cidr` parameter is required when upgrading from legacy CNI because th
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-You must have the latest aks-preview Azure CLI extension installed and register the `Microsoft.ContainerService` `AzureOverlayDualStackPreview` feature flag.
+You must have the latest aks-preview Azure CLI extension installed and register the `Microsoft.ContainerService` `AzureOverlayPreview` feature flag.
 
 Update an existing Kubenet cluster to use Azure CNI Overlay using the [`az aks update`][az-aks-update] command.
 
@@ -186,7 +192,7 @@ az aks update --name $clusterName \
 
 Since the cluster is already using a private CIDR for pods, you don't need to specify the `--pod-cidr` parameter and the Pod CIDR will remain the same.
 
-> [NOTE!]
+> [!NOTE]
 > When upgrading from Kubenet to CNI Overlay, the route table will no longer be required for pod routing. If the cluster is using a customer provided route table, the routes which were being used to direct pod traffic to the correct node will automatically be deleted during the migration operation. If the cluster is using a managed route table (the route table was created by AKS and lives in the node resource group) then that route table will be deleted as part of the migration.
 
 ## Dual-stack Networking (Preview)

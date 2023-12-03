@@ -6,8 +6,8 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 09/26/2023
-ms.custom: devx-track-dotnet
+ms.date: 12/01/2023
+ms.custom: devx-track-dotnet, devguide-csharp
 ---
 
 # Implement a retry policy with .NET

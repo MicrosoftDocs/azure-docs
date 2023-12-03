@@ -42,6 +42,10 @@ This article provides information about the export process and shows how to expo
 
 - By default, if an Azure connector has a built-in connector version, the export tool automatically converts the Azure connector to the built-in connector. No option exists to opt out from this behavior.
 
+- If the connection ID is incorrectly formatted, an error is thrown. Before you export your workflow, make sure that the connection IDs for your connectors match the following format:
+
+   `subscriptionId/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/integrationServiceEnvironments/{integration-service-environment-name}/managedApis/{managed-api-name}`
+
 ## Exportable operation types
 
 | Operation | JSON type |

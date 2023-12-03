@@ -220,7 +220,7 @@ custom_logical_volumes:
 ```
 
 > [!NOTE]
-> In order to use this functionality you need to add an additional disk named 'custom' to one or more of your Virtual machines. See [Custom disk sizing](configure-extra-disks.md) for more information.
+> In order to use this functionality you need to add an additional disk named 'custom' to one or more of your Virtual machines. For more information, see [Custom disk sizing](configure-extra-disks.md).
 
 You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
 
@@ -242,7 +242,7 @@ configuration_settings = {
 
 ## Adding custom mount (Linux)
 
-You can extend the SAP Deployment Automation Framework by mounting additional mount points in your installation.
+You can extend the SAP Deployment Automation Framework by mounting extra mount points in your installation.
 
 When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' is mounted from an NFS share on "xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom".
 
@@ -276,7 +276,7 @@ configuration_settings = {
 
 You can extend the SAP Deployment Automation Framework by adding additional folders to be exported from the Central Services virtual machine.
 
-When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' will be exported from the Central Services virtual machine and available via NFS.
+When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' is exported from the Central Services virtual machine and available via NFS.
 
 ```yaml
 
@@ -300,7 +300,38 @@ configuration_settings = {
 > [!NOTE]
 > This applies only for deployments with NFS_Provider set to 'NONE' as this makes the Central Services server an NFS Server.
 
+## Custom Stripe sizes (Linux)
 
+If you want to the stripe sizes used by the framework when creating the disks, you can add the following section to the sap-parameters.yaml file with the values you want.
+
+```yaml
+# User and group IDs
+hana_data_stripe_size:                 256
+hana_log_stripe_size:                  64
+
+db2_log_stripe_size:                   64
+db2_data_stripe_size:                  256
+db2_temp_stripe_size:                  128
+
+sybase_data_stripe_size:               256
+sybase_log_stripe_size:                64
+sybase_temp_stripe_size:               128
+
+oracle_data_stripe_size:               256
+oracle_log_stripe_size:                128
+
+```
+
+## Custom volume sizes (Linux)
+
+If you want to the default volume sizes used by the framework, you can add the following section to the sap-parameters.yaml file with the values you want.
+
+```yaml
+
+sapmnt_volume_size:                    32g
+usrsap_volume_size:                    32g
+hanashared_volume_size:                32g
+```
 
 ## Next step
 
