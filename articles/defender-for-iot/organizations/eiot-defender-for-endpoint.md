@@ -88,8 +88,8 @@ On the **Device inventory** page, select **Go hunt** to query devices using tabl
 **Find and export vulnerabilities for your IoT devices**
 The following query collects all vulnerabilities on your IoT devices:
 
-:::code language="csharp" | where DeviceCategory =~ "iot"
-| join kind=inner DeviceTvmSoftwareVulnerabilities on DeviceId:::
+```aspx-csharp | where DeviceCategory =~ "iot"
+| join kind=inner DeviceTvmSoftwareVulnerabilities on DeviceId```
 
 For more information, see [Advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) and [Understand the advanced hunting schema](/microsoft-365/security/defender/advanced-hunting-schema-tables).
 
