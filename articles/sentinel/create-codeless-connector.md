@@ -31,7 +31,9 @@ This article will show you how to complete each step and provide an [example cod
 The initial version of the CCP was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform and the [legacy release](create-codeless-connector-legacy.md) is no longer recommended. This new version of the CCP has the following key improvements:
 
 1. Better support for various authentication and pagination types.
-1. Supports standard DCRs.
+
+1. Supports standard data collection rules (DCRs).
+
 1. The user interface and connection configuration portions of the codeless connector are separate now. This allows the creation of connectors with multiple connections which wasn't possible previously.
 
 ## Prerequisites
@@ -40,7 +42,7 @@ Before building a connector, understand your data source and how Microsoft Senti
 
 1. Data Collection Endpoint (DCE)
    
-   The Data Collection Rule (DCR) you create for your connector needs a DCE. For more information on how to create one or whether you need a new one, see [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md).
+   A DCE is a requirement for a DCR. Only one DCE is created per log analytics workspace DCR deployment. Every DCR deployed for a Microsoft Sentinel workspace uses the same DCE. For more information on how to create one or whether you need a new one, see [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md).
 
 1. Schema of the output table(s).  
 
@@ -49,7 +51,9 @@ Before building a connector, understand your data source and how Microsoft Senti
 Research the following components and verify support for them in the [Data Connector API reference](restapipoller-data-connector-reference.md):
 
 1. HTTP request and response structure to the data source
+
 1. Authentication required by the data source.<br>For example, if your data source requires a token signed with a certificate, the data connector API reference specifies cert authentication isn't supported. 
+
 1. Pagination options to the data source
 
 We also recommend a tool like Postman to validate the data connector components. For more information, see [Use Postman with the Microsoft Graph API](/graph/use-postman).
@@ -75,13 +79,17 @@ If your data source doesn't conform to the schema of a standard table, you have 
 1. create a custom table for all the data
 1. create a custom table for some data and split conforming data out to a standard table
 
-Use the Log Analytics UI for a straight forward method to create a custom table together with a DCR. For more information, see [Create a custom table](../azure-monitor/logs/create-custom-table.md#create-a-custom-table). If you create the custom table using the [Tables API](/rest/api/loganalytics/tables/create-or-update) or another programmatic method, add the `_CL` suffix manually to the table name.
+Use the Log Analytics UI for a straight forward method to create a custom table together with a DCR. If you create the custom table using the [Tables API](/rest/api/loganalytics/tables/create-or-update) or another programmatic method, add the `_CL` suffix manually to the table name. For more information, see [Create a custom table](../azure-monitor/logs/create-custom-table.md#create-a-custom-table).
 
-For more information on splitting your data to more than one table, see the [example custom table](#example-custom-table).
+For more information on splitting your data to more than one table, see the [example data](#example-data) and the [example custom table](#example-custom-table) created for that data.
 
 ### Data collection rule 
 
-You must create the DCR and have a corresponding DCE in the region you create the CCP data connector. You need the DCR immutable ID for the [Data connection rules](#data-connection-rules) creation.
+Data collection rules (DCRs) define the data collection process in Azure Monitor. DCRs specify what data should be collected, how to transform that data, and where to send that data. 
+
+- There is only one DCR that gets deployed per data connector.
+- A DCR must have a corresponding DCE in the same region.
+- When the CCP data connector is deployed, the DCR is created if it doesn't already exist.
 
 Reference the latest information on DCRs in these articles:
 - [Data collection rules overview](../azure-monitor/essentials/data-collection-rule-overview.md)
@@ -89,11 +97,13 @@ Reference the latest information on DCRs in these articles:
 
 For a tutorial demonstrating the creation of a DCE, including using sample data to create the custom table and DCR, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](../azure-monitor/logs/tutorial-logs-ingestion-portal.md). Use the process in this tutorial to verify data is ingested correctly to your table with your DCR.
 
-To understand how to create a complex DCR with multiple data flows, see the [example section](#example-data-collection-rule).
+To understand how to create a complex DCR with multiple data flows, see the [DCR example section](#example-data-collection-rule).
 
 ### Data connector user interface
 
-The data connector user interface uses the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API to configure the elements Microsoft Sentinel users experience when viewing the CCP data connector. Build this resource with the [Data connector definitions reference](connectorUIConfig-supplemental-reference.md).
+This component renders the UI for the data connector in the Microsoft Sentinel data connector gallery. Each data connector may have only one UI definition. 
+
+Build the data connector user interface with the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API. Use the [Data connector definitions reference](connectorUIConfig-supplemental-reference.md) as a supplement to explain the API elements in greater detail.
 
 Notes: 
 1)	The `kind` property for API polling connector should always be `Customizable`.
@@ -217,14 +227,14 @@ For more information on the structure of this table, see [Tables API](/rest/api/
 
 ### Example data collection rule
 
-The following DCR defines a single stream `{{Custom-ExampleConnectorInput}}` using the example data source and transforms the output into two tables.
+The following DCR defines a single stream `Custom-ExampleConnectorInput` using the example data source and transforms the output into two tables.
 
 1. The first dataflow directs `eventType` = **Alert** to the custom `ExampleConnectorAlerts_CL` table.
 1. the second dataflow directs `eventType` = **File** to the normalized standard table,`ASimFileEventLogs`.
 
 For more information on the structure of this example, see [Structure of a data collection rule](../azure-monitor/essentials/data-collection-rule-structure.md).
 
-To create this connector in a test environment, follow the [Data Collection Rules API](/rest/api/monitor/data-collection-rules/create). Elements of the example in `{{double curly braces}}` indicate variables.
+To create this DCR in a test environment, follow the [Data Collection Rules API](/rest/api/monitor/data-collection-rules/create). Elements of the example in `{{double curly braces}}` indicate variables for ease of use with Postman. When you create this resource in the ARM template, the variables expressed here are exchanged for 
 
 ```json
 {
@@ -322,7 +332,7 @@ To create this connector in a test environment, follow the [Data Collection Rule
 
 ### Example ARM template
 
-This guide is an ARM deployment template with the following structure:
+This example guides you through the creation of an ARM deployment template with the following structure:
 
 ```json
 {
@@ -333,9 +343,9 @@ This guide is an ARM deployment template with the following structure:
     "resources": [],
 }
 ```
-Stitch the sections together to create deployment template for your CCP data connector.
+Stitch the JSON sections together to create the deployment template for your CCP data connector.
 
-Comments to guide the template building process will appear in the **metadata** `description` or inline with `//` comment notation. Leave the comments or optionally remove them. For more information, see [ARM template best practices - comments](../azure-resource-manager/templates/best-practices.md#comments).
+To guide the template building process, comments appear in the **metadata** `description` or inline with `//` comment notation. For more information, see [ARM template best practices - comments](../azure-resource-manager/templates/best-practices.md#comments).
 
 Consider using the ARM template test toolkit (arm-ttk) to validate the template you build. For more information, see [arm-ttk](../azure-resource-manager/templates/test-toolkit.md).
 
@@ -517,7 +527,7 @@ There are 5 resources in this template guide.
 							{
 								// Enter your log analytics table properties here.
                                 //  Consider using this variable for the name property:
-                                //    "name": "[variables('_logAnalyticsTableId1')]",
+                                //  "name": "[variables('_logAnalyticsTableId1')]",
 							}			
                         }
 						// Enter more tables if needed.

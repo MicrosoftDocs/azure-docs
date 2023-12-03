@@ -196,7 +196,7 @@ Displays a group of instructions, with various parameters and the ability to nes
 
 #### OAuthForm
 
-This component requires that the `OAuth2` type is present in the `auth` property of the .
+This component requires that the `OAuth2` type is present in the [`auth` property of the data connector template](restapipoller-data-connector-reference.md#authentication-configuration).
 
 ```json
 "instructions": [
