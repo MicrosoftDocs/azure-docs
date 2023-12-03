@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 12/03/2023
 ---
 
-# Data security dashboard
+# Data security dashboard in Defender for Cloud
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Senior Program Manager, Maayan Naaman Rand joins Yuri Diogenes to talk about the data security dashboard in Defender for Cloud. Maayan explains the purpose of this dashboard, the different data types that are supported, the data source used to populate this dashboard, and how this dashboard can be used to better understand your data security posture. Maayan also demonstrates the different scenarios covered by this dashboard and the prerequisites to use this dashboard.
 
