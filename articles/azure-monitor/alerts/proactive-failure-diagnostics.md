@@ -54,7 +54,7 @@ Failure Anomalies detection relies on a proprietary machine learning algorithm, 
 
 ### Alert rule creation
 A Failure Anomalies alert rule is created automatically when your Application Insights resource is created. The rule is automatically configured to analyze the telemetry on that resource.
-You can create the rule again using Azure [REST API](https://learn.microsoft.com/rest/api/monitor/smart-detector-alert-rules?view=rest-monitor-2019-06-01&preserve-view=true) or using a [Resource Manager template](proactive-arm-config#failure-anomalies-alert-rule). Creating the rule can be useful if the automatic creation of the rule failed for some reason, or if you deleted the rule by chance or on purpose, 
+You can create the rule again using Azure [REST API](https://learn.microsoft.com/rest/api/monitor/smart-detector-alert-rules?view=rest-monitor-2019-06-01&preserve-view=true) or using a [Resource Manager template](proactive-arm-config.md#failure-anomalies-alert-rule). Creating the rule can be useful if the automatic creation of the rule failed for some reason, or if you deleted the rule.
 
 ### Alert rule configuration 
 To configure a Failure Anomalies alert rule in the portal, open the Alerts page and select Alert Rules. Failure Anomalies alert rules are included along with any alerts that you set manually. 
@@ -65,7 +65,7 @@ Click the alert rule to configure it.
 
 :::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Rule configuration screen." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
-You can disable Smart Detection alert rule from the portal or using Azure Resource Manager template ([see template example](proactive-arm-config#failure-anomalies-alert-rule).
+You can disable Smart Detection alert rule from the portal or using an [Azure Resource Manager template](proactive-arm-config.md#failure-anomalies-alert-rule).
 
 This alert rule is created with an associated [Action Group](./action-groups.md) named "Application Insights Smart Detection." By default, this action group contains Email Azure Resource Manager Role actions and sends notification to users who have  Monitoring Contributor or Monitoring Reader subscription Azure Resource Manager roles in your subscription.  You can remove, change or add the action groups that the rule triggers, as for any other Azure alert rule. Notifications sent from this alert rule follow the [common alert schema](./alerts-common-schema.md).
 
