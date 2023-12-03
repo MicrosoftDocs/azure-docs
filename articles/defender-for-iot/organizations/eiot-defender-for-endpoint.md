@@ -71,11 +71,11 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
     - On the **Alerts** tab, check for any alerts triggered by the device. Simulate alerts in Microsoft 365 Defender for Enterprise IoT using the Raspberry Pi scenario available in the Microsoft 365 Defender [Evalutation & Tutorials](https://security.microsoft.com/tutorials/all) page.
 
-    You might also set up advanced hunting queries to create custom alert rules. For more information, see new section below based on Advanced Hunting Queries to Find Rogue Devices via M365D.docx (sharepoint.com). this document  <!-- what to do here?  how to link to file?-->
+    You might also set up advanced hunting queries to create custom alert rules. For more information, see [Advanced Hunting Queries](#sample-of-advanced-hunting-queries-for-enterprise-iot-monitoring) to Find Rogue Devices via M365D.docx (sharepoint.com). this document 
 
     - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface.
 
-    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternately, use an [advanced hunting query](#sample-of-advanced-hunting-queries-for-enterprise-iot-monitoring) to collect vulnerabilities across all your devices.
+    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternately, use an [advanced hunting queries](#sample-of-advanced-hunting-queries-for-enterprise-iot-monitoring) to collect vulnerabilities across all your devices.
 
 **To hunt for threats**:
 
