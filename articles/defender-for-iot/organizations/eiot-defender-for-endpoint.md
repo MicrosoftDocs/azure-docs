@@ -90,9 +90,8 @@ Some examples of advanced hunting queries to find rogue devices with Microsoft 3
 Use the query below to help find devices that were discovered on a specific subnet in your network (replace the values “IpV4Range” or “IpV6Range” with the value you are searching for):  
 
 ```kusto
-let IpV6Range = “2001:4898::1050:1050/127”;  
-
-DeviceNetworkInfo  
+| let IpV6Range = “2001:4898::1050:1050/127”;  
+| DeviceNetworkInfo  
 | where Timestamp > ago(7d)  
 | summarize arg_max(Timestamp, *) by DeviceId  
 | mv-expand IPAddressEntry=todynamic(IPAddresses)  
@@ -101,9 +100,8 @@ DeviceNetworkInfo 
 ```
 
 ```kusto
-let IpV4Range = “172.22.138.0/24”;  
-
-DeviceNetworkInfo  
+| let IpV4Range = “172.22.138.0/24”;  
+| DeviceNetworkInfo  
 | where Timestamp > ago(7d)  
 | summarize arg_max(Timestamp, *) by DeviceId  
 | mv-expand IPAddressEntry=todynamic(IPAddresses)  
@@ -111,26 +109,24 @@ DeviceNetworkInfo 
 | where ipv4_is_in_range(IPAddress, IpV4Range)  
 ```
 
-### Find devices that you can better protect by onboarding them to MDE:
+### To find devices that you can better protect by onboarding them to MDE:
 
 Some devices on your network support Microsoft Defender for Endpoint but for some reason were not onboarded. Onboarding these devices to Microsoft Defender for Endpoint will ensure that they are better protected, will have detection and response capabilities and vulnerability assessments.  
 
 Run the following query in your tenant to understand which of your devices can be onboarded:
 
 ```kusto
-DeviceInfo  
-
+| DeviceInfo  
 | summarize arg_max(Timestamp, *) by DeviceId  
 | where OnboardingStatus == "Can be onboarded"  
 ```
 
-### Find devices by specific type or subtype:
+### To find devices by specific type or subtype:
 
 To find which devices exist in your corporate network by type of device (i.e. router), you can use the following query:  
 
 ```kusto
-DeviceInfo  
-
+| DeviceInfo  
 | summarize arg_max(Timestamp, *) by DeviceId  
 | where DeviceType == "NetworkDevice" and DeviceSubtype  == "Router"  
 ```
@@ -140,29 +136,24 @@ DeviceInfo 
 If you manage your devices with a specific naming convention, you can query devices based on names as well. Change the highlighted values after “startswith” or “endswith” accordingly:  
 
 ```kusto
-DeviceInfo  
-
+| DeviceInfo  
 | summarize arg_max(Timestamp, *) by DeviceId  
 | where OnboardingStatus != "Onboarded"  
 | where DeviceName startswith "minint"  
-```
-
-// Suffix  
+``` 
 
 ```kusto
-DeviceInfo  
-
-summarize arg_max(Timestamp, *) by DeviceId  
-where OnboardingStatus != "Onboarded"  
-where DeviceName endswith "-pc"  
+| DeviceInfo  
+| summarize arg_max(Timestamp, *) by DeviceId  
+| where OnboardingStatus != "Onboarded"  
+| where DeviceName endswith "-pc"  
 ```
 
 ### Find specific device models   
 To find specific models of devices, leveraging the following query:   
 
 ```kusto
-DeviceInfo  
-
+| DeviceInfo  
 | summarize arg_max(Timestamp, *) by DeviceId  
 | summarize ModelCount=dcount(DeviceId) by Model  
 | where ModelCount < 5  
