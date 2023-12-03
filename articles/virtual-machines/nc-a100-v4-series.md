@@ -59,7 +59,7 @@ Note: The Ubuntu-HPC 18.04-ncv4 image is only valid during preview and deprecate
 | Standard_NC96ads_A100_v4   | 96 | 880 | 256| 4x960 GB | 4 | 320 | 32 | 120000/4000 | 8/80,000  |
 
 1 GPU = one A100 card <br>
-1. Local NVMe disk is coming as RAM and it needs to be manually formatted in newly deployed VM.
+1. Local NVMe disk is coming as RAW and it needs to be manually formatted in newly deployed VM.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
