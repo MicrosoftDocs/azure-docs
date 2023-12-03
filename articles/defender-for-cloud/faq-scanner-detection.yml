@@ -7,7 +7,7 @@ metadata:
   ms.author: elkrieger
   manager: raynew
   ms.topic: faq
-  ms.date: 11/30/2023
+  ms.date: 12/03/2023
 title: Common questions about the built-in Microsoft Defender Vulnerability Management solution
 summary: |
 
@@ -15,13 +15,13 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          What are the benefits of having one consolidate VA solution across Defender for Cloud?
+          What are the benefits of having one consolidate VA solution, powered by Microsoft Defender Vulnerability Management (MVDM) across Defender for Cloud?
         answer: |
           1. **Hybrid approach:** offers flexible deployments options, by utilizing a consistent vulnerability scanner across various use cases. It's applicable in multicloud environments and different host runtimes: 
           
               - **Agentless vulnerability assessment:**  Enabling agentless scanning on a subscription automatically scan all virtual machines in Azure, AWS, and GCP for software inventory and vulnerabilities, powered by MDVM. 
             
-              - **Consolidated agent:** Microsoft Defender Vulnerability Management (MDVM) uses the same agent as Microsoft Defender for Endpoints (MDE) to protect servers, so, if you're an existing MDE customer, you're automatically covered by MDVM.
+              - **Consolidated agent:** (MDVM) uses the same agent as Microsoft Defender for Endpoints (MDE) to protect servers, so, if you're an existing MDE customer, you're automatically covered by MDVM.
           
           1. **Software vulnerability evidence (coming soon)**: The MDVM scanner identifies vulnerable software and provides the corresponding file path and/or registry key as evidence.
 
@@ -39,7 +39,7 @@ sections:
       - question: |
           Why is there a different total number of vulnerabilities on the Recommendation page between MDVM and Qualys?
         answer: |
-          The vulnerability assessment solution for servers, powered by MDVM, provides a unified and consolidated view of vulnerable software on the Recommendations page. Qualys utilizes the Qualys IDs that often contain one or two CVEs. MDVM consolidates these CVEs into a single or a few Vulnerability IDs. MDVM aggregates these CVEs into a single or a few Vulnerability IDs. This consolidation addresses multiple vulnerabilities within the same software simultaneously. While consolidation is taking place, MDVM also prioritizes software with the highest number of vulnerabilities.
+          The vulnerability assessment solution for servers, powered by MDVM, provides a unified and consolidated view of vulnerable software on the Recommendations page. Qualys utilizes the Qualys IDs that often contain one or two CVEs. MDVM consolidates these CVEs into a single or a few Vulnerability IDs. MDVM aggregates these CVEs into a single or a few Vulnerability IDs. This consolidation addresses multiple vulnerabilities within the same software simultaneously.
 
 
       - question: |
