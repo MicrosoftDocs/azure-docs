@@ -16,7 +16,7 @@ This quickstart shows you how to create a project in Azure Deployment Environmen
 
 The following diagram shows the steps to configure a project associated with a dev center for Deployment Environments in the Azure portal.
 
-:::image type="content" source="media/quickstart-create-configure-projects/create-environment-steps.png" alt-text="Diagram showing the stages required to configure a project for Deployment Environments." lightbox="media/quickstart-create-configure-projects/create-environment-steps.png":::
+:::image type="content" source="media/quickstart-create-configure-projects/steps-create-project.png" alt-text="Diagram showing the stages required to configure a project for Deployment Environments." lightbox="media/quickstart-create-configure-projects/steps-create-project-expanded.png":::
 
 First, you create a project. Then, assign the dev center managed identity the Contributor and the User Access Administrator roles to the subscription. Then, you configure the project by creating a project environment type. Finally, you give the development team access to the project by assigning the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role to the project.
 
@@ -50,7 +50,7 @@ To create an Azure Deployment Environments project in your dev center:
 
 1. On the **Review + Create** tab, wait for deployment validation, and then select **Create**.
 
-    :::image type="content" source="media/quickstart-create-configure-projects/create-project.png" alt-text="Screenshot that shows selecting the create project basics tab." lightbox="media/quickstart-create-configure-projects/create-project.png":::
+    :::image type="content" source="media/quickstart-create-configure-projects/review-create-project.png" alt-text="Screenshot that shows selecting the create project basics tab." lightbox="media/quickstart-create-configure-projects/review-create-project-expanded.png":::
 
 1. Confirm that the project was successfully created by checking your Azure portal notifications. Then, select **Go to resource**.
 
@@ -81,7 +81,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     |**Permissions on environment resources** > **Additional access** | Select the users or Microsoft Entra groups to assign to specific roles on the environment resources.|
     |**Tags** | Enter a tag name and a tag value. These tags are applied on all resources that are created as part of the environment.|
 
-   :::image type="content" source="media/quickstart-create-configure-projects/add-project-environment-type-page.png" alt-text="Screenshot that shows adding details in the Add project environment type pane." lightbox="media/quickstart-create-configure-projects/add-project-environment-type-page.png":::
+   :::image type="content" source="media/quickstart-create-configure-projects/add-project-environment-type.png" alt-text="Screenshot that shows adding details in the Add project environment type pane." lightbox="media/quickstart-create-configure-projects/add-project-environment-type-expanded.png":::
 
 > [!NOTE]
 > At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Contributor and the User Access Admistrator roles](how-to-configure-managed-identity.md) for access to the deployment subscription for each environment type.
