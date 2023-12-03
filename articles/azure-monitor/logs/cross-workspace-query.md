@@ -1,10 +1,11 @@
 ---
 title: Query across resources with Azure Monitor  
-description: This article describes how you can query against resources from multiple workspaces and an Application Insights app in your subscription.
+description: Query and correlated data from multiple Log Analytics workspaces, applications, or resources using the `workspace()`, `app()`, and `resource()` Kusto Query Language (KQL) expressions.
 ms.topic: how-to
 author: guywi-ms
 ms.author: guywild
 ms.date: 05/30/2023
+# Customer intent: As a data analyst, I want to write KQL queries that correlate data from multiple Log Analytics workspaces, applications, or resources, to enable my analysis.
 
 ---
 
@@ -24,7 +25,7 @@ If you manage subscriptions in other Microsoft Entra tenants through [Azure Ligh
 
 ## Permissions required
 
-- You must have `/*/read` permissions to any resource you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader) for Log Analytics workspaces, for example.
+- You must have `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
 - To save a query, you must have `microsoft.operationalinsights/querypacks/queries/action` permisisons to the query pack where you want to save the query, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
 ## Limitations
