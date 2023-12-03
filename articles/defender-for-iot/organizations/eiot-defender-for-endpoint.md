@@ -88,7 +88,7 @@ content of Advanced Hunting Queries to Find Rogue Devices via M365D.docx (sharep
 ## Find and export vulnerabilities for your IoT devices
 The following query collects all vulnerabilities on your IoT devices:
 
-```csharp
+```kusto
 | where DeviceCategory =~ "iot"
 | join kind=inner DeviceTvmSoftwareVulnerabilities on DeviceId 
 ```
