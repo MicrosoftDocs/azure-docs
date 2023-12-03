@@ -29,7 +29,7 @@ An environment in Azure Deployment Environments is a collection of Azure resourc
 
 1. From the **New** menu at the top left, select **New environment**.
  
-   :::image type="content" source="media/quickstart-create-access-environments/new-environment.png" alt-text="Screenshot showing the new menu with new environment highlighted." lightbox="media/quickstart-create-access-environments/new-environment-expanded.png":::
+   :::image type="content" source="media/quickstart-create-access-environments/new-environment.png" alt-text="Screenshot showing the new menu with new environment highlighted." lightbox="media/quickstart-create-access-environments/new-environment.png":::
  
 1. In the **Add an environment** pane, select the following information:
 
@@ -40,7 +40,7 @@ An environment in Azure Deployment Environments is a collection of Azure resourc
    |Type     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of available types. |
    |Environment definitions | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available from the catalogs associated with your dev center. |
 
-   :::image type="content" source="media/quickstart-create-access-environments/add-environment.png" alt-text="Screenshot showing add environment pane." lightbox="media/quickstart-create-access-environments/add-environment-expanded.png":::
+   :::image type="content" source="media/quickstart-create-access-environments/add-environment.png" alt-text="Screenshot showing add environment pane." lightbox="media/quickstart-create-access-environments/add-environment.png":::
 
    If your environment is configured to accept parameters, you can enter them on a separate pane. In this example, you don't need to specify any parameters.
 
@@ -54,7 +54,7 @@ You can access and manage your environments in the Azure Deployment Environments
 
 1. You can view all of your existing environments. To access the specific resources created as part of an environment, select the **Environment Resources** link.
 
-   :::image type="content" source="media/quickstart-create-access-environments/environment-resources.png" alt-text="Screenshot showing an environment card, with the environment resources link highlighted." lightbox="media/quickstart-create-access-environments/environment-resources-expanded.png":::
+   :::image type="content" source="media/quickstart-create-access-environments/environment-resources.png" alt-text="Screenshot showing an environment card, with the environment resources link highlighted." lightbox="media/quickstart-create-access-environments/environment-resources.png":::
 
 1. You can view the resources in your environment listed in the Azure portal.
 
