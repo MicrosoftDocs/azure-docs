@@ -27,9 +27,9 @@ The following image shows the architecture and extra features added with **Enter
 
 :::image type="content" source="media/enterprise-iot/architecture-endpoint-only.png" alt-text="Diagram of the service architecture when you have an Enterprise IoT plan added to Defender for Endpoint." border="false":::
 
-## Security value for Defender for Endpoint customers?
+## Added security value for Defender for Endpoint customers
 
-Enterprise IoT is designed to help customers secure unmanaged devices throughout the organization and extend IT security to also cover IoT devices. While Microsoft 365 P2 customers already have visibility for discovered IoT devices in the **Device inventory** page in Defender for Endpoint, they can use enterprise IoT security to gain security value with extra alerts, recommendations and vulnerabilities for their discovered IoT devices.
+Enterprise IoT is designed to help customers secure unmanaged devices throughout the organization and extend IT security to also cover IoT devices. While Microsoft 365 P2 customers already have visibility for discovered IoT devices in the **Device inventory** page in Defender for Endpoint, they can use Enterprise IoT security to gain improved security value with extra alerts, recommendations and vulnerabilities for their discovered IoT devices.
 
 - Most Microsoft Defender for Endpoint network-based detections are also relevant for Enterprise IoT devices. For example, network-based detections include alerts for scans involving managed endpoints.
 
