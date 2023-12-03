@@ -23,7 +23,7 @@ Update Manager provides you with the flexibility to assess the status of availab
 :::image type="content" source="media/updates-maintenance/periodic-assessment-inline.png" alt-text="Screenshot showing periodic assessment option." lightbox="media/updates-maintenance/periodic-assessment-expanded.png":::
 
 > [!NOTE]
-> For Arc-enabled servers, ensure that the subscription in which the Arc-server is onboarded is registered to Microsoft.Compute resource provider. For more information on how to register to the service provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+> For Arc-enabled servers, ensure that the subscription in which the Arc-server is onboarded is registered to Microsoft.Compute resource provider. For more information on how to register to the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## Check for updates now/On-demand assessment
 

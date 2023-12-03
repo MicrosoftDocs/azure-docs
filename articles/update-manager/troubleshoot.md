@@ -47,14 +47,14 @@ To review the logs related to all actions performed by the extension, on Windows
 * `cmd_excution_<numeric>_stderr.txt`
 
 
-### Unable to trigger periodic assessment for Arc-enabled servers
+### Unable to generate periodic assessment for Arc-enabled servers
 
 #### Issue
 
-The subscriptions in which the Arc-enabled servers are onboarded aren't detected to run the periodic assessment.
+The subscriptions in which the Arc-enabled servers are onboarded aren't producing assessment data.
 
 #### Resolution
-Ensure that the Arc servers are registered to Microsoft. Compute resource provider so that the periodic assessment setting is triggered.
+Ensure that the Arc servers subscriptions are registered to Microsoft.Compute resource provider so that the periodic assessment data is generated periodically as expected. [Learn more](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
 ### Maintenance configuration isn't applied when VM is moved to a different subscription
 
@@ -130,11 +130,11 @@ You can also download and run the [Windows Update troubleshooter](https://suppor
 - Policy definition **Schedule recurring updates using Azure Update Manager** with version 1.0.0-preview successfully remediates resources. However, it always shows them as noncompliant. The current value of the existence condition is a placeholder that always evaluates to false.
 
 
-### Schedule patching failes with error 'shutdownorunresponsive'
+### Schedule patching fails with error 'ShutdownOrUnresponsive'
 
 #### Issue
 
-Schedule patching hasn't installed the patches on the VMs and gives an error as 'shutdownorunresponsive'.
+Schedule patching hasn't installed the patches on the VMs and gives an error as 'ShutdownOrUnresponsive'.
 
 #### Resolution
 Schedules triggered on machines deleted and recreated with the same resource ID within 8 hours may fail with ShutdownOrUnresponsive error due to a known limitation. It will be resolved by December, 2023.
