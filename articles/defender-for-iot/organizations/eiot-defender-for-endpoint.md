@@ -69,13 +69,13 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
 1. On the device details page, explore the following tabs to view data added by the enterprise IoT security for your device:
 
-    - On the **Alerts** tab, check for any alerts triggered by the device.Simulate alerts in Microsoft 365 Defender for Enterprise IoT using the Raspberry Pi scenario available in the Microsoft 365 Defender [Evalutation & Tutorials](https://security.microsoft.com/tutorials/all) page.
+    - On the **Alerts** tab, check for any alerts triggered by the device. Simulate alerts in Microsoft 365 Defender for Enterprise IoT using the Raspberry Pi scenario available in the Microsoft 365 Defender [Evalutation & Tutorials](https://security.microsoft.com/tutorials/all) page.
 
-    You might also set up advanced hunting queries to create custom alert rules. For more information, see <new section below based on Advanced Hunting Queries to Find Rogue Devices via M365D.docx (sharepoint.com). this document
+    You might also set up advanced hunting queries to create custom alert rules. For more information, see new section below based on Advanced Hunting Queries to Find Rogue Devices via M365D.docx (sharepoint.com). this document  <!-- what to do here?  how to link to file?-->
 
     - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface. <!-- should this be removed?? -->
 
-    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternately, use an advanced hunting query (xref to below) to collect vulnerabilities across all your devices.
+    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternately, use an advanced hunting query <!-- (xref to below) HOw to do this? --> to collect vulnerabilities across all your devices.
 
 **To hunt for threats**:
 
@@ -83,14 +83,13 @@ On the **Device inventory** page, select **Go hunt** to query devices using tabl
 
 **Sample advanced hunting queries for Enterprise IoT monitoring**
 
-<content of Advanced Hunting Queries to Find Rogue Devices via M365D.docx (sharepoint.com)> plus also this:
+<content of Advanced Hunting Queries to Find Rogue Devices via M365D.docx (sharepoint.com)> 
 
-Find and export vulnerabilities for your IoT devices
+**Find and export vulnerabilities for your IoT devices**
 The following query collects all vulnerabilities on your IoT devices:
 
-<!-- how to design the background and graphics for this section -->
-| where DeviceCategory =~ "iot"
-| join kind=inner DeviceTvmSoftwareVulnerabilities on DeviceId
+:::code language="{language}" source="{source}" range="{range}" | where DeviceCategory =~ "iot"
+| join kind=inner DeviceTvmSoftwareVulnerabilities on DeviceId:::
 
 For more information, see [Advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) and [Understand the advanced hunting schema](/microsoft-365/security/defender/advanced-hunting-schema-tables).
 

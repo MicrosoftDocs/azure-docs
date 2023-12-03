@@ -34,6 +34,10 @@ Enterprise IoT is designed to help customers secure unmanaged devices throughout
 - Most Microsoft Defender for Endpoint network-based detections are also relevant for Enterprise IoT devices. For example, network-based detections include alerts for scans involving managed endpoints.
 
 - The following Defender for Endpoint recommendations are available in Microsoft Secure Score and are relevant for Enterprise IoT devices:
+    1. **Requiring authentication for Telnet management interfaces** to prevent unauthorized access.
+    1. **Disabling insecure administration protocols-Telnet**
+    1. **Removing insecure administration protocols like SNMP V1 and SNMP V2**
+    1. **Requiring authentication for VNC management interfaces**
 
 Devices supported for Enterprise IoT monitoring are discovered by Defender for Endpoint agents using passive and active discovery methods. The list of supported vendors and hardware models is extensive and covers corporate IoT devices, such as printers, cameras, and VoIP phones.
 
