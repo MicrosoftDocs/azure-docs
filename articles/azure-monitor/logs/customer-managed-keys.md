@@ -148,17 +148,19 @@ N/A
 
 # [Azure CLI](#tab/azure-cli)
 
+When entering "''" value for ```key-version```, the cluster always uses the last key version in Key Vault and there is no need to update cluster post key rotation. 
+
 ```azurecli
-az account set —subscription "cluster-subscription-id"
+az account set --subscription cluster-subscription-id
 
-az monitor log-analytics cluster update —no-wait —name "cluster-name" —resource-group "resource-group-name" —key-name "key-name" —key-vault-uri "key-uri" —key-version "key-version"
+az monitor log-analytics cluster update --no-wait true --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
 
-# Wait for job completion when `—no-wait` was used
-$clusterResourceId = az monitor log-analytics cluster list —resource-group "resource-group-name" —query "[?contains(name, "cluster-name")].[id]" —output tsv
-az resource wait —created —ids $clusterResourceId —include-response-body true
-
+$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")].[id]" --output tsv
+az resource wait --created --ids $clusterResourceId --include-response-body true
 ```
 # [PowerShell](#tab/powershell)
+
+When entering "''" value for ```KeyVersion```, the cluster always uses the last key version in Key Vault and there is no need to update cluster post key rotation. 
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
@@ -294,13 +296,13 @@ N/A
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az account set —subscription "storage-account-subscription-id"
+az account set --subscription "storage-account-subscription-id"
 
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 
-az account set —subscription "workspace-subscription-id"
+az account set --subscription "workspace-subscription-id"
 
-az monitor log-analytics workspace linked-storage create —type Query —resource-group "resource-group-name" —workspace-name "workspace-name" —storage-accounts $storageAccountId
+az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
 # [PowerShell](#tab/powershell)
@@ -348,13 +350,13 @@ N/A
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az account set —subscription "storage-account-subscription-id"
+az account set --subscription "storage-account-subscription-id"
 
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 
-az account set —subscription "workspace-subscription-id"
+az account set --subscription "workspace-subscription-id"
 
-az monitor log-analytics workspace linked-storage create —type ALerts —resource-group "resource-group-name" —workspace-name "workspace-name" —storage-accounts $storageAccountId
+az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
 
 # [PowerShell](#tab/powershell)
