@@ -33,4 +33,4 @@ ms.date: 08/29/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Data Security Dashboard](episode-thirty-eight.md)
