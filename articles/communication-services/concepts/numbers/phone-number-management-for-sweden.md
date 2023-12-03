@@ -45,14 +45,17 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Sweden phone numbers are available
 | Country/Region |
 | :---------- |
-|Canada|
+|Sweden|
 |Denmark|
 |Ireland|
 |Italy|
 |Puerto Rico|
-|Sweden|
-|United Kingdom|
 |United States|
+|United Kingdom|
+|Canada|
+|Japan|
+|Australia|
+
 
 ## Azure subscription billing locations where Sweden alphanumeric sender IDs are available
 | Country/Region |

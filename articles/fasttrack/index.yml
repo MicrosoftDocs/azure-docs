@@ -70,6 +70,7 @@ conceptualContent:
               itemType: video
               text: How To Get Started FAST - Azure Virtual Desktop for Beginners
             # Possible addition - Azure Networking Fundamentals (replace AVD)
+            # Possible removal - AVD FastStart
         # Card
         - title: Cloud Native
           links:
@@ -130,6 +131,9 @@ conceptualContent:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep16-introduction-to-kusto-query-language
               itemType: video
               text: Introduction to Kusto Query Language (KQL)
+            - url: https://aka.ms/ftalive-202311-mdfc
+              itemType: video
+              text: Microsoft Defender for Cloud (multi-cloud environments)
             # Possible additions - MDfC & MDfE
             
 # additionalContent section
