@@ -45,29 +45,25 @@ SecurityEvent
 
 1. Sign up for Cyborg Security's HUNTER Community Account
 
-   Cyborg Security offers Community Memebers access to a subset of the Emerging Threat Collections and hunt packages.
+   Cyborg Security offers Community Member access to a subset of the Emerging Threat Collections and hunt packages.
 
-   Create a Free Commuinity Account to get access to Cyborg Security's Hunt Packages: [Sign Up Now!](https://www.cyborgsecurity.com/user-account-creation/)
+   Create a Free Community Account to get access to Cyborg Security's Hunt Packages: [Sign Up Now!](https://www.cyborgsecurity.com/user-account-creation/)
 
 2. Configure the Open in Tool Feature
 
 
 
 1.  Navigate to the [Environment](https://hunter.cyborgsecurity.io/environment) section of the HUNTER Platform.
-2.  Fill in te **Root URI** of your environment in the section labeled **Microsoft Sentinel**. Replace the `<bolded items>` with the IDs and Names of your Subscription, Resource Groups and Workspaces.
+2.  Fill in the **Root URI** of your environment in the section labeled **Microsoft Sentinel**. Replace the `<bolded items>` with the IDs and Names of your Subscription, Resource Groups and Workspaces.
 
     `https[]()://portal.azure.com#@**AzureTenantID**/blade/Microsoft_OperationsManagementSuite_Workspace/Logs.ReactView/resourceId/%2Fsubscriptions%2F**AzureSubscriptionID**%2Fresourcegroups%2F**ResourceGroupName**%2Fproviders%2Fmicrosoft.operationalinsights%2Fworkspaces%2F<**WorkspaceName**>/`
 3.  Click **Save**.
 
-3. Execute a HUNTER hunt pacakge in Microsoft Sentinel
+3. Execute a HUNTER hunt package in Microsoft Sentinel
 
 
 
 Identify a Cyborg Security HUNTER hunt package to deploy and use the **Open In Tool** button to quickly open Microsoft Sentinel and stage the hunting content.
-
-![image](https://7924572.fs1.hubspotusercontent-na1.net/hubfs/7924572/HUNTER/Screenshots/openintool-ms-new.png)
-
-
 
 ## Next steps
 

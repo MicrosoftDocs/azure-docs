@@ -1,6 +1,6 @@
 ---
-title: "GreyNoise Threat Intelligence (Using Azure Functions) (using Azure Functions) connector for Microsoft Sentinel"
-description: "Learn how to install the connector GreyNoise Threat Intelligence (Using Azure Functions) (using Azure Functions) to connect your data source to Microsoft Sentinel."
+title: "GreyNoise Threat Intelligence (using Azure Functions)  connector for Microsoft Sentinel"
+description: "Learn how to install the connector GreyNoise Threat Intelligence (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 11/29/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# GreyNoise Threat Intelligence (Using Azure Functions) (using Azure Functions) connector for Microsoft Sentinel
+# GreyNoise Threat Intelligence (using Azure Functions) connector for Microsoft Sentinel
 
 This Data Connector installs an Azure Function app to download GreyNoise indicators once per day and inserts them into the ThreatIntelligenceIndicator table in Microsoft Sentinel.
 
@@ -33,7 +33,7 @@ ThreatIntelligenceIndicator
 
 ## Prerequisites
 
-To integrate with GreyNoise Threat Intelligence (Using Azure Functions) (using Azure Functions) make sure you have: 
+To integrate with GreyNoise Threat Intelligence (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **GreyNoise API Key**: Retreive your GreyNoise API Key [here](https://viz.greynoise.io/account/api-key).
