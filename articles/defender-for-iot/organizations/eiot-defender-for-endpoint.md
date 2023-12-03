@@ -71,11 +71,11 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
     - On the **Alerts** tab, check for any alerts triggered by the device. Simulate alerts in Microsoft 365 Defender for Enterprise IoT using the Raspberry Pi scenario available in the Microsoft 365 Defender [Evalutation & Tutorials](https://security.microsoft.com/tutorials/all) page.
 
-    You might also set up advanced hunting queries to create custom alert rules. For more information, see [Advanced Hunting Queries](#sample-of-advanced-hunting-queries-for-enterprise-iot-monitoring) to Find Rogue Devices via M365D.docx (sharepoint.com). this document 
+        You might also set up advanced hunting queries to create custom alert rules. For more information, see [Advanced Hunting Queries](#sample-of-advanced-hunting-queries-for-enterprise-iot-monitoring). 
 
     - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface.
 
-    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternately, use an [advanced hunting queries](#sample-of-advanced-hunting-queries-for-enterprise-iot-monitoring) to collect vulnerabilities across all your devices.
+    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternately, use [advanced hunting queries](#sample-of-advanced-hunting-queries-for-enterprise-iot-monitoring) to collect vulnerabilities across all your devices.
 
 **To hunt for threats**:
 
@@ -83,9 +83,111 @@ On the **Device inventory** page, select **Go hunt** to query devices using tabl
 
 ## Sample of advanced hunting queries for Enterprise IoT monitoring
 
-content of Advanced Hunting Queries to Find Rogue Devices via M365D.docx (sharepoint.com)
+Some examples of advanced hunting queries to find rogue devices with Microsoft 365 Defender
+
+### To find devices within a subnet:
+
+Use the query below to help find devices that were discovered on a specific subnet in your network (replace the values “IpV4Range” or “IpV6Range” with the value you are searching for):  
+
+```kusto
+let IpV6Range = “2001:4898::1050:1050/127”;  
+
+DeviceNetworkInfo  
+
+| where Timestamp > ago(7d)  
+
+| summarize arg_max(Timestamp, *) by DeviceId  
+
+| mv-expand IPAddressEntry=todynamic(IPAddresses)  
+
+| extend IPAddress=tostring(IPAddressEntry.IPAddress)  
+
+| where ipv6_is_match(IPAddress, IpV6Range)  
+```
+
+```kusto
+let IpV4Range = “172.22.138.0/24”;  
+
+DeviceNetworkInfo  
+
+| where Timestamp > ago(7d)  
+
+| summarize arg_max(Timestamp, *) by DeviceId  
+
+| mv-expand IPAddressEntry=todynamic(IPAddresses)  
+
+| extend IPAddress=tostring(IPAddressEntry.IPAddress)  
+
+| where ipv4_is_in_range(IPAddress, IpV4Range)  
+```
+
+### Find devices that you can better protect by onboarding them to MDE:
+
+Some devices on your network support Microsoft Defender for Endpoint but for some reason were not onboarded. Onboarding these devices to Microsoft Defender for Endpoint will ensure that they are better protected, will have detection and response capabilities and vulnerability assessments.  
+
+Run the following query in your tenant to understand which of your devices can be onboarded:
+
+```kusto
+DeviceInfo  
+
+| summarize arg_max(Timestamp, *) by DeviceId  
+
+| where OnboardingStatus == "Can be onboarded"  
+```
+
+### Find devices by specific type or subtype:
+
+To find which devices exist in your corporate network by type of device (i.e. router), you can use the following query:  
+
+```kusto
+DeviceInfo  
+
+| summarize arg_max(Timestamp, *) by DeviceId  
+
+| where DeviceType == "NetworkDevice" and DeviceSubtype  == "Router"  
+```
+
+### Find devices with a prefix or suffix in the host name 
+
+If you manage your devices with a specific naming convention, you can query devices based on names as well. Change the highlighted values after “startswith” or “endswith” accordingly:  
+
+```kusto
+DeviceInfo  
+
+| summarize arg_max(Timestamp, *) by DeviceId  
+
+| where OnboardingStatus != "Onboarded"  
+
+| where DeviceName startswith "minint"  
+```
+
+// Suffix  
+
+```kusto
+DeviceInfo  
+
+| summarize arg_max(Timestamp, *) by DeviceId  
+
+| where OnboardingStatus != "Onboarded"  
+
+| where DeviceName endswith "-pc"  
+```
+
+### Find specific device models   
+To find specific models of devices, leveraging the following query:   
+
+```kusto
+DeviceInfo  
+
+| summarize arg_max(Timestamp, *) by DeviceId  
+
+| summarize ModelCount=dcount(DeviceId) by Model  
+
+| where ModelCount < 5  
+```
 
 ## Find and export vulnerabilities for your IoT devices
+
 The following query collects all vulnerabilities on your IoT devices:
 
 ```kusto
