@@ -181,7 +181,7 @@ Learn [how to identify and remediate attack paths](how-to-manage-attack-path.md)
 
 November 15, 2023
 
-The attack path's Azure Resource Graph (ARG) table scheme is updated. The `attackPathType` property is removed and other properties are added. Read more about the [updated Azure Resource Graph table scheme]().
+The attack path's Azure Resource Graph (ARG) table scheme is updated. The `attackPathType` property is removed and other properties are added.
 
 ### General Availability release of GCP support in Defender CSPM
 
