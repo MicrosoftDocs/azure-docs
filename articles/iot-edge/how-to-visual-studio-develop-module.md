@@ -244,7 +244,7 @@ Typically, you want to test and debug each module before running it within an en
    * If developing in C#, set a breakpoint in the `PipeMessage()` function in **ModuleBackgroundService.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
-1. Test the module by sending a message. When debugging a single module, the simulator listens on the default port 53000 for messages. To send a message to your module, run the following curl command from a command shell like **Git Bash** or **WSL Bash**.
+1. Test the module by sending a message. When you're debugging a single module, the simulator listens on the default port 53000 for messages. To send a message to your module, run the following curl command from a command shell like **Git Bash** or **WSL Bash**.
 
    ```bash
    curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
