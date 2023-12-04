@@ -150,9 +150,9 @@ Beginning in CY24 Q1, customers must choose between indefinite message retention
 
 ### PSTN Call limitations
 
-| **Name**         | Limit  |
-|--|--|
-|Number of outbound concurrent calls | 2 
+| **Name**         | **Scope** |  Limit  |
+|--|--|--|
+|Default number of outbound concurrent calls |per Number | 2 
 
 ### Call maximum limitations
 

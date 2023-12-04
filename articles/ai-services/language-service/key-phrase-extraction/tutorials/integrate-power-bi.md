@@ -2,7 +2,7 @@
 title: 'Tutorial: Integrate Power BI with key phrase extraction'
 titleSuffix: Azure AI services
 description: Learn how to use the key phrase extraction feature to get text stored in Power BI.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language

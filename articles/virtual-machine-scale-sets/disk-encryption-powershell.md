@@ -47,6 +47,9 @@ Set-AzKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 
 ## Create a scale set
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 First, set an administrator username and password for the VM instances with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
@@ -61,13 +64,11 @@ $vmssName="myScaleSet"
 New-AzVmss `
     -ResourceGroupName $rgName `
     -VMScaleSetName $vmssName `
-    -OrchestrationMode "flexible" `
     -Location $location `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -PublicIpAddressName "myPublicIPAddress" `
     -LoadBalancerName "myLoadBalancer" `
-    -UpgradePolicy "Automatic" `
     -Credential $cred
 ```
 

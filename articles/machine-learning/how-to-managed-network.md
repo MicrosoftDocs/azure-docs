@@ -10,7 +10,10 @@ ms.author: jhirono
 author: jhirono
 ms.date: 08/22/2023
 ms.topic: how-to
-ms.custom: build-2023, devx-track-azurecli
+ms.custom:
+  - build-2023
+  - devx-track-azurecli
+  - ignite-2023
 ---
 
 # Workspace managed virtual network isolation
@@ -1001,10 +1004,10 @@ If you plan to use __Azure Machine Learning batch endpoints__ for deployment, ad
 * `queue`
 * `table`
 
-### Scenario: Use prompt flow with Azure Open AI, content safety, and cognitive search
+### Scenario: Use prompt flow with Azure Open AI, content safety, and Azure AI Search
 
 * Private endpoint to Azure AI Services
-* Private endpoint to Azure Cognitive Search
+* Private endpoint to Azure AI Search
 
 ### Scenario: Use HuggingFace models
 
@@ -1030,7 +1033,7 @@ Private endpoints are currently supported for the following Azure services:
 * Azure Container Registry
 * Azure Key Vault
 * Azure AI services
-* Azure Cognitive Search
+* Azure AI Search (formerly Cognitive Search)
 * Azure SQL Server
 * Azure Data Factory
 * Azure Cosmos DB (all sub resource types)

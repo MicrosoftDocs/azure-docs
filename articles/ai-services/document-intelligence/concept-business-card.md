@@ -5,23 +5,37 @@ description: OCR and machine learning based business card scanning in Document I
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 <!-- markdownlint-disable MD033 -->
 
 # Document Intelligence business card model
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+> [!IMPORTANT]
+> Starting with Document Intelligence **v4.0 (preview)**, and going forward, the business card model (prebuilt-businessCard) is deprecated. To extract data from business card formats, use the following:
+
+| Feature   | version| Model ID |
+|----------  |---------|--------|
+| Business card model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-businessCard`**|
+
+::: moniker range=">=doc-intel-3.1.0"
+**This content applies to:** ![checkmark](media/yes-icon.png) **v3.1 (GA)** | **Previous versions:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.0**](?view=doc-intel-3.0.0&preserve-view=true) ![blue-checkmark](media/blue-yes-icon.png) [**v2.1**](?view=doc-intel-2.1.0&preserve-view=true)
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
+
+::: moniker range=">=doc-intel-3.0.0"
 
 The Document Intelligence business card model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract data from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
 
@@ -29,7 +43,6 @@ The Document Intelligence business card model combines powerful Optical Characte
 
 Business cards are a great way to represent a business or a professional. The company logo, fonts and background images found in business cards help promote the company branding and differentiate it from others. Applying OCR and machine-learning based techniques to automate scanning of business cards is a common image processing scenario. Enterprise systems used by sales and marketing teams typically have business card data extraction capability integration into for the benefit of their users.
 
-::: moniker range=">=doc-intel-3.0.0"
 ***Sample business card processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***
 
 :::image type="content" source="media/studio/overview-business-card-studio.png" alt-text="Screenshot of a sample business card analyzed in the Document Intelligence Studio." lightbox="./media/overview-business-card.jpg":::
@@ -46,25 +59,36 @@ Business cards are a great way to represent a business or a professional. The co
 
 ## Development options
 
-::: moniker range=">=doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.1.0"
 
-Document Intelligence v3.0 supports the following tools:
+Document Intelligence **v3.1:2023-07-31 (GA)** supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Business card model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</li></ul>|**prebuilt-businessCard**|
+|**Business card model**| &bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)<br>&bullet; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)<br>&bullet; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)<br>&bullet; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)<br>&bullet; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)<br>&bullet; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**prebuilt-businessCard**|
+:::moniker-end
+
+::: moniker range=">=doc-intel-3.0.0"
+
+Document Intelligence **v3.0:2022-08-31 (GA)** supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Business card model**| &bullet; [**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)<br>&bullet; [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)<br>&bullet; [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)<br>&bullet; [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)<br>&bullet; [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)<br>&bullet; [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-businessCard**|
 
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
-Document Intelligence v2.1 supports the following tools:
+Document Intelligence **v2.1 (GA)** supports the following tools, applications, and libraries:
 
 | Feature | Resources |
 |----------|-------------------------|
-|**Business card model**|  <ul><li>[**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&tabs=windows&pivots=programming-language-rest-api&preserve-view=true)</li><li>[**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</li><li>[**Document Intelligence Docker container**](containers/install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|**Business card model**|  &bullet; [**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)<br>&bullet; [**REST API**](how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&tabs=windows&pivots=programming-language-rest-api&preserve-view=true)<br>&bullet; [**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)<br>&bullet; [**Document Intelligence Docker container**](containers/install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)|
 
 ::: moniker-end
+
+::: moniker range=">=doc-intel-3.0.0"
 
 ### Try business card data extraction
 
@@ -72,11 +96,9 @@ See how data, including name, job title, address, email, and company name, is ex
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
-
-::: moniker range=">=doc-intel-3.0.0"
 
 #### Document Intelligence Studio
 
@@ -156,13 +178,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 ## Supported languages and locales
 
->[!NOTE]
-> It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the language of the text in your image.
-
-| Model | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|Business card (v3.0 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li><li>English (Japan)—en-JP</li><li>Japanese (Japan)—ja-JP</li></ul>  | Autodetected (en-US or ja-JP) |
-|Business card (v2.1 API)| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li> | Autodetected |
+*See* our [Language Support](language-support-prebuilt.md) page for a complete list of supported languages.
 
 ## Field extractions
 

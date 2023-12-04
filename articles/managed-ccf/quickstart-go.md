@@ -23,6 +23,7 @@ In this quickstart, you learn how to create a Managed CCF resource using the Azu
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Go 1.18 or higher.
+- [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux.
 
 ## Setup
 

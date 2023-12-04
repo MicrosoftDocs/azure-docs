@@ -154,7 +154,7 @@ Functions can also connect to other services to help process data and perform ot
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-+ Training: [Create a custom skill for Azure Cognitive Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
++ Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

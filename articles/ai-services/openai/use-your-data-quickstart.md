@@ -2,7 +2,7 @@
 title: 'Use your own data with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Use this article to import and use your data in Azure OpenAI.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-go, devx-track-python
@@ -103,10 +103,10 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI or Azure Cognitive Search resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an OpenAI or Azure AI Search resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Azure AI services resources](../multi-service-resource.md?pivots=azportal#clean-up-resources)
-- [Azure Cognitive Search resources](/azure/search/search-get-started-portal#clean-up-resources)
+- [Azure AI Search resources](/azure/search/search-get-started-portal#clean-up-resources)
 - [Azure app service resources](/azure/app-service/quickstart-dotnetcore?pivots=development-environment-vs#clean-up-resources)
 
 ## Next steps

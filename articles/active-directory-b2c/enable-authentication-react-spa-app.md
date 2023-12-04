@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/24/2023
+ms.date: 11/20/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -58,7 +58,7 @@ npm i bootstrap react-bootstrap
 
 The sample code is made up of the following components. Add these components from the sample React app to your own app: 
 
-- [public/index.html](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/public/index.html)- The [bundling process](https://legacy.reactjs.org/docs/code-splitting.html) uses this file as a template and injects the React components into the `<div id="root">` element. If you open it directly in the browser, you'll see an empty page. 
+- [public/index.html](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/public/index.html)- The [bundling process](https://legacy.reactjs.org/docs/code-splitting.html) uses this file as a template and injects the React components into the `<div id="root">` element. If you open it directly in the browser, you see an empty page. 
 
 - [src/authConfig.js](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/authConfig.js) -   A configuration file that contains information about your Azure AD B2C identity provider and the web API service. The React app uses this information to establish a trust relationship with Azure AD B2C, sign in and sign out the user, acquire tokens, and validate the tokens. 
 
@@ -69,7 +69,7 @@ The sample code is made up of the following components. Add these components fro
 
 - [src/App.jsx](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/App.jsx) - Defines the **App** and **Pages** components: 
 
-  - The **App** component is the top level component of your app. It wraps everything between `MsalProvider` component. All components underneath MsalProvider will have access to the PublicClientApplication instance via context and all hooks and components provided by MSAL React. The App component mounts the [PageLayout](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/components/PageLayout.jsx) and its [Pages](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/App.jsx#L18) child element.
+  - The **App** component is the top level component of your app. It wraps everything between `MsalProvider` component. All components underneath MsalProvider have access to the PublicClientApplication instance via context and all hooks and components provided by MSAL React. The App component mounts the [PageLayout](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/components/PageLayout.jsx) and its [Pages](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/App.jsx#L18) child element.
 
   - The **Pages** component registers and unregister the MSAL event callbacks. The events are used to handle MSAL errors. It also defines the routing logic of the app. 
 
@@ -81,13 +81,13 @@ The sample code is made up of the following components. Add these components fro
   - With PublicClientApplication instance, it acquires an access token to call the REST API.
   - Invokes the [callApiWithToken](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/4-Deployment/2-deploy-static/App/src/fetch.js) function to fetch the data from the REST API and renders the result using the **DataDisplay** component.
 
-- [src/components/NavigationBar.jsx](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/components/NavigationBar.jsx) - The app top navigation bar with the sign-in, sign-out, edit profile and call REST API reset buttons.
+- [src/components/NavigationBar.jsx](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/components/NavigationBar.jsx) - The app top navigation bar that has the sign-in, sign-out, edit profile and call REST API reset buttons.
   - It uses the [AuthenticatedTemplate](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/getting-started.md#authenticatedtemplate-and-unauthenticatedtemplate) and UnauthenticatedTemplate, which only render their children if a user is authenticated or unauthenticated, respectively.
   - Handle the login and sign out with redirection and popup window events.
 
 - [src/components/PageLayout.jsx](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/components/PageLayout.jsx)
   - The common layout that provides the user with a consistent experience as they navigate from page to page. The layout includes common user interface elements such as the app header, **NavigationBar** component, footer and its child components. 
-  - It uses the [AuthenticatedTemplate](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/getting-started.md#authenticatedtemplate-and-unauthenticatedtemplate) which renders its children only if a user is authenticated.
+  - It uses the [AuthenticatedTemplate](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-react/docs/getting-started.md#authenticatedtemplate-and-unauthenticatedtemplate), which renders its children only if a user is authenticated.
 
 - [src/components/DataDisplay.jsx](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/components/DataDisplay.jsx) - Renders the data return from the REST API call. 
 
@@ -97,13 +97,13 @@ The sample code is made up of the following components. Add these components fro
 
 ## Step 4: Configure your React app
 
-After you [add the authentication components](#step-3-add-the-authentication-components), configure your React app with your Azure AD B2C settings. Azure AD B2C identity provider settings are configured in the *auth_config_b2c.json* file and `B2CConfiguration` class. 
+After you [add the authentication components](#step-3-add-the-authentication-components), configure your React app with your Azure AD B2C settings. Azure AD B2C identity provider settings are configured in the *authConfig.js* file. 
 
-For guidance, see [Configure your React app](enable-authentication-react-spa-app.md#step-4-configure-your-react-app).
+For guidance, see [Configure your React app](configure-authentication-sample-react-spa-app.md#31-configure-the-react-sample). 
 
 ## Step 5: Run the React application
 
-1. From Visual Studio code, open a new terminal and run the following commands:
+1. From Visual Studio Code, open a new terminal and run the following commands:
 
     ```console
     npm install && npm update

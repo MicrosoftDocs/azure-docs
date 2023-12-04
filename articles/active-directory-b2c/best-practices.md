@@ -40,7 +40,7 @@ Define your application and service architecture, inventory current systems, and
 | Move on-premises dependencies to the cloud | To help ensure a resilient solution, consider moving existing application dependencies to the cloud. |
 | Migrate existing apps to b2clogin.com | The deprecation of login.microsoftonline.com will go into effect for all Azure AD B2C tenants on 04 December 2020. [Learn more](b2clogin.md). |
 | Use Identity Protection and Conditional Access | Use these capabilities for significantly greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
-|Tenant size | You need to plan with Azure AD B2C tenant size in mind. By default, Azure AD B2C tenant can accommodate 1 million objects (user accounts and applications). You can increase this limit to 5 million objects by adding a custom domain to your tenant, and verifying it. If you need a bigger tenant size, you need to contact [Support](find-help-open-support-ticket.md).|
+|Tenant size | You need to plan with Azure AD B2C tenant size in mind. By default, Azure AD B2C tenant can accommodate 1.25 million objects (user accounts and applications). You can increase this limit to 5.25 million objects by adding a custom domain to your tenant, and verifying it. If you need a bigger tenant size, you need to contact [Support](find-help-open-support-ticket.md).|
 | Use Identity Protection and Conditional Access | Use these capabilities for greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
 
 ## Implementation

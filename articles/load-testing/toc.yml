@@ -10,8 +10,10 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Create & run a load test
+    - name: Create a URL-based load test
       href: quickstart-create-and-run-load-test.md
+    - name: Create a load test with a JMeter script
+      href: how-to-create-and-run-load-test-with-JMeter-script.md 
     - name: Automate load tests with CI/CD
       displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
       href: quickstart-add-load-test-cicd.md
@@ -37,6 +39,8 @@ items:
   items:
     - name: Configure tests
       items:
+        - name: Add HTTP requests to URL-based tests
+          href: how-to-add-requests-to-url-based-test.md
         - name: Configure for high scale loads
           href: how-to-high-scale-load.md
         - name: Define test fail criteria
@@ -45,6 +49,8 @@ items:
           href: how-to-parameterize-load-tests.md
         - name: Use JMeter user properties
           href: how-to-configure-user-properties.md
+        - name: Read data from a CSV file
+          href: how-to-read-csv-data.md
         - name: Customize tests with JMeter plugins
           href: how-to-use-jmeter-plugins.md
         - name: Configure CI/CD for load testing
@@ -52,10 +58,6 @@ items:
           href: how-to-configure-load-test-cicd.md
     - name: Run tests
       items:
-        - name: Create a load test with a JMeter script
-          href: how-to-create-and-run-load-test-with-JMeter-script.md 
-        - name: Read data from a CSV file
-          href: how-to-read-csv-data.md
         - name: Test applications with authentication
           href: how-to-test-secured-endpoints.md
         - name: Test a private endpoint

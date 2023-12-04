@@ -3,7 +3,7 @@ title: What's new in the Remote Desktop WebRTC Redirector Service?
 description: New features and product updates the Remote Desktop WebRTC Redirector Service for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 09/06/2023
+ms.date: 11/15/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -16,6 +16,14 @@ This article provides information about the latest updates to the Remote Desktop
 ## Latest versions of the Remote Desktop WebRTC Redirector Service
 
 The following sections describe what changed in each version of the Remote Desktop WebRTC Redirector Service.
+
+### Updates for version 1.45.2310.13001
+
+Date published: November 15, 2023
+
+Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1eNhm)
+
+- Added support for Teams optimization reinitialization upon virtual machine (VM) hibernate and resume.
 
 ### Updates for version 1.43.2306.30001
 

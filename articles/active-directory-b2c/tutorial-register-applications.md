@@ -121,7 +121,4 @@ In this article, you learned how to:
 > * Register a web application
 > * Create a client secret
 
-Next, learn how to create user flows to enable your users to sign up, sign in, and manage their profiles.
-
-> [!div class="nextstepaction"]
-> [Create user flows in Azure Active Directory B2C >](tutorial-create-user-flows.md)
+Learn how to [Create user flows in Azure Active Directory B2C](tutorial-create-user-flows.md)

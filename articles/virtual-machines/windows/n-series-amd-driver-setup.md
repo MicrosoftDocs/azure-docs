@@ -17,7 +17,7 @@ ms.author: vikancha
 
 **Applies to:** Windows VMs :heavy_check_mark: Flexible scale sets 
 
-## NGads V620 Series (preview) ##
+## NGads V620 Series ##
 The AMD Software: Cloud Edition drivers must be installed to take advantage of the GPU capabilities of Azure NGads V620 Series VMs.
 
 ### Requirements

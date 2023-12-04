@@ -1,0 +1,93 @@
+### YamlMime:Landing
+
+title: Azure AI Studio documentation # < 60 chars
+summary:  Build cutting-edge, market-ready, responsible applications for your organization with AI.
+metadata:
+  title: Azure AI Studio documentation
+  description: Azure AI Studio helps developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include generative AI, natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making.  
+  ms.service: azure-ai-services
+  ms.topic: landing-page
+  ms.collection: collection
+  author: eric-urban
+  ms.author: eur
+  ms.date: 11/15/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure AI Studio
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AI Studio?
+            url: what-is-ai-studio.md
+          - text: What is prompt flow?
+            url: how-to/prompt-flow.md
+          - text: Retrieval Augmented Generation (RAG)
+            url: concepts/retrieval-augmented-generation.md
+          - text: Evaluation and monitoring metrics for generative AI
+            url: concepts/evaluation-metrics-built-in.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a project in Azure AI Studio
+            url: how-to/create-projects.md
+          - text: Get started with prompt flow
+            url: how-to/flow-develop.md
+  # Card
+  - title: 10-minute quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Hear and speak with chat in the playground
+            url: quickstarts/hear-speak-playground.md
+          - text: Generate product name ideas
+            url: quickstarts/playground-completions.md
+          - text: Moderate text and images
+            url: quickstarts/content-safety.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy a web app for chat on your data
+            url: tutorials/deploy-chat-web-app.md
+
+  # Card
+  - title: Develop apps
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Get started with the Azure AI SDK
+            url: how-to/sdk-install.md
+          - text: Get started with the Azure AI CLI
+            url: how-to/cli-install.md
+          - text: Get started with projects in VS Code (Web)
+            url: how-to/vscode-web.md
+      - linkListType: concept
+        links:
+          - text: Connections for flows and indexing
+            url: concepts/connections.md
+          - text: Deploy models, flows, and web apps
+            url: concepts/deployments-overview.md
+      - linkListType: reference
+        links:
+          - text: Azure SDK for Python
+            url: /python/api/overview/azure/
+          - text: Azure OpenAI Service Reference
+            url: ../ai-services/openai/reference.md
+  
+  # Card
+  - title: Explore more AI resources
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Azure AI Training
+            url: https://aka.ms/LearnAzureAIStudio
+          - text: Vector search in Azure AI Search
+            url: /training/modules/improve-search-results-vector-search/
+      - linkListType: concept
+        links:
+          - text: Azure Machine Learning
+            url: ../machine-learning/index.yml
+          - text: Semantic Kernel
+            url: /semantic-kernel/

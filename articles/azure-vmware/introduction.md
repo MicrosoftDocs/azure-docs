@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 10/16/2023
+ms.date: 11/12/2023
 ms.custom: engagement-fy23
 ---
 
@@ -17,35 +17,17 @@ The diagram shows the adjacency between private clouds and VNets in Azure, Azure
 
 :::image type="content" source="media/introduction/adjacency-overview-drawing-final.png" alt-text="Diagram showing Azure VMware Solution private cloud adjacency to Azure services and on-premises environments." border="false":::
 
-## AV36P and AV52 node sizes available in Azure VMware Solution
-
-The new node sizes increase memory and storage options to optimize your workloads. The gains in performance enable you to do more per server, break storage bottlenecks, and lower transaction costs of latency-sensitive workloads. The availability of the new nodes allows for large latency-sensitive services to be hosted efficiently on the Azure VMware Solution infrastructure.
-
-**AV36P key highlights for Memory and Storage optimized Workloads:**
-
-- Runs on Intel® Xeon® Gold 6240 Processor with 36 cores and a base frequency of 2.6 GHz and turbo of 3.9 GHz.
-- 768 GB of DRAM memory
-- 19.2-TB storage capacity with all NVMe based SSDs
-- 1.5 TB of NVMe cache
-
-**AV52 key highlights for Memory and Storage optimized Workloads:**
-
-- Runs on Intel® Xeon® Platinum 8270 with 52 cores and a base frequency of 2.7 GHz and turbo of 4.0 GHz.
-- 1.5 TB of DRAM memory.
-- 38.4-TB storage capacity with all NVMe based SSDs.
-- 1.5 TB of NVMe cache.
-
-For pricing and region availability, see the [Azure VMware Solution pricing page](https://azure.microsoft.com/pricing/details/azure-vmware/) and see the [Products available by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&regions=all).
-
 ## Hosts, clusters, and private clouds
 
 [!INCLUDE [host-sku-sizes](includes/disk-capabilities-of-the-host.md)]
 
 You can deploy new or scale existing private clouds through the Azure portal or Azure CLI.
 
-## Azure VMware Solution private cloud extension with AV64 node size 
+## Azure VMware Solution private cloud extension with AV64 node size
 
 The AV64 is a new Azure VMware Solution host SKU, which is available to expand (not to create) the Azure VMware Solution private cloud built with the existing AV36, AV36P, or AV52 SKU. Use the [Microsoft documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware) to check for availability of the AV64 SKU in the region. 
+
+:::image type="content" source="media/introduction/av64-mixed-sku-topology.png" alt-text="Diagram showing Azure VMware Solution private cloud with AV64 SKU in mixed SKU configuration." border="false":::
 
 ### Prerequisite for AV64 usage 
 
@@ -54,7 +36,6 @@ See the following prerequisites for AV64 cluster deployment.
 - An Azure VMware solution private cloud is created using AV36, AV36P, or AV52 in AV64 supported [region/AZ](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware). 
 
 - You need one /23 or three (contiguous or noncontiguous) /25 address blocks for AV64 cluster management. 
-
 
 ### Supportability for customer scenarios
 
@@ -66,7 +47,7 @@ When a customer has a deployed Azure VMware Solution private cloud, they can sca
 
 **Customer plans to create a new Azure VMware Solution private cloud**: When a customer wants a new Azure VMware Solution private cloud that can use AV64 SKU but only for expansion. In this case, the customer meets the prerequisite of having an Azure VMware Solution private cloud built with AV36, AV36P, or AV52 SKU. The customer needs to buy a minimum of three nodes of AV36, AV36P, or AV52 SKU before expanding using AV64. For this scenario, use the following steps:
 
-1. Get AV36, AV36P, AV52 and AV64 [quota approval from Microsoft](/azure/azure-vmware/request-host-quota-azure-vmware-solution) with a minimum of three nodes each. 
+1. Get AV36, AV36P, or AV52, and AV64 [quota approval from Microsoft](/azure/azure-vmware/request-host-quota-azure-vmware-solution) with a minimum of three nodes each. 
 2. Create an Azure VMware Solution private cloud using AV36, AV36P, or AV52 SKU. 
 3. Use an existing Azure VMware Solution add-cluster workflow with AV64 hosts to expand. 
 
@@ -80,7 +61,7 @@ The Azure VMware Solution AV64 host clusters have an explicit vSAN fault domain 
 
 ### Cluster size recommendation
 
-The Azure VMware Solution minimum vSphere node cluster size supported is three. The vSAN data redundancy is handled by ensuring the minimum cluster size of three hosts are in different vSAN FDs. In a vSAN cluster with three hosts, each in a different FD, Should an FD fail (for example, the top of rack switch fails), the vSAN data would be protected. Operations such as object creation (new VM, VMDK, and others) would fail. The same is true of any maintenance activities where an ESXi host is placed into maintenance mode and/or rebooted. To avoid scenarios such as these, it's recommended to deploy vSAN clusters with a minimum of four ESXi hosts. 
+The Azure VMware Solution minimum vSphere node cluster size supported is three. The vSAN data redundancy is handled by ensuring the minimum cluster size of three hosts are in different vSAN FDs. In a vSAN cluster with three hosts, each in a different FD, should an FD fail (for example, the top of rack switch fails), the vSAN data would be protected. Operations such as object creation (new VM, VMDK, and others) would fail. The same is true of any maintenance activities where an ESXi host is placed into maintenance mode and/or rebooted. To avoid scenarios such as these, it's recommended to deploy vSAN clusters with a minimum of four ESXi hosts. 
 
 ### AV64 host removal workflow and best practices
 
@@ -105,11 +86,11 @@ The following three scenarios show examples of instances that would normally err
 
 	 :::image type="content" source="media/introduction/remove-host-scenario-3.png" alt-text="Diagram showing how users can remove one of the hosts from FD 1, but not from FD 2 or 3." border="false":::
 
-**How to identify the host that can be removed without causing a vSAN FD imbalance**: A user can go to the vSphere user interface to get the current state of vSAN FDs and hosts associated with each of them. This helps to identify hosts (based on the previous examples) that can be removed without affecting the vSAN FD balance and avoid any errors in the removal operation. 
+**How to identify the host that can be removed without causing a vSAN FD imbalance**: A user can go to the vSphere Client interface to get the current state of vSAN FDs and hosts associated with each of them. This helps to identify hosts (based on the previous examples) that can be removed without affecting the vSAN FD balance and avoid any errors in the removal operation. 
 
 ### AV64 supported RAID configuration 
 
-This table provides the list of RAID configuration supported and host requirements in AV64 cluster. The RAID6/FTT2 and RAID1/FTT3 policies will be supported in future on AV64 SKU. Microsoft allows customers to use the RAID-5 FTT1 vSAN storage policy for AV64 clusters with six or more nodes to meet the service level agreement.  
+This table provides the list of RAID configuration supported and host requirements in AV64 cluster. The RAID-6 FTT2 and RAID-1 FTT3 policies will be supported in future on AV64 SKU. Microsoft allows customers to use the RAID-5 FTT1 vSAN storage policy for AV64 clusters with six or more nodes to meet the service level agreement (SLA).  
 
 |RAID configuration 	|Failures to tolerate (FTT) |	Minimum hosts required |
 |-------------------|--------------------------|------------------------|

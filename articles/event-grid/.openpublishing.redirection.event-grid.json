@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "concepts-pull-delivery.md",
+      "redirect_url": "/azure/event-grid/concepts-event-grid-namespaces",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "diagnostic-logs.md",
       "redirect_url": "/azure/event-grid/monitor-push-reference",
       "redirect_document_id": false

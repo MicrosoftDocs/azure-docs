@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 06/05/2023
+ms.date: 11/15/2023
 ms.author: glenga
 ---
 
@@ -369,8 +369,9 @@ Azure Container Apps is a private registry service for building, storing, and ma
     az acr update -n <REGISTRY_NAME> --admin-enabled true
     ```
 
+<!---Hide until Functions + ACA supports managed identities
     > [!IMPORTANT]
-    > The admin account is designed for a single user to access the registry, mainly for testing purposes and for specific Azure services. In a production scenario, you should instead [add a user-assigned managed identity](../articles/app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=cli#add-a-user-assigned-identity) to which you can [grant access to the registry](../articles/container-registry/container-registry-authentication-managed-identity.md?tabs=azure-cli#grant-identity-access-to-the-container-registry).  
+    > The admin account is designed for a single user to access the registry, mainly for testing purposes and for specific Azure services. In a production scenario, you should instead [add a user-assigned managed identity](../articles/app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=cli#add-a-user-assigned-identity) to which you can [grant access to the registry](../articles/container-registry/container-registry-authentication-managed-identity.md?tabs=azure-cli#grant-identity-access-to-the-container-registry).  -->
 
 1. Use the following command to retrieve the admin username and password, which Functions needs to connect to the registry:
 

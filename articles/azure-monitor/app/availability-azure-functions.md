@@ -211,4 +211,4 @@ To create a new file, right-click under your timer trigger function (for example
 * [Standard tests](availability-standard-tests.md)
 * [Availability alerts](availability-alerts.md)
 * [Application Map](./app-map.md)
-* [Transaction diagnostics](./search-and-transaction-diagnostics.md?tabs=transaction-diagnostics)
+* [Transaction diagnostics](./transaction-search-and-diagnostics.md?tabs=transaction-diagnostics)

@@ -5,14 +5,14 @@ metadata:
   author: laujan
   manager: nitinme
   ms.service: azure-ai-document-intelligence
+  ms.custom:
+    - ignite-2023
   ms.topic: faq
-  ms.date: 08/17/2023
+  ms.date: 11/15/2023
   ms.author: lajanuar
-  monikerRange: '<=doc-intel-3.1.0'
-
 title: Frequently asked questions (FAQ)
 summary: |
-   [!INCLUDE [applies to v3.1, v3.0, and v2.1](includes/applies-to-v3-1-v3-0-v2-1.md)]
+   [!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
 
 
@@ -77,7 +77,7 @@ sections:
 
           - [AI Builder workflows](/ai-builder/create-form-processing-model?toc=~/articles/ai-services/document-intelligence/toc.json&bc=~/articles/ai-services/document-intelligence/breadcrumb/toc.json)
 
-          - [Azure Cognitive Search](../../search/cognitive-search-custom-skill-form.md)
+          - [Azure AI Search](../../search/cognitive-search-custom-skill-form.md)
 
           - [Azure Functions](tutorial-azure-function.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Connect using Azure roles
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Use Azure role-based access control for granular permissions on service administration and content tasks.
 
 manager: nitinme
@@ -9,12 +9,15 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 05/16/2023
-ms.custom: subject-rbac-steps, references_regions
+ms.custom:
+  - subject-rbac-steps
+  - references_regions
+  - ignite-2023
 ---
 
-# Connect to Azure Cognitive Search using Azure role-based access control (Azure RBAC)
+# Connect to Azure AI Search using Azure role-based access control (Azure RBAC)
 
-Azure provides a global [role-based access control authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use Azure roles for:
+Azure provides a global [role-based access control authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Azure AI Search, you can use Azure roles for:
 
 + Control plane operations (service administration tasks through Azure Resource Manager).
 
@@ -23,7 +26,7 @@ Azure provides a global [role-based access control authorization system](../role
 Per-user access over search results (sometimes referred to as row-level security or document-level security) isn't supported. As a workaround, [create security filters](search-security-trimming-for-azure-search.md) that trim results by user identity, removing documents for which the requestor shouldn't have access.
 
 > [!NOTE]
-> In Cognitive Search, "control plane" refers to operations supported in the [Management REST API](/rest/api/searchmanagement/) or equivalent client libraries. The "data plane" refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries.
+> In Azure AI Search, "control plane" refers to operations supported in the [Management REST API](/rest/api/searchmanagement/) or equivalent client libraries. The "data plane" refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries.
 
 ## Built-in roles used in Search
 
@@ -77,24 +80,24 @@ When you enable role-based access control in the portal, the failure mode is "ht
 
 ### [**REST API**](#tab/config-svc-rest)
 
-Use the Management REST API version 2022-09-01, [Create or Update Service](/rest/api/searchmanagement/2022-09-01/services/create-or-update), to configure your service.
+Use the Management REST API [Create or Update Service](/rest/api/searchmanagement/services/create-or-update) to configure your service for role-based access control.
 
-All calls to the Management REST API are authenticated through Microsoft Entra ID, with Contributor or Owner permissions. For help with setting up authenticated requests in Postman, see [Manage Azure Cognitive Search using REST](search-manage-rest.md).
+All calls to the Management REST API are authenticated through Microsoft Entra ID, with Contributor or Owner permissions. For help with setting up authenticated requests in Postman, see [Manage Azure AI Search using REST](search-manage-rest.md).
 
 1. Get service settings so that you can review the current configuration.
 
    ```http
-   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2022-09-01
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2023-11-01
    ```
 
 1. Use PATCH to update service configuration. The following modifications enable both keys and role-based access. If you want a roles-only configuration, see [Disable API keys](#disable-api-key-authentication).
 
-   Under "properties", set ["authOptions"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
+   Under "properties", set ["authOptions"](/rest/api/searchmanagement/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey". The "disableLocalAuth" property must be false to set "authOptions".
 
-   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/2022-09-01/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
+   Optionally, set ["aadAuthFailureMode"](/rest/api/searchmanagement/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. Valid values are "http401WithBearerChallenge" or "http403".
 
     ```http
-    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
     {
         "properties": {
             "disableLocalAuth": false,
@@ -298,7 +301,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 ### [**.NET**](#tab/test-csharp)
 
-1. Use the [Azure.Search.Documents 11.4.0](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0) package.
+1. Use the [Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents) package.
 
 1. Use [Azure.Identity for .NET](/dotnet/api/overview/azure/identity-readme) for token authentication. Microsoft recommends [`DefaultAzureCredential()`](/dotnet/api/azure.identity.defaultazurecredential) for most scenarios.
 
@@ -325,7 +328,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 ### [**Python**](#tab/test-python)
 
-1. Use [azure.search.documents (Azure SDK for Python) version 11.3](https://pypi.org/project/azure-search-documents/).
+1. Use [azure.search.documents (Azure SDK for Python)](https://pypi.org/project/azure-search-documents/).
 
 1. Use [Azure.Identity for Python](/python/api/overview/azure/identity-readme) for token authentication.
 
@@ -353,7 +356,7 @@ For more information on how to acquire a token for a specific environment, see [
 
 ### [**Java**](#tab/test-java)
 
-1. Use [azure-search-documents (Azure SDK for Java) version 11.5.6](https://central.sonatype.com/artifact/com.azure/azure-search-documents/11.5.6).
+1. Use [azure-search-documents (Azure SDK for Java)](https://central.sonatype.com/artifact/com.azure/azure-search-documents).
 
 1. Use [Azure.Identity for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true) for token authentication.
 
@@ -363,12 +366,12 @@ For more information on how to acquire a token for a specific environment, see [
 
 ## Test as current user
 
-If you're already a Contributor or Owner of your search service, you can present a bearer token for your user identity for authentication to Azure Cognitive Search. The following instructions explain how to set up a Postman collection to send requests as the current user.
+If you're already a Contributor or Owner of your search service, you can present a bearer token for your user identity for authentication to Azure AI Search. The following instructions explain how to set up a Postman collection to send requests as the current user.
 
 1. Get a bearer token for the current user:
 
     ```azurecli
-    az account get-access-token https://search.azure.com/.default
+    az account get-access-token --scope https://search.azure.com/.default
     ```
 
 1. Start a new Postman collection and edit its properties. In the **Variables** tab, create the following variable:
@@ -567,13 +570,13 @@ To disable key-based authentication, set "disableLocalAuth" to true.
 1. Get service settings so that you can review the current configuration.
 
    ```http
-   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2022-09-01
+   GET https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.Search/searchServices?api-version=2023-11-01
    ```
 
 1. Use PATCH to update service configuration. The following modification will set "authOptions" to null.
 
     ```http
-    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2022-09-01
+    PATCH https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2023-11-01
     {
         "properties": {
             "disableLocalAuth": true
@@ -589,9 +592,9 @@ To re-enable key authentication, rerun the last request, setting "disableLocalAu
 
 ## Conditional Access
 
-[Conditional Access](../active-directory/conditional-access/overview.md) is a tool in Microsoft Entra ID used to enforce organizational policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. When accessing an Azure Cognitive Search service using role-based access control, Conditional Access can enforce organizational policies.
+[Conditional Access](../active-directory/conditional-access/overview.md) is a tool in Microsoft Entra ID used to enforce organizational policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. When accessing an Azure AI Search service using role-based access control, Conditional Access can enforce organizational policies.
 
-To enable a Conditional Access policy for Azure Cognitive Search, follow the below steps:
+To enable a Conditional Access policy for Azure AI Search, follow the below steps:
 
 1. [Sign in](https://portal.azure.com) to the Azure portal.
 
@@ -601,11 +604,11 @@ To enable a Conditional Access policy for Azure Cognitive Search, follow the bel
 
 1. Select **+ New policy**.
 
-1. In the **Cloud apps or actions** section of the policy, add **Azure Cognitive Search** as a cloud app depending on how you want to set up your policy.
+1. In the **Cloud apps or actions** section of the policy, add **Azure AI Search** as a cloud app depending on how you want to set up your policy.
 
 1. Update the remaining parameters of the policy. For example, specify which users and groups this policy applies to. 
 
 1. Save the policy.
 
 > [!IMPORTANT]
-> If your search service has a managed identity assigned to it, the specific search service will show up as a cloud app that can be included or excluded as part of the Conditional Access policy. Conditional Access policies can't be enforced on a specific search service. Instead make sure you select the general **Azure Cognitive Search** cloud app.
+> If your search service has a managed identity assigned to it, the specific search service will show up as a cloud app that can be included or excluded as part of the Conditional Access policy. Conditional Access policies can't be enforced on a specific search service. Instead make sure you select the general **Azure AI Search** cloud app.

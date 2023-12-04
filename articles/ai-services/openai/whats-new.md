@@ -6,13 +6,37 @@ manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
+ms.custom:
+  - ignite-2023
 ms.topic: whats-new
-ms.date: 10/16/2023
+ms.date: 10/17/2023
 recommendations: false
-keywords:  
+keywords:
 ---
 
 # What's new in Azure OpenAI Service
+
+## November 2023
+
+### GPT-4 Turbo Preview & GPT-3.5-Turbo-1106 released
+
+Both models are the latest release from OpenAI with improved instruction following, [JSON mode](./how-to/json-mode.md), [reproducible output](./how-to/reproducible-output.md), and parallel function calling.
+
+- **GPT-4 Turbo Preview** has a max context window of 128,000 tokens and can generate 4,096 output tokens. It has the latest training data with knowledge up to April 2023. This model is in preview and is not recommended for production use. All deployments of this preview model will be automatically updated in place once the stable release becomes available.
+
+- **GPT-3.5-Turbo-1106** has a max context window of 16,385 tokens and can generate 4,096 output tokens.
+
+For information on model regional availability consult the [models page](./concepts/models.md).
+
+The models have their own unique per region [quota allocations](./quotas-limits.md).
+
+### DALL-E 3 public preview
+
+DALL-E 3 is the latest image generation model from OpenAI. It features enhanced image quality, more complex scenes, and improved performance when rendering text in images. It also comes with more aspect ratio options. DALL-E 3 is available through OpenAI Studio and through the REST API. Your OpenAI resource must be in the `SwedenCentral` Azure region.
+
+DALL-E 3 includes built-in prompt rewriting to enhance images, reduce bias, and increase natural variation.
+
+Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 
 ## October 2023
 
@@ -57,9 +81,9 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 ### Azure OpenAI on your own data (preview) updates
 
 - You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
-- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-endpoint-support) now supports private endpoints.
-- Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
-- [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
+- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-endpoint-support-azure-ai-search-only) now supports private endpoints.
+- Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control-azure-ai-search-only).
+- [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes-azure-ai-search-only).
 - [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 
 - [View your chat history in the deployed web app](./concepts/use-your-data.md#chat-history)
 

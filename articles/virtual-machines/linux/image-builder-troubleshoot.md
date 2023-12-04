@@ -4,7 +4,7 @@ description: This article helps you troubleshoot common problems and errors you 
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: erd
-ms.date: 11/01/2023
+ms.date: 11/10/2023
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -735,10 +735,30 @@ The cause might be a timing issue because of the D1_V2 VM size. If customization
 
 To avoid the timing issue, you can increase the VM size or you can add a 60-second PowerShell sleep customization.
 
+### Unregistered Azure Container Instances provider
+
+#### Error
+```text
+Azure Container Instances provider not registered for your subscription.
+```
+
+#### Cause
+Your template subscription doesn't have the Azure Container Instances provider registered.
+
+#### Solution
+Register the Azure Container Instances provider for your template subscription and add the Azure CLI or PowerShell commands:
+
+- Azure CLI: `az provider register -n Microsoft.ContainerInstance`
+- PowerShell: `Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance`
+
+
+
 ### Azure Container Instances quota exceeded
 
 #### Error
-"Azure Container Instances quota exceeded"
+```text
+Azure Container Instances quota exceeded"
+```
 
 #### Cause
 Your subscription doesn't have enough Azure Container Instances (ACI) quota for Azure Image Builder to successfully build an image.

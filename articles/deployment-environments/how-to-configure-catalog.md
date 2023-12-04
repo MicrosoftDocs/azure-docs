@@ -295,7 +295,7 @@ Get the path to the secret you created in the key vault.
     | **Catalog location**  | Select **GitHub**. |
     | **Repo**  | Enter or paste the clone URL for either your GitHub repository or your Azure DevOps repository.<br />*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
     | **Branch**  | Enter the repository branch to connect to.<br />*Sample catalog example:* `main`|
-    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your environment definitions. <br /> The folder path is for the folder with subfolders containing environment definition manifests, not for the folder with the environment definition manifest itself. The following image shows the sample catalog folder structure.<br />*Sample catalog example:* `/Environments`<br /> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub."::: The folder path can begin with or without a forward slash (`/`).|
+    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your environment definitions. <br /> The folder path is for the folder with subfolders containing environment definition environment files, not for the folder with the environment definition environment file itself. The following image shows the sample catalog folder structure.<br />*Sample catalog example:* `/Environments`<br /> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub."::: The folder path can begin with or without a forward slash (`/`).|
     | **Secret identifier**| Enter the secret identifier that contains your personal access token for the repository.<br /> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br />Removing the version identifier ensures that Deployment Environments fetch the latest version of the secret from the key vault. If your personal access token expires, only the key vault needs to be updated. <br />*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
     :::image type="content" source="media/how-to-configure-catalog/add-github-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-github-catalog-pane.png":::
@@ -338,15 +338,15 @@ An ignored environment definition error occurs if you add two or more environmen
 
 An invalid environment definition error might occur for various reasons:
 
-- **Manifest schema errors**. Ensure that your environment definition manifest matches the [required schema](configure-environment-definition.md#add-an-environment-definition).
+- **Manifest schema errors**. Ensure that your environment definition environment file matches the [required schema](configure-environment-definition.md#add-an-environment-definition).
 
 - **Validation errors**. Check the following items to resolve validation errors:
 
-  - Ensure that the manifest's engine type is correctly configured as `ARM`.
+  - Ensure that the environment file's engine type is correctly configured as `ARM`.
   - Ensure that the environment definition name is between 3 and 63 characters.
   - Ensure that the environment definition name includes only characters that are valid for a URL, which are alphanumeric characters and these symbols: `~` `!` `,` `.` `'` `;` `:` `=` `-` `_` `+` `(` `)` `*` `&` `$` `@`
   
-- **Reference errors**. Ensure that the template path that the manifest references is a valid relative path to a file in the repository.
+- **Reference errors**. Ensure that the template path that the environment file references is a valid relative path to a file in the repository.
 
 ## Related content
 

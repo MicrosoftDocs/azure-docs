@@ -11,8 +11,6 @@
     href: tutorial-create-gateway-portal.md
   - name: Configure a site-to-site connection
     href: tutorial-site-to-site-portal.md
-  - name: Deploy VPN gateway with DDoS protection
-    href: tutorial-protect-vpn-gateway.md
 - name: Concepts
   items:
   - name: Work remotely
@@ -29,6 +27,8 @@
     href: design.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
+  - name: About gateway SKUs
+    href: about-gateway-skus.md
   - name: About VPN devices
     href: vpn-gateway-about-vpn-devices.md
   - name: About cryptographic requirements

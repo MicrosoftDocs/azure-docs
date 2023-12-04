@@ -1035,7 +1035,7 @@ items:
         href: ../data-factory/format-avro.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Blob Storage
         href: ../data-factory/connector-azure-blob-storage.md?toc=/azure/synapse-analytics/toc.json&tabs=synapse-analytics
-      - name: Azure Cognitive Search
+      - name: Azure AI Search
         href: ../data-factory/connector-azure-search.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Cosmos DB for NoSQL
         href: ../data-factory/connector-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics

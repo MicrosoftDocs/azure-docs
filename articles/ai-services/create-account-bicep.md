@@ -2,13 +2,17 @@
 title: Create an Azure AI services resource using Bicep | Microsoft Docs
 description: Create an Azure AI service resource with Bicep.
 keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 ms.service: azure-ai-services
 ms.topic: quickstart
 ms.date: 01/19/2023
 ms.author: aahi
-ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-bicep
+  - ignite-2023
 ---
 
 # Quickstart: Create an Azure AI services resource using Bicep
@@ -106,7 +110,6 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
-If you need to recover a deleted resource, see [Recover or purge deleted Azure AI services resources](recover-purge-resources.md).
 
 ## See also
 

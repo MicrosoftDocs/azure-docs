@@ -239,7 +239,7 @@
   - name: Deploy
     items:
       - name: Deploy Azure Virtual Desktop
-        displayName: deploy, create, get started, host pool, application group, workspace, assign users
+        displayName: deploy, create, get started, host pool, application group, workspace, assign users, azure stack hci
         href: deploy-azure-virtual-desktop.md
       - name: Use the getting started feature
         displayName: deploy, create, get started
@@ -375,8 +375,6 @@
         - name: Migrate manually
           displayName: classic
           href: manual-migration.md
-      - name: Deploy on Azure Stack HCI
-        href: azure-stack-hci.md
   - name: Manage
     items:
     - name: Use Azure CLI and Azure PowerShell

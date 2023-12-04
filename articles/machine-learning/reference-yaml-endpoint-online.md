@@ -10,20 +10,21 @@ ms.custom: cliv2, event-tier1-build-2022
 
 author: dem108
 ms.author: sehan
-ms.date: 04/26/2022
-ms.reviewer: larryfr
+ms.date: 11/15/2023
+ms.reviewer: mopeakande
+reviewer: msakande
 ---
 
 # CLI (v2) online endpoint YAML schema
 
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json.
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json for managed online endpoint, and at https://azuremlschemas.azureedge.net/latest/kubernetesOnlineEndpoint.schema.json for Kubernetes online endpoint. The differences between managed online endpoint and Kubernetes online endpoint are described in the table of properties in this article. Sample in this article focuses on managed online endpoint.
 
 [!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 > [!NOTE]
-> A fully specified sample YAML for online endpoints is available for [reference](https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.template.yaml)
+> A fully specified sample YAML for managed online endpoints is available for [reference](https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.template.yaml)
 
 ## YAML syntax
 

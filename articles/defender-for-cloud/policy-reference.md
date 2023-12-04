@@ -2,7 +2,7 @@
 title: Built-in policy definitions
 description: Lists Azure Policy built-in policy definitions for Microsoft Defender for Cloud. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.topic: reference
-ms.date: 11/06/2023
+ms.date: 11/15/2023
 ms.custom: subject-policy-reference
 ---
 

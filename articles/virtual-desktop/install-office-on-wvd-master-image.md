@@ -1,6 +1,6 @@
 ---
 title: Install Office on a custom VHD image - Azure
-description: How to install and customize Office on a Azure Virtual Desktop custom image to Azure.
+description: How to install and customize Office on an Azure Virtual Desktop custom image to Azure.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 05/02/2019
@@ -16,7 +16,7 @@ This article assumes you've already created a virtual machine (VM). If not, see 
 This article also assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager. If not, see [Elevate access to manage all Azure subscription and management groups](../role-based-access-control/elevate-access-global-admin.md).
 
 >[!NOTE]
->These instructions are for a Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+>These instructions are for an Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 ## Install Office in shared computer activation mode
 

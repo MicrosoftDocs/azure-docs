@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 11/20/2023
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -44,7 +44,7 @@ The inline frame element `<iframe>` is used to embed a document in an HTML5 web 
 When using iframe, consider the following:
 
 - Embedded sign-up or sign-in supports local accounts only. Most social identity providers (for example, Google and Facebook) block their sign-in pages from being rendered in inline frames.
-- Because Azure AD B2C session cookies within an iframe are considered third-party cookies, certain browsers (for example Safari or Chrome in incognito mode) either block or clear these cookies, resulting in an undesirable user experience. To prevent this issue, make sure your application domain name and your Azure AD B2C domain have the *same origin*. To use the same origin, [enable custom domains](custom-domain.md) for Azure AD B2C tenant, then configure your web app with the same origin. For example, an application hosted on 'https://app.contoso.com' has the same origin as Azure AD B2C running on 'https://login.contoso.com'.
+- Certain browsers, such as Safari or Chrome in incognito mode, view Azure AD B2C session cookies within an iframe as third-party cookies. These browsers may block or clear these cookies, which can lead to a less than optimal user experience. To prevent this issue, make sure your application domain name and your Azure AD B2C domain have the *same origin*. To use the same origin, [enable custom domains](custom-domain.md) for Azure AD B2C tenant, then configure your web app with the same origin. For example, an application hosted on 'https://app.contoso.com' has the same origin as Azure AD B2C running on 'https://login.contoso.com'.
 
 ## Prerequisites
 
@@ -70,16 +70,16 @@ Add a **JourneyFraming** element inside the [RelyingParty](relyingparty.md) elem
 
 The **Sources** attribute contains the URI of your web application. Add a space between URIs. Each URI must meet the following requirements:
 
-- The URI must be trusted and owned by your application.
+- Your application must trust and own the URI.
 - The URI must use the https scheme.  
-- The full URI of the web app must be specified. Wildcards are not supported.
+- The full URI of the web app must be specified. Wildcards aren't supported.
 - The **JourneyFraming** element only allows site URLs with a **two to seven-character** Top-level domain (TLD) to align with commonly recognized TLDs.
 
-In addition, we recommend that you also block your own domain name from being embedded in an iframe by setting the `Content-Security-Policy` and `X-Frame-Options` headers respectively on your application pages. This will mitigate security concerns around older browsers related to nested embedding of iframes.
+In addition, we recommend that you also block your own domain name from being embedded in an iframe by setting the `Content-Security-Policy` and `X-Frame-Options` headers respectively on your application pages. This technique mitigates security concerns around older browsers related to nested embedding of iframes.
 
 ## Adjust policy user interface
 
-With Azure AD B2C [user interface customization](customize-ui.md), you have almost full control over the HTML and CSS content presented to users. Follow the steps for customizing an HTML page using content definitions. To fit the Azure AD B2C user interface into the iframe size, provide clean HTML page without a background and extra spaces.  
+With Azure AD B2C [user interface customization](customize-ui.md), you have almost full control over the HTML and CSS content that you present your users. Follow the steps for customizing an HTML page using content definitions. To fit the Azure AD B2C user interface into the iframe size, provide clean HTML page without a background and extra spaces.  
 
 The following CSS code hides the Azure AD B2C HTML elements and adjusts the size of the panel to fill the iframe.
 
@@ -115,9 +115,9 @@ To support embedded login, the iframe `src` attribute points to the sign-in cont
 <iframe id="loginframe" frameborder="0" src="/account/SignUpSignIn"></iframe>
 ``` 
 
-After the ID token is received and validated by the application, the authorization flow is complete and the application recognizes and trusts the user. Because the authorization flow happens inside the iframe, you need to reload the main page. After the page reloads, the sign-in button changes to "sign out" and the username is presented in the UI.  
+After the application receives and validates the ID token, it completes the authorization flow and recognizes and trusts the user. Because the authorization flow happens inside the iframe, you need to reload the main page. After the page reloads, the sign-in button changes to "sign out" and the username is presented in the UI.  
 
-The following is an example showing how the sign-in redirect URI can refresh the main page:
+The following example shows how the sign-in redirect URI can refresh the main page:
 
 ```javascript
 window.top.location.reload();
@@ -135,7 +135,7 @@ The redirect URI can be the same redirect URI used by the iframe. You can skip t
 
 ## Configure a single-page application
 
-For a single-page application, you'll also need a second "sign-in" HTML page that loads into the iframe. This sign-in page hosts the authentication library code that generates the authorization code and returns the token.
+For a single-page application, you also need a second "sign-in" HTML page that loads into the iframe. This sign-in page hosts the authentication library code that generates the authorization code and returns the token.
 
 When the single-page application needs the access token, use JavaScript code to obtain the access token from the iframe and the object that contains it.
 

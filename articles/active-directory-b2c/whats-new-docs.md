@@ -13,7 +13,7 @@ manager: CelesteDG
 
 # Azure Active Directory B2C: What's new
 
-Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
+Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
 
 ## October 2023
 
@@ -27,7 +27,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ### Updated articles
 
-- [Supported Microsoft Entra features](supported-azure-ad-features.md) - Editorial updates
+- [Supported Microsoft Entra ID features](supported-azure-ad-features.md) - Editorial updates
 - [Publish your Azure Active Directory B2C app to the Microsoft Entra app gallery](publish-app-to-azure-ad-app-gallery.md) - Editorial updates
 - [Secure your API used an API connector in Azure AD B2C](secure-rest-api.md) - Editorial updates
 - [Azure AD B2C: Frequently asked questions (FAQ)'](faq.yml) - Editorial updates
@@ -35,8 +35,8 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Set up sign-in for multitenant Microsoft Entra ID using custom policies in Azure Active Directory B2C](identity-provider-azure-ad-multi-tenant.md) - Editorial updates
 - [Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md) - Editorial updates
 - [Localization string IDs](localization-string-ids.md) - Editorial updates
-- [Define a Microsoft Entra multifactor authentication technical profile in an Azure AD B2C custom policy](multi-factor-auth-technical-profile.md) - Editorial updates
-- [Define a Microsoft Entra SSPR technical profile in an Azure AD B2C custom policy](aad-sspr-technical-profile.md) - Editorial updates
+- [Define a Microsoft Entra ID multifactor authentication technical profile in an Azure AD B2C custom policy](multi-factor-auth-technical-profile.md) - Editorial updates
+- [Define a Microsoft Entra ID SSPR technical profile in an Azure AD B2C custom policy](aad-sspr-technical-profile.md) - Editorial updates
 - [Define a Microsoft Entra technical profile in an Azure Active Directory B2C custom policy](active-directory-technical-profile.md) - Editorial updates
 - [Monitor Azure AD B2C with Azure Monitor](azure-monitor.md) - Editorial updates
 - [Billing model for Azure Active Directory B2C](billing.md) - Editorial updates

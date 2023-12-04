@@ -125,7 +125,7 @@ $Resource | Set-AzResource -Force
 
 ### Maximum function app instances
 
-In addition to the [plan maximum instance count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./event-driven-scaling.md#limit-scale-out).
+In addition to the [plan maximum burst count](#plan-and-sku-settings), you can configure a per-app maximum. The app maximum can be configured using the [app scale limit](./event-driven-scaling.md#limit-scale-out). The maximum app scale out limit cannot exceed the maximum burst instances of the plan. 
 
 ## Private network connectivity
 
@@ -161,7 +161,7 @@ This migration isn't supported on Linux.
 
 When you create the plan, there are two plan size settings: the minimum number of instances (or plan size) and the maximum burst limit.
 
-If your app requires instances beyond the always-ready instances, it can continue to scale out until the number of instances hits the maximum burst limit. You're billed for instances beyond your plan size only while they're running and allocated to you, on a per-second basis. The platform makes its best effort at scaling your app out to the defined maximum limit.
+If your app requires instances beyond the always-ready instances, it can continue to scale out until the number of instances hits the plan maximum burst limit, or the app maximum scale out limit if configured. You're billed for instances only while they're running and allocated to you, on a per-second basis. The platform makes its best effort at scaling your app out to the defined maximum limits.
 
 ### [Portal](#tab/portal)
 
@@ -186,7 +186,7 @@ Update-AzFunctionAppPlan -ResourceGroupName <RESOURCE_GROUP> -Name <PREMIUM_PLAN
 ```
 
 ---
-The minimum for every plan is at least one instance. The actual minimum number of instances is determined for you based on the always ready instances requested by apps in the plan. For example, if app A requests five always ready instances, and app B requests two always ready instances in the same plan, the minimum plan size is determined as five. App A is running on all five, and app B is only running on 2.
+The minimum for every Premium plan is at least one instance. The actual minimum number of instances is determined for you based on the always ready instances requested by apps in the plan. For example, if app A requests five always ready instances, and app B requests two always ready instances in the same plan, the minimum plan size is determined as five. App A is running on all five, and app B is only running on 2.
 
 > [!IMPORTANT]
 > You are charged for each instance allocated in the minimum instance count regardless if functions are executing or not.

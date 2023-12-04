@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-linux
-ms.date: 04/13/2023
+ms.date: 11/01/2023
 ---
 
 # Use Azure Blob storage Container Storage Interface (CSI) driver
@@ -81,6 +81,8 @@ A storage class is used to define how an Azure Blob storage container is created
 
 * **Standard_LRS**: Standard locally redundant storage
 * **Premium_LRS**: Premium locally redundant storage
+* **Standard_ZRS**: Standard zone redundant storage
+* **Premium_ZRS**: Premium zone redundant storage
 * **Standard_GRS**: Standard geo-redundant storage
 * **Standard_RAGRS**: Standard read-access geo-redundant storage
 

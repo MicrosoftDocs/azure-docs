@@ -86,7 +86,7 @@ Actions |Permission |Scope |
 |Update assessment on Azure Arc-enabled server |Microsoft.HybridCompute/machines/assessPatches/action ||
 |Register the subscription for the Microsoft.Maintenance resource provider| Microsoft.Maintenance/register/action | Subscription|
 |Create/modify maintenance configuration |Microsoft.Maintenance/maintenanceConfigurations/write |Subscription/resource group |
-|Create/modify configuration assignments |Microsoft.Maintenance/configurationAssignments/write |Machine |
+|Create/modify configuration assignments |Microsoft.Maintenance/configurationAssignments/write |Subscription |
 |Read permission for Maintenance updates resource |Microsoft.Maintenance/updates/read |Machine |
 |Read permission for Maintenance apply updates resource |Microsoft.Maintenance/applyUpdates/read |Machine |
 

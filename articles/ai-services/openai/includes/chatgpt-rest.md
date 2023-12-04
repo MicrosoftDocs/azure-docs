@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Azure OpenAI Service with the REST API'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the REST API. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include

@@ -21,9 +21,20 @@ To create a custom table, you need:
 
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md).
-- A JSON file with the schema of your custom table in the following format:
+- A JSON file with at least one record of sample for your custom table. This will look similar to the following:
+
     ```json
     [
+      {
+        "TimeGenerated": "supported_datetime_format",
+        "<column_name_1>": "<column_name_1_value>",
+        "<column_name_2>": "<column_name_2_value>"
+      },
+      {
+        "TimeGenerated": "supported_datetime_format",
+        "<column_name_1>": "<column_name_1_value>",
+        "<column_name_2>": "<column_name_2_value>"
+      },
       {
         "TimeGenerated": "supported_datetime_format",
         "<column_name_1>": "<column_name_1_value>",
@@ -32,7 +43,7 @@ To create a custom table, you need:
     ]
     ``` 
     
-    For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats).
+    All tables in a Log Analytics workspace must have a column named `TimeGenerated`. If your sample data has a column named `TimeGenerated`, then this value will be used to identify the ingestion time of the record. If not, a `TimeGenerated` column will be added to the transformation in your DCR for the table. For information about the `TimeGenerated` format, see [supported datetime formats](/azure/data-explorer/kusto/query/scalar-data-types/datetime#supported-formats).
 
 ## Create a custom table
 
@@ -63,11 +74,11 @@ To create a custom table in the Azure portal:
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" alt-text="Screenshot showing custom log table name.":::
 
-1. Select **Browse for files** and locate the JSON file in which you defined the schema of your new table. 
+1. Select **Browse for files** and locate the JSON file with the sample data for your new table. 
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-browse-files.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-browse-files.png" alt-text="Screenshot showing custom log browse for files.":::
 
-    All log tables in Azure Monitor Logs must have a `TimeGenerated` column populated with the timestamp of the logged event. 
+    If your sample data doesn't include a `TimeGenerated` column, then you will receive a message that a transformation is being created with this column. 
 
 1. If you want to [transform log data before ingestion](../essentials//data-collection-transformations.md) into your table: 
 
@@ -141,7 +152,7 @@ You can delete any table in your Log Analytics workspace that's not an [Azure ta
 
 > [!NOTE]
 > - Deleting a restored table doesn't delete the data in the source table.
-> - Azure tables that are part of a solution can be removed from workspace when [deleting the solution](https://learn.microsoft.com/cli/azure/monitor/log-analytics/solution?view=azure-cli-latest#az-monitor-log-analytics-solution-delete). The data remains in workspace for the duration of the retention policy defined for the tables. If the [solution is re-created](https://learn.microsoft.com/cli/azure/monitor/log-analytics/solution?view=azure-cli-latest#az-monitor-log-analytics-solution-create) in the workspace, these tables become visible again.
+> - Azure tables that are part of a solution can be removed from workspace when [deleting the solution](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete). The data remains in workspace for the duration of the retention policy defined for the tables. If the [solution is re-created](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-create) in the workspace, these tables become visible again.
 
 # [Portal](#tab/azure-portal-2)
 

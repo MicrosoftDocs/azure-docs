@@ -1,18 +1,19 @@
 ---
 title: Recover from accidental deletion of resource bridge VM
-description: Learn how to perform recovery operations for the Azure Arc resource bridge VM in Azure Arc-enabled System Center Virtual Machine Manager (preview) disaster scenarios.
+description: Learn how to perform recovery operations for the Azure Arc resource bridge VM in Azure Arc-enabled System Center Virtual Machine Manager disaster scenarios.
 ms.topic: how-to 
 ms.custom:
-ms.date: 07/28/2023
+ms.date: 11/15/2023
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-author: jyothisuri
-ms.author: jsuri
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
+manager: jsuri
 ---
 
 # Recover from accidental deletion of resource bridge virtual machine
 
-In this article, you'll learn how to recover the Azure Arc resource bridge (preview) connection into a working state in disaster scenarios such as accidental deletion. In such cases, the connection between on-premises infrastructure and Azure is lost and any operations performed through Arc will fail.
+In this article, you'll learn how to recover the Azure Arc resource bridge connection into a working state in disaster scenarios such as accidental deletion. In such cases, the connection between on-premises infrastructure and Azure is lost and any operations performed through Arc will fail.
 
 ## Recover the Arc resource bridge in case of virtual machine deletion
 
@@ -55,7 +56,7 @@ To recover from Arc resource bridge VM deletion, you need to deploy a new resour
 
 ## Next steps
 
-[Troubleshoot Azure Arc resource bridge (preview) issues](../resource-bridge/troubleshoot-resource-bridge.md)
+[Troubleshoot Azure Arc resource bridge issues](../resource-bridge/troubleshoot-resource-bridge.md)
 
 If the recovery steps mentioned above are unsuccessful in restoring Arc resource bridge to its original state, try one of the following channels for support:
 

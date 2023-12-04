@@ -65,7 +65,7 @@ landingContent:
      - linkListType: sample
        links:
           - text: Jumpstart
-            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
+            url: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data
  # Card
   - title: Azure Arc-enabled PostgreSQL (preview)
     linkLists:

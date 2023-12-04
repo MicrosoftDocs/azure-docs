@@ -306,6 +306,11 @@
         "redirect_document_id": true
     },
     {
+        "source_path_from_root": "/articles/machine-learning/tutorial-enable-materialization-backfill-data.md",
+        "redirect_url": "/azure/machine-learning/tutorial-experiment-train-models-using-features.md",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/quickstart-run-notebooks.md",
         "redirect_url": "/azure/machine-learning/tutorial-cloud-workstation",
         "redirect_document_id": true
@@ -4188,6 +4193,16 @@
     {
         "source_path_from_root": "/articles/machine-learning/prompt-flow/tools-reference/azure-translator-tool.md",
         "redirect_url": "/azure/machine-learning/prompt-flow/tools-reference/more-tools",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-develop-a-standard-flow.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-develop-flow",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/prompt-flow/how-to-develop-a-chat-flow.md",
+        "redirect_url": "/azure/machine-learning/prompt-flow/how-to-develop-flow",
         "redirect_document_id": false
     },
     {

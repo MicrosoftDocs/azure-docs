@@ -100,10 +100,15 @@ A container using *subPath volume mount* doesn't receive secret updates when it'
 
 ## Create or use an existing Azure Key Vault
 
-1. Create a key vault using the [`az keyvault create`][az-keyvault-create] command. The name of the key vault must be globally unique.
+1. Create or update a key vault with Azure role-based access control (Azure RBAC) enabled using the [`az keyvault create`][az-keyvault-create] command or the [`az keyvault update`][az-keyvault-update] command with the `--enable-rbac-authorization` flag. The name of the key vault must be globally unique. For more details on key vault permission models and Azure RBAC, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide)
+
 
     ```azurecli-interactive
-    az keyvault create -n <keyvault-name> -g myResourceGroup -l eastus2
+    ## Create a new Azure key vault
+    az keyvault create -n <keyvault-name> -g myResourceGroup -l eastus2 --enable-rbac-authorization
+
+    ## Update an existing Azure key vault
+    az keyvault update -n <keyvault-name> -g myResourceGroup -l eastus2 --enable-rbac-authorization
     ```
 
 2. Your key vault can store keys, secrets, and certificates. In this example, use the [`az keyvault secret set`][az-keyvault-secret-set] command to set a plain-text secret called `ExampleSecret`.
@@ -131,6 +136,7 @@ In this article, you learned how to use the Azure Key Vault provider for Secrets
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [identity-access-methods]: ./csi-secrets-store-identity-access.md
 [az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create.md
+[az-keyvault-update]: /cli/azure/keyvault#az-keyvault-update.md
 [az-keyvault-secret-set]: /cli/azure/keyvault#az-keyvault-secret-set.md
 [az-group-create]: /cli/azure/group#az-group-create
 

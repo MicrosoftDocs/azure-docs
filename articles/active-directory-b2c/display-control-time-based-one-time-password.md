@@ -108,7 +108,7 @@ The following XML code shows the `EnableOTPAuthentication` self-asserted technic
 
 ## Verification flow
 
-The verification TOTP code is done by another self-asserted technical profile that uses display claims and a validation technical profile. For more information, see [Define a Microsoft Entra multifactor authentication technical profile in an Azure AD B2C custom policy](multi-factor-auth-technical-profile.md).
+The verification TOTP code is done by another self-asserted technical profile that uses display claims and a validation technical profile. For more information, see [Define a Microsoft Entra ID multifactor authentication technical profile in an Azure AD B2C custom policy](multi-factor-auth-technical-profile.md).
 
 The following screenshot illustrates a TOTP verification page.
 
@@ -118,6 +118,6 @@ The following screenshot illustrates a TOTP verification page.
 
 - Learn more about multifactor authentication in [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md?pivots=b2c-custom-policy)
 
-- Learn how to validate a TOTP code in [Define a Microsoft Entra multifactor authentication technical profile](multi-factor-auth-technical-profile.md).
+- Learn how to validate a TOTP code in [Define a Microsoft Entra ID multifactor authentication technical profile](multi-factor-auth-technical-profile.md).
 
 - Explore a sample [Azure AD B2C MFA with TOTP using any Authenticator app custom policy in GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/totp).  

@@ -2,7 +2,7 @@
 title: Previous language service updates
 titleSuffix: Azure AI services
 description: An archive of previous Azure AI Language updates.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
