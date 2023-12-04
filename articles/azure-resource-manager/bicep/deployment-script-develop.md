@@ -21,23 +21,21 @@ ms.date: 11/28/2023
 
 The following Bicep file is an example of the deployment script resource. For more information, see the latest [Deployment script schema](/azure/templates/microsoft.resources/deploymentscripts?tabs=bicep).
 
+*** jgao - further simplify the sample. Use descriptions instead of actual values.
+
 ```bicep
 resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   name: 'runPowerShellInline'
   location: resourceGroup().location
-  tags: {
-    tagName1: 'tagValue1'
-    tagName2: 'tagValue2'
-  }
+  tags: {}
   identity: {
     type: 'UserAssigned'
     userAssignedIdentities: {
       '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID': {}
     }
   }
-  kind: 'AzurePowerShell'
+  kind: 'AzurePowerShell' // or AzureCLI
   properties: {
-    forceUpdateTag: '1'
     containerSettings: {
       containerGroupName: 'mycustomaci'
       subnetIds: [
@@ -50,40 +48,27 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
       storageAccountName: 'myStorageAccount'
       storageAccountKey: 'myKey'
     }
+    environmentVariables: []
     azPowerShellVersion: '10.0' // or azCliVersion: '2.52.0'
     arguments: '-name \\"John Dole\\"'
-    environmentVariables: [
-      {
-        name: 'UserName'
-        value: 'jdole'
-      }
-      {
-        name: 'Password'
-        secureValue: 'jDolePassword'
-      }
-    ]
-    scriptContent: '''
-      param([string] $name)
-      $output = 'Hello {0}. The username is {1}, the password is {2}.' -f $name,${Env:UserName},${Env:Password}
-      Write-Output $output
-      $DeploymentScriptOutputs = @{}
-      $DeploymentScriptOutputs['text'] = $output
-    ''' // or primaryScriptUri: 'https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/inlineScript.ps1'
+    scriptContent: '''...''' // or primaryScriptUri: 'https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/inlineScript.ps1'
     supportingScriptUris: []
-    timeout: 'PT30M'
+    timeout: 'P1D'
     cleanupPreference: 'OnSuccess'
     retentionInterval: 'P1D'
+    forceUpdateTag: '1'
   }
 }
 ```
 
 Property value details:
 
-- <a id='identity'></a>`identity`: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script or running deployment script in private network. For more information, see [Access private virtual network](#access-private-virtual-network). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) in the script.
-
 - `tags`: Deployment script tags. If the deployment script service creates the two supporting resources - a storage account and a container instance, the tags are passed to both resources, which can be used to identify them. Another way to identify these supporting resources is through their suffixes, which contain "azscripts". For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-troubleshoot.md).
-
+- <a id='identity'></a>`identity`: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script or running deployment script in private network. For more information, see [Access private virtual network](#access-private-virtual-network). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) in the script.
 - `kind`: Specify the type of script, either **AzurePowerShell** or **AzureCLI**.
+- `containerSettings`: Specify the settings to customize Azure Container Instance. Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated. You can also specify subnetIds for running the deployment script in a private network. For more information, see [Access private virtual network](#access-private-virtual-network).
+- `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
+- `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - `azPowerShellVersion`/`azCliVersion`: Specify the module version to be used. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). The version determines which container image to use:
 
   - **Az version greater than or equal to 9** uses Ubuntu 22.04.
@@ -98,10 +83,6 @@ Property value details:
   > [!IMPORTANT]
   > Deployment script uses the available CLI images from Microsoft Container Registry (MCR). It typically takes approximatedly one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If an unsupported version is used, the error message lists the supported versions.
 
-- `containerSettings`: Specify the settings to customize Azure Container Instance. Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated. You can also specify subnetIds for running the deployment script in a private network. For more information, see [Access private virtual network](#access-private-virtual-network).
-- `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
-
-- `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - `arguments`: Specify the parameter values. The values are separated by spaces.
 
   Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This step is necessary because the arguments are passed as a [command property](/rest/api/container-instances/2022-09-01/container-groups/create-or-update#containerexec)
@@ -120,10 +101,8 @@ Property value details:
 - `scriptContent`: Specify the script content. It can be an inline script or an external script file imported by using the [`loadTextContent`](./bicep-functions-files.md#loadtextcontent) function. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](./deployment-script-external-file#use-external-scripts). To run an external script, use `primaryScriptUri` instead.
 - `primaryScriptUri`: Specify a publicly accessible URL to the primary deployment script with supported file extensions. For more information, see [Use external scripts](#use-external-scripts).
 - `supportingScriptUris`: Specify an array of publicly accessible URLs to supporting files that are called in either `scriptContent` or `primaryScriptUri`. For more information, see [Use external scripts](#use-external-scripts).
-
 - `timeout`: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
 - `forceUpdateTag`: Changing this value between Bicep file deployments forces the deployment script to re-execute. If you use the `newGuid()` or the `utcNow()` functions, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
-
 - `cleanupPreference`. Specify the preference of cleaning up the two supporting deployment resources, the storage account and the container instance, when the script execution gets in a terminal state. Default setting is **Always**, which means deleting the supporting resources despite the terminal state (Succeeded, Failed, Canceled). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
 - `retentionInterval`: Specify the interval for which the service retains the deployment script resource after the deployment script execution reaches a terminal state. The deployment script resource is deleted when this duration expires. Duration is based on the [ISO 8601 pattern](https://en.wikipedia.org/wiki/ISO_8601). The retention interval is between 1 and 26 hours (PT26H). This property is used when `cleanupPreference` is set to **OnExpiration**. To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
 
@@ -135,11 +114,15 @@ Property value details:
 - [Sample 4](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad): manually create a user-assigned managed identity and assign it permission to use the Microsoft Graph API to create Microsoft Entra applications; in the Bicep file, use a deployment script to create a Microsoft Entra application and service principal, and output the object IDs
 and client ID.
 
+## Configure identity
+
+*** jgao - create this new section either in this article or in the overview article.
+
 ## Use existing storage account
 
 For the script to run and allow for troubleshooting, a storage account and a container instance are required. You can either designate an existing storage account or let the script service create both the storage account and container instance automatically. The requirements for using an existing storage account:
 
-- Supported storage account kinds are:
+- The supported kids of storage account are:
 
     | SKU             | Supported Kind     |
     |-----------------|--------------------|
