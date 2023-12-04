@@ -9,7 +9,7 @@ ms.date: 12/04/2023
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Senior Program Manager, Maayan Naaman Rand joins Yuri Diogenes to talk about the data security dashboard in Defender for Cloud. Maayan explains the purpose of this dashboard, the different data types that are supported, the data source used to populate this dashboard, and how this dashboard can be used to better understand your data security posture. Maayan also demonstrates the different scenarios covered by this dashboard and the prerequisites to use this dashboard.
 
-> [!VIDEO https://aka.ms/docs/player?id= 6b97cb8a-4ae4-41bc-8318-8947f64575fd]
+> [!VIDEO https://aka.ms/docs/player?id=6b97cb8a-4ae4-41bc-8318-8947f64575fd]
 
 - [01:50](/shows/mdc-in-the-field/counter-identity-based-supply-chain-attacks#time=01m50s) -  The purpose of the new data security dashboard
 - [02:35](/shows/mdc-in-the-field/counter-identity-based-supply-chain-attacks#time=02m35s) - How does this dashboard help customers manage data across cloud providers?
