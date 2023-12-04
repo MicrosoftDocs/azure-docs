@@ -110,7 +110,7 @@ If you're developing a Python tool that requires calling external services with 
 
 ### Create a custom connection
 
-Create a custom connection that stores all your large language model (LLM) API key or other required credentials.
+Create a custom connection that stores all your large language model API key or other required credentials.
 
 1. Go to prompt flow in your workspace, and then go to the **Connections** tab.
 1. Select **Create** > **Custom**.

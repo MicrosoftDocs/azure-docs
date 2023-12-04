@@ -16,7 +16,7 @@ ms.date: 11/02/2023
 
 # Prompt tool
 
-The prompt tool in prompt flow offers a collection of textual templates that serve as a starting point for creating prompts. These templates, based on the Jinja2 template engine, facilitate the definition of prompts. The tool proves useful when prompt tuning is required prior to feeding the prompts into the large language model (LLM) in prompt flow.
+The prompt tool in prompt flow offers a collection of textual templates that serve as a starting point for creating prompts. These templates, based on the Jinja2 template engine, facilitate the definition of prompts. The tool proves useful when prompt tuning is required prior to feeding the prompts into the large language model in prompt flow.
 
 ## Inputs
 

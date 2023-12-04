@@ -1,7 +1,7 @@
 ---
 title: LLM tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: The prompt flow large language model (LLM) tool enables you to take advantage of widely used LLMs like OpenAI or Azure OpenAI for natural language processing.
+description: The prompt flow LLM tool enables you to take advantage of widely used large language models like OpenAI or Azure OpenAI for natural language processing.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
@@ -16,9 +16,9 @@ ms.date: 11/02/2023
 
 # LLM tool
 
-The prompt flow large language model (LLM) tool enables you to take advantage of widely used LLMs like [OpenAI](https://platform.openai.com/) or [Azure OpenAI Service](../../../cognitive-services/openai/overview.md) for natural language processing.
+The prompt flow large language model (LLM) tool enables you to take advantage of widely used large language models like [OpenAI](https://platform.openai.com/) or [Azure OpenAI Service](../../../cognitive-services/openai/overview.md) for natural language processing.
 
-Prompt flow provides a few different LLM APIs:
+Prompt flow provides a few different large language model APIs:
 
 - [Completion](https://platform.openai.com/docs/api-reference/completions): OpenAI's completion models generate text based on provided prompts.
 - [Chat](https://platform.openai.com/docs/api-reference/chat): OpenAI's chat models facilitate interactive conversations with text-based inputs and responses.
@@ -94,5 +94,5 @@ The following sections show various inputs.
 ## Use the LLM tool
 
 1. Set up and select the connections to OpenAI resources.
-1. Configure the LLM model API and its parameters.
+1. Configure the large language model API and its parameters.
 1. Prepare the prompt with [guidance](prompt-tool.md#write-a-prompt).

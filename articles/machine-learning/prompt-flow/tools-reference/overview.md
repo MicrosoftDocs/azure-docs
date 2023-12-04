@@ -24,7 +24,7 @@ The following table provides an index of tools in prompt flow. If existing tools
 | [LLM](./llm-tool.md) | Uses Open AI's large language model (LLM) for text completion or chat. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Prompt](./prompt-tool.md) | Crafts a prompt by using Jinja as the templating language. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Embedding](./embedding-tool.md) | Uses Open AI's embedding model to create an embedding vector that represents the input text. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
-| [Open Source LLM](./open-source-llm-tool.md) | Uses an open-source model from the Azure Model catalog, deployed to an Azure Machine Learning online endpoint for LLM Chat or Completion API calls. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
+| [Open Source LLM](./open-source-llm-tool.md) | Uses an open-source model from the Azure Model catalog, deployed to an Azure Machine Learning online endpoint for large language model Chat or Completion API calls. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Serp API](./serp-api-tool.md) | Uses Serp API to obtain search results from a specific search engine. | Default | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Content Safety (Text)](./content-safety-text-tool.md) | Uses Azure Content Safety to detect harmful content. | Default | [promptflow-tools](https://pypi.org/project/promptflow-contentsafety/) |
 | [Faiss Index Lookup](./faiss-index-lookup-tool.md) | Searches a vector-based query from the Faiss index file. | Default | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
