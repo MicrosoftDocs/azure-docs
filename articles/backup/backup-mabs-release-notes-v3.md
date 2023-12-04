@@ -28,7 +28,7 @@ Microsoft is recalling the release of Update Rollup 1 for Microsoft Azure Backup
 
 - MABS console occasionally crashes when SMTP alerts or reports are configured.
 
-  The updated build **Update Rollup 1 Refresh for MABS V4** is released that fixes the known issues. 
+  The updated build **Update Rollup 1 Refresh for MABS V4** is released that fixes these known issues. 
 
 >[!Important]
 >If you had installed Update Rollup 1 for MABS V4 (14.0.42.0), we recommend that you install **Update Rollup1 Refresh (14.0.46.0)** on your MABS server and update the protection agents from *KB 5033756*.
