@@ -301,3 +301,86 @@ The extension.json file content.
 ```
 ---
 
+### Rich Health States
+
+# [REST API](#tab/rest-api)
+
+The following example adds the **Application Health - Rich States** extension (with name myHealthExtension) to the extensionProfile in the scale set model of a Windows-based scale set.
+
+You can also use this example to upgrade an existing extension from Binary to Rich Health States by making a PATCH call instead of a PUT.
+
+```
+PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/extensions/myHealthExtension?api-version=2018-10-01`
+```
+
+```json
+{
+  "name": "myHealthExtension",
+  "location": "<location>", 
+  "properties": {
+    "publisher": "Microsoft.ManagedServices",
+    "type": "ApplicationHealthWindows",
+    "autoUpgradeMinorVersion": true,
+    "typeHandlerVersion": "2.0",
+    "settings": {
+      "requestPath": "</requestPath>",
+      "intervalInSeconds": <intervalInSeconds>,
+      "numberOfProbes": <numberOfProbes>,
+      "gracePeriod": <gracePeriod>
+    }
+  }
+}
+```
+Use `PATCH` to edit an already deployed extension.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Use the [Set-AzVmExtension](/powershell/module/az.compute/set-azvmextension) cmdlet to add or update Application Health extension to your virtual machine.
+
+The following example adds the **Application Health - Rich States** extension to a Windows-based virtual machine. 
+
+You can also use this example to upgrade an existing extension from Binary to Rich Health States.
+
+```azurepowershell-interactive
+# Define the Application Health extension properties
+$publicConfig = @{"protocol" = "http"; "port" = 80; "requestPath" = "/healthEndpoint"; "gracePeriod" = 600};
+
+# Add the Application Health extension to the virtual machine
+Set-AzVMExtension -Name "myHealthExtension" `
+  -ResourceGroupName "<myResourceGroup>" `
+  -VMName "<myVM>" ` 
+  -Publisher "Microsoft.ManagedServices" `
+  -ExtensionType "ApplicationHealthWindows" `
+  -TypeHandlerVersion "2.0" `
+  -Location "<location>" `
+  -Settings $publicConfig
+  
+```
+# [Azure CLI 2.0](#tab/azure-cli)
+
+Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) to add the Application Health extension to a virtual machine.
+
+The following example adds the **Application Health - Rich States** extension to a Linux-based virtual machine.
+
+You can also use this example to upgrade an existing extension from Binary to Rich Health States.
+
+```azurecli-interactive
+az vm extension set \
+  --name ApplicationHealthLinux \
+  --publisher Microsoft.ManagedServices \
+  --version 2.0 \
+  --resource-group <myResourceGroup> \
+  --vm-name <myVM> \
+  --settings ./extension.json
+```
+The extension.json file content.
+
+```json
+{
+  "protocol": "<protocol>",
+  "port": <port>,
+  "requestPath": "</requestPath>",
+  "gracePeriod": <healthExtensionGracePeriod>
+}
+```
+---
