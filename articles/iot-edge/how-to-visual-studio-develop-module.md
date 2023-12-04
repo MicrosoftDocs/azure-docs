@@ -56,7 +56,7 @@ Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iote
 * Use the prebuilt [IoT Edge Dev Container](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/run-devcontainer-docker.md)
 * Install the tool using the [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md)
 
-<!-- ::: zone-end -->
+::: zone-end
 
 * Install the **Vcpkg** library manager
 
