@@ -106,11 +106,11 @@ az aks approuting update -g <ResourceGroupName> -n <ClusterName> --enable-kv --a
 
 ## Enable Azure DNS integration
 
-To enable support for DNS zones, see the following prerequisites:
+To enable support for DNS zones, review the following prerequisite:
 
-* The app routing add-on can be configured to automatically create records on one or more Azure public and private DNS zones for hosts defined on Ingress resources. All global Azure DNS zones need to be in the same resource group, and all private Azure DNS zones need to be in the same resource group. If you don't have an Azure DNS zone, you can [create one][create-an-azure-dns-zone].
+* The app routing add-on can be configured to automatically create records on one or more Azure public and private DNS zones for hosts defined on Ingress resources. All public Azure DNS zones need to be in the same resource group, and all private Azure DNS zones need to be in the same resource group. If you don't have an Azure DNS zone, you can [create one][create-an-azure-dns-zone].
 
-### Create a global Azure DNS zone
+### Create a public Azure DNS zone
 
 > [!NOTE]
 > If you already have an Azure DNS Zone, you can skip this step.
@@ -239,7 +239,7 @@ Learn about monitoring the Ingress-nginx controller metrics included with the ap
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [create-and-export-a-self-signed-ssl-certificate]: #create-and-export-a-self-signed-ssl-certificate
-[create-an-azure-dns-zone]: #create-a-global-azure-dns-zone
+[create-an-azure-dns-zone]: #create-a-public-azure-dns-zone
 [azure-dns-overview]: ../dns/dns-overview.md
 [az-keyvault-certificate-show]: /cli/azure/keyvault/certificate#az-keyvault-certificate-show
 [prometheus-in-grafana]: app-routing-nginx-prometheus.md
