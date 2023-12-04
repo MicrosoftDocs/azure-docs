@@ -24,15 +24,14 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Python | 3.10     |
 | R | 4.2.2    |
 
-
-
-As of now, creation of Spark 3.4 pools will be available only thru Azure Synapse Studio. In the upcoming weeks we will add the Azure Portal and ARM support.
-
+As of now, creation of Spark 3.4 pools are available only through Azure Synapse Studio. In the upcoming weeks we'll add the Azure portal and ARM support.
 
 ## Libraries
+
 The following sections present the libraries included in Azure Synapse Runtime for Apache Spark 3.4 (Public Preview).
 
 ### Scala and Java default libraries
+
 The following table lists all the default level packages for Java/Scala and their respective versions.
 
 | GroupID                                | ArtifactID                                  | Version                     |
@@ -338,8 +337,9 @@ The following table lists all the default level packages for Java/Scala and thei
 | pl.edu.icm                             | JLargeArrays                                | 1.5                         |
 | stax                                   | stax-api                                    | 1.0.1                       |
 
-### Python libraries 
-The Azure Synapse Runtime for Apache Spark 3.4 is currently in Public Preview. During this phase, the Python libraries will experience significant updates. Additionally, please note that some machine learning capabilities are not yet supported, such as the PREDICT method and Synapse ML.
+### Python libraries
+
+The Azure Synapse Runtime for Apache Spark 3.4 is currently in Public Preview. During this phase, the Python libraries experience significant updates. Additionally, please note that some machine learning capabilities aren't yet supported, such as the PREDICT method and Synapse ML.
 
 ### R libraries
 
@@ -478,7 +478,7 @@ The following table lists all the default level packages for R and their respect
 
 ## Migration between Apache Spark versions - support
 
-For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.4 refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
+For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.4, refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).
 
 
 
