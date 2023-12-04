@@ -48,5 +48,4 @@ When updating your Flexible server in scaling scenarios, we create a new copy of
 
 ## Related content
 
-- [create a PostgreSQL server in the portal](how-to-manage-server-portal.md)
-- [service limits](concepts-limits.md)
+- [create a PostgreSQL server in the portal](how-to-manage-server-portal.md).
