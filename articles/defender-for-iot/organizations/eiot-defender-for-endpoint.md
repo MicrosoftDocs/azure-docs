@@ -71,17 +71,17 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
     - On the **Alerts** tab, check for any alerts triggered by the device. Simulate alerts in Microsoft 365 Defender for Enterprise IoT using the Raspberry Pi scenario available in the Microsoft 365 Defender [Evaluation & Tutorials](https://security.microsoft.com/tutorials/all) page.
 
-        You can also set up advanced hunting queries to create custom alert rules. For more information, see [ample advanced hunting queries for Enterprise IoT monitoring](#sample-of-advanced-hunting-queries-for-enterprise-iot-monitoring). 
+        You can also set up advanced hunting queries to create custom alert rules. For more information, see [sample advanced hunting queries for Enterprise IoT monitoring](#sample-of-advanced-hunting-queries-for-enterprise-iot). 
 
     - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface.
 
-    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternatively, use [advanced hunting queries](#sample-of-advanced-hunting-queries-for-enterprise-iot-monitoring) to collect vulnerabilities across all your devices.
+    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternatively, use [advanced hunting queries](#sample-of-advanced-hunting-queries-for-enterprise-iot) to collect vulnerabilities across all your devices.
 
 **To hunt for threats**:
 
 On the **Device inventory** page, select **Go hunt** to query devices using tables like the *[DeviceInfo](/microsoft-365/security/defender/advanced-hunting-deviceinfo-table)* table. On the **Advanced hunting** page, query data using other schemas. 
 
-## Sample advanced hunting queries for Enterprise IoT monitoring
+## Sample of advanced hunting queries for Enterprise IoT
 
 Here are samples of advanced hunting queries to perform various tasks to identify devices that are or could be connected with Defender for IoT devices / Microsoft 365 Defender.
 
