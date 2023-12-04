@@ -26,7 +26,7 @@ ms.author: eur
 |Malay (Malaysia)|`ms-MY`|
 |Norwegian Bokmål (Norway)|`nb-NO`|
 |Portuguese (Brazil)|`pt-BR`|
-|Russian (Russia)|`ru-RU`<sup>1</sup>|
+|Russian (Russia)|`ru-RU`|
 |Spanish (Mexico)|`es-MX` | 
 |Spanish (Spain)|`es-ES` | 
 |Swedish (Sweden)|`sv-SE`<sup>1</sup>|
