@@ -102,3 +102,6 @@ ms.author: wchi
 
     const serviceClient = TableClient.fromConnectionString(process.env.AZURE_COSMOS_CONNECTIONSTRING);
     ```
+
+### [Other](#tab/none)
+For other languages, you can use the endpoint URL and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for Table. For environment variable details, see [Integrate Azure Cosmos DB for Table with Service Connector](../how-to-integrate-cosmos-table.md).

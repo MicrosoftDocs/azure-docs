@@ -56,8 +56,8 @@ ms.author: wchi
     httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken.Token}");
     var response = await httpClient.POSTAsync(listConnectionStringUrl);
     var responseBody = await response.Content.ReadAsStringAsync();
-    var connectionStrings = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseBody);
-    var connectionString = connectionStrings["Primary Table Connection String"];
+    var connectionStrings = JsonConvert.DeserializeObject<Dictionary<string, List<Dictionary<string, string>>>(responseBody);
+    var connectionString = connectionStrings["connectionStrings"][0]["connectionString"];
 
     // Connect to Azure Cosmos DB for Table
     TableServiceClient tableServiceClient = new TableServiceClient(connectionString);
@@ -120,7 +120,8 @@ ms.author: wchi
     HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
     JSONParser parser = new JSONParser();
     JSONObject responseBody = parser.parse(response.body());
-    String connectionString = responseBody.get("Primary Table Connection String");
+    List<Map<String, String>> connectionStrings = responseBody.get("connectionStrings");
+    String connectionString = connectionStrings[0]["connectionString"];
 
     // Connect to Azure Cosmos DB for Table
     TableClient tableClient = new TableClientBuilder()
@@ -164,7 +165,7 @@ ms.author: wchi
     session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
     response = session.post(listKeyUrl)
     keys_dict = response.json()
-    conn_str = keys_dict["Primary Table Connection String"]
+    conn_str = keys_dict["connectionStrings"][0]["connectionString"]
 
     # Connect to Azure Cosmos DB for Table
     table_service = TableServiceClient.from_connection_string(conn_str) 
@@ -278,8 +279,11 @@ ms.author: wchi
     };
     const response = await axios(config);
     const keysDict = response.data;
-    const connectionString = keysDict['Primary Table Connection String'];
+    const connectionString = keysDict["connectionStrings"][0]["connectionString"];
 
     // Connect to Azure Cosmos DB for Table
     const serviceClient = TableClient.fromConnectionString(connectionString);
     ```
+
+### [Other](#tab/none)
+For other languages, you can use the endpoint URL and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for Table. For environment variable details, see [Integrate Azure Cosmos DB for Table with Service Connector](../how-to-integrate-cosmos-table.md).
