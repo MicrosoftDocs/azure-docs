@@ -4,7 +4,7 @@ description: Learn about VPN Gateway SKUs.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/20/2023
+ms.date: 11/28/2023
 ms.author: cherylmc 
 
 ---
@@ -88,7 +88,7 @@ If you're using the old SKUs (legacy), the production SKU recommendations are St
 
 ## About legacy SKUs
 
-For information about working with the legacy gateway SKUs (Basic, Standard, and HighPerformance), see [Working with VPN gateway SKUs (legacy SKUs)](vpn-gateway-about-skus-legacy.md).
+For information about working with the legacy gateway SKUs (Basic, Standard, and High Performance), including SKU deprecation, see [Managing legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
 
 ## Specify a SKU
 
@@ -101,7 +101,7 @@ You specify the gateway SKU when you create your VPN Gateway. See the following 
 ## <a name="resizechange"></a>Change or resize a SKU
 
 > [!NOTE]
-> If you are working with a legacy gateway SKU and are using the classic deployment model (Service Management), the SKU rules are different. See [Working with legacy classic deployment model SKUs](vpn-gateway-about-skus-legacy.md).
+> If you're working with a legacy gateway SKU (Basic, Standard, and High Performance), see [Managing Legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
 
 [!INCLUDE [changing vs. resizing](../../includes/vpn-gateway-sku-about-change-resize.md)]
 
