@@ -23,14 +23,15 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Boost
+            url: ../azure-boost/overview.md
+          - text: Hibernation
+            url: hibernate-resume.md
           - text: Flexible Virtual Machine Scale Sets Orchestration
             url: flexible-virtual-machine-scale-sets.md
-          - text: Trusted Launch
-            url: trusted-launch.md
-          - text: VM applications in Azure Compute Gallery 
-            url: vm-applications.md
-          - text: VM restore points 
-            url: virtual-machines-create-restore-points.md
+          - text: Community Gallery
+            url: share-gallery-community.md
+
 
   # Card (optional)
   - title: Linux quickstarts
