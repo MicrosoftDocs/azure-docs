@@ -295,6 +295,7 @@ The call may have fired a User Facing Diagnostic indicating a severe problem wit
 
 -	Create your own queries in Log Analytics, see: [Get Started Queries](../../../../articles/azure-monitor/logs/get-started-queries.md)
 
+- Explore known issues, see: [Known issues in the SDKs and APIs](../known-issues.md)
 
 <!-- Comment this out - add to the toc.yml file at row 583.
 

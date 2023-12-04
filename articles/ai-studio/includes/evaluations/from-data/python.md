@@ -3,7 +3,7 @@
  description: include file
  author: eur
  ms.author: eric-urban
- ms.service: azure-ai-services
+ ms.service: azure-ai-studio
  ms.topic: include
  ms.date: 11/15/2023
  ms.custom: include

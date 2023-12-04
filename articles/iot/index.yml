@@ -28,10 +28,6 @@ highlightedContent:
       itemType: sample
       url: /samples/browse/?term=iot
     # Card
-    - title: Azure IoT explorer
-      itemType: how-to-guide
-      url: ./howto-use-iot-explorer.md
-    # Card
     - title: Azure IoT training
       itemType: learn
       url: /training/browse/?products=azure&term=iot
@@ -47,6 +43,10 @@ highlightedContent:
     - title: Digital twin definition language (DTDL) models
       itemType: concept
       url: ../digital-twins/concepts-models.md
+    # Card
+    - title: Azure IoT Operations (Preview)
+      itemType: overview
+      url: ../iot-operations/get-started/overview-iot-operations.md
 
 # conceptualContent section
 conceptualContent:
@@ -122,6 +122,9 @@ conceptualContent:
         - url: ../iot/iot-sdks.md#iot-hub-service-sdks
           itemType: reference
           text: Service SDKs
+        - url: /azure/architecture/browse/?azure_categories=iot
+          itemType: architecture
+          text: Azure IoT architectures
     # Card
     - title: Analyze and visualize IoT data
       links:
