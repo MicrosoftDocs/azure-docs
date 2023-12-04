@@ -11,7 +11,8 @@ ms.date: 10/17/2023
 
 # CI/CD Patterns with Azure Managed Airflow
 
-Azure Data Factory's Managed Airflow service is a simple and efficient way to create and manage Apache Airflow environments, enabling you to run data pipelines at scale with ease. There are two primary methods to run directed acyclic graphs (DAGs) in Azure Managed Airflow. You can either upload the DAG files in your blob storage and link it with the Airflow environment or you can use the Git-sync feature to automatically sync your Git repository with the Airflow environment.
+Azure Data Factory's Managed Airflow service is a simple and efficient way to create and manage Apache Airflow environments, enabling you to run data pipelines at scale with ease. There are two primary methods to run directed acyclic graphs (DAGs) in Azure Managed Airflow. You can either upload the DAG files in your blob storage and link them with the Airflow environment.
+Alternatively, you can use the Git-sync feature to automatically sync your Git repository with the Airflow environment.
 
 Working with data pipelines in Airflow requires you to create or update your DAGs, plugins and requirement files frequently, based upon your workflow needs. While developers can manually upload or edit DAG files in blob storage, many organizations prefer to use a CI/CD approach for code deployment. Therefore, this guide walks you through the recommended deployment patterns to seamlessly integrate and deploy your Apache Airflow DAGs with the Azure Managed Airflow service. 
 
@@ -19,11 +20,11 @@ Working with data pipelines in Airflow requires you to create or update your DAG
 
 ### Continuous Integration (CI) 
 
-Continuous Integration (CI) is a software development practice that emphasizes frequent and automated integration of code changes into a shared repository. It involves developers regularly committing their code, and upon each commit, an automated CI pipeline builds the code, runs tests, and performs validation checks. The primary goal is to detect and address integration issues early in the development process, providing rapid feedback to developers. CI ensures that the codebase remains in a constantly testable and deployable state. This leads to enhanced code quality, collaboration, and the ability to catch and fix bugs before they become significant problems. 
+Continuous Integration (CI) is a software development practice that emphasizes frequent and automated integration of code changes into a shared repository. It involves developers regularly committing their code, and upon each commit, an automated CI pipeline builds the code, runs tests, and performs validation checks. The primary goal is to detect and address integration issues early in the development process, providing rapid feedback to developers. CI ensures that the codebase remains in a constantly testable and deployable state. This practise leads to enhanced code quality, collaboration, and the ability to catch and fix bugs before they become significant problems. 
 
 ### Continuous Deployment 
 
-Continuous Deployment (CD) is an extension of CI that takes the automation one step further. While CI focuses on automating the integration and testing phases, CD automates the deployment of code changes to production or other target environments. This practice enables organizations to release software updates rapidly and reliably, reducing manual deployment errors and ensuring that tested and approved code changes are swiftly delivered to end-users. 
+Continuous Deployment (CD) is an extension of CI that takes the automation one step further. While CI focuses on automating the integration and testing phases, CD automates the deployment of code changes to production or other target environments. This practice helps organizations release software updates quickly and reliably. It reduces mistakes in manual deployment and ensures that approved code changes are delivered to end-users swiftly. 
 
 ## CI/CD Workflow Within Azure Managed Airflow: 
 :::image type="content" source="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png" alt-text="Screenshot showing ci cd pattern that can be used in Managed Airflow." lightbox="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png":::
@@ -113,7 +114,7 @@ Learn more about how to use Azure Managed Airflow's [Git-sync feature](airflow-s
 
 - **Utilize Managed Airflow Service as Production environment:** 
 
-You can raise a Pull Request (PR) to the branch that is sync with the Managed Airflow Service after successfully developing and testing data pipelines on local development setup. Once the branch is merged you can utilize the Managed Airflow service's features like auto-scaling and monitoring and logging at production level. 
+After successfully developing and testing data pipelines on your local setup, you can raise a Pull Request (PR) to the branch synchronized with the Managed Airflow Service. Once the branch is merged, utilize the Managed Airflow service's features like autoscaling and monitoring and logging at production level. 
 
 ## Sample CI/CD Pipeline
 - [Azure Devops](https://azure.microsoft.com/products/devops)
@@ -180,14 +181,14 @@ steps:
 
 For more information, See [Azure Pipelines](https://learn.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
 
-### Using Github Actions
+### Using GitHub Actions
 **Step 2.1:** Create a `.github/workflows` directory in your GitHub repository. 
 
 **Step 2.2:** In the `.github/workflows` directory, create a file named `github-actions-ci-cd.yml` 
 
 **Step 2.3:** Copy the following code: The pipeline triggers whenever there's pull request or push request to dev branch:
 ```python
-name: Github Actions CI/CD
+name: GitHub Actions CI/CD
 
 on:
   pull_request:
