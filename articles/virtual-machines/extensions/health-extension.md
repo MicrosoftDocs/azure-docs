@@ -17,13 +17,13 @@ This article describes how you can use the two types of Application Health exten
 ## Prerequisites
 
 This article assumes that you're familiar with:
--	Azure virtual machine [extensions](../virtual-machines/extensions/overview.md)
+-	Azure virtual machine [extensions](overview.md)
 
 > [!CAUTION]
-> Application Health Extension expects to receive a consistent probe response at the configured port `tcp` or request path `http/https` in order to label a VM as *Healthy*. If no application is running on the VM, or you're unable to configure a probe response, your VM is going to show up as *Unhealthy*.
+> Application Health Extension expects to receive a consistent probe response at the configured port `tcp` or request path `http/https` in order to label a VM as *Healthy*. If no application is running on the VM, or you're unable to configure a probe response, your VM is going to show up as *Unhealthy* (Binary Health States) or *Unknown* (Rich Health States).
 
 ## When to use the Application Health extension
-Application Health Extension reports on application health from inside the Virtual Machine. The extension probes on a local application endpoint and will update the health status based on TCP/HTTP(S) responses received from the application. This health status is used by Azure to monitor and detect patching failures during [Automatic VM Guest Patching](https://learn.microsoft.com/en-us/azure/virtual-machines/automatic-vm-guest-patching).
+Application Health Extension reports on application health from inside the Virtual Machine. The extension probes on a local application endpoint and will update the health status based on TCP/HTTP(S) responses received from the application. This health status is used by Azure to monitor and detect patching failures during [Automatic VM Guest Patching](https://learn.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching).
 
 ## Binary versus Rich Health States
 
@@ -48,7 +48,7 @@ In general, you should use **Binary Health States** if:
 You should use **Rich Health States** if:
 - You send health signals through HTTP/HTTPS protocol and can submit health information through the probe response body 
 - You would like to use custom logic to identify and mark unhealthy instances 
-- You would like to set an *initializing* grace period for newly created instances
+- You would like to set an *initializing* grace period allowing newly created instances to settle into a steady health state
 
 ## Binary Health States
 
@@ -72,4 +72,204 @@ Some scenarios that may result in an *Unhealthy* state include:
 - When the application endpoint returns a non-200 status code 
 - When there's no application endpoint configured inside the virtual machine to provide application health status 
 - When the application endpoint is incorrectly configured 
-- When the application endpoint isn't reachable 
+- When the application endpoint isn't reachable
+
+## Rich Health States 
+
+Rich Health States reporting contains four Health States, *Initializing*, *Healthy*, *Unhealthy*, and *Unknown*. The following tables provide a brief description for how each Health State is configured. 
+
+**HTTP/HTTPS Protocol**
+
+| Protocol | Health State | Description |
+| -------- | ------------ | ----------- |
+| http/https | Healthy | To send a *Healthy* signal, the application is expected to return a probe response with: **Probe Response Code**: Status 2xx, **Probe Response Body**: `{"ApplicationHealthState": "Healthy"}` |
+| http/https | Unhealthy | To send an *Unhealthy* signal, the application is expected to return a probe response with: **Probe Response Code**: Status 2xx, **Probe Response Body**: `{"ApplicationHealthState": "Unhealthy"}` |
+| http/https | Initializing | The instance automatically enters an *Initializing* state at extension start time. For more information, see [Initializing state](#initializing-state). |
+| http/https | Unknown | An *Unknown* state may occur in the following scenarios: when a non-2xx status code is returned by the application, when the probe request times out, when the application endpoint is unreachable or incorrectly configured, when a missing or invalid value is provided for `ApplicationHealthState` in the response body, or when the grace period expires. For more information, see [Unknown state](#unknown-state). |
+
+**TCP Protocol**
+
+| Protocol | Health State | Description |
+| -------- | ------------ | ----------- |
+| TCP | Healthy | To send a *Healthy* signal, a successful handshake must be made with the provided application endpoint. |
+| TCP | Unhealthy | The instance will be marked as *Unhealthy* if a failed or incomplete handshake occurred with the provided application endpoint. |
+| TCP | Initializing | The instance automatically enters an *Initializing* state at extension start time. For more information, see [Initializing state](#initializing-state). |
+
+## Initializing state
+
+This state only applies to Rich Health States. The *Initializing* state only occurs once at extension start time and can be configured by the extension settings `gracePeriod` and `numberOfProbes`.  
+
+At extension startup, the application health will remain in the *Initializing* state until one of two scenarios occur: 
+- The same Health State (*Healthy* or *Unhealthy*) is reported a consecutive number of times as configured through *numberOfProbes*
+- The `gracePeriod` expires 
+
+If the same Health State (*Healthy* or *Unhealthy*) is reported consecutively, the application health will transition out of the *Initializing* state and into the reported Health State (*Healthy* or *Unhealthy*). 
+
+### Example
+
+If `numberOfProbes` = 3, that would mean:
+- To transition from *Initializing* to *Healthy* state: Application health extension must receive three consecutive *Healthy* signals via HTTP/HTTPS or TCP protocol 
+- To transition from *Initializing* to *Unhealthy* state: Application health extension must receive three consecutive *Unhealthy* signals via HTTP/HTTPS or TCP protocol  
+
+If the `gracePeriod` expires before a consecutive health status is reported by the application, the instance health will be determined as follows: 
+- HTTP/HTTPS protocol: The application health will transition from *Initializing* to *Unknown*  
+- TCP protocol: The application health will transition from *Initializing* to *Unhealthy* 
+
+## Unknown state 
+
+This state only applies to Rich Health States. The *Unknown* state is only reported for "http" or "https" probes and occurs in the following scenarios: 
+- When a non-2xx status code is returned by the application  
+- When the probe request times out  
+- When the application endpoint is unreachable or incorrectly configured 
+- When a missing or invalid value is provided for `ApplicationHealthState` in the response body 
+- When the grace period expires  
+
+## Extension schema for Binary Health States
+
+The following JSON shows the schema for the Application Health extension. The extension requires at a minimum either a "tcp", "http" or "https" request with an associated port or request path respectively.
+
+```json
+{
+  "type": "extensions",
+  "name": "HealthExtension",
+  "apiVersion": "2018-10-01",
+  "location": "<location>",  
+  "properties": {
+    "publisher": "Microsoft.ManagedServices",
+    "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
+    "autoUpgradeMinorVersion": true,
+    "typeHandlerVersion": "1.0",
+    "settings": {
+      "protocol": "<protocol>",
+      "port": <port>,
+      "requestPath": "</requestPath>",
+      "intervalInSeconds": 5,
+      "numberOfProbes": 1
+    }
+  }
+}  
+```
+
+### Property values
+
+| Name | Value / Example | Data Type |
+| ---- | --------------- | --------- | 
+| apiVersion | `2018-10-01` or above | date |
+| publisher | `Microsoft.ManagedServices` | string |
+| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
+| typeHandlerVersion | `1.0` | string |
+
+### Settings
+
+| Name | Value / Example | Data Type |
+| ---- | --------------- | --------- |
+| protocol | `http` or `https` or `tcp` | string |
+| port | Optional when protocol is `http` or `https`, mandatory when protocol is `tcp` | int |
+| requestPath | Mandatory when protocol is `http` or `https`, not allowed when protocol is `tcp` | string |
+| intervalInSeconds | Optional, default is 5 seconds. This is the interval between each health probe. For example, if intervalInSeconds == 5, a probe will be sent to the local application endpoint once every 5 seconds. | int |
+| numberOfProbes | Optional, default is 1. This is the number of consecutive probes required for the health status to change. For example, if numberOfProbles == 3, you will need 3 consecutive "Healthy" signals to change the health status from "Unhealthy" into "Healthy" state. The same requirement applies to change health status into "Unhealthy" state.  | int |
+
+## Extension schema for Rich Health States
+
+The following JSON shows the schema for the Rich Health States extension. The extension requires at a minimum either an "http" or "https" request with an associated port or request path respectively. TCP probes are also supported, but won't be able to set the `ApplicationHealthState` through the probe response body and won't have access to the *Unknown* state.
+
+```json
+{
+  "type": "extensions",
+  "name": "HealthExtension",
+  "apiVersion": "2018-10-01",
+  "location": "<location>",  
+  "properties": {
+    "publisher": "Microsoft.ManagedServices",
+    "type": "<ApplicationHealthLinux or ApplicationHealthWindows>",
+    "autoUpgradeMinorVersion": true,
+    "typeHandlerVersion": "2.0",
+    "settings": {
+      "protocol": "<protocol>",
+      "port": <port>,
+      "requestPath": "</requestPath>",
+      "intervalInSeconds": 5,
+      "numberOfProbes": 1,
+      "gracePeriod": 600
+    }
+  }
+}  
+```
+
+### Property values
+
+| Name | Value / Example | Data Type |
+| ---- | --------------- | --------- |
+| apiVersion | `2018-10-01` or above | date |
+| publisher | `Microsoft.ManagedServices` | string |
+| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
+| typeHandlerVersion | `2.0` | string |
+
+### Settings
+
+| Name | Value / Example | Data Type |
+| ---- | --------------- | --------- |
+| protocol | `http` or `https` or `tcp` | string |
+| port | Optional when protocol is `http` or `https`, mandatory when protocol is `tcp` | int |
+| requestPath | Mandatory when protocol is `http` or `https`, not allowed when protocol is `tcp` | string |
+| intervalInSeconds | Optional, default is 5 seconds. This is the interval between each health probe. For example, if intervalInSeconds == 5, a probe will be sent to the local application endpoint once every 5 seconds. | int |
+| numberOfProbes | Optional, default is 1. This is the number of consecutive probes required for the health status to change. For example, if numberOfProbles == 3, you will need 3 consecutive "Healthy" signals to change the health status from "Unhealthy"/"Unknown" into "Healthy" state. The same requirement applies to change health status into "Unhealthy" or "Unknown" state.  | int |
+| gracePeriod | Optional, default = `intervalInSeconds` * `numberOfProbes`; maximum grace period is 7200 seconds | int |
+
+## Deploy the Application Health extension
+There are multiple ways of deploying the Application Health extension to your VMs as detailed in the following examples.
+
+### Binary Health States
+
+# [REST API](#tab/rest-api)
+
+The following example adds the Application Health extension (with name myHealthExtension) to the extensionProfile in the scale set model of a Windows-based scale set.
+
+You can also use this example to change an existing extension from Rich Health States to Binary Health by making a PATCH call instead of a PUT.
+
+```
+PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/extensions/myHealthExtension?api-version=2018-10-01`
+```
+
+```json
+{
+  "name": "myHealthExtension",
+  "location": "<location>", 
+  "properties": {
+    "publisher": "Microsoft.ManagedServices",
+    "type": "ApplicationHealthWindows",
+    "autoUpgradeMinorVersion": true,
+    "typeHandlerVersion": "1.0",
+    "settings": {
+      "protocol": "<protocol>",
+      "port": <port>,
+      "requestPath": "</requestPath>"
+    }
+  }
+}
+```
+Use `PATCH` to edit an already deployed extension.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Use the [Set-AzVmExtension](/powershell/module/az.compute/set-azvmextension) cmdlet to add or update Application Health extension to your virtual machine.
+
+The following example adds the Application Health extension to the `extensionProfile` of a Windows virtual machine. The example uses the new Az PowerShell module.
+
+
+```azurepowershell-interactive
+# Define the Application Health extension properties
+$publicConfig = @{"protocol" = "http"; "port" = 80; "requestPath" = "/healthEndpoint"};
+
+# Add the Application Health extension to the virtual machine
+Set-AzVMExtension -Name "myHealthExtension" `
+  -ResourceGroupName "TestRG2" `
+  -VMName "TestVM" ` 
+  -Publisher "Microsoft.ManagedServices" `
+  -ExtensionType "ApplicationHealthWindows" `
+  -TypeHandlerVersion "1.0" `
+  -Location "eastus" `
+  -Settings $publicConfig
+  
+```
+
