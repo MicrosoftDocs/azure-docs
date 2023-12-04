@@ -102,17 +102,17 @@ Proceed to submit a Pull Request (PR) to the Airflow Development Environment (DE
 
 ### Workflow: 
 
-- **Local Environment Setup** 
+1. **Local Environment Setup** 
 
 Begin by setting up a local development environment for Apache Airflow on your development machine. In this environment, you can develop and test your Airflow code, including DAGs and tasks. This approach allows you to develop pipelines without relying on direct access to Azure resources.
 
-- **Leverage Git-sync feature:** 
+2. **Leverage Git-sync feature:** 
 
 Synchronize your GitHub repository’s branch with Azure Managed Airflow Service. 
 
 Learn more about how to use Azure Managed Airflow's [Git-sync feature](airflow-sync-github-repository.md).
 
-- **Utilize Managed Airflow Service as Production environment:** 
+3. **Utilize Managed Airflow Service as Production environment:** 
 
 After successfully developing and testing data pipelines on your local setup, you can raise a Pull Request (PR) to the branch synchronized with the Managed Airflow Service. Once the branch is merged, utilize the Managed Airflow service's features like autoscaling and monitoring and logging at production level. 
 
@@ -148,10 +148,10 @@ with DAG(
 **Step 2.1:** Create a file `azure-devops-ci-cd.yaml` and copy the following code. The pipeline triggers on pull request or push request to dev branch:
 ```python
 trigger:
-- main
+- dev
 
 pr:
-- main
+- dev
 
 pool:
   vmImage: ubuntu-latest
