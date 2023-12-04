@@ -10,38 +10,46 @@ ms.author: hrshelar
 #Customer intent: As a satellite operator or user, I want to understand how to use the contact profile so that I can take passes using Azure Orbital Ground Station.
 ---
 
-# Ground station contact profile
+# Ground station contact profile resource
 
 The contact profile resource stores pass requirements such as links and endpoint details. Use this resource along with the spacecraft resource during contact scheduling to view and schedule available passes.
 
-You can create many contact profiles to represent different types of passes depending on your mission operations. For example, you can create a contact profile for a command and control pass or a contact profile for a downlink-only pass. 
+You can create many contact profiles to represent different types of passes depending on your mission operations. For example, you can create a contact profile for a command and control pass or a contact profile for a downlink-only pass. These resources are mutable and don't undergo an authorization process like spacecraft resources do. One contact profile can be used with many spacecraft resources.
 
-These resources are mutable and don't undergo an authorization process like the spacecraft resources do. One contact profile can be used with many spacecraft resources. 
-
-See [how to configure a contact profile](contact-profile.md) for a full list of parameters.
-
-## Prerequisites 
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Subnet that is created in the relevant VNET and resource group. See [prepare network for Azure Orbital Ground Station integration](prepare-network.md).
-
-## Creating a contact profile 
-
-Follow these steps to [create a contact profile](contact-profile.md).
-
-## Adjusting pass parameters
-
-Specify a minimum pass time to ensure passes are a certain duration. Specify a minimum elevation to ensure passes are above a certain elevation.
-
-The minimum pass time and minimum elevation parameters are used by Azure Orbital Ground Station during the contact scheduling. Avoid changing these on a pass-by-pass basis and instead create multiple contact profiles if you require flexibility.
-
-## Understanding links and channels
+## Understand links and channels
 
 A whole band, unique in direction and polarity, is called a link. Channels, which are children under links, specify the center frequency, bandwidth, and endpoints. Typically there's only one channel per link, but some applications require multiple channels per link. 
 
-You can specify EIRP and G/T requirements for each link. EIRP applies to uplinks and G/T applies to downlinks. You can provide a name for each link and channel to keep track of these properties. Each channel has a modem associated with it. Follow the steps in [how to setup software modem](modem-chain.md) to understand the options.
+You can specify EIRP and G/T requirements for each link. EIRP applies to uplinks and G/T applies to downlinks. You can provide a name for each link and channel to keep track of these properties. Each channel has a modem associated with it. Follow the steps in [how to set up a software modem](modem-chain.md) to understand the options.
 
-Refer to the example below to understand how to specify an RHCP channel and an LHCP channel if your mission requires dual-polarization on downlink. To find this information about your contact profile, navigate to the contact profile resource overview and click 'JSON view.'
+## Contact profile parameters
+
+| **Parameter** | **Description** |
+| --- | --- |
+| **Pass parameters** | |
+| Minimum viable contact duration | The minimum duration of a contact in ISO 8601 format. Acts as a prerequisite to show available time slots to communicate with your spacecraft. If an available time window is less than this time, it won't be in the list of available options. Avoid changing on a pass-by-pass basis and instead create multiple contact profiles if you require flexibility. |
+| Minimum elevation | The minimum elevation of a contact, after acquisition of signal (AOS), in decimal degrees. Acts as a prerequisite to show available time slots to communicate with your spacecraft. Using a higher value might reduce the duration of the contact. Avoid changing on a pass-by-pass basis and instead create multiple contact profiles if you require flexibility. |
+| Auto track configuration | The frequency band to be used for autotracking during the contact (X band, S band, or Disabled). |
+| Event Hubs Namespace and Instance | The Event Hubs namespace/instance to send telemetry data of your contacts. |
+| **Network Configuration** | |
+| Virtual Network | The virtual network used for a contact. This VNET must be in the same region as the contact profile. |
+| Subnet | The subnet used for a contact. This subnet must be within the above VNET, be delegated to the Microsoft.Orbital service, and have a minimum address prefix of size /24. |
+| Third-party configuration | Mission configuration and provider name associated with a partner ground network. |
+| **Links** | |
+| Direction | Direction of the link (uplink or downlink). |
+| Gain/Temperature | Required gain to noise temperature in dB/K. |
+| EIRP in dBW | Required effective isotropic radiated power in dBW. |
+| Polarization | Link polarization (RHCP, LHCP, Dual, or Linear Vertical). |
+| **Channels** | |
+| Center Frequency | The channel center frequency in MHz. |
+| Bandwidth | The channel bandwidth in MHz. |
+| Endpoint | The name, IP address, port, and protocol of the data delivery endpoint. |
+| Demodulation Configuration | Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream. |
+| Modulation Configuration | Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream. |
+
+## Example of dual-polarization downlink contact profile
+
+Refer to the example below to understand how to specify an RHCP channel and an LHCP channel if your mission requires dual-polarization on downlink. To find this information about your contact profile, navigate to the contact profile resource overview in Azure portal and click 'JSON view.'
 
 ```json
 {
@@ -112,20 +120,23 @@ Refer to the example below to understand how to specify an RHCP channel and an L
   }
 }
 ```
+## Create a contact profile 
 
-## Modifying or deleting a contact profile
+Follow these instructions to create a contact profile [via the Azure portal](contact-profile.md) or [use the Azure Orbital Ground Station API](/rest/api/orbital//azureorbitalgroundstation/contact-profiles/create-or-update/).
 
-You can modify or delete the contact profile via the [Azure portal](https://aka.ms/orbital/portal) or [Azure Orbital Ground Station API](/rest/api/orbital/). 
+## Modify or delete a contact profile
 
-In the Azure portal, navigate to the contact profile resource. 
+To modify or delete a contact profile via the [Azure portal](https://aka.ms/orbital/portal), navigate to the contact profile resource. 
 - To modify minimum viable contact duration, minimum elevation, auto tracking, or events hubs telemetry, click 'Overview' on the left panel then click 'Edit properties.'
 - To edit links and channels, click 'Links' under 'Configurations' on the left panel then click 'Edit link' on the desired link.
 - To edit third-party configurations, click 'Third-Party Configurations' under 'Configurations' on the left panel then click 'Edit' on the desired configuration.
 - To delete a contact profile, click 'Overview' on the left panel then click 'Delete.'
 
-## Configuring a contact profile for applicable partner ground stations
+You can also use the Azure Orbital Ground Station API to [modify](/rest/api/orbital/azureorbitalgroundstation/contact-profiles/create-or-update) or [delete](/rest/api/orbital/azureorbitalgroundstation/contact-profiles/delete) a contact profile.
 
-After onboarding with a partner ground station network, you receive a name that identifies your configuration file. When [creating your contact profile](contact-profile.md#create-a-contact-profile-resource), add this configuration name to your link in the 'Third-Party Configuration" parameter. This links your contact profile to the partner network.
+## Configure a contact profile for applicable partner ground stations
+
+After onboarding with a partner ground station network, you receive a name that identifies your configuration file. When [creating your contact profile](contact-profile.md), add this configuration name to your link in the 'Third-Party Configuration" parameter. This links your contact profile to the partner network.
 
 ## Next steps
 
