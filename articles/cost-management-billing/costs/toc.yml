@@ -48,7 +48,7 @@
   - name: Quickstarts
     items:
     - name: Estimate costs with the Azure pricing calculator
-      href: pricing-calculator.md.md
+      href: pricing-calculator.md
   - name: Reference
     items:
     - name: Azure Retail Prices REST API
