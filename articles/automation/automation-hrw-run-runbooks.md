@@ -380,6 +380,9 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 # Import the certificate into the trusted root store so the certificate chain can be validated
 Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
 
+# Import the required module (insert correct version in Path!)
+Import-Module "C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<Version>\HybridWorkerPackage\HybridWorkerAgent\RegistrationModules\HybridWorkerExtensionUtils.psd1"
+
 # Configure the hybrid worker to use signature validation on runbooks.
 Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
 ```
