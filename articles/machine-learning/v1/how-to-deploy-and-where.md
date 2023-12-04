@@ -100,7 +100,8 @@ When you register a model, we upload the model to the cloud (in your workspace's
 
 The following examples demonstrate how to register a model.
 
-[!INCLUDE [trusted models](../includes/machine-learning-service-trusted-model.md)]
+> [!IMPORTANT]
+> You should use only models that you create or obtain from a trusted source. You should treat serialized models as code, because security vulnerabilities have been discovered in a number of popular formats. Also, models might be intentionally trained with malicious intent to provide biased or inaccurate output.
 
 # [Azure CLI](#tab/azcli)
 
