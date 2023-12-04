@@ -277,7 +277,21 @@ The following example ARM template snippet deploys a container app.
               "initialDelaySeconds": 3,
               "periodSeconds": 3
             }
-          ]
+          ],
+          "volumeMounts": [
+            {
+              "mountPath": "/myempty",
+              "volumeName": "myempty"
+            },
+            {
+              "mountPath": "/myfiles",
+              "volumeName": "azure-files-volume"
+            },
+            {
+              "mountPath": "/mysecrets",
+              "volumeName": "mysecrets"
+            }
+              ]
         }
       ],
       "initContainers": [
@@ -312,6 +326,27 @@ The following example ARM template snippet deploys a container app.
           }
         ]
       },
+      "volumes": [
+        {
+          "name": "myempty",
+          "storageType": "EmptyDir"
+        },
+        {
+          "name": "azure-files-volume",
+          "storageType": "AzureFile",
+          "storageName": "myazurefiles"
+        },
+        {
+          "name": "mysecrets",
+          "storageType": "Secret",
+          "secrets": [
+            {
+              "secretRef": "mysecret",
+              "path": "mysecret.txt"
+            }
+          ]
+        }
+      ],
       "serviceBinds": [
         {
           "serviceId": "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/containerApps/redisService",
@@ -406,6 +441,13 @@ properties:
             value: Awesome
         initialDelaySeconds: 3
         periodSeconds: 3
+      volumeMounts:
+      - mountPath: "/myempty"
+        volumeName: myempty
+      - mountPath: "/myfiles"
+        volumeName: azure-files-volume
+      - mountPath: "/mysecrets"
+        volumeName: mysecrets
     initContainers:
     - image: repo/testcontainerApp0:v4
       name: testinitcontainerApp0
@@ -426,6 +468,17 @@ properties:
           type: http
           metadata:
             concurrentRequests: '50'
+    volumes:
+    - name: myempty
+      storageType: EmptyDir
+    - name: azure-files-volume
+      storageType: AzureFile
+      storageName: myazurefiles
+    - name: mysecrets
+      storageType: Secret
+      secrets:
+      - secretRef: mysecret
+        path: mysecret.txt
     serviceBinds:
     - serviceId: "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/containerApps/redisService"
       name: redisService
@@ -519,6 +572,20 @@ The following example ARM template snippet deploys a Container Apps job.
               "initialDelaySeconds": 5,
               "periodSeconds": 3
             }
+          ],
+          "volumeMounts": [
+            {
+              "mountPath": "/myempty",
+              "volumeName": "myempty"
+            },
+            {
+              "mountPath": "/myfiles",
+              "volumeName": "azure-files-volume"
+            },
+            {
+              "mountPath": "/mysecrets",
+              "volumeName": "mysecrets"
+            }
           ]
         }
       ],
@@ -536,6 +603,27 @@ The following example ARM template snippet deploys a Container Apps job.
           "args": [
             "-c",
             "while true; do echo hello; sleep 10;done"
+          ]
+        }
+      ],
+      "volumes": [
+        {
+          "name": "myempty",
+          "storageType": "EmptyDir"
+        },
+        {
+          "name": "azure-files-volume",
+          "storageType": "AzureFile",
+          "storageName": "myazurefiles"
+        },
+        {
+          "name": "mysecrets",
+          "storageType": "Secret",
+          "secrets": [
+            {
+              "secretRef": "mysecret",
+              "path": "mysecret.txt"
+            }
           ]
         }
       ]
@@ -579,6 +667,13 @@ properties:
             value: Awesome
         initialDelaySeconds: 5
         periodSeconds: 3
+      volumeMounts:
+      - mountPath: "/myempty"
+        volumeName: myempty
+      - mountPath: "/myfiles"
+        volumeName: azure-files-volume
+      - mountPath: "/mysecrets"
+        volumeName: mysecrets
     initContainers:
     - image: repo/testcontainerAppsJob0:v4
       name: testinitcontainerAppsJob0
@@ -590,6 +685,17 @@ properties:
       args:
       - "-c"
       - while true; do echo hello; sleep 10;done
+    volumes:
+    - name: myempty
+      storageType: EmptyDir
+    - name: azure-files-volume
+      storageType: AzureFile
+      storageName: myazurefiles
+    - name: mysecrets
+      storageType: Secret
+      secrets:
+      - secretRef: mysecret
+        path: mysecret.txt
 ```
 
 ---
