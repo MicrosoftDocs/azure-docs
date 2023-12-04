@@ -122,7 +122,7 @@ Refer to the example below to understand how to specify an RHCP channel and an L
 ```
 ## Create a contact profile 
 
-Follow these instructions to create a contact profile [via the Azure Portal](contact-profile.md) or [use the Azure Orbital Ground Station API](/rest/api/orbital//azureorbitalgroundstation/contact-profiles/create-or-update/).
+Follow these instructions to create a contact profile [via the Azure portal](contact-profile.md) or [use the Azure Orbital Ground Station API](/rest/api/orbital//azureorbitalgroundstation/contact-profiles/create-or-update/).
 
 ## Modify or delete a contact profile
 
