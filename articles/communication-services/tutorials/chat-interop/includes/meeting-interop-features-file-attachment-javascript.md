@@ -110,9 +110,12 @@ async function renderReceivedMessage(event) {
 }
 
 function renderFileAttachments(attachment) {
+    var re = /(?:\.([^.]+))?$/;
+    var fileExtension = re.exec(attachment.name)[1];  
     return '<div class="attachment-container">' +
         '<img class="attachment-icon" alt="attachment file icon" />' +
         '<div>' +
+        '<p class="attachment-type">' + fileExtension + '</p>' +
         '<p>' + attachment.name + '</p>' +
         '<a href=' + attachment.previewUrl + ' target="_blank" rel="noreferrer">Open</a>' +
         '</div>' +
@@ -236,7 +239,7 @@ async function renderReceivedMessage(event) {
 
     // Inject image tag for all image attachments
     var imageAttachmentHtml = event.attachments
-        .filter(attachment => attachment.attachmentType === "image")
+        .filter(attachment => attachment.attachmentType === "image" && !messages.includes(attachment.id))
         .map(attachment => renderImageAttachments(attachment))
         .join('');
     messagesContainer.innerHTML += imageAttachmentHtml;
@@ -250,7 +253,7 @@ async function renderReceivedMessage(event) {
 
     // filter out inline images from attchments
     const imageAttachments = event.attachments.filter((attachment) =>
-        attachment.attachmentType === "image");
+        attachment.attachmentType === "image" && messages.includes(attachment.id));
 
     // fetch and render preview images
     fetchPreviewImages(imageAttachments);
