@@ -13,7 +13,7 @@ ms.custom: include file, ignite-2022
 | Category | Data store | Supported as a source | Supported as a sink | Supported by [Azure IR](../concepts-integration-runtime.md#azure-integration-runtime) | Supported by [self-hosted IR](../concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Cognitive Search index](../connector-azure-search.md) | |✓ |✓ |✓  |
+| &nbsp; |[Azure AI Search index](../connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB for NoSQL](../connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB for MongoDB](../connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Explorer](../connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |

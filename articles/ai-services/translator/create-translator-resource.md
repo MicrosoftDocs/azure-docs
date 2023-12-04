@@ -2,7 +2,7 @@
 title: Create a Translator resource
 titleSuffix: Azure AI services
 description: Learn how to create an Azure AI Translator resource and retrieve your API key and endpoint URL in the Azure portal.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 ms.author: lajanuar
 manager: nitinme

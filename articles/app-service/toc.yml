@@ -138,6 +138,8 @@
           href: manage-custom-dns-migrate-domain.md
     - name: TLS/SSL certificates
       items:
+        - name: TLS overview
+          href: overview-tls.md
         - name: Secure custom domain with TLS/SSL
           href: configure-ssl-bindings.md
         - name: Add TLS/SSL cert
@@ -289,6 +291,8 @@
       href: tutorial-secure-ntier-app.md
     - name: Isolate network traffic (tutorial)
       href: tutorial-networking-isolate-vnet.md
+    - name: Disable basic auth
+      href: configure-basic-auth-disable.md
     - name: Security
       items:
         - name: Security recommendations
@@ -433,6 +437,8 @@
       href: operating-system-functionality.md
     - name: Kudu service
       href: resources-kudu.md
+    - name: gRPC configuration
+      href: configure-grpc.md
     - name: App Service on Azure Arc (preview)
       items:
         - name: Azure Arc hosting overview

@@ -1,15 +1,21 @@
 ---
 title: Get weather data from weather partners
 description: This article describes how to get weather data from partners.
-author: sunasing
+author: gourdsay
 ms.topic: article
-ms.date: 03/31/2020
-ms.author: sunasing
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Get weather data from weather partners
 
 Azure FarmBeats helps you to bring weather data from your weather data providers by using a Docker-based Connector Framework. Using this framework, weather data providers implement a Docker that can be integrated with FarmBeats. Currently, the following weather data provider is supported.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
+
 
   ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
   

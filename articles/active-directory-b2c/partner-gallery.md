@@ -2,12 +2,12 @@
 title: ISV Partner gallery for Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate with our ISV partners to tailor your end-user experience to your needs. Our partner network extends our solution capabilities; enable MFA, Secure Customer Authentication, role-based access control; combat fraud through Identity Verification Proofing.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 1/25/2023
 ms.author: kengaderdus

@@ -70,7 +70,7 @@ Deployment environments scan the specified folder of the repository to find [env
 
 ## Environment definitions
 
-An environment definition is a combination of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Your development teams use the items that you provide in the catalog to create environments in Azure.
+An environment definition is a combination of an IaC template and an environment file that acts as a manifest. The template defines the environment, and the environment file provides metadata about the template. Your development teams use the items that you provide in the catalog to create environments in Azure.
 
 > [!NOTE]
 > Azure Deployment Environments uses Azure Resource Manager (ARM) templates.

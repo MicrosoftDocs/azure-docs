@@ -2,7 +2,7 @@
 title:  Perform ongoing administration for Arc-enabled VMware vSphere
 description: Learn how to perform administrator operations related to Azure Arc-enabled VMware vSphere
 ms.topic: how-to 
-ms.date: 08/18/2023
+ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ms.custom: devx-track-azurecli
@@ -10,9 +10,9 @@ ms.custom: devx-track-azurecli
 
 # Perform ongoing administration for Arc-enabled VMware vSphere
 
-In this article, you learn how to perform various administrative operations related to Azure Arc-enabled VMware vSphere (preview):
+In this article, you learn how to perform various administrative operations related to Azure Arc-enabled VMware vSphere:
 
-- Upgrading the Azure Arc resource bridge (preview)
+- Upgrading the Azure Arc resource bridge
 - Updating the credentials
 - Collecting logs from the Arc resource bridge
 

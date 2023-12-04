@@ -69,6 +69,8 @@ Azure NetApp Files datastores for Azure VMware Solution are currently supported 
 * Switzerland West
 * UK South
 * UK West
+* US Gov Arizona
+* US Gov Virginia
 * West Europe 
 * West US
 * West US 2

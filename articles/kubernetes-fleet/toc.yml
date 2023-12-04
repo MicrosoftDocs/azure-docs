@@ -1,4 +1,4 @@
-- name: Azure Kubernetes Fleet Manager (preview)
+- name: Azure Kubernetes Fleet Manager
   href: index.yml
 - name: Overview
   items:
@@ -18,8 +18,8 @@
   items:
   - name: Orchestrate updates across multiple member clusters
     href: update-orchestration.md
-  - name: Kubernetes resource objects propagation
-    href: configuration-propagation.md
+  - name: Kubernetes resource object propagation
+    href: resource-propagation.md
   - name: Multi-cluster Layer 4 Load Balancing
     href: l4-load-balancing.md
 - name: Reference

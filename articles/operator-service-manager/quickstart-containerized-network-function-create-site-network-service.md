@@ -65,7 +65,7 @@ ms.service: azure-operator-service-manager
         "customLocationId": "<resource id of your custom location>", 
         "nginx_nfdg_nfd_version": "1.0.0" 
     }, 
-    "managedIdentity": "`<managed-identity-resource-id>"
+    "managedIdentity": "<managed-identity-resource-id>"
     }
     ```
 

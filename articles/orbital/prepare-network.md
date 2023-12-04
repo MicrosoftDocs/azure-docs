@@ -39,7 +39,7 @@ The following is an example of a typical VNET setup with a subnet delegated to A
 
 ## Prepare endpoints
 
-Set the MTU of all desired endpoints to at least **3650** by sending appropriate commands to your virtual machine within your resource group. 
+Azure Orbital Ground Station supports a variety of endpoints, such as a virtual machine, and can be configured to support your specific mission. Set the MTU of all desired endpoints to at least **3650**. 
 
 ## Verify the contact profile
 

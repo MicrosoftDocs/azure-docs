@@ -76,7 +76,7 @@ public static async Task Run(
         string newEventBody = DoSomething(eventData);
         
         // Queue the message to be sent in the background by adding it to the collector.
-        // If only the event is passed, an Event Hubs partition to be be assigned via
+        // If only the event is passed, an Event Hubs partition to be assigned via
         // round-robin for each batch.
         await outputEvents.AddAsync(new EventData(newEventBody));
         

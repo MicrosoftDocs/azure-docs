@@ -181,7 +181,7 @@ Use the following commands to create a workload profiles environment.
 Add a new workload profile to an existing environment.
 
 ```azurecli
-az containerapp env workload-profile set \
+az containerapp env workload-profile add \
   --resource-group <RESOURCE_GROUP> \
   --name <ENVIRONMENT_NAME> \
   --workload-profile-type <WORKLOAD_PROFILE_TYPE> \
@@ -196,10 +196,10 @@ Using friendly names allow you to add multiple profiles of the same type to an e
 
 ## Edit profiles
 
-You can modify the minimum and maximum number of nodes used by a workload profile via the `set` command.
+You can modify the minimum and maximum number of nodes used by a workload profile via the `update` command.
 
 ```azurecli
-az containerapp env workload-profile set \
+az containerapp env workload-profile update \
   --resource-group <RESOURCE_GROUP> \
   --name <ENV_NAME> \
   --workload-profile-type <WORKLOAD_PROFILE_TYPE> \

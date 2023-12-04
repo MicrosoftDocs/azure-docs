@@ -221,4 +221,5 @@ To use the WAF with a custom domain, use an Azure Front Door security policy res
 
 ## Next steps
 
-To learn how to add a custom domain to your Azure Front Door profile, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
+* To learn how to add a custom domain to your Azure Front Door profile, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
+* Learn more about how [End-to-end TLS with Azure Front Door](end-to-end-tls.md).

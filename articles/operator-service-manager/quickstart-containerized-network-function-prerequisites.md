@@ -5,6 +5,7 @@ description: Use this Quickstart to install and configure the necessary prerequi
 author: HollyCl
 ms.author: hollycl
 ms.service: azure-operator-service-manager
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 09/08/2023
 ---
@@ -39,7 +40,7 @@ az extension add --name aosm
 
 ## Register and verify required resource providers
 
-Before you begin using the Azure Operator Service Manager, make sure to register the required resource provider. Execute the following commands. This registration process can take up to 5 minutes.
+Before you begin using the Azure Operator Service Manager, execute the following commands to register the required resource provider. This registration process can take up to 5 minutes.
 
 ```azurecli
 # Register Resource Provider

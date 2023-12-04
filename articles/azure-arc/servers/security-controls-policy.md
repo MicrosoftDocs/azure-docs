@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Arc-enabled servers (preview)
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Arc-enabled servers (preview). These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 10/23/2023
+ms.date: 11/21/2023
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
 ---

@@ -2,14 +2,14 @@
 title: Error code reference
 titleSuffix: Azure AD B2C
 description: A list of the error codes that can be returned by the Azure Active Directory B2C service.
-services: B2C
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 10/11/2023
+ms.date: 11/08/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -153,3 +153,4 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C99015` | Profile '{0}' in policy '{1}' in tenant '{2}' is missing all InputClaims required for resource owner password credential flow. | [Create a resource owner policy](add-ropc-policy.md#create-a-resource-owner-policy) |
 |`AADB2C99002`| User doesn't exist. Please sign up before you can sign in. |
 | `AADB2C99027` | Policy '{0}' does not contain a AuthorizationTechnicalProfile with a corresponding ClientAssertionType. | [Client credentials flow](client-credentials-grant-flow.md) |
+|`AADB2C90229`|Azure AD B2C throttled traffic if too many requests are sent from the same source in a short period of time| [Best practices for Azure Active Directory B2C](best-practices.md#testing) |
