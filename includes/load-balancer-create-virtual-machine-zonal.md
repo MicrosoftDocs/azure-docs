@@ -5,14 +5,14 @@
  author: mbender-ms
  ms.service: load-balancer
  ms.topic: include
- ms.date: 12/04/2023
+ ms.date: 12/05/2023
  ms.author: mbender
  ms.custom: include file
 ---
 
 ## Create virtual machines
 
-In this section, you create two VMs (**lb-vm1** and **lb-VM2**) in two different zones (**Zone 1** and **Zone 2**). 
+In this section, you create two VMs (**lb-vm1** and **lb-VM2**) in a single zone (**Zone 1**). 
 
 These VMs are added to the backend pool of the load balancer that was created earlier.
 
@@ -73,5 +73,5 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Setting | VM 2 
     | ------- | ----- |
     | Name |  **lb-VM2** |
-    | Availability zone | **Zone 2** |
+    | Availability zone | **Zone 1** |
     | Network security group | Select the existing **lb-NSG** |

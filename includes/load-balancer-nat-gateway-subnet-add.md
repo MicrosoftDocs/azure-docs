@@ -5,7 +5,7 @@
  author: mbender-ms
  ms.service: load-balancer
  ms.topic: include
- ms.date: 12/05/2023
+ ms.date: 12/04/2023
  ms.author: mbender
  ms.custom: include file
 ---
@@ -42,6 +42,12 @@ In this section, you'll create a NAT gateway for outbound internet access for re
 1. Enter **nat-gw-public-ip** in **Name** in **Add a public IP address**.
 
 1. Select **OK**.
+
+1. Select the **Subnet** tab or select the **Next: Subnet** button at the bottom of the page.
+
+1. On the **Subnet** page, for **Virtual network**, select **lb-vnet** from the dropdown.
+
+1. For **Subnet name**, select **backend-subnet**.
 
 1. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
 
