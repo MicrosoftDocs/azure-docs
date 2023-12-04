@@ -124,6 +124,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 :::moniker range=">=doc-intel-3.1.0"
 
 ### [Supported langauges](#tab/languages)
+
 | Languages | Details |
 |:----------------------|:---------|
 | &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
@@ -158,7 +159,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ### [Supported Currency Codes](#tab/currency)
 
-|Currency Code | Details |
+| Currency Code | Details |
 |:----------------------|:---------|
 | &bullet; ARS | Argentine Peso (`ar`) |
 | &bullet; AUD | Australian Dollar (`au`) |
@@ -188,6 +189,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; SEK | Swedish Krona (`se`) |
 | &bullet; TWD | New Taiwan Dollar (`tw`) |
 | &bullet; USD | United States Dollar (`us`) |
+
 ---
 :::moniker-end
 
