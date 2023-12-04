@@ -254,8 +254,9 @@ Use `PATCH` to edit an already deployed extension.
 
 Use the [Set-AzVmExtension](/powershell/module/az.compute/set-azvmextension) cmdlet to add or update Application Health extension to your virtual machine.
 
-The following example adds the Application Health extension to the `extensionProfile` of a Windows virtual machine. The example uses the new Az PowerShell module.
+The following example adds the Application Health extension to a Windows-based virtual machine. 
 
+You can also use this example to change an existing extension from Rich Health States to Binary Health.
 
 ```azurepowershell-interactive
 # Define the Application Health extension properties
@@ -263,13 +264,40 @@ $publicConfig = @{"protocol" = "http"; "port" = 80; "requestPath" = "/healthEndp
 
 # Add the Application Health extension to the virtual machine
 Set-AzVMExtension -Name "myHealthExtension" `
-  -ResourceGroupName "TestRG2" `
-  -VMName "TestVM" ` 
+  -ResourceGroupName "<myResourceGroup>" `
+  -VMName "<myVM>" ` 
   -Publisher "Microsoft.ManagedServices" `
   -ExtensionType "ApplicationHealthWindows" `
   -TypeHandlerVersion "1.0" `
-  -Location "eastus" `
+  -Location "<location>" `
   -Settings $publicConfig
   
 ```
+# [Azure CLI 2.0](#tab/azure-cli)
+
+Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) to add the Application Health extension to a virtual machine.
+
+The following example adds the Application Health extension to a Linux-based virtual machine.
+
+You can also use this example to change an existing extension from Rich Health States to Binary Health.
+
+```azurecli-interactive
+az vm extension set \
+  --name ApplicationHealthLinux \
+  --publisher Microsoft.ManagedServices \
+  --version 1.0 \
+  --resource-group <myResourceGroup> \
+  --vm-name <myVM> \
+  --settings ./extension.json
+```
+The extension.json file content.
+
+```json
+{
+  "protocol": "<protocol>",
+  "port": <port>,
+  "requestPath": "</requestPath>"
+}
+```
+---
 
