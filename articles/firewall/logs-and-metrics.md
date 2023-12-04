@@ -40,7 +40,7 @@ Monitor Azure Firewall using Structured Logs, which use a predefined schema to s
 
 ## Legacy Azure Diagnostics logs 
 
-Legacy Azure Diagnostic logs are the original Azure Firewall log queries that output log data in an unstructured or free-form text format. The Azure Firewall legacy log categories use [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode), collecting entire data in the [AzureDiagnostics table](/azure-monitor/reference/tables/azurediagnostics). In case both Structured and Diagnostic logs are required, at least two diagnostic settings need to be created per firewall. To enable these logs and explore log categories, see [Azure Firewall diagnostic logs](diagnostic-logs.md). 
+Legacy Azure Diagnostic logs are the original Azure Firewall log queries that output log data in an unstructured or free-form text format. The Azure Firewall legacy log categories use [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode), collecting entire data in the [AzureDiagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics). In case both Structured and Diagnostic logs are required, at least two diagnostic settings need to be created per firewall. To enable these logs and explore log categories, see [Azure Firewall diagnostic logs](diagnostic-logs.md). 
 
 ## Metrics
 
