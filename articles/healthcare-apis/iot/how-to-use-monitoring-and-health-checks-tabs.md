@@ -31,7 +31,7 @@ In this article, learn how to use the MedTech service monitoring and health chec
    > [!IMPORTANT]
    > If you leave the MedTech service monitoring tab, any customized settings you have made to the monitoring settings are lost and will have to be recreated. If you would like to save your customizations for future viewing, you can pin them to an Azure portal dashboard as a tile. 
    >
-   > To learn how to customize and save metrics settings to an Azure portal dashboard and tile, see [How to configure the MedTech service metrics](how-to-configure-metrics.md).  
+   > To learn how to customize and save metrics settings to an Azure portal dashboard and tile, see [How to configure the MedTech service metrics](configure-metrics.md).  
 
 5. **Optional** - Select the **pin icon** to save the metrics tile to an Azure portal dashboard of your choosing.
 
@@ -68,7 +68,7 @@ Metric category|Metric name|Metric description|
 
 ## Next steps
 
-[How to configure the MedTech service metrics](how-to-configure-metrics.md)
+[How to configure the MedTech service metrics](configure-metrics.md)
 
 [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
 

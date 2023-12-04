@@ -3,6 +3,7 @@ title: Create and configure MCC EDR Ingestion Agents
 description: Learn how to create and configure MCC EDR Ingestion Agents for Azure Operator Insights 
 author: rcdun
 ms.author: rdunstan
+ms.reviewer: sergeyche
 ms.service: operator-insights
 ms.topic: how-to #Required; leave this attribute/value as-is
 ms.date: 10/31/2023

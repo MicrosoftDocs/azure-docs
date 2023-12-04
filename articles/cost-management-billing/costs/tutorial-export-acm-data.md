@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/12/2023
+ms.date: 11/29/2023
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -40,14 +40,14 @@ Data export is available for various Azure account types, including [Enterprise 
 For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, independent of permissions on the export.
 - Your Azure storage account must be configured for blob or file storage.
-- Don't configure exports to a storage container that's configured as a destination in an [object replication rule](../../storage/blobs/object-replication-overview.md#object-replication-policies-and-rules).
+- Don't configure exports to a storage container when configured as a destination in an [object replication rule](../../storage/blobs/object-replication-overview.md#object-replication-policies-and-rules).
 - To export to storage accounts with configured firewalls, you need other privileges on the storage account. The other privileges are only required during export creation or modification. They are:
   - Owner role on the storage account.  
   Or
   - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.  
   Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
-    :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing the From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
+    :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
@@ -250,11 +250,15 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 
 If you need to export to a storage account behind the firewall for security and compliance requirements, ensure that you have all [prerequisites](#prerequisites) met.
 
-Enable **Allow trusted Azure services access** on the storage account from the Exports page. Here's a screenshot showing the page.
+Enable **Allow trusted Azure services access** on the storage account. You can turn that on while configuring the firewall of the storage account, from the Networking page. Here's a screenshot showing the page.
 
-:::image type="content" source="./media/tutorial-export-acm-data/allow-trusted-access.png" alt-text="Screenshot showing the Allow trusted Azure services access option." lightbox="./media/tutorial-export-acm-data/allow-trusted-access.png" :::
+:::image type="content" source="./media/tutorial-export-acm-data/allow-trusted-access.png" alt-text="Screenshot showing Allow Azure services on the trusted services list exception option." lightbox="./media/tutorial-export-acm-data/allow-trusted-access.png" :::
 
-A system-assigned managed identity is created for a new job export when it's created or modified. You must have permissions because Cost Management uses the privilege to assign the *StorageBlobDataContributor* role to the managed identity. The permission is restricted to the storage account container scope. After the export job is created or updated, the user doesn't require Owner permissions for regular runtime operations.
+If you missed enabling that setting, you can easily do so from the **Exports** page when creating a new export.
+
+:::image type="content" source="./media/tutorial-export-acm-data/allow-trusted-access-export.png" alt-text="Screenshot showing the Allow trusted Azure services access option." lightbox="./media/tutorial-export-acm-data/allow-trusted-access-export.png" :::
+
+A system-assigned managed identity is created for a new job export when created or modified. You must have permissions because Cost Management uses the privilege to assign the *StorageBlobDataContributor* role to the managed identity. The permission is restricted to the storage account container scope. After the export job is created or updated, the user doesn't require Owner permissions for regular runtime operations.
 
 > [!NOTE]
 > - When a user updates destination details or deletes an export, the *StorageBlobDataContributor* role assigned to the managed identity is automatically removed. To enable the system to remove the role assignment, the user must have `microsoft.Authorization/roleAssignments/delete` permissions. If the permissions aren't available, the user needs to manually remove the role assignment on the managed identity.
@@ -264,7 +268,7 @@ Add exports to the list of trusted services. For more information, see [Trusted 
 
 ### Export schedule
 
-Scheduled exports are affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For example, for a daily export of month-to-date costs export set at a daily frequency, the export runs during once each UTC day. Similarly for a weekly export, the export runs every week on the same UTC day as it is scheduled. Individual export runs can occur at different times throughout the day. So, avoid taking a firm dependency on the exact time of the export runs. Run timing depends on the active load present in Azure during a given UTC day. When an export run begins, your data should be available within 4 hours.
+Scheduled exports get affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For example, for a daily export of month-to-date costs export set at a daily frequency, the export runs during once each UTC day. Similarly for a weekly export, the export runs every week on the same UTC day as it is scheduled. Individual export runs can occur at different times throughout the day. So, avoid taking a firm dependency on the exact time of the export runs. Run timing depends on the active load present in Azure during a given UTC day. When an export run begins, your data should be available within 4 hours.
 
 Exports are scheduled using Coordinated Universal Time (UTC). The Exports API always uses and displays UTC.
 
@@ -277,15 +281,11 @@ Each export creates a new file, so older exports aren't overwritten.
 
 #### Create an export for multiple subscriptions
 
-If you have an Enterprise Agreement, then you can use a management group to aggregate subscription cost information in a single container. Then you can export cost management data for the management group. When you create an export in the Azure portal, select the **Actual Costs** option. When you create a management group export using the API, create a *usage export*. 
+You can use a management group to aggregate subscription cost information in a single container. Exports support management group scope for Enterprise Agreement but not for Microsoft Customer Agreement or other subscription types. Multiple currencies are also not supported in management group exports.
 
-Currently, exports at the management group scope only support usage charges. Purchases including reservations and savings plans aren't present in your exports file.
+Exports at the management group scope support only usage charges. Purchases, including reservations and savings plans aren't supported. Amortized cost reports are also not supported. When you create an export from the Azure portal for a management group scope, the metric field isn't shown because it defaults to the usage type. When you create a management group scope export using the REST API, choose [ExportType](/rest/api/cost-management/exports/create-or-update#exporttype) as `Usage`.
 
-Exports for management groups of other subscription types aren't supported.
-
-Multiple currencies are not supported in management group exports.
-
-1. If you haven't already created a management group, create one group and assign subscriptions to it.
+1. Create one management group and assign subscriptions to it, if you haven't already.
 1. In cost analysis, set the scope to your management group and select **Select this management group**.
     :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Example showing the Select this management group option" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. Create an export at the scope to get cost management data for the subscriptions in the management group.
@@ -303,9 +303,9 @@ Partitioning isn't currently supported for resource groups or management group s
 
 #### Update existing exports to use file partitioning
 
-If you have existing exports and you want to set up file partitioning, create a new export. File partitioning is only available with the latest Exports version. There may be minor changes to some of the fields in the usage files that get created.
+If you have existing exports and you want to set up file partitioning, create a new export. File partitioning is only available with the latest Exports version. There might be minor changes to some of the fields in the usage files that get created.
 
-If you enable file partitioning on an existing export, you may see minor changes to the fields in file output. Any changes are due to updates that were made to Exports after you initially set yours up.
+If you enable file partitioning on an existing export, you might see minor changes to the fields in file output. Any changes are due to updates that were made to Exports after you initially set yours up.
 
 #### Partitioning output
 
@@ -350,7 +350,7 @@ In Storage Explorer, navigate to the container that you want to open and select 
 
 ![Example information shown in Storage Explorer](./media/tutorial-export-acm-data/storage-explorer.png)
 
-The file opens with the program or application that's set to open CSV file extensions. Here's an example in Excel.
+The file opens with the program or application set to open CSV file extensions. Here's an example in Excel.
 
 ![Example exported CSV data shown in Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
@@ -379,7 +379,7 @@ Select an export to view the run history.
 
 ### Export runs twice a day for the first five days of the month
 
-If you've created a daily export, you have two runs per day for the first five days of each month. One run executes and creates a file with the current month’s cost data. It's the run that's available for you to see in the run history. A second run also executes to create a file with all the costs from the prior month. The second run isn't currently visible in the run history. Azure executes the second run to ensure that your latest file for the past month contains all charges exactly as seen on your invoice. It runs because there are cases where latent usage and charges are included in the invoice up to 72 hours after the calendar month has closed. To learn more about Cost Management usage data updates, see [Cost and usage data updates and retention](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). 
+There are two runs per day for the first five days of each month after you create a daily export. One run executes and creates a file with the current month’s cost data. It's the run that's available for you to see in the run history. A second run also executes to create a file with all the costs from the prior month. The second run isn't currently visible in the run history. Azure executes the second run to ensure that your latest file for the past month contains all charges exactly as seen on your invoice. It runs because there are cases where latent usage and charges are included in the invoice up to 72 hours after the calendar month is closed. To learn more about Cost Management usage data updates, see [Cost and usage data updates and retention](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). 
 
 >[!NOTE]
   > Daily export created between 1st to 5th of the current month would not generate data for the previous month as the export schedule starts from the date of creation. 
@@ -387,6 +387,48 @@ If you've created a daily export, you have two runs per day for the first five d
 ## Access exported data from other systems
 
 One of the purposes of exporting your Cost Management data is to access the data from external systems. You might use a dashboard system or other financial system. Such systems vary widely so showing an example wouldn't be practical.  However, you can get started with accessing your data from your applications at [Introduction to Azure Storage](../../storage/common/storage-introduction.md).
+
+## Exports FAQ
+
+Here are some frequently asked questions and answers about exports.
+
+### Why do I see garbled characters when I open exported cost files with Microsoft Excel?
+
+If you see garbled characters in Excel and you use an Asian-based language, such as Japanese or Chinese, you can resolve this issue with the following steps:
+
+For new versions of Excel:
+
+1. Open Excel.
+1. Select the **Data** tab at the top.
+1. Select the **From Text/CSV** option.  
+    :::image type="content" source="./media/tutorial-export-acm-data/new-excel-from-text.png" alt-text="Screenshot showing the Excel From Text/CSV option." lightbox="./media/tutorial-export-acm-data/new-excel-from-text.png" :::
+1. Select the CSV file that you want to import.
+1. In the next box, set **File origin** to **65001: Unicode (UTF-8)**.  
+    :::image type="content" source="./media/tutorial-export-acm-data/new-excel-file-origin.png" alt-text="Screenshot showing the Excel File origin option." lightbox="./media/tutorial-export-acm-data/new-excel-file-origin.png" :::
+1. Select **Load**.
+
+For older versions of MS Excel:
+
+1.	Open Excel.
+1.	Select the **Data** tab at the top.
+1.	Select the **From Text** option and then select the CSV file that you want to import.
+1.	Excel shows the Text Import Wizard.
+1.	In the wizard, select the **Delimited** option.
+1.	In the **File origin** field, select **65001 : Unicode (UTF-8)**.
+1.	Select **Next**.
+1.	Next, select the **Comma** option and then select **Finish**.
+1.	In the dialog window that appears, select **OK**.
+
+### Why does the aggregated cost from the exported file differ from the cost displayed in Cost Analysis?
+
+You might have discrepancies between the aggregated cost from the exported file and the cost displayed in Cost Analysis. Determine if the tool you use to read and aggregate the total cost is truncating decimal values. This issue can happen in tools like Power BI and Microsoft Excel. Determine if decimal places are getting dropped when cost values are converted into integers. Losing decimal values can result in a loss of precision and misrepresentation of the aggregated cost.
+
+To manually transform a column to a decimal number in Power BI, follow these steps:
+
+1. Go to the Table view.
+1. Select **Transform data**.
+1. Right-click the required column.
+1. Change the type to a decimal number.
 
 ## Next steps
 

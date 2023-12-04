@@ -28,10 +28,13 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## November 2023
 
+- **Enhanced replica provisioning experience**
+
+   Replica provisioning experience will now provide extra flexibility to modify the replica compute and storage settings during the provisioning workflow. You can choose to modify the compute settings of the replica server at the time of provisioning instead of having to make the changes post provisioning of replica server. The feature will also enable modifying the backup retention days of the replica server and configure it to have a different value than that of the source server
+
 - **Modify multiple server parameters using Azure CLI**
-
-  You can now conveniently update multiple server parameters for your Azure Database for MySQL - Flexible Server using Azure CLI. [Learn more](./how-to-configure-server-parameters-cli.md#modify-a-server-parameter-value)
-
+  
+   You can now conveniently update multiple server parameters for your Azure Database for MySQL - Flexible Server using Azure CLI. [Learn more](./how-to-configure-server-parameters-cli.md#modify-a-server-parameter-value)
 
 - **Accelerated logs in Azure Database for MySQL - Flexible Server (Preview)**
 
