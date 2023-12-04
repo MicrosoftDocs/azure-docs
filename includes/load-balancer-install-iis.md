@@ -53,4 +53,4 @@
 
 1. Copy the public IP address, and then paste it into the address bar of your browser. The custom VM page of the IIS Web server is displayed in the browser.
 
-    :::image type="content" source="./media/load-balancer-test-iis/load-balancer-test.png" alt-text="Screenshot of load balancer test":::
+    :::image type="content" source="./media/load-balancer-test-iis/load-balancer-test.png" alt-text="Screenshot of load balancer test.":::
