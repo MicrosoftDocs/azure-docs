@@ -140,6 +140,10 @@ Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
 ```
 As an alternative to running the script in Azure Cloud Shell, you can also execute it locally on your machine. This local version of the PowerShell script includes additional steps to import the Azure module and authenticate your Azure account.
 
+> [!NOTE]
+>  The local PowerShell may require the VM to restart to take effect.
+
+
 ```powershell
 # Import the Azure module
 Import-Module Az
