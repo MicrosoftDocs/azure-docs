@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.topic: concept-article
-ms.date: 11/27/2023
+ms.date: 12/04/2023
 ---
 
 # Active-passive disaster recovery solution overview for Azure Kubernetes Service (AKS)
