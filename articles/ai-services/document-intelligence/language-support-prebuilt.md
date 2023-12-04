@@ -123,7 +123,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker range=">=doc-intel-3.1.0"
 
-### [Supported langauges](#tab/languages)
+### [Supported languages](#tab/languages)
 
 | Languages | Details |
 |:----------------------|:---------|
@@ -195,7 +195,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker range="doc-intel-3.0.0"
 
-### [Supported langauges](#tab/languages)
+### [Supported languages](#tab/languages)
 | Supported languages | Details |
 |:----------------------|:---------|
 | &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
