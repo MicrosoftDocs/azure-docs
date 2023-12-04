@@ -6,7 +6,7 @@ ms.author:       varundhawan
 ms.service:      postgresql
 ms.subservice:   flexible-server
 ms.topic:        conceptual
-ms.date:         12/01/2023
+ms.date:         12/04/2023
 ---
 
 # Scaling Resources in Azure Database for PostgreSQL - Flexible Server
@@ -22,7 +22,11 @@ You can scale **vertically** by adding more resources to the Flexible server ins
 
 You scale **horizontally** by creating [read replicas](./concepts-read-replicas.md). Read replicas let you scale your read workloads onto separate flexible server instance without affecting the performance and availability of the primary instance.
 
-When you change the number of vCores or the compute tier, the instance is restarted for the new server type to take effect. During this time the system switches over to the new server type, no new connections can be established, and all uncommitted transactions are rolled back. The overall time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restarts typically takes a minute or less but it can be higher and can take several minutes, depending on transactional activity at the time of the restart. Scaling the storage doesn't require a server restart in most cases. Similarly, backup retention period changes are an online operation. To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach reduces the time needed to restart the database server.
+When you change the number of vCores or the compute tier, the instance is restarted for the new server type to take effect. During this time the system switches over to the new server type, no new connections can be established, and all uncommitted transactions are rolled back. The overall time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restarts typically takes a minute or less but it can be higher and can take several minutes, depending on transactional activity at the time of the restart. 
+
+If you application is sensitive to loss of in-flight transactions that may occur during compute scaling, we recommend implementing transaction [retry pattern](../single-server/concepts-connectivity.md#handling-transient-errors).
+
+Scaling the storage doesn't require a server restart in most cases. Similarly, backup retention period changes are an online operation. To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach reduces the time needed to restart the database server.
 
 ## Near-zero downtime scaling 
 
@@ -35,16 +39,13 @@ When updating your Flexible server in scaling scenarios, we create a new copy of
 > [!NOTE]
 >  Near-zero downtime scaling process is the _default_ operation. However, in cases where the following limitations are encountered, the system switches to regular scaling, which involves more downtime compared to the near-zero downtime scaling.
 
-#### Prerequisites
-- In order for near-zero downtime scaling to work, you should enable all inbound/outbound connections between the IPs in the delegated subnet. If these aren't enabled near zero downtime scaling process will not work and scaling will occur through the standard scaling workflow.
-  
 #### Limitations 
 
+- In order for near-zero downtime scaling to work, you should enable all [inbound/outbound connections between the IPs in the delegated subnet when using VNET integrated networking](../flexible-server/concepts-networking-private.md#virtual-network-concepts). If these aren't enabled near zero downtime scaling process will not work and scaling will occur through the standard scaling workflow.
 - Near-zero Downtime Scaling won't work if there are regional capacity constraints or quota limits on customer subscriptions.
 - Near-zero Downtime Scaling doesn't work for replica server but supports the primary server. For replica server it will automatically go through regular scaling process.
-- Near-zero Downtime Scaling won't work if a virtual network injected Server with delegated subnet doesn't have sufficient usable IP addresses. If you have a standalone server, one extra IP address is necessary, and for a HA-enabled server, two extra IP addresses are required.
+- Near-zero Downtime Scaling won't work if a [virtual network injected Server with delegated subnet](../flexible-server/concepts-networking-private.md#virtual-network-concepts) doesn't have sufficient usable IP addresses. If you have a standalone server, one extra IP address is necessary, and for a HA-enabled server, two extra IP addresses are required.
 
 ## Related content
 
-- [create a PostgreSQL server in the portal](how-to-manage-server-portal.md)
-- [service limits](concepts-limits.md)
+- [create a PostgreSQL server in the portal](how-to-manage-server-portal.md).
