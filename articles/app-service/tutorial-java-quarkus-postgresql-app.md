@@ -192,7 +192,7 @@ Note the following:
         This pulls the newly committed workflow file into your codespace.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing a GitHub codespace and the application.properties file opened." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
