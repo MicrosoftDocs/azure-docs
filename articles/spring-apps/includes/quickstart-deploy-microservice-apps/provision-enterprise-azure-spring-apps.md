@@ -111,13 +111,6 @@ Use the following steps to create the service instance:
 1. On the **Add Builder** page, for the **Builder name**, use *frontend*; select *io.buildpacks.stacks.jammy-base* for **OS Stack**; 
    select *tanzu-buildpacks/web-servers* for the **Name** of Buildpacks, then select **Save** to create the builder for  *frontend* app deployment.
 
-1. Save the builder name to use later.
-
-1. Repeat the previous step to bind the following application names:
-
-    - *vets-service*
-    - *visits-service*
-
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png" alt-text="Screenshot of the Azure portal that shows the builder creation in Build Service page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png":::
 
 #### Configure Service Registry
@@ -146,7 +139,26 @@ Use the following steps to create the service instance:
       ```azurecli
       az login
       ```
+
+   1. Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace: `Microsoft.SaaS`:
    
+   ```azurecli
+   az extension add --name spring --upgrade
+   az provider register --namespace Microsoft.SaaS
+   ```
+
+   1. Use the following command to accept the legal terms and privacy statements:
+   
+      > [!NOTE]
+      > This step is necessary only if your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps.
+   
+      ```azurecli
+      az term accept \
+          --publisher vmware-inc \
+          --product azure-spring-cloud-vmware-tanzu-2 \
+          --plan asa-ent-hr-mtr
+      ```
+
    1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
    
       ```azurecli
@@ -238,3 +250,15 @@ Use the following steps to create the service instance:
 
 From the navigation pane, open the **Developer Tools** pane. select **Assign endpoint** to assign an endpoint for Developer Tools. Save the endpoint of App Live View to use later.
 
+#### Bind Application Insights
+
+Bind the *frontend* builder to Application Insights instance, manual binding is required when creating a non default builder.
+
+1. From the navigation pane, open the **Application Insights** pane.
+
+1. Select the **Unbound** link corresponding to the *frontend* builder name you created.
+
+1. On the **Edit binding for ApplicationInsights** page, for **Application Insights**, select the Application Insights instance you created in the previous step,
+   then select **Save**.
+
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-application-insights.png" alt-text="Screenshot of the Azure portal that shows the bindings in Application Insights page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-application-insights.png":::

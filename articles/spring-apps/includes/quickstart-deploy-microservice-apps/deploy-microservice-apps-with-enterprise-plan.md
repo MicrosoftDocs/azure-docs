@@ -53,7 +53,8 @@ Use the following steps to prepare the project:
    ./mvnw spring-boot:run -pl spring-petclinic-customers-service
    ./mvnw spring-boot:run -pl spring-petclinic-vets-service
    ./mvnw spring-boot:run -pl spring-petclinic-visits-service
-   ./mvnw spring-boot:run -Dspring-boot.run.profiles=default,development -pl spring-petclinic-api-gateway
+   ./mvnw spring-boot:run -Dspring-boot.run.profiles=default,development \
+     -pl spring-petclinic-api-gateway
    ```
 
 1. Open a new terminal and enter the project `spring-petclinic-frontend` directory, execute the following commands to install dependencies and run the frontend app:
@@ -158,4 +159,12 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
      --build-env BP_WEB_SERVER=nginx --builder frontend
    ```
    
+   After the command is executed, you can see from the following log messages that the deployment was successful:
+    
+   ```output
+   [5/5] Updating deployment in app "frontend" (this operation can take a while to complete)
+   Azure Spring Apps will use rolling upgrade to update your deployment, you have 1 instance, Azure Spring Apps will update the deployment in 1 round.
+   The deployment is in round 1, 1 old instance is deleted/deleting and 1 new instance is started/starting
+   Your application is successfully deployed.
+   ```
 ---

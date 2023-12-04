@@ -114,7 +114,7 @@ Use the following steps to create the service instance:
 
 Use the following steps to create the required resources:
 
-1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already signed in.
+1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you already signed in.
 
    ```bash
    azd auth login

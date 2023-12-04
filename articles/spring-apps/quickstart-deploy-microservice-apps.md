@@ -28,16 +28,16 @@ The Pet Clinic sample demonstrates the microservice architecture pattern. The fo
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
-- Uses Azure Spring Apps to manage the Spring Boot apps. Each app uses HSQLDB as the persistent store.
-- Uses the managed components Spring Cloud Config Server and Eureka Service Discovery on Azure Spring Apps. The Config Server reads Git repository configuration.
-- Exposes the URL of API Gateway to load balance requests to service apps, and exposes the URL of the Admin Server to manage the applications.
+- Uses Azure Spring Apps to manage the frontend and backend apps, the frontend app is built with Angular JS; the backend apps are built with Spring Boot and each app uses HSQLDB as the persistent store.
+- Uses the managed Tanzu components on Azure Spring Apps, they are Build Service, Service Registry, Application Configuration Service, Spring Cloud Gateway and Developer Tools. The Application Configuration Service reads Git repository configuration.
+- Exposes the URL of Spring Cloud Gateway to load balance requests to service apps, and exposes the URL of the App Live View to monitor the applications.
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
 
 > [!NOTE]
 > This article uses a simplified version of PetClinic, using an in-memory database that is not production-ready to quickly deploy to Azure Spring Apps.
 >
-> The Tanzu Developer Tools exposes public access for app live view, which is a risk point. The production environment needs to secure the access, see more from [Configure Dev Tools Portal](./how-to-use-dev-tool-portal#configure-dev-tools-portal).
+> The Tanzu Developer Tools exposes public access for app live view, which is a risk point. The production environment needs to secure the access, see more from [Configure Dev Tools Portal](./how-to-use-dev-tool-portal.md#configure-dev-tools-portal).
 
 ::: zone-end
 
