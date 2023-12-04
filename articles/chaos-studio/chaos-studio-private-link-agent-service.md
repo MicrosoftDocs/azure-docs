@@ -87,7 +87,7 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 
     } 
 
-}
+}'
  ```
 
 | Name |Required | Type | Description
@@ -128,6 +128,38 @@ Invoke a "PUT Target" command using this response. You will need to append **TWO
 These additional fields are shown in the following screenshot: 
 
 [![Screenshot of VNET tab of private endpoint creation](images/additionalCSPAfields.png)](images/additionalCSPAfields.png#lightbox)
+
+
+Below is an example block for what the "PUT Target" command should look like and the fields that you would need to fill out:
+
+> [!NOTE]
+> The body should be copied from the previous GET command. You will need to manually append the "privateAccessID" and "allowPublicAccess" fields. 
+
+```AzCLI
+
+az rest --verbose --skip-authorization-header --header "Authorization=Bearer $accessToken" --uri-parameters api-version=2023-10-27-preview --method PUT --uri "https://management.azure.com/subscriptions/<subscriptionID>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/virtualMachines/<VMSSname>/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2023-10-27-preview " --body ' {
+    "id": "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/microsoft.compute/virtualmachines/<VMSSName>/providers/Microsoft.Chaos/targets/Microsoft-Agent",
+    "type": "Microsoft.Chaos/targets",
+    "name": "Microsoft-Agent",
+    "location": "<resourceLocation>",
+    "properties": {
+        "agentProfileId": "<from target resource>",
+        "identities": [
+            {
+                "type": "AzureManagedIdentity",
+                "clientId": "<clientID>",
+                "tenantId": "<tenantID>"
+            }
+        ],
+        "agentTenantId": "CHAOSSTUDIO",
+        "privateAccessId": "subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Chaos/privateAccesses/<CSPAresourceName>",
+        "allowPublicAccess": false
+    }} '
+
+```
+
+> [!NOTE]
+> The PrivateAccessID should exactly match the "resourceID" used to create the CSPA resource in Step 2.
 
 
 
