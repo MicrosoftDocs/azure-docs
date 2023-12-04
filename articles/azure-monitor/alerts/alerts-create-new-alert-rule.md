@@ -143,6 +143,8 @@ To edit an existing alert rule:
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-log-rule-query-pane.png" alt-text="Screenshot that shows the Query pane when creating a new log alert rule.":::
 
         To use one of the predefined alert rule queries, expand the **Schema and filter** pane on the left of the **Logs** pane. Then select the **Queries** tab, and select one of the queries.
+        > [!NOTE]
+        > Th Plugins 'bag_unpack()', 'pivot()', 'narrow()' cannot be used in the query definition.
 
     1. (Optional) If you're querying an ADX or ARG cluster, Log Analytics can't automatically identify the column with the event timestamp, so we recommend that you add a time range filter to the query. For example:
         ```KQL
