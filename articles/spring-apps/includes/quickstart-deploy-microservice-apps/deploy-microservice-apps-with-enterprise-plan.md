@@ -15,11 +15,63 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ## 2. Prepare the Spring project
 
+### [Azure portal](#tab/Azure-portal-ent)
+
 The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+Use the following steps to prepare the project:
+
+1. Use the following command to clone the [Pet Clinic application](https://github.com/Azure-Samples/spring-petclinic-microservices.git) from GitHub.
+
+   ```bash
+   git clone https://github.com/Azure-Samples/spring-petclinic-microservices.git
+   ```
+
+1. Enter the project root directory  and execute the following command to build the project:
+
+   ```shell
+   ./mvnw clean package -DskipTests
+   ```
+
+1. Open a terminal and execute the following command to start Config Server:
+
+   ```shell
+   ./mvnw spring-boot:run -pl spring-petclinic-config-server
+   ```
+
+1. Open a terminal and execute the following command to start Discovery Server:
+
+   ```shell
+   ./mvnw spring-boot:run -pl spring-petclinic-discovery-server
+   ```
+
+1. For Customers, Vets, Visits, and Gateway services, open new terminal in turn and execute the following commands to start the services:
+
+   ```shell
+   ./mvnw spring-boot:run -pl spring-petclinic-customers-service
+   ./mvnw spring-boot:run -pl spring-petclinic-vets-service
+   ./mvnw spring-boot:run -pl spring-petclinic-visits-service
+   ./mvnw spring-boot:run -Dspring-boot.run.profiles=default,development -pl spring-petclinic-api-gateway
+   ```
+
+1. Open a new terminal and enter the project `spring-petclinic-frontend` directory, execute the following commands to install dependencies and run the frontend app:
+
+   ```shell
+   npm install
+   npm run start
+   ````
+
+1. After the script executes successfully, go to `http://localhost:8080` in your browser to access the PetClinic app.
+
+---
 
 ## 3. Prepare the cloud environment
 
 The main resource you need to run this sample is an Azure Spring Apps instance. This section describes how to create this resource.
+
+### [Azure portal](#tab/Azure-portal-ent)
 
 This section uses a **Deploy to Azure** button to launch a deployment experience in the Azure portal. This experience uses an [ARM template](../../../azure-resource-manager/templates/overview.md) to create Azure resources.
 
@@ -51,6 +103,51 @@ Use the following steps to create all the Azure resources that the app depends o
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/custom-deployment-notifications.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the custom deployment notifications pane open." lightbox="../../media/quickstart-deploy-microservice-apps/custom-deployment-notifications.png":::
 
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+[!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps.md)]
+
+---
+
 ## 4. Deploy the apps to Azure Spring Apps
 
+You can now deploy the app to Azure Spring Apps.
+
+### [Azure portal](#tab/Azure-portal-ent)
+
 The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+[!INCLUDE [deploy-spring-apps-maven-plugin](microservice-spring-apps-maven-plugin.md)]
+
+2. Use the following command to deploy the apps:
+
+   ```bash
+   ./mvnw azure-spring-apps:deploy
+   ```
+
+   After the command is executed, you can see from the following log messages that the deployment was successful:
+
+   ```output
+   [INFO] Start deploying artifact(customers-service-3.0.1.jar) to deployment(default) of app(customers-service)...
+   [INFO] Artifact(customers-service-3.0.1.jar) is successfully deployed to deployment(default) of app(customers-service).
+   [INFO] Starting Spring App after deploying artifacts...
+   [INFO] Deployment Status: Running
+   
+   ...
+   
+   [INFO] Start deploying artifact(vets-service-3.0.1.jar) to deployment(default) of app(vets-service)...
+   [INFO] Artifact(vets-service-3.0.1.jar) is successfully deployed to deployment(default) of app(vets-service).
+   [INFO] Starting Spring App after deploying artifacts...
+   [INFO] Deployment Status: Running
+   
+   ...
+   
+   [INFO] Start deploying artifact(visits-service-3.0.1.jar) to deployment(default) of app(visits-service)...
+   [INFO] Artifact(visits-service-3.0.1.jar) is successfully deployed to deployment(default) of app(visits-service).
+   [INFO] Starting Spring App after deploying artifacts...
+   [INFO] Deployment Status: Running
+   ```
+
+---
