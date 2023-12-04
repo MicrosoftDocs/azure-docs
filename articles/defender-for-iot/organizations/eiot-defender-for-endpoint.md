@@ -71,7 +71,7 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
     - On the **Alerts** tab, check for any alerts triggered by the device. Simulate alerts in Microsoft 365 Defender for Enterprise IoT using the Raspberry Pi scenario available in the Microsoft 365 Defender [Evaluation & Tutorials](https://security.microsoft.com/tutorials/all) page.
 
-        You can also set up advanced hunting queries to create custom alert rules. For more information, see [ample advanced hunting queries for Enterprise IoT monitoring](#sample-of-advanced-hunting-queries-for-enterprise-iot-monitoring). 
+        You can also set up advanced hunting queries to create custom alert rules. For more information, see [sample advanced hunting queries for Enterprise IoT monitoring](#sample-of-advanced-hunting-queries-for-enterprise-iot-monitoring). 
 
     - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface.
 
