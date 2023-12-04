@@ -13,6 +13,8 @@ For clarity of structure, a separate markdown file is used to describe how to va
 
 -->
 
+### 5.1. Access the applications
+
 Using the URL information in the deployment log output, open the URL exposed by the app named `api-gateway` - for example, `https://<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io`. The application should look similar to the following screenshot:
 
 :::image type="content" source="../../media/quickstart-deploy-microservice-apps/application.png" alt-text="Screenshot of the PetClinic application running on Azure Spring Apps." lightbox="../../media/quickstart-deploy-microservice-apps/application.png":::

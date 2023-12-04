@@ -57,7 +57,7 @@ Use the following steps to create the service instance:
 
 1. From the navigation pane, open the **Apps** pane and then select **Create App**.
 
-1. On the Create App page, for the app name, use *frontend* and leave all the other fields with their default values.
+1. On the Create App page, for the **App name**, use *frontend* and leave all the other fields with their default values.
 
 1. Repeat the previous step using each of the following application names:
 
@@ -71,13 +71,13 @@ Use the following steps to create the service instance:
 
 #### Configure Application Configuration Service
 
-1. From the navigation pane, open the **Application Configuration Service** pane and then select **Settings**.
+1. From the navigation pane, open the **Application Configuration Service** pane and select **Settings**.
 
-1. Fill out the repository with the following information:
+1. Fill out the repository with the following information and then select **Validate**:
 
-    - **Name**: **default**
-    - **Patterns**: *application,api-gateway,customers-service,vets-service,visits-service*.
-    - **URI**: *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git*.
+    - **Name**: *default*
+    - **Patterns**: *application,api-gateway,customers-service,vets-service,visits-service*
+    - **URI**: *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git*
     - **Label**: *master*
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the Configuration Service page with the settings, the Validate button highlighted and the Apply button disabled." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png":::
@@ -95,18 +95,34 @@ Use the following steps to create the service instance:
 
 #### Set config file patterns for apps
 
-1. From the navigation pane, open the **Apps** pane and select **customers-service**.
+1. From the navigation pane, open the **Apps** pane and select **customers-service** app.
 
-1. On the App overview page select **Configuration** pane, select the dropdown list for **Config file patterns**, and select the **application** and **customers-service** checkbox, then **Save** for config file pattern setting.
+1. On the App overview page select **Configuration** pane, select the dropdown list for **Config file patterns** in the **General settings** tab, and select the **application** and **customers-service** checkbox, then **Save** for config file pattern setting.
 
-1. Referring to the customer service app, save the config file patterns corresponding to each application name below:
+1. Referring to the customer-service app, save the config file patterns corresponding to each application name below:
 
     - *vets-service*: **application** and **vets-service**
     - *visits-service*: **application** and **visits-service**
 
+#### Configure Build Service
+
+1. From the navigation pane, open the **Build Service** pane and select **Add** under the **Builders** section.
+
+1. On the **Add Builder** page, for the **Builder name**, use *frontend*; select *io.buildpacks.stacks.jammy-base* for **OS Stack**; 
+   select *tanzu-buildpacks/web-servers* for the **Name** of Buildpacks, then select **Save** to create the builder for  *frontend* app deployment.
+
+1. Save the builder name to use later.
+
+1. Repeat the previous step to bind the following application names:
+
+    - *vets-service*
+    - *visits-service*
+
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png" alt-text="Screenshot of the Azure portal that shows the builder creation in Build Service page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png":::
+
 #### Configure Service Registry
 
-1. From the navigation pane, open the **Service Registry** pane and then select **Create App**.
+1. From the navigation pane, open the **Service Registry** pane.
 
 1. Select **App binding** tab, select **Bind app**, and select `customers-service` from the app name drop-down list, then select **Apply**.
 
@@ -119,94 +135,104 @@ Use the following steps to create the service instance:
 
 #### Configure Spring Cloud Gateway
 
-1. From the navigation pane, open the **Spring Cloud Gateway** pane. On the **Overview** tab, select **Yes** to assign an endpoint for the gateway access. Save the endpoint to use later.
+1. From the navigation pane, open the **Spring Cloud Gateway** pane.
 
-Since the Azure portal currently does not support configuring routing for Spring Cloud Gateway, use Azure CLI to configure the routing:
+1. On the **Overview** tab, select **Yes** to assign an endpoint for the gateway access. Save the endpoint URL to use later.
 
-1. Use the following command to sign in to the Azure CLI:
+1. Configure routing for Spring Cloud Gateway. Since the Azure portal currently does not support configuring routing for Spring Cloud Gateway, use Azure CLI to configure the routing.
 
-   ```azurecli
-   az login
-   ```
-
-1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
-
-   ```azurecli
-   export SUBSCRIPTION_ID="<subscription-ID>"
-   export RESOURCE_GROUP="<resource-group-name>"
-   export SPRING_APPS_SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
-   export APP_NAME_CUSTOMERS_SERVICE="customers-service"
-   export APP_NAME_VETS_SERVICE="vets-service"
-   export APP_NAME_VISITS_SERVICE="visits-service"
-   export APP_NAME_FRONTEND="frontend"
-   ```
-
-1. Use the following command to set the default subscription:
-
-   ```azurecli
-   az account set --subscription ${SUBSCRIPTION_ID}
-   ```
-
-1. Use the following command to set routing for the customer service app:
-
-   ```azurecli
-   az spring gateway route-config create --resource-group ${RESOURCE_GROUP} --name ${APP_NAME_CUSTOMERS_SERVICE} --service ${SPRING_APPS_SERVICE_NAME} --app-name ${APP_NAME_CUSTOMERS_SERVICE} --routes-json '[
-     {
-       "predicates": [
-         "Path=/api/customer/**"
-       ],
-       "filters": [
-         "StripPrefix=2"
-       ]
-     }
-   ]'
-   ```
-
-1. Use the following command to set routing for the vet service app:
-
-   ```azurecli
-   az spring gateway route-config create --resource-group ${RESOURCE_GROUP} --name ${APP_NAME_VETS_SERVICE} --service ${SPRING_APPS_SERVICE_NAME} --app-name ${APP_NAME_VETS_SERVICE} --routes-json '[
-     {
-       "predicates": [
-         "Path=/api/vet/**"
-       ],
-       "filters": [
-         "StripPrefix=2"
-       ]
-     }
-   ]'
-   ```
-
-1. Use the following command to set routing for the visit service app:
-
-   ```azurecli
-   az spring gateway route-config create --resource-group ${RESOURCE_GROUP} --name ${APP_NAME_VISITS_SERVICE} --service ${SPRING_APPS_SERVICE_NAME} --app-name ${APP_NAME_VISITS_SERVICE} --routes-json '[
-     {
-       "predicates": [
-         "Path=/api/visit/**"
-       ],
-       "filters": [
-         "StripPrefix=2"
-       ]
-     }
-   ]'
-   ```
-
-1. Use the following command to set routing for the frontend app:
-
-   ```azurecli
-   az spring gateway route-config create --resource-group ${RESOURCE_GROUP} --name ${APP_NAME_FRONTEND} --service ${SPRING_APPS_SERVICE_NAME} --app-name ${APP_NAME_FRONTEND} --routes-json '[
-     {
-       "predicates": [
-         "Path=/**"
-       ],
-       "filters": [
-         "StripPrefix=0"
-       ],
-       "order": 1000
-     }
-   ]'
-   ```
+   1. Use the following command to sign in to the Azure CLI:
+   
+      ```azurecli
+      az login
+      ```
+   
+   1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
+   
+      ```azurecli
+      export SUBSCRIPTION_ID="<subscription-ID>"
+      export RESOURCE_GROUP="<resource-group-name>"
+      export SPRING_APPS_SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
+      export APP_NAME_CUSTOMERS_SERVICE="customers-service"
+      export APP_NAME_VETS_SERVICE="vets-service"
+      export APP_NAME_VISITS_SERVICE="visits-service"
+      export APP_NAME_FRONTEND="frontend"
+      ```
+   
+   1. Use the following command to set the default subscription:
+   
+      ```azurecli
+      az account set --subscription ${SUBSCRIPTION_ID}
+      ```
+   
+   1. Use the following command to set routing for the customer service app:
+   
+      ```azurecli
+      az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
+        --name ${APP_NAME_CUSTOMERS_SERVICE} --service ${SPRING_APPS_SERVICE_NAME} \
+        --app-name ${APP_NAME_CUSTOMERS_SERVICE} --routes-json '[
+        {
+          "predicates": [
+            "Path=/api/customer/**"
+          ],
+          "filters": [
+            "StripPrefix=2"
+          ]
+        }
+      ]'
+      ```
+   
+   1. Use the following command to set routing for the vet service app:
+   
+      ```azurecli
+      az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
+        --name ${APP_NAME_VETS_SERVICE} --service ${SPRING_APPS_SERVICE_NAME} \
+        --app-name ${APP_NAME_VETS_SERVICE} --routes-json '[
+        {
+          "predicates": [
+            "Path=/api/vet/**"
+          ],
+          "filters": [
+            "StripPrefix=2"
+          ]
+        }
+      ]'
+      ```
+   
+   1. Use the following command to set routing for the visit service app:
+   
+      ```azurecli
+      az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
+        --name ${APP_NAME_VISITS_SERVICE} --service ${SPRING_APPS_SERVICE_NAME} \
+        --app-name ${APP_NAME_VISITS_SERVICE} --routes-json '[
+        {
+          "predicates": [
+            "Path=/api/visit/**"
+          ],
+          "filters": [
+            "StripPrefix=2"
+          ]
+        }
+      ]'
+      ```
+   
+   1. Use the following command to set routing for the frontend app:
+   
+      ```azurecli
+      az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
+        --name ${APP_NAME_FRONTEND} --service ${SPRING_APPS_SERVICE_NAME} \
+        --app-name ${APP_NAME_FRONTEND} --routes-json '[
+        {
+          "predicates": [
+            "Path=/**"
+          ],
+          "filters": [
+            "StripPrefix=0"
+          ],
+          "order": 1000
+        }
+      ]'
+      ```
 
 #### Configure Developer Tools
 

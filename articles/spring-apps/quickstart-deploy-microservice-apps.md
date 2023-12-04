@@ -164,9 +164,9 @@ Application Insights monitors the application dependencies, as shown by the foll
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-insights-map.png" alt-text="Screenshot of the Azure portal showing the Application map page for an Application Insights." lightbox="media/quickstart-deploy-microservice-apps/application-insights-map.png":::
 
-Open the URL exposed by the Developer Tools to manage the applications through the Spring Boot Admin Server, as shown in the following screenshot:
+Open the App Live View URL exposed by the Developer Tools to monitor application runtimes, as shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/admin-server.png" alt-text="Screenshot of the Admin Server for the PetClinic application listing the current application instances." lightbox="media/quickstart-deploy-microservice-apps/admin-server.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/application-live-view.png" alt-text="Screenshot of the Application Live View for the PetClinic application." lightbox="media/quickstart-deploy-microservice-apps/application-live-view.png":::
 
 ---
 

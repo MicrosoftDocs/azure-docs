@@ -121,7 +121,7 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 
 [!INCLUDE [deploy-spring-apps-maven-plugin](microservice-spring-apps-maven-plugin.md)]
 
-2. Use the following command to deploy the apps:
+2. Use the following command to deploy the backend apps:
 
    ```bash
    ./mvnw azure-spring-apps:deploy
@@ -150,4 +150,12 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
    [INFO] Deployment Status: Running
    ```
 
+2. Use the following command to deploy the frontend app:
+
+   ```bash
+   az spring app deploy --resource-group ${RESOURCE_GROUP} --name frontend \
+     --service ${SPRING_APPS_SERVICE_NAME}  --source-path spring-petclinic-frontend \
+     --build-env BP_WEB_SERVER=nginx --builder frontend
+   ```
+   
 ---
