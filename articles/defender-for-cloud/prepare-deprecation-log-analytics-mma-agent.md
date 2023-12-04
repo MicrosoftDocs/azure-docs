@@ -15,7 +15,7 @@ The Azure Log Analytics, Microsoft Monitor Agent (MMA) is set to be [retired in 
 
 Defender for Servers has always been reliant on the log analytics agent (known as Microsoft Monitoring Agent (MMA)) as mandatory and the recommended agent for posture and threat protection capabilities in Azure and multicloud.
 
-Toward Log Analytics Agent (MMA) retirement, and as part of an updated deployment strategy, with a goal to simplify the onboarding, all Defender for Servers security features and capabilities will be provided via a single agent (Microsoft Defender for Endpoint (MDE)) complemented by agentless scanning, without dependency on either Log Analytics Agent (MMA) or Azure Monitoring Agent (AMA), the substitute agent.  
+Toward Log Analytics Agent (MMA) retirement, and as part of an updated deployment strategy, with a goal to simplify the onboarding, all Defender for Servers security features and capabilities are provided via a single agent (Microsoft Defender for Endpoint (MDE)) complemented by agentless scanning, without dependency on either Log Analytics Agent (MMA) or Azure Monitoring Agent (AMA), the substitute agent.  
 
 As a result, all Defender for Servers features and capabilities currently relying on Log Analytics Agent (MMA) will be deprecated in their Log Analytics version in August 2024, and delivered over one of the alternative infrastructures mentioned above.
 
@@ -23,13 +23,13 @@ As a result, all Defender for Servers features and capabilities currently relyin
 
 ### Enable Defender for Endpoint integration/agentless scanning
 
-Enable Defender for Endpoint integration and agentless disk scanning on your subscriptions. This will ensure you’ll seamlessly be up-to-date and receive all the alternative deliverables once they are provided, and without any additional migration. Learn more about endpoint protection and agentless scanning. 
+Enable Defender for Endpoint integration and agentless disk scanning on your subscriptions. This ensures you’ll seamlessly be up-to-date and receive all the alternative deliverables once they're provided, and without any extra migration. Learn more about endpoint protection and agentless scanning. 
 
 ### Plan your migration according to your needs
 
-Note that all Defender for Servers features are going to be provided via Defender for Endpoint integration and agentless disk scanning, without any dependency in either AMA or MMA.  Most of the features are already available in GA through the alternative platforms (MDE/Agentless). The rest will be provided in GA by April 2024, or deprecated. See here the features’ plan. 
+All Defenders for Servers features are going to be provided via Defender for Endpoint integration and agentless disk scanning, without any dependency in either AMA or MMA.  Most of the features are already available in GA through the alternative platforms (MDE/Agentless). The rest will be provided in GA by April 2024, or deprecated. See here the features’ plan. 
 
-Defender for Servers features that are currently provided over AMA on public preview are not going to be GA, and will remain supported until an alternative version is provided based on Defender for Endpoint integration or agentless disk scanning.
+Defender for Servers features that are currently provided over AMA on public preview aren't going to be GA, and will remain supported until an alternative version is provided based on Defender for Endpoint integration or agentless disk scanning.
 
 Following that, we recommend plan your agents’ migration plan according to your organization’s requirements:  
 
@@ -41,7 +41,7 @@ Following that, we recommend plan your agents’ migration plan according to you
 | Yes | Yes | You can either start migration from MMA to AMA starting April 2024 or alternatively, you can use both agents side by side starting now, to receive all GA capabilities. |
 
 > [!NOTE]
-> You can run both the Log Analytics and Azure Monitor Agents on the same machine. Each machine is billed once in Defender for Cloud. In cases both agents are running on the machines, we recommend avoid collecting duplicate data by sending the data to different workspaces or alternatively disable security event data collection by MMA. For further information please see the [migration guide](/azure/azure-monitor/agents/azure-monitor-agent-migration) and the [impact of running both agents](auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents).
+> You can run both the Log Analytics and Azure Monitor Agents on the same machine. Each machine is billed once in Defender for Cloud. In cases both agents are running on the machines, we recommend avoid collecting duplicate data by sending the data to different workspaces or alternatively disable security event data collection by MMA. For more information, see the [migration guide](/azure/azure-monitor/agents/azure-monitor-agent-migration) and the [impact of running both agents](auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents).
 
 ### Agents auto provision
 
@@ -57,7 +57,7 @@ For more information about how to plan for this change, [see Microsoft Defender 
 
 > [!NOTE]
 >
-If you have the Defender for SQL servers on machines plan enabled, you will need to review the [Defender for SQL Log Analytics deprecation plan](defender-for-sql-autoprovisioning.md) for log analytics agent/Azure monitor agent dependency as part of your migration planning.
+If you have the Defender for SQL servers on machines plan enabled, you'll need to review the [Defender for SQL Log Analytics deprecation plan](defender-for-sql-autoprovisioning.md) for log analytics agent/Azure monitor agent dependency as part of your migration planning.
 
 ## Prepare Defender for SQL Server on machines
 
