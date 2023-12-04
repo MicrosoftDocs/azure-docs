@@ -143,19 +143,19 @@ export USER_PRINCIPAL_NAME=<user-principal-name>
 
 Use the following steps to create a new resource group.
 
-1. Use the following command to sign in to the Azure CLI.
+1. Use the following command to sign in to the Azure CLI:
 
    ```azurecli
    az login
    ```
 
-1. Use the following command to set the default location.
+1. Use the following command to set the default location:
 
    ```azurecli
    az configure --defaults location=${LOCATION}
    ```
 
-1. Use the following command to list all available subscriptions to determine the subscription ID to use.
+1. Use the following command to list all available subscriptions to determine the subscription ID to use:
 
    ```azurecli
    az account list --output table
@@ -167,27 +167,48 @@ Use the following steps to create a new resource group.
    az account set --subscription <subscription-ID>
    ```
 
-1. Use the following command to create a resource group.
+1. Use the following command to create a resource group:
 
    ```azurecli
    az group create --resource-group ${RESOURCE_GROUP}
    ```
 
-1. Use the following command to set the newly created resource group as the default resource group.
+1. Use the following command to set the newly created resource group as the default resource group:
 
    ```azurecli
    az configure --defaults group=${RESOURCE_GROUP}
    ```
 
-### 3.3. Create an Azure Spring Apps instance
+### 3.3. Install extension and register namespace
 
-1. Use the following command to create an Azure Spring Apps service instance.
+Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace: `Microsoft.SaaS`:
+
+```azurecli
+az extension add --name spring --upgrade
+az provider register --namespace Microsoft.SaaS
+```
+
+### 3.4. Create an Azure Spring Apps instance
+
+1. Use the following command to accept the legal terms and privacy statements for the Enterprise plan:
+
+   > [!NOTE]
+   > This step is necessary only if your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps.
+
+   ```azurecli
+   az term accept \
+       --publisher vmware-inc \
+       --product azure-spring-cloud-vmware-tanzu-2 \
+       --plan asa-ent-hr-mtr
+   ```
+
+1. Use the following command to create an Azure Spring Apps service instance:
 
    ```azurecli
    az spring create --name ${AZURE_SPRING_APPS_NAME} --sku enterprise
    ```
 
-1. Use the following command to create an application in the Azure Spring Apps instance.
+1. Use the following command to create an application in the Azure Spring Apps instance:
 
    ```azurecli
    az spring app create \
@@ -196,7 +217,7 @@ Use the following steps to create a new resource group.
        --assign-endpoint true
    ```
 
-### 3.4. Prepare the PostgreSQL instance
+### 3.5. Prepare the PostgreSQL instance
 
 The Spring web app uses H2 for the database in localhost, and Azure Database for PostgreSQL for the database in Azure.
 
@@ -213,7 +234,7 @@ Use the following command to create a PostgreSQL instance:
 
 Specifying `0.0.0.0` enables public access from any resources deployed within Azure to access your server.
 
-### 3.5. Connect app instance to PostgreSQL instance
+### 3.6. Connect app instance to PostgreSQL instance
 
 After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. Use the following steps to enable the app to connect to the PostgreSQL instance.
 
@@ -237,7 +258,7 @@ After the application instance and the PostgreSQL instance are created, the appl
              SPRING_DATASOURCE_PASSWORD="${POSTGRESQL_ADMIN_PASSWORD}"
    ```
 
-### 3.5. Expose RESTful APIs
+### 3.7. Expose RESTful APIs
 
 1. Use the following command to create a Microsoft Entra ID application:
 
@@ -320,7 +341,7 @@ After the application instance and the PostgreSQL instance are created, the appl
    echo $appid
    ```
 
-### 3.6. Update the application configuration
+### 3.8. Update the application configuration
 
 [!INCLUDE [update-application-configuration](update-application-configuration.md)]
 
