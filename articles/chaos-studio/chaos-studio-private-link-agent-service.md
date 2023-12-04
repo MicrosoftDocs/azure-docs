@@ -16,7 +16,13 @@ In this guide, we'll show you the steps needed to configure Private Link for a C
 ## Prerequisites
 
 1. An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-2. First define your agent-based experiment by following the steps found [here](articles/chaos-studio/chaos-studio-tutorial-agent-based-portal.md). 
+2. First define your agent-based experiment by following the steps found [here](articles/chaos-studio/chaos-studio-tutorial-agent-based-portal.md).
+
+> [!NOTE]
+> If the target resource was created using the portal, then the chaos agent VM extension will be austomatically installed on the host VM. If the target is enabled using the CLI, then follow the Chaos Studio documentation to install the VM extension first on the virtual machine. Until you complete the private endpoint setup, the VM extension will be reporting an unhealthy state. This is expected.
+
+<br/>
+
 3. Ensure that the `Microsoft.Resources/EUAPParticipation` feature flag is enabled for your subscription. If you have used Chaos Studio in your subscription before, this may have already been done via the Portal when you created your first experiment. 
 
 <br/>
@@ -92,48 +98,18 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 |resourceLocation|True|String|Location you want the resource to be hosted (must be a support region by Chaos Studio)|
 
 
-1. **Enable Feature for Private Endpoints**:
-   - Enable `Microsoft.Network/AllowPrivateEndpoints` feature on the subscription.
+## Step 3: Create your Virtual Network, Subnet, and Private Endpoint
 
-2. **CSS Engineer Steps**:
-   - Create an incident in Azure Chaos Studio/Dri Squall queue with customer subscription details.
+[Set up your desired Virtual Network, Subnet, and Endpoint](articles/private-link/create-private-endpoint-portal.md) for the experiment if you haven't already.
 
-3. **Approve Feature Flag**:
-   - Follow instructions in ARM AFEC - Public for feature enrollment.
+Make sure you attach it to the same VM's VNET. Screenshots provide examples of doing this. It is important to note that you need to set the "Resource Type" to "Microsoft.Chaos/privateAccesses" as seen in the screenshot. 
 
-### Create Target Resource
+[![Screenshot of resource tab of private endpoint creation](images/resourcePrivateEndpoint.png)](images/resourcePrivateEndpoint.png#lightbox)
 
-1. **Create VM Target Resource**:
-   - Follow instructions in [Targets and capabilities in Azure Chaos Studio Preview](https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-targets-capabilities-preview).
+[![Screenshot of VNET tab of private endpoint creation](images/resourceVNETCSPA.png)](images/resourceVNETCSPA.png#lightbox)
 
-2. **Install VM Extension**:
-   - If using Azure CLI, install the Chaos Studio VM Extension.
 
-### Set Up Private Endpoint
+## Step 4: Map the agent host VM to the CSPA resource
 
-1. **Create and Attach Private Endpoint**:
-   - Create a Private Endpoint using the private access resource and attach it to the VM virtual network.
 
-2. **Map Target to CPAS Resource**:
-   - Invoke the PUT Target API to map the private access resource with the target.
 
-### Final Steps
-
-1. **Update Agent VM Extension Settings**:
-   - Update host entry to map the communication endpoint to the private IP generated during the private endpoint creation.
-
-2. **Restart Azure Chaos Agent Service**:
-   - For Windows VMs or Linux VMs, restart the Azure Chaos Agent service.
-
-3. **Verification**:
-   - After restart, ensure that the Chaos agent can communicate with the Agent Communication data plane service and that agent registration is successful.
-
-## Additional Notes
-
-- If outbound access to Microsoft Certificate Revocation List verification endpoints is blocked, update AgentSettings to disable CRL Verification check.
-
-For detailed steps and examples, refer to the original [User Experience Private Endpoints for Chaos Agents](#) document.
-
----
-
-Please replace placeholders like `<subscriptionID>`, `<resourceGroup>`, and `<cpasName>` with actual values when executing these instructions.
