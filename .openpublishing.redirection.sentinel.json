@@ -479,6 +479,11 @@
             "source_path": "articles/sentinel/data-connectors/deprecated-cisco-firepower-estreamer-via-legacy-agent.md",
             "redirect_url": "/azure/sentinel/data-connectors/cisco-firepower-estreamer",
             "redirect_document_id": true
-          } 
+          },
+          {
+            "source_path": "articles/sentinel/data-connectors/cyberpion-security-logs.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
+          }  
     ]
 }
