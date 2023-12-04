@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 12/04/2023
 ms.custom: event-tier1-build-2022, ignite-2022
 ---
 # Integrate Azure Cosmos DB for MongoDB with Service Connector
@@ -23,7 +23,6 @@ This page shows supported authentication methods and clients, and shows sample c
 
 Supported authentication and clients for App Service, Azure Functions, Container Apps, and Azure Spring Apps:
 
-### [Azure App Service](#tab/app-service)
 
 | Client type        | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
 | ------------------ | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
@@ -31,37 +30,8 @@ Supported authentication and clients for App Service, Azure Functions, Container
 | Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Java - Spring Boot |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
 | Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Functions](#tab/azure-functions)
-
-| Client type        | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
-| ------------------ | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Container Apps](#tab/container-apps)
-
-| Client type        | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
-| ------------------ | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Spring Apps](#tab/spring-apps)
-
-| Client type        | System-assigned managed identity   | User-assigned managed identity | Secret / connection string         | Service principal                  |
-| ------------------ | ---------------------------------- | ------------------------------ | ---------------------------------- | ---------------------------------- |
-| .NET               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                    |                                | ![yes icon](./media/green-check.png) |                                    |
-| Node.js            | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ---
 

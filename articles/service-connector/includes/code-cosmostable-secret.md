@@ -3,7 +3,7 @@ author: wchigit
 description: code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 11/01/2023
+ms.date: 12/04/2023
 ms.author: wchi
 ---
 
@@ -67,9 +67,29 @@ ms.author: wchi
     table_service = TableServiceClient.from_connection_string(conn_str) 
     ```
 
+### [Go](#tab/go)
+1. Install dependency.
+    ```bash
+    go get github.com/Azure/azure-sdk-for-go/sdk/data/aztables
+    ```
+2. Get the connection string from the environment variable added by Service Connector.
+    ```go
+    import (
+        "github.com/Azure/azure-sdk-for-go/sdk/data/aztables"
+    )
+
+    func main() {
+        connStr := os.Getenv("AZURE_COSMOS_CONNECTIONSTRING")
+        serviceClient, err := aztables.NewServiceClientFromConnectionString(connStr, nil)
+        if err != nil {
+            panic(err)
+        }
+    }
+    ```
+
 ### [NodeJS](#tab/nodejs)
 
-1. Install dependencies.
+1. Install dependency.
 
     ```bash
     npm install @azure/data-tables
