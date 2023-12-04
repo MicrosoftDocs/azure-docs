@@ -31,11 +31,9 @@ You must provide following information to execute a full backup:
 - Storage account blob storage container
 - Storage container SAS token with permissions `crdw` (if storage account is not behind a private endpoint)
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+#### Prerequisites if the storage account is behind a private endpoint (preview):
 
-### Prerequisites if the storage account is behind a private endpoint (preview):
-
-1. Ensure you have the latest CLI version installed.
+1. Ensure you have the Azure CLI version 2.54.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 2. Create a user assigned managed identity.
 3. Create a storage account (or use an existing storage account).
 4. Enable Trusted service bypass on the storage account in the “Networking” tab, under “Exceptions.”
@@ -49,6 +47,8 @@ You must provide following information to execute a full backup:
   ```azurecli-interactive
    az keyvault update-hsm --hsm-name mhsmdemo2 –g mhsmrgname --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
    ```
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Full backup
 
