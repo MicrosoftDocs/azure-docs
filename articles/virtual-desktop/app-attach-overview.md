@@ -16,38 +16,30 @@ ms.date: 08/18/2023
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 ::: zone-end
 
-> [!TIP]
-> A new version of app attach for Azure Virtual Desktop is available in preview. Select a button at the top of this article to choose between *MSIX app attach* (current) and *app attach* (preview) to see the relevant documentation.
-
-::: zone pivot="app-attach"
-App attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with app attach also gives you greater control over which applications your users can access in a remote session.
-::: zone-end
-
-::: zone pivot="msix-app-attach"
-MSIX app attach enables you to dynamically attach applications from an MSIX package to a user session in Azure Virtual Desktop. MSIX is a Windows application package format that provides a modern packaging experience to Windows applications. Applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot.
-::: zone-end
+There are two features in Azure Virtual Desktop that enable you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop - *MSIX app attach* and *app attach (preview)*. *MSIX app attach* is generally available, but *app attach* is now available in preview, which improves the administrative experience and user experience. With both *MSIX app attach* and *app attach*, applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. Delivering applications with app attach also 
 
 The following table compares MSIX app attach with app attach:
 
 | MSIX app attach | App attach |
 |--|--|
-| Applications are delivered using RemoteApp or as part of a desktop session. Permissions are controlled by assignment to application groups, however all desktop users see all MSIX app attach applications in the desktop application group. | Applications are delivered using RemoteApp or as part of a desktop session. Permissions are applied per application per user. Desktop users only see the app attach applications assigned to them. |
+| Applications are delivered using RemoteApp or as part of a desktop session. Permissions are controlled by assignment to application groups, however all desktop users see all MSIX app attach applications in the desktop application group. | Applications are delivered using RemoteApp or as part of a desktop session. Permissions are applied per application per user, giving you greater control over which applications your users can access in a remote session. Desktop users only see the app attach applications assigned to them. |
 | Applications might only run on one host pool. If you want it to run on another host pool, you must create another package. | The same application package can be used across multiple host pools. |
 | Applications can only run on the host pool in which they're added. | Applications can run on any session host running a Windows client operating system in the same Azure region as the application package. |
 | To update the application, you must delete and recreate the application with another version of the package. You should update the application in a maintenance window. | Applications can be upgraded to a new application version with a new disk image without the need for a maintenance window. |
 | Users can't run two versions of the same application on the same session host. | Users can run two versions of the same application concurrently on the same session host. |
 | Telemetry for usage and health is now available through Azure Log Analytics. | Telemetry for usage and health is available through Azure Log Analytics. |
 
-::: zone pivot="app-attach"
-App attach supports the following application package types and file formats:
+You can use the following application package types and file formats:
 
-| Package type | File formats |
-|--|--|
-| MSIX and MSIX bundle | `.msix`<br />`.msixbundle` |
-| Appx and Appx bundle | `.appx`<br />`.appxbundle` |
+| Package type | File formats | Feature availability |
+|--|--|--|
+| MSIX and MSIX bundle | `.msix`<br />`.msixbundle` | MSIX app attach<br />App attach |
+| Appx and Appx bundle | `.appx`<br />`.appxbundle` | App attach only |
 
 MSIX and Appx are Windows application package formats that provide a modern packaging experience to Windows applications. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. MSIX and Appx are similar, where the main difference is that MSIX is a superset of Appx. MSIX supports all the features of Appx, plus other features that make it more suitable for enterprise use.
-::: zone-end
+
+> [!TIP]
+> Select a button at the top of this article to choose between *MSIX app attach* (current) and *app attach* (preview) to see the relevant documentation.
 
 You can get MSIX packages from software vendors, or you can [create an MSIX package from an existing installer](/windows/msix/packaging-tool/create-an-msix-overview). To learn more about MSIX, see [What is MSIX?](/windows/msix/overview).
 
