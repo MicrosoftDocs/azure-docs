@@ -1,10 +1,9 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: glharper
 ms.author: glharper
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 09/06/2023
 ---
@@ -54,7 +53,7 @@ async function main() {
     { role: "user", content: "What are the differences between Azure Machine Learning and Azure AI services?" },
   ];
 
-  // Get chat responses from Azure OpenAI deployment using your own data via Azure Cognitive Search
+  // Get chat responses from Azure OpenAI deployment using your own data via Azure AI Search
   const events = client.listChatCompletions(deploymentId, messages, { 
     azureExtensionOptions: {
       extensions: [

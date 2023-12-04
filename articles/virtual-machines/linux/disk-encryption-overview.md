@@ -24,7 +24,7 @@ If you use [Microsoft Defender for Cloud](../../security-center/index.yml), you'
 ![Microsoft Defender for Cloud disk encryption alert](media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
-> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue to use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
+> - If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue to use this option to encrypt your VM. See [Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-overview-aad.md) for details. 
 > - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
 
 You can learn the fundamentals of Azure Disk Encryption for Linux in just a few minutes with the [Create and encrypt a Linux VM with Azure CLI quickstart](disk-encryption-cli-quickstart.md) or the [Create and encrypt a Linux VM with Azure PowerShell quickstart](disk-encryption-powershell-quickstart.md).
@@ -44,12 +44,12 @@ Azure Disk Encryption is also not available on [Basic, A-series VMs](https://azu
 | Virtual machine | Minimum memory requirement |
 |--|--|
 | Linux VMs when only encrypting data volumes| 2 GB |
-| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is 4GB or less | 8 GB |
-| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is greater than 4GB | The root file system usage * 2. For instance, a 16 GB of root file system usage requires at least 32GB of RAM |
+| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is 4 GB or less | 8 GB |
+| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is greater than 4 GB | The root file system usage * 2. For instance, a 16 GB of root file system usage requires at least 32 GB of RAM |
 
 Once the OS disk encryption process is complete on Linux virtual machines, the VM can be configured to run with less memory.
 
-For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-linux.md#unsupported-scenarios).
+For more exceptions, see [Azure Disk Encryption: Restrictions](disk-encryption-linux.md#restrictions).
 
 ### Supported operating systems
 
@@ -90,8 +90,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Oracle | Oracle Linux 8.5 Gen 2 | 8.5 | Oracle:Oracle-Linux:ol85-lvm-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.2 | 9.2 | RedHat:RHEL:9_2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.2 Gen 2 | 9.2 | RedHat:RHEL:92-gen2:latest | OS and data disk (see note below) |
-| RedHat | RHEL 9.1 | 9.1 | RedHat:RHEL:9_1:latest | OS and data disk (see note below) |
-| RedHat | RHEL 9.1 Gen 2 | 9.1 | RedHat:RHEL:91-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.0 | 9.0 | RedHat:RHEL:9_0:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.0 Gen 2 | 9.0 | RedHat:RHEL:90-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9-lvm | 9-lvm | RedHat:RHEL:9-lvm:latest | OS and data disk (see note below) |
@@ -132,7 +130,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 > 
 > All distros:
 > - ADE support for a particular offer type does not extend beyond the end-of-life date provided by the publisher. 
-> - The legacy ADE solution (using AAD credentials) is not recommended for new VMs and is not compatible with RHEL versions later than RHEL 7.8 or with Phyton 3 as default.
+> - The legacy ADE solution (using Microsoft Entra credentials) is not recommended for new VMs and is not compatible with RHEL versions later than RHEL 7.8 or with Phyton 3 as default.
 
 ## Additional VM requirements
 
@@ -163,7 +161,7 @@ sudo mount -a
 
 To enable the Azure Disk Encryption feature, the Linux VMs must meet the following network endpoint configuration requirements:
 
-  - To get a token to connect to your key vault, the Linux VM must be able to connect to an Azure Active Directory endpoint, \[login.microsoftonline.com\].
+  - To get a token to connect to your key vault, the Linux VM must be able to connect to a Microsoft Entra endpoint, \[login.microsoftonline.com\].
   - To write the encryption keys to your key vault, the Linux VM must be able to connect to the key vault endpoint.
   - The Linux VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.
   -  If your security policy limits access from Azure VMs to the Internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs. For more information, see [Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).  

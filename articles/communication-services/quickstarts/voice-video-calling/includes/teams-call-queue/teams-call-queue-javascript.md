@@ -11,7 +11,6 @@ ms.author: ruslanzdor
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows).
-- Complete the Teams tenant setup in [Teams calling and chat interoperability](/communication-services/concepts/interop/calling-chat)
 
 ## Setting up
 
@@ -27,11 +26,11 @@ mkdir calling-quickstart && cd calling-quickstart
 
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 > [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `latest`.
+> This quickstart uses the Azure Communication Services Calling SDK version `next`.
 
 ```console
-npm install @azure/communication-common@latest --save
-npm install @azure/communication-calling@latest --save
+npm install @azure/communication-common@next --save
+npm install @azure/communication-calling@next --save
 ```
 
 ### Set up the app framework
@@ -39,7 +38,7 @@ npm install @azure/communication-calling@latest --save
 This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
 
 ```console
-npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
+npm install copy-webpack-plugin@^11.0.0 webpack@^5.88.2 webpack-cli@^5.1.4 webpack-dev-server@^4.15.1 --save-dev
 ```
 
 Create an `index.html` file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a 1:1 video call.
@@ -79,7 +78,7 @@ Here's the code:
         <br>
         <div id="localVideoContainer" style="width: 30%;" hidden>Local video stream:</div>
         <!-- points to the bundle generated from client.js -->
-        <script src="./bundle.js"></script>
+        <script src="./main.js"></script>
     </body>
 </html>
 ```
@@ -170,7 +169,7 @@ startCallButton.onclick = async () => {
     try {
         const localVideoStream = await createLocalVideoStream();
         const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
-        call = callAgent.startCall([{ botId: callQueueId.value.trim(), cloud:"public" }], { videoOptions: videoOptions });
+        call = callAgent.startCall([{ teamsAppId: callQueueId.value.trim(), cloud:"public" }], { videoOptions: videoOptions });
         // Subscribe to the call's properties and events.
         subscribeToCall(call);
     } catch (error) {
@@ -392,12 +391,41 @@ hangUpCallButton.addEventListener("click", async () => {
 });
 ```
 
+## Add the webpack local server code
+
+Create a file in the root directory of your project called **webpack.config.js** to contain the local server logic for this quickstart. Add the following code to **webpack.config.js**:
+```javascript
+const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
+
+module.exports = {
+    mode: 'development',
+    entry: './index.js',
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, './')
+        },
+    },
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                './index.html'
+            ]
+        }),
+    ]
+};
+```
+
 ## Run the code
 
 Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host in a local webserver:
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+npx webpack serve --config webpack.config.js
 ```
 
 Manual steps to setup the call:

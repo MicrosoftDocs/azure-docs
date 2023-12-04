@@ -14,7 +14,7 @@ ms.author: rolyon
 
 # Create or update Azure custom roles using the Azure portal
 
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription and resource group scopes. Custom roles are stored in an Azure Active Directory (Azure AD) directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API. This article describes how to create custom roles using the Azure portal.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription and resource group scopes. Custom roles are stored in a Microsoft Entra directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API. This article describes how to create custom roles using the Azure portal.
 
 ## Prerequisites
 
@@ -145,7 +145,7 @@ If you prefer, you can specify most of your custom role values in a JSON file. Y
 
 On the **Basics** tab, you specify the name, description, and baseline permissions for your custom role.
 
-1. In the **Custom role name** box, specify a name for the custom role. The name must be unique for the Azure AD directory. The name can include letters, numbers, spaces, and special characters.
+1. In the **Custom role name** box, specify a name for the custom role. The name must be unique for the Microsoft Entra directory. The name can include letters, numbers, spaces, and special characters.
 
 1. In the **Description** box, specify an optional description for the custom role. This will become the tooltip for the custom role.
 

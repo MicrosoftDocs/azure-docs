@@ -108,7 +108,7 @@ At this point, you're likely productively utilizing the native reporting and ana
   - Consider both bottom-up and top-down approaches to drive FinOps through data.
   - Use alerting systems and collaboration tools to raise awareness of costs on a recurring basis.
 - Regularly evaluate the quality of the data and reports.
-  - Consider introducing a feedback mechanism to learn how stakeholders are using reports and when they can't or or aren't meeting their needs. Use it as a KPI for your reports.
+  - Consider introducing a feedback mechanism to learn how stakeholders are using reports and when they can't or aren't meeting their needs. Use it as a KPI for your reports.
   - Focus heavily on data quality and consistency. Many issues surfaced within the reporting tools are result from the underlying data ingestion, normalization, and cost allocation processes. Channel the feedback to the right stakeholders and raise awareness of and resolve issues that are impacting end-to-end cost visibility, accountability, and optimization.
 
 ## Learn more at the FinOps Foundation

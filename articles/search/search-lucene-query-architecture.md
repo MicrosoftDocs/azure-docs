@@ -1,22 +1,26 @@
 ---
 title: Full text search
-titleSuffix: Azure Cognitive Search
-description: Describes concepts and architecture of query processing and document retrieval for full text search, as implemented Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Describes concepts and architecture of query processing and document retrieval for full text search, as implemented Azure AI Search.
 
 manager: nitinme
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 10/09/2023
 ---
 
-# Full text search in Azure Cognitive Search
+# Full text search in Azure AI Search
 
-This article is for developers who need a deeper understanding of how full text search works in Azure Cognitive Search. For text queries, Azure Cognitive Search seamlessly delivers expected results in most scenarios, but occasionally you might get a result that seems "off" somehow. In these situations, having a background in the four stages of Lucene query execution (query parsing, lexical analysis, document matching, scoring) can help you identify specific changes to query parameters or index configuration that produce the desired outcome. 
+Full text search is an approach in information retrieval that matches on plain text content stored in an index. For example, given a query string "hotels in San Diego on the beach", the search engine looks for content containing those terms. To make scans more efficient, query strings undergo lexical analysis: lower-casing all terms, removing stop words like "the", and reducing terms to primitive root forms. When matching terms are found, the search engine retrieves documents, ranks them in order of relevance, and returns the top results.
+
+Query execution can be complex. This article is for developers who need a deeper understanding of how full text search works in Azure AI Search. For text queries, Azure AI Search seamlessly delivers expected results in most scenarios, but occasionally you might get a result that seems "off" somehow. In these situations, having a background in the four stages of Lucene query execution (query parsing, lexical analysis, document matching, scoring) can help you identify specific changes to query parameters or index configuration that produce the desired outcome. 
 
 > [!NOTE]
-> Azure Cognitive Search uses [Apache Lucene](https://lucene.apache.org/) for full text search, but Lucene integration is not exhaustive. We selectively expose and extend Lucene functionality to enable the scenarios important to Azure Cognitive Search. 
+> Azure AI Search uses [Apache Lucene](https://lucene.apache.org/) for full text search, but Lucene integration is not exhaustive. We selectively expose and extend Lucene functionality to enable the scenarios important to Azure AI Search. 
 
 ## Architecture overview and diagram
 
@@ -31,7 +35,7 @@ A full text search query starts with parsing the query text to extract search te
 
 The diagram below illustrates the components used to process a search request. 
 
- ![Lucene query architecture diagram in Azure Cognitive Search.][1]
+ ![Lucene query architecture diagram in Azure AI Search.][1]
 
 | Key components | Functional description |
 |----------------|------------------------|
@@ -44,7 +48,7 @@ The diagram below illustrates the components used to process a search request.
 
 A search request is a complete specification of what should be returned in a result set. In simplest form, it's an empty query with no criteria of any kind. A more realistic example includes parameters, several query terms, perhaps scoped to certain fields, with possibly a filter expression and ordering rules.  
 
-The following example is a search request you might send to Azure Cognitive Search using the [REST API](/rest/api/searchservice/search-documents).  
+The following example is a search request you might send to Azure AI Search using the [REST API](/rest/api/searchservice/search-documents).  
 
 ```
 POST /indexes/hotels/docs/search?api-version=2020-06-30
@@ -96,7 +100,7 @@ The query parser restructures the subqueries into a *query tree* (an internal st
 
 ### Supported parsers: Simple and Full Lucene 
 
- Azure Cognitive Search exposes two different query languages, `simple` (default) and `full`. By setting the `queryType` parameter with your search request, you tell the query parser which query language you choose so that it knows how to interpret the operators and syntax. 
+ Azure AI Search exposes two different query languages, `simple` (default) and `full`. By setting the `queryType` parameter with your search request, you tell the query parser which query language you choose so that it knows how to interpret the operators and syntax. 
 
 + The [Simple query language](/rest/api/searchservice/simple-query-syntax-in-azure-search) is intuitive and robust, often suitable to interpret user input as-is without client-side processing. It supports query operators familiar from web search engines. 
 
@@ -142,7 +146,7 @@ The most common form of lexical analysis is *linguistic analysis that transforms
 * Breaking a composite word into component parts 
 * Lower casing an upper case word 
 
-All of these operations tend to erase differences between the text input provided by the user and the terms stored in the index. Such operations go beyond text processing and require in-depth knowledge of the language itself. To add this layer of linguistic awareness, Azure Cognitive Search supports a long list of [language analyzers](/rest/api/searchservice/language-support) from both Lucene and Microsoft.
+All of these operations tend to erase differences between the text input provided by the user and the terms stored in the index. Such operations go beyond text processing and require in-depth knowledge of the language itself. To add this layer of linguistic awareness, Azure AI Search supports a long list of [language analyzers](/rest/api/searchservice/language-support) from both Lucene and Microsoft.
 
 > [!NOTE]
 > Analysis requirements can range from minimal to elaborate depending on your scenario. You can control complexity of lexical analysis by the selecting one of the predefined analyzers or by creating your own [custom analyzer](/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Analyzers are scoped to searchable fields and are specified as part of a field definition. This allows you to vary lexical analysis on a per-field basis. Unspecified, the *standard* Lucene analyzer is used.
@@ -250,7 +254,7 @@ To produce the terms in an inverted index, the search engine performs lexical an
 It's common, but not required, to use the same analyzers for search and indexing operations so that query terms look more like terms inside the index.
 
 > [!NOTE]
-> Azure Cognitive Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  
+> Azure AI Search lets you specify different analyzers for indexing and search via additional `indexAnalyzer` and `searchAnalyzer` field parameters. If unspecified, the analyzer set with the `analyzer` property is used for both indexing and searching.  
 
 **Inverted index for example documents**
 
@@ -314,7 +318,7 @@ During query execution, individual queries are executed against the searchable f
 + The PhraseQuery, "ocean view", looks up the terms "ocean" and "view" and checks the proximity of terms in the original document. Documents 1, 2 and 3 match this query in the description field. Notice document 4 has the term ocean in the title but isn’t considered a match, as we're looking for the "ocean view" phrase rather than individual words. 
 
 > [!NOTE]
-> A search query is executed independently against all searchable fields in the Azure Cognitive Search index unless you limit the fields set with the `searchFields` parameter, as illustrated in the example search request. Documents that match in any of the selected fields are returned. 
+> A search query is executed independently against all searchable fields in the Azure AI Search index unless you limit the fields set with the `searchFields` parameter, as illustrated in the example search request. Documents that match in any of the selected fields are returned. 
 
 On the whole, for the query in question, the documents that match are 1, 2, 3. 
 
@@ -363,7 +367,7 @@ An example illustrates why this matters. Wildcard searches, including prefix sea
 
 ### Relevance tuning
 
-There are two ways to tune relevance scores in Azure Cognitive Search:
+There are two ways to tune relevance scores in Azure AI Search:
 
 1. **Scoring profiles** promote documents in the ranked list of results based on a set of rules. In our example, we could consider documents that matched in the title field more relevant than documents that matched in the description field. Additionally, if our index had a price field for each hotel, we could promote documents with lower price. Learn more about [adding scoring profiles to a search index](/rest/api/searchservice/add-scoring-profiles-to-a-search-index).
 
@@ -371,7 +375,7 @@ There are two ways to tune relevance scores in Azure Cognitive Search:
 
 ### Scoring in a distributed index
 
-All indexes in Azure Cognitive Search are automatically split into multiple shards, allowing us to quickly distribute the index among multiple nodes during service scale up or scale down. When a search request is issued, it’s issued against each shard independently. The results from each shard are then merged and ordered by score (if no other ordering is defined). It's important to know that the scoring function weights query term frequency against its inverse document frequency in all documents within the shard, not across all shards!
+All indexes in Azure AI Search are automatically split into multiple shards, allowing us to quickly distribute the index among multiple nodes during service scale up or scale down. When a search request is issued, it’s issued against each shard independently. The results from each shard are then merged and ordered by score (if no other ordering is defined). It's important to know that the scoring function weights query term frequency against its inverse document frequency in all documents within the shard, not across all shards!
 
 This means a relevance score *could* be different for identical documents if they reside on different shards. Fortunately, such differences tend to disappear as the number of documents in the index grows due to more even term distribution. It’s not possible to assume on which shard any given document will be placed. However, assuming a document key doesn't change, it will always be assigned to the same shard.
 
@@ -383,11 +387,11 @@ The success of commercial search engines has raised expectations for full text s
 
 From a technical standpoint, full text search is highly complex, requiring sophisticated linguistic analysis and a systematic approach to processing in ways that distill, expand, and transform query terms to deliver a relevant result. Given the inherent complexities, there are many factors that can affect the outcome of a query. For this reason, investing the time to understand the mechanics of full text search offers tangible benefits when trying to work through unexpected results.  
 
-This article explored full text search in the context of Azure Cognitive Search. We hope it gives you sufficient background to recognize potential causes and resolutions for addressing common query problems. 
+This article explored full text search in the context of Azure AI Search. We hope it gives you sufficient background to recognize potential causes and resolutions for addressing common query problems. 
 
 ## Next steps
 
-+ Build the sample index, try out different queries and review results. For instructions, see [Build and query an index in the portal](search-get-started-portal.md#query-index).
++ Build the sample index, try out different queries and review results. For instructions, see [Build and query an index in the portal](search-get-started-portal.md).
 
 + Try other query syntax from the [Search Documents](/rest/api/searchservice/search-documents#bkmk_examples) example section or from [Simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
 

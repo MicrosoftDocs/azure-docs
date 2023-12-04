@@ -5,6 +5,8 @@ description: In this quickstart, you'll learn to use the Document Intelligence S
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -18,7 +20,7 @@ monikerRange: 'doc-intel-2.1.0'
 <!-- markdownlint-disable MD029 -->
 # Get started with the Document Intelligence Sample Labeling tool
 
-**This article applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **Document Intelligence v2.1**.
+**This content applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **v2.1**.
 
 >[!TIP]
 >
@@ -44,7 +46,7 @@ You'll need the following to get started:
 * An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer), or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Document Intelligence resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
-    > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
+    > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll need a single-service resource if you intend to use [Microsoft Entra authentication](../../../active-directory/authentication/overview-authentication.md).
 
 ## Create a Document Intelligence resource
 

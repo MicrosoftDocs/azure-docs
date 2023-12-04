@@ -1,8 +1,8 @@
 ---
-title: How to configure Azure Active Directory Authentication
+title: How to configure Microsoft Entra authentication
 titleSuffix: Azure AI services
-description: Learn how to authenticate using Azure Active Directory Authentication
-services: cognitive-services
+description: Learn how to authenticate using Microsoft Entra authentication
+#services: cognitive-services
 author: rhurey
 manager: nitinme
 ms.service: azure-ai-speech
@@ -13,41 +13,45 @@ zone_pivot_groups: programming-languages-set-two
 ms.devlang: cpp, csharp, java, python
 ms.custom: devx-track-azurepowershell, devx-track-extended-java, devx-track-python, devx-track-azurecli
 ---
-# Azure Active Directory Authentication with the Speech SDK
+# Microsoft Entra authentication with the Speech SDK
 
-When using the Speech SDK to access the Speech service, there are three authentication methods available: service keys, a key-based token, and Azure Active Directory (Azure AD). This article describes how to configure a Speech resource and create a Speech SDK configuration object to use Azure AD for authentication.
+When using the Speech SDK to access the Speech service, there are three authentication methods available: service keys, a key-based token, and Microsoft Entra ID. This article describes how to configure a Speech resource and create a Speech SDK configuration object to use Microsoft Entra ID for authentication.
 
-This article shows how to use Azure AD authentication with the Speech SDK. You'll learn how to:
+This article shows how to use Microsoft Entra authentication with the Speech SDK. You'll learn how to:
 
 > [!div class="checklist"]
 >
 > - Create a Speech resource
-> - Configure the Speech resource for Azure AD authentication
-> - Get an Azure AD access token
+> - Configure the Speech resource for Microsoft Entra authentication
+> - Get a Microsoft Entra access token
 > - Create the appropriate SDK configuration object.
 
-To learn more about Azure AD access tokens, including token lifetime, visit [Access tokens in the Microsoft identity platform](/azure/active-directory/develop/access-tokens).
+To learn more about Microsoft Entra access tokens, including token lifetime, visit [Access tokens in the Microsoft identity platform](/azure/active-directory/develop/access-tokens).
 
 ## Create a Speech resource
 To create a Speech resource in the [Azure portal](https://portal.azure.com), see [Get the keys for your resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource)
 
-## Configure the Speech resource for Azure AD authentication
+<a name='configure-the-speech-resource-for-azure-ad-authentication'></a>
 
-To configure your Speech resource for Azure AD authentication, create a custom domain name and assign roles.
+## Configure the Speech resource for Microsoft Entra authentication
+
+To configure your Speech resource for Microsoft Entra authentication, create a custom domain name and assign roles.
 
 ### Create a custom domain name
 [!INCLUDE [Custom Domain include](includes/how-to/custom-domain.md)]
 
 ### Assign roles
-For Azure AD authentication with Speech resources, you need to assign either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* role.
+For Microsoft Entra authentication with Speech resources, you need to assign either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* role.
 
 You can assign roles to the user or application using the [Azure portal](../../role-based-access-control/role-assignments-portal.md) or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-## Get an Azure AD access token
-::: zone pivot="programming-language-csharp"
-To get an Azure AD access token in C#, use the [Azure Identity Client Library](/dotnet/api/overview/azure/identity-readme).
+<a name='get-an-azure-ad-access-token'></a>
 
-Here's an example of using Azure Identity to get an Azure AD access token from an interactive browser:
+## Get a Microsoft Entra access token
+::: zone pivot="programming-language-csharp"
+To get a Microsoft Entra access token in C#, use the [Azure Identity Client Library](/dotnet/api/overview/azure/identity-readme).
+
+Here's an example of using Azure Identity to get a Microsoft Entra access token from an interactive browser:
 ```c#
 TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://cognitiveservices.azure.com/.default" });
 InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
@@ -58,9 +62,9 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-To get an Azure AD access token in C++, use the [Azure Identity Client Library](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity).
+To get a Microsoft Entra access token in C++, use the [Azure Identity Client Library](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity).
 
-Here's an example of using Azure Identity to get an Azure AD access token with your tenant ID, client ID, and client secret credentials:
+Here's an example of using Azure Identity to get a Microsoft Entra access token with your tenant ID, client ID, and client secret credentials:
 ```cpp
 const std::string tenantId = "Your Tenant ID";
 const std::string clientId = "Your Client ID";
@@ -82,9 +86,9 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-To get an Azure AD access token in Java, use the [Azure Identity Client Library](/java/api/overview/azure/identity-readme).
+To get a Microsoft Entra access token in Java, use the [Azure Identity Client Library](/java/api/overview/azure/identity-readme).
 
-Here's an example of using Azure Identity to get an Azure AD access token from a browser:
+Here's an example of using Azure Identity to get a Microsoft Entra access token from a browser:
 ```java
 TokenRequestContext context = new TokenRequestContext();
 context.addScopes("https://cognitiveservices.azure.com/.default");
@@ -99,9 +103,9 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-To get an Azure AD access token in Java, use the [Azure Identity Client Library](/python/api/overview/azure/identity-readme).
+To get a Microsoft Entra access token in Java, use the [Azure Identity Client Library](/python/api/overview/azure/identity-readme).
 
-Here's an example of using Azure Identity to get an Azure AD access token from an interactive browser:
+Here's an example of using Azure Identity to get a Microsoft Entra access token from an interactive browser:
 ```Python
 from azure.identity import  InteractiveBrowserCredential
 ibc = InteractiveBrowserCredential()
@@ -110,14 +114,14 @@ aadToken = ibc.get_token("https://cognitiveservices.azure.com/.default")
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
-Find samples that get an Azure AD access token in [Microsoft identity platform code samples](../../active-directory/develop/sample-v2-code.md).
+Find samples that get a Microsoft Entra access token in [Microsoft identity platform code samples](../../active-directory/develop/sample-v2-code.md).
 
 For programming languages where a Microsoft identity platform client library isn't available, you can directly [request an access token](../../active-directory/develop/v2-oauth-ropc.md).
 ::: zone-end
 
 ## Get the Speech resource ID
 
-You need your Speech resource ID to make SDK calls using Azure AD authentication.
+You need your Speech resource ID to make SDK calls using Microsoft Entra authentication.
 
 > [!NOTE]
 > For Intent Recognition use your LUIS Prediction resource ID.
@@ -170,13 +174,13 @@ $resourceId = resource.Id
 
 ## Create the Speech SDK configuration object
 
-With an Azure AD access token, you can now create a Speech SDK configuration object.
+With a Microsoft Entra access token, you can now create a Speech SDK configuration object.
 
 The method of providing the token, and the method to construct the corresponding Speech SDK ```Config``` object varies by the object you'll be using.
 
 ### SpeechRecognizer, SpeechSynthesizer, IntentRecognizer, ConversationTranscriber
 
-For ```SpeechRecognizer```, ```SpeechSynthesizer```, ```IntentRecognizer```, ```ConversationTranscriber``` objects, build the authorization token from the resource ID and the Azure AD access token and then use it to create a ```SpeechConfig``` object.
+For ```SpeechRecognizer```, ```SpeechSynthesizer```, ```IntentRecognizer```, ```ConversationTranscriber``` objects, build the authorization token from the resource ID and the Microsoft Entra access token and then use it to create a ```SpeechConfig``` object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
@@ -225,7 +229,7 @@ speechConfig = SpeechConfig(auth_token=authorizationToken, region=region)
 
 ### TranslationRecognizer
 
-For the ```TranslationRecognizer```, build the authorization token from the resource ID and the Azure AD access token and then use it to create a ```SpeechTranslationConfig``` object.
+For the ```TranslationRecognizer```, build the authorization token from the resource ID and the Microsoft Entra access token and then use it to create a ```SpeechTranslationConfig``` object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
@@ -275,7 +279,7 @@ translationConfig = SpeechTranslationConfig(auth_token=authorizationToken, regio
 
 ### DialogServiceConnector
 
-For the ```DialogServiceConnection``` object, build the authorization token from the resource ID and the Azure AD access token and then use it to create a ```CustomCommandsConfig``` or a ```BotFrameworkConfig``` object.
+For the ```DialogServiceConnection``` object, build the authorization token from the resource ID and the Microsoft Entra access token and then use it to create a ```CustomCommandsConfig``` or a ```BotFrameworkConfig``` object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
@@ -320,7 +324,7 @@ The DialogServiceConnector is not currently supported in Python
 ::: zone-end
 
 ### VoiceProfileClient
-To use the ```VoiceProfileClient``` with Azure AD authentication, use the custom domain name created above.
+To use the ```VoiceProfileClient``` with Microsoft Entra authentication, use the custom domain name created above.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
@@ -368,4 +372,4 @@ The ```VoiceProfileClient``` isn't available with the Speech SDK for Python.
 ::: zone-end
 
 > [!NOTE]
-> The ```ConversationTranslator``` doesn't support Azure AD authentication.
+> The ```ConversationTranslator``` doesn't support Microsoft Entra authentication.

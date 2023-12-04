@@ -848,7 +848,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 ### [Portal](#tab/portal4)
 
 > [!NOTE]
-> **Known issue**: In the Azure portal, if you you select a region, select an image, then change the region, you'll get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
+> **Known issue**: In the Azure portal, if you select a region, select an image, then change the region, you'll get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 >
 > You can also use the Azure CLI to check what images are shared with you. For example, you can use `az sig list-shared --location westus` to see what images are shared with you in the West US region.
 
@@ -860,10 +860,10 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 1. For **Security type**, make sure *Standard* is selected.
 1. For your **Image**, select **See all images**. The **Select an image** page opens.
 1. In the left menu, under **Other Items**, select **Direct Shared Images (PREVIEW)**. The **Other Items | Direct Shared Images (PREVIEW)** page opens.
+1. The scope in this section is set to 'Subscription' by default, change the scope to 'Tenant' if you don't see the images and click outside the box to see the list of images shared to the entire Tenant.
 1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image you choose, the **Region** the VM will be created in will change to match the image.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
 1. On the **Create a virtual machine** page, you can see the details about the VM you're about to create. When you're ready, select **Create**.
-
 
 ---
 

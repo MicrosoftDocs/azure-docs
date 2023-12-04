@@ -32,7 +32,7 @@ SQL Database DACPAC and BACPAC packages can be deployed to SQL Edge using the `M
 To deploy (or import) a SQL Database DAC package `(*.dacpac)` or a BACPAC file `(*.bacpac)` using Azure Blob storage and a zip file, follow these steps.
 
 1. Create/extract a DAC package or export a BACPAC file using one of the following mechanisms.
-   - Use [SQL Database Project Extension - Azure Data Studio](/sql/azure-data-studio/extensions/sql-database-project-extension-getting-started) to [create a new database project or export an existing database](/sql/azure-data-studio/extensions/sql-database-project-extension-getting-started)
+   - Use [SQL Database Project Extension - Azure Data Studio](/azure-data-studio/extensions/sql-database-project-extension-getting-started) to [create a new database project or export an existing database](/azure-data-studio/extensions/sql-database-project-extension-getting-started)
    - Create or extract a SQL Database DAC package. See [Extracting a DAC from a database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL Server database.
    - Exporting a deployed DAC package or a database. See [Export a Data-tier Application](/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) for information on how to generate a BACPAC file for an existing SQL Server database.
 

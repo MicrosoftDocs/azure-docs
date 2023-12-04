@@ -25,11 +25,11 @@ The following parameters are configurable. You can see examples of how these par
 
 **Required:** No. `kvmi` is assumed by default.
 
-**Explanation:** Specifies whether secrets (username, password, log analytics ID and shared key) should be stored in local configuration file, or in Azure Key Vault. Also controls whether authentication to Azure Key Vault is done using the VM's Azure system-assigned managed identity or an Azure AD registered-application identity.
+**Explanation:** Specifies whether secrets (username, password, log analytics ID and shared key) should be stored in local configuration file, or in Azure Key Vault. Also controls whether authentication to Azure Key Vault is done using the VM's Azure system-assigned managed identity or a Microsoft Entra registered-application identity.
 
 If set to `kvmi`, Azure Key Vault is used to store secrets, and authentication to Azure Key Vault is done using the virtual machine's Azure system-assigned managed identity.
 
-If set to `kvsi`, Azure Key Vault is used to store secrets, and authentication to Azure Key Vault is done using an Azure AD registered-application identity. Usage of `kvsi` mode requires `--appid`, `--appsecret` and `--tenantid` values.
+If set to `kvsi`, Azure Key Vault is used to store secrets, and authentication to Azure Key Vault is done using a Microsoft Entra registered-application identity. Usage of `kvsi` mode requires `--appid`, `--appsecret` and `--tenantid` values.
 
 If set to `cfgf`, configuration file stored locally will be used to store secrets.
 
@@ -182,7 +182,7 @@ If set to `cfgf`, configuration file stored locally will be used to store secret
 
 **Required:** Yes, if [Secret storage location](#secret-storage-location) is set to `kvsi`.
 
-**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the Azure Active Directory Tenant ID.
+**Explanation:** When Azure Key Vault authentication mode is set to `kvsi`, authentication to key vault is done using an [enterprise application (service principal) identity](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container). This parameter specifies the Microsoft Entra tenant ID.
  
 #### Key Vault Name
 

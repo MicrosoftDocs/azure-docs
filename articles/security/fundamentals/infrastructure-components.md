@@ -77,7 +77,7 @@ Various engineering groups, known as service teams, manage the support of the Az
 The service teams are:
 
 - Application Platform
-- Azure Active Directory
+- Microsoft Entra ID
 - Azure Compute
 - Azure Net
 - Cloud Engineering Services

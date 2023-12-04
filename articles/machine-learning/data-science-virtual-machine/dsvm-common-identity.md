@@ -1,7 +1,7 @@
 ---
 title: Set up a common identity
 titleSuffix: Azure Data Science Virtual Machine 
-description: Learn how to create common user accounts that can be used across multiple Data Science Virtual Machines. You can use Azure Active Directory or an on-premises Active Directory to authenticate users to the Data Science Virtual Machine.
+description: Learn how to create common user accounts that can be used across multiple Data Science Virtual Machines. You can use Microsoft Entra ID or an on-premises Active Directory to authenticate users to the Data Science Virtual Machine.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
 ms.service: data-science-vm
@@ -15,23 +15,23 @@ ms.date: 05/08/2018
 
 On a Microsoft Azure virtual machine (VM), including a Data Science Virtual Machine (DSVM), you create local user accounts while provisioning the VM. Users then authenticate to the VM by using these credentials. If you have multiple VMs that your users need to access, managing credentials can get very cumbersome. An excellent solution is to deploy common user accounts and  management through a standards-based identity provider. Through this approach, you can use a single set of credentials to access multiple resources on Azure, including multiple DSVMs.
 
-Active Directory is a popular identity provider and is supported on Azure both as a cloud service and as an on-premises directory. You can use Azure Active Directory (Azure AD) or on-premises Active Directory to authenticate users on a standalone DSVM or a cluster of DSVMs in an Azure virtual machine scale set. You do this by joining the DSVM instances to an Active Directory domain.
+Active Directory is a popular identity provider and is supported on Azure both as a cloud service and as an on-premises directory. You can use Microsoft Entra ID or on-premises Active Directory to authenticate users on a standalone DSVM or a cluster of DSVMs in an Azure virtual machine scale set. You do this by joining the DSVM instances to an Active Directory domain.
 
-If you already have Active Directory, you can use it as your common identity provider. If you don't have Active Directory, you can run a managed Active Directory instance on Azure through [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) (Azure AD DS).
+If you already have Active Directory, you can use it as your common identity provider. If you don't have Active Directory, you can run a managed Active Directory instance on Azure through [Microsoft Entra Domain Services](../../active-directory-domain-services/index.yml).
 
-The documentation for [Azure AD](../../active-directory/index.yml) provides detailed [management instructions](../../active-directory/hybrid/whatis-hybrid-identity.md), including guidance about connecting Azure AD to your on-premises directory if you have one.
+The documentation for [Microsoft Entra ID](../../active-directory/index.yml) provides detailed [management instructions](../../active-directory/hybrid/whatis-hybrid-identity.md), including guidance about connecting Microsoft Entra ID to your on-premises directory if you have one.
 
-This article describes how to set up a fully managed Active Directory domain service on Azure by using Azure AD DS. You can then join your DSVMs to the managed Active Directory domain. This approach enables users to access a pool of DSVMs (and other Azure resources) through a common user account and credentials.
+This article describes how to set up a fully managed Active Directory domain service on Azure by using Microsoft Entra Domain Services. You can then join your DSVMs to the managed Active Directory domain. This approach enables users to access a pool of DSVMs (and other Azure resources) through a common user account and credentials.
 
 ## Set up a fully managed Active Directory domain on Azure
 
-Azure AD DS makes it simple to manage your identities by providing a fully managed service on Azure. On this Active Directory domain, you manage users and groups. To set up an Azure-hosted Active Directory domain and user accounts in your directory, follow these steps:
+Microsoft Entra Domain Services makes it simple to manage your identities by providing a fully managed service on Azure. On this Active Directory domain, you manage users and groups. To set up an Azure-hosted Active Directory domain and user accounts in your directory, follow these steps:
 
 1. In the Azure portal, add the user to Active Directory: 
 
    1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
     
-   1. Browse to **Azure Active Directory** > **Users** > **All users**.
+   1. Browse to **Microsoft Entra ID** > **Users** > **All users**.
     
    1. Select **New user**.
    
@@ -49,7 +49,7 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
     
    1. Securely distribute the generated password to the new user so that they can sign in.
 
-1. Create an Azure AD DS instance. Follow the instructions in  [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md) (the "Create an instance and configure basic settings" section). It's important to update the existing user passwords in Active Directory so that the password in Azure AD DS is synced. It's also important to add DNS to Azure AD DS, as described under "Complete the fields in the Basics window of the Azure portal to create an Azure AD DS instance" in that section.
+1. Create a Microsoft Entra Domain Services instance. Follow the instructions in  [Enable Microsoft Entra Domain Services using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md) (the "Create an instance and configure basic settings" section). It's important to update the existing user passwords in Active Directory so that the password in Microsoft Entra Domain Services is synced. It's also important to add DNS to Microsoft Entra Domain Services, as described under "Complete the fields in the Basics window of the Azure portal to create a Microsoft Entra Domain Services instance" in that section.
 
 1. Create a separate DSVM subnet in the virtual network created in the "Create and configure the virtual network" section of the preceding step.
 1. Create one or more DSVM instances in the DSVM subnet.
@@ -66,7 +66,7 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
 1. For example, assume that you mounted your Azure Files share in /data/workspace. Now, create directories for each of your users in the share: /data/workspace/user1, /data/workspace/user2, and so on. Create a `notebooks` directory in each user's workspace. 
 1. Create symbolic links for `notebooks` in `$HOME/userx/notebooks/remote`.   
 
-You now have the users in your Active Directory instance hosted in Azure. By using Active Directory credentials, users can sign in to any DSVM (SSH or JupyterHub) that's joined to Azure AD DS. Because the user workspace is on an Azure Files share, users have access to their notebooks and other work from any DSVM when they're using JupyterHub.
+You now have the users in your Active Directory instance hosted in Azure. By using Active Directory credentials, users can sign in to any DSVM (SSH or JupyterHub) that's joined to Microsoft Entra Domain Services. Because the user workspace is on an Azure Files share, users have access to their notebooks and other work from any DSVM when they're using JupyterHub.
 
 For autoscaling, you can use a virtual machine scale set to create a pool of VMs that are all joined to the domain in this fashion and with the shared disk mounted. Users can sign in to any available machine in the virtual machine scale set and have access to the shared disk where their notebooks are saved. 
 

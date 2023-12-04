@@ -12,6 +12,8 @@ ms.author: mbullwin
 
 # Further analyze an incident and evaluate impact
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 ## Metrics drill down by dimensions
 
 When you're viewing incident information, you may need to get more detailed information, for example, for different dimensions, and timestamps. If your data has one or more dimensions, you can use the drill down function to get a more detailed view. 

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a custom voice assistant, Java - Speech service"
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: trrwilson
 manager: nitinme
 ms.service: azure-ai-speech

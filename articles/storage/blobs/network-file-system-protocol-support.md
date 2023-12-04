@@ -54,7 +54,7 @@ For step-by-step guidance, see [Mount Blob storage by using the Network File Sys
 
 ## Network security
 
-Traffic must originate from a VNet. A VNet enables clients to securely connect to your storage account. The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) can't be used to authorize an NFS 3.0 request.
+Traffic must originate from a VNet. A VNet enables clients to securely connect to your storage account. The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFS 3.0 request.
 
 To learn more, see [Network security recommendations for Blob storage](security-recommendations.md#networking).
 

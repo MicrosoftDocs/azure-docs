@@ -165,7 +165,7 @@ Modeling the application design and enumerating [STRIDE](https://docs.google.com
 | Repudiation            | Non-repudiation       | Enable Azure [monitoring and diagnostics](/azure/architecture/best-practices/monitoring).|
 | Information Disclosure | Confidentiality       | Encrypt sensitive data [at rest](../fundamentals/encryption-atrest.md) and [in transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Denial of Service      | Availability          | Monitor performance metrics for potential denial of service conditions. Implement connection filters. [Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md), combined with application design best practices, provides defense against DDoS attacks.|
-| Elevation of Privilege | Authorization         | Use Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
+| Elevation of Privilege | Authorization         | Use Microsoft Entra ID <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### Reduce your attack surface
 
@@ -234,11 +234,11 @@ web applications:
 
 #### Enforce multifactor authentication for users
 
-Use two-factor authentication. Two-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses that are inherent in username and password types of authentication. Access to the Azure management interfaces (Azure portal/remote PowerShell) and to customer-facing services should be designed and configured to use [Azure AD Multifactor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Use two-factor authentication. Two-factor authentication is the current standard for authentication and authorization because it avoids the security weaknesses that are inherent in username and password types of authentication. Access to the Azure management interfaces (Azure portal/remote PowerShell) and to customer-facing services should be designed and configured to use [Microsoft Entra multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 #### Use strong authentication and authorization platforms
 
-Use platform-supplied authentication and authorization mechanisms instead of custom code. This is because developing custom authentication code can be prone to error. Commercial code (for example, from Microsoft) often is extensively reviewed for security. [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) is the Azure solution for identity and access management. These Azure AD tools and services help with secure development:
+Use platform-supplied authentication and authorization mechanisms instead of custom code. This is because developing custom authentication code can be prone to error. Commercial code (for example, from Microsoft) often is extensively reviewed for security. [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) (Microsoft Entra ID) is the Azure solution for identity and access management. These Microsoft Entra tools and services help with secure development:
 
 * [Microsoft identity platform](../../active-directory/develop/index.yml) is a set of components that developers use to build apps that securely sign in users. The platform assists developers who are building single-tenant, line-of-business (LOB) apps and developers who are looking to develop multitenant apps. In addition to basic sign-in, apps built by using the Microsoft identity platform can call Microsoft APIs and custom APIs. The Microsoft identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
 
@@ -257,7 +257,7 @@ Ensure that your application enforces [least privilege](/windows-server/identity
 
 #### Implement just-in-time access
 
-Implement *just-in-time* (JIT) access to further lower the exposure time of privileges. Use [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-administrator-activity)
+Implement *just-in-time* (JIT) access to further lower the exposure time of privileges. Use [Microsoft Entra Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-administrator-activity)
 to:
 
 * Give users the permissions they need only JIT.

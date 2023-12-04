@@ -36,6 +36,7 @@ Log file output looks similar to these examples. In some cases, it can be extens
 
 > :::image type="content" source="media/java-ipa/jmx/available-mbeans.png" lightbox="media/java-ipa/jmx/available-mbeans.png" alt-text="Screenshot of available JMX metrics in the log file.":::
 
+You can also use a [command line tool](https://github.com/microsoft/ApplicationInsights-Java/wiki/Troubleshoot-JMX-metrics) to check the available JMX metrics.
 
 ## Configuration example
 

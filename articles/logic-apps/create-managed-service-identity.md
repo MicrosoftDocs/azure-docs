@@ -1,6 +1,6 @@
 ---
 title: Authenticate connections with managed identities
-description: Use a managed identity to authenticate workflow connections to Azure AD protected resources without credentials or secrets in Azure Logic Apps.
+description: Use a managed identity to authenticate workflow connections to Microsoft Entra protected resources without credentials or secrets in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -13,7 +13,7 @@ ms.custom: subject-rbac-steps, ignite-fall-2021, devx-track-arm-template
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-In logic app workflows, some triggers and actions support using a managed identity for authenticating access to resources protected by Azure Active Directory (Azure AD). When you use a managed identity to authenticate your connection, you don't have to provide credentials, secrets, or Azure AD tokens. Azure manages this identity and helps keep authentication information secure because you don't have to manage this sensitive information. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
+In logic app workflows, some triggers and actions support using a managed identity for authenticating access to resources protected by Microsoft Entra ID. When you use a managed identity to authenticate your connection, you don't have to provide credentials, secrets, or Microsoft Entra tokens. Azure manages this identity and helps keep authentication information secure because you don't have to manage this sensitive information. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 Azure Logic Apps supports the [*system-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md) and the [*user-assigned* managed identity](../active-directory/managed-identities-azure-resources/overview.md). The following list describes some differences between these identity types:
 
@@ -49,7 +49,7 @@ For more information about managed identity limits in Azure Logic Apps, review [
 
 ## Where you can use a managed identity
 
-Only specific built-in and managed connector operations that support Azure AD Open Authentication (Azure AD OAuth) can use a managed identity for authentication. The following table provides only a *sample selection*. For a more complete list, review [Authentication types for triggers and actions that support authentication](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) and [Azure services that support Azure AD authentication with managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Only specific built-in and managed connector operations that support OAuth with Microsoft Entra ID can use a managed identity for authentication. The following table provides only a *sample selection*. For a more complete list, review [Authentication types for triggers and actions that support authentication](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) and [Azure services that support Microsoft Entra authentication with managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 ### [Consumption](#tab/consumption)
 
@@ -58,7 +58,7 @@ The following table lists the connectors that support using a managed identity i
 | Connector type | Supported connectors |
 |----------------|----------------------|
 | Built-in | - Azure API Management <br>- Azure App Services <br>- Azure Functions <br>- HTTP <br>- HTTP + Webhook <p>**Note**: HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. However, they don't support the user-assigned managed identity for authenticating the same connections. |
-| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure IoT Central V3 <br>- Azure Key Vault <br>- Azure Log Analytics <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- HTTP with Azure AD <br>- SQL Server |
+| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure IoT Central V3 <br>- Azure Key Vault <br>- Azure Log Analytics <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- HTTP with Microsoft Entra ID <br>- SQL Server |
 
 ### [Standard](#tab/standard)
 
@@ -67,7 +67,7 @@ The following table lists the connectors that support using a managed identity i
 | Connector type | Supported connectors |
 |----------------|----------------------|
 | Built-in | - Azure Automation <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- Azure Queues <br>- Azure Tables <br>- HTTP <br>- HTTP + Webhook <br>- SQL Server <br><br>**Note**: Except for the SQL Server and HTTP connectors, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) currently don't support selecting user-assigned managed identities for authentication. Instead, you must use the system-assigned identity. HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. |
-| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure IoT Central V3 <br>- Azure Key Vault <br>- Azure Log Analytics <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- HTTP with Azure AD <br>- SQL Server |
+| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure IoT Central V3 <br>- Azure Key Vault <br>- Azure Log Analytics <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- HTTP with Microsoft Entra ID <br>- SQL Server |
 
 ---
 
@@ -75,7 +75,7 @@ The following table lists the connectors that support using a managed identity i
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
 
-* The target Azure resource that you want to access. On this resource, you'll add the necessary role for the managed identity to access that resource on your logic app's or connection's behalf. To add a role to a managed identity, you need [Azure AD administrator permissions](../active-directory/roles/permissions-reference.md) that can assign roles to identities in the corresponding Azure AD tenant.
+* The target Azure resource that you want to access. On this resource, you'll add the necessary role for the managed identity to access that resource on your logic app's or connection's behalf. To add a role to a managed identity, you need [Microsoft Entra administrator permissions](../active-directory/roles/permissions-reference.md) that can assign roles to identities in the corresponding Microsoft Entra tenant.
 
 * The logic app resource and workflow where you want to use the [trigger or actions that support managed identities](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
@@ -99,13 +99,13 @@ The following table lists the connectors that support using a managed identity i
    > user-assigned identity. Before you can add the system-assigned identity, you have to first *remove* the user-assigned identity 
    > from your logic app resource.
 
-   Your logic app resource can now use the system-assigned identity. This identity is registered with Azure AD and is represented by an object ID.
+   Your logic app resource can now use the system-assigned identity. This identity is registered with Microsoft Entra ID and is represented by an object ID.
 
    ![Screenshot showing Consumption logic app's "Identity" pane with the object ID for system-assigned identity.](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Object (principal) ID** | <*identity-resource-ID*> | A Globally Unique Identifier (GUID) that represents the system-assigned identity for your logic app in an Azure AD tenant. |
+   | **Object (principal) ID** | <*identity-resource-ID*> | A Globally Unique Identifier (GUID) that represents the system-assigned identity for your logic app in a Microsoft Entra tenant. |
 
 1. Now follow the [steps that give that identity access to the resource](#access-other-resources) later in this topic.
 
@@ -121,13 +121,13 @@ On a **Logic App (Standard)** resource, the system-assigned identity is automati
 
    ![Screenshot showing Azure portal with Standard logic app's "Identity" pane and "System assigned" tab with "On" and "Save" selected.](./media/create-managed-service-identity/enable-system-assigned-identity-standard.png)
 
-   Your logic app resource can now use the system-assigned identity, which is registered with Azure AD and is represented by an object ID.
+   Your logic app resource can now use the system-assigned identity, which is registered with Microsoft Entra ID and is represented by an object ID.
 
    ![Screenshot showing Standard logic app's "Identity" pane with the object ID for system-assigned identity.](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Object (principal) ID** | <*identity-resource-ID*> | A Globally Unique Identifier (GUID) that represents the system-assigned identity for your logic app in an Azure AD tenant. |
+   | **Object (principal) ID** | <*identity-resource-ID*> | A Globally Unique Identifier (GUID) that represents the system-assigned identity for your logic app in a Microsoft Entra tenant. |
    ||||
 
 1. Now follow the [steps that give that identity access to the resource](#access-other-resources) later in this topic.
@@ -188,8 +188,8 @@ When Azure creates your logic app resource definition, the `identity` object get
 
 | Property (JSON) | Value | Description |
 |-----------------|-------|-------------|
-| `principalId` | <*principal-ID*> | The Globally Unique Identifier (GUID) of the service principal object for the managed identity that represents your logic app in the Azure AD tenant. This GUID sometimes appears as an "object ID" or `objectID`. |
-| `tenantId` | <*Azure-AD-tenant-ID*> | The Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. |
+| `principalId` | <*principal-ID*> | The Globally Unique Identifier (GUID) of the service principal object for the managed identity that represents your logic app in the Microsoft Entra tenant. This GUID sometimes appears as an "object ID" or `objectID`. |
+| `tenantId` | <*Azure-AD-tenant-ID*> | The Globally Unique Identifier (GUID) that represents the Microsoft Entra tenant where the logic app is now a member. Inside the Microsoft Entra tenant, the service principal has the same name as the logic app instance. |
 ||||
 
 <a name="azure-portal-user-identity"></a>
@@ -473,7 +473,7 @@ When the template creates a logic app resource, the `identity` object includes t
 }
 ```
 
-The `principalId` property value is a unique identifier for the identity that's used for Azure AD administration. The `clientId` property value is a unique identifier for the logic app's new identity that's used for specifying which identity to use during runtime calls. For more information about Azure Resource Manager templates and managed identities for Azure Functions, review [ARM template - Azure Functions](../azure-functions/functions-create-first-function-resource-manager.md#review-the-template) and [Add a user-assigned identity using an ARM template for Azure Functions](../app-service/overview-managed-identity.md?tabs=arm%2Chttp#add-a-user-assigned-identity).
+The `principalId` property value is a unique identifier for the identity that's used for Microsoft Entra administration. The `clientId` property value is a unique identifier for the logic app's new identity that's used for specifying which identity to use during runtime calls. For more information about Azure Resource Manager templates and managed identities for Azure Functions, review [ARM template - Azure Functions](../azure-functions/functions-create-first-function-resource-manager.md#review-the-template) and [Add a user-assigned identity using an ARM template for Azure Functions](../app-service/overview-managed-identity.md?tabs=arm%2Chttp#add-a-user-assigned-identity).
 
 ---
 
@@ -528,7 +528,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
    > [!NOTE]
    >
    > If the **Add role assignment** option is disabled, you don't have permissions to assign roles. 
-   > For more information, review [Azure AD built-in roles](../active-directory/roles/permissions-reference.md).
+   > For more information, review [Microsoft Entra built-in roles](../active-directory/roles/permissions-reference.md).
 
 1. Now, assign the necessary role to your managed identity. On the **Role** tab, assign a role that gives your identity the required access to the current resource.
 
@@ -756,20 +756,20 @@ The following example shows a sample HTTP action with all the previously describ
 
    > [!IMPORTANT]
    >
-   > Make sure that the target resource ID *exactly matches* the value that Azure Active Directory (AD) expects, 
+   > Make sure that the target resource ID *exactly matches* the value that Microsoft Entra ID expects, 
    > including any required trailing slashes. For example, the resource ID for all Azure Blob Storage accounts requires 
    > a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. Check the 
-   > [resource IDs for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+   > [resource IDs for the Azure services that support Microsoft Entra ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
    This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, `https://<your-storage-account>.blob.core.windows.net`, for a specific storage account.
 
    ![Screenshot showing Consumption workflow with HTTP action and "Audience" property set to target resource ID.](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
 
-   For more information about authorizing access with Azure AD for Azure Storage, review the following documentation:
+   For more information about authorizing access with Microsoft Entra ID for Azure Storage, review the following documentation:
 
-   * [Authorize access to Azure blobs and queues by using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
+   * [Authorize access to Azure blobs and queues by using Microsoft Entra ID](../storage/blobs/authorize-access-azure-active-directory.md)
 
-   * [Authorize access to Azure Storage with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+   * [Authorize access to Azure Storage with Microsoft Entra ID](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Continue building the workflow the way that you want.
 
@@ -802,19 +802,19 @@ The following example shows a sample HTTP action with all the previously describ
 
    > [!IMPORTANT]
    >
-   > Make sure that the target resource ID *exactly matches* the value that Azure Active Directory (AD) expects, 
+   > Make sure that the target resource ID *exactly matches* the value that Microsoft Entra ID expects, 
    > including any required trailing slashes. For example, the resource ID for all Azure Blob Storage accounts requires 
    > a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. Check the 
-   > [resource IDs for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+   > [resource IDs for the Azure services that support Microsoft Entra ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
    This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, `https://<your-storage-account>.blob.core.windows.net`, for a specific storage account.
 
    ![Screenshot showing the "Audience" property set to the target resource ID.](./media/create-managed-service-identity/specify-audience-url-target-resource-standard.png)
 
-   For more information about authorizing access with Azure AD for Azure Storage, review the following documentation:
+   For more information about authorizing access with Microsoft Entra ID for Azure Storage, review the following documentation:
 
-   * [Authorize access to Azure blobs and queues by using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
-   * [Authorize access to Azure Storage with Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+   * [Authorize access to Azure blobs and queues by using Microsoft Entra ID](../storage/blobs/authorize-access-azure-active-directory.md)
+   * [Authorize access to Azure Storage with Microsoft Entra ID](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Continue building the workflow the way that you want.
 
@@ -828,7 +828,7 @@ The Azure Resource Manager managed connector has an action named **Read a resour
 
 ### [Consumption](#tab/consumption)
 
-1. After you add the action to your workflow and select your Azure AD tenant, select **Connect with managed identity**.
+1. After you add the action to your workflow and select your Microsoft Entra tenant, select **Connect with managed identity**.
 
    ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-consumption.png)
 
@@ -856,7 +856,7 @@ The Azure Resource Manager managed connector has an action named **Read a resour
 
 ### [Standard](#tab/standard)
 
-1. After you add the action to your workflow, on the action's **Create Connection** pane, select your Azure AD tenant, and then select **Connect with managed identity**.
+1. After you add the action to your workflow, on the action's **Create Connection** pane, select your Microsoft Entra tenant, and then select **Connect with managed identity**.
 
    ![Screenshot showing Azure Resource Manager action and "Connect with managed identity" selected.](./media/create-managed-service-identity/select-connect-managed-identity-standard.png)
 
@@ -886,7 +886,7 @@ The Azure Resource Manager managed connector has an action named **Read a resour
 
 ## Logic app resource definition and connections that use a managed identity
 
-A connection that enables and uses a managed identity are a special connection type that works only with a managed identity. At runtime, the connection uses the managed identity that's enabled on the logic app resource. At runtime, the Azure Logic Apps service checks whether any managed connector trigger and actions in the logic app workflow are set up to use the managed identity and that all the required permissions are set up to use the managed identity for accessing the target resources that are specified by the trigger and actions. If successful, Azure Logic Apps retrieves the Azure AD token that's associated with the managed identity and uses that identity to authenticate access to the target resource and perform the configured operation in trigger and actions.
+A connection that enables and uses a managed identity are a special connection type that works only with a managed identity. At runtime, the connection uses the managed identity that's enabled on the logic app resource. At runtime, the Azure Logic Apps service checks whether any managed connector trigger and actions in the logic app workflow are set up to use the managed identity and that all the required permissions are set up to use the managed identity for accessing the target resources that are specified by the trigger and actions. If successful, Azure Logic Apps retrieves the Microsoft Entra token that's associated with the managed identity and uses that identity to authenticate access to the target resource and perform the configured operation in trigger and actions.
 
 ### [Consumption](#tab/consumption)
 
@@ -1129,8 +1129,8 @@ Following this `Microsoft.Web/connections` resource definition, make sure that y
 | Parameter | Description |
 |-----------|-------------|
 | <*connection-name*> | The name for your API connection, for example, `azureblob` |
-| <*object-ID*> | The object ID for your Azure AD identity, previously saved from your app registration |
-| <*tenant-ID*> | The tenant ID for your Azure AD identity, previously saved from your app registration |
+| <*object-ID*> | The object ID for your Microsoft Entra identity, previously saved from your app registration |
+| <*tenant-ID*> | The tenant ID for your Microsoft Entra identity, previously saved from your app registration |
 
 ```json
 {
@@ -1296,7 +1296,7 @@ When you disable the managed identity on your logic app resource, you remove the
 > Try to avoid disabling the system-assigned identity as much as possible. If you want to remove 
 > the identity's access to Azure resources, remove the identity's role assignment from the target 
 > resource. If you delete your logic app resource, Azure automatically removes the managed identity 
-> from Azure AD.
+> from Microsoft Entra ID.
 
 The steps in this section cover using the [Azure portal](#azure-portal-disable) and [Azure Resource Manager template (ARM template)](#template-disable). For Azure PowerShell, Azure CLI, and Azure REST API, review the following documentation:
 
@@ -1328,7 +1328,7 @@ The following steps remove access to the target resource from the managed identi
    >
    > If the **Remove** option is disabled, you most likely don't have permissions. 
    > For more information about the permissions that let you manage roles for resources, review 
-   > [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
+   > [Administrator role permissions in Microsoft Entra ID](../active-directory/roles/permissions-reference.md).
 
 <a name="disable-identity-logic-app"></a>
 

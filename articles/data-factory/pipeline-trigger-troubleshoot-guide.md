@@ -72,7 +72,7 @@ Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are 
 
 **Cause**
 
-You've reached the integration runtime's capacity limit. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2) for details.
+You've reached the integration runtime's capacity limit. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits) for details.
 
 **Resolution**
  

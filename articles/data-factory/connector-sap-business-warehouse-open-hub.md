@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory or Synapse Analytics
@@ -29,7 +29,7 @@ This SAP Business Warehouse Open Hub connector is supported for the following ca
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
  For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 

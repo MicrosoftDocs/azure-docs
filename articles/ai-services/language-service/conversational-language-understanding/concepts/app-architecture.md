@@ -2,11 +2,10 @@
 title: When to choose conversational language understanding or orchestration workflow
 titleSuffix: Azure AI services
 description: Learn when to choose conversational language understanding or orchestration workflow
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: best-practice
 ms.date: 08/15/2023
 ms.author: aahi

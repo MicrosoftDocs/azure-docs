@@ -192,7 +192,7 @@
             href: virtual-wan-point-to-site-powershell.md
         - name: Generate self-signed certificates
           href: certificates-point-to-site.md
-      - name: Azure AD authentication
+      - name: Microsoft Entra authentication
         items:
         - name: Configure a P2S VPN
           href: virtual-wan-point-to-site-azure-ad.md
@@ -202,13 +202,13 @@
           href: openvpn-azure-ad-mfa.md   
     - name: P2S client configuration
       items:
-      - name: Azure AD authentication clients
+      - name: Microsoft Entra authentication clients
         items:
         - name: Windows clients
           href: openvpn-azure-ad-client.md
         - name: macOS clients
           href: openvpn-azure-ad-client-mac.md
-        - name: Multi-application Azure AD authentication
+        - name: Multi-application Microsoft Entra authentication
           href: openvpn-azure-ad-tenant-multi-app.md
       - name: Certificate authentication clients
         items:
@@ -292,6 +292,8 @@
     items:
     - name: Monitoring Virtual WAN
       href: monitor-virtual-wan.md
+    - name: Monitoring - best practices
+      href: monitoring-best-practices.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
     - name: BGP dashboard
@@ -306,6 +308,8 @@
         href: packet-capture-site-to-site-powershell.md
     - name: Advanced Monitoring for P2S VPN
       href: monitor-point-to-site-connections.md
+  - name: Configure customer-controlled gateway maintenance
+    href: customer-controlled-gateway-maintenance.md
 - name: Reference
   items:
   - name: Monitoring data

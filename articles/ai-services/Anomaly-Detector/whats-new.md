@@ -11,6 +11,8 @@ ms.date: 12/15/2022
 
 # What's new in Anomaly Detector
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 Learn what's new in the service. These items include release notes, videos, blog posts, papers, and other types of information. Bookmark this page to keep up to date with the service.
 
 We have also added links to some user-generated content. Those items will be marked with **[UGC]** tag. Some of them are hosted on websites that are external to Microsoft and Microsoft isn't responsible for the content there. Use discretion when you refer to these resources. Contact AnomalyDetector@microsoft.com or raise an issue on GitHub if you'd like us to remove the content.

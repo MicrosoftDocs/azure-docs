@@ -5,12 +5,12 @@
  ms.service: cosmos-db
  ms.subservice: postgresql
  ms.topic: include
- ms.date: 07/28/2020
+ ms.date: 10/01/2023
  ms.author: jonels
 ms.custom: include file, ignite-2022
 ---
 
 > [!IMPORTANT]
-> Distributing tables is necessary to take advantage of Azure Cosmos DB for PostgreSQL performance
-> features. If you don't distribute tables then worker nodes can't help run
-> queries involving those tables.
+> Distributing tables or using schema-based sharding is necessary to take advantage of Azure Cosmos DB for PostgreSQL performance
+> features. If you don't distribute tables or schemas then worker nodes can't help run
+> queries involving their data.

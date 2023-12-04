@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 09/15/2023
+ms.date: 10/03/2023
 ms.author: radeltch
 
 ---
@@ -1374,6 +1374,56 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    ```
+
+1. Test 10: Crash primary database indexserver
+
+   This test is relevant only when you have set up the susChkSrv hook as outlined in [Implement HANA hooks SAPHanaSR and susChkSrv](./sap-hana-high-availability.md#implement-hana-hooks-saphanasr-and-suschksrv).
+
+   The resource state before starting the test:
+
+   ```output
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+      Started: [ hn1-db-0 hn1-db-1 ]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+      Masters: [ hn1-db-0 ]
+      Slaves: [ hn1-db-1 ]
+   Resource Group: g_ip_HN1_HDB03
+      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
+   ```
+
+   Run the following commands as root on the `hn1-db-0` node:
+
+   ```bash
+   hn1-db-0:~ # killall -9 hdbindexserver
+   ```
+
+   When the indexserver is terminated, the susChkSrv hook detects the event and trigger an action to fence 'hn1-db-0' node and initiate a takeover process.
+
+   Run the following commands to register `hn1-db-0` node as secondary and clean up the failed resource:
+
+   ```bash
+   # run as <hana sid>adm
+   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
+   
+   # run as root
+   hn1-db-0:~ # crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-0
+   ```
+
+   The resource state after the test:
+
+   ```output
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+      Started: [ hn1-db-0 hn1-db-1 ]
+   Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
+      Masters: [ hn1-db-1 ]
+      Slaves: [ hn1-db-0 ]
+   Resource Group: g_ip_HN1_HDB03
+      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
+      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
+   ```
+
+   You can execute a comparable test case by causing the indexserver on the secondary node to crash. In the event of indexserver crash, the susChkSrv hook will recognize the occurrence and initiate an action to fence the secondary node.
 
 ## Next steps
 

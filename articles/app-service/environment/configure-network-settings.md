@@ -5,7 +5,7 @@ author: madsd
 keywords: ASE, ASEv3, ftp, remote debug
 
 ms.topic: tutorial
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.date: 03/29/2022
 ms.author: madsd
 ---

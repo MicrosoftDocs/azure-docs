@@ -66,13 +66,13 @@ Four Azure resources are defined in the template.
     | **Existing Data Network Name** | Enter the name of the data network. This value must match the name you used when creating the data network. |
     | **Site Name** | Enter a name for your site.|
     | **Azure Stack Edge Device** | Enter the resource ID of the Azure Stack Edge resource in the site. |
-    | **Control Plane Access Interface Name** | Enter the virtual network name on port 5 on your Azure Stack Edge Pro GPU device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface. |
+    | **Control Plane Access Interface Name** | Enter the virtual network name on port 5 on your Azure Stack Edge Pro GPU device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2/S1-MME interface. |
     | **Control Plane Access Ip Address** | Enter the IP address for the control plane interface on the access network. |
-    | **User Plane Access Interface Name** | Enter the virtual network name on port 5 on your Azure Stack Edge Pro GPU device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface. |
-    | **User Plane Data Interface Name** | Enter the virtual network name on port 6 on your Azure Stack Edge Pro GPU device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface. |
+    | **User Plane Access Interface Name** | Enter the virtual network name on port 5 on your Azure Stack Edge Pro GPU device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface; for combined 4G and 5G, it's the N3/S1-U interface. |
+    | **User Plane Data Interface Name** | Enter the virtual network name on port 6 on your Azure Stack Edge Pro GPU device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface; for combined 4G and 5G, it's the N6/SGi interface. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to UEs in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to UEs in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
-    | **Core Network Technology** | Enter *5GC* for 5G, or *EPC* for 4G. |
+    | **Core Network Technology** | Enter *5GC* for 5G, *EPC* for 4G, or *EPC + 5GC* for combined 4G and 5G. |
     | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
     | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
@@ -91,13 +91,13 @@ Four Azure resources are defined in the template.
     | **Existing Data Network Name** | Enter the name of the data network. This value must match the name you used when creating the data network. |
     | **Site Name** | Enter a name for your site.|
     | **Azure Stack Edge Device** | Enter the resource ID of the Azure Stack Edge resource in the site. |
-    | **Control Plane Access Interface Name** | Enter the virtual network name on port 3 on your Azure Stack Edge Pro 2 device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface. |
+    | **Control Plane Access Interface Name** | Enter the virtual network name on port 3 on your Azure Stack Edge Pro 2 device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2/S1-MME interface. |
     | **Control Plane Access Ip Address** | Enter the IP address for the control plane interface on the access network. |
-    | **User Plane Access Interface Name** | Enter the virtual network name on port 3 on your Azure Stack Edge Pro 2 device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface. |
-    | **User Plane Data Interface Name** | Enter the virtual network name on port 4 on your Azure Stack Edge Pro 2 device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface. |
+    | **User Plane Access Interface Name** | Enter the virtual network name on port 3 on your Azure Stack Edge Pro 2 device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface; for combined 4G and 5G, it's the N3/S1-U interface. |
+    | **User Plane Data Interface Name** | Enter the virtual network name on port 4 on your Azure Stack Edge Pro 2 device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface; for combined 4G and 5G, it's the N6/SGi interface. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to UEs in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
     |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to UEs in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
-    | **Core Network Technology** | Enter *5GC* for 5G, or *EPC* for 4G. |
+    | **Core Network Technology** | Enter *5GC* for 5G, *EPC* for 4G, or *EPC + 5GC* for combined 4G and 5G. |
     | **Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network. |
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |
     | **Custom Location** | Enter the resource ID of the custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. |
@@ -128,6 +128,6 @@ Four Azure resources are defined in the template.
 
 ## Next steps
 
-If you decided to set up Azure AD for local monitoring access, follow the steps in [Modify the local access configuration in a site](modify-local-access-configuration.md) and [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
+If you decided to set up Microsoft Entra ID for local monitoring access, follow the steps in [Modify the local access configuration in a site](modify-local-access-configuration.md) and [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md).
 
 If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows. See [Policy control](policy-control.md) to learn more about designing the policy control configuration for your private mobile network.

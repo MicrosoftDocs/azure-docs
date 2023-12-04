@@ -26,7 +26,7 @@ By enabling the **Use same password for all virtual machines** option on this pa
     ![Set password dialog box](./media/how-to-set-virtual-machine-passwords/set-password.png)
 
 > [!NOTE]
-> Reset password option is not available for labs created without a template using the [April 2022 Updates](lab-services-whats-new.md).
+> Reset password option is not available for [lab plans](./concept-lab-accounts-versus-lab-plans.md) created without a template.
 
 ## Next steps
 

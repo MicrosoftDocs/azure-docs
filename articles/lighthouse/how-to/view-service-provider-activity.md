@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Monitor service provider activity
 
-Customers who have delegated subscriptions to service providers through [Azure Lighthouse](../overview.md) can [view Azure Activity log](../../azure-monitor/essentials/activity-log.md) data to see all actions taken. This data provides full visibility for actions that service providers take on delegated customer resources. The activity log also shows operations from users within the customer's own Azure Active Directory (Azure AD) tenant.
+Customers who have delegated subscriptions to service providers through [Azure Lighthouse](../overview.md) can [view Azure Activity log](../../azure-monitor/essentials/activity-log.md) data to see all actions taken. This data provides full visibility for actions that service providers take on delegated customer resources. The activity log also shows operations from users within the customer's own Microsoft Entra tenant.
 
 ## View activity log data
 

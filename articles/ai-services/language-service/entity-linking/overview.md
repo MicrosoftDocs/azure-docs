@@ -2,7 +2,7 @@
 title: What is entity linking in Azure AI Language?
 titleSuffix: Azure AI services
 description: An overview of entity linking in Azure AI services, which helps you extract entities from text, and provides links to an online knowledge base.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

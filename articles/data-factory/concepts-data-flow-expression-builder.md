@@ -1,5 +1,5 @@
 ---
-title: Expression builder in mapping data flow
+title: Expression builder in mapping data flows
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Build expressions by using Expression Builder in mapping data flows in Azure Data Factory and Azure Synapse Analytics
 author: kromerm
@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Build expressions in mapping data flow
@@ -22,11 +22,11 @@ In mapping data flow, many transformation properties are entered as expressions.
 
 ## Open Expression Builder
 
-There are multiple entry points to opening the expression builder. These are all dependent on the specific context of the data flow transformation. The most common use case is in transformations like [derived column](data-flow-derived-column.md) and [aggregate](data-flow-aggregate.md) where users create or update columns using the data flow expression language. The expression builder can be opened by selecting **Open expression builder** above the list of columns. You can also click on a column context and open the expression builder directly to that expression.
+There are multiple entry points to opening the expression builder. These are all dependent on the specific context of the data flow transformation. The most common use case is in transformations like [derived column](data-flow-derived-column.md) and [aggregate](data-flow-aggregate.md) where users create or update columns using the data flow expression language. The expression builder can be opened by selecting **Open expression builder** above the list of columns. You can also select a column context and open the expression builder directly to that expression.
 
 :::image type="content" source="media/data-flow/open-expression-builder-derive.png" alt-text="Open Expression Builder derive":::
 
-In some transformations like [filter](data-flow-filter.md), clicking on a blue expression text box will open the expression builder. 
+In some transformations like [filter](data-flow-filter.md), clicking on a blue expression text box opens the expression builder. 
 
 :::image type="content" source="media/data-flow/expressionbox.png" alt-text="Blue expression box":::
 
@@ -53,7 +53,7 @@ Mapping data flows supports the creation and use of user defined functions. To s
 
 #### Address array indexes
 
-When dealing with columns or functions that return array types, use brackets ([]) to access a specific element. If the index doesn't exist, the expression evaluates into NULL.
+When you're dealing with columns or functions that return array types, use brackets ([]) to access a specific element. If the index doesn't exist, the expression evaluates into NULL.
 
 :::image type="content" source="media/data-flow/expression-array.png" alt-text="Expression Builder array":::
 
@@ -62,7 +62,7 @@ When dealing with columns or functions that return array types, use brackets ([]
 
 ### Input schema
 
-If your data flow uses a defined schema in any of its sources, you can reference a column by name in many expressions. If you are utilizing schema drift, you can reference columns explicitly using the `byName()` or `byNames()` functions or match using column patterns.
+If your data flow uses a defined schema in any of its sources, you can reference a column by name in many expressions. If you're utilizing schema drift, you can reference columns explicitly using the `byName()` or `byNames()` functions or match using column patterns.
 
 #### Column names with special characters
 
@@ -72,7 +72,7 @@ When you have column names that include special characters or spaces, surround t
 
 ### Parameters
 
-Parameters are values that are passed into a data flow at run time from a pipeline. To reference a parameter, either click on the parameter from the **Expression elements** view or reference it with a dollar sign in front of its name. For example, a parameter called parameter1 would be referenced by `$parameter1`. To learn more, see [parameterizing mapping data flows](parameters-data-flow.md). 
+Parameters are values that are passed into a data flow at run time from a pipeline. To reference a parameter, either select the parameter from the **Expression elements** view or reference it with a dollar sign in front of its name. For example, a parameter called parameter1 is referenced by `$parameter1`. To learn more, see [parameterizing mapping data flows](parameters-data-flow.md). 
 
 ### Cached lookup
 
@@ -80,13 +80,13 @@ A cached lookup allows you to do an inline lookup of the output of a cached sink
 
 `lookup()` takes in the matching columns in the current transformation as parameters and returns a complex column equal to the row matching the key columns in the cache sink. The complex column returned contains a subcolumn for each column mapped in the cache sink. For example, if you had an error code cache sink `errorCodeCache` that had a key column matching on the code and a column called `Message`. Calling `errorCodeCache#lookup(errorCode).Message` would return the message corresponding with the code passed in. 
 
-`outputs()` takes no parameters and  returns the entire cache sink as an array of complex columns. This can't be called if key columns are specified in the sink and should only be used if there is a small number of rows in the cache sink. A common use case is appending the max value of an incrementing key. If a cached single aggregated row `CacheMaxKey` contains a column `MaxKey`, you can reference the first value by calling `CacheMaxKey#outputs()[1].MaxKey`.
+`outputs()` takes no parameters and  returns the entire cache sink as an array of complex columns. This can't be called if key columns are specified in the sink and should only be used if there's a few rows in the cache sink. A common use case is appending the max value of an incrementing key. If a cached single aggregated row `CacheMaxKey` contains a column `MaxKey`, you can reference the first value by calling `CacheMaxKey#outputs()[1].MaxKey`.
 
 :::image type="content" source="media/data-flow/cached-lookup-example.png" alt-text="Cached lookup":::
 
 ### Locals
 
-If you are sharing logic across multiple columns or want to compartmentalize your logic, you can create a local variable. A local is a set of logic that doesn't get propagated downstream to the following transformation. Locals can be created within the expression builder by going to **Expression elements** and selecting **Locals**. Create a new one by selecting **Create new**.
+If you're sharing logic across multiple columns or want to compartmentalize your logic, you can create a local variable. A local is a set of logic that doesn't get propagated downstream to the following transformation. Locals can be created within the expression builder by going to **Expression elements** and selecting **Locals**. Create a new one by selecting **Create new**.
 
 :::image type="content" source="media/data-flow/create-local.png" alt-text="Create local":::
 
@@ -94,7 +94,7 @@ Locals can reference any expression element including functions, input schema, p
 
 :::image type="content" source="media/data-flow/create-local-2.png" alt-text="Create local 2":::
 
-To reference a local in a transformation, either click on the local from the **Expression elements** view or reference it with a colon in front of its name. For example, a local called local1 would be referenced by `:local1`. To edit a local definition, hover over it in the expression elements view and click on the pencil icon.
+To reference a local in a transformation, either select the local from the **Expression elements** view or reference it with a colon in front of its name. For example, a local called local1 would be referenced by `:local1`. To edit a local definition, hover over it in the expression elements view and select the pencil icon.
 
 :::image type="content" source="media/data-flow/using-locals.png" alt-text="Using locals":::
 
@@ -186,10 +186,10 @@ toLong(
 
 ### Data flow time evaluation
 
-Dataflow processes till milliseconds. For *2018-07-31T20:00:00.2170000*, you will see *2018-07-31T20:00:00.217*  in output.
-In the portal for the service, timestamp is being shown in the **current browser setting**, which can  eliminate 217, but when you will run the data flow end to end, 217 (milliseconds part will be processed as well). You can use toString(myDateTimeColumn) as expression and see full precision data in preview. Process datetime as datetime rather than string for all practical purposes.
+Dataflow processes till milliseconds. For *2018-07-31T20:00:00.2170000*, you'll see *2018-07-31T20:00:00.217*  in output.
+In the portal for the service, timestamp is being shown in the **current browser setting**, which can  eliminate 217, but when you'll run the data flow end to end, 217 (milliseconds part is processed as well). You can use toString(myDateTimeColumn) as expression and see full precision data in preview. Process datetime as datetime rather than string for all practical purposes.
  
 
 ## Next steps
 
-[Begin building data transformation expressions](data-transformation-functions.md)
+[Begin building data transformation expressions.](data-transformation-functions.md)

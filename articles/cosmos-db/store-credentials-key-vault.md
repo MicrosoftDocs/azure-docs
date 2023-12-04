@@ -18,7 +18,7 @@ ms.date: 11/07/2022
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 > [!IMPORTANT]
-> It's recommended to access Azure Cosmos DB is to use a [system-assigned managed identity](managed-identity-based-authentication.md). If your service cannot take advantage of managed identities then use the [certificate-based authentication](certificate-based-authentication.md). If both the managed identity solution and cert based solution do not meet your needs, please use the Azure Key vault solution in this article.
+> It's recommended to access Azure Cosmos DB is to use a [system-assigned managed identity](managed-identity-based-authentication.md). If both the managed identity solution and cert based solution do not meet your needs, please use the Azure Key vault solution in this article.
 
 If you're using Azure Cosmos DB as your database, you connect to databases, container, and items by using an SDK, the API endpoint, and either the primary or secondary key.
 

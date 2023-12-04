@@ -7,13 +7,15 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/02/2023
+ms.date: 10/23/2023
 ms.author: pauljewell
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
 
 # List blob containers with Python
+
+[!INCLUDE [storage-dev-guide-selector-list-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-container.md)]
 
 When you list the containers in an Azure Storage account from your code, you can specify several options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
@@ -25,17 +27,29 @@ When you list the containers in an Azure Storage account from your code, you can
 
 ## About container listing options
 
-To list containers in your storage account, call the following method:
+When listing containers from your code, you can specify options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can also filter the results by a prefix, and return container metadata with the results. These options are described in the following sections.
+
+To list containers in a storage account, call the following method:
 
 - [BlobServiceClient.list_containers](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient#azure-storage-blob-blobserviceclient-list-containers)
 
+This method returns an iterable of type [ContainerProperties](/python/api/azure-storage-blob/azure.storage.blob.containerproperties). Containers are ordered lexicographically by name.
+
 ### Manage how many results are returned
 
-By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the size of the page of results to return.
+By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the `results_per_page` keyword argument.
 
 ### Filter results with a prefix
 
-To filter the list of containers, specify a string or character for the `name_starts_with` parameter. The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix.
+To filter the list of containers, specify a string or character for the `name_starts_with` keyword argument. The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix.
+
+### Include container metadata
+
+To include container metadata with the results, set the `include_metadata` keyword argument to `True`. Azure Storage includes metadata with each container returned, so you don't need to fetch the container metadata separately.
+
+### Include deleted containers
+
+To include soft-deleted containers with the results, set the `include_deleted` keyword argument to `True`.
 
 ## Code examples
 

@@ -11,7 +11,7 @@ ms.date: 07/18/2023
 
 # Create SAS tokens for your storage containers
 
-In this article, you learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
+In this article, you learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Microsoft Entra credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
 :::image type="content" source="../../media/sas-url-token.png" alt-text="Screenshot of a storage url with SAS token appended.":::
 
@@ -19,7 +19,7 @@ In this article, you learn how to create user delegation, shared access signatur
 >
 > [Managed identities](create-use-managed-identities.md) provide an alternate method for you to grant access to your storage data without the need to include SAS tokens with your HTTP requests. *See*, [Managed identities for Document Translation](create-use-managed-identities.md).
 >
-> * You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications.
+> * You can use managed identities to grant access to any resource that supports Microsoft Entra authentication, including your own applications.
 > * Using managed identities replaces the requirement for you to include shared access signature tokens (SAS) with your source and target URLs.
 > * There's no added cost to use managed identities in Azure.
 
@@ -82,7 +82,7 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your co
     * Consider setting a longer duration period for the time you're using your storage account for Translator Service operations.
     * The value of the expiry time is determined by whether you're using an **Account key** or **User delegation key** **Signing method**:
        * **Account key**: There's no imposed maximum time limit; however, best practices recommended that you configure an expiration policy to limit the interval and minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
-       * **User delegation key**: The value for the expiry time is a maximum of seven days from the creation of the SAS token. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than seven days will still only be valid for seven days. For more information,*see* [Use Azure AD credentials to secure a SAS](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
+       * **User delegation key**: The value for the expiry time is a maximum of seven days from the creation of the SAS token. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than seven days will still only be valid for seven days. For more information,*see* [Use Microsoft Entra credentials to secure a SAS](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
 
 1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, authorization fails. The IP address or a range of IP addresses must be public IPs, not private. For more information,*see*, [**Specify an IP address or IP range**](/rest/api/storageservices/create-account-sas#specify-an-ip-address-or-ip-range).
 

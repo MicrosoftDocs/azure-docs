@@ -39,7 +39,7 @@ For this alert rule, a single metric time series is monitored:
 
 -	Percentage CPU where *Resource*=’VM-a’ > 80%
 
-![Screenshot that shows an alert rule on a single time series.](media/alerts-metric-multiple-time-series-single-rule/simple-alert-rule.png)
+:::image type="content" source="media/alerts-metric-multiple-time-series-single-rule/simple-alert-rule.png" lightbox="media/alerts-metric-multiple-time-series-single-rule/simple-alert-rule.png" alt-text="Screenshot that shows an alert rule on a single time series.":::
 
 ## Alert rule on multiple time series
 
@@ -65,7 +65,7 @@ For this alert rule, two metric time series are monitored separately:
 -	Percentage CPU where *Resource*=’VM-a’ > 80%
 -	Percentage CPU where *Resource*=’myVM2’ > 80%
 
-![Screenshot that shows a multi-resource alert rule.](media/alerts-metric-multiple-time-series-single-rule/multi-resource-alert-rule.png)
+:::image type="content" source="media/alerts-metric-multiple-time-series-single-rule/multi-resource-alert-rule.png" lightbox="media/alerts-metric-multiple-time-series-single-rule/multi-resource-alert-rule.png" alt-text="Screenshot that shows a multi-resource alert rule.":::
 
 In a multi-resource alert rule, the condition is evaluated separately for each of the resources (or more accurately, for each of the metric time series corresponded to each resource). As a result, alerts are also fired for each resource separately.
 
@@ -102,7 +102,7 @@ For this alert rule, two metric time series are being monitored:
 - The *Percentage CPU* where *Resource*=’VM-a’ > 80%.
 - The *Network In Total* where *Resource*=’VM-a’ > 20 MB.
 
-![Screenshot that shows a multi-condition alert rule.](media/alerts-metric-multiple-time-series-single-rule/multi-condition-alert-rule.png)
+:::image type="content" source="media/alerts-metric-multiple-time-series-single-rule/multi-condition-alert-rule.png" lightbox="media/alerts-metric-multiple-time-series-single-rule/multi-condition-alert-rule.png" alt-text="Screenshot that shows a multi-condition alert rule.":::
 
 An AND operator is used between the conditions. The alert rule fires an alert when *all* conditions are met. The fired alert resolves if at least one of the conditions is no longer met.
 
@@ -130,7 +130,7 @@ For this alert rule, three metric time series are being monitored:
 - Transactions where *Resource*=’mystorage1’ and *API Name*=’GetBlob’ > 80
 - Transactions where *Resource*=’mystorage1’ and *API Name*=’PutPage’ > 80
 
-![Screenshot that shows a multi-dimension alert rule with values from one dimension.](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-1.png)
+:::image type="content" source="media/alerts-metric-multiple-time-series-single-rule/multi-dimension-1.png" lightbox="media/alerts-metric-multiple-time-series-single-rule/multi-dimension-1.png" alt-text="Screenshot that shows a multi-dimension alert rule with values from one dimension.":::
 
 A multi-dimension metric alert rule can also monitor multiple dimension values from *different* dimensions of a metric. In this case, the alert rule *separately* monitors all the dimension value combinations of the selected dimension values.
 
@@ -153,7 +153,7 @@ For this alert rule, six metric time series are being monitored separately:
 - Transactions where *Resource*=’myStorage1’ and *API Name*=’PutPage’ and *Authentication*=’SAS’ > 80
 - Transactions where *Resource*=’myStorage1’ and *API Name*=’PutPage’ and *Authentication*=’AccountKey’ > 80
 
-![Screenshot that shows a multi-dimension alert rule with values from multiple dimensions.](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-2.png)
+:::image type="content" source="media/alerts-metric-multiple-time-series-single-rule/multi-dimension-2.png" lightbox="media/alerts-metric-multiple-time-series-single-rule/multi-dimension-2.png" alt-text="Screenshot that shows a multi-dimension alert rule with values from multiple dimensions.":::
 
 ### Advanced multi-dimension features
 
@@ -162,7 +162,7 @@ For this alert rule, six metric time series are being monitored separately:
 1. **Add new and custom dimensions**: The dimension values displayed in the Azure portal are based on metric data collected in the last day. If the dimension value you're looking for isn't yet emitted, you can add a custom dimension value.
 1. **Match dimensions with a prefix**: You can choose to monitor all dimension values that start with a specific pattern by selecting the **Starts with** operator and entering a custom prefix.
 
-![Screenshot that shows advanced multi-dimension features.](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)
+:::image type="content" source="media/alerts-metric-multiple-time-series-single-rule/advanced-features.png" lightbox="media/alerts-metric-multiple-time-series-single-rule/advanced-features.png" alt-text="Screenshot that shows advanced multi-dimension features.":::
 
 ## Metric alerts pricing
 

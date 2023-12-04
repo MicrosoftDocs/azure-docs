@@ -1,7 +1,7 @@
 ---
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 03/08/2023
 ms.author: eur

@@ -7,7 +7,7 @@ ms.date: 12/20/2022
 
 # Center for Internet Security (CIS) Kubernetes benchmark
 
-As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS based on the CIS Kubernetes benchmark. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](./concepts-security.md). For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks].
+As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS based on the CIS Kubernetes benchmark. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)][security-concepts-aks-apps-clusters]. For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks].
 
 ## Kubernetes CIS benchmark
 
@@ -184,10 +184,10 @@ For more information about AKS security, see the following articles:
 * [AKS security considerations](./concepts-security.md)
 * [AKS best practices](./best-practices.md)
 
-[azure-update-management]: ../automation/update-management/overview.md
-[azure-file-integrity-monotoring]: ../security-center/security-center-file-integrity-monitoring.md
-[azure-time-sync]: ../virtual-machines/linux/time-sync.md
-[auzre-log-analytics-agent-overview]: ../azure-monitor/platform/log-analytics-agent.md
-[cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
+<!-- EXTERNAL LINKS -->
 [cis-benchmark-aks]: https://www.cisecurity.org/benchmark/kubernetes/
 [cis-benchmark-kubernetes]: https://www.cisecurity.org/benchmark/kubernetes/
+
+<!-- INTERNAL LINKS -->
+[cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
+[security-concepts-aks-apps-clusters]: concepts-security.md

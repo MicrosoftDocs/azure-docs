@@ -163,7 +163,7 @@
         href: iot-hub-ha-dr.md
     - name: Authentication and authorization
       items:
-      - name: Azure Active Directory
+      - name: Microsoft Entra ID
         displayName: authenticate, authentication, auth, authn, authz
         href: authenticate-authorize-azure-ad.md
       - name: Shared access signatures

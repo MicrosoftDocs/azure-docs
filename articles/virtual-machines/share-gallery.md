@@ -55,7 +55,7 @@ If you share gallery resources to someone outside of your Azure tenant, they wil
 1. On the page for your gallery, in the menu on the left, select **Access control (IAM)**. 
 1. Under **Add a role assignment**, select **Add**. The **Add a role assignment** pane will open. 
 1. Under **Role**, select **Reader**.
-1. Under **assign access to**, leave the default of **Azure AD user, group, or service principal**.
+1. Under **assign access to**, leave the default of **Microsoft Entra user, group, or service principal**.
 1. Under **Select**, type in the email address of the person that you would like to invite.
 1. If the user is outside of your organization, you'll see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
 
@@ -106,5 +106,3 @@ New-AzRoleAssignment `
 
 - Create an [image definition and an image version](image-version.md).
 - Create a VM from a [generalized](vm-generalized-image-version.md) or [specialized](vm-specialized-image-version.md) image in a gallery.
-
-

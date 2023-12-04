@@ -18,7 +18,7 @@ The best way to authenticate to Azure services is by using a [managed identity](
 This tutorial shows how to automate the periodic rotation of secrets for databases and services that use two sets of authentication credentials. Specifically, this tutorial shows how to rotate Azure Storage account keys stored in Azure Key Vault as secrets. You'll use a function triggered by Azure Event Grid notification. 
 
 > [!NOTE]
-> For Storage account services, using Azure Active Directory to authorize requests is recommended. For more information, see [Authorize access to blobs using Azure Active Directory](../../storage/blobs/authorize-access-azure-active-directory.md). There are services that require storage account connection strings with access keys. For that scenario, we recommend this solution.
+> For Storage account services, using Microsoft Entra ID to authorize requests is recommended. For more information, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md). There are services that require storage account connection strings with access keys. For that scenario, we recommend this solution.
 
 Here's the rotation solution described in this tutorial: 
 
@@ -162,13 +162,13 @@ az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <
 
 ```azurepowershell
 $tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
-$secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$secretValue = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
 $tags = @{
     CredentialId='key1'
     ProviderAddress='<storageAccountResourceId>'
     ValidityPeriodDays='60'
 }
-Set-AzKeyVaultSecret -Name storageKey -VaultName vaultrotation-kv -SecretValue $secretVaule -Tag $tags -Expires $tomorrowDate
+Set-AzKeyVaultSecret -Name storageKey -VaultName vaultrotation-kv -SecretValue $secretValue -Tag $tags -Expires $tomorrowDate
 ```
 ---
 
@@ -269,13 +269,13 @@ az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value 
 
 ```azurepowershell
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyyy-MM-ddTHH:mm:ssZ")
-$secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$secretValue = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
 $tags = @{
     CredentialId='key2';
     ProviderAddress='<storageAccountResourceId>';
     ValidityPeriodDays='60'
 }
-Set-AzKeyVaultSecret -Name storageKey2 -VaultName vaultrotation-kv -SecretValue $secretVaule -Tag $tags -Expires $tomorrowDate
+Set-AzKeyVaultSecret -Name storageKey2 -VaultName vaultrotation-kv -SecretValue $secretValue -Tag $tags -Expires $tomorrowDate
 ```
 ---
 

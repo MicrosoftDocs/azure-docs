@@ -22,7 +22,7 @@ In Azure Modeling and Simulation Workbench, a chamber is defined as a group of c
 
 Chambers create a secure and isolated environment by adding private IP access and removing internet access. Public domain access is restricted to authorized networks over encrypted sessions enabled by the connector component. A [connector](./concept-connector.md)  exists per chamber that supports the protocols established through VPN, Azure Express Route, or allowlisted Public IP addresses.
 
-Only provisioned users can access the chamber environment. User provisioning is done at the chamber component using IAM [(Access Control)](/azure/role-based-access-control/role-assignments-portal).  This enables Cross team and/or cross-organization individuals to collaborate on the same projects through the chambers. Multifactor authentication (MFA) enabled through Azure AD is recommended to enhance your organization's security.
+Only provisioned users can access the chamber environment. User provisioning is done at the chamber component using IAM [(Access Control)](/azure/role-based-access-control/role-assignments-portal).  This enables Cross team and/or cross-organization individuals to collaborate on the same projects through the chambers. Multifactor authentication (MFA) enabled through Microsoft Entra ID is recommended to enhance your organization's security.
 
 ## Chamber storage
 

@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "vmName": {
+        "value": "myNexusVirtualMachine"
+      },
+      "location": {
+        "value": "eastus"
+      },
+      "extendedLocation": {
+        "value": "/subscriptions/<subscription>/resourcegroups/<cluster-managed-resource-group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
+      },
+      "cloudServicesNetworkId": {
+          "value": "/subscriptions/<subscription>/resourceGroups/<network-resource-group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
+      },
+      "networkAttachments": {
+          "value": [
+            {
+                "attachedNetworkId": "/subscriptions/<subscription>/resourceGroups/<network-resource-group>/providers/Microsoft.NetworkCloud/l3Networks/<l3network-name>",
+                "ipAllocationMethod": "Dynamic",
+                "defaultGateway": "True",
+                "networkAttachmentName": "mgmt0"
+            }
+        ]
+      },
+      "sshPublicKeys": {
+          "value": [
+            {
+                "keyData": "ssh-rsa AAAAB3...."
+            }
+        ]
+      },
+      "vmImage": {
+          "value": "<Image ACR URL>"
+      },
+      "vmImageRepositoryCredentials": {
+          "value": {
+              "password": "********************",
+              "registryUrl": "<ACR registry URL>",
+              "username": "<ACR user name>"
+          }
+      }
+    }
+  }
+  

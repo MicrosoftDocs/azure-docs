@@ -140,7 +140,7 @@ Backup supports the compression of backup traffic, as summarized in the followin
 **Maximum recovery points per protected instance (machine or workload)** | 9,999
 **Maximum expiry time for a recovery point** | No limit
 **Maximum backup frequency to DPM/MABS** | Every 15 minutes for SQL Server<br/><br/> Once an hour for other workloads
-**Maximum backup frequency to vault** | **On-premises Windows machines or Azure VMs running MARS:** Three per day<br/><br/> **DPM/MABS:** Two per day<br/><br/> **Azure VM backup:** One per day
+**Maximum backup frequency to vault** | **On-premises Windows machines or Azure VMs running MARS:** Three per day. A maximum of 22 TB of data change is supported between backups.<br/><br/> **DPM/MABS:** Two per day<br/><br/> **Azure VM backup:** One per day
 **Recovery point retention** | Daily, weekly, monthly, yearly
 **Maximum retention period** | Depends on backup frequency
 **Recovery points on DPM/MABS disk** | 64 for file servers; 448 for app servers <br/><br/>Unlimited tape recovery points for on-premises DPM

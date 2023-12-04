@@ -4,11 +4,11 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/19/2023
+ms.date: 11/17/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Understand cost details fields
@@ -53,10 +53,10 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | CostInBillingCurrency | EA, MCA | Cost of the charge in the billing currency before credits or taxes. |
 | CostInPricingCurrency | MCA | Cost of the charge in the pricing currency before credits or taxes. |
 | Currency | EA, pay-as-you-go | See `BillingCurrency`. |
-| CustomerName | MPA | Name of the Azure Active Directory tenant for the customer's subscription. |
-| CustomerTenantId | MPA | Identifier of the Azure Active Directory tenant of the customer's subscription. |
+| CustomerName | MPA | Name of the Microsoft Entra tenant for the customer's subscription. |
+| CustomerTenantId | MPA | Identifier of the Microsoft Entra tenant of the customer's subscription. |
 | Date¹ | All | The usage or purchase date of the charge. |
-| EffectivePrice | All | Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time. |
+| EffectivePrice² | All | Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time. |
 | ExchangeRateDate | MCA | Date the exchange rate was established. |
 | ExchangeRatePricingToBilling | MCA | Exchange rate used to convert the cost in the pricing currency to the billing currency. |
 | Frequency | All | Indicates whether a charge is expected to repeat. Charges can either happen once (**OneTime**), repeat on a monthly or yearly basis (**Recurring**), or be based on usage (**UsageBased**). |
@@ -65,18 +65,18 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | InvoiceSectionId¹ | EA, MCA | Unique identifier for the EA department or MCA invoice section. |
 | InvoiceSectionName | EA, MCA | Name of the EA department or MCA invoice section. |
 | IsAzureCreditEligible | All | Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`). |
-| Location | MCA | Normalized location of the resource, if different resource locations are configured for the same regions. Purchases and Marketplace usage may be shown as blank or `unassigned`. |
+| Location | MCA | Normalized location of the resource, if different resource locations are configured for the same regions. Purchases and Marketplace usage might be shown as blank or `unassigned`. |
 | MeterCategory | All | Name of the classification category for the meter. For example, _Cloud services_ and _Networking_. |
 | MeterId¹ | All | The unique identifier for the meter. |
-| MeterName | All | The name of the meter. Purchases and Marketplace usage may be shown as blank or `unassigned`.|
+| MeterName | All | The name of the meter. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
 | MeterRegion | All | Name of the datacenter location for services priced based on location. See Location. |
-| MeterSubCategory | All | Name of the meter subclassification category. Purchases and Marketplace usage may be shown as blank or `unassigned`.|
+| MeterSubCategory | All | Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or `unassigned`.|
 | OfferId¹ | All | Name of the offer purchased. |
-| pay-as-you-goPrice | All | Retail price for the resource. |
+| pay-as-you-goPrice² | All | Retail price for the resource. |
 | PartnerEarnedCreditApplied | MPA | Indicates whether the partner earned credit has been applied. |
 | PartnerEarnedCreditRate | MPA | Rate of discount applied if there's a partner earned credit (PEC), based on partner admin link access. |
-| PartnerName | MPA | Name of the partner Azure Active Directory tenant. |
-| PartnerTenantId | MPA | Identifier for the partner's Azure Active Directory tenant. |
+| PartnerName | MPA | Name of the partner Microsoft Entra tenant. |
+| PartnerTenantId | MPA | Identifier for the partner's Microsoft Entra tenant. |
 | PartNumber¹ | EA, pay-as-you-go | Identifier used to get specific meter pricing. |
 | PlanName | EA, pay-as-you-go | Marketplace plan name. |
 | PreviousInvoiceId | MCA | Reference to an original invoice if the line item is a refund. |
@@ -111,13 +111,24 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | Tags¹ | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 | Term | All | Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
 | UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour. |
-| UnitPrice | EA, pay-as-you-go | The price per unit for the charge. |
+| UnitPrice² | EA, pay-as-you-go | The price per unit for the charge. |
 
 ¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
+
+² For MCA customers, prices are shown in the pricing currency in the Actual Cost and Amortized Cost reports. In contrast, for EA customers, the billing and pricing currencies are the same.
 
 The cost details file itself doesn’t uniquely identify individual records with an ID. Instead, you can use fields in the file flagged with ¹ to create a unique ID yourself.
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
+
+### Reconcile charges for MCA accounts
+
+MCA customers can use the following information to reconcile charges between billing and pricing currencies. 
+
+1.	Manually calculate the `CostInPricingCurrency` by: `(EffectivePrice)` * `(Quantity)`
+2.	Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostinPricingCurrency)` * `(ExchangeRatePricingToBilling)`
+3.	Summarize the values that you calculated for `CostInBillingCurrency` and compare them to the invoice.
+
 
 ### Rounding adjustment details
 

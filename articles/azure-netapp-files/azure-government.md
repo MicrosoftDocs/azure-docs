@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 03/08/2023
+ms.date: 11/02/2023
 ms.author: anfdocs
 ---
 
@@ -32,11 +32,9 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
 | Azure NetApp Files backup | Public preview | No |
-| Azure NetApp Files datastores for AVS | Generally available (GA) | No | 
-| Azure NetApp Files customer-managed keys | Public preview | Public preview [(in select regions)](configure-customer-managed-keys.md#supported-regions) |
 | Azure NetApp Files large volumes | Public preview | No |
 | Edit network features for existing volumes | Public preview | No |
-| Standard network features | Generally available (GA) | Public preview [(in select regions)](azure-netapp-files-network-topologies.md#supported-regions) |
+| Standard storage with cool access in Azure NetApp Files | Public preview | No |
 
 ## Portal access
 
@@ -50,7 +48,7 @@ You can follow [Azure NetApp Files](./index.yml) documentation for details about
 
 ## Azure CLI access
 
-You can connect to Azure Government by setting the cloud name to `AzureUSGovernment` and then proceeding to sign in as you normally would with the `az login` command. After running the sign-in command, a browser will launch where you enter the appropriate Azure Government credentials.  
+You can connect to Azure Government by setting the cloud name to `AzureUSGovernment` and then proceeding to sign in as you normally would with the `az login` command. After you run the sign-in command, a browser will launch where you enter the appropriate Azure Government credentials.  
 
 ```azurecli 
 
@@ -66,7 +64,7 @@ az cloud list --output table
 
 ``` 
 
-This command will produce a table with Azure cloud locations. The `isActive` column entry for `AzureUSGovernment` should read `true`.  
+This command produces a table with Azure cloud locations. The `isActive` column entry for `AzureUSGovernment` should read `true`.  
 
 See [Connect to Azure Government with Azure CLI](../azure-government/documentation-government-get-started-connect-with-cli.md) for details.
 
@@ -81,9 +79,9 @@ When connecting to Azure Government through PowerShell, you must specify an envi
 | Connection type | Command | 
 | --- | --- | 
 | [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands |`Connect-AzAccount -EnvironmentName AzureUSGovernment` | 
-| [Azure Active Directory](/powershell/module/azuread/connect-azuread) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` | 
+| [Microsoft Entra ID](/powershell/module/azuread/connect-azuread) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` | 
 | [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount) commands |`Add-AzureAccount -Environment AzureUSGovernment` | 
-| [Azure Active Directory (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment UsGovernment` | 
+| [Microsoft Entra ID (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment UsGovernment` | 
 
 See [Connect to Azure Government with PowerShell](../azure-government/documentation-government-get-started-connect-with-ps.md) for details.
 

@@ -23,13 +23,13 @@ More information about policies:
 
 ## Access restriction policies
 -   [Check HTTP header](check-header-policy.md) - Enforces existence and/or value of an HTTP Header.
-- [Get authorization context](get-authorization-context-policy.md) - Gets the authorization context of a specified [authorization](authorizations-overview.md) configured in the API Management instance.
+- [Get authorization context](get-authorization-context-policy.md) - Gets the authorization context of a specified [connection](credentials-overview.md) to a credential provider configured in the API Management instance.
 -   [Limit call rate by subscription](rate-limit-policy.md) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
 -   [Limit call rate by key](rate-limit-by-key-policy.md) - Prevents API usage spikes by limiting call rate, on a per key basis.
 -   [Restrict caller IPs](ip-filter-policy.md) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
 -   [Set usage quota by subscription](quota-policy.md) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 -   [Set usage quota by key](quota-by-key-policy.md) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
--    [Validate Azure Active Directory token](validate-azure-ad-token-policy.md) - Enforces existence and validity of an Azure Active Directory JWT extracted from either a specified HTTP header, query parameter, or token value.
+-    [Validate Microsoft Entra token](validate-azure-ad-token-policy.md) - Enforces existence and validity of a Microsoft Entra JWT extracted from either a specified HTTP header, query parameter, or token value.
 -   [Validate JWT](validate-jwt-policy.md) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header, query parameter, or token value.
 -   [Validate client certificate](validate-client-certificate-policy.md) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 
@@ -107,5 +107,3 @@ For more information about working with policies, see:
 + [Tutorial: Transform and protect your API](transform-api.md)
 + [Set or edit policies](set-edit-policies.md)
 + [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
-
-

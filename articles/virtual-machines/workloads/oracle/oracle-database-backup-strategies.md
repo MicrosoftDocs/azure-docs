@@ -90,7 +90,7 @@ Blobfuse is ubiquitous across Azure regions and works with all storage account t
 
 Azure support for the NFS v3.0 protocol is available. [NFS support](../../../storage/blobs/network-file-system-protocol-support.md) enables Windows and Linux clients to mount an Azure Blob Storage container to an Azure VM.
 
-To ensure network security, the storage account that you use for NFS mounting must be contained within a virtual network. Azure Active Directory (Azure AD) security and access control lists (ACLs) are not yet supported in accounts that have NFS 3.0 protocol support enabled on them.
+To ensure network security, the storage account that you use for NFS mounting must be contained within a virtual network. Microsoft Entra security and access control lists (ACLs) are not yet supported in accounts that have NFS 3.0 protocol support enabled on them.
 
 ### Azure Files
 

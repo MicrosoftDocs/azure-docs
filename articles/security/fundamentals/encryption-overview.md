@@ -191,7 +191,7 @@ To learn more about encryption of data in transit in Data Lake, see [Encryption 
 
 ## Key management with Key Vault
 
-Without proper protection and management of the keys, encryption is rendered useless. Key Vault is the Microsoft-recommended solution for managing and controlling access to encryption keys used by cloud services. Permissions to access keys can be assigned to services or to users through Azure Active Directory accounts.
+Without proper protection and management of the keys, encryption is rendered useless. Key Vault is the Microsoft-recommended solution for managing and controlling access to encryption keys used by cloud services. Permissions to access keys can be assigned to services or to users through Microsoft Entra accounts.
 
 Key Vault relieves organizations of the need to configure, patch, and maintain hardware security modules (HSMs) and key management software. When you use Key Vault, you maintain control. Microsoft never sees your keys, and applications don’t have direct access to them. You can also import or generate keys in HSMs.
 

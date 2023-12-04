@@ -29,9 +29,6 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 #### [Resource-specific](#tab/resource-specific)
 
    ```Kusto
-   let topRequestsByRUcharge = CDBDataPlaneRequests 
-   | where TimeGenerated > ago(24h)
-   | project  RequestCharge , TimeGenerated, ActivityId;
    CDBGremlinRequests
    | project PIICommandText, ActivityId, DatabaseName , CollectionName
    | join kind=inner topRequestsByRUcharge on ActivityId
@@ -43,9 +40,6 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 #### [Azure Diagnostics](#tab/azure-diagnostics)
 
    ```Kusto
-   let topRequestsByRUcharge = AzureDiagnostics
-   | where Category == "DataPlaneRequests" and TimeGenerated > ago(1h)
-   | project  requestCharge_s , TimeGenerated, activityId_g;
    AzureDiagnostics
    | where Category == "GremlinRequests"
    | project piiCommandText_s, activityId_g, databasename_s , collectionname_s
@@ -62,9 +56,6 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 #### [Resource-specific](#tab/resource-specific)
 
    ```Kusto
-   let throttledRequests = CDBDataPlaneRequests
-   | where StatusCode == "429"
-   | project  OperationName , TimeGenerated, ActivityId;
    CDBGremlinRequests
    | project PIICommandText, ActivityId, DatabaseName , CollectionName
    | join kind=inner throttledRequests on ActivityId
@@ -74,10 +65,6 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 #### [Azure Diagnostics](#tab/azure-diagnostics)
 
    ```Kusto
-   let throttledRequests = AzureDiagnostics
-   | where Category == "DataPlaneRequests"
-   | where statusCode_s == "429"
-   | project  OperationName , TimeGenerated, activityId_g;
    AzureDiagnostics
    | where Category == "GremlinRequests"
    | project piiCommandText_s, activityId_g, databasename_s , collectionname_s
@@ -92,8 +79,6 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 #### [Resource-specific](#tab/resource-specific)
 
    ```Kusto
-   let operationsbyUserAgent = CDBDataPlaneRequests
-   | project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
    CDBGremlinRequests
    //specify collection and database
     //| where DatabaseName == "DB NAME" and CollectionName == "COLLECTIONNAME"
@@ -105,9 +90,6 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 #### [Azure Diagnostics](#tab/azure-diagnostics)
 
    ```Kusto
-   let operationsbyUserAgent = AzureDiagnostics
-    | where Category=="DataPlaneRequests"
-   | project OperationName, duration_s, requestCharge_s, responseLength_s, activityId_g;
    AzureDiagnostics
    | where Category == "GremlinRequests"
    //| where databasename_s == "DB NAME" and collectioname_s == "COLLECTIONNAME"

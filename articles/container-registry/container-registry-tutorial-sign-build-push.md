@@ -33,11 +33,11 @@ In this tutorial:
 
 ## Install Notation CLI and AKV plugin
 
-1. Install Notation v1.0.0 on a Linux amd64 environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/).
+1. Install Notation v1.0.1 on a Linux amd64 environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/).
 
     ```bash
     # Download, extract and install
-    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.0/notation_1.0.0_linux_amd64.tar.gz
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.1/notation_1.0.1_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
             
     # Copy the Notation binary to the desired bin directory in your $PATH, for example
@@ -281,6 +281,6 @@ To verify the container image, add the root certificate that signs the leaf cert
 
 ## Next steps
 
-See [Ratify on Azure: Allow only signed images to be deployed on AKS with Notation and Ratify](https://github.com/deislabs/ratify/blob/main/docs/quickstarts/ratify-on-azure.md).
+See [Use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters (Preview)](/azure/aks/image-integrity?tabs=azure-cli) and [Ratify on Azure](https://ratify.dev/docs/1.0/quickstarts/ratify-on-azure/) to get started into verifying and auditing signed images before deploying them on AKS. 
 
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

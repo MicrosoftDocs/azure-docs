@@ -87,10 +87,6 @@ The following JSON object represents the data format in Azure Cosmos DB
 }
 ```
 
-## Migrate your data
-
-There are various options available to migrate your data to Azure Cosmos DB. To learn more, see the [Options to migrate your on-premises or cloud data to Azure Cosmos DB](../migration-choices.md) article.
-
 ## Migrate your code
 
 This article is scoped to migrate an application's code to Azure Cosmos DB, which is the critical aspect of database migration. To help you reduce learning curve, the following sections include a side-by-side code comparison between Amazon DynamoDB and Azure Cosmos DB's equivalent code snippet.

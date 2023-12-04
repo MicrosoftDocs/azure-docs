@@ -21,7 +21,7 @@ To see examples for other types of tasks such as downloading blobs, synchronizin
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
+> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID.
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
@@ -42,7 +42,7 @@ You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a co
 azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy make 'https://mystorageaccount.dfs.core.windows.net/mycontainer'
@@ -67,7 +67,7 @@ Upload a file by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'
@@ -94,7 +94,7 @@ This example copies a directory (and all of the files in that directory) to a bl
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --recursive
@@ -108,7 +108,7 @@ To copy to a directory within the container, just specify the name of that direc
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --recursive
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' --recursive
@@ -133,7 +133,7 @@ Upload the contents of a directory by using the [azcopy copy](storage-ref-azcopy
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'
@@ -162,7 +162,7 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive'
@@ -186,7 +186,7 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
@@ -212,7 +212,7 @@ The following examples upload files that were modified on or after the specified
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'
 ```
 
-**Example (hierarchical namespace)**
+**Example (Data Lake Storage endpoint)**
 
 ```azcopy
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'
@@ -224,7 +224,7 @@ For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) refere
 
 You can upload a file and add [blob index tags](../blobs/storage-manage-find-blobs.md) to the target blob.
 
-If you're using Azure AD authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
+If you're using Microsoft Entra authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
 
 To add tags, use the `--blob-tags` option along with a URL encoded key-value pair. 
 For example, to add the key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter.

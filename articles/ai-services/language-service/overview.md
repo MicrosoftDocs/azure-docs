@@ -2,7 +2,7 @@
 title: What is Azure AI Language
 titleSuffix: Azure AI services
 description: Learn how to integrate AI into your applications that can extract information and understand written language.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
@@ -248,7 +248,7 @@ Use Language service containers to deploy API features on-premises. These Docker
 * [Key phrase extraction](key-phrase-extraction/how-to/use-containers.md)
 * [Custom Named Entity Recognition](custom-named-entity-recognition/how-to/use-containers.md)
 * [Text Analytics for health](text-analytics-for-health/how-to/use-containers.md)
-
+* [Summarization](summarization/how-to/use-containers.md)
 
 ## Responsible AI 
 

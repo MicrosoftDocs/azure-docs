@@ -24,7 +24,7 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 * Clusters using Kubernetes version 1.23 or above.
 
 > [!NOTE]
-> It may take up to a week to enable your clusters with the increased node limit.
+> It can take up to one week to enable your clusters with the increased node limit.
 
 ## Networking considerations and best practices
 
@@ -48,14 +48,14 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 ## Cluster upgrade considerations and best practices
 
 * The hard limit of 5000 nodes per AKS cluster prevents clusters at this limit from performing upgrades. This limit prevents these upgrades from performing because there's no more capacity to perform rolling updates with the max surge property. If you have a cluster at this limit, we recommend scaling the cluster down below 3000 nodes before doing cluster upgrades to provide extra capacity for node churn, and to minimize the control plane load.
-* AKS configures upgrades to surge with one extra node through the max surge settings by default. This default value allows AKS to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older-versioned node. When you upgrade clusters with a large number of nodes, using the default max surge settings can cause an upgrade to take several hours to complete. The completion process can take so long because the upgrade needs to churn through a large number of nodes. You can customize the max surge settings per node pool to enable a trade-off between upgrade speed and upgrade disruption. When you increase the the max surge settings, the upgrade process completes faster, but you may experience disruptions during the upgrade process.
+* AKS configures upgrades to surge with one extra node through the max surge settings by default. This default value allows AKS to minimize workload disruption by creating an extra node before the cordon/drain of existing applications to replace an older-versioned node. When you upgrade clusters with a large number of nodes, using the default max surge settings can cause an upgrade to take several hours to complete. The completion process can take so long because the upgrade needs to churn through a large number of nodes. You can customize the max surge settings per node pool to enable a trade-off between upgrade speed and upgrade disruption. When you increase the max surge settings, the upgrade process completes faster, but you might experience disruptions during the upgrade process.
 * We don't recommend upgrading a cluster with greater than 500 nodes with the default max surge configuration of one node. Instead, we recommend increasing the max surge settings to somewhere between 10 to 20 percent, with up to a maximum max surge of 500 nodes. Base these settings on your workload disruption tolerance. For more information, see [Customize node surge upgrade][max surge].
 * For more cluster upgrade information, see [Upgrade an AKS cluster][cluster upgrades].
 
 <!-- Links - External -->
 [Managed NAT Gateway - Azure Kubernetes Service]: nat-gateway.md
 [Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in Azure Kubernetes Service (AKS)]: configure-azure-cni-dynamic-ip-allocation.md
-[max surge]: upgrade-cluster.md?tabs=azure-cli#customize-node-surge-upgrade
+[max surge]: upgrade-aks-cluster.md#customize-node-surge-upgrade
 [support-ticket]: https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
 [standard-tier]: free-standard-pricing-tiers.md
 [throttling-policies]: https://azure.microsoft.com/blog/api-management-advanced-caching-and-throttling-policies/

@@ -33,10 +33,10 @@ To transfer any other Azure subscriptions that aren't supported for billing tran
 
 1. Establish a [reseller relationship](/partner-center/request-a-relationship-with-a-customer) with the customer. Review the [CSP Regional Authorization Overview](/partner-center/regional-authorization-overview) to ensure both customer and Partner tenant are within the same authorized regions.
 1. Work with your CSP partner to create target Azure CSP subscriptions.
-1. Ensure that the source and target CSP subscriptions are in the same Azure Active Directory (Azure AD) tenant.  
-    You can't change the Azure AD tenant for an Azure CSP subscription. Instead, you must add or associate the source subscription to the CSP Azure AD tenant. For more information, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+1. Ensure that the source and target CSP subscriptions are in the same Microsoft Entra tenant.  
+    You can't change the Microsoft Entra tenant for an Azure CSP subscription. Instead, you must add or associate the source subscription to the CSP Microsoft Entra tenant. For more information, see [Associate or add an Azure subscription to your Microsoft Entra tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     > [!IMPORTANT]
-    > - When you associate a subscription to a different Azure AD directory, users that have roles assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
+    > - When you associate a subscription to a different Microsoft Entra directory, users that have roles assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
     > - Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
 1. The user account that you use to do the transfer must have [Azure RBAC](add-change-subscription-administrator.md) owner access on both subscriptions.
 1. Before you begin, [validate](/rest/api/resources/resources/validatemoveresources) that all Azure resources can move from the source subscription to the destination subscription.  
@@ -53,7 +53,7 @@ To transfer any other Azure subscriptions that aren't supported for billing tran
 It's possible to transfer other subscriptions from a CSP Partner to other Azure offers that aren't supported for billing transfer from MPA as documented in the [Azure subscription transfer hub](subscription-transfer.md#product-transfer-support) article. However, the subscriber needs to manually move resources between source CSP subscriptions and target subscriptions. All work done by a partner and a customer - it isn't work done by a Microsoft representative.
 
 1. The customer creates target Azure subscriptions.
-1. Ensure that the source and target subscriptions are in the same Azure Active Directory (Azure AD) tenant. For more information about changing an Azure AD tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+1. Ensure that the source and target subscriptions are in the same Microsoft Entra tenant. For more information about changing a Microsoft Entra tenant, see [Associate or add an Azure subscription to your Microsoft Entra tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
     The change directory option isn't supported for the CSP subscription. For example, you're transferring from a CSP to a pay-as-you-go subscription. You need to change the directory of the pay-as-you-go subscription to match the directory.
 
     > [!IMPORTANT]

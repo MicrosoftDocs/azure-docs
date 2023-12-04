@@ -79,7 +79,7 @@ Properly managing access to containers and their blobs is key to ensuring that y
 
 ### Manage Azure RBAC role assignments for the container
 
-Azure Active Directory (Azure AD) offers optimum security for Blob Storage resources. Azure role-based access control (Azure RBAC) determines what permissions a security principal has to a given resource. To grant access to a container, you'll assign an RBAC role at the container scope or above to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment.
+Microsoft Entra ID offers optimum security for Blob Storage resources. Azure role-based access control (Azure RBAC) determines what permissions a security principal has to a given resource. To grant access to a container, you'll assign an RBAC role at the container scope or above to a user, group, service principal, or managed identity. You may also choose to add one or more conditions to the role assignment.
 
 You can read about the assignment of roles at [Assign Azure roles using the Azure portal](assign-azure-role-data-access.md?tabs=portal).
 
@@ -87,7 +87,7 @@ You can read about the assignment of roles at [Assign Azure roles using the Azur
 
 A shared access signature (SAS) provides temporary, secure, delegated access to a client who wouldn't normally have permissions. A SAS gives you granular control over how a client can access your data. For example, you can specify which resources are available to the client. You can also limit the types of operations that the client can perform, and specify the duration.
 
-Azure supports three types of SAS. A **service SAS** provides access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. An **account SAS** is similar to a service SAS, but can permit access to resources in more than one storage service. A **user delegation SAS** is a SAS secured with Azure AD credentials and can only be used with Blob Storage service.
+Azure supports three types of SAS. A **service SAS** provides access to a resource in just one of the storage services: the Blob, Queue, Table, or File service. An **account SAS** is similar to a service SAS, but can permit access to resources in more than one storage service. A **user delegation SAS** is a SAS secured with Microsoft Entra credentials and can only be used with Blob Storage service.
 
 When you create a SAS, you may set access limitations based on permission level, IP address or range, or start and expiry date and time. You can read more in [Grant limited access to Azure Storage resources using shared access signatures](../common/storage-sas-overview.md).
 

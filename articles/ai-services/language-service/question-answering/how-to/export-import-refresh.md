@@ -20,7 +20,7 @@ You may want to create a copy of your question answering project or related ques
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-* A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled. Remember your Azure Active Directory ID, Subscription, language resource name you selected when you created the resource.
+* A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled. Remember your Microsoft Entra ID, Subscription, language resource name you selected when you created the resource.
 
 ## Export a project
 

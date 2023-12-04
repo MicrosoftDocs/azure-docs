@@ -8,9 +8,9 @@ ms.custom: subject-rbac-steps
 
 # Organize subscriptions into management groups and assign roles to users
 
-Manage your organization’s security posture at scale by applying security policies to all Azure subscriptions linked to your Azure Active Directory tenant.
+Manage your organization’s security posture at scale by applying security policies to all Azure subscriptions linked to your Microsoft Entra tenant.
 
-For visibility into the security posture of all subscriptions linked to an Azure AD tenant, you'll need an Azure role with sufficient read permissions assigned on the root management group.
+For visibility into the security posture of all subscriptions linked to a Microsoft Entra tenant, you'll need an Azure role with sufficient read permissions assigned on the root management group.
 
 ## Organize your subscriptions into management groups
 
@@ -18,14 +18,14 @@ For visibility into the security posture of all subscriptions linked to an Azure
 
 Use management groups to efficiently manage access, policies, and reporting on groups of subscriptions, and effectively manage the entire Azure estate by performing actions on the root management group. You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. 
 
-Each Azure AD tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and Azure role assignments to be applied at the directory level. 
+Each Microsoft Entra tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and Azure role assignments to be applied at the directory level. 
 
 The root management group is created automatically when you do any of the following actions: 
 - In the [Azure portal](https://portal.azure.com), select **Management Groups** .
 - Create a management group with an API call.
 - Create a management group with PowerShell. For PowerShell instructions, see [Create management groups for resource and organization management](../governance/management-groups/create-management-group-portal.md).
 
-Management groups aren't required to onboard Defender for Cloud, but we recommend creating at least one so that the root management group gets created. After the group is created, all subscriptions under your Azure AD tenant will be linked to it. 
+Management groups aren't required to onboard Defender for Cloud, but we recommend creating at least one so that the root management group gets created. After the group is created, all subscriptions under your Microsoft Entra tenant will be linked to it. 
 
 For a detailed overview of management groups, see the [Organize your resources with Azure management groups](../governance/management-groups/overview.md) article.
 
@@ -118,7 +118,7 @@ Once the Azure roles have been assigned to the users, the tenant administrator s
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the navigation list, select **Azure Active Directory** and then select **Properties**.
+2. In the navigation list, select **Microsoft Entra ID** and then select **Properties**.
 
 3. Under **Access management for Azure resources**, set the switch to **No**.
 

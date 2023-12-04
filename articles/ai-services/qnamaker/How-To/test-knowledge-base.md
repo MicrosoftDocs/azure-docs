@@ -92,7 +92,7 @@ Use the batch testing tool when you want to:
 
 1. Select **Create a knowledge base** from the tool bar.
 1. Skip **Step 1** because you should already have a QnA Maker resource, moving on to **Step 2** to select your existing resource information:
-    * Azure Active Directory ID
+    * Microsoft Entra ID
     * Azure Subscription Name
     * Azure QnA Service Name
     * Language - the English language

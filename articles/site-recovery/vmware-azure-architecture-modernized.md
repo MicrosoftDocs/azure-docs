@@ -45,20 +45,20 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 | **URL**                  | **Details**                             |
 | ------------------------- | -------------------------------------------|
-| portal.azure.com          | Navigate to the Azure portal.              |
-| `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
-|`*.microsoftonline.com `|Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Site Recovery. |
-|management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
+|`portal.azure.com`         | Navigate to the Azure portal.              |
+|`*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
+|`*.microsoftonline.com `|Create Microsoft Entra apps for the appliance to communicate with Azure Site Recovery. |
+|`management.azure.com` |Create Microsoft Entra apps for the appliance to communicate with the Azure Site Recovery service. |
 |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
 |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure that machines to be replicated have access to this. |
-|aka.ms |Allow access to "also known as" links. Used for Azure Site Recovery appliance updates. |
-|download.microsoft.com/download |Allow downloads from Microsoft download. |
+|`aka.ms` |Allow access to "also known as" links. Used for Azure Site Recovery appliance updates. |
+|`download.microsoft.com/download` |Allow downloads from Microsoft download. |
 |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
 |`*.discoverysrv.windowsazure.com `|Connect to Azure Site Recovery discovery service URL. |
-|`*.hypervrecoverymanager.windowsazure.com `|Connect to Azure Site Recovery micro-service URLs  |
-|`*.blob.core.windows.net `|Upload data to Azure storage, which is used to create target disks |
-|`*.backup.windowsazure.com `|Protection service URL – a microservice used by Azure Site Recovery for processing & creating replicated disks in Azure |
-
+|`*.hypervrecoverymanager.windowsazure.com `|Connect to Azure Site Recovery micro-service URLs.  |
+|`*.blob.core.windows.net `|Upload data to Azure storage, which is used to create target disks. |
+|`*.backup.windowsazure.com `|Protection service URL – a microservice used by Azure Site Recovery for processing & creating replicated disks in Azure. |
+|`*.prod.migration.windowsazure.com `| To discover your on-premises estate. |
 
 
 ## Replication process

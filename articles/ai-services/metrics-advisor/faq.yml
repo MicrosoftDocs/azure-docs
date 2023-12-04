@@ -16,6 +16,11 @@ sections:
   - name: Basic concepts
     questions:
       - question: |
+          When will Metrics Advisor be deprecated?
+        answer:  |
+          Starting on the 20th of September, 2023 you won’t be able to create new Metrics Advisor resources. The Metrics Advisor service is being retired on the 1st of October, 2026.
+
+      - question: |
           What is multi-dimensional time-series data?
         answer: |
           See the [Multi-dimensional metric](glossary.md#multi-dimensional-metric)  definition in the glossary.

@@ -18,7 +18,7 @@ To access the Defender for IoT CLI, you'll need access to the sensor or on-premi
 
 ## Privileged user access for OT monitoring
 
-Use the *support* user when using the Defender for IoT CLI, which is an an administrative account with access to all CLI commands. On the on-premises management console, use either the *support* or the *cyberx* user.
+Use the *support* user when using the Defender for IoT CLI, which is an administrative account with access to all CLI commands. On the on-premises management console, use either the *support* or the *cyberx* user.
 
 In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also available. In versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. To enable these extra privileged users, [change their passwords](manage-users-sensor.md#change-a-sensor-users-password).
 

@@ -53,6 +53,8 @@
         href: diagnostic-logging.md   
       - name: Configure diagnostic logging alerts
         href: ddos-diagnostic-alert-templates.md 
+  - name: Test with simulation partners
+    href: test-through-simulations.md
   - name: View Monitoring and Logging
     items: 
       - name: View alerts in Microsoft Defender for Cloud
@@ -67,10 +69,6 @@
     href: ../application-gateway/tutorial-protect-application-gateway-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Deploy Load Balancer with DDoS Protection
     href: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
-  - name: Deploy VPN Gateway with DDoS Protection
-    href: ../vpn-gateway/tutorial-protect-vpn-gateway.md?toc=/azure/ddos-protection/TOC.json
-  - name: Deploy Bastion with DDoS Protection
-    href: ../bastion/tutorial-protect-bastion-host-ddos.md?toc=/azure/ddos-protection/TOC.json
     
 
 - name: Concepts
@@ -105,8 +103,6 @@
   items:
     - name: Switch tiers
       href: ddos-switch-ddos-protection-tier.md
-    - name: Test with simulation partners
-      href: test-through-simulations.md
     - name: Engage DDoS Rapid Response (DRR)
       href: ddos-rapid-response.md
     - name: Defend against API Management DDoS attacks

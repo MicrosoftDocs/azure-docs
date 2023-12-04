@@ -2,10 +2,10 @@
 title: Overview of Responsible use of AI
 titleSuffix: Azure AI services
 description: Azure AI services provides information and guidelines on how to responsibly use our AI services in applications. Below are the links to articles that provide this guidance for the different services within the Azure AI services suite.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 1/10/2022
 ms.author: pafarley
@@ -185,6 +185,10 @@ Azure AI services provides information and guidelines on how to responsibly use 
 * [Disclosure of design patterns](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/ai-services/speech-service/context/context)
 * [Code of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/ai-services/speech-service/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/ai-services/speech-service/context/context)
+
+## Speech - Text to speech
+
+* [Transparency note and use cases](/legal/cognitive-services/speech-service/text-to-speech/transparency-note?context=/azure/ai-services/speech-service/context/context)
 
 ## Speech - Speech to text
 

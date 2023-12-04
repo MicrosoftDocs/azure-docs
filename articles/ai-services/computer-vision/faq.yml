@@ -3,7 +3,7 @@ metadata:
   title: "Frequently asked questions - Azure AI Vision"
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about the Azure AI Vision Service in Azure AI services.
-  services: cognitive-services
+  #services: cognitive-services
   author: PatrickFarley
   manager: nitinme
 
@@ -44,7 +44,11 @@ sections:
           Can I deploy the OCR (Read) capability on-premises?
         answer: |
           Yes, the Azure AI Vision 3.2 OCR (Read) cloud API is also available as a Docker container for on-premises deployment. Learn [how to deploy](computer-vision-how-to-install-containers.md) 
-
+          
+      - question: |
+          Can I access Azure AI Vision by using Azure-assigned managed identity?
+        answer: |
+          Yes. Follow the instructions in the [Authentication guide](/azure/ai-services/authentication?tabs=powershell#authorize-access-to-managed-identities) to use Azure-assigned managed identity to access Azure AI services such as Azure AI Vision. 
       - question: |
           Can I train Azure AI Vision API to use custom tags?  For example, I would like to feed in pictures of cat breeds to 'train' the AI, then receive the breed value on an AI request.
         answer: |

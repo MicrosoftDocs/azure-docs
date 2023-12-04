@@ -103,7 +103,7 @@ Storage Explorer provides several ways to connect to Azure resources:
 ### Sign in to Azure
 
 > [!NOTE]
-> To fully access resources after you sign in, Storage Explorer requires both management (Azure Resource Manager) and data layer permissions. This means that you need Azure Active Directory (Azure AD) permissions to access your storage account, the containers in the account, and the data in the containers. If you have permissions only at the data layer, consider choosing the **Sign in using Azure Active Directory (Azure AD)** option when attaching to a resource. For more information about the specific permissions Storage Explorer requires, see the [Azure Storage Explorer troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
+> To fully access resources after you sign in, Storage Explorer requires both management (Azure Resource Manager) and data layer permissions. This means that you need Microsoft Entra permissions to access your storage account, the containers in the account, and the data in the containers. If you have permissions only at the data layer, consider choosing the **Sign in using Microsoft Entra ID** option when attaching to a resource. For more information about the specific permissions Storage Explorer requires, see the [Azure Storage Explorer troubleshooting guide](./storage/common/storage-explorer-troubleshooting.md#azure-rbac-permissions-issues).
 
 1. In Storage Explorer, select **View** > **Account Management** or select the **Manage Accounts** button.
 
@@ -136,7 +136,7 @@ Storage Explorer provides several ways to connect to Azure resources:
 
 Storage Explorer lets you connect to individual resources, such as an Azure Data Lake Storage Gen2 container, using various authentication methods. Some authentication methods are only supported for certain resource types.
 
-| Resource type    | Azure AD | Account Name and Key | Shared Access Signature (SAS)  | Public (anonymous) |
+| Resource type    | Microsoft Entra ID | Account Name and Key | Shared Access Signature (SAS)  | Public (anonymous) |
 |------------------|----------|----------------------|--------------------------------|--------------------|
 | Storage accounts | Yes      | Yes                  | Yes (connection string or URL) | No                 |
 | Blob containers  | Yes      | No                   | Yes (URL)                      | Yes                |
@@ -160,7 +160,9 @@ If Storage Explorer couldn't add your connection, or if you can't access your da
 
 The following sections describe the different authentication methods you can use to connect to individual resources.
 
-#### Azure AD
+<a name='azure-ad'></a>
+
+#### Microsoft Entra ID
 
 Storage Explorer can use your Azure account to connect to the following resource types:
 * Blob containers
@@ -168,11 +170,11 @@ Storage Explorer can use your Azure account to connect to the following resource
 * Azure Data Lake Storage Gen2 directories
 * Queues
 
-Azure AD is the preferred option if you have data layer access to your resource but no management layer access.
+Microsoft Entra ID is the preferred option if you have data layer access to your resource but no management layer access.
 
 1. Sign in to at least one Azure account using the [steps described above](#sign-in-to-azure).
 1. In the **Select Resource** panel of the **Connect to Azure Storage** dialog, select **Blob container**, **ADLS Gen2 container**, or **Queue**.
-1. Select **Sign in using Azure Active Directory (Azure AD)** and select **Next**.
+1. Select **Sign in using Microsoft Entra ID** and select **Next**.
 1. Select an Azure account and tenant. The account and tenant must have access to the Storage resource you want to attach to. Select **Next**.
 1. Enter a display name for your connection and the URL of the resource. Select **Next**.
 1. Review your connection information in the **Summary** panel. If the connection information is correct, select **Connect**.

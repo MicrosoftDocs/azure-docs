@@ -17,12 +17,12 @@ This article describes how to manage lab users in Azure Lab Services. Learn how 
 Azure Lab Services supports different options for managing the list of lab users:
 
 - Add users manually to the lab by specifying their email address. Optionally, you can upload a CSV file with email addresses.
-- Synchronize the list of users with an Azure Active Directory (Azure AD) group.
+- Synchronize the list of users with a Microsoft Entra group.
 - Integrate with Microsoft Teams or Canvas and synchronize the user list with the team (Teams) or course (Canvas) membership.
 
 When you add users to a lab based on their email address, lab users will first need to register for the lab by using a lab registration link. This registration process is a one-time operation. After a lab users registers for the lab, they can access their lab in the Azure Lab Services website.
 
-When you use Teams, Canvas, or an Azure AD group, Azure Lab Services automatically grants users access to the lab and assigns a lab VM based on their membership in Microsoft or Canvas. In this case, you don't have to specify the lab user list, and users don't have to register for the lab.
+When you use Teams, Canvas, or a Microsoft Entra group, Azure Lab Services automatically grants users access to the lab and assigns a lab VM based on their membership in Microsoft or Canvas. In this case, you don't have to specify the lab user list, and users don't have to register for the lab.
 
 By default, access to a lab is restricted. Only users that are in the list of lab users can register for a lab, and get access to the lab virtual machine (VM). You can disable restricted access for a lab, which lets any user register for a lab if they have the registration link.
 
@@ -43,7 +43,7 @@ You can add lab users manually by providing their email address in the lab confi
 
 Azure Lab Services supports different email account types when registering for a lab:
 
-- An organizational email account that's provided by your Azure Active Directory instance.
+- An organizational email account that's provided by your Microsoft Entra instance.
 - A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
 - A non-Microsoft email account, such as one provided by Yahoo! or Google. You need to link your account with a Microsoft account.
 - A GitHub account. You need to link your account with a Microsoft account.
@@ -168,21 +168,23 @@ To view the list of lab users that have already registered for the lab by using 
     > [!NOTE]
     > If you [republish a lab](how-to-create-manage-template.md#publish-the-template-vm) or [Reimage VMs](how-to-manage-vm-pool.md#reimage-lab-vms), the users remain registered for the labs' VMs.  However, the contents of the VMs will be deleted and the VMs will be recreated with the template VM's image.
 
-# [Azure AD group](#tab/aad)
+# [Microsoft Entra group](#tab/aad)
 
-You can manage the lab user list by synchronizing the lab with an Azure AD group. When you use an Azure AD group, you don't have to manually add or delete users in the lab settings. Add or remove users in Teams or Canvas to assign or remove access for a user to a lab VM.
+You can manage the lab user list by synchronizing the lab with a Microsoft Entra group. When you use a Microsoft Entra group, you don't have to manually add or delete users in the lab settings. Add or remove users in Teams or Canvas to assign or remove access for a user to a lab VM.
 
-You can create an Azure AD group within your organization's Azure AD to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization already has admins who manage your Azure Active Directory.
+You can create a Microsoft Entra group within your organization's Microsoft Entra ID to manage access to organizational resources and cloud-based apps. To learn more, see [Microsoft Entra groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization already has admins who manage your Microsoft Entra ID.
 
 Lab users don't have to register for their lab and a lab VM is automatically assigned. Lab users can [access the lab directly from the Azure Lab Services website](./how-to-access-lab-virtual-machine.md).
 
-### Synchronize the lab user list with Azure AD group
+<a name='synchronize-the-lab-user-list-with-azure-ad-group'></a>
 
-When you sync a lab with an Azure AD group, Azure Lab Services pulls all users inside the Azure AD group into the lab as lab users. Only people in the Azure AD group have access to the lab. The user list automatically refreshes every 24 hours to match the latest membership of the Azure AD group. You can also manually synchronize the list of lab users at any time.
+### Synchronize the lab user list with Microsoft Entra group
 
-The option to synchronize the list of lab users with an Azure AD group is only available if you haven't added users to the lab manually or through a CSV import yet. Make sure there are no users in the lab user list.
+When you sync a lab with a Microsoft Entra group, Azure Lab Services pulls all users inside the Microsoft Entra group into the lab as lab users. Only people in the Microsoft Entra group have access to the lab. The user list automatically refreshes every 24 hours to match the latest membership of the Microsoft Entra group. You can also manually synchronize the list of lab users at any time.
 
-To sync a lab with an existing Azure AD group:
+The option to synchronize the list of lab users with a Microsoft Entra group is only available if you haven't added users to the lab manually or through a CSV import yet. Make sure there are no users in the lab user list.
+
+To sync a lab with an existing Microsoft Entra group:
 
 1. Sign in to the [Azure Lab Services website](https://labs.azure.com/).
 
@@ -190,28 +192,30 @@ To sync a lab with an existing Azure AD group:
 
 1. In the left pane, select **Users**, and then select **Sync from group**.
 
-    :::image type="content" source="./media/how-to-manage-lab-users/add-users-sync-group.png" alt-text="Screenshot that shows how to add users by syncing from an Azure AD group.":::
+    :::image type="content" source="./media/how-to-manage-lab-users/add-users-sync-group.png" alt-text="Screenshot that shows how to add users by syncing from a Microsoft Entra group.":::
 
-1. Select the Azure AD group you want to sync users with from the list of groups.
+1. Select the Microsoft Entra group you want to sync users with from the list of groups.
 
-    If you don't see any Azure AD groups in the list, this could be because of the following reasons:
+    If you don't see any Microsoft Entra groups in the list, this could be because of the following reasons:
 
-    - You're a guest user in Azure Active Directory (usually if you're outside the organization that owns the Azure AD), and you're not allowed to search for groups inside the Azure AD. In this case, you can't add an Azure AD group to the lab.
-    - Azure AD groups you created through Microsoft Teams don't show up in this list. You can add the Azure Lab Services app inside Microsoft Teams to create and manage labs directly from within Microsoft Teams. Learn more about [managing a lab’s user list from within Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams).
+    - You're a guest user in Microsoft Entra ID (usually if you're outside the organization that owns the Microsoft Entra ID), and you're not allowed to search for groups inside the Microsoft Entra ID. In this case, you can't add a Microsoft Entra group to the lab.
+    - Microsoft Entra groups you created through Microsoft Teams don't show up in this list. You can add the Azure Lab Services app inside Microsoft Teams to create and manage labs directly from within Microsoft Teams. Learn more about [managing a lab’s user list from within Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams).
 
-1. Select **Add** to sync the lab users with the Azure AD group.
+1. Select **Add** to sync the lab users with the Microsoft Entra group.
 
-    Azure Lab Services automatically pulls the list of users from Azure AD, and refreshes the list every 24 hours.
+    Azure Lab Services automatically pulls the list of users from Microsoft Entra ID, and refreshes the list every 24 hours.
 
-    Optionally, you can select **Sync** in the **Users** tab to manually synchronize to the latest changes in the Azure AD group.
+    Optionally, you can select **Sync** in the **Users** tab to manually synchronize to the latest changes in the Microsoft Entra group.
 
-### Automatic VM management based on Azure AD group
+<a name='automatic-vm-management-based-on-azure-ad-group'></a>
 
-When you synchronize a lab with an Azure AD group, Azure Lab Services automatically manages the number of lab VMs based on the number of users in the Azure AD group.
+### Automatic VM management based on Microsoft Entra group
 
-When a user is added to the Azure AD group, Azure Lab Services automatically adds a lab VM for that user. When a user is no longer a member of the Azure AD group, the lab VM for that user is automatically deleted from the lab.
+When you synchronize a lab with a Microsoft Entra group, Azure Lab Services automatically manages the number of lab VMs based on the number of users in the Microsoft Entra group.
 
-You can't manually add or remove lab users, or update the lab capacity when synchronizing with an Azure AD group.
+When a user is added to the Microsoft Entra group, Azure Lab Services automatically adds a lab VM for that user. When a user is no longer a member of the Microsoft Entra group, the lab VM for that user is automatically deleted from the lab.
+
+You can't manually add or remove lab users, or update the lab capacity when synchronizing with a Microsoft Entra group.
 
 # [Teams](#tab/teams)
 

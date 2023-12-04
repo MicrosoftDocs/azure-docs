@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 12/13/2022
+ms.date: 10/06/2023
 ms.devlang: azurecli
 ms.custom: engagement-fy23, devx-track-azurecli
 --- 
@@ -13,6 +13,9 @@ ms.custom: engagement-fy23, devx-track-azurecli
 # Quickstart: Create an Azure Managed Grafana instance using the Azure CLI
 
 Get started by creating an Azure Managed Grafana workspace using the Azure CLI. Creating a workspace will generate an Azure Managed Grafana instance.
+
+> [!NOTE]
+> Azure Managed Grafana now has [two pricing plans](overview.md#service-tiers). This guides takes you through creating a new workspace in the Standard plan. To generate a workspace in the newly released Essential (preview) plan, [use the Azure portal](quickstart-managed-grafana-portal.md). We are working on enabling the creation of a workspace in the Essential (preview) plan using the Azure CLI.
 
 ## Prerequisites
 
@@ -69,7 +72,7 @@ Now let's check if you can access your new Managed Grafana instance.
 
 1. Take note of the **endpoint** URL ending by `eus.grafana.azure.com`, listed in the CLI output.  
 
-1. Open a browser and enter the endpoint URL. Single sign-on via Azure Active Directory has been configured for you automatically. If prompted, enter your Azure account. You should now see your Azure Managed Grafana instance. From there, you can finish setting up your Grafana installation.
+1. Open a browser and enter the endpoint URL. Single sign-on via Microsoft Entra ID has been configured for you automatically. If prompted, enter your Azure account. You should now see your Azure Managed Grafana instance. From there, you can finish setting up your Grafana installation.
 
    :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of a Managed Grafana instance.":::
 

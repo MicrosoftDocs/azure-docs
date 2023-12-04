@@ -56,10 +56,11 @@ All the operations that are supported that extend the REST API.
 | [$member-match](tutorial-member-match.md)          | Yes       | Yes       |         |
 | [$patient-everything](patient-everything.md)    | Yes       | Yes       |         |
 | [$purge-history](purge-history.md)         | Yes       | Yes       |         |
+| [$import](import-data.md) |No |Yes | |
 
 ## Role-based access control
 
-FHIR service uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for access control. 
+FHIR service uses [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) for access control. 
 
 ## Service limits
 

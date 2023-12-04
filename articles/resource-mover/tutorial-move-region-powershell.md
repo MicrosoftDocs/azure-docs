@@ -5,7 +5,7 @@ manager: evansma
 author: ankitaduttaMSFT
 ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 10/04/2021
+ms.date: 10/30/2023
 ms.author: ankitadutta 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region using Azure Resource Mover with PowerShell
@@ -28,7 +28,7 @@ Verify the following requirements:
 
 | Requirement | Description |
 | --- | --- |
-| **Subscription permissions** | Check you have *Owner* access on the subscription containing the resources that you want to move<br/><br/> **Why do I need Owner access?** The first time you add a resource for a  specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles. |
+| **Subscription permissions** | Check you have *Owner* access on the subscription containing the resources that you want to move.<br/><br/> The first time you add a resource for a  specific source and destination pair in an Azure subscription, a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription is necessary. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles. |
 | **Resource Mover support** | [Review](common-questions.md) supported regions and other common questions.|
 | **VM support** |  Check that any VMs you want to move are supported.<br/><br/> - [Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<br/><br/> - [Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<br/><br/> - Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.|
 | **SQL support** | If you want to move SQL resources, review the [SQL requirements list](tutorial-move-region-sql.md#check-sql-requirements).|
@@ -82,18 +82,6 @@ The MoveCollection object stores metadata and configuration information about th
 - Create the MoveCollection object with managed identity. For the MoveCollection object to access the subscription in which the Resource Mover service is located, it needs a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identity (MSI)) that's trusted by the subscription.
 - Grant access to the Resource Mover subscription for the managed identity.
 
-### Create the resource group
-
-Create a resource group for the move collection metadata and configuration information, as follows:
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name "RG-MoveCollection-demoRMS" -Location "East US 2"
-```
-
-**Output**:
-
-![Output text after creating resource group](./media/tutorial-move-region-powershell/create-metadata-resource-group.png)
-
 ### Register the resource provider
 
 1. Register the resource provider Microsoft.Migrate, so that the MoveCollection resource can be created, as follows:
@@ -122,7 +110,7 @@ New-AzResourceMoverMoveCollection -Name "PS-centralus-westcentralus-demoRMS"  -R
 
 **Output**:
 
-![Output text after creating move collection](./media/tutorial-move-region-powershell/output-move-collection.png)
+:::image type="content" source="./media/tutorial-move-region-powershell/output-move-collection.png" alt-text="Screenshot of the output text after creating move collection." :::
 
 ### Grant access to the managed identity
 
@@ -161,7 +149,7 @@ Add resources as follows:
 
     **Output**
 
-    ![Output text after retrieving the resource ID](./media/tutorial-move-region-powershell/output-retrieve-resource.png)
+    :::image type="content" source="./media/tutorial-move-region-powershell/output-retrieve-resource.png" alt-text="Screenshot of the output text after retrieving the resource ID." :::
 
 2. Create the target resource settings object per the resource you're moving. In our case, it's a VM.
 
@@ -187,7 +175,8 @@ Add resources as follows:
     ```
 
     **Output**
-    ![Output text after adding the resource](./media/tutorial-move-region-powershell/output-add-resource.png)
+
+    :::image type="content" source="./media/tutorial-move-region-powershell/output-add-resource.png" alt-text="Screenshot of the output text after adding the resource." :::
 
 ## Validate and add dependencies
 
@@ -201,7 +190,7 @@ Check whether the resources you added have any dependencies on other resources, 
 
     **Output (when dependencies exist)**
 
-    ![Output text after validating dependencies](./media/tutorial-move-region-powershell/dependency-output.png)
+    :::image type="content" source="./media/tutorial-move-region-powershell/dependency-output.png" alt-text="Screenshot of the output text after validating dependencies." :::
 
 2. Identity missing dependencies:
 
@@ -213,7 +202,7 @@ Check whether the resources you added have any dependencies on other resources, 
 
        **Output**
         
-       ![Output text after retrieving a list of all dependencies](./media/tutorial-move-region-powershell/dependencies-list.png)
+        :::image type="content" source="./media/tutorial-move-region-powershell/dependencies-list.png" alt-text="Screenshot of the output text after retrieving a list of all dependencies." :::
 
     - To retrieve only first-level dependencies (direct dependencies for the resource):
 
@@ -222,52 +211,14 @@ Check whether the resources you added have any dependencies on other resources, 
         ```
 
        **Output**
-        
-       ![Output text after retrieving a list of first-level dependencies](./media/tutorial-move-region-powershell/dependencies-list-direct.png)
+
+        :::image type="content" source="./media/tutorial-move-region-powershell/dependencies-list-direct.png" alt-text="Screenshot of the output text after retrieving a list of first-level dependencies." :::
 
 3. To add any outstanding missing dependencies, repeat the instructions above to [add resources to the move collection](#add-resources-to-the-move-collection), and revalidate until there are no outstanding resources.
 
 > [!NOTE]
 > If for any reason you want to remove resources from the resource collection, follow the instructions in [this article](remove-move-resources.md).
 
-## Add the source resource group
-
-Add the source resource group that contains resources you want to move to the move collection.
-
-1. Retrieve the ID of the resource group.
-
-    ```azurepowershell-interactive
-    Get-AzResourceMoverUnresolvedDependency -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -ResourceGroupName "RG-MoveCollection-demoRMS" -DependencyLevel Direct
-    ```
-
-    **Output**
-    
-    ![Output text after retrieving the ID of the source resource group](./media/tutorial-move-region-powershell/source-resource-group-id.png)
-
-    > [!NOTE]
-    > We're using a resource group that's already in the target region.
-
-2. Use the retrieved ID to add the resource group to the collection.
-
-    ```azurepowershell-interactive
-    Add-AzResourceMoverMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS"  -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -SourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/psdemorm"  -Name "psdemorm"  -ExistingTargetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/PSDemoRM-target"
-    ```
-
-    **Output**
-    
-    ![Output text after adding the source resource group to the move collection](./media/tutorial-move-region-powershell/add-source-resource-group.png)
-
-3. Verify dependencies to make sure you haven't missed anything after adding the resource group.
-
-    ```azurepowershell-interactive
-    Resolve-AzResourceMoverMoveCollectionDependency -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"
-    ```
-
-4. We see there are no outstanding dependencies.
-
-    **Output**
-    
-    ![Output text after checking dependencies](./media/tutorial-move-region-powershell/all-dependencies-added.png)
 
 ## Prepare resources
 
@@ -281,37 +232,6 @@ In this tutorial, since we're moving VMs, we need to prepare the source resource
 > [!NOTE]
 > If you have an existing target resource group, you can directly commit the move for the source resource group, and skip the prepare and initiate move stages.
 
-### Prepare the source resource group
-
-1. Prepare the resource group:
-
-    ```azurepowershell-interactive
-    Invoke-AzResourceMoverPrepare -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource "PSDemoRM"
-    ```
-
-    **Output**
-    
-    ![Output text after preparing source resource group](./media/tutorial-move-region-powershell/prepare-source-resource-group.png)
-
-2. Initiate the move of the source resource group.
-
-    ```azurepowershell-interactive
-    Invoke-AzResourceMoverInitiateMove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource "PSDemoRM"
-    ```
-
-    **Output**:
-
-    ![Output text after initiating move of source resource group](./media/tutorial-move-region-powershell/initiate-move-source-resource-group.png)
-
-3. Commit the move for the source resource group.
-
-    ```azurepowershell-interactive
-    Invoke-AzResourceMoverCommit -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource "PSDemoRM"
-    ```
-
-    **Output**
-
-    ![Output text after committing the source resource group](./media/tutorial-move-region-powershell/commit-move-source-resource-group.png)
 
 ### Prepare VM resources
 
@@ -325,7 +245,7 @@ After preparing and moving the source resource group, we can prepare VM resource
 
     **Output**
 
-    ![Output text after validating the VM before preparing it](./media/tutorial-move-region-powershell/validate-vm-before-move.png)
+    :::image type="content" source="./media/tutorial-move-region-powershell/validate-vm-before-move.png" alt-text="Screenshot of the output text after validating the VM before preparing it." :::
 
 2. Get the dependent resources that need to be prepared along with the VM.
 
@@ -335,7 +255,7 @@ After preparing and moving the source resource group, we can prepare VM resource
 
     **Output**
 
-    ![Output text after retrieving dependent VM resources](./media/tutorial-move-region-powershell/get-resources-before-prepare.png)
+    :::image type="content" source="./media/tutorial-move-region-powershell/get-resources-before-prepare.png" alt-text="Screenshot of the output text after retrieving dependent VM resources." :::
 
 3. Initiate the prepare process for all dependent resources.
 
@@ -345,7 +265,7 @@ After preparing and moving the source resource group, we can prepare VM resource
 
     **Output**
 
-    ![Output text after initating prepare of all resources](./media/tutorial-move-region-powershell/initiate-prepare-all.png)
+    :::image type="content" source="./media/tutorial-move-region-powershell/initiate-prepare-all.png" alt-text="Screenshot of the output text after initiating prepare of all resources." :::
 
     > [!NOTE]
     > You can provide the source resource ID instead of the resource name as the input parameters for the Prepare cmdlet, as well as in the Initiate Move and Commit cmdlets. To do this, run:
@@ -364,7 +284,7 @@ After preparing and moving the source resource group, we can prepare VM resource
 
     **Output**
 
-    ![Output text after checking initiate state](./media/tutorial-move-region-powershell/verify-initiate-move-pending.png)
+    :::image type="content" source="./media/tutorial-move-region-powershell/verify-initiate-move-pending.png" alt-text="Screenshot of the output text after checking initiate state." :::
 
 2. Initiate the move:
 
@@ -374,7 +294,7 @@ After preparing and moving the source resource group, we can prepare VM resource
 
     **Output**
 
-    ![Output text after initiating the move of resources](./media/tutorial-move-region-powershell/initiate-resources-move.png)
+    :::image type="content" source="./media/tutorial-move-region-powershell/initiate-resources-move.png" alt-text="Screenshot of the output text after initiating the move of resources." :::
 
 ## Discard or commit?
 
@@ -393,7 +313,7 @@ Invoke-AzResourceMoverDiscard -ResourceGroupName "RG-MoveCollection-demoRMS" -Mo
 
 **Output**
 
-![Output text after discarding the move](./media/tutorial-move-region-powershell/discard-move.png)
+:::image type="content" source="./media/tutorial-move-region-powershell/discard-move.png" alt-text="Screenshot of the output text after discarding the move." :::
 
 ### Commit the move
 
@@ -405,7 +325,7 @@ Invoke-AzResourceMoverDiscard -ResourceGroupName "RG-MoveCollection-demoRMS" -Mo
 
     **Output**
 
-    ![Output text after committing the move](./media/tutorial-move-region-powershell/commit-move.png)
+    :::image type="content" source="./media/tutorial-move-region-powershell/commit-move.png" alt-text="Screenshot of the output text after committing the move." :::
 
 2. Verify that all resources have moved to the target region:
 

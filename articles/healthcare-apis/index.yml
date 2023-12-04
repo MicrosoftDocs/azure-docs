@@ -15,21 +15,21 @@ metadata:
 
 highlightedContent:
   items:
-       -  title: What is Azure Health Data Services?
-          itemType: overview
-          url: ./healthcare-apis-overview.md
-       -  title: Release notes
-          itemType: whats-new
-          url: ./release-notes.md          
-       -  title: Get an access token
-          itemType: how-to-guide
-          url: ./get-access-token.md
-       -  title: Migrate your data from Azure API for FHIR
-          itemType: how-to-guide
-          url: ./fhir/migration-strategies.md    
-       -  title: Azure Health Data Services 
-          itemType: training
-          url: /training/browse/?term=iot&terms=health%20data%20services
+       - title: What is Azure Health Data Services?
+         itemType: overview
+         url: ./healthcare-apis-overview.md
+       - title: Release notes
+         itemType: whats-new
+         url: ./release-notes.md          
+       - title: Get an access token
+         itemType: how-to-guide
+         url: ./get-access-token.md
+       - title: Migrate your data from Azure API for FHIR
+         itemType: how-to-guide
+         url: ./fhir/migration-strategies.md    
+       - title: Azure Health Data Services 
+         itemType: learn
+         url: /training/browse/?term=iot&terms=health%20data%20services
 
 conceptualContent:
   items: 
@@ -130,7 +130,11 @@ additionalContent:
         - title: Azure Health Data & AI workflows
           summary: Sample apps and code
           url: https://github.com/Azure-Samples/azure-health-data-services-samples
-          # Card
+        # Card
+        - title: REST API for Azure Health Data Services
+          summary: REST API reference for Healthcare APIs
+          url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/?view=rest-healthcareapis-2022-06-01
+        # Card
         - title: Quickstart templates
           summary: Sample Azure Resource Manager (ARM) templates
           url: https://learn.microsoft.com/samples/browse/?terms=azure%20health%20data%20services
@@ -142,5 +146,5 @@ additionalContent:
       items:
         # Card
         - title: Azure API for FHIR
-          summary: This service is being retired as of September 30, 2026
+          summary: This service is being retired on September 30, 2026.
           url: ./azure-api-for-fhir/overview.md

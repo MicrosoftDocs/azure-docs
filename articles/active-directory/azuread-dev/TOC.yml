@@ -2,47 +2,12 @@
   href: index.yml
 - name: Overview
   expanded: true
-  items:
-  - name: Overview
-    href: v1-overview.md
-  - name: Evolution of Microsoft identity platform
-    href: about-microsoft-identity-platform.md
-  - name: Why update to v2.0
-    href: azure-ad-endpoint-comparison.md
-- name: Samples
-  href: sample-v1-code.md
 - name: Concepts
   items:
   - name: Application types
-    items:
-    - name: Types of applications
-      href: app-types.md
-    - name: Single-page application
-      href: single-page-application.md
-    - name: Web app
-      href: web-app.md
-    - name: Web API
-      href: web-api.md
-    - name: Mobile & desktop app
-      href: native-app.md
-    - name: Daemon or server application
-      href: service-to-service.md
   - name: Authentication
     items:
-    - name: Authentication basics
-      href: v1-authentication-scenarios.md
     - name: OAuth 2.0 and OpenID Connect protocols
-      items:
-      - name: OpenID Connect
-        href: v1-protocols-openid-connect-code.md
-      - name: OAuth 2.0 implicit grant flow
-        href: v1-oauth2-implicit-grant-flow.md
-      - name: OAuth 2.0 auth code grant
-        href: v1-protocols-oauth-code.md
-      - name: OAuth 2.0 on-behalf-of flow
-        href: v1-oauth2-on-behalf-of-flow.md
-      - name: OAuth 2.0 client credentials grant
-        href: v1-oauth2-client-creds-grant-flow.md
     - name: SAML 2.0 protocol
       items:
       - name: Single sign-on
@@ -52,9 +17,6 @@
       - name: How Microsoft Entra ID uses the SAML protocol
         href: ../develop/saml-protocol-reference.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: WS-Federation
-      items:
-      - name: Federation metadata
-        href: azure-ad-federation-metadata.md
     - name: Signing key rollover
       href: ../develop/signing-key-rollover.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: ID tokens
@@ -76,14 +38,10 @@
   - name: Permissions and consent
     displayName: Scopes
     items:
-    - name: Types of permissions and consent
-      href: v1-permissions-consent.md
     - name: Consent framework
       href: ../develop/application-consent-experience.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Application consent experiences
       href: ../develop/application-consent-experience.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-  - name: Conditional Access
-    href: conditional-access-dev-guide.md
   - name: National Clouds
     href: ../develop/authentication-national-cloud.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
 - name: How-to guides
@@ -92,11 +50,6 @@
     items:
     - name: Configure single sign-on
       displayName: SSO
-      items:
-      - name: Enable SSO on Android
-        href: howto-v1-enable-sso-android.md
-      - name: Enable SSO on iOS
-        href: howto-v1-enable-sso-ios.md
     - name: Configure claims
       items:
       - name: Configure role claims
@@ -109,8 +62,6 @@
         href: ../develop/optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
       - name: Configure token lifetimes
         href: ../develop/configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-    - name: ADAL error handling best practices
-      href: active-directory-devhowto-adal-error-handling.md
   - name: Application configuration
     items:
     - name: Convert a single-tenant app to a multi-tenant app
@@ -126,31 +77,21 @@
     - name: Add app roles in your application
       href: ../develop/howto-add-app-roles-in-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Branding guidelines
-      href: /azure/active-directory/develop/howto-add-branding-in-apps
+      href: ../develop/howto-add-branding-in-apps.md
     - name: Terms of Service and Privacy Statement
       href: ../develop/howto-add-terms-of-service-privacy-statement.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Bring an app to market
     items:
-    - name: Publish to App Source
-      href: howto-get-appsource-certified.md
     - name: Publish to the Office 365 Seller Dashboard
-      href: /office/dev/store/add-in-submission-guide
+      href: /partner-center/marketplace/add-in-submission-guide
   - name: Azure Access Control Service
     displayName: ACS
-    items:
-    - name: Migrate from the Azure Access Control Service
-      href: active-directory-acs-migration.md
-    - name: Reactivate disabled Access Control Service namespaces
-      href: howto-reactivate-disabled-acs-namespaces.md
   - name: Use the Microsoft Graph API
     href: /graph/overview?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: AD FS for developers
     href: /windows-server/identity/ad-fs/ad-fs-overview
 - name: References
   items:
-  - name: Authentication libraries
-    displayName: ADAL
-    href: active-directory-authentication-libraries.md
   - name: Microsoft Graph API
     href: /graph/overview?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Application manifest
@@ -163,8 +104,6 @@
   items:
   - name: Glossary
     href: ../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-  - name: Videos
-    href: videos.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Microsoft Entra blog

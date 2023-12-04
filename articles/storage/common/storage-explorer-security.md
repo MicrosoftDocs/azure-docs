@@ -26,23 +26,25 @@ Microsoft Azure Storage Explorer enables you to easily work with Azure Storage d
 
 Storage Explorer provides various ways to access your Azure Storage resources. Whatever method you choose, here are our recommendations.
 
-### Azure AD authentication
+<a name='azure-ad-authentication'></a>
 
-The easiest and most secure way to access your Azure Storage resources is to sign in with your Azure account. Signing in uses Azure AD authentication, which allows you to:
+### Microsoft Entra authentication
+
+The easiest and most secure way to access your Azure Storage resources is to sign in with your Azure account. Signing in uses Microsoft Entra authentication, which allows you to:
 
 - Give access to specific users and groups.
 - Revoke access to specific users and groups at any time.
 - Enforce access conditions, such as requiring multi-factor authentication.
 
-We recommend using Azure AD authentication whenever possible.
+We recommend using Microsoft Entra authentication whenever possible.
 
-This section describes the two Azure AD-based technologies that can be used to secure your storage resources.
+This section describes the two Microsoft Entra ID-based technologies that can be used to secure your storage resources.
 
 #### Azure role-based access control (Azure RBAC)
 
 [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) give you fine-grained access control over your Azure resources. Azure roles and permissions can be managed from the Azure portal.
 
-Storage Explorer supports Azure RBAC access to Storage Accounts, Blobs, and Queues. If you need access to File Shares or Tables, you'll need to assign Azure roles that grant permission to list storage account keys.
+Storage Explorer supports Azure RBAC access to Storage Accounts, Blobs, Queues, and Tables. If you need access to File Shares, you'll need to assign Azure roles that grant permission to list storage account keys.
 
 #### Access control lists (ACLs)
 
@@ -50,7 +52,7 @@ Storage Explorer supports Azure RBAC access to Storage Accounts, Blobs, and Queu
 
 ### Shared access signatures (SAS)
 
-If you can't use Azure AD authentication, we recommend using shared access signatures. With shared access signatures, you can:
+If you can't use Microsoft Entra authentication, we recommend using shared access signatures. With shared access signatures, you can:
 
 - Provide anonymous limited access to secure resources.
 - Revoke a SAS immediately if generated from a shared access policy (SAP).

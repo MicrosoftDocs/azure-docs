@@ -2,10 +2,10 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 03/04/2022
+ms.date: 10/18/2023
 ms.author: danlep
 ---
-## Next steps
+## Related content
 
 For more information about working with policies, see:
 

@@ -165,9 +165,9 @@ landingContent:
             url: service-bus-authentication-and-authorization.md
           - text: Authenticate with Shared Access Signature
             url: service-bus-sas.md
-          - text: Authenticate managed identities with Azure Active Directory
+          - text: Authenticate managed identities with Microsoft Entra ID
             url: service-bus-managed-service-identity.md            
-          - text: Authenticate an application with Azure Active Directory
+          - text: Authenticate an application with Microsoft Entra ID
             url: authenticate-application.md
           - text: Enforce minimum required TLS version
             url: transport-layer-security-enforce-minimum-version.md

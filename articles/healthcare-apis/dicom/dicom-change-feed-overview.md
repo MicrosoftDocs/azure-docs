@@ -1,34 +1,34 @@
 ---
-title:  Overview of DICOM Change Feed - Azure Health Data Services
-description: In this article, you'll learn the concepts of DICOM Change Feed.
+title:  Overview of DICOM change feed - Azure Health Data Services
+description: In this article, you learn the concepts of DICOM change feed.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 10/9/2023
 ms.author: mmitrik
 ---
 
-# Change Feed Overview
+# Change feed overview
 
-The Change Feed provides logs of all the changes that occur in DICOM service. The Change Feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The Change Feed offers the ability to go through the history of DICOM service and acts upon the creates and deletes in the service.
+The change feed provides logs of all the changes that occur in the DICOM&reg; service. The change feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The change feed offers the ability to go through the history of DICOM service and acts upon the creates and deletes in the service.
 
-Client applications can read these logs at any time in batches of any size. The Change Feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM service.
+Client applications can read these logs at any time in batches of any size. The change feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM service.
 
-You can process these change events asynchronously, incrementally or in-full. Any number of client applications can independently read the Change Feed, in parallel, and at their own pace.
+You can process these change events asynchronously, incrementally or in-full. Any number of client applications can independently read the change feed, in parallel, and at their own pace.
 
-As of v2 of the API, the Change Feed can be queried for a particular time window.
+As of v2 of the API, the change feed can be queried for a particular time window.
 
 Make sure to specify the version as part of the URL when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
 
 ## API Design
 
-The API exposes two `GET` endpoints for interacting with the Change Feed. A typical flow for consuming the Change Feed is [provided below](#usage).
+The API exposes two `GET` endpoints for interacting with the change feed. A typical flow for consuming the change feed is provided in the [Usage](#usage) section.
 
 Verb | Route              | Returns     | Description
 :--- | :----------------- | :---------- | :---
-GET  | /changefeed        | JSON Array  | [Read the Change Feed](#change-feed)
-GET  | /changefeed/latest | JSON Object | [Read the latest entry in the Change Feed](#latest-change-feed)
+GET  | /changefeed        | JSON Array  | [Read the change feed](#change-feed)
+GET  | /changefeed/latest | JSON Object | [Read the latest entry in the change feed](#latest-change-feed)
 
 ### Object model
 
@@ -51,9 +51,9 @@ current  | This instance is the current version.
 replaced | This instance has been replaced by a new version.
 deleted  | This instance has been deleted and is no longer available in the service.
 
-## Change Feed
+## Change feed
 
-The Change Feed resource is a collection of events that have occurred within the DICOM server.
+The change feed resource is a collection of events that have occurred within the DICOM server.
 
 ### Version 2
 
@@ -148,11 +148,11 @@ Content-Type: application/json
 Name            | Type     | Description | Default | Min | Max |
 :-------------- | :------- | :---------- | :------ | :-- | :-- |
 offset          | long     | The exclusive starting sequence number for events | `0` | `0` | |
-limit           | int      | The maximum value of the sequence number relative to the offset. For example, if the offset is 10 and the limit is 5, then the maximum sequence number returned will be 15. | `10` | `1` | `100` |
+limit           | int      | The maximum value of the sequence number relative to the offset. For example, if the offset is 10 and the limit is 5, then the maximum sequence number returned is 15. | `10` | `1` | `100` |
 includeMetadata | bool     | Indicates whether or not to include the DICOM metadata | `true` | | |
 
-## Latest Change Feed
-The latest Change Feed resource represents the latest event that has occurred within the DICOM Server.
+## Latest change feed
+The latest change feed resource represents the latest event that has occurred within the DICOM Server.
 
 ### Request
 ```http
@@ -189,12 +189,12 @@ includeMetadata | bool | Indicates whether or not to include the metadata | `tru
 
 #### Version 2
 
-1. An application regularly queries the Change Feed on some time interval
-    * For example, if querying every hour, a query for the Change Feed may look like `/changefeed?startTime=2023-05-10T16:00:00Z&endTime=2023-05-10T17:00:00Z`
-    * If starting from the beginning, the Change Feed query may omit the `startTime` to read all of the changes up to, but excluding, the `endTime`
-        * E.g. `/changefeed?endTime=2023-05-10T17:00:00Z`
-2. Based on the `limit` (if provided), an application continues to query for additional pages of change events if the number of returned events is equal to the `limit` (or default) by updating the offset on each subsequent query
-    * For example, if the `limit` is `100`, and 100 events are returned, then the subsequent query would include `offset=100` to fetch the next "page" of results. The below queries demonstrate the pattern:
+1. An application regularly queries the change feed on some time interval
+    * For example, if querying every hour, a query for the change feed might look like `/changefeed?startTime=2023-05-10T16:00:00Z&endTime=2023-05-10T17:00:00Z`
+    * If starting from the beginning, the change feed query might omit the `startTime` to read all of the changes up to, but excluding, the `endTime`
+        * For example: `/changefeed?endTime=2023-05-10T17:00:00Z`
+2. Based on the `limit` (if provided), an application continues to query for more pages of change events if the number of returned events is equal to the `limit` (or default) by updating the offset on each subsequent query
+    * For example, if the `limit` is `100`, and 100 events are returned, then the subsequent query would include `offset=100` to fetch the next "page" of results. The queries demonstrate the pattern:
         * `/changefeed?offset=0&limit=100&startTime=2023-05-10T16:00:00Z&endTime=2023-05-10T17:00:00Z`
         * `/changefeed?offset=100&limit=100&startTime=2023-05-10T16:00:00Z&endTime=2023-05-10T17:00:00Z`
         * `/changefeed?offset=200&limit=100&startTime=2023-05-10T16:00:00Z&endTime=2023-05-10T17:00:00Z`
@@ -216,18 +216,14 @@ includeMetadata | bool | Indicates whether or not to include the metadata | `tru
 
 ### Other potential usage patterns
 
-Change Feed support is well suited for scenarios that process data based on objects that have changed. For example, it can be used to:
+Change feed support is well suited for scenarios that process data based on objects that have changed. For example, it can be used to:
 
 * Build connected application pipelines like ML that react to change events or schedule executions based on created or deleted instance.
 * Extract business analytics insights and metrics, based on changes that occur to your objects.
-* Poll the Change Feed to create an event source for push notifications.
-
-## Summary
-
-In this article, we reviewed the REST API design of Change Feed and potential usage scenarios. For information on Change Feed, see [Pull changes from Change Feed](pull-dicom-changes-from-change-feed.md).
+* Poll the change feed to create an event source for push notifications.
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
+[Pull changes from the change feed](pull-dicom-changes-from-change-feed.md)
 
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

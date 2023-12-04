@@ -104,7 +104,7 @@ The following section provides information on data collection.
 
 #### Operation: Azure Activity Log collection
 
-"Access to the subscription was lost. Ensure that the \<**subscription id**\> subscription is in the \<**tenant id**\> Azure Active Directory tenant. If the subscription is transferred to another tenant, there's no impact to the services, but information for the tenant could take up to an hour to propagate."
+"Access to the subscription was lost. Ensure that the \<**subscription id**\> subscription is in the \<**tenant id**\> Microsoft Entra tenant. If the subscription is transferred to another tenant, there's no impact to the services, but information for the tenant could take up to an hour to propagate."
 
 In some situations, like moving a subscription to a different tenant, the Azure activity logs might stop flowing into the workspace. In those situations, you need to reconnect the subscription following the process described in this article.
 

@@ -84,13 +84,15 @@ Currently, the only regions that require endpoint modifications are [Azure Gover
 |ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
-## Enable Azure Active Directory authentication for profile ingestion
+<a name='enable-azure-active-directory-authentication-for-profile-ingestion'></a>
 
-Application Insights Profiler supports Azure Active Directory (Azure AD) authentication for profile ingestion. For all profiles of your application to be ingested, your application must be authenticated and provide the required application settings to the Profiler agent.
+## Enable Microsoft Entra authentication for profile ingestion
 
-Profiler only supports Azure AD authentication when you reference and configure Azure AD by using the [Application Insights SDK](../app/asp-net-core.md#configure-the-application-insights-sdk) in your application.
+Application Insights Profiler supports Microsoft Entra authentication for profile ingestion. For all profiles of your application to be ingested, your application must be authenticated and provide the required application settings to the Profiler agent.
 
-To enable Azure AD for profile ingestion:
+Profiler only supports Microsoft Entra authentication when you reference and configure Microsoft Entra ID by using the [Application Insights SDK](../app/asp-net-core.md#configure-the-application-insights-sdk) in your application.
+
+To enable Microsoft Entra ID for profile ingestion:
 
 1. Create and add the managed identity to authenticate against your Application Insights resource to your App Service:
 
@@ -98,7 +100,7 @@ To enable Azure AD for profile ingestion:
 
    1.  [User-assigned managed identity documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-user-assigned-identity)
 
-1. [Configure and enable Azure AD](../app/azure-ad-authentication.md?tabs=net#configure-and-enable-azure-ad-based-authentication) in your Application Insights resource.
+1. [Configure and enable Microsoft Entra ID](../app/azure-ad-authentication.md?tabs=net#configure-and-enable-azure-ad-based-authentication) in your Application Insights resource.
 
 1. Add the following application setting to let the Profiler agent know which managed identity to use.
 

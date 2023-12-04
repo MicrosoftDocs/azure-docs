@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 author: mksuni
 ms.author: sumuth 
-ms.date: 1/15/2023
+ms.date: 9/29/2023
 ---
 
 # Tutorial: Create a Power Automate flow app with Azure Database for MySQL - Flexible Server
@@ -85,6 +85,15 @@ After saving the flow, we need to test it and run the flow app.
 4. When the flow is successfully executed, you can select **click to download** in the output section to see the JSON response received.
 
    :::image type="content" source="./media/tutorial-power-automate-with-mysql/run-flow-to-get-rows-from-table.png" alt-text="Screenshot that shows output of the run.":::
+
+##  Triggers
+
+Azure database for MySQL connector supports triggers for when an item is created in MySQL or when an item is modified. A trigger is just an event that starts a cloud flow. Before using triggers, make sure your table schema has "created_at" and "updated_at" columns which are of type timestamp. The trigger use these columns to understand when a new item was create or modified and initiate the automated flow. 
+
+|Trigger|Description|
+|----|----|
+|[When an item is created](/connectors/azuremysql/#when-an-item-is-created)|Triggers a flow when an item is created in MySQL (Available only for Power Automate.)|
+|[When an item is modified](/connectors/azuremysql/#when-an-item-is-modified)|Triggers a flow when an item is modified in MySQL. (Available only for Power Automate.)|
 
 ## Next steps
 [Azure Database for MySQL connector](/connectors/azuremysql/) reference 

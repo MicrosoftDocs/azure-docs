@@ -2,8 +2,8 @@
 title: Show search results on a map
 titleSuffix: Microsoft Azure Maps
 description: This article demonstrates how to perform a search request using Microsoft Azure Maps Web SDK and display the results on the map.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 07/01/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -96,7 +96,7 @@ document.body.onload = onload;
 > [!VIDEO //codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------------->
 
-In the previous code example, the first block constructs a map object and sets the authentication mechanism to use Azure Active Directory. For more information, see [Create a map].
+In the previous code example, the first block constructs a map object and sets the authentication mechanism to use Microsoft Entra ID. For more information, see [Create a map].
 
 The second block of code creates an object that implements the [TokenCredential] interface to authenticate HTTP requests to Azure Maps with the access token. It then passes the credential object to [MapsSearch] and creates an instance of the client.
 
@@ -186,7 +186,7 @@ document.body.onload = onload;
 > [!VIDEO //codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------------->
 
-In the previous code example, the first block of code constructs a map object. It sets the authentication mechanism to use Azure Active Directory. For more information, see [Create a map].
+In the previous code example, the first block of code constructs a map object. It sets the authentication mechanism to use Microsoft Entra ID. For more information, see [Create a map].
 
 The second block of code creates a data source object using the [DataSource] class and add search results to it. A [symbol layer] uses text or icons to render point-based data wrapped in the [DataSource] as symbols on the map.  A symbol layer is then created. The data source is added to the symbol layer, which is then added to the map.
 

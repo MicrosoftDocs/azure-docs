@@ -1,13 +1,12 @@
 ---
 title: Create or modify a Direct peering - Azure portal
-description: Create or modify a Direct peering using the Azure portal.
-services: internet-peering
+titleSuffix: Internet Peering
+description: Learn how to create or modify a Direct peering using the Azure portal.
+ms.author: halkazwini
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 01/23/2023
-ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
+ms.date: 10/04/2023
 ---
 
 # Create or modify a Direct peering using the Azure portal
@@ -42,9 +41,6 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 
 3. For Resource group, you can either choose an existing resource group from the drop-down list or create a new group by selecting Create new. We'll create a new resource group for this example.
 
-    >[!NOTE]
-    >Once a subscription and resource group have been selected for the peering resource, it cannot be moved to another subscription or resource group.
-
 4. Name corresponds to the resource name and can be anything you choose.
 
 5. Region is auto-selected if you chose an existing resource group. If you chose to create a new resource group, you also need to choose the Azure region where you want the resource to reside.
@@ -74,7 +70,7 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 ## <a name="delete"></a>Deprovision a Direct peering
 [!INCLUDE [peering-direct-delete-portal](./includes/delete.md)]
 
-## Next steps
+## Related content
 
 - [Create or modify Exchange peering by using the portal](howto-exchange-portal.md).
 - [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md).

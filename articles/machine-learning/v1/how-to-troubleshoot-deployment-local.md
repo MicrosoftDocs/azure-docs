@@ -29,7 +29,7 @@ Try a local model deployment as a first step in troubleshooting deployment to Az
    * Have a working Docker installation on your local system. 
    * To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
 * Option C - Enable local debugging with Azure Machine Learning inference HTTP server.
-    * The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
+    * The Azure Machine Learning inference HTTP server is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
     * The server can also be used when creating validation gates in a continuous integration and deployment pipeline. For example, start the server with thee candidate script and run the test suite against the local endpoint.
 
 ## Azure Machine Learning inference HTTP server

@@ -43,12 +43,14 @@ This section lists configuration requirements and limitations for user groups an
 
 The following sections list available authentication mechanisms that can be used while creating user groups.
 
-### Azure Active Directory groups
+<a name='azure-active-directory-groups'></a>
 
-To create and manage Active Directory groups, see [Manage Azure Active Directory groups and group membership](../active-directory/fundamentals/how-to-manage-groups.md).
+### Microsoft Entra groups
 
-* The Azure Active Directory group object ID (and not the group name) needs to be specified as part of the Virtual WAN point-to-site User VPN configuration.
-* Azure Active Directory users can be assigned to be part of multiple Active Directory groups, but Virtual WAN considers users to be part of the Virtual WAN user/policy group that has the lowest numerical priority.
+To create and manage Active Directory groups, see [Manage Microsoft Entra groups and group membership](../active-directory/fundamentals/how-to-manage-groups.md).
+
+* The Microsoft Entra group object ID (and not the group name) needs to be specified as part of the Virtual WAN point-to-site User VPN configuration.
+* Microsoft Entra users can be assigned to be part of multiple Active Directory groups, but Virtual WAN considers users to be part of the Virtual WAN user/policy group that has the lowest numerical priority.
 
 ### RADIUS - NPS vendor-specific attributes
 
@@ -134,8 +136,8 @@ Use the following steps to create a user group.
 1. **Having issues with address pools?** Every address pool is specified on the gateway. Address pools are split into two address pools and assigned to each active-active instance in a point-to-site VPN gateway pair. These split addresses should show up in the effective route table. For example, if you specify "10.0.0.0/24", you should see two "/25" routes in the effective route table. If this isn't the case, try changing the address pools defined on the gateway.
 1. **P2S client not able to receive routes?** Make sure all point-to-site VPN connection configurations are associated to the defaultRouteTable and propagate to the same set of route tables. This should be configured automatically if you're using portal, but if you're using REST, PowerShell or CLI, make sure all propagations and associations are set appropriately.
 1. **Not able to enable Multipool using Azure VPN client?** If you're using the Azure VPN client, make sure the Azure VPN client installed on user devices is the latest version. You need to download the client again to enable this feature.
-1. **All users getting assigned to Default group?** If you're using Azure Active Directory authentication, make sure the tenant URL input in the server configuration `(https://login.microsoftonline.com/<tenant ID>)` doesn't end in a `\`. If the URL is input to end with `\`, the gateway won't be able to properly process Azure Active Directory user groups, and all users are assigned to the default group. To remediate, modify the server configuration to remove the trailing `\` and modify the address pools configured on the gateway to apply the changes to the gateway. This is a known issue.
-1. **Trying to invite external users to use Multipool feature?** If you're using Azure Active Directory authentication and you plan to invite users who are external (users who aren't part of the Azure Active Directory domain configured on the VPN gateway) to connect to the Virtual WAN Point-to-site VPN gateway, make sure that the user type of the external user is "Member" and not "Guest". Also, make sure that the "Name" of the user is set to the user's email address. If the user type and name of the connecting user isn't set correctly as described above, or you can't set an external member to be a "Member" of your Azure Active Directory domain, the connecting user is assigned to the default group and assigned an IP from the default IP address pool.
+1. **All users getting assigned to Default group?** If you're using Microsoft Entra authentication, make sure the tenant URL input in the server configuration `(https://login.microsoftonline.com/<tenant ID>)` doesn't end in a `\`. If the URL is input to end with `\`, the gateway won't be able to properly process Microsoft Entra user groups, and all users are assigned to the default group. To remediate, modify the server configuration to remove the trailing `\` and modify the address pools configured on the gateway to apply the changes to the gateway. This is a known issue.
+1. **Trying to invite external users to use Multipool feature?** If you're using Microsoft Entra authentication and you plan to invite users who are external (users who aren't part of the Microsoft Entra domain configured on the VPN gateway) to connect to the Virtual WAN Point-to-site VPN gateway, make sure that the user type of the external user is "Member" and not "Guest". Also, make sure that the "Name" of the user is set to the user's email address. If the user type and name of the connecting user isn't set correctly as described above, or you can't set an external member to be a "Member" of your Microsoft Entra domain, the connecting user is assigned to the default group and assigned an IP from the default IP address pool.
 
 ## Next steps
 

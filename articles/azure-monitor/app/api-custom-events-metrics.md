@@ -108,7 +108,7 @@ In Node.js projects, you can use `new applicationInsights.TelemetryClient(instru
 
 ## TrackEvent
 
-In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../essentials/metrics-charts.md) as an aggregated count and in [Diagnostic Search](./diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
+In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../essentials/metrics-charts.md) as an aggregated count and in [Diagnostic Search](./transaction-search-and-diagnostics.md?tabs=transaction-search) as individual occurrences. (It isn't related to MVC or other framework "events.")
 
 Insert `TrackEvent` calls in your code to count various events. For example, you might want to track how often users choose a particular feature. Or you might want to know how often they achieve certain goals or make specific types of mistakes.
 
@@ -319,7 +319,7 @@ The recommended way to send request telemetry is where the request acts as an <a
 
 ## Operation context
 
-You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](./diagnostic-search.md) and [Analytics](../logs/log-query-overview.md), you can easily find any events associated with the request by using its operation ID.
+You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](./transaction-search-and-diagnostics.md?tabs=transaction-search) and [Analytics](../logs/log-query-overview.md), you can easily find any events associated with the request by using its operation ID.
 
 For more information on correlation, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
 
@@ -371,7 +371,7 @@ requests
 Send exceptions to Application Insights:
 
 * To [count them](../essentials/metrics-charts.md), as an indication of the frequency of a problem.
-* To [examine individual occurrences](./diagnostic-search.md).
+* To [examine individual occurrences](./transaction-search-and-diagnostics.md?tabs=transaction-search).
 
 The reports include the stack traces.
 
@@ -464,7 +464,7 @@ exceptions
 
 ## TrackTrace
 
-Use `TrackTrace` to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](./diagnostic-search.md).
+Use `TrackTrace` to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](./transaction-search-and-diagnostics.md?tabs=transaction-search).
 
 In .NET [Log adapters](./asp-net-trace-logs.md), use this API to send third-party logs to the portal.
 
@@ -533,7 +533,7 @@ properties.put("Database", db.ID);
 telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
 ```
 
-In [Search](./diagnostic-search.md), you can then easily filter out all the messages of a particular severity level that relate to a particular database.
+In [Search](./transaction-search-and-diagnostics.md?tabs=transaction-search), you can then easily filter out all the messages of a particular severity level that relate to a particular database.
 
 ### Traces in Log Analytics
 
@@ -723,7 +723,7 @@ appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
 In [Metrics Explorer](../essentials/metrics-charts.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
 
-You can also [search](./diagnostic-search.md) for client data points with specific user names and accounts.
+You can also [search](./transaction-search-and-diagnostics.md?tabs=transaction-search) for client data points with specific user names and accounts.
 
 > [!NOTE]
 > The [EnableAuthenticationTrackingJavaScript property in the ApplicationInsightsServiceOptions class](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) in the .NET Core SDK simplifies the JavaScript configuration needed to inject the user name as the Auth ID for each trace sent by the Application Insights JavaScript SDK.
@@ -1115,7 +1115,7 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 To avoid hitting the data rate limit, use [sampling](./sampling.md).
 
-To determine how long data is kept, see [Data retention and privacy](./data-retention-privacy.md).
+To determine how long data is kept, see [Data retention and privacy](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
 
 ## Reference docs
 
@@ -1174,4 +1174,4 @@ Azure alerts are only on metrics. Create a custom metric that crosses a value th
 
 ## <a name="next"></a>Next steps
 
-* [Search events and logs](./diagnostic-search.md)
+* [Search events and logs](./transaction-search-and-diagnostics.md?tabs=transaction-search)

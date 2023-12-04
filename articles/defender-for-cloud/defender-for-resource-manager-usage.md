@@ -48,7 +48,7 @@ To investigate security alerts from Defender for Resource Manager:
 ## Step 3: Immediate mitigation 
 
 1. Remediate compromised user accounts:
-    - If they’re unfamiliar, delete them as they may have been created by a threat actor
+    - If they’re unfamiliar, delete them as they might have been created by a threat actor
     - If they’re familiar, change their authentication credentials
     - Use Azure Activity Logs to review all activities performed by the user and identify any that are suspicious
 

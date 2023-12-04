@@ -31,7 +31,7 @@ Azure Managed Grafana supports the Grafana Admin, Grafana Editor, and Grafana Vi
 
 More details on Grafana roles can be found in the [Grafana documentation](https://grafana.com/docs/grafana/latest/permissions/organization_roles/#compare-roles).
 
-Grafana user roles and assignments are fully [integrated within Azure Active Directory (Azure AD)](../role-based-access-control/built-in-roles.md#grafana-admin). You can assign a Grafana role to any Azure AD user, group, service principal or managed identity, and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign Grafana roles to users in the Azure portal.
+Grafana user roles and assignments are fully [integrated within Microsoft Entra ID](../role-based-access-control/built-in-roles.md#grafana-admin). You can assign a Grafana role to any Microsoft Entra user, group, service principal or managed identity, and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign Grafana roles to users in the Azure portal.
 
 > [!NOTE]
 > Azure Managed Grafana doesn't support personal Microsoft accounts (MSA) currently.
@@ -64,7 +64,7 @@ Assign a role using the [az role assignment create](/cli/azure/role/assignment#a
 In the code below, replace the following placeholders:
 
 - `<assignee>`:
-  - For an Azure AD user, enter their email address or the user object ID.
+  - For a Microsoft Entra user, enter their email address or the user object ID.
   - For a group, enter the group object ID.
   - For a service principal, enter the service principal object ID.
   - For a managed identity, enter the object ID.

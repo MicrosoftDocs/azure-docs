@@ -4,7 +4,9 @@ titleSuffix: Azure Machine Learning
 description: This article addresses frequent questions about tool usage.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: reference
 author: ChenJieting
 ms.author: chenjieting
@@ -43,9 +45,9 @@ To resolve the issue, you have two options:
   - Update your runtime to latest version.
   - Remove the old tool and re-create a new tool.
 
-## Why can't I upgrade my old flow?
+## No such file or directory error
 Prompt flow relies on fileshare to store snapshot of flow. If fileshare has some issue, you may encounter this issue. Here are some workarounds you can try:
-- If you're using private storage account, please see follow [Network isolation in prompt flow](../how-to-secure-prompt-flow.md) to make sure your storage account can be accessed by your workspace.
+- If you're using private storage account, see [Network isolation in prompt flow](../how-to-secure-prompt-flow.md) to make sure your storage account can be accessed by your workspace.
 - If the storage account is enabled public access, please check whether there are datastore named `workspaceworkingdirectory` in your workspace, it should be fileshare type.
 ![workspaceworkingdirectory](../media/faq/working-directory.png) 
     - If you didn't get this datastore, you need add it in your workspace.
@@ -75,7 +77,7 @@ Use  `docker images`  to check if the image was pulled successfully. If your ima
 
 ### Run failed due to "No module named XXX"
 
-This type error related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](../how-to-create-manage-runtime.md#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize Prompt flow environment](../how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+This type error related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](../how-to-create-manage-runtime.md#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize prompt flow environment](../how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
 
 ### Request timeout issue
 
@@ -123,7 +125,7 @@ Error in the example says "UserError: Invoking runtime gega-ci timeout, error me
 
 3. If you can't find anything in runtime logs to indicate it's a specific node issue
 
-    Contact the Prompt Flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We try to identify the root cause.
+    Contact the prompt flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We try to identify the root cause.
 
 ### How to find the compute instance runtime log for further investigation?
 
@@ -134,3 +136,24 @@ Go to the compute instance terminal and run  `docker logs -<runtime_container_na
 :::image type="content" source="../media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot of don't have access error on the flow page. " lightbox = "../media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
 
 It's because you're cloning a flow from others that is using compute instance as runtime. As compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others. 
+
+### How to find python packages installed in runtime?
+
+Please follow below steps to find python packages installed in runtime:
+
+- Add python node in your flow.
+- Put following code to the code section.
+
+    ```python
+    from promptflow import tool
+    import subprocess
+    
+    @tool
+    def list_packages(input: str) -> str: 
+        # Run the pip list command and save the output to a file
+        with open('packages.txt', 'w') as f:
+            subprocess.run(['pip', 'list'], stdout=f)    
+    
+    ```
+- Run the flow, then you can find `packages.txt` in the flow folder.
+  :::image type="content" source="../media/faq/list-packages.png" alt-text="Screenshot of finding python packages installed in runtime. " lightbox = "../media/faq/list-packages.png":::

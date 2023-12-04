@@ -1,13 +1,13 @@
 ---
-title: Policies in Azure API Management | Microsoft Docs
-description: Learn about policies in API Management, a way for API publishers to change API behavior through configuration. Policies are statements that run sequentially on the request or response of an API.
+title: Policies in Azure API Management 
+description: Introduction to API Management policies, which change API behavior through configuration. Policy statements run sequentially on an API request or response.
 services: api-management
 documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/07/2023
+ms.date: 10/18/2023
 ms.author: danlep
 
 ---
@@ -65,7 +65,7 @@ By placing policy statements in the `on-error` section, you can:
 * Inspect and customize the error response using the `set-body` policy.
 * Configure what happens if an error occurs. 
 
-For more information, see [Error handling in API Management policies](./api-management-error-handling-policies.md) 
+For more information, see [Error handling in API Management policies](./api-management-error-handling-policies.md). 
 
 ## Policy expressions
 
@@ -76,7 +76,7 @@ Unless the policy specifies otherwise, [policy expressions](api-management-polic
 
 Each expression has access to the implicitly provided `context` variable and an allowed subset of .NET Framework types.
 
-Policy expressions provide a sophisticated means to control traffic and modify API behavior without requiring you to write specialized code or modify backend services. Some policies are based on policy expressions, such as the [Control flow][Control flow] and [Set variable][Set variable]. For more information, see [Advanced policies][Advanced policies].
+Policy expressions provide a sophisticated means to control traffic and modify API behavior without requiring you to write specialized code or modify backend services. Some policies are based on policy expressions, such as [Control flow][Control flow] and [Set variable][Set variable]. For more information, see [Advanced policies][Advanced policies].
 
 ## Scopes
 
@@ -95,10 +95,16 @@ When configuring a policy, you must first select the scope at which the policy a
 ### Things to know
 
 * For fine-grained control for different API consumers, you can configure policy definitions at more than one scope
-* Not all policies can be applied at each scope and policy section
-* When configuring policy definitions at more than one scope, you control the policy evaluation order in each policy section by placement of the `base` element 
+* Not all policies are supported at each scope and policy section
+* When configuring policy definitions at more than one scope, you control policy inheritance and the policy evaluation order in each policy section by placement of the `base` element
+* Policies applied to API requests are also affected by the request context, including the presence or absence of a subscription key used in the request, the API or product scope of the subscription key, and whether the API or product requires a subscription. 
 
-For more information, see [Set or edit policies](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order).
+    [!INCLUDE [api-management-product-policy-alert](../../includes/api-management-product-policy-alert.md)]
+
+For more information, see:
+
+* [Set or edit policies](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order)
+* [Subscriptions in API Management](api-management-subscriptions.md)
 
 ### GraphQL resolver policies
 

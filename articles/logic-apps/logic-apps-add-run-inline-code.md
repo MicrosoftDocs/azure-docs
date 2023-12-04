@@ -3,9 +3,9 @@ title: Run code snippets in workflows
 description: Run code snippets in workflows using Inline Code operations in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, estfan, azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/07/2023
+ms.date: 10/10/2023
 ms.custom: devx-track-js
 ---
 
@@ -52,24 +52,32 @@ The following diagram shows the highlights from example workflow:
 
   * Standard: [Create example Standard logic app workflows](create-single-tenant-workflows-azure-portal.md)
 
-* Based on whether your logic app is Consumption or Standard, review the following requirements:
+* Based on whether you have a Consumption or Standard logic app workflow, review the following requirements:
 
-  * Consumption: Requires [Node.js version 8.11.10](https://nodejs.org/en/download/releases/) and a [link to an integration account](logic-apps-enterprise-integration-create-integration-account.md), empty or otherwise, from your logic app resource.
+  * Consumption workflow
 
-    > [!IMPORTANT]
-    >
-    > Make sure that you use an integration account that's appropriate for your use case or scenario.
-    >
-    > For example, [Free-tier](logic-apps-pricing.md#integration-accounts) integration accounts are meant only 
-    > for exploratory scenarios and workloads, not production scenarios, are limited in usage and throughput, 
-    > and aren't supported by a service-level agreement (SLA).
-    >
-    > Other integration account tiers incur costs, but include SLA support, offer more throughput, and have higher limits. 
-    > Learn more about [integration account tiers](logic-apps-pricing.md#integration-accounts), 
-    > [limits](logic-apps-limits-and-config.md#integration-account-limits), and 
-    > [pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+    * [Node.js version 8.11.10](https://nodejs.org/en/download/releases/)
 
-  * Standard: Requires [Node.js versions 16.x.x](https://nodejs.org/en/download/releases/), but no integration account.
+    * [Link to an integration account](logic-apps-enterprise-integration-create-integration-account.md), empty or otherwise, from your logic app resource.
+
+      > [!IMPORTANT]
+      >
+      > Make sure that you use an integration account that's appropriate for your use case or scenario.
+      >
+      > For example, [Free-tier](logic-apps-pricing.md#integration-accounts) integration accounts are meant only 
+      > for exploratory scenarios and workloads, not production scenarios, are limited in usage and throughput, 
+      > and aren't supported by a service-level agreement (SLA).
+      >
+      > Other integration account tiers incur costs, but include SLA support, offer more throughput, and have higher limits. 
+      > Learn more about [integration account tiers](logic-apps-pricing.md#integration-accounts), 
+      > [limits](logic-apps-limits-and-config.md#integration-account-limits), and 
+      > [pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+  * Standard workflow
+
+    * [Node.js versions 16.x.x](https://nodejs.org/en/download/releases/)
+
+    * No integration account required.
 
 ## Add the Execute JavaScript Code action
 

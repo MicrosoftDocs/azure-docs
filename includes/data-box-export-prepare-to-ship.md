@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 06/19/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Final step is to prepare the device to ship. In this step, all the device shares are taken offline. The shares cannot be accessed once you start this process. You can also choose to clean up device whereby the local data on the device is erased permanently. Once the step is complete, your e-ink display will show the return shipping label.
@@ -42,3 +42,4 @@ Final step is to prepare the device to ship. In this step, all the device shares
     ![Data Box power button](media/data-box-export-prepare-to-ship/data-box-powered-door-open.png)
 
 6. Remove the cables. The next step is to ship the device to Microsoft.
+

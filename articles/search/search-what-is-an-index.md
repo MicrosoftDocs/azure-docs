@@ -1,20 +1,22 @@
 ---
 title: Index overview
-titleSuffix: Azure Cognitive Search
-description: Explains what is a search index in Azure Cognitive Search and describes content, construction, physical expression, and the index schema.
+titleSuffix: Azure AI Search
+description: Explains what is a search index in Azure AI Search and describes content, construction, physical expression, and the index schema.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 06/29/2023
 ---
 
-# Indexes in Azure Cognitive Search
+# Indexes in Azure AI Search
 
-In Azure Cognitive Search, a *search index* is your searchable content, available to the search engine for indexing, full text search, and filtered queries. An index is defined by a schema and saved to the search service, with data import following as a second step. This content exists within your search service, apart from your primary data stores, which is necessary for the millisecond response times expected in modern applications. Except for specific indexing scenarios, the search service will never connect to or query your local data.
+In Azure AI Search, a *search index* is your searchable content, available to the search engine for indexing, full text search, and filtered queries. An index is defined by a schema and saved to the search service, with data import following as a second step. This content exists within your search service, apart from your primary data stores, which is necessary for the millisecond response times expected in modern applications. Except for specific indexing scenarios, the search service will never connect to or query your local data.
 
 If you're creating and managing a search index, this article helps you understand the following:
 
@@ -26,7 +28,7 @@ Prefer to be hands-on right away? See [Create a search index](search-how-to-crea
 
 ## Content of a search index
 
-In Cognitive Search, indexes contain *search documents*. Conceptually, a document is a single unit of searchable data in your index. For example, a retailer might have a document for each product, a news organization might have a document for each article, a travel site might have a document for each hotel and destination, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+In Azure AI Search, indexes contain *search documents*. Conceptually, a document is a single unit of searchable data in your index. For example, a retailer might have a document for each product, a news organization might have a document for each article, a travel site might have a document for each hotel and destination, and so forth. Mapping these concepts to more familiar database equivalents: a *search index* equates to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
 The structure of a document is determined by the index schema, as illustrated below. The "fields" collection is typically the largest part of an index, where each field is named, assigned a [data type](/rest/api/searchservice/Supported-data-types), and attributed with allowable behaviors that determine how it's used.
 
@@ -102,7 +104,7 @@ Although you can add new fields at any time, existing field definitions are lock
 
 ## Physical structure and size
 
-In Azure Cognitive Search, the physical structure of an index is largely an internal implementation. You can access its schema, query its content, monitor its size, and manage capacity, but the clusters themselves (indices, [shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards), and other files and folders) are managed internally by Microsoft.
+In Azure AI Search, the physical structure of an index is largely an internal implementation. You can access its schema, query its content, monitor its size, and manage capacity, but the clusters themselves (indices, [shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards), and other files and folders) are managed internally by Microsoft.
 
 You can monitor index size in the Indexes tab in the Azure portal, or by issuing a [GET INDEX request](/rest/api/searchservice/get-index) against your search service. You can also issue a [Service Statistics request](/rest/api/searchservice/get-service-statistics) and check the value of storage size.
 
@@ -141,9 +143,11 @@ Now that you have a better idea of what an index is, this section introduces ind
 
 ### Index isolation
   
-In Cognitive Search, you'll work with one index at a time, where all index-related operations target a single index. There's no concept of related indexes or the joining of independent indexes for either indexing or querying. 
+In Azure AI Search, you'll work with one index at a time, where all index-related operations target a single index. There's no concept of related indexes or the joining of independent indexes for either indexing or querying. 
 
 ### Continuously available
+
+An index is immediately available for queries as soon as the first document is indexed, but won't be fully operational until all documents are indexed. Internally, a search index is [distributed across partitions and executes on replicas](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards). The physical index is managed internally. The logical index is managed by you.
 
 An index is continuously available, with no ability to pause or take it offline. Because it's designed for continuous operation, any updates to its content, or additions to the index itself, happen in real time. As a result, queries might temporarily return incomplete results if a request coincides with a document update.
 
@@ -162,7 +166,7 @@ All indexing and query requests target an index. Endpoints are usually one of th
 
 ## Next steps
 
-You can get hands-on experience creating an index using almost any sample or walkthrough for Cognitive Search. For starters, you could choose any of the quickstarts from the table of contents.
+You can get hands-on experience creating an index using almost any sample or walkthrough for Azure AI Search. For starters, you could choose any of the quickstarts from the table of contents.
 
 But you'll also want to become familiar with methodologies for loading an index with data. Index definition and data import strategies are defined in tandem. The following articles provide more information about creating and loading an index.
 

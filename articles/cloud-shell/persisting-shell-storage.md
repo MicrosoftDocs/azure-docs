@@ -1,7 +1,7 @@
 ---
 description: Walkthrough of how Azure Cloud Shell persists files.
 ms.contributor: jahelmic
-ms.date: 09/29/2023
+ms.date: 10/03/2023
 ms.topic: article
 tags: azure-resource-manager
 ms.custom: devx-track-linux
@@ -53,7 +53,7 @@ filter for locally redundant storage (LRS), geo-redundant storage (GRS), and zon
 ## Securing storage access
 
 For security, each user should create their own storage account. For Azure role-based access control
-(Azure RBAC), users must have contributor access or above at the storage account level.
+(Azure RBAC), users must have contributor access or higher at the storage account level.
 
 Cloud Shell uses an Azure fileshare in a storage account, inside a specified subscription. Due to
 inherited permissions, users with sufficient access rights to the subscription can access all the
@@ -151,11 +151,6 @@ shm                                                    65536       0      65536 
 You can update the fileshare that's associated with Cloud Shell using the `clouddrive mount`
 command.
 
-If you mount an existing fileshare, the storage accounts must be located in your select Cloud Shell
-region. Retrieve the location by running `env` and checking the `ACC_LOCATION`.
-
-#### The `clouddrive mount` command
-
 > [!NOTE]
 > If you're mounting a new fileshare, a new user image is created for your `$HOME` directory. Your
 > previous `$HOME` image is kept in your previous fileshare.
@@ -233,7 +228,7 @@ file storage GUI when you refresh the blade.
    ![Screenshot of the download dialog box in Cloud Shell.][10]
 
    You can only download files located under your `$HOME` folder.
-1. Click the **Download** button.
+1. Select the **Download** button.
 
 ### Upload files
 
@@ -253,9 +248,8 @@ You should now see the files that are accessible in your `clouddrive` directory 
 ### Upload files in Azure Cloud Shell
 
 1. In an Azure Cloud Shell session, select the **Upload/Download files** icon and select the
-   **Upload** option.
-1. Your browser will open a file dialog. Select the file you want to upload then click the **Open**
-   button.
+   **Upload** option. Your browser opens a file dialog box.
+1. Choose the file you want to upload then select the **Open** button.
 
 The file is uploaded to the root of your `$HOME` folder. You can move the file after it's uploaded.
 
