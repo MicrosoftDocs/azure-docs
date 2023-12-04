@@ -52,3 +52,11 @@ ms.author: danlep
  * **Challenges encountered in reassigning API Management instance to previous subnet**
    * When moving an API Management instance back to its original subnet, immediate reassignment may not be possible due to the VNet lock, which takes up to six hours to be removed. If the original subnet has other API Management services (cloud service-based), deleting them and waiting for 6 hours is necessary for deploying a VMSS-based service in the same subnet. 
    * Another scenario to consider is the presence of a scope lock at the resource group level or higher, hindering the Resource Navigation Link Deletion process. To resolve this, remove the scope lock and allow a delay of approximately 4-6 hours for the API Management service to unlink from the original subnet before the lock removal, enabling deployment to the desired subnet.
+
+* Troubleshoot connection to Microsoft Graph from inside a VNet
+
+* Network connectivity to Microsoft Graph is needed for features including user sign-in to the developer portal using the Microsoft Entra identity provider.
+    
+    * Ensure that NSG and other network rules are configured for outbound connectivity from your API Management instance to Microsoft Graph (for example, using the **AzureActiveDirectory** service tag).
+
+    * Ensure DNS resolution and network access to `graph.microsoft.com` from within the VNet. For example, provision a new VM inside the VNet, connect to it, and try to `GET https://graph.microsoft.com/v1.0/$metadata` from a browser or using cURL, PowerShell, or other tools.
