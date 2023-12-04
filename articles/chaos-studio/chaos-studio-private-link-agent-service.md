@@ -35,26 +35,62 @@ az feature register --namespace Microsoft.Resources --name "EUAPParticipation" -
 
 # Steps
 
-## Make sure you have allowlisted Microsoft.Network/AllowPrivateEndpoints in your subscription
+## Step 1: Make sure you have allowlisted Microsoft.Network/AllowPrivateEndpoints in your subscription
 
 The first step you will need to take is to ensure that your desired subscription allows the Networking Resource Provider to operate. 
 
+Ensure that the `Microsoft.Network/AllowPrivateEndpoints` feature flag is enabled for your subscription. If you have used Chaos Studio in your subscription before, this may have already been done via the Portal when you created your first experiment. 
 
+<br/>
 
+The feature flag can be enabled using Azure CLI. Here is an example of how to do this:
 
-### Using Azure CLI
+```AzCLI
+az feature register --namespace Microsoft.Network --name "AllowPrivateEndpoints" --subscription <subscription id>
+```
 
-1. **Create a Private Access Resource**:
-    ```shell
-    az rest --verbose --skip-authorization-header \
-    --header "Authorization=Bearer $accessToken" \
-    --uri-parameters api-version=2023-04-01-preview \
-    --method PUT \
-    --uri "https://centraluseuap.management.azure.com/subscriptions/<subscriptionID>/resourceGroups/<resourceGroup>/providers/Microsoft.Chaos/privateAccesses/<cpasName>?api-version=2023-10-27-preview" \
-    --body '{...}'
-    ```
+> [!NOTE]
+> If you are going to be using private endpoints using manual requests across multiple subscriptions, you will need to ensure you register the Microsoft.Network Resource Provider (RP) in your respective tenants/subscriptions. See [Register RP](articles/azure-resource-manager/management/resource-providers-and-types.md) for more info about this.
+> This step is not needed if you are using the same subscription across both the Chaos and Networking Resource Providers.
+ 
+## Step 2: Create a Chaos Studio Private Access (CSPA) resource. 
 
-### Using Postman
+To use Private endpoints for agent-based chaos experiments, you will need to create a new resource type called **Chaos Studio Private Accesses**. This will be the resource against which the private endpoints will be created.
+
+> [!NOTE]
+> Currently this resource can **only be created from the CLI**. See the example code below for how to do this:
+
+ ```AzCLI
+az rest --verbose --skip-authorization-header --header "Authorization=Bearer $accessToken" --uri-parameters api-version=2023-10-27-preview --method PUT --uri "https://centraluseuap.management.azure.com/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Chaos/privateAccesses/<CSPAResourceName>?api-version=2023-10-27-preview" --body ' 
+
+{ 
+
+    "location": "<resourceLocation>", 
+
+    "properties": { 
+
+        "id": "<CSPAResourceName>", 
+
+        "name": "<CSPAResourceName>", 
+
+        "location": "<resourceLocation>", 
+
+        "type": "Microsoft.Chaos/privateAccesses", 
+
+        "resourceId": "subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Chaos/privateAccesses/<CSPAResourceName>" 
+
+    } 
+
+}
+ ```
+
+| Name |Required | Type | Description
+|-|-|-|-|
+|subscriptionID|True|String|GUID that represents an Azure subscription ID|
+|resourceGroupName|True|String|String that represents an Azure resource group|
+|CSPAResourceName|True|String|String that represents the name you want to give your Chaos Studio Private Access Resource|
+|resourceLocation|True|String|Location you want the resource to be hosted (must be a support region by Chaos Studio)|
+
 
 1. **Enable Feature for Private Endpoints**:
    - Enable `Microsoft.Network/AllowPrivateEndpoints` feature on the subscription.
