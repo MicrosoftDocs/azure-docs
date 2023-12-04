@@ -15,7 +15,12 @@ zone_pivot_groups: iotedge-dev
 
 This article shows you how to use Visual Studio 2022 to develop, debug, and deploy custom Azure IoT Edge modules. Visual Studio 2022 provides templates for IoT Edge modules written in C and C#. The supported device architectures are Windows x64, Linux x64, ARM32, and ARM64 (preview). For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
 
-You can choose either the **Azure IoT Edge Dev Tool** CLI or the **Azure IoT Edge tools for Visual Studio** extension as your IoT Edge development tool. Use the tool selector button at the beginning to choose your tool option for this article. Both tools provide the following benefits:
+This article includes steps for two IoT Edge development tools.
+
+* **Azure IoT Edge Dev Tool** CLI. This tool is preferred for development.
+* **Azure IoT Edge tools for Visual Studio** extension. The extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+
+Use the tool selector button at the beginning to choose your tool option for this article. Both tools provide the following benefits:
 
 * Create, edit, build, run, and debug IoT Edge solutions and modules on your local development computer.
 * Code your Azure IoT modules in C or C# with the benefits of Visual Studio development.
@@ -33,7 +38,7 @@ This article assumes that you use a machine running Windows as your development 
 
     > [!IMPORTANT]
     > The *Azure IoT Edge Tools for VS 2022* extension is in [maintenance mode](https://aka.ms/edgetool-dep). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
-    
+
     * Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace.
     * Or, in Visual Studio go to **Extensions > Manage Extensions**. The **Manage Extensions** popup opens. In the search box in the upper right, add the text **Azure IoT Edge Tools for VS 2022**, then select **Download**. Close the popup when finished.
 
