@@ -57,6 +57,6 @@ ms.author: danlep
 
 * Network connectivity to Microsoft Graph is needed for features including user sign-in to the developer portal using the Microsoft Entra identity provider.
     
-    * Ensure that NSG and other network rules are configured for outbound connectivity from your API Management instance to Microsoft Graph (for example, using the **AzureActiveDirectory** service tag).
+    * Ensure that NSG and other network rules are configured for outbound connectivity from your API Management instance to Microsoft Graph (using the **AzureActiveDirectory** service tag).
 
     * Ensure DNS resolution and network access to `graph.microsoft.com` from within the VNet. For example, provision a new VM inside the VNet, connect to it, and try to `GET https://graph.microsoft.com/v1.0/$metadata` from a browser or using cURL, PowerShell, or other tools.
