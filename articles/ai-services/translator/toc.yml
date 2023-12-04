@@ -123,13 +123,22 @@ items:
   - name: Document Translation REST APIs
     displayName: get,post,cancel,delete
     href: document-translation/reference/rest-api-guide.md
-      items:
-  - name: Document Translation SDKs
-    displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
-    href: document-translation/quickstarts/document-translation-sdk.md
-  - name:  Document Translation REST APIs
-    displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
-    href: document-translation/quickstarts/document-translation-rest-api.md
+  - name: Authentication and authorization
+    items:
+    - name: Create and use managed identities
+      displayName: batch,azure active directory,azure ad,azure role-based access control,azure RBAC,sas,assignment,role,owner,user access administrator,contributor
+      href: document-translation/how-to-guides/create-use-managed-identities.md
+    - name: Create SAS tokens for storage containers
+      displayName: user,delegation,shared access,tokens,storage explorer,azure,portal,blob,url
+      href: document-translation/how-to-guides/create-sas-tokens.md
+  - name: Quickstarts
+    items:
+    - name: Document Translation SDKs
+      displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
+      href: document-translation/quickstarts/document-translation-sdk.md
+    - name:  Document Translation REST APIs
+      displayName: get started,rest,api,keys,endpoint,headers,c#,go,java,javascript,python,setup
+      href: document-translation/quickstarts/document-translation-rest-api.md
   - name: How-to guides
     items:
     - name: Use REST APIs programmatically
@@ -161,15 +170,6 @@ items:
       href: document-translation/reference/get-translation-status.md
     - name: Cancel translation
       href: document-translation/reference/cancel-translation.md
-  - name: Authentication and authorization
-    items:
-    - name: Create and use managed identities
-      displayName: batch,azure active directory,azure ad,azure role-based access control,azure RBAC,sas,assignment,role,owner,user access administrator,contributor
-      href: document-translation/how-to-guides/create-use-managed-identities.md
-    - name: Create SAS tokens for storage containers
-      displayName: user,delegation,shared access,tokens,storage explorer,azure,portal,blob,url
-      href: document-translation/how-to-guides/create-sas-tokens.md
-  - name: Quickstarts     
   - name: Document Translation FAQ
     href: document-translation/faq.md
 - name: Containers
