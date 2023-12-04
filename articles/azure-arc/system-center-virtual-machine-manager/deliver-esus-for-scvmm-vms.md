@@ -1,7 +1,7 @@
 ---
 title:  Deliver ESUs for SCVMM VMs through Arc
 description: Deliver ESUs for SCVMM VMs through Azure Arc. 
-ms.date: 12/01/2023
+ms.date: 12/04/2023
 ms.topic: how-to
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
@@ -21,7 +21,7 @@ This article provides the steps to procure and deliver ESUs to WS 2012 and 2012 
 
 >[!Note]
 > - Through Azure Arc-enabled SCVMM, you can procure and deliver ESUs only for the SCVMM managed VMs and not for your hosts. 
-> - In order to purchase ESUs, you must have Software Assurance through Volume Licensing Programs such as an Enterprise Agreement (EA), Enterprise Agreement Subscription (EAS), Enrollment for Education Solutions (EES), or Server and Cloud Enrollment (SCE). Alternatively, if your Windows Server 2012/2012 R2 machines are licensed through SPLA or with a Server Subscription, Software Assurance isn't required to purchase ESUs.
+> - To purchase ESUs, you must have Software Assurance through Volume Licensing Programs such as an Enterprise Agreement (EA), Enterprise Agreement Subscription (EAS), Enrollment for Education Solutions (EES), or Server and Cloud Enrollment (SCE). Alternatively, if your Windows Server 2012/2012 R2 machines are licensed through SPLA or with a Server Subscription, Software Assurance isn't required to purchase ESUs.
 
 ## Prerequisites
 
@@ -30,13 +30,13 @@ This article provides the steps to procure and deliver ESUs to WS 2012 and 2012 
 
 ## Create Azure Arc ESUs 
 
-1.	From your browser, sign in to the [Azure portal](https://portal.azure.com/).
-2.	On the **Azure Arc** page, select **Extended Security Updates** in the left pane. From here, you can view and create ESU Licenses and view eligible resources for ESUs.
-3.	The **Licenses** tab displays Azure Arc WS 2012 licenses that are available. From here, you can select an existing license to apply or create a new license.
+1.	Sign in to the [Azure portal](https://portal.azure.com/).
+2.	On the **Azure Arc** page, select **Extended Security Updates** in the left pane. Here, you can view and create ESU Licenses and view eligible resources for ESUs.
+3.	The **Licenses** tab displays Azure Arc WS 2012 licenses that are available. Select an existing license to apply or create a new license.
 
     :::image type="content" source="media/deliver-esus-for-scvmm-vms/select-or-create-license.png" alt-text="Screenshot of how to create a new license." lightbox="media/deliver-esus-for-scvmm-vms/select-or-create-license.png":::
 
-4.	To create a new WS 2012 license, select **Create**, and then provide the information required to configure the license on the page. For detailed guidance on how to complete this step, see [License provisioning guidelines for Extended Security Updates for Windows Server 2012](../servers/license-extended-security-updates.md).
+4.	To create a new WS 2012 license, select **Create**, and then provide the information required to configure the license on the page. For detailed information on how to complete this step, see [License provisioning guidelines for Extended Security Updates for Windows Server 2012](../servers/license-extended-security-updates.md).
 5.	Review the information provided and select **Create**. The license you created appears in the list, and you can link it to one or more Arc-enabled SCVMM VMs by following the steps in the next section.
 
     :::image type="content" source="media/deliver-esus-for-scvmm-vms/new-license-created.png" alt-text="Screenshot showing the successful creation of a new license." lightbox="media/deliver-esus-for-scvmm-vms/new-license-created.png":::
@@ -48,7 +48,7 @@ You can select one or more Arc-enabled SCVMM VMs to link to an ESU license. Once
 >[!Note]
 > You have the flexibility to configure your patching solution of choice to receive these updates – whether it's [Azure Update Manager](https://learn.microsoft.com/azure/update-center/overview), [Windows Server Update Services](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus), Microsoft Updates, [Microsoft Endpoint Configuration Manager](https://learn.microsoft.com/mem/configmgr/core/understand/introduction), or a third-party patch management solution.
 
-1.	Select the **Eligible Resources** tab to view a list of all your Arc-enabled server machines running Windows Server 2012 and 2012 R2, including SCVMM machines that are guest management enabled. The **ESUs status** column indicates whether or not the machine is ESUs enabled.
+1.	Select the **Eligible Resources** tab to view a list of all your Arc-enabled server machines running Windows Server 2012 and 2012 R2, including SCVMM machines that are guest management enabled. The **ESUs status** column indicates whether the machine is ESUs enabled.
  
     :::image type="content" source="media/deliver-esus-for-scvmm-vms/view-arc-enabled-machines.png" alt-text="Screenshot of arc-enabled server machines running Windows Server 2012 and 2012 R2 under the eligible resources tab." lightbox="media/deliver-esus-for-scvmm-vms/view-arc-enabled-machines.png":::
 
@@ -60,7 +60,7 @@ You can select one or more Arc-enabled SCVMM VMs to link to an ESU license. Once
 4.	The **ESUs status** column value of the selected machines changes to **Enabled**.
 
     >[!Note]
-    > - If any problem occurs during the enablement process, for assistance see [Troubleshoot delivery of Extended Security Updates for Windows Server 2012](../servers/troubleshoot-extended-security-updates.md).<br>
+    > - See [Troubleshoot delivery of Extended Security Updates for Windows Server 2012](../servers/troubleshoot-extended-security-updates.md) to troubleshoot any problems that occur during the enablement process.<br>
     > - Review the [additional scenarios](../servers/deliver-extended-security-updates.md#additional-scenarios) in which you may be eligible to receive ESU patches at no additional cost.
 
 ## Next steps
