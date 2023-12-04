@@ -12,7 +12,7 @@ ms.date: 11/13/2023
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
-## Decemeber 2023
+## December 2023
 
 ### Pre and Post Events (preview)
 
