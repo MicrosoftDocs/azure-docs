@@ -20,9 +20,9 @@ Azure Support is your first line of support for all Oracle Database@Azure issues
 
 Azure provides support for the following, collaborating with OCI as needed:
 
--   Virtual networking issues including those involving network address translation (NAT), firewalls, DNS and traffic management, and delegated Azure subnets.
--   Bastion and virtual machine (VM) issues including database host connection, software installation, latency, and host performance.
--   VM metrics, database logs, database events
+- Virtual networking issues including those involving network address translation (NAT), firewalls, DNS and traffic management, and delegated Azure subnets.
+- Bastion and virtual machine (VM) issues including database host connection, software installation, latency, and host performance.
+- VM metrics, database logs, database events
 
 See [Contact Microsoft Azure Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4) in the Azure documentation for information on Azure support.
 
