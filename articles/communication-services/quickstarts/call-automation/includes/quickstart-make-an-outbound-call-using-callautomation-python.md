@@ -52,7 +52,7 @@ Then update your `main.py` file with the following values:
 - `CALLBACK_URI_HOST`: Once you have your DevTunnel host initialized, update this field with that URI.
 - `TARGET_PHONE_NUMBER`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `ACS_PHONE_NUMBER`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
-- `COGNITIVE_SERVICES_ENDPOINT`: update field with your cognitive services endpoint.
+- `COGNITIVE_SERVICES_ENDPOINT`: update field with your Azure AI services endpoint.
 
 
 ```python
@@ -151,7 +151,7 @@ return choices
 
 ## Handle Choice Events
 
-Azure Communication Services Call Automation triggers the `api/callbacks` to the webhook we have setup and will notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to input received and trigger an action. The application then plays a message to the caller based on the specific input recieved.
+Azure Communication Services Call Automation triggers the `api/callbacks` to the webhook we have setup and will notify us with the `RecognizeCompleted` event. The event gives us the ability to respond to input received and trigger an action. The application then plays a message to the caller based on the specific input received.
 
 ```python
 elif event.type == "Microsoft.Communication.RecognizeCompleted":

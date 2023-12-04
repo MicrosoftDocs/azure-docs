@@ -19,10 +19,10 @@ Use this article to migrate data plane calls to newer *stable* versions of the [
 
 + [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version. Semantic ranking and vector search support are generally available in this version.
 
-+ [**2023-10-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview version. [Integrated data chunking and vectorization](vector-search-integrated-vectorization.md) using the [Text Split](cognitive-search-skill-textsplit.md) skill and [Azure OpenAI Embedding](cognitive-search-skill-azure-openai-embedding.md) skill are introduced in this version. There's no migration guidance for preview API versions, but you can review [code samples](https://github.com/Azure/azure-search-vector-samples) and [walkthroughs](vector-search-how-to-configure-vectorizer.md) for guidance.
++ [**2023-10-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview version. [Integrated data chunking and vectorization](vector-search-integrated-vectorization.md) using the [Text Split](cognitive-search-skill-textsplit.md) skill and [Azure OpenAI Embedding](cognitive-search-skill-azure-openai-embedding.md) skill are introduced in this version. *There's no migration guidance for preview API versions*, but you can review [code samples](https://github.com/Azure/azure-search-vector-samples) and [walkthroughs](vector-search-how-to-configure-vectorizer.md) for help with new features.
 
 > [!NOTE]
-> API reference docs are now versioned. To get the right information, open a reference page and then apply the version-specific filter located above the table of contents.
+> API reference docs are now versioned. To get the right content, open a reference page and then apply the version-specific filter located above the table of contents.
 
 <a name="UpgradeSteps"></a>
 
@@ -49,7 +49,7 @@ This version has breaking changes and behavioral differences for semantic rankin
 If you added vector support using 2023-10-01-preview, there are no breaking changes, but there's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md). The default is  prefilter for indexes created after 2023-10-01. Indexes created before that date only support postfilter, regardless of how you set the filter mode. 
 
 > [!TIP]
-> Azure portal supports a one-click upgrade path for 2023-07-01-preview indexes. The portal detects that version and provides a **Migrate** button. Before selecting **Migrate**, select **Edit JSON** to review the updated schema first. You should find a schema that conforms to the changes described in this section. Portal migration only handles indexes with one vector field. Indexes with more fields require manual migration.
+> Azure portal supports a one-click upgrade path for 2023-07-01-preview indexes. The portal detects 2023-07-01-preview indexes and provides a **Migrate** button. Before selecting **Migrate**, select **Edit JSON** to review the updated schema first. You should find a schema that conforms to the changes described in this section. Portal migration only handles indexes with one vector search algorithm configuration, creating a default profile that maps to the algorithm. Indexes with multiple configurations require manual migration.
 
 Here are the steps for migrating from 2023-07-01-preview:
 
@@ -104,7 +104,7 @@ Here are the steps for migrating from 2023-07-01-preview:
       }
     ```
 
-1. Modify vector field definitions, replacing `vectorSearchConfiguration` with `vectorSearchProfile`. Other vector field properties remain unchanged. For example, they can't be filterable, sortable, or facetable, nor use analyzers or normalizers or synonym maps.
+1. Modify vector field definitions, replacing `vectorSearchConfiguration` with `vectorSearchProfile`. Make sure the profile name resolves to a new vector profile definition, and not the algorithm configuration name. Other vector field properties remain unchanged. For example, they can't be filterable, sortable, or facetable, nor use analyzers or normalizers or synonym maps.
 
     **Before (2023-07-01-preview)**:
 
@@ -220,7 +220,7 @@ Existing code written against earlier API versions will break on api-version=202
 
 ### Behavior changes
 
-* [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. New services use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
+* [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. Services created after 2019 use this algorithm automatically. For older services, you must set parameters to use the new algorithm.  
 
 * Ordered results for null values have changed in this version, with null values appearing first if the sort is `asc` and last if the sort is `desc`. If you wrote code to handle how null values are sorted, be aware of this change.
 
