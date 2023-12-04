@@ -53,7 +53,7 @@ You can select one or more Arc-enabled SCVMM VMs to link to an ESU license. Once
     :::image type="content" source="media/deliver-esus-for-scvmm-vms/view-arc-enabled-machines.png" alt-text="Screenshot of arc-enabled server machines running Windows Server 2012 and 2012 R2 under the eligible resources tab." lightbox="media/deliver-esus-for-scvmm-vms/view-arc-enabled-machines.png":::
 
 2.	To enable ESUs for one or more machines, select them in the list, and then select **Enable ESUs**.
-3.	On the Enable Extended Security Updates page, you can see the number of machines selected to enable ESUs and the WS 2012 licenses available to apply. Select a license to link to the selected machine(s) and select **Enable**.
+3.	On the **Enable Extended Security Updates** page, you can see the number of machines selected to enable ESUs and the WS 2012 licenses available to apply. Select a license to link to the selected machine(s) and select **Enable**.
 
     :::image type="content" source="media/deliver-esus-for-scvmm-vms/enable-license.png" alt-text="Screenshot of how to select and enable license." lightbox="media/deliver-esus-for-scvmm-vms/enable-license.png":::
 
