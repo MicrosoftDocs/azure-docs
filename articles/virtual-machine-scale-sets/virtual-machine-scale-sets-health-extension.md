@@ -258,6 +258,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 ```json
 {
   "name": "myHealthExtension",
+  "location": "<location>", 
   "properties": {
     "publisher": "Microsoft.ManagedServices",
     "type": "ApplicationHealthWindows",
@@ -383,6 +384,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 ```json
 {
   "name": "myHealthExtension",
+  "location": "<location>",
   "properties": {
     "publisher": "Microsoft.ManagedServices",
     "type": "ApplicationHealthWindows",
