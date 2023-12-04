@@ -52,7 +52,7 @@ This article provides suggestions to troubleshoot common problems with the Googl
     2. The syntax for Google Ads query language is similar to AWQL from the AdWords API, but not identical. You can refer this [document](https://developers.google.com/google-ads/api/docs/migration/querying) for more details.  
 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

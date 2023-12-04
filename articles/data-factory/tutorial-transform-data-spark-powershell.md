@@ -323,7 +323,7 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 4. Confirm that a folder named `outputfiles` is created in the `spark` folder of adftutorial container with the output from the spark program. 
 
 
-## Next steps
+## Related content
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to: 
 
 > [!div class="checklist"]

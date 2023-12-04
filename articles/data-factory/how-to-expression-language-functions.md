@@ -315,5 +315,5 @@ Please follow [Mapping data flow with parameters](./parameters-data-flow.md) for
 Please follow [Metadata driven pipeline with parameters](./how-to-use-trigger-parameterization.md) to learn more about how to use parameters to design metadata driven pipelines. This is a popular use case for parameters.
 
 
-## Next steps
+## Related content
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

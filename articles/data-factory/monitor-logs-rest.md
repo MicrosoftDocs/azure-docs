@@ -216,6 +216,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 For more information, see [Diagnostic settings](/rest/api/monitor/diagnosticsettings).
 
-## Next steps
+## Related content
 
 [Monitor SSIS operations with Azure Monitor](monitor-ssis.md)
