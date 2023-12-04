@@ -227,6 +227,8 @@ You'll define the outbound type to use the UDR that already exists on the subnet
 >
 > You can add the AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network, or you must add all developer endpoints to the authorized IP range.
 
+---
+
 ### [Create an AKS cluster with system-assigned identities](#tab/aks-with-system-assigned-identities)
 
 > [!NOTE]
@@ -315,6 +317,8 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
   --assign-identity <identity-resource-id> \
   --assign-kubelet-identity <kubelet-identity-resource-id>
 ```
+
+---
 
 ## Enable developer access to the API server
 
