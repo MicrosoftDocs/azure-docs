@@ -127,7 +127,7 @@ Invoke a "PUT Target" command using this response. You will need to append **TWO
 
 These additional fields are shown in the following screenshot: 
 
-[![Screenshot of VNET tab of private endpoint creation](images/additionalCSPAfields.png)](images/additionalCSPAfields.png#lightbox)
+[![Screenshot of additional CSPA fields](images/additionalCSPAfields.png)](images/additionalCSPAfields.png#lightbox)
 
 
 Below is an example block for what the "PUT Target" command should look like and the fields that you would need to fill out:
@@ -161,6 +161,29 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 > [!NOTE]
 > The PrivateAccessID should exactly match the "resourceID" used to create the CSPA resource in Step 2.
 
+## Step 5: Update host VM to map the communications endpoint to the private endpoint
+
+During the Preview of this feature, customers need to update the Agent VM extensions settings to point to the communication endpoint that supports traffic over a private network. Customers need to update the host entry on the actual VM to map the communication endpoint to the private IP generated during the private endpoint creation. You can get the IP address from the "DNS Configuration" tab in the Private Endpoint resource seen in the following screenshot:
+
+[![Screenshot of Private Ednpoint DNS Config tab](images/DNSConfig.png)](images/DNSConfig.png#lightbox)
+
+After noting the IP address, you need to open the "hosts" file on your host VM and updatwe it with the following entry:
+
+```
+<IP address>    acs-frontdoor-prod-<azureRegion>.chaosagent.trafficmanager.net
+```
+
+> [!NOTE]
+> **Path of hosts file on Windows:** C:\Windows\System32\drivers\etc
+> **Path of hosts file on Linux:** /etc/hosts
+
+Example of what the "hosts" file should look like. The IP address and azure region will change for your scenario:
+
+[![Screenshot of hosts file](images/CSPAhosts.png)](images/CSPAhosts.png#lightbox)
+
+Save and close the file.
+
+## Step 6: Update the communication endpoint in agentSettings and agentInstanceConfig JSON files
 
 
 
