@@ -234,7 +234,7 @@ The following DCR defines a single stream `Custom-ExampleConnectorInput` using t
 
 For more information on the structure of this example, see [Structure of a data collection rule](../azure-monitor/essentials/data-collection-rule-structure.md).
 
-To create this DCR in a test environment, follow the [Data Collection Rules API](/rest/api/monitor/data-collection-rules/create). Elements of the example in `{{double curly braces}}` indicate variables for ease of use with Postman. When you create this resource in the ARM template, the variables expressed here are exchanged for 
+To create this DCR in a test environment, follow the [Data Collection Rules API](/rest/api/monitor/data-collection-rules/create). Elements of the example in `{{double curly braces}}` indicate variables that require values with ease of use for Postman. When you create this resource in the ARM template, the variables expressed here are exchanged for parameters.
 
 ```json
 {
@@ -330,9 +330,17 @@ To create this DCR in a test environment, follow the [Data Collection Rules API]
 
 ```
 
+### Example data connector UI definition
+
+This example is located in the [Data connector definitions reference](connectorUIConfig-supplemental-reference.md#example-data-connector-definition).
+
+### Example data connector connection rules
+
+This example is located in the [Data connectors reference](restapipoller-data-connector-reference.md#example-ccp-data-connector).
+
 ### Example ARM template
 
-This example guides you through the creation of an ARM deployment template with the following structure:
+This example guides you through the creation of the ARM deployment template with the following structure:
 
 ```json
 {
@@ -351,7 +359,7 @@ Consider using the ARM template test toolkit (arm-ttk) to validate the template 
 
 #### Example ARM template - parameters
 
-For more information, see [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md).
+For more information, see [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md) and [Security recommendations for parameters](../azure-resource-manager/templates/best-practices.md#security-recommendations-for-parameters).
 
 ```json
 {
@@ -432,7 +440,7 @@ There are 5 resources in this template guide.
     - dataConnectorDefinitions - For more information, see [Data connector user interface](#data-connector-user-interface).
     - dataCollectionRules - For more information, see [Data collection rule](#data-collection-rule).
     - tables - For more information, see [Output table definition](#output-table-definition).
-1. **dataConnectorDefinitions** - the same [Data connector user interface](#data-connector-user-interface) section.
+1. **dataConnectorDefinitions** - the [Data connector user interface](#data-connector-user-interface) section again.
 1. **metadata**
 1. **contentTemplates** 
     - RestApiPoller - For more information, see [Data connection rules](#data-connection-rules).
@@ -685,26 +693,25 @@ There are 5 resources in this template guide.
                             "kind": "RestApiPoller",
                             "properties": 
 							{
-								// Enter your data connector properties here. If you want to use UI parameter use them in the following format "[[[paramters('paramName')]" (see example below)
-								//Use parameters as needed. For example
-								//For example:	
-                                //"dataType": "My product security event API",
-                                //"response": {
+								// Enter your data connector properties here. If you want to use UI parameters remember to escape the parameter like this: "[[parameters('paramName')]"
+								//  Use parameters as needed. For example:	
+                                // "dataType": "My product security event API",
+                                // "response": {
                                 //   "eventsJsonPaths": [
                                 //        "$"
                                 //    ],
                                 //    "format": "json"
-                                //},
-                                //"paging": {
+                                // },
+                                // "paging": {
                                 //    "pagingType": "LinkHeader"
-                                //},
-                                //"connectorDefinitionName": "[[parameters('connectorDefinitionName')]",
-                                //"auth": {
+                                // },
+                                // "connectorDefinitionName": "[[parameters('connectorDefinitionName')]",
+                                // "auth": {
                                 //   "apiKeyName": "Authorization",
                                 //    "ApiKey": "[[parameters('apikey')]",
                                 //    "apiKeyIdentifier": "SSWS",
                                 //    "type": "APIKey"
-                                //},
+                                //} ,
                                 // "request": {
                                 //   "apiEndpoint": "[[concat('https://',parameters('domainname'),'/api/v1/logs')]",
                                 //    "rateLimitQPS": 10,
@@ -714,17 +721,17 @@ There are 5 resources in this template guide.
                                 //    "timeoutInSeconds": 60,
                                 //    "headers": {
                                 //        "Accept": "application/json",
-                                //        "User-Agent": "Scuba"
+                                //        "User-Agent": "My-Data-Source"
                                 //    },
                                 //    "startTimeAttributeName": "since",
 								//    "endTimeAttributeName": "until"		     
-                                //},
-                                //"dcrConfig": {
+                                // },
+                                // "dcrConfig": {
                                 //    "dataCollectionEndpoint": "[[parameters('dcrConfig').dataCollectionEndpoint]",
                                 //    "dataCollectionRuleImmutableId": "[[parameters('dcrConfig').dataCollectionRuleImmutableId]",
-                                //    "streamName": "Custom-InputStream_CL" //This input stream should be the same as the inputStream property configured for the DataCollectionRule 
-                                //},
-                                //"isActive": true
+                                //    "streamName": "Custom-ExampleConnectorAlerts_CL" //This input stream should be the same as the inputStream property configured for the DataCollectionRule 
+                                // },
+                                // "isActive": true
                             }
                         }
                     ]
@@ -774,7 +781,7 @@ There are 5 resources in this template guide.
                         }
                     ]
                 },
-                "firstPublishDate": "2022-06-24",
+                "firstPublishDate": "2023-12-05",
                 "providers": [
                     "[variables('_solutionAuthor')]"
                 ],

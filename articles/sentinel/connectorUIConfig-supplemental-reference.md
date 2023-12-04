@@ -182,7 +182,7 @@ This section provides parameters that define the set of instructions that appear
 
 #### instructions
 
-Displays a group of instructions, with various parameters and the ability to nest more instructionSteps in groups.
+Displays a group of instructions, with various parameters and the ability to nest more instructionSteps in groups. Parameters defined here correspond 
 
 | Type | Array property | Description |
 |-----------|--------------|-------------|
@@ -246,7 +246,7 @@ Here are some examples of the `Textbox` type. These examples correspond to the p
 {
   "type": "ConnectionToggleButton",
   "parameters": {
-    "label": "toggle",
+    "connectLabel": "toggle",
     "name": "toggle"
   }          
 }
@@ -308,6 +308,7 @@ Here's an example of an expandable instruction group:
 |Array Value  |Type  |Description  |
 |---------|---------|---------|
 |**title**     |    String     |  Defines the title for the instruction step.       |
+|**description** | String | Optional descriptive text. |
 |**canCollapseAllSections**     |  Boolean       |  Optional. Determines whether the section is a collapsible accordion or not.       |
 |**noFxPadding**     |   Boolean      |  Optional. If `true`, reduces the height padding to save space.       |
 |**expanded**     |   Boolean      |   Optional. If `true`, shows as expanded by default.      |
@@ -422,11 +423,11 @@ For more examples of the `connectorUiConfig` review [other CCP data connectors](
                   }
                 },
                 {
+                  "type": "ConnectionToggleButton",
                   "parameters": {
-                    "label": "toggle",
+                    "connectLabel": "toggle",
                     "name": "toggle"
-                  },
-                  "type": "ConnectionToggleButton"
+                  }
                 }
               ]
             }
