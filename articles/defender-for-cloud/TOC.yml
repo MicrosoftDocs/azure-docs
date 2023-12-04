@@ -94,7 +94,7 @@
         - name: Protect your resources with Defender for Resource Manager
           displayName: resource manager, resource, manager, enable
           href: tutorial-enable-resource-manager-plan.md
-        - name: Protect your APIs with Defender for APIs (Preview)
+        - name: Protect your APIs with Defender for APIs
           displayName: APIs, enable
           href: defender-for-apis-deploy.md
 
@@ -453,7 +453,7 @@
       href: defender-for-apis-introduction.md
     - name: Support and prerequisites
       href: defender-for-apis-prepare.md
-    - name: Protect your APIs with Defender for APIs (Preview)
+    - name: Protect your APIs with Defender for APIs
       href: defender-for-apis-deploy.md
     - name: Validate APIs alerts
       displayName: validate, api, apis
