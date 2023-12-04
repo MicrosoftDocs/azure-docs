@@ -53,17 +53,19 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ::: moniker-end
 
-## Read model
-
-##### Model ID: **prebuilt-read**
-
 > [!NOTE]
 > **Language code optional**
 >
 > * Document Intelligence's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and don't require specifying a language code.
-> * Don't provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
+>
+> * Don't provide the language code as the parameter unless you are sure of the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 >
 > * Also, It's not necessary to specify a locale. This is an optional parameter. The Document Intelligence deep-learning technology will auto-detect the text language in your image.
+
+## Read model
+
+##### Model ID: **prebuilt-read**
+
 
 ### [**Read: handwritten text**](#tab/read-hand)
 
@@ -115,7 +117,7 @@ The following table lists read model language support for extracting and analyzi
 
 :::row:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Abaza|abq|
   |Abkhazian|ab|
@@ -194,7 +196,7 @@ The following table lists read model language support for extracting and analyzi
   |Finnish|fi|
    :::column-end:::
    :::column span="":::
-      |Language| Code (optional) |
+  |Language| Code (optional) |
   |:-----|:----:|
   |Fon|fon|
   |French|fr|

@@ -77,27 +77,6 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker-end
 
-## General document
-
-:::moniker range="doc-intel-4.0.0"
-> [!IMPORTANT]
-> Starting with D:ocument Intelligence **2023-10-31-preview** and going forward, the general document model (prebuilt-document) is deprecated. To extract key-value pairs, selection marks, text, tables, and structure from documents, use the following models:
-
-| Feature   | version| Model ID |
-|----------  |---------|--------|
-|`Layout` model with the optional query string parameter **`features=keyValuePairs`** enabled.|&bullet; v4:2023-10-31-preview</br>&bullet; v3.1:2023-07-31 (GA) |**`prebuilt-layout`**|
-|General document model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-document`**|
-:::moniker-end
-
-:::moniker range="doc-intel-4.0.0 ||doc-intel-3.1.0"
-
-***Model ID: prebuilt-document***
-
-| Language—Locale code | Default |
-|:----------------------|:---------|
-| English (United States)|English (United States)—en-US|
-:::moniker-end
-
 ## Health insurance card
 
 :::moniker range=">=doc-intel-3.0.0"
@@ -178,7 +157,8 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; Chinese (traditional (zh-hant)) | Hong Kong SAR (zh-hant-hk), Taiwan (zh-hant-tw)|
 
 ### [Supported Currency Codes](#tab/currency)
-|Currency Codes | Details |
+
+|Currency Code | Details |
 |:----------------------|:---------|
 | &bullet; ARS | Argentine Peso (`ar`) |
 | &bullet; AUD | Australian Dollar (`au`) |
@@ -250,6 +230,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 ***Model ID: prebuilt-receipt***
 
 ### [Thermal receipts](#tab/thermal)
+
 | Language name | Language code | Language name | Language code |
 |:--------------|:-------------:|:--------------|:-------------:|
 |English|``en``|Lithuanian|`lt`|
@@ -312,15 +293,15 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 
 ### [Hotel receipts](#tab/hotel)
-| Supported Languages | Details |
-|:--------------------|:-------:|
-|English|United States (`en-US`)|
-|French|France (`fr-FR`)|
-|German|Germany (`de-DE`)|
-|Italian|Italy (`it-IT`)|
-|Japanese|Japan (`ja-JP`)|
-|Portuguese|Portugal (`pt-PT`)|
-|Spanish|Spain (`es-ES`)|
+| Supported Languages|Language code |
+|:--------------------|:------------|
+|English (United States)|`en-US`|
+|French|`fr-FR`|
+|German|`de-DE`|
+|Italian|`it-IT`|
+|Japanese|`ja-JP`|
+|Portuguese|`pt-PT`|
+|Spanish|`es-ES`|
 
 ---
 ::: moniker-end

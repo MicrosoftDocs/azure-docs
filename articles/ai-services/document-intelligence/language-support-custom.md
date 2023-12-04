@@ -104,33 +104,6 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker range=">=doc-intel-3.1.0"
 
-Neural models support added languages for the `v3.1` and later APIs.
-
-| Languages | API version |
-|:--:|:--:|
-| English |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`, `v3.0:2022-08-31 (GA)`|
-| German |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Italian |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| French |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Spanish |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-| Dutch |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
-
-:::moniker-end
-
-:::moniker range=">=doc-intel-3.1.0"
-
-## [**Handwritten text**](#tab/handwritten)
-
-The following table lists the supported languages for extracting handwritten texts.
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`|
-
 ## [**Printed text**](#tab/printed)
 
 The following table lists the supported languages for printed text.
@@ -141,8 +114,8 @@ The following table lists the supported languages for printed text.
 |Albanian| `sq`|
 |Arabic|`ar`|
 |Bulgarian|`bg`|
-|Chinese (Han (Simplified variant))| `zh-Hans`|
-|Chinese (Han (Traditional variant))|`zh-Hant`|
+|Chinese Simplified| `zh-Hans`|
+|Chinese Traditional|`zh-Hant`|
 |Croatian|`hr`|
 |Czech|`cs`|
 |Danish|`da`|
@@ -185,14 +158,7 @@ The following table lists the supported languages for printed text.
 |Urdu|`ur`|
 |Vietnamese|`vi`|
 
----
-:::moniker-end
-
-## Custom template
-
-:::moniker range=">=doc-intel-3.0.0"
-
-## [**Handwritten**](#tab/handwritten)
+## [**Handwritten text**](#tab/handwritten)
 
 The following table lists the supported languages for extracting handwritten texts.
 
@@ -203,6 +169,28 @@ The following table lists the supported languages for extracting handwritten tex
 |French  |`fr`|Portuguese |`pt`|
 |German  |`de`|Spanish  |`es`|
 |Italian  |`it`|
+
+---
+:::moniker-end
+
+:::moniker range=">=doc-intel-3.1.0"
+
+Neural models support added languages for the `v3.1` and later APIs.
+
+| Languages | API version |
+|:--:|:--:|
+| English |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`, `v3.0:2022-08-31 (GA)`|
+| German |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Italian |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| French |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Spanish |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+| Dutch |`v4.0:2023-10-31-preview`, `v3.1:2023-07-31 (GA)`|
+
+:::moniker-end
+
+## Custom template
+
+::: moniker range=">=doc-intel-3.0.0"
 
 ## [**Printed**](#tab/printed)
 
@@ -525,5 +513,17 @@ The following table lists the supported languages for printed text.
   |Zulu|zu|
    :::column-end:::
 :::row-end:::
+
+## [**Handwritten**](#tab/handwritten)
+
+The following table lists the supported languages for extracting handwritten texts.
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
 ---
 :::moniker-end
