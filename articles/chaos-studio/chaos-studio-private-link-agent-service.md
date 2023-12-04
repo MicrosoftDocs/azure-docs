@@ -13,19 +13,34 @@ ms.custom: ignite-fall-2023
 In this guide, we'll show you the steps needed to configure Private Link for a Chaos Studio **Agent-based** Experiment. The current user experience is based on the private endpoints support enabled as part of public preview of the private endpoints feature. This experience will evolve with time as the feature is enhanced through public preview and GA lifecycle events. 
 
 ---
-
-# Setting Up Private Link for Agent Service in Chaos Studio
-
-## Overview
-
-This guide outlines the process for creating private endpoints for Chaos Agents to communicate with the Chaos Studio Agent Service over a private network. This is based on the public preview of the private endpoints feature and will evolve over time.
-
 ## Prerequisites
 
-1. Ensure that the `Microsoft.Resources/EUAPParticipation` feature flag is enabled for your subscription.
-2. Create a CPAS (Chaos Platform as a Service) resource against which the private endpoint will be created.
+1. An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+2. First define your agent-based experiment by following the steps found [here](articles/chaos-studio/chaos-studio-tutorial-agent-based-portal.md). 
+3. Ensure that the `Microsoft.Resources/EUAPParticipation` feature flag is enabled for your subscription. If you have used Chaos Studio in your subscription before, this may have already been done via the Portal when you created your first experiment. 
 
-## Steps
+<br/>
+
+The feature flag can be enabled using Azure CLI. Here is an example of how to do this:
+
+```AzCLI
+az feature register --namespace Microsoft.Resources --name "EUAPParticipation" --subscription <subscription id>
+```
+
+## Limitations
+
+- You will need to use our **2023-10-27-preview REST API** to create and use private link for agent-based experiments ONLY. There is **no** support for private link for agent-based experiments in our GA-stable REST API until H1 2024. 
+
+- The entire end-to-end for this flow requires some use of the CLI. While you can define your experiment using the existing flows via the Azure Portal, enabling the private endpoints will require using the CLI. 
+
+# Steps
+
+## Make sure you have allowlisted Microsoft.Network/AllowPrivateEndpoints in your subscription
+
+The first step you will need to take is to ensure that your desired subscription allows the Networking Resource Provider to operate. 
+
+
+
 
 ### Using Azure CLI
 
