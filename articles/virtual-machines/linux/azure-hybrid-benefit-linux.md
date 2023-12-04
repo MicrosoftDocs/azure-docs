@@ -266,10 +266,10 @@ The following examples show two methods of getting a list of resource IDs: one a
 
 ```azurecli
 # To get a list of all the resource IDs in a resource group:
-$(az vm list -g MyResourceGroup --query "[].id" -o tsv)
+az vm list -g MyResourceGroup --query "[].id" -o tsv
 
 # To get a list of all the resource IDs of virtual machines in a subscription:
-az vm list -o json | jq '.[] | {Virtual MachineName: .name, ResourceID: .id}'
+az vm list -o json | jq '.[] | {VirtualMachineName: .name, ResourceID: .id}'
 ```
 ---
 
