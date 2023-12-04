@@ -57,7 +57,7 @@
     href: concept-service-mode.md
   - name: Connection string
     href: concept-connection-string.md
-  - name: Negotation Server
+  - name: Negotiation Server
     href: signalr-concept-negotiation-server.md
   - name: Scale ASP.NET Core SignalR
     href: signalr-concept-scale-aspnet-core.md
