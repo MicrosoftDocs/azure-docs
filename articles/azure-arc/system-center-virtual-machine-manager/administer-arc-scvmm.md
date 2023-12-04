@@ -59,7 +59,7 @@ az account set -s <subscription id>
 az arcappliance get-credentials -n <name of the appliance> -g <resource group name> 
 az arcappliance update-infracredentials scvmm --kubeconfig kubeconfig
 ```
-For more details on the commands, see [`az arcappliance get-credentials`](/cli/azure/arcappliance#az-arcappliance-get-credentials) and [`az arcappliance update-infracredentials scvmm`](/cli/azure/arcappliance/update-infracredentials#az-arcappliance-update-infracredentials-scvmm).
+For more information on the commands, see [`az arcappliance get-credentials`](/cli/azure/arcappliance#az-arcappliance-get-credentials) and [`az arcappliance update-infracredentials scvmm`](/cli/azure/arcappliance/update-infracredentials#az-arcappliance-update-infracredentials-scvmm).
 
 
 To update the credentials used by the SCVMM cluster extension on the resource bridge. This command can be run from anywhere with `connectedscvmm` CLI extension installed.
