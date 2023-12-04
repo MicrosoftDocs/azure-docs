@@ -111,5 +111,31 @@ Make sure you attach it to the same VM's VNET. Screenshots provide examples of d
 
 ## Step 4: Map the agent host VM to the CSPA resource
 
+Find the Target "Resource ID" by making a GetTarget call:
+
+```AzCLI
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{parentProviderNamespace}/{parentResourceType}/{parentResourceName}/providers/Microsoft.Chaos/targets/{targetName}?api-version=2023-10-27-preview
+```
+
+<br/>
+
+This will return a large response. We will use this response and modify it before running a "PUT Target" command to map the two resources. 
+
+<br/>
+
+Invoke a "PUT Target" command using this response. You will need to append **TWO ADDITIONAL FIELDS** to the body of the PUT command before running it.
+
+These additional fields are shown in the following screenshot: 
+
+[![Screenshot of VNET tab of private endpoint creation](images/additionalCSPAfields.png)](images/additionalCSPAfields.png#lightbox)
+
+
+
+
+
+
+
+
+
 
 
