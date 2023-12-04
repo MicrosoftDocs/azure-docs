@@ -177,6 +177,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure_powershell_scripts",
+      "url": "https://github.com/Azure-Samples/azure-docs-powershell-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "powershell_scripts",
       "url": "https://github.com/Azure/azure-docs-powershell-samples",
       "branch": "master",
@@ -941,6 +947,12 @@
     {
       "path_to_root": "msdocs-flask-postgresql-sample-app",
       "url": "https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-quarkus-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app",
       "branch": "main",
       "branch_mapping": {}
     },

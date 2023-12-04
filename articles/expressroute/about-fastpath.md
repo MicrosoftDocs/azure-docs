@@ -35,6 +35,8 @@ While FastPath supports most configurations, it doesn't support the following fe
 
 * Private Link: FastPath Connectivity to a private endpoint or Private Link service over an ExpressRoute Direct circuit is supported for limited scenarios. For more information, see [enable FastPath and Private Link for 100 Gbps ExpressRoute Direct](expressroute-howto-linkvnet-arm.md#fastpath-and-private-link-for-100-gbps-expressroute-direct). FastPath connectivity to a Private endpoint/Private Link service is not supported for ExpressRoute partner circuits.
 
+* DNS Private Resolver: Azure ExpressRoute FastPath does not support connectivity to [DNS Private Resolver](../dns/dns-private-resolver-overview.md).
+
 ### IP address limits
 
 | ExpressRoute SKU | Bandwidth | FastPath IP limit |

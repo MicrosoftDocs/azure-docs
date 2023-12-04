@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 11/6/2023
+ms.date: 11/27/2023
 ms.author: greglin
 ---
 
@@ -186,7 +186,6 @@ metadata:
 spec:
   rules:
     - host: contoso.com
-      httpPort: 80
       rewrites:
         - type: RequestHeaderModifier
           requestHeaderModifier:

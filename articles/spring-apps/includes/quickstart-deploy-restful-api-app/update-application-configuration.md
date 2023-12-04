@@ -24,7 +24,7 @@ Use the following steps to update the YAML file to use your Microsoft Entra regi
        azure:
          active-directory:
            profile:
-             tenant-id: <your-Microsoft-Entra-ID-tenant-ID>
+             tenant-id: <tenant>
            credential:
              client-id: <your-application-ID-of-ToDo>
            app-id-uri: <your-application-ID-URI-of-ToDo>
@@ -32,6 +32,8 @@ Use the following steps to update the YAML file to use your Microsoft Entra regi
 
    > [!NOTE]
    > In v1.0 tokens, the configuration requires the client ID of the API, while in v2.0 tokens, you can use the client ID or the application ID URI in the request. You can configure both to properly complete the audience validation.
+   > 
+   > The values allowed for `tenant-id` are: `common`, `organizations`, `consumers`, or the tenant ID. For more information about these values, see the [Used the wrong endpoint (personal and organization accounts)](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist#cause-3-used-the-wrong-endpoint-personal-and-organization-accounts) section of [Error AADSTS50020 - User account from identity provider does not exist in tenant](/troubleshoot/azure/active-directory/error-code-aadsts50020-user-account-identity-provider-does-not-exist). For information on converting your single-tenant app, see [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
 1. Use the following command to rebuild the sample project:
 

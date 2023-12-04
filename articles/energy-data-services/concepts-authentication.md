@@ -17,11 +17,12 @@ In the Azure Data Manager for Energy instance,
 2. The app-id is used for API access. The same app-id is used to provision ADME instance.
 3. The app-id doesn't have access to infrastructure resources. 
 4. The app-id also gets added as OWNER to all OSDU groups by default. 
-5. For service-to-service (S2S) communication, ADME uses MSI (msft service identity).
+5. For service-to-service (S2S) communication, ADME uses MSI (Microsoft Service Identity).
 
 In the OSDU instance, 
 1. Terraform scripts create two Service Principals: 
-2. The first Service Principal is used for API access. It can also manage infrastructure resources. 
-3. The second Service Principal is used for service-to-service (S2S) communications. 
+   1. The first Service Principal is used for API access. It can also manage infrastructure resources. 
+   2. The second Service Principal is used for service-to-service (S2S) communications. 
 
-
+## Refresh Auth Token
+You can refresh the authorization token using the steps outlined in [Generate a refresh token](how-to-generate-refresh-token.md). 

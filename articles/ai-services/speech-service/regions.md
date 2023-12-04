@@ -44,7 +44,7 @@ The following regions are supported for Speech service features such as speech t
 | Europe | France Central | `francecentral` |
 | Europe | Germany West Central | `germanywestcentral` |
 | Europe | Norway East | `norwayeast` |
-| Europe | Sweden Central | `swedentcentral` |
+| Europe | Sweden Central | `swedentcentral`<sup>8</sup> |
 | Europe | Switzerland North | `switzerlandnorth` <sup>6</sup>|
 | Europe | Switzerland West | `switzerlandwest` |
 | Europe | UK South | `uksouth` <sup>1,2,3,4,7</sup>|
@@ -70,9 +70,11 @@ The following regions are supported for Speech service features such as speech t
 
 <sup>5</sup> The region supports keyword verification.
 
-<sup>6</sup> The region does not support Speaker Recognition.
+<sup>6</sup> The region doesn't support Speaker Recognition.
 
 <sup>7</sup> The region supports the [high performance](how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint) endpoint type for Custom Neural Voice.
+
+<sup>8</sup> The region doesn't support Custom Neural Voice.
 
 ## Intent recognition
 
