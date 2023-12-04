@@ -24,11 +24,11 @@ The following table lists the new features added in MABS V4 UR1:
 | Feature | Supportability |
 | --- | --- |
 | Item-level recovery for VMware VMs running Windows directly from online recovery points.    |   Use MARS version *2.0.9251.0* or above for this feature. |
-| Windows and Basic SMTP Authentication for MABS email reports and alerts.      |   This enables MABS to send reports and alerts using any vendor supporting SMTP Basic Authentication. Learn more. <br><br>   Note that if you're using Microsoft 365 SMTP with a MABS V4 private fix, reenter the credential using Basic Authentication. |
-| Fall back to crash consistent backups for VMware VMs.     |     Use a registry key for VMware VMs when backups fail with ApplicationQuiesceFault. Learn more.   |
+| Windows and Basic SMTP Authentication for MABS email reports and alerts.      |   This enables MABS to send reports and alerts using any vendor supporting SMTP Basic Authentication. [Learn more](/system-center/dpm/monitor-dpm?view=sc-dpm-2022&preserve-view=true#configure-email-for-dpm). <br><br>   Note that if you're using Microsoft 365 SMTP with a MABS V4 private fix, re-enter the credential using Basic Authentication. |
+| Fall back to crash-consistent backups for VMware VMs.     |     Use a registry key for VMware VMs when backups fail with ApplicationQuiesceFault. [Learn more](backup-azure-backup-server-vmware.md#applicationquiescefault).   |
 | Experience improvements for MABS backups to Azure. |  |
-| List online recovery points for a data source along with the expiry time and soft-delete status.  |  To view the list of recovery points along with their expiration dates, right-click a data source and select List recovery points. |
-| Stop protection and retaining data using the policy duration for immutable vaults directly from the console.    |    This helps you to save the backup costs when stopping protection for a data source backed up to an immutable vault. Learn more.
+| List online recovery points for a data source along with the expiry time and soft-delete status.  |  To view the list of recovery points along with their expiration dates, right-click a data source and select **List recovery points**. |
+| Stop protection and retaining data using the policy duration for immutable vaults directly from the console.    |    This helps you save the backup costs when stopping protection for a data source backed up to an immutable vault. [Learn more](backup-azure-security-feature.md#immutability-support).
 
 ## What's new in MABS V4 Update Rollup 1 (UR1)?
 
