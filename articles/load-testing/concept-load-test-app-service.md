@@ -109,4 +109,4 @@ Learn how to:
 - [Start create a URL-based load test](./quickstart-create-and-run-load-test.md).
 - [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for Azure applications.
 - [Configure your test for high-scale load](./how-to-high-scale-load.md).
-- [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- [Configure automated performance testing](./quickstart-add-load-test-cicd.md).

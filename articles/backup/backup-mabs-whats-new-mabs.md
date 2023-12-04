@@ -3,7 +3,7 @@ title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/23/2023
+ms.date: 12/04/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -12,7 +12,23 @@ ms.author: v-abhmallick
 
 Microsoft Azure Backup Server gives you enhanced backup capabilities to protect VMs, files and folders, workloads, and more.
 
+## What's new in MABS V4 Update Rollup 1 Refresh (UR1 Refresh)?
 
+Microsoft Azure Backup Server version 4 (MABS V4) Update *Rollup 1 Refresh* includes critical bug fixes and feature enhancements. For information about the bugs fixed and the installation instructions of MABS V4 UR1 Refresh, see [KB article 5033756](https://support.microsoft.com/home/contact?SourceApp=smcivr2).
+ 
+>[!Important]
+>MABS V4 UR1 Refresh supersedes MABS V4 UR1 that has the same feature enhancements, but fixes the known issues in MABS V4 UR1. [Learn more](backup-mabs-release-notes-v3.md).
+
+The following table lists the new features added in MABS V4 UR1:
+
+| Feature | Supportability |
+| --- | --- |
+| Item-level recovery for VMware VMs running Windows directly from online recovery points.    |   Use MARS version *2.0.9251.0* or above for this feature. |
+| Windows and Basic SMTP Authentication for MABS email reports and alerts.      |   This enables MABS to send reports and alerts using any vendor supporting SMTP Basic Authentication. [Learn more](/system-center/dpm/monitor-dpm?view=sc-dpm-2022&preserve-view=true#configure-email-for-dpm). <br><br>   Note that if you're using Microsoft 365 SMTP with a MABS V4 private fix, re-enter the credential using Basic Authentication. |
+| Fall back to crash-consistent backups for VMware VMs.     |     Use a registry key for VMware VMs when backups fail with ApplicationQuiesceFault. [Learn more](backup-azure-backup-server-vmware.md#applicationquiescefault).   |
+| Experience improvements for MABS backups to Azure. |  |
+| List online recovery points for a data source along with the expiry time and soft-delete status.  |  To view the list of recovery points along with their expiration dates, right-click a data source and select **List recovery points**. |
+| Stop protection and retaining data using the policy duration for immutable vaults directly from the console.    |    This helps you save the backup costs when stopping protection for a data source backed up to an immutable vault. [Learn more](backup-azure-security-feature.md#immutability-support).
 
 ## What's new in MABS V4 Update Rollup 1 (UR1)?
 
@@ -35,7 +51,7 @@ The following table lists the new features added in MABS V4 UR1:
 | Feature | Supportability |
 | --- | --- |
 | Item-level recovery for VMware VMs running Windows directly from online recovery points. |  Note that you need *MARS version 2.0.9251.0 or above* to use this feature.   | 
-| Windows and Basic SMTP Authentication for MABS email reports and alerts.    |  This enables MABS to send reports and alerts using any vendor supporting SMTP Basic Authentication. [Learn more](/system-center/dpm/monitor-dpm?view=sc-dpm-2022&preserve-view=true#configure-email-for-dpm).            <br><br>     Note that if you are using Microsoft 365 SMTP with a MABS V4 private fix, reenter the credential using Basic Authentication.       | 
+| Windows and Basic SMTP Authentication for MABS email reports and alerts.    |  This enables MABS to send reports and alerts using any vendor supporting SMTP Basic Authentication. [Learn more](/system-center/dpm/monitor-dpm?view=sc-dpm-2022&preserve-view=true#configure-email-for-dpm).            <br><br>     Note that if you are using Microsoft 365 SMTP with a MABS V4 private fix, re-enter the credential using Basic Authentication.       | 
 | Fall back to crash consistent backups for VMware VMs.    |     Use a registry key for VMware VMs when backups fail with ApplicationQuiesceFault. [Learn more](backup-azure-backup-server-vmware.md#applicationquiescefault).  |
 | **Experience improvements for MABS backups to Azure.** |                 |
 | List online recovery points for a data source along with the expiry time and soft-delete status. |     To view the list of recovery points along with their expiration dates, right-click a data source and select **List recovery points**.    |
@@ -143,7 +159,7 @@ MABS V3 UR1 includes a new parameter **[-CheckReplicaFragmentation]**. The new p
 
 ### 32-Bit protection agent deprecation
 
-With MABS v3 UR1, support for 32-bit protection agent is no longer supported. You won't be able to protect 32-bit workloads after upgrading the MABS v3 server to UR1. Any existing 32-bit protection agents will be in a disabled state and scheduled backups will fail with the **agent is disabled** error. If you want to retain backup data for these agents, you can stop the protection with the retain data option. Otherwise, the protection agent can be removed.
+With MABS v3 UR1, support for 32-bit protection agent is no longer supported. You won't be able to protect 32-bit workloads after upgrading the MABS v3 server to UR1. Any existing 32-bit protection agents will be in a disabled state and scheduled backups will fail with the **agent is disabled** error. If you want to retain the backup data for these agents, you can stop the protection with the retained data option. Otherwise, the protection agent can be removed.
 
 >[!NOTE]
 >Review the [updated protection matrix](./backup-mabs-protection-matrix.md) to learn the supported workloads for protection with MABS UR 1.

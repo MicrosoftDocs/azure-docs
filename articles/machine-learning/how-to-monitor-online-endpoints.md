@@ -157,7 +157,7 @@ There are three logs that can be enabled for online endpoints:
 
     * You can also use this log for performance analysis in determining the time required by the model to process each request. 
 
-* **AMLOnlineEndpointEventLog**: Contains event information regarding the container’s life cycle. Currently, we provide information on the following types of events: 
+* **AMLOnlineEndpointEventLog**: Contains event information regarding the container's life cycle. Currently, we provide information on the following types of events: 
 
     | Name | Message |
     | ----- | ----- | 
@@ -228,8 +228,12 @@ Curated environments include integration with Application Insights, and you can 
 
 See [Application Insights overview](../azure-monitor/app/app-insights-overview.md) for more.
 
+In the studio, you can use the **Monitoring** tab on an online endpoint's page to see high-level activity monitor graphs for the managed online endpoint. To use the monitoring tab, you must select **Enable Application Insight diagnostic and data collection** when you create your endpoint.
 
-## Next steps
+:::image type="content" source="media/how-to-monitor-online-endpoints/monitor-endpoint.png" lightbox="media/how-to-monitor-online-endpoints/monitor-endpoint.png" alt-text="A screenshot of monitoring endpoint-level metrics in the studio.":::
+
+
+## Related content
 
 * Learn how to [view costs for your deployed endpoint](./how-to-view-online-endpoints-costs.md).
 * Read more about [metrics explorer](../azure-monitor/essentials/metrics-charts.md).
