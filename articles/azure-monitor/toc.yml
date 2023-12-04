@@ -1289,7 +1289,7 @@ items:
           - name: Log alert rules
             href: alerts/alerts-create-log-alert-rule.md
           - name: Activity log, service health or resource health alert rules
-            href: alerts/alerts-create-log-alert-rule.md
+            href: alerts/alerts-create-activity-log-alert-rule.md
           - name: Prometheus alert rules
             href: alerts/prometheus-alerts.md
           - name: Metric alert rule with dynamic thresholds

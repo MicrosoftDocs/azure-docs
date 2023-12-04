@@ -8,6 +8,7 @@ ms.date: 11/29/2023
 ms.reviewer: harelbr
 ---
 # Create a new alert rule using the CLI, PowerShell, or an ARM template
+You can create a new alert rule using the [Azure CLI](create-a-new-alert-rule-using-the-cli), [PowerShell](create-a-new-alert-rule-using-PowerShell), or an [Azure Resource Manager template](create-a-new-alert-using-an-arm-template).
 
 ## Create a new alert rule using the CLI
 
@@ -21,7 +22,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     ```azurecli
      az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
-## Create a new alert rule with PowerShell
+## Create a new alert rule using PowerShell
 
 - To create a metric alert rule using PowerShell, use the [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2) cmdlet.
 - To create a log alert rule using PowerShell, use the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) cmdlet.
