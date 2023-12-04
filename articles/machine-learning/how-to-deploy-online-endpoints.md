@@ -69,13 +69,9 @@ Before following the steps in this article, make sure you have the following pre
 
 ---
 
-### Virtual machine quota allocation for deployment
+* Ensure that you have enough virtual machine (VM) quota allocated for deployment. Azure Machine Learning reserves 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12 for each number of cores for the VM SKU. Failure to account for the extra compute resources will result in an error. There are some VM SKUs that are exempt from extra quota. For more information on quota allocation, see [virtual machine quota allocation for deployment](how-to-manage-quotas.md#virtual-machine-quota-allocation-for-deployment).
 
-For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades on some VM SKUs. If you request a given number of instances for those VM SKUs in a deployment, you must have a quota for `ceil(1.2 * number of instances requested for deployment) * number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM (that comes with 4 cores) in a deployment, you should have a quota for 48 cores (`12 instances * 4 cores`) available. This extra quota is reserved for system-initated operations such as OS upgrade, VM recovery etc, and it won't incur cost unless such operation runs. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal). To view your cost of running managed online endpoints, see [View cost for managed online endpoint](how-to-view-online-endpoints-costs.md). There are certain VM SKUs that are exempted from extra quota reservation. To view the full list, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
-
-Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access quota to perform testing for a limited time. When you use the studio to deploy Llama-2, Phi, Nemotron, Mistral, Dolly and Deci-DeciLM models from the model catalog to a managed online endpoint, Azure Machine Learning allows you to access this shared quota for a short time. 
-
-For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
+* Alternatively, you could use quota from Azure Machine Learning's shared quota pool for a limited time. Users can access quota from this pool to perform testing for a limited time. When you use the studio to deploy Llama-2, Phi, Nemotron, Mistral, Dolly, and Deci-DeciLM models from the model catalog to a managed online endpoint, Azure Machine Learning allows you to access its shared quota pool for a short time so that you can perform testing. For more information on the shared quota pool, see [Azure Machine Learning shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota).
 
 ## Prepare your system
 
@@ -231,10 +227,10 @@ cd azureml-examples
 
 ## Define the endpoint
 
-To define an endpoint, you need to specify:
+To define an endpoint, specify the following:
 
-* Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
-* Authentication mode: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+* __Endpoint name__: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
+* __Authentication mode__: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 * Optionally, you can add a description and tags to your endpoint.
 
 # [Azure CLI](#tab/azure-cli)
@@ -312,31 +308,23 @@ To define the endpoint and deployment, this article uses the Azure Resource Mana
 
 A deployment is a set of resources required for hosting the model that does the actual inferencing. To deploy a model, you must have:
 
-- Model files (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
-- A scoring script, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. In this example, we have a *score.py* file.
-- An environment in which your model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
-- Settings to specify the instance type and scaling capacity.
+- __Model files__ (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
+- A __scoring script__, that is, code that executes the model on a given input request. The scoring script receives data submitted to a deployed web service and passes it to the model. The script then executes the model and returns its response to the client. The scoring script is specific to your model and must understand the data that the model expects as input and returns as output. In this example, we have a *score.py* file.
+- An __environment__ in which your model runs. The environment can be a Docker image with Conda dependencies or a Dockerfile.
+- Settings to specify the __instance type__ and __scaling capacity__.
 
-The following table describes the key attributes of a deployment:
+To learn more about the key attributes of a deployment, see [Online deployments](concept-endpoints-online.md#online-deployments).
 
-| Attribute      | Description                                                                                                                                                                                                                                                                                                                                                                                    |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name           | The name of the deployment.                                                                                                                                                                                                                                                                                                                                                                    |
-| Endpoint name  | The name of the endpoint to create the deployment under.                                                                                                                                                                                                                                                                                                                                       |
-| Model          | The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.                                                                                                                                                                                                                                    |
-| Code path      | The path to the directory on the local development environment that contains all the Python source code for scoring the model. You can use nested directories and packages.                                                                                                                                                                                                                    |
-| Scoring script | The relative path to the scoring file in the source code directory. This Python code must have an `init()` function and a `run()` function. The `init()` function will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
-| Environment    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.                                                                                                                                                                                                                 |
-| Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
-| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployments](how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment).                                |
 
 > [!WARNING]
 > - The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you used a registered model or container image in Azure Container Registry for deployment and removed the model or the container image, the deployments relying on these assets can fail when reimaging happens. If you removed the model or the container image, ensure the dependent deployments are re-created or updated with alternative model or container image.
 > - The container registry that the environment refers to can be private only if the endpoint identity has the permission to access it via Microsoft Entra authentication and Azure RBAC. For the same reason, private Docker registries other than Azure Container Registry are not supported.
 
-# [Azure CLI](#tab/azure-cli)
-
 ### Configure a deployment
+
+Your deployment configuration uses the location of the model that you wish to deploy.
+
+# [Azure CLI](#tab/azure-cli)
 
 The following snippet shows the *endpoints/online/managed/sample/blue-deployment.yml* file, with all the required inputs to configure a deployment:
 
@@ -360,7 +348,6 @@ For more information about the YAML schema, see the [online endpoint YAML refere
 
 # [Python](#tab/python)
 
-### Configure a deployment
 
 To configure a deployment:
 
@@ -386,13 +373,11 @@ blue_deployment = ManagedOnlineDeployment(
 
 # [Studio](#tab/azure-studio)
 
-### Configure a deployment
 
 When you deploy to Azure, you'll create an endpoint and a deployment to add to it. At that time, you'll be prompted to provide names for the endpoint and deployment.
 
 # [ARM template](#tab/arm)
 
-### Configure the deployment
 
 To define the endpoint and deployment, this article uses the Azure Resource Manager templates [online-endpoint.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint.json) and [online-endpoint-deployment.json](https://github.com/Azure/azureml-examples/tree/main/arm-templates/online-endpoint-deployment.json). To use the templates for defining an online endpoint and deployment, see the [Deploy to Azure](#deploy-to-azure) section.
 
