@@ -75,6 +75,8 @@ The following metrics are available for Azure Firewall:
    
       As a result, if you experience consistent high latency that last longer than typical spikes, consider filing a Support ticket for assistance.
 
+      :::image type="content" source="media/metrics/latency-probe.png" alt-text="Screenshot showing the Azure Firewall Latency Probe metric.":::
+
 ## Alert on Azure Firewall metrics
 
 Metrics provide critical signals to track your resource health. So, it’s important to monitor metrics for your resource and watch out for any anomalies. But what if the Azure Firewall metrics stop flowing? It could indicate a potential configuration issue or something more ominous like an outage. Missing metrics can happen because of publishing default routes that block Azure Firewall from uploading metrics, or the number of healthy instances going down to zero. In this section, you'll learn how to configure metrics to a log analytics workspace and to alert on missing metrics.
