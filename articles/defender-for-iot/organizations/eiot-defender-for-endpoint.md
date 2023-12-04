@@ -70,11 +70,11 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
     - On the **Alerts** tab, check for any alerts triggered by the device. Simulate alerts in Microsoft 365 Defender for Enterprise IoT using the Raspberry Pi scenario available in the Microsoft 365 Defender [Evaluation & Tutorials](https://security.microsoft.com/tutorials/all) page.
 
-        You can also set up advanced hunting queries to create custom alert rules. For more information, see [sample advanced hunting queries for Enterprise IoT monitoring](#sample-of-advanced-hunting-queries-for-enterprise-iot). 
+        You can also set up advanced hunting queries to create custom alert rules. For more information, see [sample advanced hunting queries for Enterprise IoT monitoring](#sample-advanced-hunting-queries-for-enterprise-iot). 
 
     - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface.
 
-    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternatively, use [advanced hunting queries](#sample-of-advanced-hunting-queries-for-enterprise-iot) to collect vulnerabilities across all your devices.
+    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternatively, use [advanced hunting queries](#sample-advanced-hunting-queries-for-enterprise-iot) to collect vulnerabilities across all your devices.
 
 **To hunt for threats**:
 
@@ -86,7 +86,7 @@ This section lists sample advanced hunting queries that you can use in Microsoft
 
 ### To find devices within a subnet:
 
-Use the following queries to help find devices that were discovered on a specific subnet in your network. You should replace the values `IpV4Range` or `IpV6Range` with the value you are searching for:  
+Use the following queries to help find devices that were discovered on a specific subnet in your network. You should replace the values `IpV4Range` or `IpV6Range` with the value you're searching for:  
 
 ```kusto
 | let IpV6Range = “2001:4898::1050:1050/127”;  
@@ -110,7 +110,7 @@ Use the following queries to help find devices that were discovered on a specifi
 
 ### To find devices that you can better protect by onboarding them to Defender for Endpoint:
 
-Use the following query to identify devices on your network that are supported by Defender for Endpoint, but are not yet onboarded. Onboard all your devices to Defender for Endpoint to ensure that they're better protected, with detection and response capabilities, and the vulnerability assessments provided with Enterprise IoT security.  
+Use the following query to identify devices on your network that are supported by Defender for Endpoint, but aren't yet onboarded. Onboard all your devices to Defender for Endpoint to ensure that they're better protected, with detection and response capabilities, and the vulnerability assessments provided with Enterprise IoT security.  
 
 Run the following query in your tenant to understand which of your devices can be onboarded:
 
