@@ -2,7 +2,7 @@
 title:  Perform ongoing administration for Arc-enabled System Center Virtual Machine Manager
 description: Learn how to perform administrator operations related to Azure Arc-enabled System Center Virtual Machine Manager
 ms.topic: how-to 
-ms.date: 11/30/2023
+ms.date: 12/04/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
 author: Farha-Bano
