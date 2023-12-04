@@ -51,7 +51,7 @@ Steps to fix:
 
 - Verify the SFTP user and credentials used by the agent are valid for the SFTP server.
 
-- Check network connectivity and firewall configuration between the agent and the SFTP server. By default, the SFTP server must have port 22 open to accept SFPT connections.
+- Check network connectivity and firewall configuration between the agent and the SFTP server. By default, the SFTP server must have port 22 open to accept SFTP connections.
 
 - Check that the `known_hosts` file on the agent VM contains a valid public SSH key for the SFTP server: 
   - On the agent VM, run `ssh-keygen -l -F *<sftp-server-IP-or-hostname>*` 
