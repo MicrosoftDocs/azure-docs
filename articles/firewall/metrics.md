@@ -5,9 +5,11 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 12/01/2023
+ms.date: 12/04/2023
 ms.author: victorh
 ---
+
+# Azure Firewall metrics and alerts
 
 Metrics in Azure Monitor are numerical values that describe some aspect of a system at a particular time. Metrics are collected every minute, and are useful for alerting because they can be sampled frequently. An alert can be fired quickly with relatively simple logic.
 

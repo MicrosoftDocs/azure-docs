@@ -5,23 +5,23 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 12/01/2023
+ms.date: 12/04/2023
 ms.author: victorh
 ---
+
+# Azure Firewall diagnostic logs (legacy)
 
 Diagnostic logs are the original Azure Firewall log queries that output log data in an unstructured or free-form text format.  
 
 The following log categories are supported in Diagnostic logs: 
 
-- Azure Firewall Application Rule 
-
-- Azure Firewall Network Rule 
-
-- Azure Firewall DNS Proxy
+- Azure Firewall application rule 
+- Azure Firewall network rule 
+- Azure Firewall DNS proxy
 
 ## Application rule log
 
-   The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following examples:
+The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following examples:
 
    ```
    Category: application rule logs.
@@ -56,7 +56,7 @@ The following log categories are supported in Diagnostic logs:
 
 ## Network rule log
 
-   The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```
    Category: network rule logs.
@@ -80,7 +80,7 @@ The following log categories are supported in Diagnostic logs:
 
 ## DNS proxy log
 
-   The DNS Proxy log is saved to a storage account, streamed to Event hubs, and/or sent to Azure Monitor logs only if you’ve enabled it for each Azure Firewall. This log tracks DNS messages to a DNS server configured using DNS proxy. The data is logged in JSON format, as shown in the following examples:
+The DNS proxy log is saved to a storage account, streamed to Event hubs, and/or sent to Azure Monitor logs only if you’ve enabled it for each Azure Firewall. This log tracks DNS messages to a DNS server configured using DNS proxy. The data is logged in JSON format, as shown in the following examples:
 
 
    ```

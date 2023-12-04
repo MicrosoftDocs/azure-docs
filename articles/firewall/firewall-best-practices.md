@@ -21,7 +21,7 @@ To maximize the [performance](firewall-performance.md) of your Azure Firewall an
 
 - **High traffic throughput**
 
-    Azure Firewall Standard supports up to 30 Gbps, while Premium supports up to 100 Gbps. For more information, see the [throughput limitations](firewall-performance.md#performance-data). You can monitor your throughput or data processing in Azure Firewall metrics. For more information, see [Azure Firewall metrics](logs-and-metrics.md#metrics).
+    Azure Firewall Standard supports up to 30 Gbps, while Premium supports up to 100 Gbps. For more information, see the [throughput limitations](firewall-performance.md#performance-data). You can monitor your throughput or data processing in Azure Firewall metrics. For more information, see [Azure Firewall metrics and alerts](metrics.md).
 
 - **High Number of Connections**
 
