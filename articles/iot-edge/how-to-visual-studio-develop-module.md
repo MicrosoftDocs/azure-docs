@@ -29,12 +29,11 @@ This article assumes that you use a machine running Windows as your development 
 
 <!-- ::: zone pivot="iotedge-dev-ext" -->
 
-
-> [!IMPORTANT]
-> The *Azure IoT Edge Tools for VS 2022* extension is in [maintenance mode](https://aka.ms/edgetool-dep). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
-
 * Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio:
 
+    > [!IMPORTANT]
+    > The *Azure IoT Edge Tools for VS 2022* extension is in [maintenance mode](https://aka.ms/edgetool-dep). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
+    
     * Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace.
     * Or, in Visual Studio go to **Extensions > Manage Extensions**. The **Manage Extensions** popup opens. In the search box in the upper right, add the text **Azure IoT Edge Tools for VS 2022**, then select **Download**. Close the popup when finished.
 
