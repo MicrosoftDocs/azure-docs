@@ -48,7 +48,7 @@ If the Image object from Python node is set as the flow output, you can preview 
 ## Use GPT-4V tool
 GPT-4V is a built-in tool in prompt flow that can use OpenAI GPT-4V model to answer questions based on input images.
 
-Add the GPT-4V tool to the flow. Make sure you have an AOAI connection, with the availability of GPT-4V deployments.
+Add the GPT-4V tool to the flow. Make sure you have an OpenAI or AOAI connection, with the availability of GPT-4V models/deployments.
    :::image type="content" source="./media/how-to-use-image-in-promptflow/gpt-4v-tool.png" alt-text="GPT-4V tool." lightbox = "./media/how-to-use-image-in-promptflow/gpt-4v-tool.png":::
 
 The Jinja template for composing prompts in the GPT-4V tool follows a similar structure to the chat API in the LLM tool. To represent an image input within your prompt, you can use the syntax `![image]({{INPUT NAME}})`. Image input can be passed in the `user`, `system` and `assistant` messages.
