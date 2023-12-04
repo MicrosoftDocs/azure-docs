@@ -43,7 +43,7 @@
     items:
     - name: Cost Management REST APIs
       href: /rest/api/cost-management/
-- name: Reporting and analytics
+- name: Pricing and estimation
   items:
   - name: Quickstarts
     items:
