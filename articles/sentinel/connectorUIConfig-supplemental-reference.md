@@ -187,8 +187,8 @@ Displays a group of instructions, with various parameters and the ability to nes
 | Type | Array property | Description |
 |-----------|--------------|-------------|
 | **OAuthForm** | [OAuthForm](#oauthform) | Connect with OAuth |
-| **Textbox** | [Textbox](#textbox) | Basic text and labels |
-| **ConnectionToggleButton** | [ConnectionToggleButton](#connectiontogglebutton) | Trigger the deployment of the DCR based on the connection information provided through placeholder parameters. |
+| **Textbox** | [Textbox](#textbox) | This pairs with `ConnectionToggleButton`. There are 4 available types:<br><li>`password`<li>`text`<li>`number`<li>`email`</li> |
+| **ConnectionToggleButton** | [ConnectionToggleButton](#connectiontogglebutton) | Trigger the deployment of the DCR based on the connection information provided through placeholder parameters. The following parameters are supported:<br><li>`name` : mandatory<li>`disabled`<li>`isPrimary`<li>`connectLabel`<li>`disconnectLabel`</li> |
 | **CopyableLabel** | [CopyableLabel](#copyablelabel) | Shows a text field with a copy button at the end. When the button is selected, the field's value is copied.|
 | **InfoMessage** | [InfoMessage](#infomessage) | Defines an inline information message.
 | **InstructionStepsGroup** | [InstructionStepsGroup](#instructionstepsgroup) | Displays a group of instructions, optionally expanded or collapsible, in a separate instructions section.|
@@ -213,7 +213,7 @@ This component requires that the `OAuth2` type is present in the [`auth` propert
 ```
 #### Textbox
 
-Here are some examples of the `Textbox` type. These examples correspond to the parameters used in the example `auth` section in [Data connectors reference for the Codeless Connector Platform](restapipoller-data-connector-reference.md#authentication-configuration).
+Here are some examples of the `Textbox` type. These examples correspond to the parameters used in the example `auth` section in [Data connectors reference for the Codeless Connector Platform](restapipoller-data-connector-reference.md#authentication-configuration). For each of the 4 types, each has `label`, `placeholder`, and `name`.
 
 ```json
 "instructions": [
