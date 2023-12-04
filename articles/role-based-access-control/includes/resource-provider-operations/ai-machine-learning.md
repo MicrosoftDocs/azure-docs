@@ -1451,10 +1451,6 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.MachineLearningServices/register/action | Registers the subscription for the Machine Learning Services Resource Provider |
-> | Microsoft.MachineLearningServices/featurestores/read | Gets the Machine Learning Services FeatureStore(s) |
-> | Microsoft.MachineLearningServices/featurestores/write | Creates or Updates the Machine Learning Services FeatureStore(s) |
-> | Microsoft.MachineLearningServices/featurestores/delete | Deletes the Machine Learning Services FeatureStore(s) |
-> | Microsoft.MachineLearningServices/featurestores/checkNameAvailability/read | Checks the Machine Learning Services FeatureStore name availability |
 > | Microsoft.MachineLearningServices/locations/deleteVirtualNetworkOrSubnets/action | Deleted the references to virtual networks/subnets associated with Machine Learning Service Workspaces. |
 > | Microsoft.MachineLearningServices/locations/updateQuotas/action | Update quota for each VM family at a subscription or a workspace level. |
 > | Microsoft.MachineLearningServices/locations/computeoperationsstatus/read | Gets the status of a particular compute operation |
@@ -1474,6 +1470,9 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/registries/assets/delete | Deletes assets in Machine Learning Services registry(ies) |
 > | Microsoft.MachineLearningServices/registries/assets/stage/write | Updates the stage on a Machine Learning Services registry asset |
 > | Microsoft.MachineLearningServices/registries/checkNameAvailability/read | Checks name for Machine Learning Services registry(ies) |
+> | Microsoft.MachineLearningServices/registries/connections/read | Gets the Machine Learning Services registry(ies) connection(s) |
+> | Microsoft.MachineLearningServices/registries/connections/write | Creates or updates the Machine Learning Services registry(ies) connection(s) |
+> | Microsoft.MachineLearningServices/registries/connections/delete | Deletes the Machine Learning Services registry(ies) registry(ies) connection(s) |
 > | Microsoft.MachineLearningServices/registries/privateEndpointConnectionProxies/read | View the state of a connection proxy to a Private Endpoint resource of Microsoft.Network provider |
 > | Microsoft.MachineLearningServices/registries/privateEndpointConnectionProxies/write | Change the state of a connection proxy to a Private Endpoint resource of Microsoft.Network provider |
 > | Microsoft.MachineLearningServices/registries/privateEndpointConnectionProxies/delete | Delete a connection proxy to a Private Endpoint resource of Microsoft.Network provider |
@@ -1482,7 +1481,6 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/registries/privateEndpointConnections/write | Change the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | Microsoft.MachineLearningServices/registries/privateEndpointConnections/delete | Delete a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | Microsoft.MachineLearningServices/registries/privateLinkResources/read | Gets the available private link resources for the specified instance of the Machine Learning Services registry(ies) |
-> | Microsoft.MachineLearningServices/registries/regions/delete | Deletes the Machine Learning Services registry(ies) regions(s) |
 > | Microsoft.MachineLearningServices/virtualclusters/read | Gets the Machine Learning Services Virtual Cluster(s) |
 > | Microsoft.MachineLearningServices/virtualclusters/write | Creates or updates a Machine Learning Services Virtual Cluster(s) |
 > | Microsoft.MachineLearningServices/virtualclusters/delete | Deletes the Machine Learning Services Virtual Cluster(s) |
@@ -1494,6 +1492,7 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/listKeys/action | List secrets for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/resynckeys/action | Resync secrets for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/listStorageAccountKeys/action | List Storage Account keys for a Machine Learning Services Workspace |
+> | Microsoft.MachineLearningServices/workspaces/provisionManagedNetwork/action | Provision the managed network of Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | Microsoft.MachineLearningServices/workspaces/featuresets/action | Allows action on the Machine Learning Services FeatureSet(s) |
 > | Microsoft.MachineLearningServices/workspaces/featurestoreentities/action | Allows action on the Machine Learning Services FeatureEntity(s) |
@@ -1542,6 +1541,7 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/connections/read | Gets the Machine Learning Services Workspace connection(s) |
 > | Microsoft.MachineLearningServices/workspaces/connections/write | Creates or updates a Machine Learning Services connection(s) |
 > | Microsoft.MachineLearningServices/workspaces/connections/delete | Deletes the Machine Learning Services connection(s) |
+> | Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action | Gets the Machine Learning Services connection with secret values |
 > | Microsoft.MachineLearningServices/workspaces/data/read | Reads Data container in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/data/write | Writes Data container in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/data/delete | Deletes Data container in Machine Learning Services Workspace(s) |
@@ -1576,9 +1576,17 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/datastores/delete | Deletes datastores in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action | Lists datastore secrets in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/diagnose/read | Diagnose setup problems of Machine Learning Services Workspace |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/read | Gets the Machine Learning Services endpoint |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/write | Creates or Updates the Machine Learning Services endpoint |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/delete | Deletes the Machine Learning Services endpoint |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/listkeys/action | Lists keys for the Machine Learning Services endpoint |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/read | Gets the Machine Learning Services Endpoint deployment |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/write | Creates or Updates the Machine Learning Services Endpoint deployment |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/delete | Deletes the Machine Learning Services Endpoint deployment |
 > | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/modelmonitorings/read | Gets model monitor for specific deployment on an online enpoint in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/modelmonitorings/write | Creates or updates model monitor detectors for specific deployment on an online enpoint in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/modelmonitorings/delete | Deletes data model monitor for specific deployment on an online enpoint in Machine Learning Services Workspace(s) |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/models/read | Gets the Machine Learning Services Endpoint model |
 > | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read | Gets published pipelines and pipeline endpoints  in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write | Creates or updates published pipelines and pipeline endpoints in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/environments/read | Gets environments in Machine Learning Services Workspace(s) |
@@ -1605,6 +1613,16 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/featurestoreentities/read | Gets the Machine Learning Services FeatureEntity(s) |
 > | Microsoft.MachineLearningServices/workspaces/featurestoreentities/write | Creates or Updates the Machine Learning Services FeatureEntity(s) |
 > | Microsoft.MachineLearningServices/workspaces/featurestoreentities/delete | Delete the Machine Learning Services FeatureEntity(s) |
+> | Microsoft.MachineLearningServices/workspaces/featurestores/read | Gets the Machine Learning Services FeatureStore(s) |
+> | Microsoft.MachineLearningServices/workspaces/featurestores/write | Creates or Updates the Machine Learning Services FeatureStore(s) |
+> | Microsoft.MachineLearningServices/workspaces/featurestores/delete | Deletes the Machine Learning Services FeatureStore(s) |
+> | Microsoft.MachineLearningServices/workspaces/hubs/read | Gets the Machine Learning Services Hub Workspace(s) |
+> | Microsoft.MachineLearningServices/workspaces/hubs/write | Creates or updates a Machine Learning Services Hub Workspace(s) |
+> | Microsoft.MachineLearningServices/workspaces/hubs/delete | Deletes the Machine Learning Services Hub Workspace(s) |
+> | Microsoft.MachineLearningServices/workspaces/hubs/join/action | Join the Machine Learning Services Hub Workspace(s) |
+> | Microsoft.MachineLearningServices/workspaces/hubs/policies/read | Gets the Machine Learning Services Hub policies |
+> | Microsoft.MachineLearningServices/workspaces/hubs/policies/delete | Deletes the Machine Learning Services Hub policies |
+> | Microsoft.MachineLearningServices/workspaces/hubs/policies/write | Creates or Updates the Machine Learning Services Hub policies |
 > | Microsoft.MachineLearningServices/workspaces/jobs/read | Reads Jobs in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/jobs/write | Create or Update Jobs in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/jobs/delete | Deletes Jobs in Machine Learning Services Workspace(s) |
