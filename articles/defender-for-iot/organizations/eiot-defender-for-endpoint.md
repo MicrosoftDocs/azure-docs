@@ -113,8 +113,6 @@ Use the query below to help find devices that were discovered on a specific subn
 
 If some devices on your network support Microsoft Defender for Endpoint but for some reason were not onboarded. Onboarding these devices to Microsoft Defender for Endpoint ensures that they are better protected, will have detection and response capabilities, and vulnerability assessments.  
 
-[comment] # (the second sentence should be removed, this isnt marketing doc! then merge the next sentence as the second part of the if sentence)
-
 Run the following query in your tenant to understand which of your devices can be onboarded:
 
 ```kusto
@@ -126,8 +124,6 @@ Run the following query in your tenant to understand which of your devices can b
 ### To find devices by specific type or subtype:
 
 To find devices that exist in your corporate network by type of device (i.e. router), you can use the following query:  
-
-[comment] # (should the intro sentence for each example be the same style?)
 
 ```kusto
 | DeviceInfo  
