@@ -150,7 +150,7 @@ Restore-AzCosmosDBAccount `
   -PublicNetworkAccess Disabled
 
 ```
-If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass Disabled to the `PublicNetworkAccess` option to disable public network access for restored account.
+If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass `Disabled` to the `PublicNetworkAccess` option to disable public network access for restored account.
 
 > [!NOTE]
 > For restoring with public network access disabled, the minimum stable version of Az.CosmosDB required is 1.12.0.
@@ -413,16 +413,6 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 
 #### Create a new Azure Cosmos DB account by restoring from an existing account
 
-
-
-
-
-
-
-
-
-
-
 ```azurecli-interactive
 
 az cosmosdb restore \
@@ -439,46 +429,6 @@ If `--public-network-access` is not set, restored account is accessible from pub
 
  > [!NOTE]
  > For restoring with public network access disabled, the minimum stable version of azure-cli is 2.52.0.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### Create a new Azure Cosmos DB account by restoring only selected databases and containers from an existing database account
 
@@ -714,16 +664,6 @@ az cosmosdb mongodb restorable-resource list \
     --restore-location "West US" \
     --restore-timestamp "2020-07-20T16:09:53+0000"
 ```
-
-
-
-
-
-
-
-
-
-
 
 #### List all the versions of databases in a live database account
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and graph resources. These commands only work for live accounts.
