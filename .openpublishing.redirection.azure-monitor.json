@@ -426,6 +426,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-view-designer-conversion-overview.md",
+            "redirect_url": "previous-versions/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-view-designer-conversions.md",
+            "redirect_url": "previous-versions/azure/azure-monitor/visualize/workbooks-view-designer-conversions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-service-manager-script.md",
             "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
