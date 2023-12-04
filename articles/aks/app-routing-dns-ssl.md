@@ -4,7 +4,7 @@ description: Understand the advanced configuration options that are supported wi
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 12/04/2023
 ---
 
 #  Set up advanced Ingress configurations with the application routing add-on
@@ -148,11 +148,17 @@ The application routing add-on creates an Ingress class on the cluster named *we
     az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> --query "id" --output tsv
     ```
 
+   The following example output shows the certificate URI returned from the command:
+
+    ```output
+    https://KeyVaultName.vault.azure.net/certificates/KeyVaultCertificateName/ea62e42260f04f17a9309d6b87aceb44
+    ```
+
 2. Copy the following YAML manifest into a new file named **ingress.yaml** and save the file to your local computer.
 
-    > [!NOTE]
-    > Update *`<Hostname>`* with your DNS host name and *`<KeyVaultCertificateUri>`* with the ID returned from Azure Key Vault.
-    > The *`secretName`* key in the `tls` section defines the name of the secret that contains the certificate for this Ingress resource. This certificate will be presented in the browser when a client browses to the URL defined in the `<Hostname>` key. Make sure that the value of `secretName` is equal to `keyvault-` followed by the value of the Ingress resource name (from `metadata.name`). In the example YAML, secretName will need to be equal to `keyvault-<your Ingress name>`.
+   Update *`<Hostname>`* with the name of your DNS host and *`<KeyVaultCertificateUri>`* with the URI returned from the command to query Azure Key Vault in step 1 above. The string value for `*<KeyVaultCertificateUri>*` should only include `https://yourkeyvault.vault.azure.net/certificates/certname`. The *Certificate Version* at the end of the URI string should be omitted in order to get the current version.
+
+   The *`secretName`* key in the `tls` section defines the name of the secret that contains the certificate for this Ingress resource. This certificate is presented in the browser when a client browses to the URL specified in the `<Hostname>` key. Make sure that the value of `secretName` is equal to `keyvault-` followed by the value of the Ingress resource name (from `metadata.name`). In the example YAML, `secretName` needs to be equal to `keyvault-<your Ingress name>`.
 
     ```yml
     apiVersion: networking.k8s.io/v1
