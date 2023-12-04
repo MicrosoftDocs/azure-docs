@@ -8,7 +8,7 @@ author: normesta
 ms.service: azure-storage
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 11/30/2023
+ms.date: 12/04/2023
 ms.author: normesta 
 ms.custom: devx-track-azurepowershell
 ---
@@ -26,8 +26,7 @@ This script calculates the size of all Azure Blob Storage containers in a storag
 
 ## Sample script
 
-:::code language="powershell" source="~/" range="{range}":::
-:::code language="powershell" source="~/azure-docs-powershell-samples/storage/calculate-container-size/calculate-container-sizes-in-account.ps1":::
+:::code language="azurepowershell" source="~/azure_powershell_scripts/storage/calculate-container-size/calculate-container-sizes-in-account.ps1" id="FullScript":::
 
 ## Clean up deployment
 
