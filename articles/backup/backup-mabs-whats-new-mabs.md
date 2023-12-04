@@ -51,7 +51,7 @@ The following table lists the new features added in MABS V4 UR1:
 | Feature | Supportability |
 | --- | --- |
 | Item-level recovery for VMware VMs running Windows directly from online recovery points. |  Note that you need *MARS version 2.0.9251.0 or above* to use this feature.   | 
-| Windows and Basic SMTP Authentication for MABS email reports and alerts.    |  This enables MABS to send reports and alerts using any vendor supporting SMTP Basic Authentication. [Learn more](/system-center/dpm/monitor-dpm?view=sc-dpm-2022&preserve-view=true#configure-email-for-dpm).            <br><br>     Note that if you are using Microsoft 365 SMTP with a MABS V4 private fix, reenter the credential using Basic Authentication.       | 
+| Windows and Basic SMTP Authentication for MABS email reports and alerts.    |  This enables MABS to send reports and alerts using any vendor supporting SMTP Basic Authentication. [Learn more](/system-center/dpm/monitor-dpm?view=sc-dpm-2022&preserve-view=true#configure-email-for-dpm).            <br><br>     Note that if you are using Microsoft 365 SMTP with a MABS V4 private fix, re-enter the credential using Basic Authentication.       | 
 | Fall back to crash consistent backups for VMware VMs.    |     Use a registry key for VMware VMs when backups fail with ApplicationQuiesceFault. [Learn more](backup-azure-backup-server-vmware.md#applicationquiescefault).  |
 | **Experience improvements for MABS backups to Azure.** |                 |
 | List online recovery points for a data source along with the expiry time and soft-delete status. |     To view the list of recovery points along with their expiration dates, right-click a data source and select **List recovery points**.    |
