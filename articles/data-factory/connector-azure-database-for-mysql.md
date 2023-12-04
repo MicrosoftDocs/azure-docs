@@ -373,5 +373,5 @@ When copying data from Azure Database for MySQL, the following mappings are used
 | `varchar` |`String` |
 | `year` |`Int32` |
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
