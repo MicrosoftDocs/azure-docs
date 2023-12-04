@@ -15,6 +15,8 @@ To create a data connector with the Codeless Connector Platform (CCP), use this 
 
 - `connectorUiConfig` - defines the visual elements and text displayed on the data connector page in Microsoft Sentinel.
 
+For more information, see [Create a codeless connector](create-codeless-connector.md).
+
 ## Data connector definitions - Create or update
 
 Reference the [Create Or Update](/rest/api/securityinsights/data-connector-definitions/create-or-update) operation in the REST API docs to find the latest stable or preview API version. The difference between the `create` and the `update` operation is the update requires the `etag` value.
