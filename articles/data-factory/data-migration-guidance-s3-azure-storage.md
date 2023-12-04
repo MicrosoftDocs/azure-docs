@@ -145,6 +145,6 @@ Here's the estimated price based on the above assumptions:
 
 Here's the [template](solution-template-migration-s3-azure.md) to start with to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2.
 
-## Next steps
+## Related content
 
 - [Copy files from multiple containers with Azure Data Factory](solution-template-copy-files-multiple-containers.md)

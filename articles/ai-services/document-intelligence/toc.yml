@@ -138,28 +138,6 @@ items:
   - name: Disconnected containers
     displayName: docker, commitment, plan, environment, usage
     href: containers/disconnected.md
-- name: Samples
-  items:
-  - name: "C#/.NET"
-    href: /dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet#examples&preserve-view=true
-  - name: "Java"
-    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples&preserve-view=true
-  - name: "Python"
-    href: /python/api/overview/azure/ai-formrecognizer-readme?view=azure-python#examples&preserve-view=true
-  - name: "JavaScript"
-    href: /javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest#examples&preserve-view=true
-- name: Responsible use of AI
-  items:
-  - name: Transparency notes
-    items:
-    - name: Document Intelligence scenarios
-      href: /legal/cognitive-services/document-intelligence/transparency-note?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
-    - name: Characteristics and limitations
-      href: /legal/cognitive-services/document-intelligence/characteristics-and-limitations?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
-  - name: Integration and responsible use
-    href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
-  - name: Data, privacy, and security
-    href: /legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Model overview
@@ -182,6 +160,9 @@ items:
   - name: Layout model
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
+  - name: Add-on capabilities
+    displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
+    href: concept-add-on-capabilities.md  
   - name: Contract model
     displayName: contracts, agreements, legal, terms, conditions, clauses, parties, dates, signatures
     href: concept-contract.md
@@ -206,9 +187,6 @@ items:
   - name: Query field extraction
     displayName: queries, fields, OpenAI, chat
     href: concept-query-fields.md
-  - name: Add-on capabilities
-    displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
-    href: concept-add-on-capabilities.md
   - name: Custom models
     items:
     - name: Custom model overview
@@ -237,7 +215,29 @@ items:
       href:  concept-composed-models.md
     - name: Custom model lifecycle
       displayName: custom, model, expiration, train, build
-      href:  concept-custom-lifecycle.md
+      href:  concept-custom-lifecycle.md    
+- name: Samples
+  items:
+  - name: "C#/.NET"
+    href: /dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet#examples&preserve-view=true
+  - name: "Java"
+    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples&preserve-view=true
+  - name: "Python"
+    href: /python/api/overview/azure/ai-formrecognizer-readme?view=azure-python#examples&preserve-view=true
+  - name: "JavaScript"
+    href: /javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest#examples&preserve-view=true
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: Document Intelligence scenarios
+      href: /legal/cognitive-services/document-intelligence/transparency-note?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/document-intelligence/characteristics-and-limitations?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/document-intelligence/guidance-integration-responsible-use?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
+  - name: Data, privacy, and security
+    href: /legal/cognitive-services/document-intelligence/data-privacy-security?toc=/azure/ai-services/document-intelligence/toc.json&bc=/azure/ai-services/document-intelligence/breadcrumb/toc.json
 - name: Tutorials
   items:
   - name: Create workflows using Azure Logic Apps

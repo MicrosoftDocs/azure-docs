@@ -245,5 +245,5 @@ To achieve such schema-agnostic copy, skip the "structure" (also called *schema*
 
 To copy data from MongoDB Atlas to tabular sink or reversed, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
