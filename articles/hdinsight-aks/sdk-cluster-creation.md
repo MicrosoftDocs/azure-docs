@@ -343,7 +343,7 @@ Click on the Run button.
 - [TypeScript SDK Package](https://www.npmjs.com/package/@azure/arm-hdinsightcontainers) 
 - [Azure Hdinsightcontainers SDK for JavaScript](/javascript/api/overview/azure/hdinsightcontainers) 
 
- #### Python 
+#### Python 
 - [Python SDK Package](https://pypi.org/project/azure-mgmt-hdinsightcontainers/) 
 - [Azure Hdinsightcontainers SDK for Python](/python/api/overview/azure/hdinsightcontainers) 
 
@@ -351,7 +351,7 @@ Click on the Run button.
 - [GO SDK Package](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers)
 - [Azure Hdinsightcontainers SDK for GO](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/hdinsightcontainers/armhdinsightcontainers)
 
-## Next Steps: 
+## Next steps
 
 There are extensive ways supported to customize and manage cluster using .NET SDK. Review the following documentation: 
 - [Azure Resource Manager HDInsight Containers](/dotnet/api/overview/azure/resourcemanager.hdinsight.containers-readme) 
