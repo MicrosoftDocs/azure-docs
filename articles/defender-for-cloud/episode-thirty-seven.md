@@ -33,4 +33,4 @@ ms.date: 08/29/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Data Security Dashboard in Defender for Cloud](episode-thirty-eight.md)
+> [Data security dashboard in Defender for Cloud](episode-thirty-eight.md)
