@@ -86,10 +86,10 @@ This section lists sample advanced hunting queries that you can use in Microsoft
 
 ### To find devices within a subnet:
 
-Use the following queries to help find devices that were discovered on a specific subnet in your network. You should replace the values `IpV4Range` or `IpV6Range` with the value you're searching for:  
+Use the following queries to help find devices that were discovered on a specific subnet in your network. 
 
 ```kusto
-| let IpV6Range = “2001:4898::1050:1050/127”;  
+| let IpV6Range = “<IP address range>”;  
 | DeviceNetworkInfo  
 | where Timestamp > ago(7d)  
 | summarize arg_max(Timestamp, *) by DeviceId  
@@ -99,7 +99,7 @@ Use the following queries to help find devices that were discovered on a specifi
 ```
 
 ```kusto
-| let IpV4Range = “172.22.138.0/24”;  
+| let IpV4Range = “<IP address range>”;  
 | DeviceNetworkInfo  
 | where Timestamp > ago(7d)  
 | summarize arg_max(Timestamp, *) by DeviceId  
@@ -107,6 +107,8 @@ Use the following queries to help find devices that were discovered on a specifi
 | extend IPAddress=tostring(IPAddressEntry.IPAddress)  
 | where ipv4_is_in_range(IPAddress, IpV4Range)  
 ```
+
+The term `<IP address range>` is the range of IP addresses you're looking for.
 
 ### To find devices that you can better protect by onboarding them to Defender for Endpoint:
 
