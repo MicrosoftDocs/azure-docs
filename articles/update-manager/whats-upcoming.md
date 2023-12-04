@@ -13,9 +13,6 @@ ms.date: 11/07/2023
 The article [What's new in Azure Update Manager](whats-new.md) contains updates of feature releases. This article lists all the upcoming features for Azure Update Manager.
 
 
-## Prescript and postscript
-
-The ability to execute Azure Automation runbook scripts before or after deploying scheduled updates to machines will be available by the fourth quarter of 2023.
 
 ## Next steps
 

@@ -39,15 +39,8 @@ In this tutorial, you learn how to:
     1. Under the **host.json**, enable **ManagedDependecy** to **True** and select **requirments.psd1**.
     1. Under the **requirements.psd1**, paste the following code: 
     
-        ```
-        #This file enables modules to be automatically managed by the Functions service. 
-        # See
-        https://aka.ms/functionsmanageddependency for additional information. 
-        # 
-        @{ 
-        #For latest supported version, go to '
-        https://www.powershellgallery.com/packages/Az'.
-        Uncomment the next line and replace the MAJOR_VERSION, e.g., 'Az'='5.*' 
+       ```
+        @{
         'Az'='5.*' 
         'Az.ResourceGraph'='0.13.0' 
         'Az.Resources'='6.*' 
@@ -69,202 +62,204 @@ In this tutorial, you learn how to:
 
 1. In the **Event grid function**, select **Code+Test** from the left menu, paste the following code and select **Save**.
 
-    #### [Start VMs](#tab/script-vm-on)    
-    ``` 
-        # Make sure that we are using eventGridEvent for parameter binding in Azure function.
-            param($eventGridEvent, $TriggerMetadata)
-            
-            Connect-AzAccount -Identity
-            
-            # Install the Resource Graph module from PowerShell Gallery
-            # Install-Module -Name Az.ResourceGraph
-            
-            $maintenanceRunId = $eventGridEvent.data.CorrelationId
-            $resourceSubscriptionIds = $eventGridEvent.data.ResourceSubscriptionIds
-            
-            if ($resourceSubscriptionIds.Count -eq 0) {
-                Write-Output "Resource subscriptions are not present."
-                break
-            }
-            
-            Write-Output "Querying ARG to get machine details [MaintenanceRunId=$maintenanceRunId][ResourceSubscriptionIdsCount=$($resourceSubscriptionIds.Count)]"
-            
-            $argQuery = @"
-                maintenanceresources 
-                | where type =~ 'microsoft.maintenance/applyupdates'
-                | where properties.correlationId =~ '$($maintenanceRunId)'
-                | where id has '/providers/microsoft.compute/virtualmachines/'
-                | project id, resourceId = tostring(properties.resourceId)
-                | order by id asc
-            "@
-            
-            Write-Output "Arg Query Used: $argQuery"
-            
-            $allMachines = [System.Collections.ArrayList]@()
-            $skipToken = $null
-            
-            do
-            {
-                $res = Search-AzGraph -Query $argQuery -First 1000 -SkipToken $skipToken -Subscription $resourceSubscriptionIds
-                $skipToken = $res.SkipToken
-                $allMachines.AddRange($res.Data)
-            } while ($skipToken -ne $null -and $skipToken.Length -ne 0)
-            
-            if ($allMachines.Count -eq 0) {
-                Write-Output "No Machines were found."
-                break
-            }
-            
-            $jobIDs= New-Object System.Collections.Generic.List[System.Object]
-            $startableStates = "stopped" , "stopping", "deallocated", "deallocating"
-            
-            $allMachines | ForEach-Object {
-                $vmId =  $_.resourceId
-            
-                $split = $vmId -split "/";
-                $subscriptionId = $split[2]; 
-                $rg = $split[4];
-                $name = $split[8];
-            
-                Write-Output ("Subscription Id: " + $subscriptionId)
-            
-                $mute = Set-AzContext -Subscription $subscriptionId
-                $vm = Get-AzVM -ResourceGroupName $rg -Name $name -Status -DefaultProfile $mute
-            
-                $state = ($vm.Statuses[1].DisplayStatus -split " ")[1]
-                if($state -in $startableStates) {
-                    Write-Output "Starting '$($name)' ..."
-            
-                    $newJob = Start-ThreadJob -ScriptBlock { param($resource, $vmname, $sub) $context = Set-AzContext -Subscription $sub; Start-AzVM -ResourceGroupName $resource -Name $vmname -DefaultProfile $context} -ArgumentList $rg, $name, $subscriptionId
-                    $jobIDs.Add($newJob.Id)
-                } else {
-                    Write-Output ($name + ": no action taken. State: " + $state) 
-                }
-            }
-            
-            $jobsList = $jobIDs.ToArray()
-            if ($jobsList)
-            {
-                Write-Output "Waiting for machines to finish starting..."
-                Wait-Job -Id $jobsList
-            }
-            
-            foreach($id in $jobsList)
-            {
-                $job = Get-Job -Id $id
-                if ($job.Error)
-                {
-                    Write-Output $job.Error
-                }
-            }
-      ```
-
-    #### [Stop VMs](#tab/script-vm-off)
-
-      ``` 
-          # Make sure that we are using eventGridEvent for parameter binding in Azure function.
-          param($eventGridEvent, $TriggerMetadata)
-            
-          Connect-AzAccount -Identity
-            
-            # Install the Resource Graph module from PowerShell Gallery
-            # Install-Module -Name Az.ResourceGraph
-            
-            $maintenanceRunId = $eventGridEvent.data.CorrelationId
-            $resourceSubscriptionIds = $eventGridEvent.data.ResourceSubscriptionIds
-            
-            if ($resourceSubscriptionIds.Count -eq 0) {
-                Write-Output "Resource subscriptions are not present."
-                break
-            }
-            
-            Start-Sleep -Seconds 30
-            Write-Output "Querying ARG to get machine details [MaintenanceRunId=$maintenanceRunId][ResourceSubscriptionIdsCount=$($resourceSubscriptionIds.Count)]"
-            
-            $argQuery = @"
-                maintenanceresources 
-                | where type =~ 'microsoft.maintenance/applyupdates'
-                | where properties.correlationId =~ '$($maintenanceRunId)'
-                | where id has '/providers/microsoft.compute/virtualmachines/'
-                | project id, resourceId = tostring(properties.resourceId)
-                | order by id asc
-            "@
-            
-            Write-Output "Arg Query Used: $argQuery"
-            
-            $allMachines = [System.Collections.ArrayList]@()
-            $skipToken = $null
-            
-            do
-            {
-                $res = Search-AzGraph -Query $argQuery -First 1000 -SkipToken $skipToken -Subscription $resourceSubscriptionIds
-                $skipToken = $res.SkipToken
-                $allMachines.AddRange($res.Data)
-            } while ($skipToken -ne $null -and $skipToken.Length -ne 0)
-            
-            if ($allMachines.Count -eq 0) {
-                Write-Output "No Machines were found."
-                break
-            }
-            
-            $jobIDs= New-Object System.Collections.Generic.List[System.Object]
-            $stoppableStates = "starting", "running"
-            
-            $allMachines | ForEach-Object {
-                $vmId =  $_.resourceId
-            
-                $split = $vmId -split "/";
-                $subscriptionId = $split[2]; 
-                $rg = $split[4];
-                $name = $split[8];
-            
-                Write-Output ("Subscription Id: " + $subscriptionId)
-            
-                $mute = Set-AzContext -Subscription $subscriptionId
-                $vm = Get-AzVM -ResourceGroupName $rg -Name $name -Status -DefaultProfile $mute
-            
-                $state = ($vm.Statuses[1].DisplayStatus -split " ")[1]
-                if($state -in $stoppableStates) {
-                    Write-Output "Stopping '$($name)' ..."
-            
-                    $newJob = Start-ThreadJob -ScriptBlock { param($resource, $vmname, $sub) $context = Set-AzContext -Subscription $sub; Stop-AzVM -ResourceGroupName $resource -Name $vmname -Force -DefaultProfile $context} -ArgumentList $rg, $name, $subscriptionId
-                    $jobIDs.Add($newJob.Id)
-                } else {
-                    Write-Output ($name + ": no action taken. State: " + $state) 
-                }
-            }
-        $jobsList = $jobIDs.ToArray()
-        if ($jobsList)
-        {
-            Write-Output "Waiting for machines to finish stop operation..."
-            Wait-Job -Id $jobsList
-        }
-        
-        foreach($id in $jobsList)
-        {
-            $job = Get-Job -Id $id
-            if ($job.Error)
-            {
-                Write-Output $job.Error
-            }
-        }
-      ```  
-    #### [Cancel schedule](#tab/script-vm-cancel)
-      ```
-        Invoke-AzRestMethod `
-        -Path "<Correlation ID from EventGrid Payload>?api-version=2023-09-01-preview" `
-        -Payload 
-        '{
-            "properties": {
-               "status": "Cancel"
-            }
-              }' `
-        -Method PUT
+#### [Start VMs](#tab/script-vm-on)    
     
-      ```
-    ---
+``` 
+# Make sure that we are using eventGridEvent for parameter binding in Azure function.
+param($eventGridEvent, $TriggerMetadata)
+            
+Connect-AzAccount -Identity
+            
+# Install the Resource Graph module from PowerShell Gallery
+# Install-Module -Name Az.ResourceGraph
+            
+$maintenanceRunId = $eventGridEvent.data.CorrelationId
+$resourceSubscriptionIds = $eventGridEvent.data.ResourceSubscriptionIds
+            
+if ($resourceSubscriptionIds.Count -eq 0) {
+    Write-Output "Resource subscriptions are not present."
+    break
+}
+            
+Write-Output "Querying ARG to get machine details [MaintenanceRunId=$maintenanceRunId][ResourceSubscriptionIdsCount=$($resourceSubscriptionIds.Count)]"
+            
+$argQuery = @"
+    maintenanceresources 
+    | where type =~ 'microsoft.maintenance/applyupdates'
+    | where properties.correlationId =~ '$($maintenanceRunId)'
+    | where id has '/providers/microsoft.compute/virtualmachines/'
+    | project id, resourceId = tostring(properties.resourceId)
+    | order by id asc
+"@
+            
+Write-Output "Arg Query Used: $argQuery"
+            
+$allMachines = [System.Collections.ArrayList]@()
+$skipToken = $null
+            
+do
+{
+    $res = Search-AzGraph -Query $argQuery -First 1000 -SkipToken $skipToken -Subscription $resourceSubscriptionIds
+    $skipToken = $res.SkipToken
+    $allMachines.AddRange($res.Data)
+} while ($skipToken -ne $null -and $skipToken.Length -ne 0)
+if ($allMachines.Count -eq 0) {
+    Write-Output "No Machines were found."
+    break
+}
+            
+$jobIDs= New-Object System.Collections.Generic.List[System.Object]
+$startableStates = "stopped" , "stopping", "deallocated", "deallocating"
+            
+$allMachines | ForEach-Object {
+    $vmId =  $_.resourceId
+            
+    $split = $vmId -split "/";
+    $subscriptionId = $split[2]; 
+    $rg = $split[4];
+    $name = $split[8];
+                
+    Write-Output ("Subscription Id: " + $subscriptionId)
 
-1. Select **Integration** from the left menu and edit the **Event Trigger parameter name** under **Trigger**. Use the same parameter name given in the **Code+Test** window. In the example, the parameter is pre-Event. 
+    $mute = Set-AzContext -Subscription $subscriptionId
+    $vm = Get-AzVM -ResourceGroupName $rg -Name $name -Status -DefaultProfile $mute
+
+    $state = ($vm.Statuses[1].DisplayStatus -split " ")[1]
+    if($state -in $startableStates) {
+        Write-Output "Starting '$($name)' ..."
+            
+        $newJob = Start-ThreadJob -ScriptBlock { param($resource, $vmname, $sub) $context = Set-AzContext -Subscription $sub; Start-AzVM -ResourceGroupName $resource -Name $vmname -DefaultProfile $context} -ArgumentList $rg, $name, $subscriptionId
+        $jobIDs.Add($newJob.Id)
+    } else {
+        Write-Output ($name + ": no action taken. State: " + $state) 
+    }
+}
+
+$jobsList = $jobIDs.ToArray()
+if ($jobsList)
+{
+    Write-Output "Waiting for machines to finish starting..."
+    Wait-Job -Id $jobsList
+}
+
+foreach($id in $jobsList)
+{
+    $job = Get-Job -Id $id
+    if ($job.Error)
+    {
+        Write-Output $job.Error
+    }
+}
+```
+
+#### [Stop VMs](#tab/script-vm-off)
+
+``` 
+# Make sure that we are using eventGridEvent for parameter binding in Azure function.
+param($eventGridEvent, $TriggerMetadata)
+            
+Connect-AzAccount -Identity
+            
+# Install the Resource Graph module from PowerShell Gallery
+# Install-Module -Name Az.ResourceGraph
+            
+$maintenanceRunId = $eventGridEvent.data.CorrelationId
+$resourceSubscriptionIds = $eventGridEvent.data.ResourceSubscriptionIds
+
+if ($resourceSubscriptionIds.Count -eq 0) {
+    Write-Output "Resource subscriptions are not present."
+    break
+}
+            
+Start-Sleep -Seconds 30
+Write-Output "Querying ARG to get machine details [MaintenanceRunId=$maintenanceRunId][ResourceSubscriptionIdsCount=$($resourceSubscriptionIds.Count)]"
+            
+$argQuery = @"
+    maintenanceresources 
+    | where type =~ 'microsoft.maintenance/applyupdates'
+    | where properties.correlationId =~ '$($maintenanceRunId)'
+    | where id has '/providers/microsoft.compute/virtualmachines/'
+    | project id, resourceId = tostring(properties.resourceId)
+    | order by id asc
+"@
+            
+Write-Output "Arg Query Used: $argQuery"
+            
+$allMachines = [System.Collections.ArrayList]@()
+$skipToken = $null
+            
+do
+{
+    $res = Search-AzGraph -Query $argQuery -First 1000 -SkipToken $skipToken -Subscription $resourceSubscriptionIds
+    $skipToken = $res.SkipToken
+    $allMachines.AddRange($res.Data)
+} while ($skipToken -ne $null -and $skipToken.Length -ne 0)
+            
+if ($allMachines.Count -eq 0) {
+    Write-Output "No Machines were found."
+    break
+}
+            
+    $jobIDs= New-Object System.Collections.Generic.List[System.Object]
+    $stoppableStates = "starting", "running"
+            
+    $allMachines | ForEach-Object {
+    $vmId =  $_.resourceId
+            
+    $split = $vmId -split "/";
+    $subscriptionId = $split[2]; 
+    $rg = $split[4];
+    $name = $split[8];
+            
+    Write-Output ("Subscription Id: " + $subscriptionId)
+            
+    $mute = Set-AzContext -Subscription $subscriptionId
+    $vm = Get-AzVM -ResourceGroupName $rg -Name $name -Status -DefaultProfile $mute
+            
+    $state = ($vm.Statuses[1].DisplayStatus -split " ")[1]
+if($state -in $stoppableStates) {
+    Write-Output "Stopping '$($name)' ..."
+            
+    $newJob = Start-ThreadJob -ScriptBlock { param($resource, $vmname, $sub) $context = Set-AzContext -Subscription $sub; Stop-AzVM -ResourceGroupName $resource -Name $vmname -Force -DefaultProfile $context} -ArgumentList $rg, $name, $subscriptionId
+    $jobIDs.Add($newJob.Id)
+    } else {
+    Write-Output ($name + ": no action taken. State: " + $state) 
+    }
+}
+    $jobsList = $jobIDs.ToArray()
+    if ($jobsList)
+    {
+    Write-Output "Waiting for machines to finish stop operation..."
+    Wait-Job -Id $jobsList
+    }
+        
+    foreach($id in $jobsList)
+    {
+    $job = Get-Job -Id $id
+    if ($job.Error)
+    {
+    Write-Output $job.Error
+    }
+}
+```  
+
+#### [Cancel schedule](#tab/script-vm-cancel)
+```
+Invoke-AzRestMethod `
+-Path "<Correlation ID from EventGrid Payload>?api-version=2023-09-01-preview" `
+-Payload 
+'{
+"properties": {
+"status": "Cancel"
+}
+}' `
+-Method PUT
+    
+```
+---
+1. Select **Integration** from the left menu and edit the **Event Trigger parameter name** under **Trigger**. Use the same parameter name given in the **Code+Test** window. In the example, the parameter is eventGridEvent. 
+
+:::image type="content" source="./media/tutorial-using-functions/parameter-event-grid.png" alt-text="Screenshot that shows the parameter eventGridEvent." lightbox="./media/tutorial-using-functions/parameter-event-grid.png":::
 
 1. Select **Save**
 
