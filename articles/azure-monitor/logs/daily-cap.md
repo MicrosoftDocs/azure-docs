@@ -58,12 +58,12 @@ To help you determine an appropriate  daily cap for your workspace, see [Azure M
 ## Workspaces with Microsoft Defender for Cloud
 
 > [!IMPORTANT]
-> Starting September 18, 2023, the Log Analytics Daily Cap all billable data types will 
-> be capped if the daily cap is met, and there is no special behavior for any data types when [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers-select-plan.md) is enabled on your workspace. 
+> Starting September 18, 2023, Azure Monitor caps all billable data types  
+> when the daily cap is met. There is no special behavior for any data types when [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers-select-plan.md) is enabled on your workspace. 
 > This change improves your ability to fully contain costs from higher-than-expected data ingestion. 
-> If you have a Daily Cap set on your workspace which has Microsoft Defender for Servers, 
+> If you have a daily cap set on a workspace that has Microsoft Defender for Servers enabled, 
 > be sure that the cap is high enough to accommodate this change. 
-> Also, be sure to set an alert (see below) so that you are notified as soon as your Daily Cap is met. 
+> Also, be sure to set an alert (see below) so that you are notified as soon as your daily cap is met. 
 
 Until September 18, 2023, if a workspace enabled the [Microsoft Defenders for Servers](../../defender-for-cloud/plan-defender-for-servers-select-plan.md) solution after June 19, 2017, some security related data types are collected for Microsoft Defender for Cloud or Microsoft Sentinel despite any daily cap configured. The following data types will be subject to this special exception from the daily cap WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection,  SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update, UpdateSummary, CommonSecurityLog and Syslog 
 
