@@ -1276,7 +1276,7 @@ items:
     items:
     - name: Overview
       href: alerts/alerts-overview.md
-    - name: Alert types
+    - name: Choosing the type of alert rule
       href: alerts/alerts-types.md
     - name: Best practices
       href: best-practices-alerts.md
@@ -1284,16 +1284,22 @@ items:
       items:
         - name: Set up alert rules
           items:
-          - name: Create or edit an alert rule
-            href: alerts/alerts-create-new-alert-rule.md
-          - name: Create Prometheus alert rules
+          - name: Metric alert rules
+            href: alerts/alerts-create-metric-alert-rule.md
+          - name: Log alert rules
+            href: alerts/alerts-create-log-alert-rule.md
+          - name: Activity log, service health or resource health alert rules
+            href: alerts/alerts-create-activity-log-alert-rule.md
+          - name: Prometheus alert rules
             href: alerts/prometheus-alerts.md
-          - name: Create a metric alert rule with dynamic thresholds
+          - name: Metric alert rule with dynamic thresholds
             href: alerts/alerts-dynamic-thresholds.md
-          - name: Create a metric alert on Azure Monitor Logs
+          - name: Metric alert on Azure Monitor Logs
             href: alerts/alerts-metric-logs.md
           - name: Create one alert rule for multiple time series
             href: alerts/alerts-metric-multiple-time-series-single-rule.md
+          - name: Create alert rules using CLI, PowerShell, or ARM templates
+            href: alerts/alerts-create-rule-cli-powershell-arm.md
           - name: Optimize log alert queries
             href: alerts/alerts-log-query.md
         - name: Set up action groups
