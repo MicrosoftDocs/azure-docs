@@ -17,6 +17,8 @@ Azure Container Apps manages automatic horizontal scaling through a set of decla
 
 Adding or editing scaling rules creates a new revision of your container app. A revision is an immutable snapshot of your container app. See revision [change types](./revisions.md#change-types) to review which types of changes trigger a new revision.
 
+[Event-driven Container Apps jobs](jobs.md#event-driven-jobs) use scaling rules to trigger executions based on events.
+
 ## Scale definition
 
 Scaling is defined by the combination of limits, rules, and behavior.
@@ -60,7 +62,7 @@ If you define more than one scale rule, the container app begins to scale once t
 
 ## HTTP
 
-With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales.
+With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales. [Container Apps jobs](jobs.md) don't support HTTP scaling rules. 
 
 In the following example, the revision scales out up to five replicas and can scale in to zero. The scaling property is set to 100 concurrent requests per second.
 
@@ -155,7 +157,7 @@ az containerapp create \
 
 ## TCP
 
-With a TCP scaling rule, you have control over the threshold of concurrent TCP connections that determines how your app scales.
+With a TCP scaling rule, you have control over the threshold of concurrent TCP connections that determines how your app scales. [Container Apps jobs](jobs.md) don't support TCP scaling rules.
 
 In the following example, the container app revision scales out up to five replicas and can scale in to zero. The scaling threshold is set to 100 concurrent connections per second.
 
@@ -235,6 +237,8 @@ You can create a custom Container Apps scaling rule based on any [ScaledObject](
 |--|--|
 | Polling interval | 30 |
 | Cool down period | 300 |
+
+For [event-driven Container Apps jobs](jobs.md#event-driven-jobs), you can create a custom scaling rule based on any [ScaledJob](https://keda.sh/docs/latest/concepts/scaling-jobs/)-based KEDA scalers.
 
 The following example demonstrates how to create a custom scale rule.
 
@@ -386,13 +390,13 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 ::: zone pivot="azure-portal"
 
-1. Go to your container app in the Azure portal
+1. Go to your container app in the Azure portal.
 
 1. Select **Scale**.
 
 1. Select **Edit and deploy**.
 
-1. Select the **Scale** tab.
+1. Select the **Scale and replicas** tab.
 
 1. Select the minimum and maximum replica range.
 

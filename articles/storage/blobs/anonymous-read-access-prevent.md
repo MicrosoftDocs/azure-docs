@@ -59,7 +59,7 @@ To understand how disallowing anonymous access may affect client applications, w
 
 ### Monitor anonymous requests with Metrics Explorer
 
-To track anonymous requests to a storage account, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
+To track anonymous requests to a storage account, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
 
 Follow these steps to create a metric that tracks anonymous requests:
 
@@ -175,7 +175,7 @@ The **Microsoft.Storage/storageAccounts/listkeys/action** itself grants data acc
 
 ### Set the storage account's AllowBlobPublicAccess property to False
 
-To disallow anonymous access for a storage account, set the account's **AllowBlobPublicAccess** property to **False**. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
+To disallow anonymous access for a storage account, set the account's **AllowBlobPublicAccess** property to **False**.
 
 > [!IMPORTANT]
 > Disallowing anonymous access for a storage account overrides the access settings for all containers in that storage account. When anonymous access is disallowed for the storage account, any future anonymous requests to that account will fail. Before changing this setting, be sure to understand the impact on client applications that may be accessing data in your storage account anonymously by following the steps outlined in [Detect anonymous requests from client applications](#detect-anonymous-requests-from-client-applications).
@@ -334,8 +334,6 @@ begin {
 }
 
 process {
-    Write-Host "NOTE: If you are using OAuth authorization on a storage account, disabling public access at the account level may interfere with authorization."
-
     try {
         select-azsubscription -subscriptionid $SubscriptionId -erroraction stop | out-null
     } catch {

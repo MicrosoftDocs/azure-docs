@@ -1,159 +1,91 @@
 ### YamlMime:FAQ
 metadata:
-  title: Common questions -  Defender for DevOps
-  description: Get answers to frequently asked questions about Microsoft Defender for DevOps.
+  title: Common questions -  DevOps Security
+  description: Get answers to frequently asked questions about Microsoft DevOps Security.
   ms.topic: faq
   ms.service: defender-for-cloud
   author: dcurwin
   ms.author: dacurwin
   ms.date: 06/20/2023
-title: Common questions about Defender for DevOps
-summary: Get answers to common questions about Microsoft Defender for DevOps.
+title: Common questions about DevOps Security
+summary: Get answers to common questions about Microsoft DevOps Security.
 
 
 sections:
   - name: Ignored
     questions:
       - question: |
-          Scan specific folders for secrets in ADO repos with CredScan
-        answer: |
-          If you want to scan specific folders in Azure DevOps repos with CredScan, you can use:
-
-          ```yml
-          env: 
-            credscan_targetdirectory: 'NameOfFolderToScanForSecrets/'
-          ```
-
-          A full ADO YAML file for a pipeline that does CredScan scanning for secrets on a specific folder could look like this:
-          ```yml
-          trigger:
-            branches:
-              include:
-                - main
-                - master
-          
-          pool:
-            vmImage: "windows-latest"
-          
-          steps:
-            - task: MicrosoftSecurityDevOps@1
-              displayName: "Microsoft Security DevOps"
-              inputs:
-                categories: 'secrets' 
-                break: false
-              env:
-                credscan_targetdirectory: 'NameOfFolderToScanForSecrets/'
-          ```      
-
-
-      - question: |
           Why am I getting an error while trying to connect?
         answer: |
-          When you select the *Authorize* button, the account that you're logged in with is used. That account can have the same email but may have a different tenant. Make sure you have the right account/tenant combination selected in the popup consent screen and Visual Studio.
+          When you select the *Authorize* button, the account that you're logged in with is used. That account can have the same email but might have a different tenant. Make sure you have the right account/tenant combination selected in the popup consent screen and Visual Studio.
 
           You can [check which account is signed in](https://app.vssps.visualstudio.com/profile/view).
 
 
       - question: |
-          Why can't I find my repository?
+          Why can't I find my Azure DevOps repository?
         answer: |
-          The Azure DevOps service only supports `TfsGit`.
+          The Defender for Cloud DevOps security onboarding only supports the repository type `TfsGit`. The repository type `TFSVC` is not supported today.
 
           Ensure that you've [onboarded your repositories](./quickstart-onboard-devops.md?branch=main) to Microsoft Defender for Cloud. If you still can't see your repository, ensure that you're signed in with the correct Azure DevOps organization user account. Your Azure subscription and Azure DevOps Organization need to be in the same tenant. If the user for the connector is wrong, you need to delete the previously created connector, sign in with the correct user account and re-create the connector.
 
 
       - question: |
-          Why didn't Secret scan run on my code?
+          Why don't I see the generated SARIF file in the path I chose to drop it?
         answer: |
-          To ensure your code is scanned for secrets, make sure you've [onboarded your repositories](./quickstart-onboard-devops.md?branch=main) to Defender for Cloud. 
-
-          In addition to onboarding resources, you must have the [Microsoft Security DevOps (MSDO) Azure DevOps extension](./azure-devops-extension.md?branch=main) configured for your pipelines. The extension runs secret scan along with other scanners.
-
-          If no secrets are identified through scans, the total exposed secret for the resource shows `Healthy` in Defender for Cloud. 
-
-          If secret scan isn't enabled (meaning MSDO isn't configured for your pipeline) or a scan isn't performed for at least 14 days, the resource shows as `N/A` in Defender for Cloud.
+          If you don't see SARIF file in the expected path, you might have chosen a different drop path than the `CodeAnalysisLogs/msdo.sarif` one. Currently you should drop your SARIF files to `CodeAnalysisLogs/msdo.sarif`.
 
 
       - question: |
-          Why don’t I see the generated SARIF file in the path I chose to drop it?
+          Why don't I see the results for my Azure DevOps Projects in Microsoft Defender for Cloud?
         answer: |
-          If you don’t see SARIF file in the expected path, you may have chosen a different drop path than the `CodeAnalysisLogs/msdo.sarif` one. Currently you should drop your SARIF files to `CodeAnalysisLogs/msdo.sarif`.
+          When you use classic pipeline configuration, make sure you don't change artifact name. This can result not seeing the results for your project. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
 
 
       - question: |
-          Why don’t I see the results for my ADO projects in Microsoft Defender for Cloud?
+          I successfully onboarded a DevOps connector, where can I find my related recommendations?
         answer: |
-          When you use classic pipeline configuration, make sure you don't change artifact name. This can result not seeing the results for your project. 
-
-          Currently, OSS vulnerability findings are only available for GitHub repositories. Azure DevOps repositories will have the total exposed secrets, IaC misconfigurations, and code security findings available. It will show `N/A` for OSS vulnerabilities. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
-
-
-      - question: |
-          Why is my Azure DevOps repository not refreshing to healthy? 
-        answer: |
-          For a previously unhealthy scan result to be healthy again, updated healthy scan results need to be from the same build definition as the one that generated the findings in the first place.  A common scenario where this issue occurs is when testing with different pipelines.  For results to refresh appropriately, scan results need to be for the same pipeline(s) and branch(es). 
-
-          If no scan is performed for 14 days, the scan results revert to `N/A`. 
-
-
-      - question: |
-          Why don’t I see Recommendations for findings?
-        answer: |
-          Ensure that you've onboarded the project with the connector and that your repository (that build is for), is onboarded to Microsoft Defender for Cloud. You can learn how to [onboard your DevOps repository](./quickstart-onboard-devops.md?branch=main) to Defender for Cloud. 
-
-          You must have more than a [stakeholder license](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) to the repos to onboard them, and you need to be at least the security reader on the subscription where the connector is created. You can confirm if you've onboarded the repositories by seeing them in the inventory list in Microsoft Defender for Cloud.
-
-
-      - question: |
-          I successfully onboarded a connector, where can I find my DevOps recommendations?
-        answer: |
-          We recommend navigating to the DevOps Security page to see an overview of your DevOps recommendations and posture. You can sort and filter by the repos you care about to dive into the recommendation details.
+          We recommend navigating to the DevOps Security blade to see an overview of your DevOps security posture. You can sort and filter by the DevOps resource you care about to see the recommendation details.
           
-          You can also view your DevOps recommendations on the Recommendations page.  Navigate to Recommendations, select the "All recommendations" tab, and filter the `environment` by the relevant DevOps sources (e.g., AzureDevOps and/or GitHub).  
+          You can also use the [DevOps Workbook](custom-dashboards-azure-workbooks.md#use-the-devops-security-workbook) and customize it for your needs.
           
 
       - question: |
-          What information does Defender for DevOps store about me and my enterprise, and where is the data stored and processed?
+          What information does the DevOps security product store about me and my enterprise, and where is the data stored and processed?
         answer: |
-          Defender for DevOps connects to your source code management system, for example, Azure DevOps, GitHub, to provide a central console for your DevOps resources and security posture. Defender for DevOps processes and stores the following information:
+          DevOps security features connect to your source code management system, for example, Azure DevOps, GitHub, and/or GitLab to provide a central console for your DevOps resources and security posture. DevOps security features processes and stores the following information:
 
           - Metadata on your connected source code management systems and associated repositories. This data includes user, organizational, and authentication information.
+          
+          - Scan results for recommendations and details.
 
-          - Scan results for recommendations and assessments results and details.
+          DevOps security features are a part of [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). Please refer to the following [data residency guidance](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#select-geography) and [EU Data Boundary details](https://learn.microsoft.com/privacy/eudb/eu-data-boundary-permanent-transfers-from-services#security-services) as it relates to the Microsoft Defender for Cloud service.
 
-          Data is stored within the region your connector is created in and flows into [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). You should consider which region to create your connector in, for any data residency requirements as you design and create your DevOps connector.
-
-          Defender for DevOps currently doesn't process or store your code, build, and audit logs.
+          DevOps security does not process or store your code, build, and audit logs today but may in the future as it expands its capabilities.
 
           Learn more about [Microsoft Privacy Statement](https://go.microsoft.com/fwLink/?LinkID=521839&amp;clcid=0x9).
 
 
       - question: |
-          Why are Delete Source and Write Code permissions required for Azure DevOps?
+          For my Azure DevOps connector, why are write permissions required for work items, build, code, service hooks, and advanced security?
         answer: |
-          Azure DevOps doesn't have the necessary granularity for its permissions. These permissions are required for some of the Defender for DevOps features, such as pull request annotations in order to work.
+          These permissions are required for certain DevOps security features, such as pull request annotations, to work. 
 
 
       - question: |
-          Is Exemptions capability available and tracked for app sec vulnerability management?
+          Is the recommendation exemptions capability available and tracked for application security vulnerability management?
         answer: |
-          Exemptions aren't available for Defender for DevOps within Microsoft Defender for Cloud.
+          Exemptions aren't available for DevOps security recommendations within Microsoft Defender for Cloud at the moment.
 
       - question: |
           Why am I not able to see GitHub Advanced Security for Azure Devops (GHAzDO) results in Defender for Cloud?
         answer: |
-          Ensure you are using the same Subscription ID for GHAzDO and Defender for Cloud. If you are still unable to see the results, the issue might be caused by your ADO connector lacking the necessary scope. Defender for DevOps introduced new scopes to ADO connectors in June. If you created the connector before June and haven't updated it, you won't be able to see GHAzDO results due to missing scope on the connector. You would need to create a new ADO connector, which will automatically include the new scopes.
+          Ensure you are using the same Subscription ID for GHAzDO and Defender for Cloud. If you are still unable to see the results, the issue might be caused by your ADO connector lacking the necessary scope. DevOps security introduced new scopes to Azure DevOps connectors in June. If you created the connector before June and haven't updated it, you won't be able to see GHAzDO results due to missing scope on the connector. You would need to create a new ADO connector, which will automatically include the new scopes.
 
       - question: |
           Is continuous, automatic scanning available?
         answer: |
           Currently, scanning occurs at build time.  
-
-
-      - question: |
-          Is it possible to block the developers committing code with exposed secrets? 
-        answer: |
-          The ability to block developers from committing code with exposed secrets isn't currently available.
 
 
       - question: |
@@ -163,30 +95,15 @@ sections:
 
 
       - question: |
-          What programming languages are supported by Defender for DevOps?
+          What programming languages are supported by DevOps security features?
         answer: |
-          The following languages are supported by Defender for DevOps:
+          The following languages are supported by DevOps security features:
 
           - Python
           - JavaScript
           - TypeScript
 
-
-      - question: |
-          Why am I getting an error that informs me that there's no CLI tool?
-        answer: |
-          When you run the pipeline in Azure DevOps, you receive the following error: 
-          `no such file or directory, scandir 'D:\a\_msdo\versions\microsoft.security.devops.cli'`.
-
-          :::image type="content" source="media/devops-faq/error-in-run.png" alt-text="Screenshot that shows an error that states there's no CLI tool." lightbox="media/devops-faq/error-in-run.png":::
-
-          This error can be seen in the extensions job as well.
-
-          :::image type="content" source="media/devops-faq/error-in-job.png" alt-text="Screenshot that shows the job's extension where the error is visible." lightbox="media/devops-faq/error-in-job.png":::
-
-          This error occurs if you're missing the dependency of `dotnet6` in the pipeline's YAML file. DotNet6 is required to allow the Microsoft Security DevOps extension to run. Include this as a task in your YAML file to eliminate the error.
-          
-          You can learn more about [Microsoft Security DevOps](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops). 
+          For a list of languages supported by GitHub Advanced Security, see [here](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)
 
 
       - question: |
@@ -194,9 +111,9 @@ sections:
         answer: |
           For example, can I migrate the connector from the Central US region to the West Europe region?
 
-          We don’t support automatic migration for the Defender for DevOps connectors from one region to another at this time.
+          We don't support automatic migration for the DevOps security connectors from one region to another at this time.
 
-          If you want to move a connector’s location, for example a GitHub or Azure DevOps connector, to be stored in a different region than the original one where the connector was created, the recommendation is to delete the existing connector and then to create another connector in the new region.
+          If you want to move the location of a DevOps connector to different region, the recommendation is to delete the existing connector and then to recreate the connector in the new region.
 
      
       - question: |
@@ -216,15 +133,15 @@ sections:
       - question: |
           I have a large Azure DevOps organization with many repositories. Can I still onboard?
         answer: |
-          Yes, there is no limit to how many Azure DevOps repositories you can onboard to Defender for DevOps.  
+          Yes, there is no limit to how many Azure DevOps repositories you can onboard for DevOps security capabilities.  
 
           However, there are two main implications when onboarding large organizations – speed and throttling. The speed of discovery for your DevOps repositories is determined by the number of projects for each connector (approximately 100 projects per hour). Throttling can happen because Azure DevOps API calls have a [global rate limit](/azure/devops/integrate/concepts/rate-limits) and we limit the calls for project discovery to use a small portion of overall quota limits.
 
-          Consider using an alternative Azure DevOps identity (i.e., an Organization Administrator account used as a service account) to avoid individual accounts from being throttled when onboarding large organizations. Below are some scenarios of when to use an alternate identity to onboard a Defender for DevOps connector:
+          Consider using an alternative Azure DevOps identity (that is, an Organization Administrator account used as a service account) to avoid individual accounts from being throttled when onboarding large organizations. Below are some scenarios of when to use an alternate identity to onboard a DevOps security connector:
 
           - Large number of Azure DevOps Organizations and Projects (~500 Projects or more).
-          - Large number of concurrent builds which peak during work hours.
-          - Authorized user is a [Power Platform](/power-platform/) user making additional Azure DevOps API calls, using up the global rate limit quotas.
+          - Large number of concurrent builds that peak during work hours.
+          - Authorized user is a [Power Platform](/power-platform/) user making extra Azure DevOps API calls, using up the global rate limit quotas.
 
           Once you have onboarded the Azure DevOps repositories using this account and [configured and ran the Microsoft Security DevOps Azure DevOps extension](/azure/defender-for-cloud/azure-devops-extension) in your CI/CD pipeline, then the scanning results will appear near instantaneously in Microsoft Defender for Cloud.
 
@@ -233,4 +150,4 @@ additionalContent: |
 
   ## Next steps
   
-  [Learn more about Defender for Defender for DevOps](defender-for-devops-introduction.md)
+  [Learn more about DevOps security](defender-for-devops-introduction.md)

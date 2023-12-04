@@ -37,7 +37,7 @@ Azure Bastion offers multiple SKU tiers. The following table shows features and 
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-For more information about SKUs, including how to upgrade a SKU and information about the new Developer SKU, see the [Configuration settings](configuration-settings.md#skus) article.
+For more information about SKUs, including how to upgrade a SKU and information about the new Developer SKU (currently in Preview), see the [Configuration settings](configuration-settings.md#skus) article.
 
 ## <a name="architecture"></a>Architecture
 
@@ -77,7 +77,7 @@ For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 
 ## Next steps
 
-* [Quickstart: Quickstart: Deploy Bastion automatically - Basic SKU](quickstart-host-portal.md)
+* [Quickstart: Deploy Bastion automatically - Basic SKU](quickstart-host-portal.md)
 * [Quickstart: Deploy Bastion automatically - Developer SKU](quickstart-developer-sku.md)
 * [Tutorial: Deploy Bastion using specified settings](tutorial-create-host-portal.md)
 * [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion/)

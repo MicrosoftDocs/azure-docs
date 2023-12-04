@@ -38,7 +38,7 @@ queries.
 > [!NOTE]
 > To take advantage of newly added nodes you must [rebalance distributed table
 > shards](howto-scale-rebalance.md), which means moving some
-> [shards](concepts-distributed-data.md#shards) from existing nodes
+> [shards](concepts-nodes.md#shards) from existing nodes
 > to the new ones. Rebalancing can work in the background, and requires no
 > downtime.
 

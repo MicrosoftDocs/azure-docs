@@ -3,32 +3,6 @@ items:
   href: index.yml
 - name: What is the DICOM service?
   href: overview.md
-- name: Quickstarts
-  expanded: true
-  items: 
-    - name: Get started with the DICOM service
-      href: get-started-with-dicom.md
-    - name: Deploy the DICOM service
-      href: deploy-dicom-services-in-azure.md
-    - name: Get an access token
-      href: get-access-token.md
-    - name: Register a client application
-      href: dicom-register-application.md
-    - name: Use DICOM data in analytics workloads
-      href: get-started-with-analytics-dicom.md
-- name: How-tos
-  expanded: false
-  items: 
-    - name: Import DICOM files
-      href: import-files.md
-    - name: Use the DICOM service for digital pathology
-      href: dicom-digital-pathology.md
-    - name: Configure CORS
-      href: configure-cross-origin-resource-sharing.md
-    - name: Configure Azure RBAC
-      href: dicom-configure-azure-rbac.md
-    - name: Enable audit and diagnostic logging
-      href: enable-diagnostic-logging.md
 - name: DICOM conformance statements
   expanded: false
   items: 
@@ -36,6 +10,41 @@ items:
       href: dicom-services-conformance-statement-v2.md
     - name: V1
       href: dicom-services-conformance-statement.md
+- name: Get started
+  expanded: true
+  items: 
+    - name: Get started with the DICOM service
+      href: get-started-with-dicom.md
+    - name: Azure Data Lake Storage integration for the DICOM service (Preview)
+      href: dicom-data-lake.md
+    - name: Deploy the DICOM service
+      href: deploy-dicom-services-in-azure.md
+    - name: Deploy the DICOM service with Data Lake Storage (Preview)
+      href: deploy-dicom-services-in-azure-data-lake.md
+    - name: Get an access token
+      href: get-access-token.md
+    - name: Register a client application
+      href: dicom-register-application.md
+- name: Tutorials
+  expanded: true
+  items: 
+    - name: Use DICOM data in analytics workloads
+      href: get-started-with-analytics-dicom.md
+    - name: Use the DICOM service for digital pathology
+      href: dicom-digital-pathology.md
+- name: Configuration & operations
+  expanded: true
+  items: 
+    - name: Configure CORS
+      href: configure-cross-origin-resource-sharing.md
+    - name: Configure Azure RBAC
+      href: dicom-configure-azure-rbac.md
+    - name: Enable audit and diagnostic logging
+      href: enable-diagnostic-logging.md
+    - name: Import DICOM files
+      href: import-files.md
+    - name: Export DICOM files
+      href: export-files.md
 - name: API reference
   expanded: true
   items: 

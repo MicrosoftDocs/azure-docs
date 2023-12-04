@@ -5,14 +5,14 @@
  author: mbender-ms
  ms.service: virtual-network
  ms.topic: include
- ms.date: 10/19/2023
+ ms.date: 11/29/2023
  ms.author: mbender
  ms.custom: include file
 ---
 
 ## Create NAT gateway
 
-All outbound internet traffic traverses the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network. For other options for outbound rules, check out [Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections)
+In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network.  For other options for outbound rules, check out [Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

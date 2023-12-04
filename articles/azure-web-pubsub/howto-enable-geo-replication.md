@@ -11,7 +11,6 @@ ms.topic: how-to
 
 # Geo-replication (Preview) in Azure Web PubSub 
 
-## What is geo-replication feature?
 Mission critical apps often need to have a robust failover system and serve users closer to where they are. Before the release of the geo-replication feature, developers needed to deploy multiple Web PubSub resources and write custom code to orchestrate communication across resources. Now, with quick configuration through Azure portal, you can easily enable this feature. 
 
 ## Benefits of using geo-replication
@@ -44,7 +43,8 @@ With the geo-replication feature, Contoso can now establish a replica in Canada 
 ![Diagram of using one Azure Web PubSub instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/web-pubsub-replica.png "Replica Example")
 
 ## How to enable geo-replication in a Web PubSub resource
-To create a replica in an Azure region, go to your Web PubSub resource and find the **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
+# [Portal](#tab/Portal)
+To create a replica in an Azure region, go to your Web PubSub resource and find the **Replicas** blade on the Azure portal and click **Add** to create a replica.
 
 ![Screenshot of creating replica for Azure Web PubSub on Portal.](./media/howto-enable-geo-replication/web-pubsub-replica-create.png "Replica create")
 
@@ -52,9 +52,70 @@ After creation, you would be able to view/edit your replica on the portal by cli
 
 ![Screenshot of overview blade of Azure Web PubSub replica resource. ](./media/howto-enable-geo-replication/web-pubsub-replica-overview.svg "Replica Overview")
 
-> [!NOTE]
-> * Geo-replication is a feature available in premium tier.
-> * A replica is considered a separate resource when it comes to billing. See [Pricing and resource unit](#pricing-and-resource-unit) for more details. 
+# [Bicep](#tab/Bicep)
+
+Use Visual Studio Code or your favorite editor to create a file with the following content and name it main.bicep:
+
+```bicep
+@description('The name for your Web PubSub service')
+param primaryName string = 'contoso'
+
+@description('The region in which to create your Web Pubsub service')
+param primaryLocation string = 'eastus'
+
+@description('Unit count of your Web PubSub service')
+param primaryCapacity int = 1
+
+resource primary 'Microsoft.SignalRService/webpubsub@2023-08-01-preview' = {
+  name: primaryName
+  location: primaryLocation
+  sku: {
+    capacity: primaryCapacity
+    name: 'Premium_P1'
+  }
+  properties: {
+  }
+}
+
+@description('The name for your Web PubSub replica')
+param replicaName string = 'contoso-westus'
+
+@description('The region in which to create the Web PubSub replica')
+param replicaLocation string = 'westus'
+
+@description('Unit count of the Web PubSub replica')
+param replicaCapacity int = 1
+
+@description('Whether to enable region endpoint for the replica')
+param regionEndpointEnabled string = 'Enabled'
+
+resource replica 'Microsoft.SignalRService/webpubsub/replicas@2023-08-01-preview' = {
+  parent: primary
+  name: replicaName
+  location: replicaLocation
+  sku: {
+    capacity: replicaCapacity
+    name: 'Premium_P1'
+  }
+  properties: {
+    regionEndpointEnabled: regionEndpointEnabled
+  }
+}
+```
+
+Deploy the Bicep file using Azure CLI 
+   ```azurecli
+   az group create --name MyResourceGroup --location eastus
+   az deployment group create --resource-group MyResourceGroup --template-file main.bicep
+   ```
+
+# [CLI](#tab/CLI)
+Update **webpubsub** extension to the latest version, then run:
+   ```azurecli
+  az webpubsub replica create --sku Premium_P1 -l eastus --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
+   ```
+
+----
 
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
@@ -63,6 +124,8 @@ Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/detai
 
 In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
 
+There will be egress fees for cross region outbound traffic. If a message is transferred across replicas **and** successfully sent to a client or server after the transfer, it will be billed as an outbound message.
+
 ## Delete a replica
 After you've created a replica for a Web PubSub resource, you can delete it at any time if it's no longer needed. 
 
@@ -70,6 +133,11 @@ To delete a replica in the Azure portal:
 
 1. Navigate to your Web PubSub resource, and select **Replicas** blade. Click the replica you want to delete.
 2. Click Delete button on the replica overview blade.
+
+To delete a replica using the Azure CLI:
+   ```azurecli
+    az webpubsub replica delete --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
+   ```
 
 ## Understand how the geo-replication feature works
 
@@ -117,7 +185,7 @@ Before deleting a replication, consider disabling its endpoint first. Over time,
 This feature is also useful for troubleshooting regional issues.
 
 > [!NOTE]
-> * Due to the DNS cache, it may take several minutes for the DNS update to take effect. 
+> * Due to the DNS cache, it might take several minutes for the DNS update to take effect. 
 > * Existing connections remain unaffected until they disconnect.
 
 ## Impact on performance after enabling geo-replication feature
@@ -132,7 +200,7 @@ For more performance evaluation, refer to [Performance](concept-performance.md).
 ## Breaking issues
 * **Using replica and event handler together**
 
-  If you use the Web PubSub event handler with Web PubSub C# server SDK or an Azure Function that utilizes the Web PubSub extension, you may encounter issues with the abuse protection once replicas are enabled. To address this, you can either **disable the abuse protection** or **upgrade to the latest SDK/extension versions**.
+  If you use the Web PubSub event handler with Web PubSub C# server SDK or an Azure Function that utilizes the Web PubSub extension, you might encounter issues with the abuse protection once replicas are enabled. To address this, you can either **disable the abuse protection** or **upgrade to the latest SDK/extension versions**.
   
   For a detailed explanation and potential solutions, please refer to this [issue](https://github.com/Azure/azure-webpubsub/issues/598).
  

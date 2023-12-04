@@ -35,7 +35,7 @@ The NuGet package can be obtained by configuring your package manager to use the
 
 ## (Optional) Prepare your audio file if you wish to use audio files for playing prompts
 
-Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to ACS with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file that ACS supports needs to be **WAV, mono and 16 KHz sample rate**. 
+Create an audio file, if you don't already have one, to use for playing prompts and messages to participants. The audio file must be hosted in a location that is accessible to Azure Communication Services with support for authentication. Keep a copy of the URL available for you to use when requesting to play the audio file. The audio file that Azure Communication Services supports needs to be **WAV, mono and 16 KHz sample rate**. 
 
 You can test creating your own audio file using our [Speech synthesis with Audio Content Creation tool](../../../../ai-services/Speech-Service/how-to-audio-content-creation.md).
 
@@ -63,7 +63,7 @@ Once the call has been established, there are multiple options for how you may w
 
 ### Play source - Audio file
 
-To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide ACS with a uri to a file you host in a location where ACS can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
+To play audio to participants using audio files, you need to make sure the audio file is a WAV file, mono and 16 KHz. To play audio files you need to make sure you provide Azure Communication Services with a uri to a file you host in a location where Azure Communication Services can access it. The FileSource type in our SDK can be used to specify audio files for the play action.
 
 ``` csharp
 FileSource playSource = new FileSource (new Uri(<audioUri>));
@@ -147,7 +147,7 @@ Assert.AreEqual(202, playResponse.Status) // The request was accepted.
 
 ## Enhance play with audio file caching
 
-If your application is playing the same audio file multiple times using a FileSource, your application can provide us with the sourceID for the audio file. ACS caches this audio file for 1 hour.
+If your application is playing the same audio file multiple times using a FileSource, your application can provide us with the sourceID for the audio file. Azure Communication Services caches this audio file for 1 hour.
 
 ``` csharp
 var targetUser = new PhoneNumberIdentifier(<target>);

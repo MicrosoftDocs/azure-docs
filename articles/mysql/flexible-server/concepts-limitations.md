@@ -41,8 +41,9 @@ mysql> SET sql_generate_invisible_primary_key=OFF;
 
 ### lower_case_table_names
 
-For MySQL version 5.7, default value is 1 in Azure Database for MySQL - Flexible Server. It is important to note that while it is possible to change the supported value to 2, reverting from 2 back to 1 is not permitted is not allowed.  Please contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value. 
-For [MySQl version 8.0+](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html) lower_case_table_names can only be configured when initializing the server. [Learn more](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html). Changing the lower_case_table_names setting after the server is initialized is prohibited. For MySQL version 8.0, default value is 1 in Azure Database for MySQL - Flexible Server. Supported value for MySQL version 8.0 are 1 and 2 Azure Database for MySQL - Flexible Server. Please contact our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance in changing the default value during server creation.
+In Azure Database for MySQL - Flexible Server, the default value for `lower_case_table_names` is 1 for MySQL version 5.7. If you need to adjust this setting, we recommend reaching out to our [support team](https://azure.microsoft.com/support/create-ticket/) for guidance. It's important to understand that once parameter value changed to 2, it's not allowed to revert from 2 back to 1.
+
+For MySQL version 8.0, please note that changing the lower_case_table_names setting after the server is initialized is prohibited. [Learn more](https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html). In Azure Database for MySQL - Flexible Server version 8.0, the default value for `lower_case_table_names` is 1. If you wish to modify this parameter to 2, we suggest creating a MySQL 5.7 server, contacting our [support team](https://azure.microsoft.com/support/create-ticket/) for assistance with the change, and later, if needed, you can upgrade the server to version 8.0.
 
 ## Storage engines
 

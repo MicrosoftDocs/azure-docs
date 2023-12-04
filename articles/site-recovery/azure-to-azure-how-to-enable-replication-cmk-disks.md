@@ -4,10 +4,10 @@ description: This article describes how to configure replication for VMs with cu
 author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
+ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 10/09/2023
 ms.author: ankitadutta
-
 ---
 
 # Replicate machines with Customer-Managed Keys (CMK) enabled disks

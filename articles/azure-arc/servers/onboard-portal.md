@@ -16,7 +16,7 @@ Before you get started, be sure to review the [prerequisites](prerequisites.md) 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
-> Follow best security practices and avoid using an Azure account with Owner access to onboard servers. Instead, use an account that only has the Azure Connected Machine onboarding or Azure Connected Machine resource administrator role assignment. See [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices) for more information.
+> Follow best security practices and avoid using an Azure account with Owner access to onboard servers. Instead, use an account that only has the Azure Connected Machine onboarding or Azure Connected Machine resource administrator role assignment. See [Azure Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices#use-role-based-access-control) for more information.
 > 
 ## Generate the installation script from the Azure portal
 

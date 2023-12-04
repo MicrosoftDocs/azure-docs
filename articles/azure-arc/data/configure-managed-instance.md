@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Arc-enabled SQL managed instance
-description: Configure Azure Arc-enabled SQL managed instance
+title: Configure SQL Managed Instance enabled by Azure Arc
+description: Configure SQL Managed Instance enabled by Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -12,22 +12,22 @@ ms.date: 05/05/2023
 ms.topic: how-to
 ---
 
-# Configure Azure Arc-enabled SQL managed instance
+# Configure SQL Managed Instance enabled by Azure Arc
 
-This article explains how to configure Azure Arc-enabled SQL managed instance.
+This article explains how to configure SQL Managed Instance enabled by Azure Arc.
 
 ## Configure resources such as cores, memory
 
 
 ### Configure using CLI
 
-You can update the configuration of Azure Arc-enabled SQL Managed Instances with the CLI. Run the following command to see configuration options. 
+To update the configuration of an instance with the CLI. Run the following command to see configuration options. 
 
 ```azurecli
 az sql mi-arc update --help
 ```
 
-You can update the available memory and cores for an Azure Arc-enabled SQL managed instance using the following command:
+To update the available memory and cores for an instance use:
 
 ```azurecli
 az sql mi-arc update --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s
@@ -39,7 +39,7 @@ The following example sets the cpu core and memory requests and limits.
 az sql mi-arc update --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n sqlinstance1 --k8s-namespace arc --use-k8s
 ```
 
-To view the changes made to the Azure Arc-enabled SQL managed instance, you can use the following commands to view the configuration yaml file:
+To view the changes made to the instance, you can use the following commands to view the configuration yaml file:
 
 ```azurecli
 az sql mi-arc show -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s
@@ -80,7 +80,7 @@ az sql mi-arc update --name sqlmi1 --replicas 2 --k8s-namespace mynamespace --us
 
 ## Configure Server options
 
-You can configure certain server configuration settings for Azure Arc-enabled SQL managed instance either during or after creation time. This article describes how to configure settings like enabling "Ad Hoc Distributed Queries" or "backup compression default" etc. 
+You can configure certain server configuration settings for SQL Managed Instance enabled by Azure Arc either during or after creation time. This article describes how to configure settings like enabling "Ad Hoc Distributed Queries" or "backup compression default" etc. 
 
 Currently the following server options can be configured:
 - Ad Hoc Distributed Queries

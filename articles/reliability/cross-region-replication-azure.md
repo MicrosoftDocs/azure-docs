@@ -111,7 +111,7 @@ The table below lists Azure regions without a region pair:
 |-----|----|
 | Qatar | Qatar Central |
 | Poland | Poland Central |
-| Israel | Israel Central (Coming soon)|
+| Israel | Israel Central|
 | Italy | Italy North|
 | Austria | Austria East (Coming soon) |
 | Spain | Spain Central (Coming soon) |

@@ -83,18 +83,21 @@ This table shows the networking parameters.
 > | `management_subnet_name`                    | The name of the subnet                                           | Optional   | |
 > | `management_subnet_address_prefix`          | The address range for the subnet                                 | Mandatory  | For green-field deployments  |
 > | `management_subnet_arm_id`	                | The Azure resource identifier for the subnet                     | Mandatory  | For brown-field deployments  |
-> | `management_subnet_nsg_name`                | The name of the network security group                      | Optional   | |
+> | `management_subnet_nsg_name`                | The name of the network security group                           | Optional   | |
 > | `management_subnet_nsg_arm_id`              | The Azure resource identifier for the network security group     | Mandatory  | For brown-field deployments  |
 > | `management_subnet_nsg_allowed_ips`	        | Range of allowed IP addresses to add to Azure Firewall           | Optional   | |
 > |                                             |                                                                  |            | |
-> | `management_firewall_subnet_arm_id`		      | The Azure resource identifier for the Azure Firewall subnet            | Mandatory  | For brown-field deployments  |
+> | `management_firewall_subnet_arm_id`		      | The Azure resource identifier for the Azure Firewall subnet      | Mandatory  | For brown-field deployments  |
 > | `management_firewall_subnet_address_prefix` | The address range for the subnet                                 | Mandatory  | For green-field deployments  |
 > |                                             |                                                                  |            | |
-> | `management_bastion_subnet_arm_id`		      | The Azure resource identifier for the Azure Bastion subnet             | Mandatory  | For brown-field deployments  |
+> | `management_bastion_subnet_arm_id`		      | The Azure resource identifier for the Azure Bastion subnet       | Mandatory  | For brown-field deployments  |
 > | `management_bastion_subnet_address_prefix`  | The address range for the subnet                                 | Mandatory  | For green-field deployments  |
 > |                                             |                                                                  |            | |
 > | `webapp_subnet_arm_id`		                  | The Azure resource identifier for the web app subnet             | Mandatory  | For brown-field deployments by using the web app |
 > | `webapp_subnet_address_prefix`              | The address range for the subnet                                 | Mandatory  | For green-field deployments by using the web app |
+> |                                             |                                                                  |            | |
+> | `use_private_endpoint`                      | Use private endpoints.                                           | Optional   | |
+> | `use_service_endpoint`                      | Use service endpoints for subnets.                               | Optional   | |
 
 > [!NOTE]
 > When you use an existing subnet for the web app, the subnet must be empty, in the same region as the resource group being deployed, and delegated to Microsoft.Web/serverFarms.
@@ -119,15 +122,15 @@ This table shows the parameters related to the deployer VM.
 
 The VM image is defined by using the following structure:
 
-```python
-{
-  "os_type"         = ""
-  "source_image_id" = ""
-  "publisher"       = "Canonical"
-  "offer"           = "0001-com-ubuntu-server-focal"
-  "sku"             = "20_04-lts"
-  "version"         = "latest"
-  "type"            = "marketplace"
+```terraform
+xxx_vm_image  = {
+  os_type         = ""
+  source_image_id = ""
+  publisher       = "Canonical"
+  offer           = "0001-com-ubuntu-server-focal"
+  sku             = "20_04-lts"
+  version         = "latest"
+  type            = "marketplace"
 }
 ```
 
@@ -184,9 +187,17 @@ This section defines the parameters used for defining the Azure Key Vault inform
 > | `bastion_deployment`	                       | Boolean flag that controls if Azure Bastion host is to be deployed.       | Optional    |                               |
 > | `bastion_sku`	                               | SKU for Azure Bastion host to be deployed (Basic/Standard).             | Optional    |                               |
 > | `enable_purge_control_for_keyvaults`         | Boolean flag that controls if purge control is enabled on the key vault. | Optional    | Use only for test deployments. |
-> | `use_private_endpoint`                       | Use private endpoints.                                                  | Optional    |
-> | `use_service_endpoint`                       | Use service endpoints for subnets.                                      | Optional    |
 > | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets.                                    | Optional    |
+
+### Web App parameters
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                                     | Description                                                            | Type        | Notes                          |
+> | -------------------------------------------- | ---------------------------------------------------------------------- | ----------- | ------------------------------ |
+> | `use_webapp`                                 | Boolean value indicating if a webapp should be deployed.               | Optional    |                                |
+> | `app_service_SKU_name`                       | The SKU of the App Service Plan.                                       | Optional    |                                |
+> | `app_registration_app_id`                    | The app registration id to be used for the webapp.                     | Optional    |                                |
+> | `webapp_client_secret`                       | The SKU of the App Service Plan.                                       | Optional    | Will be persisted in Key Vault |
 
 ### Example parameters file for deployer (required parameters only)
 

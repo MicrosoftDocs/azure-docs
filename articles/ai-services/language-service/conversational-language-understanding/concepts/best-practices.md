@@ -2,7 +2,7 @@
 title: Conversational language understanding best practices
 titleSuffix: Azure AI services
 description: Apply best practices when using conversational language understanding
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
@@ -120,6 +120,14 @@ Once the request is sent, you can track the progress of the training job in Lang
 
 > [!NOTE]
 > You have to retrain your model after updating the `confidenceThreshold` project setting. Afterwards, you'll need to republish the app for the new threshold to take effect.
+
+### Normalization in model version 2023-04-15
+
+Model version 2023-04-15, conversational language understanding provides normalization in the inference layer that doesn't affect training. 
+
+The normalization layer normalizes the classification confidence scores to a confined range. The range selected currently is from `[-a,a]` where "a" is the square root of the number of intents.  As a result, the normalization depends on the number of intents in the app. If there is a very low number of intents, the normalization layer has a very small range to work with. With a fairly large number of intents, the normalization is more effective.
+
+If this normalization doesn’t seem to help intents that are out of scope to the extent that the confidence threshold can be used to filter out of scope utterances, it might be related to the number of intents in the app. Consider adding more intents to the app, or if you are using an orchestrated architecture, consider merging apps that belong to the same domain together. 
 
 ## Debugging composed entities
 

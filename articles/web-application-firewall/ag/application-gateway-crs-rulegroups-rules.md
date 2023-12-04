@@ -41,15 +41,15 @@ The version number of the DRS increments when new attack signatures are added to
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 > [!NOTE]
-> We suggest you to disable some of the rules while you get started with 2.1 on Application Gateway WAF. Details of the rules are as below. 
+> Please follow the below guidance to tune WAF while you get started with 2.1 on Application Gateway WAF. Details of the rules are as below. 
 
 |Rule ID |Rule Group|Description  |Details|
 |---------|---------|---------|---------|
-|942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Replaced by MSTIC rule 99031001 |
-|942150      |SQLI|SQL Injection Attack|Replaced by MSTIC rule 99031003 |
-|942260      |SQLI|Detects basic SQL authentication bypass attempts 2/3 |Replaced by MSTIC rule 99031004 |
-|942430      |SQLI|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|Too many false positives.|
-|942440      |SQLI|SQL Comment Sequence Detected|Replaced by MSTIC rule 99031002 |
+|942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Disable, Replaced by MSTIC rule 99031001 |
+|942150      |SQLI|SQL Injection Attack|Disable, Replaced by MSTIC rule 99031003 |
+|942260      |SQLI|Detects basic SQL authentication bypass attempts 2/3 |Disable, Replaced by MSTIC rule 99031004 |
+|942430      |SQLI|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|Disable, Too many false positives.|
+|942440      |SQLI|SQL Comment Sequence Detected|Disable, Replaced by MSTIC rule 99031002 |
 |99005006|MS-ThreatIntel-WebShells|Spring4Shell Interaction Attempt|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001014|MS-ThreatIntel-CVEs|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001015|MS-ThreatIntel-WebShells|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|Keep the rule enabled to prevent against SpringShell vulnerability|
@@ -384,9 +384,6 @@ The following rule groups and rules are available when using Web Application Fir
 |941360|JavaScript obfuscation detected.|
 |941370|JavaScript global variable found|
 |941380|AngularJS client side template injection detected|
-
->[!NOTE]
-> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ### <a name="drs942-21"></a> SQLI - SQL Injection
 |RuleId|Description|

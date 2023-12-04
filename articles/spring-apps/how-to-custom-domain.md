@@ -241,13 +241,18 @@ az spring certificate list \
 
 ### Auto sync certificate
 
-A certificate stored in Azure Key Vault sometimes gets renewed before it expires. Similarly, your organization's security policies for certificate management might require your DevOps team to replace certificates with new ones regularly. After you enable auto sync for a certificate, Azure Spring Apps starts to sync your key vault for a new version regularly - usually every 24 hours. If a new version is available, Azure Spring Apps imports it, and then reloads it for various components using the certificate without causing any downtime. The following list shows the affected components:
+A certificate stored in Azure Key Vault sometimes gets renewed before it expires. Similarly, your organization's security policies for certificate management might require your DevOps team to replace certificates with new ones regularly. After you enable auto sync for a certificate, Azure Spring Apps starts to sync your key vault for a new version regularly - usually every 24 hours. If a new version is available, Azure Spring Apps imports it, and then reloads it for various components using the certificate without causing any downtime. The following list shows the affected components and relevant scenarios:
 
-- App custom domain
-- [VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md) custom domain
-- [API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md) custom domain
-- [VMware Tanzu Application Accelerator](./how-to-use-accelerator.md) custom domain
+- App
+  - Custom domain
+- [VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md)
+  - Custom domain
+- [API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md)
+  - Custom domain
+- [VMware Tanzu Application Accelerator](./how-to-use-accelerator.md)
+  - Connecting to a Git repository with a self-signed certificate.
 - [Application Configuration Service for Tanzu](./how-to-enterprise-application-configuration-service.md)
+  - Connecting to a Git repository with a self-signed certificate.
 
 When Azure Spring Apps imports or reloads a certificate, an activity log is generated. To see the activity logs, navigate to your Azure Spring Apps instance in the Azure portal and select **Activity log** in the navigation pane.
 

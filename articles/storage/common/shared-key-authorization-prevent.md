@@ -145,7 +145,7 @@ A SAS may be authorized with either Shared Key or Microsoft Entra ID. For more i
 
 ### Determine the number and frequency of requests authorized with Shared Key
 
-To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
+To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
 
 Follow these steps to create a metric that tracks requests made with Shared Key or SAS:
 

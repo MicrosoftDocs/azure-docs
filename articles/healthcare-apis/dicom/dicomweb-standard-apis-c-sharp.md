@@ -3,7 +3,7 @@ title:  Use C# and DICOMweb Standard APIs in Azure Health Data Services
 description: Learn how to use C# and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service. 
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: tutorial
 ms.date: 10/18/2023
 ms.author: mmitrik
@@ -33,7 +33,7 @@ The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are
 
 ## Prerequisites
 
-To use the DICOMweb Standard APIs, you need an instance of the DICOM service deployed. If you haven't already deployed an instance of the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOMweb Standard APIs, you need an instance of the DICOM service deployed. For more information, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
 After you deploy an instance of the DICOM service, retrieve the URL for your app service:
 
@@ -49,7 +49,7 @@ In your application, install the following NuGet packages:
 
 ## Create a DicomWebClient
 
-After you deploy your DICOM service, you create a DicomWebClient. Run the code snippet to create DicomWebClient, which you use for the rest of this tutorial. Ensure you have both NuGet packages installed. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md).
+After you deploy your DICOM service, you create a DicomWebClient. Run the code snippet to create DicomWebClient, which you use for the rest of this tutorial. Ensure you have both NuGet packages installed. For more information, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md).
 
 ```c#
 string webServerUrl ="{Your DicomWeb Server URL}"
@@ -62,7 +62,7 @@ With the DicomWebClient, we can now perform the Store, Retrieve, Search, and Del
 
 ## Store DICOM instances (STOW)
 
-Using the DicomWebClient that we've created, we can now store DICOM files.
+By using the DicomWebClient, we can now store DICOM files.
 
 ### Store single instance
 
@@ -114,7 +114,7 @@ _Details:_
 DicomWebResponse response = await client.RetrieveStudyAsync(studyInstanceUid);
 ```
 
-All three of the dcm files that we've uploaded previously are part of the same study, so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
+All three of the dcm files that you uploaded previously are part of the same study, so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
 
 ### Use the retrieved instances
 
@@ -145,7 +145,7 @@ _Details:_
 DicomWebResponse response = await client.RetrieveStudyMetadataAsync(studyInstanceUid);
 ```
 
-All three of the dcm files that we've uploaded previously are part of the same study, so the response should return the metadata for all three instances. Validate that the response has a status code of OK and that all the metadata is returned.
+All three of the dcm files that we uploaded previously are part of the same study, so the response should return the metadata for all three instances. Validate that the response has a status code of OK and that all the metadata is returned.
 
 ### Retrieve all instances within a series
 

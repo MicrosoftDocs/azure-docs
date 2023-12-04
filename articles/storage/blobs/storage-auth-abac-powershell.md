@@ -6,7 +6,6 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: tutorial
-
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ms.date: 03/15/2023
@@ -14,7 +13,7 @@ ms.date: 03/15/2023
 
 # Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell
 
-In most cases, a role assignment will grant the permissions you need to Azure resources. However, in some cases you might want to provide more granular access control by adding a role assignment condition.
+In most cases, a role assignment grants the permissions you need to Azure resources. However, in some cases you might want to provide more granular access control by adding a role assignment condition.
 
 In this tutorial, you learn how to:
 
@@ -35,11 +34,11 @@ In this tutorial, you restrict access to blobs with a specific tag. For example,
 
 ![Diagram of role assignment with a condition.](./media/shared/condition-role-assignment-rg.png)
 
-If Chandra tries to read a blob without the tag Project=Cascade, access is not allowed.
+If Chandra tries to read a blob without the tag Project=Cascade, access isn't allowed.
 
 ![Diagram showing read access to blobs with Project=Cascade tag.](./media/shared/condition-access.png)
 
-Here is what the condition looks like in code:
+Here's what the condition looks like in code:
 
 ```
 (
@@ -210,11 +209,11 @@ Here is what the condition looks like in code:
 
 1. In the Azure portal, open the resource group.
 
-1. Click **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
 1. On the Role assignments tab, find the role assignment.
 
-1. In the **Condition** column, click **View/Edit** to view the condition.
+1. In the **Condition** column, select **View/Edit** to view the condition.
 
 :::image type="content" source="./media/shared/condition-view.png" alt-text="Screenshot of Add role assignment condition in the Azure portal." lightbox="./media/shared/condition-view.png":::
 

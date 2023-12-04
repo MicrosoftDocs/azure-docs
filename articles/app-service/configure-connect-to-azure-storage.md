@@ -5,7 +5,7 @@ author: msangapu-msft
 
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 8/24/2023
+ms.date: 11/02/2023
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-code
 ---

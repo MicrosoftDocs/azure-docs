@@ -48,7 +48,7 @@ When encrypting a VM fails with the error message "Failed to send DiskEncryption
 /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br>
    > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
-- Ensure you are not following any [unsupported scenario](disk-encryption-windows.md#unsupported-scenarios)
+- Ensure you are not violating any [restrictions](disk-encryption-windows.md#restrictions)
 - Ensure you are meeting [network requirements](disk-encryption-overview.md#networking-requirements) and try again
 
 ## Troubleshooting Azure Disk Encryption behind a firewall

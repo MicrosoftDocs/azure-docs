@@ -2,12 +2,12 @@
 title: Configure Transmit Security with Azure Active Directory B2C for passwordless authentication
 titleSuffix: Azure AD B2C
 description: Configure Azure AD B2C with Transmit Security BindID for passwordless customer authentication
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: gasinh

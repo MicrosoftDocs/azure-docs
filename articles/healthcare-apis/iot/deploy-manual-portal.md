@@ -3,18 +3,13 @@ title: Deploy the MedTech service using the Azure portal - Azure Health Data Ser
 description: Learn how to deploy the MedTech service using the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 07/06/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using the Azure portal
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
-In this quickstart, learn how to deploy the MedTech service and required resources using the Azure portal.
 
 The MedTech service deployment using the Azure portal is divided into the following three sections:
 
@@ -36,7 +31,7 @@ The first step is to deploy the MedTech service prerequisite resources:
 * Azure resource group
 * Azure Event Hubs namespace and event hub
 * Azure Health Data services workspace
-* Azure Health Data Services FHIR service
+* Azure Health Data Services FHIR&reg; service
 
 Once the prerequisite resources are available, deploy:
  
@@ -153,7 +148,7 @@ The **Destination** tab should now look something like this after you've filled 
 
 ### Configure the Tags tab (Optional)
 
-Before you complete your configuration in the **Review + create** tab, you may want to configure tags. You can do this step by selecting the **Next: Tags >** tab.
+Before you complete your configuration in the **Review + create** tab, you might want to configure tags. You can do this step by selecting the **Next: Tags >** tab.
 
 Tags are name and value pairs used for categorizing resources and are an optional step. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
 
@@ -171,7 +166,7 @@ If your deployment didn't validate, review the validation failure message(s), an
 
 1. Select the **Create** button to begin the deployment.
 
-2. The deployment process may take several minutes. The screen displays a message saying that your deployment is in progress.
+2. The deployment process can take several minutes. The screen displays a message saying that your deployment is in progress.
 
 3. When Azure has finishes deploying, a "Your Deployment is complete" message appears and also displays the following information:
 
@@ -210,19 +205,10 @@ Valid and conforming device and FHIR destination mappings have to be provided to
 
 ## Next steps
 
-In this article, you learned how to deploy the MedTech service and required resources using the Azure portal.  
+[Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-To learn about other methods of deploying the MedTech service, see
+[Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-For an overview of the MedTech service device data processing stages, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
-
-For frequently asked questions (FAQs) about the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

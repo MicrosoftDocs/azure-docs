@@ -1,6 +1,6 @@
 ---
-title: Targets and capabilities in Azure Chaos Studio Preview
-description: Understand how to control resource onboarding in Azure Chaos Studio Preview by using targets and capabilities.
+title: Targets and capabilities in Azure Chaos Studio
+description: Understand how to control resource onboarding in Azure Chaos Studio by using targets and capabilities.
 author: prasha-microsoft 
 ms.author: prashabora
 ms.service: chaos-studio
@@ -9,11 +9,11 @@ ms.date: 11/01/2021
 ms.custom: template-concept, ignite-fall-2021, ignite-2022
 ---
 
-# Targets and capabilities in Azure Chaos Studio Preview
+# Targets and capabilities in Azure Chaos Studio
 
 Before you can inject a fault against an Azure resource, the resource must first have corresponding targets and capabilities enabled. Targets and capabilities control which resources are enabled for fault injection and which faults can run against those resources.
 
-By using targets and capabilities [along with other security measures](chaos-studio-permissions-security.md), you can avoid accidental or malicious fault injection with Azure Chaos Studio Preview. For example, with targets and capabilities, you can allow the CPU pressure fault to run against your production virtual machines while preventing the kill process fault from running against them.
+By using targets and capabilities [along with other security measures](chaos-studio-permissions-security.md), you can avoid accidental or malicious fault injection with Azure Chaos Studio. For example, with targets and capabilities, you can allow the CPU pressure fault to run against your production virtual machines while preventing the kill process fault from running against them.
 
 ## Targets
 
@@ -57,7 +57,7 @@ An experiment can only inject faults on onboarded targets with the corresponding
 For reference, a list of capability names, fault URNs, and parameters is available [in our fault library](chaos-studio-fault-library.md). You can use the HTTP response to create a capability or do a GET on an existing capability to get this information on demand. For example, to do a GET on a VM shutdown capability:
 
 ```azurecli
-az rest --method get --url "https://management.azure.com/subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/shutdown-1.0?api-version=2021-08-11-preview"
+az rest --method get --url "https://management.azure.com/subscriptions/fd9ccc83-faf6-4121-9aff-2a2d685ca2a2/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/shutdown-1.0?api-version=2023-11-01"
 ```
 
 Returns the following JSON:
@@ -110,4 +110,5 @@ Returns the following JSON:
 ## Next steps
 Now that you understand what targets and capabilities are, you're ready to:
 - [Learn about faults and actions](chaos-studio-faults-actions.md)
+- [Learn about target selection and scoping](chaos-studio-target-selection.md)
 - [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)

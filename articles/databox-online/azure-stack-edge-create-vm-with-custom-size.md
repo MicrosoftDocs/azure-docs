@@ -1,31 +1,29 @@
 ---
-title: Create a VM image for Azure Stack Edge with custom number of cores, memory, and GPU count.
-description: Learn how to create a VM image of custom size for Azure Stack Edge.
+title: Update a VM for Azure Stack Edge with custom number of cores, memory, and GPU count.
+description: Learn how to update a VM with custom size for Azure Stack Edge.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 10/30/2023
 ms.author: alkohli
-# Customer intent: As an IT admin, I need to understand how to create VM images with custom number of cores, memory, and GPU count.
+# Customer intent: As an IT admin, I need to understand how to update a VM with custom number of cores, memory, and GPU count.
 ---
-# Create a VM image with custom size
+# Update custom VM size
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to create a VM image for Azure Stack edge with a custom number of cores, memory, and GPU count.
+This article describes how to modify a VM size with a custom number of cores, memory, and GPU count, which can be used to create a VM image for Azure Stack Edge.
 
-If the standard VM sizes for Azure Stack Edge do not meet your needs, you can configure a standard VM size with custom number of cores, memory, and GPU count.
+## Get existing custom VM sizes
 
-## Create a new VM
-
-Use the following steps to create a new VM for Azure Stack Edge.
+Use the following steps to get custom VM sizes for Azure Stack Edge.
 
 1. Connect to the PowerShell interface of your Azure Stack Edge device. For detailed steps, see [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-1. Run the following command to see available VM sizes on your device, including the custom sizes:
+1. Run the following command to see available VM sizes on your device, including custom sizes:
 
    ```azurepowershell
    Get-AzVmSize -Location dbelocal 
@@ -53,9 +51,9 @@ Use the following steps to create a new VM for Azure Stack Edge.
    [{'Name':'Custom_NonGPU','Cores':8,'MemoryMb':14336},{'Name':'Custom_GPU_A2','Cores':8,'MemoryMb':28672,'GpuCount': 1}] 
    ```
 
-## Update an existing VM
+## Update custom VM size
 
-1. Run the following command to update the `Cores` or `MemoryMb` values for a VM you deploy to your device.
+1. Run the following command to update the **Custom VM size** with the `Cores` or `MemoryMb` values for a VM you deploy to your device.
  
    Consider the following requirements and restrictions:
    - The `Name` for these sizes cannot be modified.
@@ -93,10 +91,10 @@ Use the following steps to create a new VM for Azure Stack Edge.
    Get-AzVmSize -Location dbelocal
    ```
 
-   In Azure portal, the VM size dropdown will update after five minutes with the new VM options you just created.
+   In Azure portal, the VM size dropdown will update in about five minutes with the new VM options you just created.
 
    [![Screenshot of Azure portal dropdown menu with custom VM size.](./media/azure-stack-edge-create-vm-with-custom-size/azure-stack-edge-custom-vm-size.png)](./media/azure-stack-edge-create-vm-with-custom-size/azure-stack-edge-custom-vm-size.png#lightbox)
 
 ## Next steps
 
- - [VM sizes and types for Azure Stack Edge Pro](azure-stack-edge-gpu-virtual-machine-sizes.md).
+ - [Create a VM](azure-stack-edge-gpu-virtual-machine-overview.md#create-a-vm).

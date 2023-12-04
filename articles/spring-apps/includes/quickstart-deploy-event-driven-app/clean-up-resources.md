@@ -25,6 +25,12 @@ Use the following steps to delete the entire resource group, including the newly
 
 [!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
 
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+Use the following steps to delete the entire resource group, including the newly created service:
+
+[!INCLUDE [clean-up-resources-via-resource-group](clean-up-resources-via-resource-group.md)]
+
 ### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to delete the entire resource group, including the newly created service:
