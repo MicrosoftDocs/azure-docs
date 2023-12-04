@@ -41,16 +41,13 @@ CEF normalizes the data, making it more immediately useful for analysis with Mic
 
 ### How collection works with the Common Event Format (CEF) via AMA connector
 
-:::image type="content" source="media/connect-cef-ama/cef-forwarder-diagram.png" alt-text="Diagram showing the CEF log forwarding procedure." border="false":::
+:::image type="content" source="media/connect-cef-ama/cef-forwarder-diagram.png" alt-text="Diagram showing the CEF log forwarding procedure." lightbox="media/connect-cef-ama/cef-forwarder-diagram.png":::
 
-1. Your organization sets up a log forwarder (Linux VM), if one doesn't already exist. The forwarder can be on-premises or cloud-based.
-1. Your organization uploads CEF logs from your source devices to the forwarder.
-1. The AMA connector installed on the log forwarder collects and parses the logs. 
-1. The connector streams the events to the Microsoft Sentinel workspace to be further analyzed. 
-
-When you install a log forwarder, the originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. The Syslog daemon on the forwarder sends events to the Azure Monitor Agent over UDP. If this Linux forwarder is expected to collect a high volume of Syslog events, its Syslog daemon sends events to the agent over TCP instead. In either case, the agent then sends the events from there to your Log Analytics workspace in Microsoft Sentinel.
-
-:::image type="content" source="media/connect-cef-ama/syslog-forwarder-diagram-ama.png" alt-text="Diagram showing the data flow from syslog sources to the Microsoft Sentinel workspace, where the AMA is installed on a separate log-forwarding device." border="false":::
+1. Set up a log forwarder on a Linux VM, if one doesn't already exist. The forwarder can be installed on an on-premises or cloud-based VM.
+1. Configure your originating devices to send Syslog events to the Syslog daemon on the log forwarder's VM, instead of to the local Syslog daemon.
+1. The Syslog daemon on the forwarder sends events to the Azure Monitor Agent over TCP port 28330 (as of version 1.28.11 of the AMA. Prior versions use Unix domain sockets instead of the TCP port).
+1. The Azure Monitor Agent installed on the log forwarder collects and parses the events. 
+1. The agent streams the events to the Microsoft Sentinel workspace to be further analyzed. 
 
 ## Set up the Common Event Format (CEF) via AMA connector
 
