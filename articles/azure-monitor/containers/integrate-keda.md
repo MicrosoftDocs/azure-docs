@@ -158,6 +158,7 @@ Deploy KEDA using the following command:
 ```bash 
 helm install keda kedacore/keda --namespace keda \
 --set serviceAccount.create=false \
+--set serviceAccount.name=keda-operator \
 --set podIdentity.azureWorkload.enabled=true \
 --set podIdentity.azureWorkload.clientId=$USER_ASSIGNED_CLIENT_ID \
 --set podIdentity.azureWorkload.tenantId=$TENANT_ID
