@@ -195,6 +195,7 @@ Neural models support added languages for the `v3.1` and later APIs.
 ## [**Printed**](#tab/printed)
 
 The following table lists the supported languages for printed text.
+
 :::row:::
    :::column span="":::
   |Language| Code (optional) |
