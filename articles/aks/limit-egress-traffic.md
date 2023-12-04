@@ -180,7 +180,7 @@ This section covers three network rules and an application rule you can use to c
 * The first network rule allows access to port 9000 via TCP.
 * The second network rule allows access to port 1194 and 123 via UDP. If you're deploying to Microsoft Azure operated by 21Vianet, see the [Azure operated by 21Vianet required network rules](./outbound-rules-control-egress.md#microsoft-azure-operated-by-21vianet-required-network-rules). Both these rules will only allow traffic destined to the Azure Region CIDR in this article, which is East US.
 * The third network rule opens port 123 to `ntp.ubuntu.com` FQDN via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, so you'll need to adapt it when using your own options.
-* The fourth and fifth network rules allows access to pull containers from GitHub Container Registry (ghcr.io) and Docker Hub (docker.io).
+* The fourth and fifth network rules allow access to pull containers from GitHub Container Registry (ghcr.io) and Docker Hub (docker.io).
 
 1. Create the network rules using the [`az network firewall network-rule create`][az-network-firewall-network-rule-create] command.
 
