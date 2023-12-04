@@ -23,34 +23,23 @@ Enterprise IoT security in Microsoft 365 Defender provides IoT-specific security
 
 - If you don't have ME5/E5 Security licenses, but you're a Microsoft Defender for Endpoint customer, start with a [free trial](billing.md#free-trial) or purchase standalone, per-device licenses to gain the same IoT-specific security value.
 
-The following image shows the architecture and extra features added with **Enterprise IoT security** in Microsoft 365 Defender:
-
-:::image type="content" source="media/enterprise-iot/architecture-endpoint-only.png" alt-text="Diagram of the service architecture when you have an Enterprise IoT plan added to Defender for Endpoint." border="false":::
-
 ## Added security value for Defender for Endpoint customers
 
 Enterprise IoT is designed to help customers secure unmanaged devices throughout the organization and extend IT security to also cover IoT devices. While Microsoft 365 P2 customers already have visibility for discovered IoT devices in the **Device inventory** page in Defender for Endpoint, they can use Enterprise IoT security to gain improved security value with extra alerts, recommendations and vulnerabilities for their discovered IoT devices.
 
+The following image shows the architecture and extra features added with **Enterprise IoT security** in Microsoft 365 Defender:
+
+:::image type="content" source="media/enterprise-iot/architecture-endpoint-only.png" alt-text="Diagram of the service architecture when you have an Enterprise IoT plan added to Defender for Endpoint." border="false":::
+
 - Most Microsoft Defender for Endpoint network-based detections are also relevant for Enterprise IoT devices. For example, network-based detections include alerts for scans involving managed endpoints.
 
 - The following Defender for Endpoint recommendations are available in Microsoft Secure Score and are relevant for Enterprise IoT devices:
-    1. **Require authentication for Telnet management interface**
-    1. **Disable insecure administration protocol – Telnet**
-    1. **Remove insecure administration protocols SNMP V1 and SNMP V2**
-    1. **Require authentication for VNC management interface**
+    - **Require authentication for Telnet management interface**
+    - **Disable insecure administration protocol – Telnet**
+    - **Remove insecure administration protocols SNMP V1 and SNMP V2**
+    - **Require authentication for VNC management interface**
 
 Devices supported for Enterprise IoT monitoring are discovered by Defender for Endpoint agents using passive and active discovery methods. The list of supported vendors and hardware models is extensive and covers corporate IoT devices, such as printers, cameras, and VoIP phones.
-
-For more information, see:
-
-- [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md)
-- [Defender for IoT subscription billing](billing.md)
-- [Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery)
-- [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)
-- [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
-- [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)
-- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-- [Proactively hunt with advanced hunting in Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview)
 
 ## Frequently asked questions
 
@@ -98,6 +87,19 @@ For more information, see [Defender for IoT subscription billing](billing.md).
 ### How can I resolve billing issues associated with my Defender for IoT plan?
 
 For any billing or technical issues, open a support ticket for Microsoft 365 Defender.
+
+## Related content
+
+For more information, see:
+
+- [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md)
+- [Defender for IoT subscription billing](billing.md)
+- [Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery)
+- [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)
+- [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
+- [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [Proactively hunt with advanced hunting in Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview)
 
 ## Next steps
 

@@ -80,13 +80,13 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
 On the **Device inventory** page, select **Go hunt** to query devices using tables like the *[DeviceInfo](/microsoft-365/security/defender/advanced-hunting-deviceinfo-table)* table. On the **Advanced hunting** page, query data using other schemas. 
 
-## Sample of advanced hunting queries for Enterprise IoT
+## Sample advanced hunting queries for Enterprise IoT
 
-Here are samples of advanced hunting queries to perform various tasks to identify devices that are or could be connected with Defender for IoT devices / Microsoft 365 Defender.
+This section lists sample advanced hunting queries that you can use in Microsoft 365 Defender to help you monitor and secure your IoT devices with Enterprise for IoT security. 
 
 ### To find devices within a subnet:
 
-Use the query below to help find devices that were discovered on a specific subnet in your network (replace the values “IpV4Range” or “IpV6Range” with the value you are searching for):  
+Use the following queries to help find devices that were discovered on a specific subnet in your network. You should replace the values `IpV4Range` or `IpV6Range` with the value you are searching for:  
 
 ```kusto
 | let IpV6Range = “2001:4898::1050:1050/127”;  
@@ -108,9 +108,9 @@ Use the query below to help find devices that were discovered on a specific subn
 | where ipv4_is_in_range(IPAddress, IpV4Range)  
 ```
 
-### To find devices that you can better protect by onboarding them to MDE:
+### To find devices that you can better protect by onboarding them to Defender for Endpoint:
 
-If some devices on your network support Microsoft Defender for Endpoint but for some reason were not onboarded. Onboarding these devices to Microsoft Defender for Endpoint ensures that they are better protected, will have detection and response capabilities, and vulnerability assessments.  
+Use the following query to identify devices on your network that are supported by Defender for Endpoint, but are not yet onboarded. Onboard all your devices to Defender for Endpoint to ensure that they're better protected, with detection and response capabilities, and the vulnerability assessments provided with Enterprise IoT security.  
 
 Run the following query in your tenant to understand which of your devices can be onboarded:
 
@@ -122,7 +122,7 @@ Run the following query in your tenant to understand which of your devices can b
 
 ### To find devices by specific type or subtype:
 
-To find devices that exist in your corporate network by type of device (i.e. router), you can use the following query:  
+Use the following query to identify devices that exist in your corporate network by type of device, such as routers:  
 
 ```kusto
 | DeviceInfo  
@@ -132,7 +132,7 @@ To find devices that exist in your corporate network by type of device (i.e. rou
 
 ### To find devices with a prefix or suffix in the host name 
 
-If you manage your devices with a specific naming convention, you can query devices based on names as well. Change the highlighted values after “startswith” or “endswith” accordingly:  
+Use the following query if you manage your devices with a specific naming convention and need to query your devices based on these names as well. Change the values after `startswith` or `endswith` as needed for your search:  
 
 ```kusto
 | DeviceInfo  
@@ -149,7 +149,7 @@ If you manage your devices with a specific naming convention, you can query devi
 ```
 
 ### To find specific device models   
-To find specific models of devices, use the following query:   
+Use the following query to identify specific models of your devices:   
 
 ```kusto
 | DeviceInfo  
@@ -160,7 +160,7 @@ To find specific models of devices, use the following query:  
 
 ## To find and export vulnerabilities for your IoT devices
 
-The following query collects all vulnerabilities on your IoT devices:
+Use the following query to list all vulnerabilities on your IoT devices:
 
 ```kusto
 | where DeviceCategory =~ "iot"
