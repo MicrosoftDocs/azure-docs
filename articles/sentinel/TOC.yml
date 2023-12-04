@@ -360,6 +360,8 @@
       href: data-connectors/argos-cloud-security.md
     - name: Armorblox (using Azure Functions)
       href: data-connectors/armorblox-using-azure-functions.md
+    - name: Atlassian Beacon Alerts
+      href: data-connectors/atlassian-beacon-alerts.md
     - name: Atlassian Confluence Audit (using Azure Functions)
       href: data-connectors/atlassian-confluence-audit-using-azure-functions.md
     - name: Atlassian Jira Audit (using Azure Functions)
@@ -402,6 +404,8 @@
       href: data-connectors/azure-stream-analytics.md
     - name: Azure Web Application Firewall (WAF)
       href: data-connectors/azure-web-application-firewall-waf.md
+    - name: Barracuda CloudGen Firewall
+      href: data-connectors/barracuda-cloudgen-firewall.md
     - name: BETTER Mobile Threat Defense (MTD)
       href: data-connectors/better-mobile-threat-defense-mtd.md
     - name: Bitglass (using Azure Functions)
@@ -456,14 +460,16 @@
       href: data-connectors/crowdstrike-falcon-endpoint-protection.md
     - name: CyberArkEPM (using Azure Functions)
       href: data-connectors/cyberarkepm-using-azure-functions.md
-    - name: Cyberpion Security Logs
-      href: data-connectors/cyberpion-security-logs.md
     - name: Cybersixgill Actionable Alerts (using Azure Functions)
       href: data-connectors/cybersixgill-actionable-alerts-using-azure-functions.md
+    - name: Cyborg Security HUNTER Hunt Packages
+      href: data-connectors/cyborg-security-hunter-hunt-packages.md
     - name: Cynerio Security Events
       href: data-connectors/cynerio-security-events.md
     - name: Darktrace Connector for Microsoft Sentinel REST API
       href: data-connectors/darktrace-connector-for-microsoft-sentinel-rest-api.md
+    - name: Dataminr Pulse Alerts Data Connector (using Azure Functions)
+      href: data-connectors/dataminr-pulse-alerts-data-connector-using-azure-functions.md
     - name: Derdack SIGNL4
       href: data-connectors/derdack-signl4.md
     - name: Digital Guardian Data Loss Prevention
@@ -510,6 +516,8 @@
       href: data-connectors/github-using-webhooks-using-azure-function.md
     - name: GitHub Enterprise Audit Log
       href: data-connectors/github-enterprise-audit-log.md
+    - name: Gigamon AMX Data Connector
+      href: data-connectors/gigamon-amx-data-connector.md
     - name: GitLab
       href: data-connectors/gitlab.md
     - name: Google ApigeeX (using Azure Functions)
@@ -522,6 +530,8 @@
       href: data-connectors/google-cloud-platform-iam-using-azure-functions.md
     - name: Google Workspace (G Suite) (using Azure Functions)
       href: data-connectors/google-workspace-g-suite-using-azure-functions.md
+    - name: GreyNoise Threat Intelligence (using Azure Functions)
+      href: data-connectors/greynoise-threat-intelligence-using-azure-functions-using-azure-functions.md
     - name: Holm Security Asset Data (using Azure Functions)
       href: data-connectors/holm-security-asset-data-using-azure-functions.md
     - name: Imperva Cloud WAF (using Azure Functions)
@@ -594,6 +604,14 @@
       href: data-connectors/microsoft-purview-information-protection.md
     - name: Microsoft Sysmon For Linux
       href: data-connectors/microsoft-sysmon-for-linux.md
+    - name: Mimecast Audit & Authentication (using Azure Functions)
+      href: data-connectors/mimecast-audit-authentication-using-azure-functions.md
+    - name: Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions)
+      href: data-connectors/mimecast-intelligence-for-microsoft-microsoft-sentinel-using-azure-functions.md
+    - name: Mimecast Secure Email Gateway (using Azure Functions)
+      href: data-connectors/mimecast-secure-email-gateway-using-azure-functions.md
+    - name: Mimecast Targeted Threat Protection (using Azure Functions)
+      href: data-connectors/mimecast-targeted-threat-protection-using-azure-functions.md
     - name: MISP2Sentinel
       href: data-connectors/misp2sentinel.md
     - name: MongoDB Audit
@@ -620,6 +638,8 @@
       href: data-connectors/nxlog-bsm-macos.md
     - name: NXLog DNS Logs
       href: data-connectors/nxlog-dns-logs.md
+    - name: NXLog FIM
+      href: data-connectors/nxlog-fim.md
     - name: NXLog LinuxAudit
       href: data-connectors/nxlog-linuxaudit.md
     - name: Okta Single Sign-On (using Azure Functions)
