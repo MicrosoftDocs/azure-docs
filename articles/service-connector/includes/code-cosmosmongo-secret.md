@@ -94,7 +94,7 @@ Refer to [Use Spring Data with Azure Cosmos DB for MongoDB API](/azure/developer
     }
     ```
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 1. Install dependencies
     ```bash
     npm install mongodb

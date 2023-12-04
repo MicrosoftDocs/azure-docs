@@ -169,7 +169,7 @@ ms.author: wchi
     # Connect to Azure Cosmos DB for Table
     table_service = TableServiceClient.from_connection_string(conn_str) 
     ```
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 1. Install dependencies
    ```bash
    npm install @azure/data-tables

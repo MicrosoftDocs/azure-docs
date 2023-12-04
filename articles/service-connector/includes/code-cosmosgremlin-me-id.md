@@ -204,7 +204,7 @@ ms.author: wchi
     )
     ```
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 1. Install dependencies.
    ```bash
    npm install gremlin

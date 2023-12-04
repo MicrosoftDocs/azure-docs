@@ -208,7 +208,7 @@ The authentication type is not supported for Spring Boot.
     c, err := mongo.Connect(ctx, clientOptions)
     ```
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 1. Install dependencies
    ```bash
    npm install mongodb

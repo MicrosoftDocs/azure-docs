@@ -67,7 +67,7 @@ ms.author: wchi
     table_service = TableServiceClient.from_connection_string(conn_str) 
     ```
 
-### [NodeJS](#tab/node)
+### [NodeJS](#tab/nodejs)
 
 1. Install dependencies.
 
