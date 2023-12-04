@@ -99,8 +99,8 @@ You can use the `az vm extension` and `az vm update` commands to update existing
    ```azurecli
    az vm extension
    ```
-> [!Note]
-> The complete az vm extension depends on the particular distribution you are using, please refer to the next section for the complete details.
+   > [!Note]
+   > The complete az vm extension depends on the particular distribution you are using, please refer to the next section for the complete details.
 
 1. Update with the correct license type
    ```azurecli
@@ -244,14 +244,14 @@ Converting to PAYG model is supported for Azure Marketplace images labeled BYOS,
     az vm update -g myResourceGroup -n myVmName --license-type SLES_HPC
     ```
 
-1. If you desire to return to BYOS model, you need to set up the "None" licesnse type, otherwise, it continues to be PAYG.
+1. If you desire to return to BYOS model, you need to set up the "None" license type, otherwise, it continues to be PAYG.
     ```azurecli
     # If the image started as BYOS and was converted to PAYG, the following command will revert it back to BYOS.
     az vm update -g myResourceGroup -n myVmName --license-type NONE
     ```
 ---
 
-#### [Multiple VMs](#tab/paygclimultiple)
+#### [Multiple VMs]
 
 The following command converts the machines specified in the argument to BYOS.
 
