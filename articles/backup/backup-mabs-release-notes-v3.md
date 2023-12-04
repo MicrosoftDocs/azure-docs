@@ -24,7 +24,7 @@ Microsoft is recalling the release of Update Rollup 1 for Microsoft Azure Backup
 
 - Hyper-V scheduled backups take a long time to complete because each backup job triggers a consistency check. 
 
-  **Error Message**: The replica of Microsoft Hyper-V RCT on `<Machine Name>`` is not consistent with the protected data source. MABS has detected changes in file locations or volume configurations of protected objects since the data source was configured for protection. (ID 30135)
+  **Error Message**: The replica of Microsoft Hyper-V RCT on `<Machine Name>` is not consistent with the protected data source. MABS has detected changes in file locations or volume configurations of protected objects since the data source was configured for protection. (ID 30135)
 
 - MABS console occasionally crashes when SMTP alerts or reports are configured.
 
