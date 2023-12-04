@@ -1220,17 +1220,11 @@ items:
         href: logs/parse-text.md
       - name: Computer groups
         href: logs/computer-groups.md
-      - name: Cross resource queries
+      - name: Cross-service and cross-resource queries
         items:
-        - name: Overview
+        - name: Query data across workspaces and resources
           displayName: cross-resource queries
           href: logs/cross-workspace-query.md
-        - name: app expression
-          href: logs/app-expression.md
-        - name: workspace expression
-          href: logs/workspace-expression.md
-        - name: resource expression
-          href: logs/resource-expression.md
         - name: Query data in Azure Data Explorer or Resource Graph
           displayName: arg(), adx()        
           href: logs/azure-monitor-data-explorer-proxy.md
