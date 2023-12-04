@@ -29,7 +29,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Contributor](#contributor) | Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | [Owner](#owner) | Grants full access to manage all resources, including the ability to assign roles in Azure RBAC. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [Reader](#reader) | View all resources, but does not allow you to make any changes. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
-> | [Role Based Access Control Administrator (Preview)](#role-based-access-control-administrator-preview) | Manage access to Azure resources by assigning roles using Azure RBAC. This role does not allow you to manage access using other ways, such as Azure Policy. | f58310d9-a9f6-439a-9e8d-f62e7b41a168 |
+> | [Role Based Access Control Administrator](#role-based-access-control-administrator) | Manage access to Azure resources by assigning roles using Azure RBAC. This role does not allow you to manage access using other ways, such as Azure Policy. | f58310d9-a9f6-439a-9e8d-f62e7b41a168 |
 > | [User Access Administrator](#user-access-administrator) | Lets you manage user access to Azure resources. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
 > | **Compute** |  |  |
 > | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
@@ -44,6 +44,11 @@ The following table provides a brief description of each built-in role. Click th
 > | [Virtual Machine User Login](#virtual-machine-user-login) | View Virtual Machines in the portal and login as a regular user. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | [Windows Admin Center Administrator Login](#windows-admin-center-administrator-login) | Let's you manage the OS of your resource via Windows Admin Center as an administrator. | a6333a3e-0164-44c3-b281-7a577aff287f |
 > | **Networking** |  |  |
+> | [Azure Front Door Domain Contributor](#azure-front-door-domain-contributor) | Can manage Azure Front Door domains, but can't grant access to other users. | 0ab34830-df19-4f8c-b84e-aa85b8afa6e8 |
+> | [Azure Front Door Domain Reader](#azure-front-door-domain-reader) | Can view Azure Front Door domains, but can't make changes. | 0f99d363-226e-4dca-9920-b807cf8e1a5f |
+> | [Azure Front Door Profile Reader](#azure-front-door-profile-reader) | Can view AFD standard and premium profiles and their endpoints, but can't make changes. | 662802e2-50f6-46b0-aed2-e834bacc6d12 |
+> | [Azure Front Door Secret Contributor](#azure-front-door-secret-contributor) | Can manage Azure Front Door secrets, but can't grant access to other users. | 3f2eb865-5811-4578-b90a-6fc6fa0df8e5 |
+> | [Azure Front Door Secret Reader](#azure-front-door-secret-reader) | Can view Azure Front Door secrets, but can't make changes. | 0db238c4-885e-4c4f-a933-aa2cef684fca |
 > | [CDN Endpoint Contributor](#cdn-endpoint-contributor) | Can manage CDN endpoints, but can't grant access to other users. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
 > | [CDN Endpoint Reader](#cdn-endpoint-reader) | Can view CDN endpoints, but can't make changes. | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
 > | [CDN Profile Contributor](#cdn-profile-contributor) | Can manage CDN profiles and their endpoints, but can't grant access to other users. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
@@ -155,6 +160,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Schema Registry Reader (Preview)](#schema-registry-reader-preview) | Read and list Schema Registry groups and schemas. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | [Stream Analytics Query Tester](#stream-analytics-query-tester) | Lets you perform query testing without creating a stream analytics job first | 1ec5b3c1-b17e-4e25-8312-2acb3c3c5abf |
 > | **AI + machine learning** |  |  |
+> | [AzureML Compute Operator](#azureml-compute-operator) | Can access and perform CRUD operations on Machine Learning Services managed compute resources (including Notebook VMs). | e503ece1-11d0-4e8e-8e2c-7a6c3bf38815 |
 > | [AzureML Data Scientist](#azureml-data-scientist) | Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself. | f6c7c914-8db3-469d-8ca1-694a8f32e121 |
 > | [Cognitive Services Contributor](#cognitive-services-contributor) | Lets you create, read, update, delete and manage keys of Cognitive Services. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | [Cognitive Services Custom Vision Contributor](#cognitive-services-custom-vision-contributor) | Full access to the project, including the ability to view, create, edit, or delete projects. | c1ff6cc2-c111-46fe-8896-e0ef812ad9f3 |
@@ -467,7 +473,7 @@ View all resources, but does not allow you to make any changes. [Learn more](rba
 }
 ```
 
-### Role Based Access Control Administrator (Preview)
+### Role Based Access Control Administrator
 
 Manage access to Azure resources by assigning roles using Azure RBAC. This role does not allow you to manage access using other ways, such as Azure Policy.
 
@@ -506,7 +512,7 @@ Manage access to Azure resources by assigning roles using Azure RBAC. This role 
       "notDataActions": []
     }
   ],
-  "roleName": "Role Based Access Control Administrator (Preview)",
+  "roleName": "Role Based Access Control Administrator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1302,6 +1308,249 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 
 ## Networking
 
+
+### Azure Front Door Domain Contributor
+
+Can manage Azure Front Door domains, but can't grant access to other users.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/profileresults/customdomainresults/read |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/customdomains/read |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/customdomains/write |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/customdomains/delete |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can manage Azure Front Door domains, but can't grant access to other users.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0ab34830-df19-4f8c-b84e-aa85b8afa6e8",
+  "name": "0ab34830-df19-4f8c-b84e-aa85b8afa6e8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Cdn/operationresults/profileresults/customdomainresults/read",
+        "Microsoft.Cdn/profiles/customdomains/read",
+        "Microsoft.Cdn/profiles/customdomains/write",
+        "Microsoft.Cdn/profiles/customdomains/delete",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Front Door Domain Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Front Door Domain Reader
+
+Can view Azure Front Door domains, but can't make changes.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/profileresults/customdomainresults/read |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/customdomains/read |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can view Azure Front Door domains, but can't make changes.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0f99d363-226e-4dca-9920-b807cf8e1a5f",
+  "name": "0f99d363-226e-4dca-9920-b807cf8e1a5f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Cdn/operationresults/profileresults/customdomainresults/read",
+        "Microsoft.Cdn/profiles/customdomains/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Front Door Domain Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Front Door Profile Reader
+
+Can view AFD standard and premium profiles and their endpoints, but can't make changes.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/edgenodes/read |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/*/read |  |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/profileresults/afdendpointresults/CheckCustomDomainDNSMappingStatus/action |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/queryloganalyticsmetrics/action |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/queryloganalyticsrankings/action |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/querywafloganalyticsmetrics/action |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/querywafloganalyticsrankings/action |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/afdendpoints/CheckCustomDomainDNSMappingStatus/action |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can view AFD standard and premium profiles and their endpoints, but can't make changes.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/662802e2-50f6-46b0-aed2-e834bacc6d12",
+  "name": "662802e2-50f6-46b0-aed2-e834bacc6d12",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Cdn/edgenodes/read",
+        "Microsoft.Cdn/operationresults/*",
+        "Microsoft.Cdn/profiles/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Cdn/operationresults/profileresults/afdendpointresults/CheckCustomDomainDNSMappingStatus/action",
+        "Microsoft.Cdn/profiles/queryloganalyticsmetrics/action",
+        "Microsoft.Cdn/profiles/queryloganalyticsrankings/action",
+        "Microsoft.Cdn/profiles/querywafloganalyticsmetrics/action",
+        "Microsoft.Cdn/profiles/querywafloganalyticsrankings/action",
+        "Microsoft.Cdn/profiles/afdendpoints/CheckCustomDomainDNSMappingStatus/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Front Door Profile Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Front Door Secret Contributor
+
+Can manage Azure Front Door secrets, but can't grant access to other users.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/profileresults/secretresults/read |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/secrets/read |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/secrets/write |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/secrets/delete |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can manage Azure Front Door secrets, but can't grant access to other users.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/3f2eb865-5811-4578-b90a-6fc6fa0df8e5",
+  "name": "3f2eb865-5811-4578-b90a-6fc6fa0df8e5",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Cdn/operationresults/profileresults/secretresults/read",
+        "Microsoft.Cdn/profiles/secrets/read",
+        "Microsoft.Cdn/profiles/secrets/write",
+        "Microsoft.Cdn/profiles/secrets/delete",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Front Door Secret Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Front Door Secret Reader
+
+Can view Azure Front Door secrets, but can't make changes.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/profileresults/secretresults/read |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/secrets/read |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can view Azure Front Door secrets, but can't make changes.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0db238c4-885e-4c4f-a933-aa2cef684fca",
+  "name": "0db238c4-885e-4c4f-a933-aa2cef684fca",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Cdn/operationresults/profileresults/secretresults/read",
+        "Microsoft.Cdn/profiles/secrets/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Front Door Secret Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ### CDN Endpoint Contributor
 
@@ -7484,9 +7733,50 @@ Lets you perform query testing without creating a stream analytics job first
 ## AI + machine learning
 
 
+### AzureML Compute Operator
+
+Can access and perform CRUD operations on Machine Learning Services managed compute resources (including Notebook VMs). [Learn more](../machine-learning/how-to-assign-roles.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/computes/* |  |
+> | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/notebooks/vm/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can access and perform CRUD operations on Machine Learning Services managed compute resources (including Notebook VMs).",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/e503ece1-11d0-4e8e-8e2c-7a6c3bf38815",
+  "name": "e503ece1-11d0-4e8e-8e2c-7a6c3bf38815",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.MachineLearningServices/workspaces/computes/*",
+        "Microsoft.MachineLearningServices/workspaces/notebooks/vm/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "AzureML Compute Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### AzureML Data Scientist
 
-Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself.
+Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself. [Learn more](../machine-learning/how-to-assign-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
