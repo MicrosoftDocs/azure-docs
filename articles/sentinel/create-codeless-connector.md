@@ -145,6 +145,9 @@ Deploy your codeless connector as a custom template.
 
 View your codeless connector in the data connector gallery. Open the data connector and complete any authentication parameters required to connect. Once successfully connected, the DCR and custom tables are created. View the DCR resource in your resource group and any custom tables from the logs analytics workspace.
 
+>[!NOTE]
+>It may take up to 30 minutes to see data begin ingesting.
+
 ## Example
 
 Each step in building the codeless connector is represented in the following example sections. 
