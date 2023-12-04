@@ -103,6 +103,34 @@ The system compiles a list of recommended alert rules based on:
 > - AKS resources
 > - Log Analytics workspaces
 
+## Alerting at-scale
+
+You can use any of the following methods for creating alert rules at-scale. Each choice has advantages and disadvantages that could have an effect on cost and on maintenance of the alert rules. 
+
+### Metric alerts
+You can use [one metric alert rule to monitor multiple resources](alerts-metric-multiple-time-series-single-rule.md) of the same type that exist in the same Azure region. Individual notifications are sent for each monitored resource. For a list of Azure services that are currently supported for this feature, see [Supported resources for metric alerts in Azure Monitor](alerts-metric-near-real-time.md).
+
+For metric alert rules for Azure services that don't support multiple resources, use automation tools such as the Azure CLI and PowerShell with Resource Manager templates to create the same alert rule for multiple resources. For samples, see [Resource Manager template samples for metric alert rules in Azure Monitor](resource-manager-alerts-metric.md).
+
+Each metric alert rule is charged based on the number of time series that are monitored.
+
+### Log alerts
+
+Use [log alert rules](alerts-create-new-alert-rule.md) to query multiple resources. Use the **Split by dimensions** setting in the rule to create separate alerts for each resource to create resource-centric alerts at scale for a subscription or resource group. Alerts are split into separate alerts by grouping combinations. Splitting on an Azure resource ID column makes the specified resource into the alert target.
+ 
+Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query.
+
+> [!NOTE]
+> Resource-centric log query alert rules currently in public preview allow you to use all resources in a subscription or resource group as a target for a log query alert.
+
+### Using Azure policies in Azure Landing Zones
+
+An [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) is an environment that follows key design principles to accommodate all application portfolios and enable application migration, modernization, and innovation at scale. An Azure landing zone uses subscriptions to isolate and scale application resources and platform resources.
+
+If you use Azure landing zones, you can [set up basic alerts](/azure/cloud-adoption-framework/manage/azure-server-management/setup-alerts) as part of the landing zone deployment. The alerts are set up by using Azure Policies as part of your landing zone implementation. 
+
+Using policies and landing zones to set up alerts means that you can set up alerts at scale for all subscriptions in your landing zone, and you will have to maintain a large alert rule set.
+
 ## Azure role-based access control for alerts
 
 You can only access, create, or manage alerts for resources for which you have permissions.
