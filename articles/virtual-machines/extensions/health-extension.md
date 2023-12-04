@@ -223,7 +223,7 @@ There are multiple ways of deploying the Application Health extension to your VM
 
 # [REST API](#tab/rest-api)
 
-The following example adds the Application Health extension (with name myHealthExtension) to the extensionProfile in the scale set model of a Windows-based scale set.
+The following example adds the Application Health extension (with name myHealthExtension) to a Windows-based virtual machine.
 
 You can also use this example to change an existing extension from Rich Health States to Binary Health by making a PATCH call instead of a PUT.
 
@@ -305,7 +305,7 @@ The extension.json file content.
 
 # [REST API](#tab/rest-api)
 
-The following example adds the **Application Health - Rich States** extension (with name myHealthExtension) to the extensionProfile in the scale set model of a Windows-based scale set.
+The following example adds the **Application Health - Rich States** extension (with name myHealthExtension) to a Windows-based virtual machine.
 
 You can also use this example to upgrade an existing extension from Binary to Rich Health States by making a PATCH call instead of a PUT.
 
@@ -384,3 +384,42 @@ The extension.json file content.
 }
 ```
 ---
+## Troubleshoot
+### View VMHealth - single instance
+# [REST API](#tab/rest-api)
+```
+GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/instanceView?api-version=2023-07-01
+```
+Sample Response
+```
+"vmHealth": {
+    "status": {
+      "code": "HealthState/unknown",
+      "level": "Warning",
+      "displayStatus": "The VM health is unknown",
+      "time": "2023-12-04T22:25:39+00:00"
+    }
+}
+```
+# [Azure PowerShell](#tab/azure-powershell)
+```azurepowershell-interactive
+Get-AzVM
+  -ResourceGroupName "<rgName>" `
+  -Name "<VMName>" `
+  -Status
+```
+---
+### Extension execution output log
+Extension execution output is logged to files found in the following directories:
+
+```Windows
+C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\<version>\
+```
+
+```Linux
+/var/lib/waagent/Microsoft.ManagedServices.ApplicationHealthLinux-<extension_version>/status
+/var/log/azure/applicationhealth-extension
+```
+
+The logs also periodically capture the application health status.
+
