@@ -51,17 +51,10 @@ This article assumes that you use a machine running Windows as your development 
 
 ::: zone pivot="iotedge-dev-cli" -->
 
-* Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7/3.8) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running this command in your terminal.
+Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to create your IoT Edge solution. There are two options:
 
-    ```cmd
-    pip3 install iotedgedev
-    ```
-
-    > [!NOTE]
-    >
-    > If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
-    >
-    > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
+* Use the prebuilt [IoT Edge Dev Container](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/run-devcontainer-docker.md)
+* Install the tool using the [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md)
 
 <!-- ::: zone-end -->
 
