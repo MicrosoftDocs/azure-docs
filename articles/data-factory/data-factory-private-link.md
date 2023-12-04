@@ -278,7 +278,7 @@ You're unable to access each PaaS resource when both sides are exposed to Privat
 
 For example, customer A is using a private link to access the portal of data factory A in virtual network A. When data factory A doesn't block public access, customer B can access the portal of data factory A in virtual network B via public. But when customer B creates a private endpoint against data factory B in virtual network B, then customer B can't access data factory A via public in virtual network B anymore.
 
-## Next steps
+## Related content
 
 - [Create a data factory by using the Azure Data Factory UI](quickstart-create-data-factory-portal.md)
 - [Introduction to Azure Data Factory](introduction.md)

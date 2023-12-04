@@ -256,5 +256,5 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 **Resolution:** Disable "SAP HANA Execution" option in DTP, reprocess the data, then try executing the copy activity again.
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

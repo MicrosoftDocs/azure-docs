@@ -38,7 +38,7 @@ This article provides suggestions to troubleshoot common problems with the ORC f
 
 - **Recommendation**:  Check the ticks value and avoid using the datetime value '0001-01-01 00:00:00'.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
