@@ -1,5 +1,5 @@
 ---
-title: Set up Private Link for a Chaos Studio agent-based experiment
+title: Set up Private Link for a Chaos Studio agent-based experiment [Preview]
 description: Understand the steps to set up a a chaos experiment using private link for agent-based experiments
 services: chaos-studio
 author: nikhilkaul-msft
@@ -10,7 +10,7 @@ ms.service: chaos-studio
 ms.custom: ignite-fall-2023
 ---
 # How-to: Configure Private Link for Agent-Based experiments
-In this guide, we'll show you the steps needed to configure a Chaos Studio **Agent-based** Experiment to emit telemetry to App Insights. These events show the start and stop of each fault as well as the type of fault executed and the resource the fault was executed against. App Insights is the primary recommended logging solution for **Agent-based** experiments in Chaos Studio.
+In this guide, we'll show you the steps needed to configure Private Link for a Chaos Studio **Agent-based** Experiment. The current user experience is based on the private endpoints support enabled as part of public preview of the private endpoints feature. This experience will evolve with time as the feature is enhanced through public preview and GA lifecycle events. 
 
 ---
 
