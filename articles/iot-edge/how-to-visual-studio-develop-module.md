@@ -32,7 +32,7 @@ This article assumes that you use a machine running Windows as your development 
 
 * Install or modify Visual Studio 2022 on your development machine. Choose the **Azure development** and **Desktop development with C++** workloads options.
 
-<!-- ::: zone pivot="iotedge-dev-ext" -->
+::: zone pivot="iotedge-dev-ext"
 
 * Install the Azure IoT Edge Tools either from the Marketplace or from Visual Studio:
 
@@ -47,9 +47,9 @@ This article assumes that you use a machine running Windows as your development 
    > [!TIP]
    > If you are using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace
 
-<!-- >::: zone-end
+::: zone-end
 
-::: zone pivot="iotedge-dev-cli" -->
+::: zone pivot="iotedge-dev-cli"
 
 Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to create your IoT Edge solution. There are two options:
 
