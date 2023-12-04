@@ -1,11 +1,11 @@
 ---
 title: Negotiation Server
-description: This article provides information about negotiate in Azure SignalR service.
+description: This article provides information about customize negotiate in Azure SignalR service.
 author: JialinXin
 ms.author: jixin
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 12/01/2023
+ms.date: 12/04/2023
 ---
 
 # Negotiation Server
@@ -15,11 +15,33 @@ When use Azure SignalR service, negotiation is a required step. This ensures the
 * Server would like to gate clients before they start connecting service
 * Serverless mode that don't have a web server handling negotiation
 
+> [!NOTE]
+> When working with Azure SignalR service, clients should always ask a trusted server or a trusted authntication center to build the access token. __DO NOT__ set `SkipNegotiation` to `true` in client side. `SkipNegotiation` means clients need to build the accessToken themselves. This brings security risks that client could do anything to the service endpoint. 
+
 ## How to add negotiation server?
 
-Under `Default` mode, server SDK would handling this for you. And you can leverage server side `ServiceOptions` to customize some configuration related to the client, i.e. `AccessTokenLifetime`, `ClaimsProvider`, `AccessTokenAlgorithm`.
+### `Default` Mode
 
-Under `Serverless` mode, there's is not server accepts SignalR clients. To protect your connection string, you need to redirect SignalR clients from the negotiation endpoint to Azure SignalR Service instead of giving your connection string to all the SignalR clients.
+Under `Default` mode, server SDK would handling this for you. And you can leverage server side `ServiceOptions` to customize some configuration related to the client, such as `AccessTokenLifetime`, `ClaimsProvider`, `AccessTokenAlgorithm`, `DiagnosticClientFilter`, etc.
+
+```cs
+services.AddSignalR()
+        .AddAzureSignalR(options =>
+        {
+            //  This is a sample to associate user name with connection.
+            //  For PROD, we suggest to use authentication and authorization, see here:
+            //  https://learn.microsoft.com/aspnet/core/signalr/authn-and-authz
+            options.ClaimsProvider = context => new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, context.Request.Query["username"])
+            };
+            options.AccessTokenLifetime = TimeSapn.FromMinutes(5);
+        });
+```
+
+### `Serverless` Mode
+
+Under `Serverless` mode, there's is no server accepts SignalR clients. To protect your connection string, you need to redirect SignalR clients from the negotiation endpoint to Azure SignalR Service instead of giving your connection string to all the SignalR clients.
 
 The best practice is to host a negotiation endpoint and then you can use SignalR clients to connect your hub: `/<Your Hub Name>`.
 
@@ -38,7 +60,7 @@ var connection = new HubConnectionBuilder().WithUrl("http://<Your Host Name>/<Yo
 await connection.StartAsync();
 ```
 
-The sample on how to use Management SDK to redirect SignalR clients to Azure SignalR Service can be found [here](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/Management/NegotiationServer).
+The sample on how to use Management SDK to redirect SignalR clients to Azure SignalR Service can be found [here](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/Management).
 
 ## Next Steps
 
