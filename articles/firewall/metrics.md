@@ -108,3 +108,7 @@ Next, create an alert for missing metrics over a time period of 60 minutes. Brow
 
 :::image type="content" source="media/logs-and-metrics/edit-alert-rule.png" alt-text="Screenshot showing the Edit alert rule page.":::
 
+## Next steps
+
+- [Azure Firewall diagnostic logs (legacy)](diagnostic-logs.md)
+

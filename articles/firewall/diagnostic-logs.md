@@ -132,3 +132,7 @@ You have three options for storing your logs:
 ## Enable diagnostic logs
 
 To learn how to enable the diagnostic logging using the Azure portal, see [Monitor Azure Firewall logs (legacy) and metrics](firewall-diagnostics.md).
+
+## Next steps
+
+- [Azure Firewall metrics and alerts](metrics.md)
