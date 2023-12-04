@@ -37,7 +37,6 @@ Make sure that you have:
 
     For more information, see [Enterprise IoT security in Microsoft 365 Defender](concept-enterprise.md#enterprise-iot-security-in-microsoft-365-defender).
 
-
 ## Turn on enterprise IoT monitoring
 
 This procedure describes how to turn on enterprise IoT monitoring in Microsoft 365 Defender, and is relevant only for ME5/E5 Security customers.
