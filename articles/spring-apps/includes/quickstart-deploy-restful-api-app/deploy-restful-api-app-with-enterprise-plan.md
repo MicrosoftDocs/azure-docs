@@ -326,13 +326,13 @@ After the application instance and the PostgreSQL instance are created, the appl
     --set api="$api"
    ```
 
-1. Use the following command to get tenant-id used next step:
+1. Use the following command to get the tenant ID to use in the next step:
 
    ```azurecli
    az account list | jq -r '.[].tenantId'
    ```
 
-1. Use the following command to get application-id used next steps:
+1. Use the following command to get the application-id to use in the next steps:
 
    ```azurecli
    appid=$(az ad app show --id ${TODO_APP_URL} \
