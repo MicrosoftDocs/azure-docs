@@ -7,7 +7,7 @@ author: mbender-ms
 # Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region. 
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 12/05/2022
+ms.date: 12/04/2023
 ms.author: mbender
 ms.custom: template-tutorial, seodec18
 ---
