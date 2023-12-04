@@ -37,7 +37,7 @@ The diagram shows the following architectural flows and relationships of the Pet
 > [!NOTE]
 > This article uses a simplified version of PetClinic, using an in-memory database that is not production-ready to quickly deploy to Azure Spring Apps.
 >
-> The Tanzu Developer Tools exposes public access for app live view, which is a risk point. The production environment needs to secure the access, see more from [Configure Dev Tools Portal](how-to-use-dev-tool-portal#configure-dev-tools-portal).
+> The Tanzu Developer Tools exposes public access for app live view, which is a risk point. The production environment needs to secure the access, see more from [Configure Dev Tools Portal](./how-to-use-dev-tool-portal#configure-dev-tools-portal).
 
 ::: zone-end
 

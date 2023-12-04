@@ -115,8 +115,7 @@ Use the following steps to create the service instance:
     - *vets-service*
     - *visits-service*
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png" alt-text="Screenshot of the Azure portal that shows the bind apps in Service Registry
-   page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png" alt-text="Screenshot of the Azure portal that shows the bind apps in Service Registry page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png":::
 
 #### Configure Spring Cloud Gateway
 
