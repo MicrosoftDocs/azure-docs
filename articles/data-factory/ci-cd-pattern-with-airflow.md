@@ -179,7 +179,7 @@ steps:
   displayName: 'Pytest'
 ```
 
-For more information, See [Azure Pipelines](https://learn.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
+For more information, See [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up)
 
 ### Using GitHub Actions
 **Step 2.1:** Create a `.github/workflows` directory in your GitHub repository. 
