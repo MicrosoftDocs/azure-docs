@@ -27,7 +27,7 @@ Azure NetApp Files supports three [service levels](azure-netapp-files-service-le
 
 You can configure the standard storage with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 183 days) for inactive data to be considered "cool". When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This move to the cool tier can take a few days. For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or write), it's qualified for movement to the cool tier.  
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-explainer.png" alt-text="Diagram of cool access tiering." lightbox="../media/azure-netapp-files/cool-access-explainer.png":::
+:::image type="content" source="../media/azure-netapp-files/cool-access-explainer.png" alt-text="Diagram of cool access tiering." lightbox="../media/azure-netapp-files/cool-access-explainer.png" border="false":::
 
 Tiered data will appear to be online and continue to be available to users and applications by transparent and automated retrieval from the cool tier.
 
