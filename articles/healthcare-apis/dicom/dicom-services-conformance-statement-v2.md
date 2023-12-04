@@ -462,7 +462,8 @@ We support searching the following attributes and search types.
 | `ManufacturerModelName` | | X | X | X | X |  |
 | `SOPInstanceUID` |  |  | X |  | X | X |
 
-> Note: We do not support searching using empty string for any attributes.
+> [!NOTE]
+> We do not support searching using empty string for any attributes.
 
 #### Search matching
 
@@ -895,7 +896,8 @@ We support searching on these attributes:
 |`ProcedureStepState`|
 |`StudyInstanceUID`|
 
-> Note: We do not support searching using empty string for any attributes.
+> [!NOTE]
+> We do not support searching using empty string for any attributes.
 
 ##### Search Matching
 
