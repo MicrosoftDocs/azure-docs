@@ -66,7 +66,6 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ##### Model ID: **prebuilt-read**
 
-
 ### [**Read: handwritten text**](#tab/read-hand)
 
 :::moniker range="doc-intel-4.0.0"

@@ -160,7 +160,7 @@ The following table lists the supported languages for printed text.
 
 ## [**Handwritten text**](#tab/handwritten)
 
-The following table lists the supported languages for extracting handwritten texts.
+The following table lists the supported languages for extracting **handwritten** texts.
 
 |Language| Language code (optional) | Language| Language code (optional) |
 |:-----|:----:|:-----|:----:|
@@ -171,9 +171,6 @@ The following table lists the supported languages for extracting handwritten tex
 |Italian  |`it`|
 
 ---
-:::moniker-end
-
-:::moniker range=">=doc-intel-3.1.0"
 
 Neural models support added languages for the `v3.1` and later APIs.
 
@@ -190,11 +187,11 @@ Neural models support added languages for the `v3.1` and later APIs.
 
 ## Custom template
 
-::: moniker range=">=doc-intel-3.0.0"
+:::moniker range=">=doc-intel-3.0.0"
 
 ## [**Printed**](#tab/printed)
 
-The following table lists the supported languages for printed text.
+The following table lists the supported languages for **printed** text.</br>
 
 :::row:::
    :::column span="":::
@@ -526,5 +523,6 @@ The following table lists the supported languages for extracting handwritten tex
 |French  |`fr`|Portuguese |`pt`|
 |German  |`de`|Spanish  |`es`|
 |Italian  |`it`|
+
 ---
 :::moniker-end
