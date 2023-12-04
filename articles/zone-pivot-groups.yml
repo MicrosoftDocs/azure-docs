@@ -2424,10 +2424,10 @@ groups:
   pivots:
   - id: sc-enterprise
     title: Enterprise
-  - id: sc-consumption-plan
-    title: Standard consumption and dedicated (Preview)
   - id: sc-standard
     title: Basic/Standard
+  - id: sc-consumption-plan
+    title: Standard consumption and dedicated (Preview)
 ########### BEGIN APPLICATION MANAGEMENT
 # Service:       Active Directory (active-directory)
 # Sub-service:   APPLICATION MANAGEMENT(manage-apps)
