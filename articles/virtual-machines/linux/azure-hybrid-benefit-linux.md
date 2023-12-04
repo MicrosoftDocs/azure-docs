@@ -251,7 +251,7 @@ Converting to PAYG model is supported for Azure Marketplace images labeled BYOS,
     ```
 ---
 
-#### [Multiple VMs]
+#### [Multiple VMs](Multiple_VMs)
 
 The following command converts the machines specified in the argument to BYOS.
 
