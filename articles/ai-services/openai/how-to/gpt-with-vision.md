@@ -1,7 +1,7 @@
 ---
-title: How to use the GPT-4 model with Vision 
+title: How to use the GPT-4 Turbo with Vision model
 titleSuffix: Azure OpenAI Service
-description: Learn about the options for using GPT-4 with Vision
+description: Learn about the options for using GPT-4 Turbo with Vision
 author: PatrickFarley #dereklegenzoff
 ms.author: pafarley #delegenz
 ms.service: azure-ai-openai
@@ -12,22 +12,22 @@ manager: nitinme
 keywords:
 ---
 
-# Use GPT-4 with Vision
+# Use GPT-4 Turbo with Vision
 
-The GPT-4 with Vision model answers general questions about what's present in the images or video you show it. 
+The GPT-4 Turbo with Vision model answers general questions about what's present in the images or video you show it. 
 
 While it does understand the relationship between objects in images, it isn't optimized to answer detailed questions about the locations of certain objects. For example, you can ask it what color a car is or what some ideas for dinner might be based on what's in your fridge, but if you show it an image of a room and ask it where the chair is, it might not answer correctly.
 
 It's important to note the following:
-- GPT-4 with Vision doesn't behave differently from GPT-4, with the small exception of the system prompt OpenAI uses for the model.
-- GPT-4 with Vision doesn't perform worse at text tasks because it has vision, it's simply GPT-4 with vision added.
-- GPT-4 with Vision is an augmentative set of capabilities for the model.
+- GPT-4 Turbo with Vision doesn't behave differently from GPT-4, with the small exception of the system prompt OpenAI uses for the model.
+- GPT-4 Turbo with Vision doesn't perform worse at text tasks because it has vision, it's simply GPT-4 with vision added.
+- GPT-4 Turbo with Vision is an augmentative set of capabilities for the model.
 
-To use GPT-4 with Vision, you call the Chat Completion API on a GPT-4 Vision model that you have deployed.
+To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Vision model that you have deployed.
 
 ## Call the Chat Completion APIs
 
-The following REST command shows the most basic way to use the GPT-4 Vision model with code. If this is your first time using these models programmatically, we recommend starting with our [GPT-4 with Vision quickstart](../gpt-v-quickstart.md).
+The following REST command shows the most basic way to use the GPT-4 Turbo with Vision model with code. If this is your first time using these models programmatically, we recommend starting with our [GPT-4 Turbo with Vision quickstart](../gpt-v-quickstart.md).
 
 Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-08-01-preview` where 
 
@@ -77,6 +77,6 @@ After an image has been processed by the model, it's deleted from OpenAI servers
 ## Next steps
 
 * [Learn more about Azure OpenAI](../overview.md).
-* [GPT-4 with Vision quickstart](../gpt-v-quickstart.md)
-* [GPT-4 with Vision frequently asked questions](../faq.yml#gpt-4-with-vision)
-* [GPT-4 with Vision API reference](https://aka.ms/gpt-v-api-ref)
+* [GPT-4 Turbo with Vision quickstart](../gpt-v-quickstart.md)
+* [GPT-4 Turbo with Vision frequently asked questions](../faq.yml#gpt-4-with-vision)
+* [GPT-4 Turbo with Vision API reference](https://aka.ms/gpt-v-api-ref)
