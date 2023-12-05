@@ -10,9 +10,15 @@ ms.date: 12/05/2023
 ---
 # Configure multiple IP addresses per ARO cluster load balancer
 
-ARO public clusters are created with a public load balancer that is used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 62. To be able to scale your cluster to the maximum supported number of nodes, you need to assign multiple additional public IP addresses to the load balancer.
+ARO public clusters are created with a public load balancer that's used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 62. To be able to scale your cluster to the maximum supported number of nodes, you need to assign multiple additional public IP addresses to the load balancer.
 
 You can configure up to 20 IP addresses per cluster.
+
+## Requirements
+
+In order to run the commands in this article, you must first download the aro extension wheel file from [https://aka.ms/az-aroext-latest](https://aka.ms/az-aroext-latest). To install the extension, run the following command:
+
+`az extension add -s <path to downloaded whl file>`
 
 ## Create the cluster with multiple IP addresses 
 
