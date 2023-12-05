@@ -9,7 +9,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Deploy Arc-enabled Azure VMware Solution
 
-In this article, learn how to deploy Arc for Azure VMware Solution. Once you set up the components needed for this, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution allows you to do the  actions:
+In this article, learn how to deploy Arc for Azure VMware Solution. Once you set up the components needed, you're ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Arc-enabled Azure VMware Solution allows you to do the  actions:
 
 - Identify your VMware vSphere resources (VMs, templates, networks, datastores, clusters/hosts/resource pools) and register them with Arc at scale. 
 - Perform different virtual machine (VM) operations directly from Azure like; create, resize, delete, and power cycle operations (start/stop/restart) on VMware VMs consistently with Azure.
@@ -58,7 +58,6 @@ You need the following items to ensure you're set up to begin the onboarding pro
 
 The following **Register features** are for provider registration using Azure CLI.
 
-```azurecli
 az provider register --namespace Microsoft.ConnectedVMwarevSphere 
 az provider register --namespace Microsoft.ExtendedLocation 
 az provider register --namespace Microsoft.KubernetesConfiguration 
