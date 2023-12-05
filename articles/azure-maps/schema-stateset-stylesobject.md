@@ -237,6 +237,9 @@ The following JSON illustrates a `BooleanTypeStyleRule` *state* named `occupied`
 Learn more about Creator for indoor maps by reading:
 
 > [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
 > [Creator for indoor maps]
 
 [`BooleanRuleObject`]: #booleanruleobject
@@ -250,3 +253,4 @@ Learn more about Creator for indoor maps by reading:
 [Feature State service]: /rest/api/maps/v2/feature-state
 [Implement dynamic styling for Creator  indoor maps]: indoor-map-dynamic-styling.md
 [RangeObject]: #rangeobject
+[What is Azure Maps Creator?]: about-creator.md

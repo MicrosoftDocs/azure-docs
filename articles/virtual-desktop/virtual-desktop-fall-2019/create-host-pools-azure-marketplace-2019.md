@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Desktop (classic) host pool Azure Marketplace - Azure
-description: How to create a Azure Virtual Desktop (classic) host pool by using the Azure Marketplace.
+description: How to create an Azure Virtual Desktop (classic) host pool by using the Azure Marketplace.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
@@ -12,7 +12,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../create-host-pools-azure-marketplace.md).
 
-In this tutorial, you'll learn how to create a host pool within a Azure Virtual Desktop tenant by using a Microsoft Azure Marketplace offering.
+In this tutorial, you'll learn how to create a host pool within an Azure Virtual Desktop tenant by using a Microsoft Azure Marketplace offering.
 
 Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can contain an application group that users can interact with as they would on a physical desktop.
 

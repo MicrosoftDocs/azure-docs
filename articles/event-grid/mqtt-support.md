@@ -2,7 +2,9 @@
 title: 'MQTT Features Support by Azure Event Grid’s MQTT broker feature'
 description: 'Describes the MQTT features supported by Azure Event Grid’s MQTT broker feature.'
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.custom:
+  - ignite-2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
@@ -10,7 +12,7 @@ ms.author: geguirgu
 # MQTT features supported by Azure Event Grid’s MQTT broker feature
 MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It’s efficient, scalable, and reliable, which made it the gold standard for communication in IoT scenarios.  MQTT broker supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. MQTT broker also supports cross MQTT version (MQTT 3.1.1 and MQTT 5) communication.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 MQTT v5 has introduced many improvements over MQTT v3.1.1 to deliver a more seamless, transparent, and efficient communication. It added:
 - Better error reporting.

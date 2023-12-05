@@ -3,7 +3,7 @@ title: Autoinstrumentation for Azure Monitor Application Insights
 description: Overview of autoinstrumentation for Azure Monitor Application Insights codeless application performance management.
 ms.topic: conceptual
 ms.custom: devx-track-js
-ms.date: 10/10/2023
+ms.date: 11/15/2023
 ms.reviewer: abinetabate
 ---
 
@@ -57,7 +57,7 @@ When using supported SDKs, you can enable SDK injection in configuration to auto
    | Language   
    |	:---	|
    | [ASP.NET Core](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
-   | [Node.js](./nodejs.md#automatic-web-instrumentationpreview) |
+   | [Node.js](./nodejs.md#browser-sdk-loader) |
    | [Java](./java-standalone-config.md#browser-sdk-loader-preview) |
 
 For other methods to instrument your application with the Application Insights JavaScript SDK, see [Get started with the JavaScript SDK](./javascript-sdk.md).

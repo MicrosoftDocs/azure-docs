@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 08/30/2023
+ms.date: 11/17/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -79,13 +79,17 @@ Configuration for SAP **/hana/data** volume:
 | M32ts | 192 GiB | 500 MBps | 20,000 | 224 GB | 425 MBps | 3,000| 
 | M32ls | 256 GiB | 500 MBps | 20,000 | 304 GB | 425 MBps | 3,000 | 
 | M64ls | 512 GiB | 1,000 MBps | 40,000 | 608 GB | 425 MBps | 3,000 | 
-| M32dms_v2, M32ms_v2 | 875 GiB  | 500 MBps | 30,000 | 1056 GB | 425 MBps | 3,000 | 
-| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 1232 GB | 600 MBps | 5,000 | 
-| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 50,000 | 2144 GB | 600 MBps | 5,000 |  
-| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 2464 GB | 800 MBps | 12,000| 
-| M192ids_v2, M192is_v2 | 2,048 GiB | 2,000 MBps | 80,000| 2464 GB | 800 MBps | 12,000| 
-| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 4672 GB | 800 MBps | 12,000 | 
-| M192ims, M192idms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 4912 GB | 800 MBps | 12,000 | 
+| M32(d)ms_v2 | 875 GiB  | 500 MBps | 30,000 | 1056 GB | 425 MBps | 3,000 | 
+| M48(d)s_1_v3, M96(d)s_1_v3 | 974 GiB | 1,560 MBps | 65,000 | 1232 GB | 600 MBps | 5,000 | 
+| M64s, M64(d)s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 1232 GB | 600 MBps | 5,000 | 
+| M64ms, M64(d)ms_v2 | 1,792 GiB | 1,000 MBps | 50,000 | 2144 GB | 600 MBps | 5,000 | 
+| M96(d)s_2_v3 | 1,946 GiB | 3,120 MBps | 130,000 | 2464 GB | 800 MBps | 12,000|  
+| M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 2464 GB | 800 MBps | 12,000| 
+| M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000| 2464 GB | 800 MBps | 12,000| 
+| M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 130,000 | 3424 GB | 1,000 MBps| 15,000 | 
+| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 130,000 | 4672 GB | 800 MBps | 12,000 | 
+| M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 4672 GB | 800 MBps | 12,000 | 
+| M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 4912 GB | 800 MBps | 12,000 | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 3424 GB | 1,000 MBps| 15,000 | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 40,000 | 6,848 GB | 1,000 MBps | 15,000 | 
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 6,848 GB | 1,200 MBps| 17,000 | 
@@ -115,13 +119,17 @@ For the **/hana/log** volume. the configuration would look like:
 | M32ts | 192 GiB | 500 MBps | 20,000 | 96 GB | 275 MBps | 3,000 | 192 GB | 
 | M32ls | 256 GiB | 500 MBps | 20,000 | 128 GB | 275 MBps | 3,000 | 256 GB | 
 | M64ls | 512 GiB | 1,000 MBps | 40,000 | 256 GB | 275 MBps | 3,000 | 512 GB | 
-| M32dms_v2, M32ms_v2 | 875 GiB | 500 MBps | 20,000 | 512 GB | 275 MBps | 3,000 | 875 GB | 
-| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB |
-| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 40,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB | 
-| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
-| M192ids_v2, M192is_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
-| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
-| M192idms_v2, M192ims_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M32(d)ms_v2 | 875 GiB | 500 MBps | 20,000 | 512 GB | 275 MBps | 3,000 | 875 GB | 
+| M48(d)s_1_v3, M96(d)s_1_v3 | 974 GiB | 1,560 MBps | 65,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB |
+| M64s, M64(d)s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB |
+| M64ms, M64(d)ms_v2 | 1,792 GiB | 1,000 MBps | 40,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB | 
+| M96(d)s_2_v3 | 1,946 GiB | 3,120 MBps | 130,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 130,000  | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 130,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 40,000 | 512 GB | 350 MBps | 4,500 | 1,024 GB |
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 512 GB | 400 MBps | 5,000 | 1,024 GB |

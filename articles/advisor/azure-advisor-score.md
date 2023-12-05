@@ -68,7 +68,7 @@ The calculation of the Advisor score can be summarized in four steps:
    * Resources with long-standing recommendations will count more against your score.
    * Resources that you postpone or dismiss in Advisor are removed from your score calculation entirely.
 
-Advisor applies this model at an Advisor category level to give an Advisor score for each category. **Security** uses a [secure score](../defender-for-cloud/secure-score-security-controls.md#overview-of-secure-score) model. A simple average produces the final Advisor score.
+Advisor applies this model at an Advisor category level to give an Advisor score for each category. **Security** uses a [secure score](../defender-for-cloud/secure-score-security-controls.md) model. A simple average produces the final Advisor score.
 
 ## Advisor score FAQs
 

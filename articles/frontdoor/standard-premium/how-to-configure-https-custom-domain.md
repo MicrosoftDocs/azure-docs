@@ -203,4 +203,6 @@ You can change a domain between using an Azure Front Door-managed certificate an
 
 ## Next steps
 
-Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md).
+* Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md).
+* [Understand custom domains](../domain.md) on Azure Front Door.
+* Learn about [End-to-end TLS with Azure Front Door](../end-to-end-tls.md).

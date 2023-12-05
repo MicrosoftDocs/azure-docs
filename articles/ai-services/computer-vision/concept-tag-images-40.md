@@ -2,7 +2,7 @@
 title: Content tags - Image Analysis 4.0
 titleSuffix: Azure AI services
 description: Learn concepts related to the images tagging feature of the Image Analysis 4.0 API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

@@ -1,6 +1,7 @@
 ---
-title: Azure Managed Grafana limitations
-description: Learn about current limitations in Azure Managed Grafana.
+title: Azure Managed Grafana service limitations
+titlesuffix: Azure Managed Grafana
+description: Learn about current technical or feature limitations you may encounter in the Azure Managed Grafana service.
 ms.service: managed-grafana
 ms.topic: troubleshooting
 ms.date: 10/18/2023

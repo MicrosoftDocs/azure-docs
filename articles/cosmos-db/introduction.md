@@ -1,13 +1,12 @@
 ---
-title: Introduction
-titleSuffix: Azure Cosmos DB
-description: Azure Cosmos DB is a global multi-model database built for speed, elasticity and availability with native support for NoSQL and relational data.
+title: Azure Cosmos DB – Unified AI Database
+description: Azure Cosmos DB is a global multi-model database and ideal database for AI applications requiring speed, elasticity and availability with native support for NoSQL and relational data.
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 10/31/2023
+ms.date: 11/02/2023
 ms.custom: ignite-2022
 adobe-target: true
 ---
@@ -38,8 +37,6 @@ You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/
 
 > [!TIP]
 > To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
-
-:::image type="content" source="media/introduction/overview.svg" alt-text="Illustration of Azure Cosmos DB with multiple APIs distributed across various geographies." border="false":::
 
 ## Key Benefits
 

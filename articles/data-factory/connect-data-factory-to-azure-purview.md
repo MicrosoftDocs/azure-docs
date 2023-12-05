@@ -19,8 +19,8 @@ ms.date: 10/20/2023
 
 You have two options to connect data factory to Microsoft Purview:
 
-- [Connect to Microsoft Purview account in Data Factory](#connect-to-microsoft-purview-account-in-data-factory)
-- [Register Data Factory in Microsoft Purview](#register-data-factory-in-microsoft-purview)
+- [Connect to Microsoft Purview account in Data Factory](#connect-to-microsoft-purview-account-in-data-factory) - users can search/browse the Microsoft Purview Data Catalog for data sources that are registered in Microsoft Purview without leaving Data Factory.
+- [Register Data Factory in Microsoft Purview](#register-data-factory-in-microsoft-purview) - allows Microsoft Purview to track data lineage and ingest data sources from Azure Data Factory.
 
 ### Connect to Microsoft Purview account in Data Factory
 
@@ -94,7 +94,7 @@ Once you connect the data factory to a Microsoft Purview account, when you execu
 
 Once you connect the data factory to a Microsoft Purview account, you can use the search bar at the top center of Data Factory authoring UI to search for data and perform actions. Learn more from [Discover and explore data in ADF using Microsoft Purview](how-to-discover-explore-purview-data.md).
 
-## Next steps
+## Related content
 
 [Tutorial: Push Data Factory lineage data to Microsoft Purview](tutorial-push-lineage-to-purview.md)
 

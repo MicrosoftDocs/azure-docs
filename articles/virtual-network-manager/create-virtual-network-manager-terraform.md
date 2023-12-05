@@ -9,13 +9,15 @@ ms.author: mbender
 ms.date: 6/7/2023
 content_well_notification: 
   - AI-contribution
+zone_pivot_groups: azure-virtual-network-manager-quickstart-options
+
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Terraform
 
 Get started with Azure Virtual Network Manager by using Terraform to provision connectivity for all your virtual networks.
 
-In this quickstart, you deploy three virtual networks and use Azure Virtual Network Manager to create a mesh network topology. Then, you verify that the connectivity configuration was applied.
+In this quickstart, you deploy three virtual networks and use Azure Virtual Network Manager to create a mesh network topology. Then, you verify that the connectivity configuration was applied. You can choose from a deployment with a Subscription scope or a management group scope. Learn more about [network manager scopes](concept-network-manager-scope.md).
 
 [!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
@@ -39,7 +41,11 @@ In this article, you learn how to:
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 - To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported
 
+:::zone pivot="sub"
+
 ## Implement the Terraform code
+
+This code sample will implement Azure Virtual Network Manager at the subscription scope.
 
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh/TestRecord.md).
@@ -48,21 +54,55 @@ In this article, you learn how to:
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-1. Create a file named `providers.tf` and insert the following code:
+2. Create a file named `providers.tf` and insert the following code:
 
     [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/providers.tf)]
 
-1. Create a file named `main.tf` and insert the following code:
+3. Create a file named `main.tf` and insert the following code:
 
     [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/main.tf)]
 
-1. Create a file named `variables.tf` and insert the following code:
+4. Create a file named `variables.tf` and insert the following code:
 
     [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/variables.tf)]
 
-1. Create a file named `outputs.tf` and insert the following code:
+5. Create a file named `outputs.tf` and insert the following code:
 
     [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-mesh/outputs.tf)]
+
+:::zone-end
+
+:::zone pivot="mgmt-grp"
+
+
+## Implement the Terraform code
+
+This code sample will implement Azure Virtual Network Manager at the management group scope.
+ 
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-management-group-scope). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/blob/master/quickstart/101-virtual-network-manager-create-management-group-scope/TestRecord.md).
+> 
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+
+1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+
+1. Create a file named `providers.tf` and insert the following code:
+
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group-scope/providers.tf)]
+
+1. Create a file named `main.tf` and insert the following code:
+
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group-scope/main.tf)]
+
+1. Create a file named `variables.tf` and insert the following code:
+
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group-scope/variables.tf)]
+
+1. Create a file named `outputs.tf` and insert the following code:
+
+    [!code-terraform[master](~/terraform_samples/quickstart/101-virtual-network-manager-create-management-group-scope/outputs.tf)]
+
+:::zone-end
 
 ## Initialize Terraform
 
@@ -99,7 +139,28 @@ In this article, you learn how to:
       --resource-group $resource_group_name \
       --vnet-name <virtual_network_name>
     ```
-    
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. Get the Azure resource group name.
+
+    ```console
+    $resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Run [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) to display the resource group.
+
+    ```azurepowershell
+    Get-AzResourceGroup -Name $resource_group_name
+    ```
+
+1. For each virtual network name printed in the previous step, run [Get-AzNetworkManagerEffectiveConnectivityConfiguration](/powershell/module/az.network/get-aznetworkmanagereffectiveconnectivityconfiguration) to print the effective (applied) configurations. Replace the `<virtual_network_name>` placeholder with the vnet name.
+
+```azurepowershell
+    Get-AzNetworkManagerEffectiveConnectivityConfiguration 
+   -VirtualNetworkName <String>
+   -VirtualNetworkResourceGroupName $resource_group_name
+```
 ---
 
 ## Clean up resources

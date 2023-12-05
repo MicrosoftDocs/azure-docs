@@ -6,7 +6,7 @@ ms.reviewer: jordanselig
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 

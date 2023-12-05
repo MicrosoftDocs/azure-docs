@@ -2,7 +2,7 @@
 title: Sentiment Analysis and Opinion Mining language support
 titleSuffix: Azure AI services
 description: This article explains which languages are supported by the Sentiment Analysis and Opinion Mining features of the Language service.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

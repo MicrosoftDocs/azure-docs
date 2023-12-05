@@ -7,7 +7,7 @@
     href: overview.md
   - name: Azure Operator Insights FAQ
     href: operator-insights-faq.yml
-- name: Quickstarts
+- name: Quickstart
   expanded: false
   items:
   - name: Create an Azure Operator Insights Data Product
@@ -34,3 +34,14 @@
     href: dashboards-use.md
   - name: Query data in the Azure Operator Insights Data Product
     href: data-query.md
+  - name: Deploy Ingestion Agents for MCC protobuf EDRs
+    expanded: true
+    items:
+    - name: Create and configure MCC EDR Ingestion Agents
+      href: how-to-install-mcc-edr-agent.md
+    - name: Manage MCC EDR Ingestion Agents
+      href: how-to-manage-mcc-edr-agent.md
+    - name: Monitor and troubleshoot MCC EDR Ingestion Agents
+      href: troubleshoot-mcc-edr-agent.md
+    - name: MCC EDR Ingestion Agent Configuration Reference
+      href: mcc-edr-agent-configuration.md

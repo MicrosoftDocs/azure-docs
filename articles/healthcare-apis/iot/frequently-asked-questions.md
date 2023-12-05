@@ -4,15 +4,13 @@ description: Learn about the MedTech service frequently asked questions.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
+ms.subservice: iomt
 ms.topic: faq
 ms.date: 10/11/2023
 ms.author: jasteppe
 ---
 
 # Frequently asked questions about the MedTech service
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 ## MedTech service: The basics
 
@@ -22,13 +20,13 @@ The MedTech service is available in these Azure regions: [Products available by 
 
 ## Can I use the MedTech service with a different FHIR service other than the Azure Health Data Services FHIR service?
 
-No. The MedTech service currently only supports the Azure Health Data Services FHIR service for the persistence of transformed device data. The open-source version of the MedTech service supports the use of different FHIR services. 
+No. The MedTech service currently only supports the Azure Health Data Services FHIR&reg; service for the persistence of transformed device data. The open-source version of the MedTech service supports the use of different FHIR services. 
 
 To learn about the MedTech service open-source projects, see [Open-source projects](git-projects.md). 
 
 ## What versions of FHIR does the MedTech service support?
 
-The MedTech service supports the [HL7 FHIR&#174; R4](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491) standard.
+The MedTech service supports the [HL7 FHIR R4](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491) standard.
 
 ## Why do I have to provide device and FHIR destination mappings to the MedTech service?
 
@@ -92,21 +90,10 @@ To learn about the MedTech service open-source projects, see [Open-source projec
 
 ## Next steps
 
-In this article, you learned about the MedTech service frequently asked questions (FAQs).
+[What is the MedTech service?](overview.md)
 
-For an overview of the MedTech service, see
+[Understand the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
-> [!div class="nextstepaction"]
-> [What is the MedTech service?](overview.md)
+[Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-To learn about the MedTech service device message data transformation, see
-
-> [!div class="nextstepaction"]
-> [Understand the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
-
-To learn about methods for deploying the MedTech service, see
-
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

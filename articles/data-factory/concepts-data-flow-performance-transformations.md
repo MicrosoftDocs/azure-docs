@@ -56,7 +56,7 @@ If your data isn't evenly partitioned after a transformation, you can use the [o
 > Transformations inside your data flow (with the exception of the Sink transformation) do not modify the file and folder partitioning of data at rest. Partitioning in each transformation repartitions data inside the data frames of the temporary serverless Spark cluster that ADF manages for each of your data flow executions.
 
 
-## Next steps
+## Related content
 
 - [Data flow performance overview](concepts-data-flow-performance.md)
 - [Optimizing sources](concepts-data-flow-performance-sources.md)

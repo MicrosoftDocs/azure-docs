@@ -21,19 +21,19 @@ Select queries from the query interface, which is available from two different l
 
 When you open Log Analytics, the **Queries** dialog automatically appears. If you don't want this dialog to automatically appear, turn off the **Always show Queries** toggle.
 
-![Screenshot that shows the Queries screen.](media/queries/query-start.png)
+:::image type="content" source="media/queries/query-start.png" lightbox="media/queries/query-start.png" alt-text="Screenshot that shows the Queries screen.":::
 
 Each query is represented by a card. You can quickly scan through the queries to find what you need. You can run the query directly from the dialog or choose to load it to the query editor for modification.
 
 You can also access it by selecting **Queries** in the upper-right corner.
-
-[![Screenshot that shows the Queries button.](media/queries/queries-button.png)](media/queries/queries-button.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/queries/queries-button.png" lightbox="media/queries/queries-button.png" alt-text="Screenshot that shows the Queries button." border="false":::
 
 ### Query sidebar
 
 You can access the same functionality of the dialog experience from the **Queries** pane on the left sidebar of Log Analytics. Hover over a query name to get the query description and more functionality.
-
-[![Screenshot that shows the Query sidebar.](media/queries/query-sidebar.png)](media/queries/query-sidebar.png#lightbox)
+<!-- convertborder later -->
+:::image type="content" source="media/queries/query-sidebar.png" lightbox="media/queries/query-sidebar.png" alt-text="Screenshot that shows the Query sidebar." border="false":::
 
 ## Find and filter queries
 
@@ -43,13 +43,13 @@ The options in this section are available in both the dialog and sidebar query e
 
 Change the grouping of the queries by selecting the **group by** dropdown list. The grouping values also act as an active table of contents. Selecting one of the values on the left side of the screen scrolls the **Queries** view directly to the item selected. If your organization created query packs with tags, the custom tags will be included in this list.
 
-[![Screenshot that shows the Example queries screen group by dropdown list.](media/queries/example-query-groupby.png)](media/queries/example-query-groupby.png#lightbox)
+:::image type="content" source="media/queries/example-query-groupby.png" lightbox="media/queries/example-query-groupby.png" alt-text="Screenshot that shows the Example queries screen group by dropdown list.":::
 
 ### [Filter](#tab/filter)
 
 You can also filter the queries according to the **group by** values mentioned earlier. In the **Example queries** dialog, the filters are found at the top.
 
-[![Screenshot that shows an Example queries screen filter.](media/queries/example-query-filter.png)](media/queries/example-query-filter.png#lightbox)
+:::image type="content" source="media/queries/example-query-filter.png" lightbox="media/queries/example-query-filter.png" alt-text="Screenshot that shows an Example queries screen filter.":::
 
 ### [Combine group by and filter](#tab/combinegroupbyandfilter)
 
@@ -79,7 +79,7 @@ The query interface is populated with the following types of queries:
 | Type | Description |
 | :--- | :--- |
 | Example queries | Example queries can provide instant insight into a resource and offer a way to start learning and using Kusto Query Language (KQL). They can help you shorten the time it takes to start using Log Analytics. We've collected and curated more than 500 example queries to provide you with instant value. The number of example queries is continually growing. |
-| Query packs | A [query pack](query-packs.md) holds a collection of log queries. Queries that you save yourself, the [default query pack](query-packs.md#default-query-pack), and query packs that your organization might have created in the subscription are included. |
+| Query packs | A [query pack](query-packs.md) holds a collection of log queries. Queries that you save yourself, the [default query pack](query-packs.md#default-query-pack), and query packs that your organization might have created in the subscription are included. To view and manage query packs, see [View query packs](./query-packs.md#view-query-packs). To add query packs to your Log Analytics workspace. see [Use multiple query packs](./query-packs.md#use-multiple-query-packs). |
 | Legacy queries | Log queries previously saved in the query explorer experience are legacy queries. Also, queries associated with Azure solutions that are installed in the workspace are legacy queries. These queries are listed in the **Queries** dialog under **Legacy queries**. |
 
 >[!TIP]

@@ -25,10 +25,8 @@
     href: create-account-terraform.md
 - name: Concepts
   items:
-  - name: Azure AI services development options
-    href: cognitive-services-development-options.md
-  - name: Azure AI services and Machine learning
-    href: cognitive-services-and-machine-learning.md 
+  - name: Azure AI services and the ecosystem
+    href: ai-services-and-ecosystem.md 
   - name: Custom subdomains for Azure AI services
     href: cognitive-services-custom-subdomains.md
 - name: How-to

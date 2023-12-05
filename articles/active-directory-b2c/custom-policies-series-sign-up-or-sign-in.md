@@ -2,15 +2,15 @@
 title: Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to configure a sign-up and sign-in flow for a local account, using email and password, by using Azure Active Directory B2C custom policy.  
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/03/2023
+ms.date: 11/06/2023
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -303,7 +303,7 @@ When the custom policy runs:
 - **Orchestration Step 4** - This step runs if the user signs up (objectId doesn't exist), so we display the sign-up form by invoking the
 *UserInformationCollector* self-asserted technical profile. 
 
-- **Orchestration Step 5** - This step reads account information from Microsoft Entra ID (we invoke `AAD-UserRead` Microsoft Entra technical profile), so it runs whether a user signs up or signs in.
+- **Orchestration Step 5** - This step reads account information from Microsoft Entra ID (we invoke `AAD-UserRead` Microsoft Entra ID technical profile), so it runs whether a user signs up or signs in.
 
 - **Orchestration Step 6** -  This step invokes the *UserInputMessageClaimGenerator* technical profile to assemble the user’s greeting message.
 

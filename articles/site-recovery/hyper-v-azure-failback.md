@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/29/2022
+ms.date: 12/04/2023
 ms.author: ankitadutta
 ms.custom: engagement-fy23
 

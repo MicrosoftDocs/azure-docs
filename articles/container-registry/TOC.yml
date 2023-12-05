@@ -64,6 +64,16 @@
         href: tutorial-enable-artifact-cache-auth-cli.md
       - name: Troubleshoot 
         href: tutorial-troubleshoot-artifact-cache.md
+    - name: Artifact Streaming
+      items:
+      - name: Artifact Streaming - Overview
+        href: tutorial-artifact-streaming.md
+      - name: Enable Artifact Streaming - Azure portal
+        href: tutorial-artifact-streaming-portal.md
+      - name: Enable Artifact Streaming - Azure CLI
+        href: tutorial-artifact-streaming-cli.md
+      - name: Troubleshoot
+        href: tutorial-artifact-streaming-troubleshoot.md
   - name: Samples
     items:
     - name: Azure Resource Graph queries
@@ -192,8 +202,10 @@
         displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
-      - name: Sign and verify containers with notation (preview)
+      - name: Sign container images with Notation and AKV using a self-signed certificate (Preview)
         href: container-registry-tutorial-sign-build-push.md
+      - name: Sign container images with Notation and AKV using a CA issued certificate (Preview)
+        href: container-registry-tutorial-sign-trusted-ca.md
     - name: Registries and other Azure services
       expanded: false
       items:

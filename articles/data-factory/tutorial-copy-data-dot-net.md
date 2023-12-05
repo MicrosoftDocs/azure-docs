@@ -555,7 +555,7 @@ Checking copy activity run details...
 Press any key to exit...
 ```
 
-## Next steps
+## Related content
 
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to:
 

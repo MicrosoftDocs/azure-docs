@@ -5,12 +5,15 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/25/2023
+ms.date: 11/16/2023
 ---
 
 # Deploy Azure Virtual Desktop
 
-This article shows you how to deploy Azure Virtual Desktop by using the Azure portal, Azure CLI, or Azure PowerShell. You create a host pool, workspace, application group, and session hosts and can optionally enable diagnostics settings. You also assign users or groups to the application group for users to get access to their desktops and applications. You can do all these tasks in the same process when using the Azure portal, but you can also do them separately.
+> [!IMPORTANT]
+> Using Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+This article shows you how to deploy Azure Virtual Desktop on Azure or Azure Stack HCI by using the Azure portal, Azure CLI, or Azure PowerShell. You create a host pool, workspace, application group, and session hosts and can optionally enable diagnostics settings. You also assign users or groups to the application group for users to get access to their desktops and applications. You can do all these tasks in the same process when using the Azure portal, but you can also do them separately.
 
 The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-deploy-windows-11-desktop.md) or use the [getting started feature](getting-started-feature.md).
 
@@ -18,7 +21,7 @@ For more information on the terminology used in this article, see [Azure Virtual
 
 ## Prerequisites
 
-Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required and supported, such as operating systems, virtual networks, and identity providers. It also includes a list of the [supported Azure regions](prerequisites.md#azure-regions) in which you can deploy host pools, workspaces, and application groups. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region, and on-premises when using [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
+Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required and supported, such as operating systems (OS), virtual networks, and identity providers. It also includes a list of the [supported Azure regions](prerequisites.md#azure-regions) in which you can deploy host pools, workspaces, and application groups. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region, and on-premises with [Azure Stack HCI (preview)](azure-stack-hci-overview.md). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
 Select the relevant tab for your scenario for more prerequisites.
 
@@ -31,13 +34,22 @@ In addition, you need:
    | Resource type | RBAC role |
    |--|--|
    | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
-   | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+   | Session hosts (Azure) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+   | Session hosts (Azure Stack HCI) | [Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
 
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
 
    For ongoing management of host pools, workspaces, and application groups, you can use more granular roles for each resource type. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating session hosts using the Azure portal, as [PowerShell DSC](/powershell/dsc/overview) requires it.
+
+- To add session hosts on Azure Stack HCI, you'll also need:
+
+   - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI, version 23H2 deployment overview](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc virtual machine (VM) management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
+   
+   - A stable connection to Azure from your on-premises network.
+
+   - At least one Windows OS image available on the cluster. For more information, see how to [create VM images using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -91,7 +103,7 @@ Here's how to create a host pool using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
 1. Select **Host pools**, then select **Create**.
 
@@ -110,36 +122,68 @@ Here's how to create a host pool using the Azure portal.
    > [!TIP]
    > Once you've completed this tab, you can continue to optionally create session hosts, a workspace, register the default desktop application group from this host pool, and enable diagnostics settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
-1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information:
+1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, complete the following information, depending on if you want to create session hosts on Azure or Azure Stack HCI:
 
-   | Parameter | Value/Description |
-   |--|--|
-   | Add Azure virtual machines | Select **Yes**. This shows several new options. |
-   | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
-   | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-   | Virtual machine location | Select the Azure region where you want to deploy your session host VMs. This must be the same region that your virtual network is in. |
-   | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
-   | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
-   | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.md). |
-   | Virtual machine size | Select a SKU. If you want to use different SKU, select **Change size**, then select from the list. |
-   | Number of VMs | Enter the number of virtual machines you want to deploy. You can deploy up to 400 session host VMs at this point if you wish (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
-   | OS disk type | Select the disk type to use for your session hosts. We recommend only **Premium SSD** is used for production workloads. |
-   | Confidential computing encryption | If you're using a confidential VM, you must select the **Confidential compute encryption** check box to enable OS disk encryption.<br /><br />This check box only appears if you selected **Confidential virtual machines** as your security type. |
-   | Boot Diagnostics | Select whether you want to enable [boot diagnostics](../virtual-machines/boot-diagnostics.md). |
-   | **Network and security** |  |
-   | Virtual network | Select your virtual network. An option to select a subnet appears. |
-   | Subnet | Select a subnet from your virtual network. |
-   | Network security group | Select whether you want to use a network security group (NSG).<br /><br />- **None** doesn't create a new NSG.<br /><br />- **Basic** creates a new NSG for the VM NIC.<br /><br />- **Advanced** enables you to select an existing NSG.<br /><br />We recommend that you don't create an NSG here, but [create an NSG on the subnet instead](../virtual-network/manage-network-security-group.md). |
-   | Public inbound ports | You can select a port to allow from the list. Azure Virtual Desktop doesn't require public inbound ports, so we recommend you select **No**. |
-   | **Domain to join** |  |
-   | Select which directory you would like to join | Select from **Microsoft Entra ID** or **Active Directory** and complete the relevant parameters for the option you select.  |
-   | **Virtual Machine Administrator account** |  |
-   | Username | Enter a name to use as the local administrator account for the new session host VMs. |
-   | Password | Enter a password for the local administrator account. |
-   | Confirm password | Reenter the password. |
-   | **Custom configuration** |  |
-   | ARM template file URL | If you want to use an extra ARM template during deployment you can enter the URL here. |
-   | ARM template parameter file URL | Enter the URL to the parameters file for the ARM template. |
+   1. To add session hosts on Azure:
+
+      | Parameter | Value/Description |
+      |--|--|
+      | Add virtual machines | Select **Yes**. This shows several new options. |
+      | Resource group | This automatically defaults to the same resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
+      | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
+      | Virtual machine type | Select **Azure virtual machine**. |
+      | Virtual machine location | Select the Azure region where you want to deploy your session hosts. This must be the same region that your virtual network is in. |
+      | Availability options | Select from **[availability zones](../reliability/availability-zones-overview.md)**, **[availability set](../virtual-machines/availability-set-overview.md)**, or **No infrastructure dependency required**. If you select availability zones or availability set, complete the extra parameters that appear.  |
+      | Security type | Select from **Standard**, **[Trusted launch virtual machines](../virtual-machines/trusted-launch.md)**, or **[Confidential virtual machines](../confidential-computing/confidential-vm-overview.md)**.<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
+      | Image | Select the OS image you want to use from the list, or select **See all images** to see more, including any images you've created and stored as an [Azure Compute Gallery shared image](../virtual-machines/shared-image-galleries.md) or a [managed image](../virtual-machines/windows/capture-image-resource.md). |
+      | Virtual machine size | Select a SKU. If you want to use different SKU, select **Change size**, then select from the list. |
+      | Hibernate (preview) | Check the box to enable hibernate. Hibernate is only available for personal host pools. You will need to [self-register your subscription](../virtual-machines/hibernate-resume.md) to use the hibernation feature. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). <br /><br />Note: We recommend users using Teams media optimizations to upgrade their host pools to WebRTC redirector service 1.45.2310.13001, learn more [here](whats-new-webrtc.md).|   
+      | Number of VMs | Enter the number of virtual machines you want to deploy. You can deploy up to 400 session hosts at this point if you wish (depending on your [subscription quota](../quotas/view-quotas.md)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
+      | OS disk type | Select the disk type to use for your session hosts. We recommend only **Premium SSD** is used for production workloads. |
+      | OS disk size | If you have hibernate enabled, the OS disk size needs to be larger than the amount of memory for the VM. Check the box if you need this for your session hosts. |
+      | Confidential computing encryption | If you're using a confidential VM, you must select the **Confidential compute encryption** check box to enable OS disk encryption.<br /><br />This check box only appears if you selected **Confidential virtual machines** as your security type. |
+      | Boot Diagnostics | Select whether you want to enable [boot diagnostics](../virtual-machines/boot-diagnostics.md). |
+      | **Network and security** |  |
+      | Virtual network | Select your virtual network. An option to select a subnet appears. |
+      | Subnet | Select a subnet from your virtual network. |
+      | Network security group | Select whether you want to use a network security group (NSG).<br /><br />- **None** doesn't create a new NSG.<br /><br />- **Basic** creates a new NSG for the VM NIC.<br /><br />- **Advanced** enables you to select an existing NSG.<br /><br />We recommend that you don't create an NSG here, but [create an NSG on the subnet instead](../virtual-network/manage-network-security-group.md). |
+      | Public inbound ports | You can select a port to allow from the list. Azure Virtual Desktop doesn't require public inbound ports, so we recommend you select **No**. |
+      | **Domain to join** |  |
+      | Select which directory you would like to join | Select from **Microsoft Entra ID** or **Active Directory** and complete the relevant parameters for the option you select.  |
+      | **Virtual Machine Administrator account** |  |
+      | Username | Enter a name to use as the local administrator account for the new session hosts. |
+      | Password | Enter a password for the local administrator account. |
+      | Confirm password | Reenter the password. |
+      | **Custom configuration** |  |
+      | Custom configuration script URL | If you want to run a PowerShell script during deployment you can enter the URL here. |
+
+   1. To add session hosts on Azure Stack HCI:
+
+      | Parameter | Value/Description |
+      |--|--|
+      | Add virtual machines | Select **Yes**. This shows several new options. |
+      | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative. |
+      | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session hosts. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
+      | Virtual machine type | Select **Azure Stack HCI virtual machine (Preview)**. |
+      | Custom location | Select the Azure Stack HCI cluster where you want to deploy your session hosts from the drop-down list. |
+      | Images | Select the OS image you want to use from the list, or select **Manage VM images** to manage the images available on the cluster you selected. |
+      | Number of VMs | Enter the number of virtual machines you want to deploy. You can add more later. |
+      | Virtual processor count | Enter the number of virtual processors you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | Memory type | Select **Static** for a fixed memory allocation, or **Dynamic** for a dynamic memory allocation. |
+      | Memory (GB) | Enter a number for the amount of memory in GB you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | Maximum memory | If you selected dynamic memory allocation, enter a number for the maximum amount of memory in GB you want your session host to be able to use. |
+      | Minimum memory | If you selected dynamic memory allocation, enter a number for the minimum amount of memory in GB you want your session host to be able to use. |
+      | **Network and security** |  |
+      | Network dropdown | Select an existing network to connect each session to. |
+      | **Domain to join** |  |
+      | Select which directory you would like to join | **Active Directory** is the only available option. |
+      | AD domain join UPN | Enter the User Principal Name (UPN) of an Active Directory user that has permission to join the session hosts to your domain. |
+      | Password | Enter the password for the Active Directory user. |
+      | Specify domain or unit | Select yes if you want to join session hosts to a specific domain or be placed in a specific organization unit (OU). If you select no, the suffix of the UPN will be used as the domain. |
+      | **Virtual Machine Administrator account** |  |
+      | Username | Enter a name to use as the local administrator account for the new session hosts. |
+      | Password | Enter a password for the local administrator account. |
+      | Confirm password | Reenter the password. |
 
    Once you've completed this tab, select **Next: Workspace**.
 

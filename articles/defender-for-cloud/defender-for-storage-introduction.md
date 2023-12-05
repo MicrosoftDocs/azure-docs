@@ -38,8 +38,8 @@ With a simple agentless setup at scale, you can [enable Defender for Storage](tu
 |----|:----|
 |Release state:|General Availability (GA)|
 |Feature availability:|- Activity monitoring (security alerts) – General Availability (GA)<br>- Malware Scanning – General Availability (GA)<br>- Sensitive data threat detection (Sensitive Data Discovery) – Preview|
-|Pricing:|- Defender for Storage: $10/storage accounts/month\*<br>- Malware Scanning (add-on): $0.15/GB (USD) of data ingested\*\* <br><br>Above pricing applies to commercial clouds. Visit the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn more.<br><br>\* Storage accounts that exceed 73 million monthly transactions will be charged $0.1492 for every 1 million transactions that exceed the threshold.<br>\*\* Billing begins on September 3, 2023. To limit expenses, use the `Monthly capping` feature to set a cap on the amount of GB scanned per month, per storage account to help you control your costs. |
-| Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
+|Pricing:|**Microsoft Defender for Storage** pricing applies to commercial clouds. Learn more about [pricing and availability per region.](https://azure.microsoft.com/pricing/details/defender-for-cloud/)<br>|
+|<br><br> Supported storage types:|[Blob Storage](https://azure.microsoft.com/products/storage/blobs/) (Standard/Premium StorageV2, including Data Lake Gen2): Activity monitoring, Malware Scanning, Sensitive Data Discovery<br>Azure Files (over REST API and SMB): Activity monitoring |
 |Required roles and permissions:|For Malware Scanning and sensitive data threat detection at subscription and storage account levels, you need Owner roles (subscription owner/storage account owner) or specific roles with corresponding data actions. To enable Activity Monitoring, you need 'Security Admin' permissions. Read more about the required permissions.|
 |Clouds:|:::image type="icon" source="../defender-for-cloud/media/icons/yes-icon.png"::: Commercial clouds\*<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Azure Government (only activity monitoring support on the [classic plan](/azure/defender-for-cloud/defender-for-storage-classic))<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="../defender-for-cloud/media/icons/no-icon.png"::: Connected AWS accounts|
 
@@ -125,6 +125,7 @@ In this article, you learned about Microsoft Defender for Storage.
 
 - [Enable Defender for Storage](tutorial-enable-storage-plan.md)
 - Check out [common questions](faq-defender-for-storage.yml) about Defender for Storage.
+
 
 
 

@@ -94,7 +94,7 @@ Find more open-source Azure Maps projects.
 > [!div class="nextstepaction"]
 > [Code samples]
 
-[Azure Maps & Azure Active Directory Samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
+[Azure Maps & Microsoft Entra ID Samples]: https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples
 [Azure Maps .NET UWP IoT Remote Control]: https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control
 [Azure Maps Animation module]: https://github.com/Azure-Samples/azure-maps-animations
 [Azure Maps Bring Data Into View Control module]: https://github.com/Azure-Samples/azure-maps-bring-data-into-view-control

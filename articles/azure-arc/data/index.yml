@@ -47,7 +47,7 @@ landingContent:
             url: create-complete-managed-instance-indirectly-connected.md
   # Card (optional)
   # Card (optional)
-  - title: Azure Arc-enabled SQL Managed Instance
+  - title: SQL Managed Instance enabled by Azure Arc
     linkLists:
       - linkListType: quickstart
         links:
@@ -65,7 +65,7 @@ landingContent:
      - linkListType: sample
        links:
           - text: Jumpstart
-            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/
+            url: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data
  # Card
   - title: Azure Arc-enabled PostgreSQL (preview)
     linkLists:
