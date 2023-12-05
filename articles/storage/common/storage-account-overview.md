@@ -122,6 +122,22 @@ The Azure DNS zone endpoints preview is available in all public regions. The pre
 
 To register for the preview, follow the instructions provided in [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md#register-preview-feature). Specify `PartitionedDnsPublicPreview` as the feature name and `Microsoft.Storage` as the provider namespace.
 
+### CNAME records and storage account endpoints
+
+Each storage account endpoint maps to a chain of DNS _CNAME_ records which eventually point to a DNS _A record_. The number of records and the subdomains that are associated with each record can vary between storage account types and can depend on how the storage account is configured.  
+
+The name of a storage account endpoint (for example: `https://<storage-account>.blob.core.windows.net`) is stable and doesn't change. However, the CNAME records in a given chain do change and you want be notified when this happens. If you are hosting a private DNS service in Azure, your configuration might be impacted by these changes. You should avoid taking a dependency on the IP addresses that are resolved by the storage account's fully qualified domain name, or any CNAME records in the chain or their subdomains. These records are subject to change without notice. 
+
+Consider these guidelines:
+
+- The CNAME chain associated with a storage account endpoint can change without notice. Applications or customer environments should not take a dependency on the number of of CNAME records or the sub-domains that are associated with those CNAME records.
+
+- The A record's IP address that is returned by the DNS resolution of a storage account endpoint can change frequently.
+
+- The applications and operating systems should always honor the time-to-live (TTL) associated with the CNAME record. Caching the the value of the CNAME record beyond the TTL could lead to suboptimal behavior.
+
+If your environment is configured with a private DNS service, then make sure to review any rules that prevent access to storage account based on CNAME records and subdomain names and apply these guidelines to ensure friction free access to storage account endpoints. 
+
 ## Migrate a storage account
 
 The following table summarizes and points to guidance on how to move, upgrade, or migrate a storage account:
