@@ -72,11 +72,11 @@ Use the function trigger to handle requests from Azure Web PubSub service.
 ```cs
 [FunctionName("WebPubSubTrigger")]
 public static void Run(
-    [WebPubSubTrigger("<hub>", WebPubSubEventType.User, "message")] UserEventRequest request)
+    [WebPubSubTrigger("<hub>", WebPubSubEventType.User, "message")] UserEventRequest request, ILogger log)
 {
-    Console.WriteLine($"Request from: {request.ConnectionContext.UserId}");
-    Console.WriteLine($"Request message data: {request.Data}");
-    Console.WriteLine($"Request message dataType: {request.DataType}");
+    log.LogInformation($"Request from: {request.ConnectionContext.UserId}");
+    log.LogInformation($"Request message data: {request.Data}");
+    log.LogInformation($"Request message dataType: {request.DataType}");
 }
 ```
 
@@ -115,9 +115,9 @@ Define function in `index.js`.
 
 ```js
 module.exports = function (context, data) {
-  console.log('Request from: ', context.bindingData.request.connectionContext.userId);
-  console.log('Request message data: ', data);
-  console.log('Request message dataType: ', context.bindingData.request.dataType);
+  context.log('Request from: ', context.bindingData.request.connectionContext.userId);
+  context.log('Request message data: ', data);
+  context.log('Request message dataType: ', context.bindingData.request.dataType);
 }
 ```
 
@@ -223,7 +223,6 @@ public static WebPubSubConnection Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req,
     [WebPubSubConnection(Hub = "<hub>", UserId = "{query.userid}")] WebPubSubConnection connection)
 {
-    Console.WriteLine("login");
     return connection;
 }
 ```
@@ -283,7 +282,6 @@ public static WebPubSubConnection Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req,
     [WebPubSubConnection(Hub = "<hub>", UserId = "{headers.x-ms-client-principal-name}")] WebPubSubConnection connection)
 {
-    Console.WriteLine("login");
     return connection;
 }
 ```
@@ -348,7 +346,7 @@ Define function in `index.js`.
 ```js
 module.exports = async function (context, req, wpsContext) {
   // in the case request is a preflight or invalid, directly return prebuild response by extension.
-  if (!wpsContext.hasError || wpsContext.isPreflight)
+  if (wpsContext.hasError || wpsContext.isPreflight)
   {
     return wpsContext.response;
   }
