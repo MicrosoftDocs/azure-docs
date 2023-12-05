@@ -209,7 +209,7 @@ sections:
       - question: |
           How do the rate limits for GPT-4 Turbo with Vision work?
         answer: |
-          We process images at the token level, so each image we process counts towards your tokens per minute (TPM) limit. See the [calculating costs](tbd quotas?) section for details on the formula used to determine token count per image.
+          We process images at the token level, so each image we process counts towards your tokens per minute (TPM) limit. See the [Image tokens section](./overview.md#tokens) of the Overview for details on the formula used to determine token count per image.
       - question: |
           Can GPT-4 Turbo with Vision understand image metadata?
         answer: |
