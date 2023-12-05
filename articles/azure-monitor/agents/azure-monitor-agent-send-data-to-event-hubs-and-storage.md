@@ -522,7 +522,7 @@ Create a data collection rule for collecting events and sending to storage and e
 
 1. Select **Save**.
 
-## Create DCR association and deploy AzureMonitorAgent
+## Create DCR association and deploy Azure Monitor Agent
 
 Use custom template deployment to create the DCR association and AMA deployment.
 
