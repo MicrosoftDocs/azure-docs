@@ -4,7 +4,7 @@ description: Learn how to query data from Azure Data Lake Storage Gen1 and to st
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-azurepowershell
-ms.date: 11/17/2022
+ms.date: 12/05/2023
 ---
 
 # Use Data Lake Storage Gen1 with Azure HDInsight clusters
