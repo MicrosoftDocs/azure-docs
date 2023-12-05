@@ -9,9 +9,9 @@ ms.topic: conceptual
 
 Billing for Extended Security Updates (ESUs) is impacted by three factors:
 
-1. The number of cores you've provisioned
-1. The edition of the license (Standard vs. Datacenter)
-1. The application of any eligible discounts
+- The number of cores you've provisioned
+- The edition of the license (Standard vs. Datacenter)
+- The application of any eligible discounts
 
 Billing is monthly. Decrementing, deactivating, or deleting a license will result in charges for up to five more calendar days from the time of decrement, deactivation, or deletion. Reduction in billing isn't immediate. This is an Azure-billed service and can be used to decrement a customer's Microsoft Azure Consumption Commitment (MACC) and be eligible for Azure Consumption Discount (ACD).
 
