@@ -46,7 +46,7 @@ Refer to [Understand guidelines for Active Directory Domain Services site design
 
 5.	Configure the NTP client.  
 
-    RHEL 8 uses chrony by default. Following the configuration guidelines in [Using the `Chrony` suite to configure NTP](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/6c230de2-39f1-455a-902d-737eea31ad34).
+    RHEL 8 uses chrony by default.
 
 6.	Join the Active Directory domain:  
 
