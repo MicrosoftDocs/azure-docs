@@ -16,13 +16,9 @@ ms.custom: references_regions, build-2023, build-2023-dataai
 
 # What is Azure AI Content Safety? 
 
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
-
 Azure AI Content Safety detects harmful user-generated and AI-generated content in applications and services. Azure AI Content Safety includes text and image APIs that allow you to detect material that is harmful. We also have an interactive Content Safety Studio that allows you to view, explore and try out sample code for detecting harmful content across different modalities.  
 
 Content filtering software can help your app comply with regulations or maintain the intended environment for your users.
-
-
 
 This documentation contains the following article types:  
 
