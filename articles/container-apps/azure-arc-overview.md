@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 08/22/2023
+ms.date: 12/05/2023
 ms.author: cshoe
 ---
 
@@ -171,6 +171,18 @@ ARM64 based clusters aren't supported at this time.
  - Add volume mount support for Azure Container App jobs
  - Added IP Restrictions for applications with TCP Ingress type
  - Added support for Container Apps with multiple exposed ports
+
+### Container Apps extension v1.23.5 (December 2023)
+
+ - Update Envoy to 1.27.2
+ - Update Keda to v2.10.0
+ - Update EasyAuth to 1.6.20
+ - Update Dapr to 1.11
+ - Set Envoy to max TLS 1.3
+ - Fix to resolve crashes in Log Processor pods
+ - Fix to image pull secret retrieval issues
+ - Update placemet of Envoy to distribute across available nodes where possible
+ - When container apps fail to provision as a result of revision conflicts, set the provisioning state to failed
  
 ## Next steps
 
