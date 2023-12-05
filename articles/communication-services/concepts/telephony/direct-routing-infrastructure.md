@@ -5,7 +5,7 @@ author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
 ms.author: bobazile
-ms.date: 06/22/2023
+ms.date: 12/05/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
