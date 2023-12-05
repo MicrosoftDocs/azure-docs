@@ -280,7 +280,7 @@ sections:
       - question: | 
           How can I update my index?
         answer:
-          You can [schedule an automatic index refresh](concepts/use-your-data.md#schedule-automatic-index-refreshes-azure-ai-search-only), or upload additional data to your Azure Blob Container and use it as your data source when you create a new index. The new index will include all of the data in your container.
+          You can [schedule an automatic index refresh](concepts/use-your-data.md#schedule-automatic-index-refreshes), or upload additional data to your Azure Blob Container and use it as your data source when you create a new index. The new index will include all of the data in your container.
       - question: | 
           What file types does Azure OpenAI on your data support?
         answer:
