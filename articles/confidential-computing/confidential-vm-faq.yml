@@ -93,7 +93,7 @@ sections:
           Azure confidential VMs on Intel TDX have the option of including attestation as part of their boot phase. This process is opaque to the user and takes place in the cloud operating system in conjunction with the Microsoft Azure Attestation and Azure Key Vault services.
           Support for in-guest [attestation](guest-attestation-confidential-vms.md) will be available via the vTPM. You can use this to validate the entire stack from the hardware platform to the guest application layer. The functionality exists on AMD SEV-SNP today and will soon be released for Intel TDX. Today, only in-guest platform attestation is available for Intel TDX. This allows you to verify that your VM is running on Intel TDX hardware. To access this preview feature, visit our [preview branch](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/tdx-preview).
           Additionally, we support Intel® Trust Authority](https://www.intel.com/content/www/us/en/security/trust-authority.html) for enterprises seeking operator independent attestation.
-          
+
       - question: |
           Do all OS images work with confidential VMs?
         answer: |
@@ -129,6 +129,13 @@ sections:
           Can I convert a non-confidential VM into a confidential VM?
         answer: |
           No. For security reasons, you must create a confidential VM as such from the start.
+
+      - question: |
+          Can I convert a DCasv5/ECasv5 CVM into a DCesv5/ECesv5 CVM or a DCesv5/ECesv5 CVM into a DCasv5/ECasv5 CVM?
+        answer: |
+          Yes, converting from one confidential VM to another confidential VM is allowed on both DCasv5/ECasv5 and DCesv5/ECesv5 in the regions that they share.
+          If you are using a Windows image, please make sure you have all the most recent updates.
+          If you are using a Ubuntu Linux image, please make sure you are using the Ubuntu 22.04 LTS confidential image with the minimum kernel version `6.2.0-1011-azure`.
 
       - question: |
           Why can't I find DCasv5/ECasv5 or DCesv5/ECesv5 VMs in the Azure portal size selector?
@@ -177,6 +184,7 @@ sections:
           For more information on storage fees, see the [pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
           Lastly, for some high security and privacy settings, you might choose to create linked resources, such as a [Managed HSM Pool](../key-vault/managed-hsm/overview.md). 
           Azure bills such resources separately from the confidential VM costs.
+
       - question: |
           What can I do if the time on my DCesv5/ECesv5-series VM differs from UTC?
         answer: |
@@ -184,13 +192,44 @@ sections:
 
             ``` Windows
             sc config vmictimesync start=disabled
+            sc stop vmictimesync
             ```
-
+          For Ubuntu Linux images please run the following script:
+          
             ``` Ubuntu Linux
-            sudo apt-get install systemd
-            timedatectl
-            sudo timedatectl set-ntp on
-            timedatectl 
+            #!/bin/bash
+
+            # Backup the original chrony.conf file
+            cp /etc/chrony/chrony.conf /etc/chrony/chrony.conf.bak
+
+            # check chronyd.service status
+            status=$(systemctl is-active chronyd.service)
+
+            # check chronyd.service status is "active" or not
+            if [ "$status" == "active" ]; then
+              echo "chronyd.service is active."
+            else
+              echo "chronyd.service is not active. Exiting script."
+              exit 1
+            fi
+
+            # Comment out the line with 'refclock PHC /dev/ptp_hyperv'
+            sed -i '/refclock PHC \/dev\/ptp_hyperv/ s/^/#/' /etc/chrony/chrony.conf
+
+            # Uncomment the lines with 'pool ntp.ubuntu.com' and other pool entries
+            sed -i '/#pool ntp.ubuntu.com/ s/^#//' /etc/chrony/chrony.conf
+            sed -i '/#pool 0.ubuntu.pool.ntp.org/ s/^#//' /etc/chrony/chrony.conf
+            sed -i '/#pool 1.ubuntu.pool.ntp.org/ s/^#//' /etc/chrony/chrony.conf
+            sed -i '/#pool 2.ubuntu.pool.ntp.org/ s/^#//' /etc/chrony/chrony.conf
+
+            echo "Changes applied to /etc/chrony/chrony.conf. Backup created at /etc/chrony/chrony.conf.bak."
+
+            echo "Restart chronyd service"
+            systemctl restart chronyd.service
+
+
+            echo "Check chronyd status"
+            systemctl status chronyd.service
             ```
 
           

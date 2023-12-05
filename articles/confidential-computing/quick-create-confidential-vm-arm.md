@@ -83,7 +83,7 @@ When you create a confidential VM through the Azure Command-Line Interface (Azur
 
 1. Edit the JSON code in the parameter file as needed. For example,  update the OS image name (`osImageName`) or the administrator username (`adminUsername`). 
 
-1. Configure your security type setting (`securityType`). Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. For Intel TDX SKUs and Linux-based images only, customers may choose the `NonPersistedTPM` security type to deploy with an ephemeral vTPM.
+1. Configure your security type setting (`securityType`). Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. For Intel TDX SKUs and Linux-based images only, customers may choose the `NonPersistedTPM` security type to deploy with an ephemeral vTPM. For the `NonPersistedTPM` security type use the minimum "apiVersion": "2023-09-01" in the template file.
 
 1. Save your parameter file.
 

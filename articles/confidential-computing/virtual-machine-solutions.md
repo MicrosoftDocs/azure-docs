@@ -90,8 +90,8 @@ OS images for confidential VMs have to meet certain security and compatibility r
 
 - Ubuntu 20.04 LTS (AMD SEV-SNP supported only)
 - Ubuntu 22.04 LTS
-- Windows Server 2019 Datacenter - x64 Gen 2
-- Windows Server 2019 Datacenter Server Core - x64 Gen 2
+- Windows Server 2019 Datacenter - x64 Gen 2 (AMD SEV-SNP supported only)
+- Windows Server 2019 Datacenter Server Core - x64 Gen 2 (AMD SEV-SNP supported only)
 - Windows Server 2022 Datacenter - x64 Gen 2
 - Windows Server 2022 Datacenter: Azure Edition Core - x64 Gen 2
 - Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2
