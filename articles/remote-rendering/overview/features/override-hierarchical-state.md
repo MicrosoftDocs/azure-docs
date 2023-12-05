@@ -60,7 +60,7 @@ The fixed set of states that can be overridden are:
 
 * **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
 
-* **`TransparencyWritesDepth`**: Can be used to activate depth writing for material and **`See-through`** transparencies in the component's entity's scene-tree. 
+* **`TransparencyWritesDepth`**: Activates depth writing for **`See-through`** and material transparencies in the component's entity's scene-tree. For material transparency: materials which have the `TransparencyWritesDepth` flag already set or if `TransparencyWritesDepth` is globally forced, this override has no effect.
 
 * **`UseCutPlaneFilterMask`**: Use an individual filter bit mask to control the cut plane selection. This flag determines whether the individual filter mask should be used or inherited from its parent. The filter bit mask itself is set via the `CutPlaneFilterMask` property. For detailed information about how the filtering works, refer to the [Selective cut planes paragraph](cut-planes.md#selective-cut-planes). See the following example where only the tire and rim is cut while the rest of the scene remains unaffected.
 ![Selective cut planes](./media/selective-cut-planes-hierarchical-override.png)
