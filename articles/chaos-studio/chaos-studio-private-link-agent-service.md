@@ -185,12 +185,42 @@ Save and close the file.
 
 ## Step 6: Update the communication endpoint in agentSettings and agentInstanceConfig JSON files
 
+In this step you will need to continue to edit files on the host VM machine. You will be updating the "agentSettings.json" and "agentInstanceConfig.json" files to include the communication endpoint based on the region in which the VM targets were created in the previous steps. 
+
+### Updating the agentSettings.json
+
+> [!NOTE]
+> **Path of agentSettings.json file on Windows:** C:\Packages\Plugins\Microsoft.Azure.Chaos.ChaosWindowsAgent-<version>\win-x64\agentSettings.json
+> **Path of agentSettings.json file on Linux:** /var/lib/waagent/Microsoft.Azure.Chaos.ChaosLinuxAgent-<version>\linux-x64
+
+<br/>
+
+**Communication endpoint format:** https://acs-frontdoor-prod-<azureRegion>.chaosagent.trafficmanager.net
+
+<br/>
+
+Example of updated agentSettings.json: 
+
+[![Screenshot of agentSettings JSON](images/agentSettingsJSON.png)](images/agentSettingsJSON.png#lightbox)
 
 
+### Updating the agentInstanceConfig.json
 
+> [!NOTE]
+> **Path of agentInstanceConfig.json file on Windows:** C:\Windows\System32\config\systemprofile\.azure-chaos-	agent\data
+> **Path of agentInstanceConfig.json file on Linux:** /.azure-chaos-agent/data/agentInstanceConfig.json
 
+<br/>
 
+**Communication endpoint format:** https://acs-frontdoor-prod-<azureRegion>.chaosagent.trafficmanager.net
 
+<br/>
+
+Example of updated agentInstanceConfig.json: 
+
+[![Screenshot of agentInstanceConfig JSON](images/agentInstanceConfigJSON.png)](images/agentInstanceConfigJSON.png#lightbox)
+
+## Step 7: 
 
 
 
