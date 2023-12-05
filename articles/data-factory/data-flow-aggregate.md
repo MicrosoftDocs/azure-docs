@@ -109,6 +109,6 @@ MoviesYear aggregate(groupBy(year),
 	avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
 ```
 
-## Next steps
+## Related content
 
 * Define window-based aggregation using the [Window transformation](data-flow-window.md)

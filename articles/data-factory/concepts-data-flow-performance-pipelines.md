@@ -44,7 +44,7 @@ On the pipeline, execute data flow activity under the "Sink Properties" section 
 
 You can use an [Azure Synapse database template](../synapse-analytics/database-designer/overview-database-templates.md) when crating a pipeline. When creating a new dataflow, in the source or sink settings, select **Workspace DB**. The database dropdown lists the databases created through the database template. The Workspace DB option is only available for new data flows, it's not available when you use an existing pipeline from the Synapse studio gallery.
 
-## Next steps
+## Related content
 
 - [Data flow performance overview](concepts-data-flow-performance.md)
 - [Optimizing sources](concepts-data-flow-performance-sources.md)

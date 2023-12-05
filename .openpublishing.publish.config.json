@@ -189,6 +189,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "new_powershell_scripts",
+      "url": "https://github.com/Azure-Samples/azure-docs-powershell-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "policy-templates",
       "url": "https://github.com/Azure/azure-policy",
       "branch": "master",

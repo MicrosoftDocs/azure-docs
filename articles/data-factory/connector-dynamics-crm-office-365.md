@@ -620,6 +620,6 @@ IncomingStream sink(allowSchemaDrift: true,
 
 To learn details about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of supported data stores the copy activity as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
