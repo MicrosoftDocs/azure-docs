@@ -34,7 +34,7 @@ az networkcloud baremetalmachine list -g <resource-group> --sub <subscription> -
 ``` 
 ### Sample Output:
 
-| Name           | ReadyState | DetailedStatus  | DetailedStatusMessage                    | PowerState |  MachineRoles | |
+| Name           | ReadyState | DetailedStatus  | DetailedStatusMessage                    | PowerState |  MachineRoles | Notes |
 | -------------- | ---------- | --------------  | --------------------------------------- | -----------  |------------------------------------------------ | -------------------------- |
 | x01dev01c1mg01  | True  | Provisioned | The OS is provisioned to the machine | On | platform.afo-nc.microsoft.com/control-plane=true | Control plane node
 | x01dev01c2mg02* | False | Available | Available to participate in the cluster | Off | platform.afo-nc.microsoft.com/control-plane=true | Spare control plane node |
