@@ -220,7 +220,19 @@ Example of updated agentInstanceConfig.json:
 
 [![Screenshot of agentInstanceConfig JSON](images/agentInstanceConfigJSON.png)](images/agentInstanceConfigJSON.png#lightbox)
 
-## Step 7: 
+## Step 6.5: Disable CRL verification in agentSettings.JSON
 
+**IF** you have blocked outbound access to Microsoft Certificate Revocation List (CRL) verification endpoints, then you will need to update agentSettings.JSON to disable CRL verification check in the agent.
 
+```
+"communicationApi": {
+     "checkCertRevocation": false
+  }
+```
+
+The final agentSettings.JSON should appear as shown:
+
+[![Screenshot of agentSettings JSON with disabled CRL verification](images/agentSettingsCRL.png)](images/agentSettingsCRL.png#lightbox)
+
+If you have not blocked outbound access to Microsoft CRL verification endpoints, you can ignore this step. 
 
