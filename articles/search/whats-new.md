@@ -114,11 +114,9 @@ ms.custom:
 
 This service has had multiple names over the years. Here they are in reverse chronological order:
 
-| Service Name | Date | What's in a name? |
-|--------------|------|-------------------|
-| **Azure AI Search** | November 2023 | Renamed to align with Azure AI services ane dustomer expectations. |
-| **Azure Cognitive Search** | October 2019 | Renamed to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations. |
-| **Azure Search** | March 2015 | The original name. |
++ **Azure AI Search** (November 2023) Renamed to align with Azure AI services and customer expectations.
++ **Azure Cognitive Search** (October 2019) Renamed to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations.
++ **Azure Search** (March 2015) The original name.
 
 ## Service updates
 
