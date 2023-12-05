@@ -162,7 +162,7 @@ az grafana data-source create --name <azure-managed-grafana-workspace> --definit
       "authType": "clientsecret",
       "azureCloud": "AzureCloud",
       "tenantId": "<tenant-id>",
-      "clientId": "<-client-id>"
+      "clientId": "<client-id>"
     }
   },
   "secureJsonData": { "azureClientSecret": "verySecret" }
