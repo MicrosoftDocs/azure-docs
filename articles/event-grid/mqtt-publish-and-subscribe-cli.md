@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Publish and subscribe on an MQTT topic using CLI'
+title: 'Quickstart: Publish and subscribe on an MQTT topic by using the CLI'
 description: Quickstart guide to use the Azure Event Grid MQTT broker feature and the Azure CLI to publish and subscribe to MQTT messages on a topic.
 ms.topic: quickstart
 ms.custom:
@@ -31,7 +31,7 @@ If you don't have an [Azure subscription](/azure/guides/developer/azure-develope
 - Make sure that port 8883 is open in your firewall. The sample in this tutorial uses the MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.
 - Use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running the Azure CLI in a Docker container. For more information, see [Run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
-- If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+- If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps that appear in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - This article requires version 2.53.1 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
@@ -70,8 +70,7 @@ Use the command to create a namespace. Update the command with your resource gro
 az eventgrid namespace create -g {Resource Group} -n {Namespace Name} --topic-spaces-configuration "{state:Enabled}"
 ```
 
-> [!NOTE]
-> To keep the quickstart simple, you'll create a namespace with minimal properties. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see [Create and manage namespaces](create-view-manage-namespaces.md).
+To keep the quickstart simple, you create a namespace with minimal properties. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see [Create and manage namespaces](create-view-manage-namespaces.md).
 
 ## Create clients
 
@@ -80,10 +79,8 @@ Use the command to create the client. Update the command with your resource grou
 ```azurecli-interactive
 az eventgrid namespace client create -g {Resource Group} --namespace-name {Namespace Name} -n {Client Name} --authentication-name client1-authnID --client-certificate-authentication "{validationScheme:ThumbprintMatch,allowed-thumbprints:[Client Thumbprint]}"
 ```
-
-> [!NOTE]
->  - To keep the quickstart simple, you use thumbprint match for authentication. For steps on how to use the X.509 CA certificate chain for client authentication, see [Client authentication using certificate chain](./mqtt-certificate-chain-client-authentication.md).
-> - For this exercise, we use the default `$all client` group, which includes all the clients in the namespace. To learn more about creating custom client groups by using client attributes, see the [Client groups](mqtt-client-groups.md) document.
+- To keep the quickstart simple, you use thumbprint match for authentication. For steps on how to use the X.509 CA certificate chain for client authentication, see [Client authentication using certificate chain](./mqtt-certificate-chain-client-authentication.md).
+- For this exercise, we use the default `$all client` group, which includes all the clients in the namespace. To learn more about creating custom client groups by using client attributes, see [Client groups](mqtt-client-groups.md).
 
 ## Create topic spaces
 
@@ -168,4 +165,4 @@ You can replicate and modify the same code for multiple clients to publish and s
 ## Next steps
 
 - [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-cli.md).
-- For code samples, go to [this GitHub repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main).
+- For code samples, go to [this GitHub repository](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main).

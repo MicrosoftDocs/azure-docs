@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Route MQTT messages to Event Hubs using the portal'
+title: 'Tutorial: Route MQTT messages to Event Hubs by using the portal'
 description: 'Tutorial: Use Azure Event Grid to route MQTT messages to Azure Event Hubs.'
 ms.topic: tutorial
 ms.custom:
@@ -29,11 +29,11 @@ If you don't have an [Azure subscription](/azure/guides/developer/azure-develope
 - Make sure that port 8883 is open in your firewall. The sample in this tutorial uses the MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.
 - You need an Event Grid namespace in your Azure subscription. If you don't have a namespace yet, you can follow the steps in [Publish and subscribe on a MQTT topic](./mqtt-publish-and-subscribe-portal.md).
 - This tutorial uses event hubs, Event Grid custom topics, and event subscriptions. You can find more information here:
-   - Create an Event Grid topic: See [Create a custom topic using the portal](/azure/event-grid/custom-event-quickstart-portal). When you create the Event Grid topic, on the **Advanced** tab, for **Event Schema** select **Cloud Event Schema v1.0**.
+   - Create an Event Grid topic. See [Create a custom topic using the portal](/azure/event-grid/custom-event-quickstart-portal). When you create the Event Grid topic, on the **Advanced** tab, for **Event Schema**, select **Cloud Event Schema v1.0**.
 
    :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/create-event-grid-topic-advanced-tab.png" alt-text="Screenshot that shows the Advanced tab on the Event Grid Create Topic page.":::
 
-   - Create an event hub: See [Quickstart: Create an event hub using the Azure portal](/azure/event-hubs/event-hubs-create).
+   - Create an event hub. See [Quickstart: Create an event hub using the Azure portal](/azure/event-hubs/event-hubs-create).
 
 - View the Event Hubs data by using Stream Analytics. For more information, see [Process data from Azure Event Hubs using Stream Analytics](/azure/event-hubs/process-data-azure-stream-analytics).
 
@@ -91,4 +91,4 @@ The Event Grid topic used for routing must fulfill the following requirements:
 
 ## Next steps
 
-For code samples, go to [this GitHub repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main).
+For code samples, go to [this GitHub repository](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main).
