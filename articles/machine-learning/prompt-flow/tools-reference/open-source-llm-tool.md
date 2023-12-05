@@ -13,25 +13,25 @@ ms.reviewer: lagayhar
 ms.date: 11/02/2023
 ---
 
-# Open Source LLM
+# Open Source LLM tool
 
 The prompt flow Open Source LLM tool enables you to utilize various open-source and foundational models, such as [Falcon](https://aka.ms/AAlc25c) or [Llama 2](https://aka.ms/AAlc258), for natural language processing in prompt flow.
 
 Here's how it looks in action on the Visual Studio Code prompt flow extension. In this example, the tool is being used to call a LlaMa-2 chat endpoint and ask, "What is CI?".
 
-:::image type="content" source="./media/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png" alt-text="Screenshot that shows the Open Source LLM on Visual Studio Code prompt flow extension." lightbox = "./media/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png":::
+:::image type="content" source="./media/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png" alt-text="Screenshot that shows the Open Source LLM tool on Visual Studio Code prompt flow extension." lightbox = "./media/open-source-llm-tool/open-source-llm-on-vscode-prompt-flow.png":::
 
-This prompt flow supports two different LLM API types:
+This prompt flow supports two different large language model (LLM) API types:
 
 - **Chat**: Shown in the preceding example. The Chat API type facilitates interactive conversations with text-based inputs and responses.
 - **Completion**: The Completion API type is used to generate single response text completions based on a provided prompt input.
 
 ## Quick overview: How do I use the Open Source LLM tool?
 
-1. Choose a model from the Azure Machine Learning model catalog and deploy.
+1. Choose a model from the Azure Machine Learning Model Catalog and deploy.
 1. Set up and select the connections to the model deployment.
 1. Configure the tool with the model settings.
-1. [Prepare the prompt](./prompt-tool.md#how-to-write-prompt).
+1. [Prepare the prompt](./prompt-tool.md#write-a-prompt).
 1. Run the flow.
 
 ## Prerequisites: Model deployment

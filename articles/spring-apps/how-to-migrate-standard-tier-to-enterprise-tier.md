@@ -135,14 +135,14 @@ The app creation steps are the same as Standard plan.
 
 ## Use Application Configuration Service for external configuration
 
-For externalized configuration in a distributed system, managed Spring Cloud Config Server (OSS) is available only in the Basic and Standard plans. In the Enterprise plan, Application Configuration Service for Tanzu (ACS) provides similar functions for your apps. The following table describes some differences in usage between the OSS config server and ACS.
+For externalized configuration in a distributed system, managed Spring Cloud Config Server (OSS) is available only in the Basic and Standard plans. In the Enterprise plan, Application Configuration Service for Tanzu provides similar functions for your apps. The following table describes some differences in usage between the OSS config server and Application Configuration Service.
 
 | Component                                   | Support plans  | Enabled           | Bind to app | Profile                                                               |
 |---------------------------------------------|----------------|-------------------|-------------|-----------------------------------------------------------------------|
 | Spring Cloud Config Server                  | Basic/Standard | Always enabled.   | Auto bound  | Configured in app's source code.                                      |
 | Application Configuration Service for Tanzu | Enterprise     | Enable on demand. | Manual bind | Provided as `config-file-pattern` in an Azure Spring Apps deployment. |
 
-Unlike the client-server mode in the OSS config server, ACS manages configuration by using the Kubernetes-native `ConfigMap`, which is populated from properties defined in backend Git repositories. ACS can't get the active profile configured in the app's source code to match the right configuration, so the explicit configuration `config-file-pattern` should be specified at the Azure Spring Apps deployment level.
+Unlike the client-server mode in the OSS config server, Application Configuration Service manages configuration by using the Kubernetes-native `ConfigMap`, which is populated from properties defined in backend Git repositories. Application Configuration Service can't get the active profile configured in the app's source code to match the right configuration, so the explicit configuration `config-file-pattern` should be specified at the Azure Spring Apps deployment level.
 
 ## Configure Application Configuration Service for Tanzu
 

@@ -1,7 +1,7 @@
 ---
 title: Faiss Index Lookup tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: The Faiss Index Lookup tool empowers you to query a Faiss-based vector store and extract contextually relevant information from a domain knowledge base.
+description: The Faiss Index Lookup tool empowers you to query within a user-provided Faiss-based vector store and extract contextually relevant information from a domain knowledge base.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow

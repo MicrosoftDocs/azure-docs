@@ -1,7 +1,7 @@
 ---
-title: SerpApi tool in Azure Machine Learning prompt flow
+title: SerpAPI tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: SerpApi is a Python tool that provides a wrapper to the SerpApi Google Search Engine Results API and the SerpApi Bing Search Engine Results API.
+description: SerpAPI is a Python tool that provides a wrapper to the SerpAPI Google Search Engine Results API and the SerpAPI Bing Search Engine Results API.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
@@ -15,29 +15,29 @@ ms.reviewer: lagayhar
 ms.date: 11/02/2023
 ---
 
-# SerpApi tool
+# SerpAPI tool
 
-SerpApi is a Python tool that provides a wrapper to the [SerpApi Google Search Engine Results API](https://serpapi.com/search-api) and the [SerpApi Bing Search Engine Results API](https://serpapi.com/bing-search-api).
+SerpAPI is a Python tool that provides a wrapper to the [SerpAPI Google Search Engine Results API](https://serpapi.com/search-api) and the [SerpAPI Bing Search Engine Results API](https://serpapi.com/bing-search-api).
 
 You can use the tool to retrieve search results from many different search engines, including Google and Bing. You can also specify a range of search parameters, such as the search query, location, and device type.
 
 ## Prerequisite
 
-Sign up at the [SerpApi website](https://serpapi.com/).
+Sign up at the [SerpAPI website](https://serpapi.com/).
 
 ## Connection
 
-Connection is the model used to establish connections with SerpApi.
+Connection is the model used to establish connections with SerpAPI.
 
 | Type        | Name     | API key  |
 |-------------|----------|----------|
 | Serp        | Required | Required |
 
-The API key is on the SerpApi account dashboard.
+The API key is on the SerpAPI account dashboard.
 
 ## Inputs
 
-The SerpApi tool supports the following parameters:
+The SerpAPI tool supports the following parameters:
 
 | Name     | Type    | Description                                                   | Required |
 |----------|---------|---------------------------------------------------------------|----------|
@@ -49,7 +49,7 @@ The SerpApi tool supports the following parameters:
 
 ## Outputs
 
-The JSON representation from a SerpApi query.
+The JSON representation from a SerpAPI query.
 
 | Engine   | Return type | Output                                                |
 |----------|-------------|-------------------------------------------------------|

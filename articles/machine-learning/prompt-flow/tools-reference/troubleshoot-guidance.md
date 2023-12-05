@@ -48,28 +48,29 @@ To resolve the issue, you have two options:
   - Remove the old tool and re-create a new tool.
 
 ## "No such file or directory" error
-Prompt flow relies on a file share to store a snapshot of the flow. If the file share has an issue, you might encounter the following problem. Here are some workarounds you can try:
+
+Prompt flow relies on a file share storage to store a snapshot of the flow. If the file share storage has an issue, you might encounter the following problem. Here are some workarounds you can try:
 
 - If you're using a private storage account, see [Network isolation in prompt flow](../how-to-secure-prompt-flow.md) to make sure your workspace can access your storage account.
-- If the storage account is enabled for public access, check whether there's a data store named `workspaceworkingdirectory` in your workspace. It should be a file share type.
+- If the storage account is enabled for public access, check whether there's a datastore named `workspaceworkingdirectory` in your workspace. It should be a file share type.
 
    ![Screenshot that shows workspaceworkingdirectory.](../media/faq/working-directory.png)
-    - If you didn't get this data store, you need to add it in your workspace.
+    - If you didn't get this datastore, you need to add it in your workspace.
         - Create a file share with the name `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`.
-        - Create a data store with the name `workspaceworkingdirectory`. See [Create datastores](../../how-to-datastore.md).
-    - If you have a `workspaceworkingdirectory` data store but its type is `blob` instead of `fileshare`, create a new workspace. Use storage that doesn't enable hierarchical namespaces for Azure Data Lake Storage Gen2 as a workspace default storage account. For more information, see [Create workspace](../../how-to-manage-workspace.md#create-a-workspace).
+        - Create a datastore with the name `workspaceworkingdirectory`. See [Create datastores](../../how-to-datastore.md).
+    - If you have a `workspaceworkingdirectory` datastore but its type is `blob` instead of `fileshare`, create a new workspace. Use storage that doesn't enable hierarchical namespaces for Azure Data Lake Storage Gen2 as a workspace default storage account. For more information, see [Create workspace](../../how-to-manage-workspace.md#create-a-workspace).
      
 ## Flow is missing
 
 :::image type="content" source="../media/faq/flow-missing.png" alt-text="Screenshot that shows a flow missing an authoring page." lightbox = "../media/faq/flow-missing.png":::
 
-Prompt flow relies on a file share to store a snapshot of a flow. This error means that prompt flow service can operate a prompt flow folder in a file share, but the prompt flow UI can't find the folder in the file share. There are some potential reasons:
+Prompt flow relies on a file share to store a snapshot of a flow. This error means that prompt flow service can operate a prompt flow folder in the file share storage, but the prompt flow UI can't find the folder in the file share storage. There are some potential reasons:
 
-- Prompt flow relies on a data store named `workspaceworkingdirectory` in your workspace, which uses `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`. Make sure your data store uses the same container. If your data store is using a different file share name, you need to use a new workspace.
+- Prompt flow relies on a datastore named `workspaceworkingdirectory` in your workspace, which uses `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`. Make sure your datastore uses the same container. If your datastore is using a different file share name, you need to use a new workspace.
 
-  ![Screenshot that shows the name of a file share in a data store detail page.](../media/faq/file-share-name.png)
+  ![Screenshot that shows the name of a file share in a datastore detail page.](../media/faq/file-share-name.png)
 
-- If your file share is correctly named, try a different network environment, such as a home or company network. There's a rare case where a file share can't be accessed in some network environments even if it's enabled for public access.
+- If your file share storage is correctly named, try a different network environment, such as a home or company network. There's a rare case where a file share storage can't be accessed in some network environments even if it's enabled for public access.
 
 ## Runtime-related issues
 

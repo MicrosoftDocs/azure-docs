@@ -950,10 +950,6 @@ Other operations are not allowed in Lake databases.
 > [!NOTE]
 > If you are creating a view, procedure, or function in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
 
-### Dataverse real-time snapshot tables are not available in serverless SQL pool
-
-If you are exporting your [Dataverse table to Azure Data Lake storage](/power-apps/maker/data-platform/azure-synapse-link-data-lake#manage-table-data-to-the-data-lake) to Data Lake, and you don't see the [snapshot data](/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data) (the tables with the `_partitioned` suffix) in your Lake database, make sure that your workspace Managed Identity has read-access on the ADLS storage that contains exported data. The serverless SQL pool reads the schema of the exported data using Managed Identity access to create the table schema.
-
 ### Delta tables in Lake databases are not available in serverless SQL pool
 
 Make sure that your workspace Managed Identity has read access on the ADLS storage that contains Delta folder. The serverless SQL pool reads the Delta Lake table schema from the Delta logs that are placed in ADLS and uses the workspace Managed Identity to access the Delta transaction logs.

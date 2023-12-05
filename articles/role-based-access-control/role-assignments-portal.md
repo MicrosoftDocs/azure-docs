@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/29/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 ---
@@ -129,7 +129,7 @@ The **Conditions** tab will look different depending on the role you selected.
 If you selected one of the following privileged roles, follow the steps in this section.
 
 - [Owner](built-in-roles.md#owner)
-- [Role Based Access Control Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview)
+- [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)
 - [User Access Administrator](built-in-roles.md#user-access-administrator)
 
 1. On the **Conditions** tab under **Delegation type**, select the **Constrained (recommended)** option.
