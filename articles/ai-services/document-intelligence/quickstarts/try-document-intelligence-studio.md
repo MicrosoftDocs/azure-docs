@@ -110,7 +110,7 @@ For custom projects, the following role assignments are required for different s
 
 1. Start by creating a new CORS entry in the Blob service.
 
-1. Set the **Allowed origins** to `https://formrecognizer.appliedai.azure.com`.
+1. Set the **Allowed origins** to `https://documentintelligence.ai.azure.com`.
 
    :::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Screenshot that shows CORS configuration for a storage account.":::
 
