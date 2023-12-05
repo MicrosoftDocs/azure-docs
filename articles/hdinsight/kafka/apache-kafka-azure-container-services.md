@@ -27,7 +27,7 @@ This document assumes that you are familiar with creating and using the followin
 * Azure Kubernetes Service
 * Azure Virtual Networks
 
-This document also assumes that you have walked through the [Azure Kubernetes Service tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This article creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
+This document also assumes that you completed the [Azure Kubernetes Service tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This article creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
 
 ## Architecture
 
@@ -75,7 +75,7 @@ If you do not already have an AKS cluster, use one of the following documents to
     |Address space|You must use an address space that does not overlap the one used by the AKS cluster network.|
     |Location|Use the same __Location__ for the virtual network that you used for the AKS cluster.|
 
-1. Wait until the virtual network has been created before going to the next step.
+1. Wait until the virtual network is created before proceeding to the next step.
 
 ### Configure peering
 
@@ -129,7 +129,7 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 7. To configure Kafka to listen on all network interfaces, change the value in the __listeners__ field to `PLAINTEXT://0.0.0.0:9092`.
 
-8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
+8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes are saved.
 
     :::image type="content" source="./media/apache-kafka-azure-container-services/save-configuration-button.png" alt-text="Apache Ambari save configuration" border="true":::
 
@@ -137,7 +137,7 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
     :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="Service actions, with turn on maintenance highlighted" border="true":::
 
-10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
+10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation is completed.
 
     :::image type="content" source="./media/apache-kafka-azure-container-services/restart-required-button.png" alt-text="Restart button with restart all affected highlighted" border="true":::
 
