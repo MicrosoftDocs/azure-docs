@@ -82,7 +82,7 @@ Using Azure portal, you can grant the user creating Azure-SSIS IR the necessary 
 
 :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/grant-virtual-network-permissions.png" alt-text="Grant virtual network permissions":::
 
-## Next steps
+## Related content
 
 - [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md)
 - [Standard virtual network injection method](azure-ssis-integration-runtime-standard-virtual-network-injection.md)

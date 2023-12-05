@@ -67,6 +67,6 @@ In this process, the SAP data sources are *providers*. The providers run on SAP 
 
 Because ODP completely decouples providers from subscribers, any SAP documentation that offers provider configurations are applicable to Data Factory as a subscriber. For more information about ODP, see [Introduction to operational data provisioning](https://wiki.scn.sap.com/wiki/display/BI/Introduction+to+Operational+Data+Provisioning).
 
-## Next steps
+## Related content
 
 [Prerequisites and setup for the SAP CDC solution](sap-change-data-capture-prerequisites-configuration.md)

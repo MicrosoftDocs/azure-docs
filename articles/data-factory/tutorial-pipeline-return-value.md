@@ -87,7 +87,7 @@ You may have multiple Set Pipeline Return value activities in a pipeline. Howeve
 
 To avoid missing key situation in the calling pipeline, described above, we encourage you to have the same list of keys for all branches in child pipeline. Consider using _null_ types for keys that don't have values, in a specific branch.
 
-## Next steps
+## Related content
 Learn about another related control flow activity: 
 - [Set Variable Activity](control-flow-set-variable-activity.md)
 - [Append Variable Activity](control-flow-append-variable-activity.md)

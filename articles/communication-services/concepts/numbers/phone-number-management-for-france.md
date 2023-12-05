@@ -20,6 +20,7 @@ Use the below tables to find all the relevant information on number availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
+| Toll-Free   |-  | - | General Availability | General Availability\* |
 | Local       | -                    | -                    | General Availability | General Availability\* |
 |Alphanumeric Sender ID\**|General Availability      |-|-|-|
 
@@ -47,6 +48,11 @@ More details on eligible subscription types are as follows:
 |France|
 |Italy|
 |United States|
+|United Kingdom|
+|Canada|
+|Japan|
+|Australia|
+
 
 ## Azure subscription billing locations where France alphanumeric sender IDs are available
 | Country/Region |

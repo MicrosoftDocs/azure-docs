@@ -49,6 +49,6 @@ Create or add diagnostic settings for your data factory.
 
 After a few moments, the new setting appears in your list of settings for this data factory. Diagnostic logs are streamed to that workspace as soon as new event data is generated. Up to 15 minutes might elapse between when an event is emitted and when it appears in Log Analytics.
 
-## Next steps
+## Related content
 
 [Set up diagnostics logs via the Azure Monitor REST API](monitor-logs-rest.md)

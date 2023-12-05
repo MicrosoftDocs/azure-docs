@@ -48,8 +48,11 @@ More details on eligible subscription types are as follows:
 |Italy|
 |Sweden|
 |United States|
-|Canada|
 |United Kingdom|
+|Canada|
+|Japan|
+|Australia|
+
 
 ## Azure subscription billing locations where Denmark alphanumeric sender IDs are available
 | Country/Region |

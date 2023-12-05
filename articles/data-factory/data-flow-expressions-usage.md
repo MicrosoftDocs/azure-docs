@@ -2716,7 +2716,7 @@ ___
 Gets the year value of a date.  
 * ``year(toDate('2012-8-8')) -> 2012``  
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).
