@@ -23,7 +23,7 @@ This guide explains the steps needed to configure Private Link for a Chaos Studi
 
 <br/>
 
-3. Ensure that the `Microsoft.Resources/EUAPParticipation` feature flag is enabled for your subscription. Previous Chaos Studio users may already have the feature flag enabled if you succesfully ran your first experiment via the Azure portal in the past. 
+3. Ensure that the `Microsoft.Resources/EUAPParticipation` feature flag is enabled for your subscription. Previous Chaos Studio users may already have the feature flag enabled if you ran your first experiment via the Azure portal in the past. 
 
 <br/>
 
@@ -37,7 +37,7 @@ az feature register --namespace Microsoft.Resources --name "EUAPParticipation" -
 
 - You'll need to use our **2023-10-27-preview REST API** to create and use private link for agent-based experiments ONLY. There's **no** support for private link for agent-based experiments in our GA-stable REST API until H1 2024. 
 
-- The entire end-to-end for this flow requires some use of the CLI. The current end-to-end experience cannot be done from the Azure Portal currently. 
+- The entire end-to-end for this flow requires some use of the CLI. The current end-to-end experience cannot be done from the Azure portal currently. 
 
 ## Step 1: Make sure you allowlist Microsoft.Network/AllowPrivateEndpoints in your subscription
 
@@ -102,9 +102,9 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 
 Make sure you attach it to the same VM's VNET. Screenshots provide examples of creating the VNET, Subnet and Private Endpoint. It's important to note that you need to set the "Resource Type" to "Microsoft.Chaos/privateAccesses" as seen in the screenshot. 
 
-[![Screenshot of resource tab of private endpoint creation](images/resourcePrivateEndpoint.png)](images/resourcePrivateEndpoint.png#lightbox)
+[![Screenshot of resource tab of private endpoint creation.](images/resource-private-endpoint.png)](images/resource-private-endpoint.png#lightbox)
 
-[![Screenshot of VNET tab of private endpoint creation](images/resourceVNETCSPA.png)](images/resourceVNETCSPA.png#lightbox)
+[![Screenshot of VNET tab of private endpoint creation.](images/resource-vnet-cspa.png)](images/resource-vnet-cspa.png#lightbox)
 
 
 ## Step 4: Map the agent host VM to the CSPA resource
@@ -123,10 +123,14 @@ The GET command returns a large response. Note this response. We use this respon
 
 Invoke a "PUT Target" command using this response. You need to append **TWO ADDITIONAL FIELDS** to the body of the PUT command before running it.
 
-These extra fields are shown in the following screenshot: 
+These extra fields are shown below:
 
-[![Screenshot of additional CSPA fields](images/additionalCSPAfields.png)](images/additionalCSPAfields.png#lightbox)
+```
+"privateAccessId": "subscriptions/<subID>/...
+"allowPublicAccess": false
 
+},
+```
 
 Here's an example block for what the "PUT Target" command should look like and the fields that you would need to fill out:
 
@@ -163,7 +167,7 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 
 During the Preview of this feature, customers need to update the Agent VM extensions settings to point to the communication endpoint that supports traffic over a private network. Customers need to update the host entry on the actual VM to map the communication endpoint to the private IP generated during the private endpoint creation. You can get the IP address from the "DNS Configuration" tab in the Private Endpoint resource seen in the following screenshot:
 
-[![Screenshot of Private Ednpoint DNS Config tab](images/DNSConfig.png)](images/DNSConfig.png#lightbox)
+[![Screenshot of Private Endpoint DNS Config tab.](images/dns-config.png)](images/dns-config.png#lightbox)
 
 After noting the IP address, you need to open the "hosts" file on your host VM and update it with the following entry:
 
@@ -175,9 +179,9 @@ After noting the IP address, you need to open the "hosts" file on your host VM a
 > **Path of hosts file on Windows:** C:\Windows\System32\drivers\etc
 > **Path of hosts file on Linux:** /etc/hosts
 
-Example of what the "hosts" file should look like. The IP address and azure region change for your scenario:
+Example of what the "hosts" file should look like. The IP address and Azure region change for your scenario:
 
-[![Screenshot of hosts file](images/CSPAhosts.png)](images/CSPAhosts.png#lightbox)
+[![Screenshot of hosts file.](images/cspa-hosts.png)](images/cspa-hosts.png#lightbox)
 
 Save and close the file.
 
@@ -199,7 +203,7 @@ In this step, you need to continue to edit files on the host VM machine. You nee
 
 Example of updated agentSettings.json: 
 
-[![Screenshot of agentSettings JSON](images/agentSettingsJSON.png)](images/agentSettingsJSON.png#lightbox)
+[![Screenshot of agentSettings JSON.](images/agent-settings-json.png)](images/agent-settings-json.png#lightbox)
 
 
 ### Updating the agentInstanceConfig.json
@@ -216,7 +220,7 @@ Example of updated agentSettings.json:
 
 Example of updated agentInstanceConfig.json: 
 
-[![Screenshot of agentInstanceConfig JSON](images/agentInstanceConfigJSON.png)](images/agentInstanceConfigJSON.png#lightbox)
+[![Screenshot of agentInstanceConfig JSON.](images/agent-instance-config-json.png)](images/agent-instance-config-json.png#lightbox)
 
 ## Step 6.5: Disable CRL verification in agentSettings.JSON
 
@@ -230,7 +234,7 @@ Example of updated agentInstanceConfig.json:
 
 The final agentSettings.JSON should appear as shown:
 
-[![Screenshot of agentSettings JSON with disabled CRL verification](images/agentSettingsCRL.png)](images/agentSettingsCRL.png#lightbox)
+[![Screenshot of agentSettings JSON with disabled CRL verification.](images/agent-settings-crl.png)](images/agent-settings-crl.png#lightbox)
 
 If outbound access to Microsoft CRL verification endpoints is not blocked, then you can ignore this step. 
 
@@ -240,7 +244,7 @@ After making all the required changes to the host, restart the Azure Chaos Agent
 
 ### Windows
 
-[![Screenshot of restarting Windows VM](images/restartWindowsVM.png)](images/restartWindowsVM.png#lightbox)
+[![Screenshot of restarting Windows VM.](images/restar-windows-vm.png)](images/restart-windows-vm.png#lightbox)
 
 ### Linux
 
@@ -250,7 +254,7 @@ For Linux, run the following command from the CLI:
 Systemctl restart azure-chaos-agent
 ```
 
-[![Screenshot of restarting Linux VM](images/restartLinuxVM.png)](images/restartLinuxVM.png#lightbox)
+[![Screenshot of restarting Linux VM.](images/restart-linux-vm.png)](images/restart-linux-vm.png#lightbox)
 
 ## Step 8: Run your Agent-based experiment using private endpoints
 
