@@ -104,7 +104,7 @@ Follow these steps to enable the Azure Key Vault as the secret backend for your 
 
    :::image type="content" source="media/enable-azure-key-vault-for-managed-airflow/secrets-configuration.png" alt-text="Screenshot showing the configuration of secrets in Azure Key Vault."  lightbox="media/enable-azure-key-vault-for-managed-airflow/secrets-configuration.png":::
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)

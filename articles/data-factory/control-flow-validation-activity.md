@@ -73,7 +73,7 @@ To use a Validation activity in a pipeline, complete the following steps:
 |minimumSize | Minimum size of a file in bytes. If no value is specified, default value is 0 bytes | Integer | No |
 
 
-## Next steps
+## Related content
 See other supported control flow activities:
 
 - [If Condition Activity](control-flow-if-condition-activity.md)
