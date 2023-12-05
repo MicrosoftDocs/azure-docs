@@ -86,7 +86,7 @@ These services store their data in Azure Monitor Logs so that it can be analyzed
 
 | Service | More information |
 |:--------------|:-----------------|
-| Azure Sentinel | <ul><li>[Where Microsoft Sentinel data is stored](../../sentinel/geographical-availability-data-residency.md#where-microsoft-sentinel-data-is-stored)</li><li>[Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md)</li><li>[Prepare for multiple workspaces and tenants in Microsoft Sentinel](../../sentinel/prepare-multiple-workspaces.md)</li><li>[Log management in Microsoft Sentinel](../../sentinel/skill-up-resources.md#module-5-log-management)</li></ul> |
+| Azure Sentinel | <ul><li>[Where Microsoft Sentinel data is stored](../../sentinel/geographical-availability-data-residency.md#where-microsoft-sentinel-data-is-stored)</li><li>[Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md)</li><li>[Prepare for multiple workspaces and tenants in Microsoft Sentinel](../../sentinel/prepare-multiple-workspaces.md)</li><li>[Enable Microsoft Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).</li><li>[Log management in Microsoft Sentinel](../../sentinel/skill-up-resources.md#module-5-log-management)</li></ul> |
 | Microsoft Defender for Cloud | <ul><li>[Continuously export Microsoft Defender for Cloud data](../../defender-for-cloud/continuous-export.md)</li><li>[Data consumption](../../defender-for-cloud/data-security.md#data-consumption)</li><li>[Frequently asked questions about Log Analytics workspaces used with Microsoft Defender for Cloud](../../defender-for-cloud/faq-data-collection-agents.yml) </ul> |
 
 ## Next steps
