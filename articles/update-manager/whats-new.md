@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 11/13/2023
+ms.date: 12/05/2023
 ---
 
 # What's new in Azure Update Manager
