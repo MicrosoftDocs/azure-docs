@@ -807,6 +807,8 @@
         href: devops-support.md
       - name: DevOps environment security posture
         href: concept-devops-environment-posture-management-overview.md
+      - name: Reliability in Cloud for DevOps security
+        href: ../reliability/reliability-defender-devops.md?toc=/azure/defender-for-cloud/toc.json&bc=/azure/defender-for-cloud/breadcrumb/toc.json
       - name: Onboard
         items:
           - name: Connect your Azure DevOps environment
