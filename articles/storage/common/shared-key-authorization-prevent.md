@@ -31,7 +31,7 @@ Before disallowing Shared Key access on any of your storage accounts:
 - [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens)
 - [Consider compatibility with other Azure tools and services](#consider-compatibility-with-other-azure-tools-and-services)
 - Consider the need to [disallow Shared Key authorization to use Microsoft Entra Conditional Access](#disallow-shared-key-authorization-to-use-azure-ad-conditional-access)
-- [Transition Azure Files workloads](#transition-azure-files-workloads)
+- [Authorize access to file data or transition Azure Files workloads](#authorize-access-to-file-data-or-transition-azure-files-workloads)
 
 ### Understand how disallowing Shared Key affects SAS tokens
 
