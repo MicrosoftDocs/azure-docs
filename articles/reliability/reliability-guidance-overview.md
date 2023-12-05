@@ -94,6 +94,7 @@ Azure reliability guidance contains the following:
 |[Azure Private 5G Core](../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 | [Azure Spring Apps](reliability-spring-apps.md) |
 | [Azure Storage Mover](./reliability-azure-storage-mover.md)|
+|[Microsoft Defender for Cloud for DevOps security](./reliability-defender-devops.md)|
 
 ## Azure Service Manager Retirement
 
