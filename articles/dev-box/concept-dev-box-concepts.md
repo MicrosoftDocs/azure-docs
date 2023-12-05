@@ -18,6 +18,10 @@ This article describes the key concepts and components of Microsoft Dev Box to h
 Microsoft Dev Box gives developers self-service access to preconfigured, and ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, and manage security and network settings to access resources securely. Different components play a part in the configuration of Microsoft Dev Box.
 
 Microsoft Dev Box builds on the same foundations as [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Both services are complementary and share certain architectural components, such as a [dev center](#dev-center) or [project](#project).
+
+This diagram shows the key components of Dev Box and how they relate to each other. You can learn more about each component in the following sections.
+
+:::image type="content" source="media/concept-key-concepts/dev-box-architecture.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-architecture.png" :::
     
 ## Dev center
 
