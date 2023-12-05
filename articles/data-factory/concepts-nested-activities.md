@@ -78,7 +78,7 @@ The child pipeline would look similar to the below example.
 
  :::image type="content" source="media/concepts-pipelines-activities/nested-activity-execute-child-pipeline.png" alt-text="Screenshot showing an example child pipeline with a ForEach loop.":::
 
-## Next steps
+## Related content
 
 See the following tutorials for step-by-step instructions for creating pipelines and datasets.
 
