@@ -15,39 +15,79 @@ adobe-target: true
 
 Learn how to configure your load test in Azure Load Testing by using [YAML](https://yaml.org/). You use the test configuration YAML file to create and run load tests from your continuous integration and continuous delivery (CI/CD) workflow.
 
-## Load test definition
+## Load test YAML syntax
 
-A test configuration uses the following keys:
+A load test configuration uses the following keys:
 
 | Key | Type | Default value | Description | 
 | ----- | ----- | ----- | ---- |
 | `version` | string |  | Version of the YAML configuration file that the service uses. Currently, the only valid value is `v0.1`. |
-| `testId` | string |  | *Required*. ID of the test to run. testId must be between 2 to 50 characters. For a new test, enter an ID with characters [a-z0-9_-]. For an existing test, you can get the test ID from the test details page in Azure portal. This field was called `testName` earlier, which has been deprecated. You can still run existing tests with `testName`field. |
-| `displayName` | string |  | Display name of the test. This is shown in the list of tests in Azure portal. If not provided, testId is used as the display name. |
-| `testType` | string | | *URL* or *JMETER* to indicate a URL-based load test or JMeter-based load test. |
-| `testPlan` | string |  | *Required*. If `testType: JMETER`: relative path to the Apache JMeter test script to run.<br/>If `testType: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md). |
-| `engineInstances` | integer |  | *Required*. Number of parallel instances of the test engine to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
-| `configurationFiles` | array |  | List of relevant configuration files or other files that you reference in the Apache JMeter script. For example, a CSV data set file, images, or any other data file. These files are uploaded to the Azure Load Testing resource alongside the test script. If the files are in a subfolder on your local machine, use file paths that are relative to the location of the test script. <BR><BR>Azure Load Testing currently doesn't support the use of file paths in the JMX file. When you reference an external file in the test script, make sure to only specify the file name. |
-| `description` | string |  | Short description of the test. description must have a maximum length of 100 characters |
-| `subnetId` | string |  | Resource ID of the subnet for testing privately hosted endpoints (virtual network injection). This subnet hosts the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
-| `failureCriteria` | object |  | Criteria that indicate when a test should fail. The structure of a fail criterion is: `Request: Aggregate_function (client_metric) condition threshold`. For more information on the supported values, see [Define load test fail criteria](./how-to-define-test-criteria.md#load-test-fail-criteria). |
-| `autoStop` | object |  | Enable or disable the auto-stop functionality when the error percentage passes a given threshold. For more information, see [Configure auto stop for a load test](./how-to-define-test-criteria.md#auto-stop-configuration).<br/><br/>Values:<br/>- *disable*: don't stop a load test automatically.<br/>- Empty value: auto stop is enabled. Provide the *errorPercentage* and *timeWindow* values. |
-| `autoStop.errorPercentage` | integer | 90 | Threshold for the error percentage, during the *autoStop.timeWindow*. If the error percentage exceeds this percentage during any given time window, the load test run stops automatically. |
-| `autoStop.timeWindow` | integer | 60 | Time window in seconds for calculating the *autoStop.errorPercentage*. |
-| `properties` | object |  | List of properties to configure the load test. |
-| `properties.userPropertyFile` | string |  | File to use as an Apache JMeter [user properties file](https://jmeter.apache.org/usermanual/test_plan.html#properties). The file is uploaded to the Azure Load Testing resource alongside the JMeter test script and other configuration files. If the file is in a subfolder on your local machine, use a path relative to the location of the test script. |
-| `zipArtifacts` | array |  | List of zip artifact files load test. For files other than JMeter scripts and user properties, if the file size exceeds 50MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. |
+| `testId` | string |  | *Required*. ID of the test to run. `testId` must be between 2 and 50 characters. For a new test, enter an ID with characters [a-z0-9_-]. For an existing test, you can get the test ID from the test details page in Azure portal. This field was called `testName` earlier, which has been deprecated. You can still run existing tests with `testName` field. |
+| `displayName` | string |  | Display name of the test. This value is shown in the list of tests in the Azure portal. If not provided, `testId` is used as the display name. |
+| `description` | string |  | Short description of the test. `description` has a maximum length of 100 characters. |
+| `testType` | string | | *Required*<br/><ul><li>`URL`: URL-based load test</li><li>`JMETER`: JMeter-based load test</li></ul> |
+| `testPlan` | string |  | *Required*<br/><ul><li>If `testType: JMETER`: relative path to the JMeter test script.</li><li>If `testType: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md).</li></ul> |
+| `engineInstances` | integer |  | *Required*. Number of parallel test engine instances that run the test plan. Update this property to increase the amount of load that the service can generate. |
+| `configurationFiles` | array of string |  | List of configuration, data, or other files needed to run the load test. For example, a CSV data set file, images, or any other data file. These files are uploaded to the Azure Load Testing resource alongside the test script. If the files are in a subfolder on your local machine, use file paths that are relative to the location of the test script. <BR><BR>Azure Load Testing currently doesn't support the use of file paths in the JMX file. When you reference an external file in the test script, make sure to only specify the file name. |
+| `failureCriteria` | object |  | List of load test fail criteria. See [failureCriteria](#failurecriteria-configuration) for more details. |
+| `autoStop` | string or object |  | Automatically stop the load test when the error percentage exceeds a value.<br/><br/>Values:<br/>- `disable`: don't stop a load test automatically.<br/>- *object* see [autostop](#autostop-configuration) configuration for more details. |
+| `properties` | object |  | JMeter user property file references. See [properties](#properties-configuration) for more details. |
+| `zipArtifacts` | array of string|  | List of zip artifact files load test. For files other than JMeter scripts and user properties, if the file size exceeds 50MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. |
 | `splitAllCSVs` | boolean | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
-| `secrets` | object |  | List of secrets that the Apache JMeter script references. |
-| `secrets.name` | string |  | Name of the secret. This name should match the secret name that you use in the Apache JMeter script. |
-| `secrets.value` | string |  | URI (secret identifier) for the Azure Key Vault secret. |
-| `env` | object |  | List of environment variables that the Apache JMeter script references. |
-| `env.name` | string |  | Name of the environment variable. This name should match the secret name that you use in the Apache JMeter script. |
-| `env.value` | string |  | Value of the environment variable. |
-| `certificates` | object |  | List of client certificates for authenticating with application endpoints in the JMeter script. |
-| `certificates.name` | string |  | Name of the certificate. |
-| `certificates.value` | string |  | URI (secret identifier) for the certificate in Azure Key Vault. |
+| `secrets` | object |  | List of secrets that the Apache JMeter script references. See [secrets](#secrets-configuration) for more details. |
+| `env` | object |  | List of environment variables that the Apache JMeter script references. See [environment variables](#env-configuration) for more details. |
+| `certificates` | object |  | List of client certificates for authenticating with application endpoints in the JMeter script. See [certificates](#certificates-configuration) for more details.|
 | `keyVaultReferenceIdentity` | string |  | Resource ID of the user-assigned managed identity for accessing the secrets from your Azure Key Vault. If you use a system-managed identity, this information isn't needed. Make sure to grant this user-assigned identity access to your Azure key vault. |
+| `subnetId` | string |  | Resource ID of the subnet for testing privately hosted endpoints (virtual network injection). This subnet hosts the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
+
+### `failureCriteria` configuration
+
+The structure of a fail criterion is: `Request: Aggregate_function (client_metric) condition threshold`. For more information on the supported values, see [Define load test fail criteria](./how-to-define-test-criteria.md#load-test-fail-criteria).
+
+| Key | Type | Default value | Description | 
+| ----- | ----- | ----- | ---- |
+| `failureCriteria` | object |  | Criteria that indicate when a test should fail. The structure of a fail criterion is: `Request: Aggregate_function (client_metric) condition threshold`. For more information on the supported values, see [Define load test fail criteria](./how-to-define-test-criteria.md#load-test-fail-criteria). |
+
+### `autoStop` configuration
+
+
+| `autoStop` | string or object |  | Automatically stop a load test when the error percentage exceeds a value. Enable or disable the auto-stop functionality when the error percentage passes a given threshold. For more information, see [Configure auto stop for a load test](./how-to-define-test-criteria.md#auto-stop-configuration).<br/><br/>Values:<br/>- *disable*: don't stop a load test automatically.<br/>- Empty value: auto stop is enabled. Provide the *errorPercentage* and *timeWindow* values. |
+
+
+
+| Key | Type | Default value | Description | 
+| ----- | ----- | ----- | ---- |
+| `errorPercentage` | integer | 90 | Threshold for the error percentage, during the `timeWindow`. If the error percentage exceeds this percentage during any given time window, the test run stops automatically. |
+| `timeWindow` | integer | 60 | Time window in seconds for calculating the `errorPercentage`. |
+
+### `properties` configuration
+
+| Key | Type | Default value | Description | 
+| ----- | ----- | ----- | ---- |
+| `userPropertyFile` | string |  | File to use as an Apache JMeter [user properties file](https://jmeter.apache.org/usermanual/test_plan.html#properties). The file is uploaded to the Azure Load Testing resource alongside the JMeter test script and other configuration files. If the file is in a subfolder on your local machine, use a path relative to the location of the test script. |
+
+### `secrets` configuration
+
+| Key | Type | Default value | Description | 
+| ----- | ----- | ----- | ---- |
+| `name` | string |  | Name of the secret. This name should match the secret name that you use in the Apache JMeter script. |
+| `value` | string |  | URI (secret identifier) for the Azure Key Vault secret. |
+
+### `env` configuration
+
+| Key | Type | Default value | Description | 
+| ----- | ----- | ----- | ---- |
+| `name` | string |  | Name of the environment variable. This name should match the secret name that you use in the Apache JMeter script. |
+| `value` | string |  | Value of the environment variable. |
+
+### `certificates` configuration
+
+| Key | Type | Default value | Description | 
+| ----- | ----- | ----- | ---- |
+| `name` | string |  | Name of the certificate. |
+| `value` | string |  | URI (secret identifier) for the certificate in Azure Key Vault. |
+
+
 
 The following YAML snippet contains an example load test configuration:
 
