@@ -55,7 +55,7 @@ The following release notes are for Azure File Sync version 17.0.0.0 (released D
 - Sync upload performance improvements
 	- Sync upload performance has improved (performance numbers to be posted in the near future). This improvement will mainly benefit file share migrations (initial upload) and high churn events on the server in which a large number of files need to be uploaded.
 - Expanded character support for file and directory names
-	- Azure File Sync now supports an expanded list of characters. This expansion allows for users to create and sync SMB File shares with file and directory names on par with NTFS file system, for valid Unicode characters.  For more information on unsupported characters, refer to the documentation [here](https://learn.microsoft.com/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=%2Fazure%2Fstorage%2Ffile-sync%2Ftoc.json&tabs=portal1%2Cazure-portal#handling-unsupported-characters).
+	- Azure File Sync now supports an expanded list of characters. This expansion allows for users to create and sync SMB File shares with file and directory names on par with NTFS file system, for valid Unicode characters.  For more information on unsupported characters, refer to the documentation [here](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=%2Fazure%2Fstorage%2Ffile-sync%2Ftoc.json&tabs=portal1%2Cazure-portal#handling-unsupported-characters).
 - New cloud tiering low disk space mode metric
 	- You can now configure an alert if a server is in low disk space mode. To learn more, see [Monitor Azure File Sync](https://learn.microsoft.com/azure/storage/file-sync/file-sync-monitoring).
 - Fixed an issue that caused the agent upgrade to hang
