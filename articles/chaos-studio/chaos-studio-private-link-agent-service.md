@@ -59,7 +59,7 @@ az feature register --namespace Microsoft.Network --name "AllowPrivateEndpoints"
 > 
 > This step is not needed if you are using the same subscription across both the Chaos and Networking Resource Providers.
  
-## Step 2: Create a Chaos Studio Private Access (CSPA) resource. 
+## Step 2: Create a Chaos Studio Private Access (CSPA) resource
 
 To use Private endpoints for agent-based chaos experiments, you need to create a new resource type called **Chaos Studio Private Accesses**. CSPA is the resource against which the private endpoints are created.
 
