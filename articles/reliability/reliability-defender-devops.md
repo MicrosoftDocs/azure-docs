@@ -10,7 +10,7 @@ ms.custom: references_regions, subject-reliability
 CustomerIntent: As a cloud architect/engineer, I need general guidance reliability in Defender for DevOps
 ---
 
-# Reliability in Microsoft Defender for Cloud for DevOps security
+# Reliability in Microsoft Defender for Cloud DevOps security
 
 This article describes reliability support in [Microsoft Defender for Cloud DevOps security features](../defender-for-cloud/defender-for-devops-introduction.md), which includes [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
@@ -58,8 +58,6 @@ To request recovery of a connector created in a downed region:
    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{connectorName}
 
 1. Once the DevOps resources have been released from the old connector and appear for the new connector, [reconfigure the pull request annotations](/azure/defender-for-cloud/enable-pull-request-annotations) as needed.
-    >[!NOTE]
-    >The time it takes to reconfigure the pull request annotation configuration is proportional for how long it takes for the new connector to discover all the DevOps resources.
 
 1. The new connector will be made primary. When the region recovers from the outage, you can safely delete the old connector.  
 
