@@ -78,5 +78,5 @@ After an image has been processed by the model, it's deleted from OpenAI servers
 
 * [Learn more about Azure OpenAI](../overview.md).
 * [GPT-4 Turbo with Vision quickstart](../gpt-v-quickstart.md)
-* [GPT-4 Turbo with Vision frequently asked questions](../faq.yml#gpt-4-with-vision)
+* [GPT-4 Turbo with Vision frequently asked questions](../faq.yml#gpt-4-turbo-with-vision)
 * [GPT-4 Turbo with Vision API reference](https://aka.ms/gpt-v-api-ref)
