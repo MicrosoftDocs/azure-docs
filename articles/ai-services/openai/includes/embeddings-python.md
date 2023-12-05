@@ -55,6 +55,16 @@ curl "https://raw.githubusercontent.com/Azure-Samples/Azure-OpenAI-Docs-Samples/
 
 ### Environment variables
 
+# [Command Line](#tab/command-line)
+
+```CMD
+setx AZURE_OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+```
+
+```CMD
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+```
+
 # [PowerShell](#tab/powershell)
 
 ```powershell
