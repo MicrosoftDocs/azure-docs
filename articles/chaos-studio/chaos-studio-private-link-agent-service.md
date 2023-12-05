@@ -236,3 +236,25 @@ The final agentSettings.JSON should appear as shown:
 
 If you have not blocked outbound access to Microsoft CRL verification endpoints, you can ignore this step. 
 
+## Step 7: Restart the Azure Chaos Agent service in the VM
+
+After making all the required changes to the host, restart the Azure Chaos Agent Service in the VM
+
+### Windows
+
+[![Screenshot of restarting Windows VM](images/restartWindowsVM.png)](images/restartWindowsVM.png#lightbox)
+
+### Linux
+
+For Linux, run the following command from the CLI:
+
+```
+Systemctl restart azure-chaos-agent
+```
+
+[![Screenshot of restarting Linux VM](images/restartLinuxVM.png)](images/restartLinuxVM.png#lightbox)
+
+## Step 8: Run your Agent-based experiment using private endpoints
+
+After the restart, the Chaos agent should be able to communicate with the Agent Communication data plane service and the agent registration to the data plane should be successful. After successful registration, the agent will be able to heartbeat its status and you can go ahead and run the chaos agent-based experiments using private endpoints!
+
