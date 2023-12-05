@@ -4,7 +4,7 @@ description: Understand the steps to set up a chaos experiment using private lin
 services: chaos-studio
 author: nikhilkaul-msft
 ms.topic: how-to
-ms.date: 12/4/23
+ms.date: 12/04/23
 ms.author: nikhilkaul
 ms.service: chaos-studio
 ms.custom: ignite-fall-2023
@@ -16,7 +16,7 @@ This guide explains the steps needed to configure Private Link for a Chaos Studi
 ## Prerequisites
 
 1. An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-2. First define your agent-based experiment by following the steps found [here](articles/chaos-studio/chaos-studio-tutorial-agent-based-portal.md).
+2. First define your agent-based experiment by following the steps found [here](chaos-studio-tutorial-agent-based-portal.md).
 
 > [!NOTE]
 > If the target resource was created using the portal, then the chaos agent VM extension will be austomatically installed on the host VM. If the target is enabled using the CLI, then follow the Chaos Studio documentation to install the VM extension first on the virtual machine. Until you complete the private endpoint setup, the VM extension will be reporting an unhealthy state. This is expected.
@@ -39,8 +39,6 @@ az feature register --namespace Microsoft.Resources --name "EUAPParticipation" -
 
 - The entire end-to-end for this flow requires some use of the CLI. The current end-to-end experience cannot be done from the Azure Portal currently. 
 
-# Steps
-
 ## Step 1: Make sure you allowlist Microsoft.Network/AllowPrivateEndpoints in your subscription
 
 The first step is to ensure that your desired subscription allows the Networking Resource Provider to operate. 
@@ -56,7 +54,7 @@ az feature register --namespace Microsoft.Network --name "AllowPrivateEndpoints"
 ```
 
 > [!NOTE]
-> If you are going to be using private endpoints using manual requests across multiple subscriptions, you'll need to ensure you register the Microsoft.Network Resource Provider (RP) in your respective tenants/subscriptions. See [Register RP](articles/azure-resource-manager/management/resource-providers-and-types.md) for more info about this.
+> If you are going to be using private endpoints using manual requests across multiple subscriptions, you'll need to ensure you register the Microsoft.Network Resource Provider (RP) in your respective tenants/subscriptions. See [Register RP](../azure-resource-manager/management/resource-providers-and-types.md) for more info about this.
 > This step is not needed if you are using the same subscription across both the Chaos and Networking Resource Providers.
  
 ## Step 2: Create a Chaos Studio Private Access (CSPA) resource. 
@@ -100,7 +98,7 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 
 ## Step 3: Create your Virtual Network, Subnet, and Private Endpoint
 
-[Set up your desired Virtual Network, Subnet, and Endpoint](articles/private-link/create-private-endpoint-portal.md) for the experiment if you haven't already.
+[Set up your desired Virtual Network, Subnet, and Endpoint](../private-link/create-private-endpoint-portal.md) for the experiment if you haven't already.
 
 Make sure you attach it to the same VM's VNET. Screenshots provide examples of creating the VNET, Subnet and Private Endpoint. It's important to note that you need to set the "Resource Type" to "Microsoft.Chaos/privateAccesses" as seen in the screenshot. 
 
@@ -190,12 +188,12 @@ In this step, you need to continue to edit files on the host VM machine. You nee
 ### Updating the agentSettings.json
 
 > [!NOTE]
-> **Path of agentSettings.json file on Windows:** C:\Packages\Plugins\Microsoft.Azure.Chaos.ChaosWindowsAgent-<version>\win-x64\agentSettings.json
-> **Path of agentSettings.json file on Linux:** /var/lib/waagent/Microsoft.Azure.Chaos.ChaosLinuxAgent-<version>\linux-x64
+> **Path of agentSettings.json file on Windows:** C:\Packages\Plugins\Microsoft.Azure.Chaos.ChaosWindowsAgent-<agentVersion>\win-x64\agentSettings.json
+> **Path of agentSettings.json file on Linux:** /var/lib/waagent/Microsoft.Azure.Chaos.ChaosLinuxAgent-<agentVersion>\linux-x64
 
 <br/>
 
-**Communication endpoint format:** https://acs-frontdoor-prod-<azureRegion>.chaosagent.trafficmanager.net
+**Communication endpoint format:** https://acs-frontdoor-prod-<chaosAzureRegion>.chaosagent.trafficmanager.net
 
 <br/>
 
@@ -212,7 +210,7 @@ Example of updated agentSettings.json:
 
 <br/>
 
-**Communication endpoint format:** https://acs-frontdoor-prod-<azureRegion>.chaosagent.trafficmanager.net
+**Communication endpoint format:** https://acs-frontdoor-prod-<chaosAzureRegion>.chaosagent.trafficmanager.net
 
 <br/>
 
