@@ -285,6 +285,9 @@ For other languages, you can use the connection string and username that Service
 ### [Ruby](#tab/ruby)
 For other languages, you can use the connection string and username that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
 
+### [Other](#tab/none)
+For other languages, you can use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
+
 ---
 
 For more code samples, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=mysql#3-modify-your-code).
