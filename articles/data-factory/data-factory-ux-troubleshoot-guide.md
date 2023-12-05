@@ -123,7 +123,7 @@ The source of the error message is JSON file that describes the pipeline. It hap
 The solution is to fix JSON files at first and then reopen the pipeline using Authoring tool.
 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

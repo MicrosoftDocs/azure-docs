@@ -21,11 +21,19 @@ Please note that different groups and associated user entitlements need to be se
 
 The entitlements service enables three use cases for authorization:
 
-- **Data groups** used for data authorization (for example, data.welldb.viewers, data.welldb.owners)
-- **Service groups** used for service authorization (for example, service.storage.user, service.storage.admin)
-- **User groups** used for hierarchical grouping of user and service identities (for example, users.datalake.viewers, users.datalake.editors)
-
-Some user, data, and service groups are created by default when a data partition is provisioned. Details of these groups and their hierarchy scope is in [Bootstrapped OSDU Entitlements Groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
+1. **Data groups** are used to enable authorization for data.
+   1. Some examples are data.welldb.viewers and data.welldb.owners.
+   2. The data groups are added in the ACL of individual data records to enable viewer and owner access of the data.
+   3. Individual users who are part of the data groups are authorized to view or own the data depending on the scope of the data group.
+2. **Service groups** are used to enable authorization for services.
+   1. Some examples are service.storage.user and service.storage.admin.
+   2. The service groups are predefined when OSDU services are provisioned in each data partition of Azure Data Manager for Energy instance.
+   3. These groups enable viewer, editor, and admin access to call the OSDU APIs corresponding to the OSDU services.
+3. **User groups** are used for hierarchical grouping of user and service groups.
+   1. Some examples are users.datalake.viewers and users.datalake.editors.
+   2. Some user groups are created by default when a data partition is provisioned. Details of these groups and their hierarchy scope is in [Bootstrapped OSDU Entitlements Groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
+  
+Individual users can be added to a `user group`. The `user group` is then added to a `data group`. The data group is added to the ACL of the data record. It enables abstraction for the data groups since individual users need not be added one by one to the data group and instead can be added to the `user group`. This structure thus helps provide scalability to manage memberships in OSDU.
 
 ## Group naming
 
