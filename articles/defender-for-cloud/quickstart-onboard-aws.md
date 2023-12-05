@@ -20,7 +20,7 @@ You can learn more by watching the [New AWS connector in Defender for Cloud](epi
 
 For a reference list of all the recommendations that Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
 
-### AWS authentication process
+### **AWS authentication process**
 
 Federated authentication is used between Microsoft Defender for Cloud and AWS. All of the resources related to the authentication are created as a part of the CloudFormation template deployment, including:
 
@@ -30,7 +30,9 @@ Federated authentication is used between Microsoft Defender for Cloud and AWS. A
 
 The architecture of the authentication process across clouds is as follows:
 
-![Diagram showing architecture of authentication process across clouds.](media/quickstart-onboard-aws/image.png)
+[![Diagram showing architecture of authentication process across clouds.](https://learn.microsoft.com/en-us/azure/defender-for-cloud/media/quickstart-onboard-aws/architecture-authentication-across-clouds.png)
+
+](/azure/defender-for-cloud/media/quickstart-onboard-aws/architecture-authentication-across-clouds.png)
 
 Microsoft Defender for Cloud CSPM service acquires a Microsoft Entra token with a validity life time of 1 hour that is signed by the Microsoft Entra ID using the RS256 algorithm.
 
