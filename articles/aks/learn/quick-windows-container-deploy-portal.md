@@ -46,6 +46,7 @@ The following limitations apply to *Windows Server node pools*:
       - Select a **Region** for the AKS cluster.
         <!-- any reason to change this one? -->
       - Leave the **Availability zones** setting set to the default value.
+        <!-- standard vs dev/test vs std economy? -->
       - Set the **AKS pricing tier** to *Standard*.
       - Leave the default value selected for **Kubernetes version**.
       - Leave the **Automatic upgrade** setting set to the recommended value, which is *Enabled with patch*.
@@ -61,6 +62,7 @@ The following limitations apply to *Windows Server node pools*:
     - Leave the **Scale method** setting set to *Autoscale*.
     - Leave the **Minimum node count** and **Maximum node count** fields set to their default settings.
 <!-- Do we want to have user change this, or is new default preferable? -->
+<!-- CNI vs Kubenet? -->
 1. Select **Next** to move to the **Networking** tab. Leave all values set to their defaults, except for the **Network policy** setting. Change this setting to **Azure**.
 1. Select **Review + create** to run validation on the cluster configuration. After validation completes, select **Create** to create the AKS cluster.
 
