@@ -20,7 +20,7 @@ If you're new to Azure Policy, here are some helpful resources that you can use 
 - [Azure Policy documentation](../governance/policy/overview.md)
 - Interactive Learning Modules: [Azure Policy on Microsoft Learn](https://docs.microsoft.com/learn/browse/?terms=Azure%20Policy)
 
-#####Understanding Policy Definitions and Assignments
+##### Understanding Policy Definitions and Assignments
 
 - **Policy Definitions**: These are the rules that your resources need to comply with. They can be built-in or custom.
 - **Assignments**: The process of applying a policy definition to your resources.
@@ -60,7 +60,7 @@ If you're new to Azure Policy, here are some helpful resources that you can use 
 
 The Operator Nexus service offers a built-in policy definition that is recommended to be assigned to your Nexus BMM resources. This policy definition is called **[Preview]: Nexus compute machines should meet security baseline**. This policy definition is used to ensure that your Nexus BMM resources are configured with industry best practice security settings.
 
-- [[Preview]: Nexus compute machines should meet security baseline](../../includes/policy/reference/byrp/microsoft.hybridcompute.md)
+- [[Preview]: Nexus compute machines should meet security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec2c1bce-5ad3-4b07-bb4f-e041410cd8db)
 
 ## Use Azure Policy to secure your Nexus Kubernetes cluster
 
