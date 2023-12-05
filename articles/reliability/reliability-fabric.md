@@ -103,7 +103,7 @@ For effective disaster recovery planning, it's critical that you understand the 
 The **home region** for your organization's tenancy and data storage is set to the billing address location of the first user that signs up. For further details on tenancy setup, go to [Power BI implementation planning: Tenant setup](/power-bi/guidance/powerbi-implementation-planning-tenant-setup#home-region).  When you create new capacities, your data storage is set to the home region by default. If you wish to change your data storage region to another region, you'll need to [enable Multi-Geo, a Fabric Premium feature](/fabric/admin/service-admin-premium-multi-geo#enable-and-configure).
 
   >[!IMPORTANT]
-  > Choosing a different region for your capacity doesn't entirely relocate all of your data to that region. Some data elements still remain stored in the home region.  To see which data remains in the home region and which data is stored in the Multi-Geo enabled region, see [Configure Multi-Geo support for Fabric Premium](fabric/admin/service-admin-premium-multi-geo). 
+  > Choosing a different region for your capacity doesn't entirely relocate all of your data to that region. Some data elements still remain stored in the home region.  To see which data remains in the home region and which data is stored in the Multi-Geo enabled region, see [Configure Multi-Geo support for Fabric Premium](/fabric/admin/service-admin-premium-multi-geo). 
   >
   >In the case of a home region that doesn't have a paired region, capacities in any Multi-Geo enabled region may face operational issues if the home region encounters a disaster, as the core service functionality is tethered to the home region.
   >
