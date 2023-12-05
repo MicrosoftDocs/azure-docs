@@ -11,7 +11,7 @@ ms.custom:
   - references_regions
   - build-2023
   - ignite-2023
-ms.date: 12/23/2023 
+ms.date: 12/05/2023 
 ---
 
 # Reliability in Microsoft Fabric
@@ -74,7 +74,7 @@ During a zone-wide outage, no action is required during zone recovery. Fabric ca
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-This section describes a disaster recovery plan for Fabric. The plan is designed to help your organization keep its data safe and accessible when an unplanned regional disaster occurs. The section covers the following topics:
+This section describes a disaster recovery plan for Fabric that's designed to help your organization keep its data safe and accessible when an unplanned regional disaster occurs. The plan covers the following topics:
 
 * **Cross-region replication**: Fabric offers cross-region replication for data that's stored in OneLake. You can opt in or out of this feature based on your requirements.
 
@@ -96,7 +96,23 @@ For more information, see the [Power BI high availability, failover, and disas
 >[!IMPORTANT]
 > For customers whose home regions don't have an Azure pair region and are affected by a disaster, the ability to utilize Fabric capacities may be compromised—even if the data within those capacities is replicated. This limitation is tied to the home region’s infrastructure, essential for the capacities' operation. 
 
-#### Disaster recovery capacity setting
+### Home region and capacity functionality
+
+For effective disaster recovery planning, it's critical that you understand the relationship between your home region and capacity locations. Understanding home region and capacity locations helps you make strategic selections of capacity regions, as well as the corresponding replication and recovery processes.
+
+The **home region** for your organization's tenancy and data storage is set to the billing address location of the first user that signs up. For further details on tenancy setup, go to [Power BI implementation planning: Tenant setup](/power-bi/guidance/powerbi-implementation-planning-tenant-setup#home-region).  When you create new capacities, your data storage is set to the home region by default. If you wish to change your data storage region to another region, you'll need to [enable Multi-Geo, a Fabric Premium feature](/fabric/admin/service-admin-premium-multi-geo#enable-and-configure).
+
+  >[!IMPORTANT]
+  > Choosing a different region for your capacity doesn't entirely relocate all of your data to that region. Some data elements still remain stored in the home region.  To see which data remains in the home region and which data is stored in the Multi-Geo enabled region, see [Configure Multi-Geo support for Fabric Premium](fabric/admin/service-admin-premium-multi-geo). 
+  >
+  >In the case of a home region that doesn't have a paired region, capacities in any Multi-Geo enabled region may face operational issues if the home region encounters a disaster, as the core service functionality is tethered to the home region.
+  >
+  >If you select a Multi-Geo enabled region within the EU, it's guaranteed that your data is stored within the EU data boundary. 
+
+
+To learn how to identify your home region, see [Find your Fabric home region](/fabric/admin/find-fabric-home-region). 
+
+### Disaster recovery capacity setting
 
 Fabric provides a disaster recovery switch on the capacity settings page. It's available where Azure [regional pairings](./cross-region-replication-azure.md#azure-paired-regions) align with Fabric's service presence. Here are the specifics of this switch:
 
@@ -115,14 +131,14 @@ Fabric provides a disaster recovery switch on the capacity settings page. It's a
 > [!NOTE]
 > After turning on the disaster recovery capacity setting, it can take up to 72 hours for the data to start replicating.
 
-#### Data replication
+### Data replication
 
 When you turn on the disaster recovery capacity setting, cross-region replication is enabled as a disaster recovery capability for OneLake data. The Fabric platform aligns with Azure regions to provision the geo-redundancy pairs. However, some regions don't have an Azure pair region, or the pair region doesn't support Fabric. For these regions, data replication isn't available. For more information, see [Regions with availability zones and no region pair](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair/) and [Fabric region availability](/fabric/admin/region-availability).
 
 > [!NOTE]
 > While Fabric offers a data replication solution in OneLake to support disaster recovery, there are notable limitations. For instance, the data of KQL databases and query sets is stored externally to OneLake, which means that a separate disaster recovery approach is needed. Refer to the rest of this document for details of the disaster recovery approach for each Fabric item. 
 
-#### Billing
+### Billing
 
 The disaster recovery feature in Fabric enables geo-replication of your data for enhanced security and reliability. This feature consumes more storage and transactions, which are billed as BCDR Storage and BCDR Operations respectively. You can monitor and manage these costs in the [Microsoft Fabric Capacity Metrics app](/fabric/enterprise/metrics-app), where they appear as separate line items.
 
@@ -132,7 +148,7 @@ For an exhaustive breakdown of all associated disaster recovery costs to help yo
 
 While Fabric provides disaster recovery features to support data resiliency, you **must** follow certain manual steps to restore service during disruptions. This section details the actions you should take to prepare for potential disruptions.
 
-### Phase 1: Prepare
+#### Phase 1: Prepare
 
 * **Activate the disaster recovery capacity settings**: Regularly review and set the [disaster recovery capacity settings](#disaster-recovery-capacity-setting) to make sure they meet your protection and performance needs.
 
@@ -172,11 +188,11 @@ OneLake data remains accessible through multiple channels:
 
     * OneLake File Explorer: See [Use OneLake file explorer to access Fabric data](/fabric/onelake/onelake-file-explorer)
 
-### Phase 3: Recovery plan
+#### Phase 3: Recovery plan
 
 While Fabric ensures that data remains accessible after a disaster, you can also act to fully restore their services to the state before the incident. This section provides a step-by-step guide to help you through the recovery process.
 
-#### Recovery steps
+### Recovery steps
 
 1. Create a new Fabric capacity in any region after a disaster. Given the high demand during such events, we recommend selecting a region outside your primary geo to increase likelihood of compute service availability. For information about creating a capacity, see [Buy a Microsoft Fabric subscription](/fabric/enterprise/buy-subscription).
 
