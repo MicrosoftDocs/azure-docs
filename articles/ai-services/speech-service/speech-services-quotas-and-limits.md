@@ -116,6 +116,12 @@ The limits in this table apply per Speech resource when you create a personal vo
 | REST API limit (not including speech synthesis) | Not available for F0 | 50 requests per 10 seconds |
 | Max number of transactions per second (TPS) for speech synthesis|Not available for F0  |200 transactions per second (TPS) (default value)  |
 
+#### Real-time text to speech avatar
+
+| Quota | Free (F0)| Standard (S0) |
+|--|--|--|
+| New connections per minute | Not available for F0 | 2 new connections per minute |
+
 #### Audio Content Creation tool
 
 | Quota | Free (F0)| Standard (S0) |

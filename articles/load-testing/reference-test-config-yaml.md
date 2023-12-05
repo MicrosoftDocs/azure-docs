@@ -24,8 +24,8 @@ A test configuration uses the following keys:
 | `version` | string |  | Version of the YAML configuration file that the service uses. Currently, the only valid value is `v0.1`. |
 | `testId` | string |  | *Required*. ID of the test to run. testId must be between 2 to 50 characters. For a new test, enter an ID with characters [a-z0-9_-]. For an existing test, you can get the test ID from the test details page in Azure portal. This field was called `testName` earlier, which has been deprecated. You can still run existing tests with `testName`field. |
 | `displayName` | string |  | Display name of the test. This is shown in the list of tests in Azure portal. If not provided, testId is used as the display name. |
-| `testType` | string | | *URL* or *JMETER* to indicate a URL-based load test or JMeter-based load test. |
-| `testPlan` | string |  | *Required*. If `testType: JMETER`: relative path to the Apache JMeter test script to run.<br/>If `testType: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md). |
+| `testKind` | string | | *URL* or *JMETER* to indicate a URL-based load test or JMeter-based load test. |
+| `testPlan` | string |  | *Required*. If `testKind: JMETER`: relative path to the Apache JMeter test script to run.<br/>If `testKind: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md). |
 | `engineInstances` | integer |  | *Required*. Number of parallel instances of the test engine to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
 | `configurationFiles` | array |  | List of relevant configuration files or other files that you reference in the Apache JMeter script. For example, a CSV data set file, images, or any other data file. These files are uploaded to the Azure Load Testing resource alongside the test script. If the files are in a subfolder on your local machine, use file paths that are relative to the location of the test script. <BR><BR>Azure Load Testing currently doesn't support the use of file paths in the JMX file. When you reference an external file in the test script, make sure to only specify the file name. |
 | `description` | string |  | Short description of the test. description must have a maximum length of 100 characters |
@@ -36,6 +36,7 @@ A test configuration uses the following keys:
 | `autoStop.timeWindow` | integer | 60 | Time window in seconds for calculating the *autoStop.errorPercentage*. |
 | `properties` | object |  | List of properties to configure the load test. |
 | `properties.userPropertyFile` | string |  | File to use as an Apache JMeter [user properties file](https://jmeter.apache.org/usermanual/test_plan.html#properties). The file is uploaded to the Azure Load Testing resource alongside the JMeter test script and other configuration files. If the file is in a subfolder on your local machine, use a path relative to the location of the test script. |
+| `zipArtifacts` | array |  | List of zip artifact files load test. For files other than JMeter scripts and user properties, if the file size exceeds 50MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. |
 | `splitAllCSVs` | boolean | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
 | `secrets` | object |  | List of secrets that the Apache JMeter script references. |
 | `secrets.name` | string |  | Name of the secret. This name should match the secret name that you use in the Apache JMeter script. |
@@ -62,6 +63,9 @@ properties:
   userPropertyFile: 'user.properties'
 configurationFiles:
   - 'SampleData.csv'
+zipArtifacts:
+   - sampleArtifact.zip
+   - TestData.zip
 failureCriteria:
   - avg(response_time_ms) > 300
   - percentage(error) > 50
@@ -84,7 +88,7 @@ keyVaultReferenceIdentity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/r
 
 ## Requests JSON file
 
-If you use a URL-based test, you can specify the HTTP requests in a JSON file instead of using a JMeter test script. Make sure to set the `testType` to `URL` in the test configuration YAML file and reference the requests JSON file.
+If you use a URL-based test, you can specify the HTTP requests in a JSON file instead of using a JMeter test script. Make sure to set the `testKind` to `URL` in the test configuration YAML file and reference the requests JSON file.
 
 ### HTTP requests
 
@@ -173,6 +177,6 @@ The requests JSON file uses the following properties for defining the load confi
 
 ## Next steps
 
-- Learn how to build [automated regression testing in your CI/CD workflow](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn how to build [automated regression testing in your CI/CD workflow](./quickstart-add-load-test-cicd.md).
 - Learn how to [parameterize load tests with secrets and environment variables](./how-to-parameterize-load-tests.md).
 - Learn how to [load test secured endpoints](./how-to-test-secured-endpoints.md).

@@ -9,9 +9,10 @@ ms.custom: template-concept, ignite-2022
 ms.reviewer: harelbr
 ---
 
-# Types of Azure Monitor alerts
+# Choosing the right type of alert rule
 
 This article describes the kinds of Azure Monitor alerts you can create. It helps you understand when to use each type of alert.
+For more information about pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 The types of alerts are:
 - [Metric alerts](#metric-alerts)
@@ -22,9 +23,7 @@ The types of alerts are:
 - [Smart detection alerts](#smart-detection-alerts)
 - [Prometheus alerts](#prometheus-alerts)
 
-## Choose the right alert type
-
-The information in this table can help you decide when to use each type of alert. For more information about pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+##  Types of Azure Monitor alerts
 
 |Alert type |When to use |Pricing information|
 |---------|---------|---------|
@@ -46,28 +45,28 @@ You can create rules by using these metrics:
 Metric alert rules include these features:
 - You can use multiple conditions on an alert rule for a single resource.
 - You can add granularity by [monitoring multiple metric dimensions](#narrow-the-target-using-dimensions). 
-- You can use [dynamic thresholds](#dynamic-thresholds), which are driven by machine learning. 
+- You can use [dynamic thresholds](#apply-advanced-machine-learning-with-dynamic-thresholds), which are driven by machine learning. 
 - You can configure if metric alerts are [stateful or stateless](alerts-overview.md#alerts-and-state). Metric alerts are stateful by default.
 
 The target of the metric alert rule can be:
 - A single resource, such as a virtual machine (VM). For supported resource types, see [Supported resources for metric alerts in Azure Monitor](alerts-metric-near-real-time.md).
-- [Multiple resources](#monitor-multiple-resources) of the same type in the same Azure region, such as a resource group.
+- [Multiple resources](#monitor-multiple-resources-with-one-alert-rule) of the same type in the same Azure region, such as a resource group.
 
-### Multiple conditions
+### Applying multiple conditions to a metric alert rule
 
 When you create an alert rule for a single resource, you can apply multiple conditions. For example, you could create an alert rule to monitor an Azure virtual machine and alert when both "Percentage CPU is higher than 90%" and "Queue length is over 300 items". When an alert rule has multiple conditions, the alert fires when all the conditions in the alert rule are true and is resolved when at least one of the conditions is no longer true for three consecutive checks.
 
-### Narrow the target using Dimensions
+### Narrow the target using dimensions
 
 For instructions on using dimensions in metric alert rules, see [Monitor multiple time series in a single metric alert rule](alerts-metric-multiple-time-series-single-rule.md).
 
-### Create resource-centric alerts by using splitting by dimensions
+### Monitor the same condition on multiple resources using splitting by dimensions
 
 To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. When you use splitting by dimensions, you can create resource-centric alerts at scale for a subscription or resource group. Alerts are split into separate alerts by grouping combinations. Splitting on an Azure resource ID column makes the specified resource into the alert target.
 
 You might also decide not to split when you want a condition applied to multiple resources in the scope. For example, you might want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
-### Monitor multiple resources
+### Monitor multiple resources with one alert rule
 
 You can monitor at scale by applying the same metric alert rule to multiple resources of the same type for resources that exist in the same Azure region. Individual notifications are sent for each monitored resource.
 
@@ -97,7 +96,7 @@ You can specify the scope of monitoring with a single metric alert rule in one o
 - All VMs in one Azure region in one or more resource groups in a subscription.
 - All VMs in one Azure region in a subscription.
 
-### Dynamic thresholds
+### Apply advanced machine learning with dynamic thresholds
 
 Dynamic thresholds use advanced machine learning to:
 - Learn the historical behavior of metrics.
@@ -137,24 +136,24 @@ Note that stateful log alerts have these limitations:
 > [!NOTE]
 > Log alerts work best when you're trying to detect specific data in the logs, as opposed to when you're trying to detect a lack of data in the logs. Because logs are semi-structured data, they're inherently more latent than metric data on information like a VM heartbeat. To avoid misfires when you're trying to detect a lack of data in the logs, consider using [metric alerts](#metric-alerts). You can send data to the metric store from logs by using [metric alerts for logs](alerts-metric-logs.md).
 
-### Dimensions in log alert rules
+### Monitor multiple instances of a resource using dimensions
 
 You can use dimensions when you create log alert rules to monitor the values of multiple instances of a resource with one rule. For example, you can monitor CPU usage on multiple instances running your website or app. Each instance is monitored individually. Notifications are sent for each instance.
 
-### Splitting by dimensions in log alert rules
+### Monitor the same condition on multiple resources using splitting by dimensions
 
 To monitor for the same condition on multiple Azure resources, you can use splitting by dimensions. When you use splitting by dimensions, you can create resource-centric alerts at scale for a subscription or resource group. Alerts are split into separate alerts by grouping combinations by using numerical or string columns. Splitting on the Azure resource ID column makes the specified resource into the alert target.
 
 You might also decide not to split when you want a condition applied to multiple resources in the scope. For example, you might want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
-### Use the API
+### Use the API for log alert rules
 
 Manage new rules in your workspaces by using the [ScheduledQueryRules](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) API.
 
 > [!NOTE]
 > Log alerts for Log Analytics used to be managed by using the legacy [Log Analytics Alert API](api-alerts.md). Learn more about [switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
-## Log alerts on your Azure bill
+### Log alerts on your Azure bill
 
 Log alerts are listed under resource provider `microsoft.insights/scheduledqueryrules` with:
 - Log alerts on Application Insights shown with the exact resource name along with resource group and alert properties.

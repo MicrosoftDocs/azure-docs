@@ -26,10 +26,10 @@ zone_pivot_groups: programming-languages-set-formre
 > * Some platforms are still awaiting the renaming update.
 > * All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
-**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** **Earlier versions:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.0](?view=doc-intel-3.0.0&preserve-view=true) ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 
 ::: moniker range="doc-intel-3.1.0"
 
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** **Earlier versions:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.0](?view=doc-intel-3.0.0&preserve-view=true) ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 
 * Get started with Azure AI Document Intelligence latest GA version (v3.1).
 
