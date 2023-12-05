@@ -59,6 +59,10 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 ## Self-asserted page (selfasserted)
 
+**2.1.29**
+
+- Add CAPTCHA 
+
 **2.1.26**
 
 - Replaced `Keypress` to `Key Down` event and avoid `Asterisk` for non-required in classic mode.
@@ -66,8 +70,6 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 **2.1.25**
 
 - Fixed content security policy (CSP) violation and remove additional request header X-Aspnetmvc-Version.
-
-- Introduced Captcha mechanism for Self-asserted and Unified SSP Flows (_Beta-version-Internal use only_).
 
 **2.1.24**
 
@@ -221,6 +223,10 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
+**2.1.17**
+
+- Add CAPTCHA.
+
 **2.1.14**
 
 - Replaced `Keypress` to `Key Down` event.
@@ -228,8 +234,6 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 **2.1.13**
 
 - Fixed content security policy (CSP) violation and remove additional request header X-Aspnetmvc-Version
-
-- Introduced Captcha mechanism for Self-asserted and Unified SSP Flows (_Beta-version-Internal use only_)
 
 **2.1.12**
 
@@ -312,6 +316,10 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Initial release
 
 ## MFA page (multifactor)
+
+**1.2.15**
+
+- Add CAPTCHA to MFA page.
 
 **1.2.12**
 
