@@ -4,7 +4,7 @@ description: An introduction to HDInsight, and the Apache Hadoop and Apache Spar
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.date: 11/08/2022
+ms.date: 12/05/2023
 #Customer intent: As a data analyst, I want understand what is Azure HDInsight and Hadoop and how it is offered in so that I can decide on using HDInsight instead of on premises clusters.
 ---
 
