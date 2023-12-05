@@ -31,5 +31,3 @@ Oracle Database@Azure offers [Oracle Exadata Database Service on Dedicated Infra
 ## Next steps 
 
 Oracle solutions On Azure 
-
-Feedback 

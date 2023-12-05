@@ -14,23 +14,23 @@ ms.author: jacobjaygbay
 
 In this article, you learn about how to subscribe and onboard to the Oracle Database@Azure service in your Azure environment.
 
-Before subscribing to Oracle Database@Azure, review the following prerequisites and contact [Oracle Sales](https://www.oracle.com/corporate/contact/) if Oracle hasn't already created an Azure private offer for your organization.
+Before subscribing to Oracle Database@Azure, review the following prerequisites and contact [Oracle Sales](https://www.oracle.com/corporate/contact/) if you don't an Azure private offer from Oracle for your organization.
 
 ## Prerequisites for Oracle Database@Azure
-To use the Oracle Database@Azure, you need the following:
+To use the Oracle Database@Azure, you need the following items:
 -   An existing Azure subscription
--   An Azure VNet with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
+-   An Azure virtual network with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
 
-If you do not have an Oracle Cloud (OCI) account, you can create one during your service deployment. If you do have an OCI account, you can use it with Oracle Database@Azure.
+If you don't have an Oracle Cloud (OCI) account, you can create one during your service deployment. If you do have an OCI account, you can use it with Oracle Database@Azure.
 
-Optionally, you can create identity federation for your OCI account so that users can access the OCI tenancy using an Azure login. Certain Oracle Database@Azure tasks related to Container Database (CDB) and Pluggable Database (PDB) management must be performed in the OCI console. If you choose not to federate your OCI tenancy with Azure's identity service, you must create OCI users using the OCI  () service. See [Identity Federation](https://docs.oracle.com/iaas/Content/multicloud/signup_guided_federation.htm) in the Oracle Multicloud documentation for information on creating identity federation using Azure's identity service.
+Optionally, you can create identity federation for your OCI account so that users can access the OCI tenancy using an Azure sign in. Certain Oracle Database@Azure tasks related to Container Database (CDB) and Pluggable Database (PDB) management must be performed in the OCI console. If you choose not to federate your OCI tenancy with Azure's identity service, you must create OCI users using the OCI  () service. See [Identity Federation](https://docs.oracle.com/iaas/Content/multicloud/signup_guided_federation.htm) in the Oracle Multicloud documentation for information on creating identity federation using Azure's identity service.
 
 ## Step 1: Purchase Oracle Database@Azure in the Azure portal 
 
 1.  Sign in to your Azure account.
 2.  Navigate to the Marketplace service in the Azure portal. See [What is Azure Marketplace?](https://learn.microsoft.com/marketplace/azure-marketplace-overview) in the Azure documentation for more information on Azure Marketplace.
 
-    Alternately, if you received an email from Azure with a link to your private offer, you can select the link to go to your offer in the Azure portal. Skip to step 4 in this article if you have clicked a link to your offer and are viewing it in the Azure portal.
+    Alternately, if you received an email from Azure with a link to your private offer, you can select the link to go to your offer in the Azure portal. Skip to step 4 in this article to view your private offer in the Azure portal.
 
 3.  In Azure Marketplace, under **Management**, select **Private Offer Management**.
 4.  In the list of private offers, select the **View Offer** button in the row for the Oracle Database@Azure offer.
@@ -58,7 +58,7 @@ Optionally, you can create identity federation for your OCI account so that user
 
 2.  In the email you receive from Oracle, select the **Create new cloud account** button or follow the provided link to create an OCI account. Your browser opens OCI's **New Cloud Account Information** page so that you can create an OCI account for your Oracle Database service in Azure.
 
-3.  Enter user information for the account (provide the information for the user who will administer the Oracle Database service in the Azure environment). Enter the administrator's **First Name**, **Last Name**, **Email**, and **Password**. In the **Confirm Password** field, reenter the same password you entered in the Password field.
+3.  Enter user information for the account (provide the information for the user who administers the Oracle Database service in the Azure environment). Enter the administrator's **First Name**, **Last Name**, **Email**, and **Password**. In the **Confirm Password** field, reenter the same password you entered in the Password field.
 4.  Enter a name for your OCI tenancy in the **Tenancy Name** field.
 5.  Select an OCI **Home Region**. We recommend selecting the OCI region closest to the Azure region hosting the Oracle Database@Azure infrastructure. Only OCI regions that support Oracle Database@Azure are displayed in the **Home Region** drop-down selector. You can't change the home region after creating the OCI tenancy.
 
