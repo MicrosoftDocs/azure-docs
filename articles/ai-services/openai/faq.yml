@@ -203,13 +203,13 @@ sections:
       - question: |
           Where can I learn more about the considerations of GPT-4 Turbo with Vision?
         answer: |
-          You can find details about our evaluations, preparation, and mitigation work in the [GPT-4 Turbo with Vision system card](tbd).
+          You can find details about our evaluations, preparation, and mitigation work in the [GPT-4 Turbo with Vision system card](https://cdn.openai.com/papers/gpt-4-system-card.pdf).
 
           We have further implemented a system to block the submission of CAPTCHAs.
       - question: |
           How do the rate limits for GPT-4 Turbo with Vision work?
         answer: |
-          We process images at the token level, so each image we process counts towards your tokens per minute (TPM) limit. See the [calculating costs](tbd) section for details on the formula used to determine token count per image.
+          We process images at the token level, so each image we process counts towards your tokens per minute (TPM) limit. See the [calculating costs](tbd quotas?) section for details on the formula used to determine token count per image.
       - question: |
           Can GPT-4 Turbo with Vision understand image metadata?
         answer: |
