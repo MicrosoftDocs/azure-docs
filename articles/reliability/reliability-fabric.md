@@ -30,7 +30,7 @@ Fabric makes commercially reasonable efforts to support zone-redundant availabil
 - Fabric currently provides partial availability-zone support in a [limited number of regions](#supported-regions). This partial availability-zone support covers experiences (and/or certain functionalities within an experience).
 - Experiences such as Data Factory (pipelines), Data Engineering, Data Science, and Event Streams don't support availability zones. 
 - Zone availability may or may not be available for Fabric experiences or features/functionalities that are in preview. 
-- On-prem gateways and large semantic models in Power BI don't support availability zones.  
+- On-premises gateways and large semantic models in Power BI don't support availability zones.  
 
 
 ### Supported regions
@@ -76,11 +76,11 @@ During a zone-wide outage, no action is required during zone recovery. Fabric ca
 
 This section describes a disaster recovery plan for Fabric that's designed to help your organization keep its data safe and accessible when an unplanned regional disaster occurs. The plan covers the following topics:
 
-* **Cross-region replication**: Fabric offers cross-region replication for data that's stored in OneLake. You can opt in or out of this feature based on your requirements.
+* **Cross-region replication**: Fabric offers cross-region replication for data stored in OneLake. You can opt in or out of this feature based on your requirements.
 
 * **Data access after disaster**:  In a regional disaster scenario, Fabric guarantees data access, with certain limitations. While the creation or modification of new items is restricted after failover, the primary focus remains on ensuring that existing data remains accessible and intact.
 
-* **Guidance for recovery**: Fabric provides a structured set of instructions to guide you through the recovery process. This makes it easier for you to transition back to regular operations.
+* **Guidance for recovery**: Fabric provides a structured set of instructions to guide you through the recovery process. The structured guidance makes it easier for you to transition back to regular operations.
 
 Power BI, now a part of the Fabric, has a solid disaster recovery system in place and offers the following features:
 
@@ -176,7 +176,7 @@ The time it takes for failover to complete can vary, although it typically takes
 
 * **KQL Database/Queryset**: You won't be able to access KQL databases and query sets after failover. More prerequisite steps are required to protect the data in KQL databases and query sets.
 
-Although, in a disaster scenario, the Fabric portal and Power BI are in read-only mode, and other Fabric items are unavailable, you can access their data stored in OneLake using APIs or third-party tools. Both portal and Power BI retain the ability to perform read-write operations on that data. This ability ensures that critical data remains accessible and modifiable, and mitigates potential disruption of your business operations.
+In a disaster scenario, the Fabric portal and Power BI are in read-only mode, and other Fabric items are unavailable, you can access their data stored in OneLake using APIs or third-party tools. Both portal and Power BI retain the ability to perform read-write operations on that data. This ability ensures that critical data remains accessible and modifiable, and mitigates potential disruption of your business operations.
 
 OneLake data remains accessible through multiple channels:
 
