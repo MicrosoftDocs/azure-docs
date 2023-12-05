@@ -22,7 +22,7 @@ At a high level you can break down working with functions into three steps:
 3. Call the chat completions API again, including the response from your function to get a final response
 
 > [!IMPORTANT]
-> The `functions` and `function_call` parameters have been deprecated with the release of the `2023-12-01-preview` version of the API. The replacement for `functions` is the [`tools`](../reference.md#chat-completions) parameter. The replacement for `function_call` is the [`tool_choice`](../reference.md#chat-completions) parameter. We will be updating this article shortly to fully cover these new parameters.
+> The `functions` and `function_call` parameters have been deprecated with the release of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) version of the API. The replacement for `functions` is the [`tools`](../reference.md#chat-completions) parameter. The replacement for `function_call` is the [`tool_choice`](../reference.md#chat-completions) parameter.
 
 ## Using function in the chat completions API
 
