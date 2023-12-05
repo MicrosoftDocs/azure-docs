@@ -71,7 +71,7 @@ However, if most of your data flows execute in parallel, it is not recommended t
 > [!NOTE]
 > Time to live is not available when using the auto-resolve integration runtime (default).
 
-## Next steps
+## Related content
 
 See other Data Flow articles related to performance:
 

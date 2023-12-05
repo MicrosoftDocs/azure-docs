@@ -86,7 +86,7 @@ You can install any provider package by editing the airflow environment from the
 * DAGs that are inside a Blob Storage in VNet/behind Firewall is currently not supported.
 * Azure Key Vault isn't supported in LinkedServices to import dags.
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)
