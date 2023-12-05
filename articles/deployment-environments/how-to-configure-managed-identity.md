@@ -30,7 +30,7 @@ As a security best practice, if you choose to use user-assigned identities, use 
 > [!NOTE]
 > In Azure Deployment Environments, if you add both a system-assigned identity and a user-assigned identity, only the user-assigned identity is used.
 
-### Add a system-assigned managed identity to a dev center
+### Add a system-assigned managed identity
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 1. On **Dev centers**, select your dev center.
@@ -42,7 +42,7 @@ As a security best practice, if you choose to use user-assigned identities, use 
 
 1. In the **Enable system assigned managed identity** dialog, select **Yes**.
 
-### Add a user-assigned managed identity to a dev center
+### Add a user-assigned managed identity
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 1. On **Dev centers**, select your dev center.
@@ -57,7 +57,7 @@ As a security best practice, if you choose to use user-assigned identities, use 
     1. On **User assigned managed identities**, select an existing identity.
     1. Select **Add**.
 
-## Assign a subscription role assignment to the managed identity
+## Assign a subscription role assignment
 
 The identity attached to the dev center should be assigned the Contributor and User Access Administrator roles for all the deployment subscriptions and the Reader role for all subscriptions that contain the relevant project. When a user creates or deploys an environment, the service grants appropriate access to the deployment identity that's attached to the project environment type. The deployment identity uses the access to perform deployments on behalf of the user. You can use the managed identity to empower developers to create environments without granting them access to the subscription.
 

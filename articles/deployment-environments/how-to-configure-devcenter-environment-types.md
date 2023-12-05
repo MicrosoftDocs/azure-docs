@@ -25,8 +25,7 @@ In this article, you'll learn how to:
 
 To add a new environment type to the dev center:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Open Azure Deployment Environments.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 1. Select your dev center from the list.
 1. Select **Environment types** from the left pane.
 1. Select **+ Create**.
@@ -35,22 +34,21 @@ To add a new environment type to the dev center:
    1. For **Tags**, add tags by adding **Name** and **Value** information (optional).
 1. Select **Add**.
 
-:::image type="content" source="media/configure-dev-center-environment-types/create-new-dev-center-environment-type.png" alt-text="Screenshot that shows the page for adding an environment type." lightbox="media/configure-dev-center-environment-types/create-new-dev-center-environment-type.png":::
+:::image type="content" source="media/configure-dev-center-environment-types/create-new-dev-center-environment-type.png" alt-text="Screenshot that shows the page for adding an environment type." lightbox="media/configure-dev-center-environment-types/create-new-dev-center-environment-type-expanded.png":::
 
 >[!NOTE]
 > A dev center environment type is available to a specific project only after you add an associated [project environment type](how-to-configure-project-environment-types.md).
 
 ## Delete a dev center environment type
 
-> [!NOTE] 
+> [!NOTE]
 > You can't delete a dev center environment type if any existing project environment types or deployed environments reference it. Delete all the associated project environment types and deployed environments before you try to delete a dev center environment type.
  
 When you delete an environment type, it's no longer available when you deploy environments or configure new project environment types.
 
 To delete an environment type from a dev center:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Open Azure Deployment Environments.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 1. Select your dev center from the list.
 1. Select **Environment types** from the left pane.
 1. Select the environment types that you want to delete.
