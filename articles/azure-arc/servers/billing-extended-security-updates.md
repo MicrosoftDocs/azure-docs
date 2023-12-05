@@ -36,7 +36,7 @@ If you deactivate and then later reactivate a license, you'll be billed for the 
     > If you previously provisioned a Datacenter Virtual Core license, it will be charged with and offer the virtualization benefits associated with the pricing of a Datacenter edition license.
     > 
 
-- **Core modification:** If cores are added to an existing ESU license, they're subject to back-billing (that is, charges for the time elapsed since EOS) and regularly billed from the calendar month in which they were added. If cores are reduced or decremented to an existing ESU license, the billing rate will reflect the reduced number of cores from the subsequent or next calendar month.
+- **Core modification:** If cores are added to an existing ESU license, they're subject to back-billing (that is, charges for the time elapsed since EOS) and regularly billed from the calendar month in which they were added. If cores are reduced or decremented to an existing ESU license, the billing rate will reflect the reduced number of cores within 5 business days of the change.
 
 - **Activation:** Licenses are billed for their number and edition of cores from the point at which they're both activated and assigned to at least one Azure Arc-enabled server. Activation and reactivation are subject to back-billing.
 
