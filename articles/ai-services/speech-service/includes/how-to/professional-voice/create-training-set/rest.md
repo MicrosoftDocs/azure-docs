@@ -22,13 +22,13 @@ To create a training set, use the `TrainingSets_Create` operation of the custom 
 - Set the required `locale` property. This should be the locale of the training set data. The locale of the training set should be the same as the locale of the [consent statement](../../../../professional-voice-create-consent.md). The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
 - Optionally, set the `description` property for the training set description. The training set description can be changed later.
 
-Make an HTTP POST request using the URI as shown in the following `TrainingSets_Create` example. 
+Make an HTTP PUT request using the URI as shown in the following `TrainingSets_Create` example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaTrainingSetId` with a training set ID of your choice. The case sensitive ID will be used in the training set's URI and can't be changed later. 
 
 ```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
+curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "description": "300 sentences Jessica data in general style.",
   "projectId": "ProjectId",
   "locale": "en-US",

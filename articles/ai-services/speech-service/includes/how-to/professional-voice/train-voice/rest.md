@@ -49,13 +49,13 @@ To create a neural voice, use the `Models_Create` operation of the custom voice 
 - Set the required `voiceName` property. The voice name must end with "Neural" and can't be changed later. Choose a name carefully. The voice name is used in your [speech synthesis request](../../../../professional-voice-deploy-endpoint.md#use-your-custom-voice) by the SDK and SSML input. Only letters, numbers, and a few punctuation characters are allowed. Use different names for different neural voice models.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
-Make an HTTP POST request using the URI as shown in the following `Models_Create` example. 
+Make an HTTP PUT request using the URI as shown in the following `Models_Create` example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaModelId` with a model ID of your choice. The case sensitive ID will be used in the model's URI and can't be changed later. 
 
 ```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
+curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "voiceName": "JessicaNeural",
   "description": "Jessica voice",
   "recipe": {
@@ -103,13 +103,13 @@ To create a cross lingual neural voice, use the `Models_Create` operation of the
 - Set the required `locale` property for the language that your voice speaks. The voice speaks a different language from your training data. You can specify only one target language for a voice model.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
-Make an HTTP POST request using the URI as shown in the following `Models_Create` example. 
+Make an HTTP PUT request using the URI as shown in the following `Models_Create` example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaModelId` with a model ID of your choice. The case sensitive ID will be used in the model's URI and can't be changed later. 
 
 ```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
+curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "voiceName": "JessicaCrossLingualNeural",
   "description": "Jessica cross lingual voice",
   "recipe": {
@@ -161,13 +161,13 @@ To create a multi-style neural voice, use the `Models_Create` operation of the c
     - For each dictionary value, specify the ID of a training set that you [already created](../../../../professional-voice-create-training-set.md#add-a-professional-voice-training-dataset) for the same voice model. The training set must contain at least 100 utterances for each style.
 - Optionally, set the `description` property for the voice description. The voice description can be changed later.
 
-Make an HTTP POST request using the URI as shown in the following `Models_Create` example. 
+Make an HTTP PUT request using the URI as shown in the following `Models_Create` example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaModelId` with a model ID of your choice. The case sensitive ID will be used in the model's URI and can't be changed later. 
 
 ```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
+curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type: application/json" -d '{
   "voiceName": "JessicaNeuralMultiStyle",
   "description": "Jessica multi-style voice",
   "recipe": {
