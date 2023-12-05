@@ -21,7 +21,7 @@ Microsoft Dev Box builds on the same foundations as [Azure Deployment Environmen
 
 This diagram shows the key components of Dev Box and how they relate to each other. You can learn more about each component in the following sections.
 
-:::image type="content" source="media/concept-key-concepts/dev-box-architecture.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them.":::
+:::image type="content" source="media/concept-key-concepts/dev-box-architecture.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-architecture.png" :::
     
 ## Dev center
 
