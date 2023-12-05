@@ -41,6 +41,9 @@ To configure repository-scoped permissions, you create a *token* with an associa
   |`metadata/read`    | Read metadata from the repository   | List tags or manifests |
   |`metadata/write`     |  Write metadata to the repository  | Enable or disable read, write, or delete operations |
 
+> [!NOTE]
+> Permissions to allow catalog listing of repositories is not supported for repository-scoped permissions.
+
 * A **scope map** groups the repository permissions you apply to a token, and can reapply to other tokens. Every token is associated with a single scope map.
 
    With a scope map:
@@ -196,6 +199,12 @@ The example shows how to create a token with a root level wildcard that would gi
   --repository * \
   content/write content/read \
 ```
+
+> [!IMPORTANT]
+> If a wildcard rule encompasses a repository that does not exist yet, the wildcard rule's permissions will still apply to that repository name.
+> For example, a token that is assigned to a scope map that grants `[content/write, metadata/write]` permissions for `sample/*` repositories.
+> Additionally, suppose the repository `sample/teamC/teamCimage` does not exist yet.
+> The token will have permissions for pushing images to repository `sample/teamC/teamCimage`, which will simultaneously create the repository on successful push.
 
 ## Create token - portal
 
