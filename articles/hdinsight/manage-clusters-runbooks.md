@@ -4,7 +4,7 @@ description: Learn how to create and delete Azure HDInsight clusters with script
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 11/17/2022
+ms.date: 12/05/2023
 ---
 
 # Tutorial: Create Azure HDInsight clusters with Azure Automation
