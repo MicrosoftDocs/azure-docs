@@ -115,14 +115,14 @@ Follow these steps to begin the configuration:
 Every ExpressRoute Direct instance consists of two physical ports. You can activate MACsec on both ports simultaneously or on one port individually. The latter option allows you to divert the traffic to a functioning port while maintaining the other port, which can reduce the disruption if your ExpressRoute Direct is operational.
 
 
-    > [!NOTE]
-    > You can configure both XPN and Non-XPN ciphers:
-    > * GcmAes128
-    > * GcmAes256
-    > * GcmAesXpn128
-    > * GcmAesXpn256
-    >
-    > The suggested best practice is to set up encryption with xpn ciphers to prevent sporadic session failures that occur with non-xpn ciphers on high speed links.
+> [!NOTE]
+> You can configure both XPN and Non-XPN ciphers:
+> * GcmAes128
+> * GcmAes256
+> * GcmAesXpn128
+> * GcmAesXpn256
+>
+> The suggested best practice is to set up encryption with xpn ciphers to prevent sporadic session failures that occur with non-xpn ciphers on high speed links.
 
 1. Establish the MACsec secrets and cipher and link the user identity with the port to enable the ExpressRoute management code to retrieve the MACsec secrets when required.
 
