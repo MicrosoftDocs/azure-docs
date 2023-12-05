@@ -86,6 +86,7 @@ Use the connection details below to connect compute services to Azure SQL Databa
 > | `AZURE_SQL_AUTHENTICATIONTYPE`      | Azure SQL Database authentication type | `azure-active-directory-default` |
 
 #### [Other](#tab/sql-me-id-none)
+
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                        |
 > |-----------------------------------|----------------------------------------|-------------------------------------|
@@ -93,6 +94,7 @@ Use the connection details below to connect compute services to Azure SQL Databa
 > | `AZURE_SQL_PORT`                    | Azure SQL Database port                | `1433`                              |
 > | `AZURE_SQL_DATABASE`                | Azure SQL Database database            | `<sql-database>`                    |
 > | `AZURE_SQL_AUTHENTICATION`          | Azure SQL Database authentication type | `azure-active-directory-default`    |
+
 ---
 
 #### Sample code
@@ -147,6 +149,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a syste
 > | `AZURE_SQL_CLIENTID`                | Azure SQL Database client ID           | `<identity-client-ID>`              |
 
 #### [Other](#tab/sql-me-id-none)
+
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                        |
 > |-----------------------------------|----------------------------------------|-------------------------------------|
@@ -252,6 +255,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 > | `AZURE_SQL_PASSWORD`                | Azure SQL Database password | `<sql-password>`                    |
 
 #### [Other](#tab/sql-secret-none)
+
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                        |
 > |-----------------------------------|-----------------------------|-------------------------------------|
@@ -326,6 +330,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 > | `AZURE_SQL_TENANTID`                | Azure SQL Database Tenant ID           | `<your Tenant ID>`                  |
 
 #### [Other](#tab/sql-me-id-none)
+
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                        |
 > |-----------------------------------|----------------------------------------|-------------------------------------|

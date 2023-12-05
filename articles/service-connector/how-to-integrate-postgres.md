@@ -199,6 +199,7 @@ Refer to the steps and code below to connect to Azure Database for PostgreSQL us
 | `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby PostgreSQL connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username> ` |
 
 #### [Other](#tab/none)
+
 | Default environment variable name | Description       | Example value                                            |
 | --------------------------------- | ----------------- | -------------------------------------------------------- |
 | `AZURE_POSTGRESQL_HOST`         | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
@@ -207,6 +208,7 @@ Refer to the steps and code below to connect to Azure Database for PostgreSQL us
 | `AZURE_POSTGRESQL_PORT`         | Port number       | `5432`                                                 |
 | `AZURE_POSTGRESQL_SSL`          | SSL option        | `true`                                                 |
 | `AZURE_POSTGRESQL_CLIENTID`     | Your client ID                        | `<identity-client-ID>`|
+
 ---
 
 #### Sample code
@@ -281,6 +283,7 @@ Refer to the steps and code below to connect to Azure Database for PostgreSQL us
 | `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby PostgreSQL connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username> password=<password>` |
 
 #### [Other](#tab/none)
+
 | Default environment variable name | Description       | Example value                                            |
 | --------------------------------- | ----------------- | -------------------------------------------------------- |
 | `AZURE_POSTGRESQL_HOST`         | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
@@ -289,6 +292,7 @@ Refer to the steps and code below to connect to Azure Database for PostgreSQL us
 | `AZURE_POSTGRESQL_PORT`         | Port number       | `5432`                                                 |
 | `AZURE_POSTGRESQL_SSL`          | SSL option        | `true`                                                 |
 | `AZURE_POSTGRESQL_PASSWORD`     | Database password | `<password>`|
+
 ---
 
 #### Sample code
@@ -388,6 +392,7 @@ Refer to the steps and code below to connect to Azure Database for PostgreSQL us
 | `AZURE_POSTGRESQL_CONNECTIONSTRING` | Ruby PostgreSQL connection string | `host=<your-postgres-server-name>.postgres.database.azure.com port=5432 dbname=<database-name> sslmode=require user=<username>` |
 
 #### [Other](#tab/none)
+
 | Default environment variable name | Description       | Example value                                            |
 | --------------------------------- | ----------------- | -------------------------------------------------------- |
 | `AZURE_POSTGRESQL_HOST`         | Database host URL | `<PostgreSQL-server-name>.postgres.database.azure.com` |
@@ -395,9 +400,9 @@ Refer to the steps and code below to connect to Azure Database for PostgreSQL us
 | `AZURE_POSTGRESQL_DATABASE`     | Database name     | `<database-name>`                                      |
 | `AZURE_POSTGRESQL_PORT`         | Port number       | `5432`                                                 |
 | `AZURE_POSTGRESQL_SSL`          | SSL option        | `true`                                                 |
-| `AZURE_POSTGRESQL_CLIENTID`     | Your client ID                        | `<identity-client-ID>`|
-| `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client secret             | `<client-secret>`                                                                |
-| `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID                  | `<tenant-ID>`                                                                    |
+| `AZURE_POSTGRESQL_CLIENTID`     | Your client ID                  | `<identity-client-ID>`|
+| `AZURE_POSTGRESQL_CLIENTSECRET`     | Your client secret      | `<client-secret>`                    |
+| `AZURE_POSTGRESQL_TENANTID`         | Your tenant ID                  | `<tenant-ID>`         |
 
 ---
 
