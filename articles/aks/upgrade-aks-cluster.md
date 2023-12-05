@@ -252,6 +252,15 @@ To stagger a node upgrade in a controlled manner and minimize application downti
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
+> [!NOTE] 
+> To use node soak duration (preview), you must have the aks-preview Azure CLI extension version 0.5.169 or later installed.
+
+* Enable the aks-preview Azure CLI.
+
+    ```azurecli-interactive
+    az extension add --name aks-preview   
+    ```
+
 * Set node soak time for new or existing node pools using the [`az aks nodepool add`][az-aks-nodepool-add], [`az aks nodepool update`][az-aks-nodepool-update], or [`az aks nodepool upgrade`][az-aks-nodepool-upgrade] command.
 
     ```azurecli-interactive
