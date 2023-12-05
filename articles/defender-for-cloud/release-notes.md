@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 12/04/2023
+ms.date: 12/05/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,7 +24,21 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account)
+| December 6 | [Replacing deprecated policies](#replacing-deprecated-policies) | 
+| December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account) |
+
+### Replacing deprecated policies
+
+Fort Knox requires the following built-in policies in order to support the Deny effect. A change in policy effects requires the deprecation of the current versions of the policy which will be replaced with a new version to maintain the Deny effect.
+
+The following table shows the list of policies that are deprecated and the new policies that replace them.
+
+| **Deprecated policies** | **Replacement policies** |
+|--|--|
+| Function apps should use the latest TLS version | App Service apps should have local authentication methods disabled for FTP deployments |
+| Function app slots should use the latest TLS version | App Service app slots should have local authentication methods disabled for FTP deployments |
+| App Service apps should use the latest TLS version | App Service apps should have local authentication methods disabled for SCM site deployments |
+| App Service app slots should use the latest TLS version | App Service app slots should have local authentication methods disabled for SCM site deployments |
 
 ### Defender for Storage alert released for preview: malicious blob was downloaded from a storage account
 
