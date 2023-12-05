@@ -22,6 +22,28 @@ Within the SAP Deployment Automation Framework (SDAF), we recognize that there a
 
 This section describes how to troubleshoot issues that you may encounter when performing deployments using the SAP Deployment Automation Framework.
 
+### OverconstrainedAllocationRequest error
+If you see an error similar to the following when running the deployment:
+
+```text
+Virtual Machine Name: "devsap01app01"): Code="OverconstrainedAllocationRequest" Message="Allocation failed. VM(s) with the following constraints cannot be allocated, because the condition is too restrictive. Please remove some constraints and try again. Constraints applied are:
+- Networking Constraints (such as Accelerated Networking or IPv6)
+- VM Size
+```
+
+This error indicates that the selected VM size is not available using the provided constraints.  To resolve this issue, select a different VM size or a different availability zone.
+
+### The client 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' with object id error
+If you see an error similar to the following message when running the deployment:
+
+```text
+
+The client 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' with object id 'yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy' does not have
+authorization or an ABAC condition not fulfilled to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEV-WEEU-SAP01-X00/providers/Microsoft.Storage/storageAccounts/....
+```
+
+The error indicates that the deployment credential does not have 'User Access Administrator' role on the resource group. To resolve this issue, assign the 'User Access Administrator' role to the deployment credential on the resource group or the subscription (if feasible).
+
 ## Configuration
 
 This section describes how to troubleshoot issues that you may encounter when performing configuration using the SAP Deployment Automation Framework.
@@ -32,16 +54,16 @@ This section describes how to troubleshoot issues that you may encounter when pe
 
 This section describes how to troubleshoot issues that you may encounter when using Azure DevOps with the SAP Deployment Automation Framework.
 
-### Issues with the Azure DevOps pipelines
+### Issues with the Azure Pipelines
 
-If you see an error similar to the following when running the Azure DevOps pipelines:
+If you see an error similar to the following message when running the Azure Pipelines:
 
 ```text
 ##[error]Variable group SDAF-MGMT could not be found.
 ##[error]Bash exited with code '2'.
 ```
 
-This error indicates that the configured personal access token does not have permissions to access the variable group. Please ensure that the personal access token has the **Read & manage** permission for the variable group and that it has not expired. The personal access token is configured in the Azure DevOps pipeline variable groups either as 'PAT' in the control plane variable group or as WZ_PAT in the workload zone variable group.
+This error indicates that the configured personal access token doesn't have permissions to access the variable group. Ensure that the personal access token has the **Read & manage** permission for the variable group and that it hasn't expired. The personal access token is configured in the Azure DevOps pipeline variable groups either as 'PAT' in the control plane variable group or as WZ_PAT in the workload zone variable group.
 
 
 ## Next step
