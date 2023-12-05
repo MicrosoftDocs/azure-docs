@@ -21,7 +21,7 @@ The **Deploy to Azure** button in the next section launches an Azure portal expe
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-Use the following steps to prepare the project:
+Use the following steps to prepare the project and run the sample locally:
 
 1. Use the following command to clone the [Pet Clinic application](https://github.com/Azure-Samples/spring-petclinic-microservices.git) from GitHub.
 
@@ -29,13 +29,13 @@ Use the following steps to prepare the project:
    git clone https://github.com/Azure-Samples/spring-petclinic-microservices.git
    ```
 
-1. Enter the project root directory  and execute the following command to build the project:
+1. Enter the project root directory and execute the following command to build the project:
 
    ```shell
    ./mvnw clean package -DskipTests
    ```
 
-1. Open a terminal and execute the following command to start Config Server:
+1. If you don't want to run the application locally, you can skip the next steps. Open a terminal and execute the following command to start Config Server:
 
    ```shell
    ./mvnw spring-boot:run -pl spring-petclinic-config-server
@@ -112,7 +112,7 @@ Use the following steps to create all the Azure resources that the app depends o
 
 ## 4. Deploy the apps to Azure Spring Apps
 
-You can now deploy the app to Azure Spring Apps.
+You can now deploy the apps to Azure Spring Apps.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 

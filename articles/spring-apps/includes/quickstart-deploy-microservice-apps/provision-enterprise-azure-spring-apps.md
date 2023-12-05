@@ -41,7 +41,7 @@ Use the following steps to create the service instance:
 
 1. Navigate to the **Diagnostic settings** tab on the **Create Azure Spring Apps** page and then select **Create new** to create a new Log Analytics workspaces instance. On the **Create new Log Analytics workspace** page, update the name of the **Log Analytics workspace** as needed, and then select **OK** to confirm the creation.
 
-1. Navigate to the **Application Insights** tab on the **Create Azure Spring Apps** page and then select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select **Workspace-based** for **Resource mode**, and then select **OK** to confirm the creation. Save the Application Insight name to use later.
+1. Navigate to the **Application Insights** tab on the **Create Azure Spring Apps** page and then select **Create new** to create a new Application Insights instance. On the **Create new Application Insights resource** page, update the **Application insights name** as needed, select **Workspace-based** for **Resource mode**, and then select **OK** to confirm the creation.
 
 1. Select **Review and Create** to review your selections. Then, select **Create** to provision the Azure Spring Apps instance.
 
@@ -97,9 +97,9 @@ Use the following steps to create the service instance:
 
 1. From the navigation pane, open the **Apps** pane and select **customers-service** app.
 
-1. On the App overview page select **Configuration** pane, select the dropdown list for **Config file patterns** in the **General settings** tab, and select the **application** and **customers-service** checkbox, then **Save** for config file pattern setting.
+1. On the App overview page select **Configuration** pane, select the dropdown list for **Config file patterns** in the **General settings** tab, and select the *application* and *customers-service* checkbox, then **Save** for config file pattern setting.
 
-1. Referring to the customer-service app, save the config file patterns corresponding to each application name below:
+1. Referring to the *customer-service* app setting, save the config file patterns corresponding to each application name below:
 
     - *vets-service*: **application** and **vets-service**
     - *visits-service*: **application** and **visits-service**
@@ -164,11 +164,11 @@ Use the following steps to create the service instance:
       ```azurecli
       export SUBSCRIPTION_ID="<subscription-ID>"
       export RESOURCE_GROUP="<resource-group-name>"
-      export SPRING_APPS_SERVICE_NAME="<Azure-Spring-Apps-instance-name>"
-      export APP_NAME_CUSTOMERS_SERVICE="customers-service"
-      export APP_NAME_VETS_SERVICE="vets-service"
-      export APP_NAME_VISITS_SERVICE="visits-service"
-      export APP_NAME_FRONTEND="frontend"
+      export SPRING_APPS_NAME="<Azure-Spring-Apps-instance-name>"
+      export APP_CUSTOMERS_SERVICE="customers-service"
+      export APP_VETS_SERVICE="vets-service"
+      export APP_VISITS_SERVICE="visits-service"
+      export APP_FRONTEND="frontend"
       ```
    
    1. Use the following command to set the default subscription:
@@ -181,8 +181,8 @@ Use the following steps to create the service instance:
    
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
-        --name ${APP_NAME_CUSTOMERS_SERVICE} --service ${SPRING_APPS_SERVICE_NAME} \
-        --app-name ${APP_NAME_CUSTOMERS_SERVICE} --routes-json '[
+        --name ${APP_CUSTOMERS_SERVICE} --service ${SPRING_APPS_NAME} \
+        --app-name ${APP_CUSTOMERS_SERVICE} --routes-json '[
         {
           "predicates": [
             "Path=/api/customer/**"
@@ -198,8 +198,8 @@ Use the following steps to create the service instance:
    
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
-        --name ${APP_NAME_VETS_SERVICE} --service ${SPRING_APPS_SERVICE_NAME} \
-        --app-name ${APP_NAME_VETS_SERVICE} --routes-json '[
+        --name ${APP_VETS_SERVICE} --service ${SPRING_APPS_NAME} \
+        --app-name ${APP_VETS_SERVICE} --routes-json '[
         {
           "predicates": [
             "Path=/api/vet/**"
@@ -215,8 +215,8 @@ Use the following steps to create the service instance:
    
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
-        --name ${APP_NAME_VISITS_SERVICE} --service ${SPRING_APPS_SERVICE_NAME} \
-        --app-name ${APP_NAME_VISITS_SERVICE} --routes-json '[
+        --name ${APP_VISITS_SERVICE} --service ${SPRING_APPS_NAME} \
+        --app-name ${APP_VISITS_SERVICE} --routes-json '[
         {
           "predicates": [
             "Path=/api/visit/**"
@@ -232,8 +232,8 @@ Use the following steps to create the service instance:
    
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
-        --name ${APP_NAME_FRONTEND} --service ${SPRING_APPS_SERVICE_NAME} \
-        --app-name ${APP_NAME_FRONTEND} --routes-json '[
+        --name ${APP_FRONTEND} --service ${SPRING_APPS_NAME} \
+        --app-name ${APP_FRONTEND} --routes-json '[
         {
           "predicates": [
             "Path=/**"
@@ -250,15 +250,3 @@ Use the following steps to create the service instance:
 
 From the navigation pane, open the **Developer Tools** pane. select **Assign endpoint** to assign an endpoint for Developer Tools. Save the endpoint of App Live View to use later.
 
-#### Bind Application Insights
-
-Bind the *frontend* builder to Application Insights instance, manual binding is required when creating a non default builder.
-
-1. From the navigation pane, open the **Application Insights** pane.
-
-1. Select the **Unbound** link corresponding to the *frontend* builder name you created.
-
-1. On the **Edit binding for ApplicationInsights** page, for **Application Insights**, select the Application Insights instance you created in the previous step,
-   then select **Save**.
-
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-application-insights.png" alt-text="Screenshot of the Azure portal that shows the bindings in Application Insights page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-application-insights.png":::
