@@ -518,7 +518,7 @@ Configure the schema-mapping rule as the following copy activity JSON sample:
 }
 ```
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

@@ -297,7 +297,7 @@ Data connectors are available as part of the following offerings:
 
 ## Greynoise Intelligence, Inc.
 
-- [GreyNoise Threat Intelligence (Using Azure Functions) (using Azure Functions)](data-connectors/greynoise-threat-intelligence-using-azure-functions-using-azure-functions.md)
+- [GreyNoise Threat Intelligence (using Azure Functions)](data-connectors/greynoise-threat-intelligence-using-azure-functions-using-azure-functions.md)
 
 ## H.O.L.M. Security Sweden AB
 
