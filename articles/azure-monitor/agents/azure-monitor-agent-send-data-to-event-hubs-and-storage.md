@@ -534,7 +534,7 @@ Use custom template deployment to create the DCR association and AMA deployment.
 
     :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal screen to build template in the editor.":::
 
-1. Paste this Azure Resource Manager template into the editor:
+1. Paste this Azure Resource Manager template into the editor, setting the extension type to `AzureMonitorWindowsAgent` for a Windows machine, or `AzureMonitorLinuxAgent` for a Linux machine.
 
     ```json
     {
