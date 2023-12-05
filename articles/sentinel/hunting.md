@@ -88,13 +88,20 @@ Create or modify a query and save it as your own query or share it with users wh
 
 **To clone and modify an existing query**:
 
-1. Select the hunting query in the table you want to modify.
-
+1. From the table, select the hunting query you want to modify.
 1. Select the ellipsis (...) in the line of the query you want to modify, and select **Clone query**.
 
     :::image type="content" source="./media/hunting/clone-query.png" alt-text="Clone query" lightbox="./media/hunting/clone-query.png":::
 
 1. Modify the query and select **Create**.
+
+**To modify an existing custom query**:
+
+1. From the table, select the hunting query that you wish to modify. Note that only queries that from a custom content source can be edited. Other content sources have to be edited at that source.
+
+1. Select the ellipsis (...) in the line of the query you want to modify, and select **Edit query**.
+
+1. Modify the **Custom query** field with the updated query. You can also modify the entity mapping and techniques as explained in the "**To create a new query**" section of this documentation.
 
 ## Sample query
 
@@ -220,3 +227,4 @@ For more information, see:
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)
 
 Learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).
+

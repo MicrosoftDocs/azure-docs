@@ -6,9 +6,9 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
 ---
 
@@ -32,7 +32,7 @@ If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -89,7 +89,8 @@ az network application-gateway create \
   --frontend-port 80 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 100
 ```
 
  It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features:
@@ -216,7 +217,8 @@ az network application-gateway rule create \
   --http-listener backendListener \
   --rule-type PathBasedRouting \
   --url-path-map urlpathmap \
-  --address-pool appGatewayBackendPool
+  --address-pool appGatewayBackendPool \
+  --priority 100
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
@@ -225,7 +227,8 @@ az network application-gateway rule create \
   --http-listener redirectedListener \
   --rule-type PathBasedRouting \
   --url-path-map redirectpathmap \
-  --address-pool appGatewayBackendPool
+  --address-pool appGatewayBackendPool \
+  --priority 100
 ```
 
 ## Create virtual machine scale sets
@@ -252,7 +255,7 @@ for i in `seq 1 3`; do
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username <azure-user> \
     --admin-password <password> \
     --instance-count 2 \

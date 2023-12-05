@@ -17,7 +17,7 @@ Traces are widely used in applications, and they help tell the story of what hap
 
 It's normal to expect some level of “Bad” traces because of any number of reasons, such as transient network issues. But when a real problem begins growing, it usually manifests as an increase in the relative proportion of “bad” traces vs “good” traces. Smart detection automatically analyzes the trace telemetry that your application logs, and can warn you about unusual patterns in their severity.
 
-This feature requires no special setup, other than configuring trace logging for your app. See how to configure a trace log listener for [.NET](../app/asp-net-trace-logs.md) or [Java](../app/java-in-process-agent.md). It's active when your app generates enough trace telemetry.
+This feature requires no special setup, other than configuring trace logging for your app. See how to configure a trace log listener for [.NET](../app/asp-net-trace-logs.md) or [Java](../app/opentelemetry-enable.md?tabs=java). It's active when your app generates enough trace telemetry.
 
 ## When would I get this type of smart detection notification?
 You get this type of notification if the ratio between “good” traces (traces logged with a level of *Info* or *Verbose*) and “bad” traces (traces logged with a level of *Warning*, *Error*, or *Fatal*) is degrading in a specific day, compared to a baseline calculated over the previous seven days.

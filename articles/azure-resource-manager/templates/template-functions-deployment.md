@@ -2,7 +2,8 @@
 title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.custom: devx-track-arm-template
+ms.date: 08/22/2023
 ---
 
 # Deployment functions for ARM templates
@@ -124,6 +125,24 @@ When you deploy to an Azure subscription, management group, or tenant, the retur
     "parameters": {},
     "mode": "",
     "provisioningState": ""
+  }
+}
+```
+
+When deploying a [languageVersion 2.0](./syntax.md#languageversion-20) template, the `deployment` function returns a limited subset of properties:
+
+```json
+{
+  "name": "",
+  "location": "",
+  "properties": {
+    "template": {
+      "contentVersion": ""
+    },
+    "templateLink": {
+      "id": "",
+      "uri": ""
+    }
   }
 }
 ```

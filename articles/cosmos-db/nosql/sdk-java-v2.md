@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ---
 
 # Azure Cosmos DB Java SDK for API for NoSQL (legacy): Release notes and resources
@@ -20,15 +20,14 @@ ms.custom: devx-track-java, ignite-2022
 This is the original Azure Cosmos DB Sync Java SDK v2 for API for NoSQL which supports synchronous operations.
 
 > [!IMPORTANT]  
-> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 
+> This is *not* the latest Java SDK for Azure Cosmos DB! We **strongly recommend** using [Azure Cosmos DB Java SDK v4](sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 
 >
 
 > [!IMPORTANT]  
 > On February 29, 2024 the Azure Cosmos DB Sync Java SDK v2.x
-> will be retired; the SDK and all applications using the SDK
-> **will continue to function**; Azure Cosmos DB will simply cease
-> to provide further maintenance and support for this SDK.
-> We recommend following the instructions above to migrate to
+> will be retired. Azure Cosmos DB will cease
+> to provide further maintenance and support for this SDK after retirement.
+> Please follow the instructions above to migrate to
 > Azure Cosmos DB Java SDK v4.
 >
 
@@ -43,6 +42,15 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for API for NoSQL which su
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 
 ## Release notes
+### <a name="2.6.5"></a>2.6.5
+* Removed test dependency `com.google.guava/guava` due to security vulnerabilities
+* Upgraded dependency `com.fasterxml.jackson.core/jackson-databind` to 2.14.0
+* Upgraded dependency `commons-codec/commons-codec` to 1.15
+* Upgraded dependency `org.json/json` to 20180130
+
+### <a name="2.6.4"></a>2.6.4
+* Fixed the retry policy for read timeouts
+
 ### <a name="2.6.3"></a>2.6.3
 * Fixed a retry policy when `GoneException` is wrapped in `IllegalStateException` - - this change is necessary to make sure Gateway cache is refreshed on 410 so the Spark connector (for Spark 2.4) can use a custom retry policy to allow queries to succeed during partition splits
 
@@ -178,7 +186,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for API for NoSQL which su
 * Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
 
 ### <a name="1.9.5"></a>1.9.5
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](query/aggregate-functions.md).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.

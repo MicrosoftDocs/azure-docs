@@ -1,8 +1,8 @@
 ---
 title: Use Azure Blob Storage for model conversion
 description: Describes common steps to set up and use blob storage for model conversion.
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ---
@@ -60,7 +60,7 @@ To start converting a model, you need to upload it, using one of the following o
 
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) - a convenient UI to upload/download/manage files on Azure blob storage
 - [Azure command line](../../../storage/blobs/storage-quickstart-blobs-cli.md)
-- [Azure PowerShell module](/powershell/azure/install-az-ps)
+- [Azure PowerShell module](/powershell/azure/install-azure-powershell)
   - see the [Example PowerShell scripts](../../samples/powershell-example-scripts.md)
 - [Using a storage SDK (Python, C# ... )](../../../storage/index.yml)
 - [Using the Azure Storage REST APIs](/rest/api/storageservices/blob-service-rest-api)

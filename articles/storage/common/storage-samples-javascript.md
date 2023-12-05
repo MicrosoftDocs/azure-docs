@@ -4,8 +4,8 @@ description: View, download, and run sample code and applications for Azure Stor
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 10/01/2020
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.custom: devx-track-js
 ms.devlang: javascript
@@ -40,7 +40,7 @@ The following tables provide an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Authenticate using Azure Active Directory](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/azureAdAuth.js)
+      [Authenticate using Microsoft Entra ID](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/azureAdAuth.js)
    :::column-end:::
    :::column span="":::
       [Authenticate using a proxy](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/samples/v12/javascript/proxyAuth.js)
@@ -288,7 +288,7 @@ The following tables provide an overview of our samples repository and the scena
       [Connect using a proxy](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-queue/samples/v12/javascript/proxyAuth.js)
    :::column-end:::
    :::column span="":::
-      [Authenticate using Azure Active Directory](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-queue/samples/v12/javascript/azureAdAuth.js)
+      [Authenticate using Microsoft Entra ID](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-queue/samples/v12/javascript/azureAdAuth.js)
    :::column-end:::
 :::row-end:::
 

@@ -16,7 +16,7 @@ ms.subservice: pstn
 # Phone number types in Azure Communication Services
 
 > [!IMPORTANT]
-> Phone number availability is currently restricted to paid Azure subscriptions. Phone numbers cannot be acquired on trial accounts or using Azure free credits. For more information, visit the [subscription eligibility](../numbers/sub-eligibility-number-capability.md) section of this document.
+> Phone number purchasing availability is currently restricted to paid Azure subscriptions. Phone numbers cannot be purchased on trial accounts or using Azure free credits. For more information, visit the [subscription eligibility](../numbers/sub-eligibility-number-capability.md) section of this document. For those on non-paid Azure subscriptions, you can [get a trial phone number](../../quickstarts/telephony/get-trial-phone-number.md).
 
 
 Azure Communication Services allows you to use phone numbers to make voice calls and send SMS messages with the public-switched telephone network (PSTN). In this document, we'll review the phone number types, configuration options, and region availability for planning your telephony and SMS solution using Communication Services.
@@ -45,11 +45,12 @@ If your phone number is being used by a person (for example, a user of your call
 
 The table below summarizes these phone number types:
 
-| Phone number type | Example                              | Country availability    | Phone Number Capability |Common use case                                                                                                     |
+| Phone number type | Example                              | Country/Region availability    | Phone Number Capability |Common use case                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
-| Local (Geographic)        | +1 (local area code) XXX XX XX  | US                      | Calling (Outbound) | Assigning phone numbers to users in your applications  |
-| Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US                      | Calling (Outbound), SMS (Inbound/Outbound)| Assigning phone numbers to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
+| Local (Geographic)        | +1 (local area code) XXX XX XX  | US*                      | Calling (Outbound) | Assigning phone numbers to users in your applications  |
+| Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US*                      | Calling (Outbound), SMS (Inbound/Outbound)| Assigning phone numbers to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
 
+*To find all countries/regions where telephone numbers are available, please refer to [subscription eligibility and number capabilities page](../numbers/sub-eligibility-number-capability.md).
 
 ### Phone number capabilities in Azure Communication Services
 
@@ -57,7 +58,7 @@ The table below summarizes these phone number types:
 
 For most phone numbers, we allow you to configure an "a la carte" set of capabilities. These capabilities can be selected as you lease your telephone numbers within Azure Communication Services.
 
-The capabilities that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country due to regulatory requirements. Azure Communication Services offers the following phone number capabilities:
+The capabilities that are available to you depend on the country/region that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country/region due to regulatory requirements. Azure Communication Services offers the following phone number capabilities:
 
 - **One-way outbound SMS** This option allows you to send SMS messages to your users. This can be useful in notification and two-factor authentication scenarios.
 - **Two-way inbound and outbound SMS** This option allows you to send and receive messages from your users using phone numbers. This can be useful in customer service scenarios.
@@ -65,14 +66,8 @@ The capabilities that are available to you depend on the country that you're ope
 
 ## Country/region availability
 
-The following table shows you where you can acquire different types of phone numbers along with the inbound and outbound calling and SMS features associated with these phone number types.
+SMS and Telephony are available in number of locations. You can find all the supported regions, number types and available capabilities in the [Azure Communication Services documentation](../numbers/sub-eligibility-number-capability.md).
 
-|Number Type| Acquire Numbers In | Make Calls To                                        | Receive Calls From*                                    |Send Messages To       | Receive Messages From |
-|-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|
-| Local (Geographic)  | US                 | US, Canada, United Kingdom, Germany, France,. +more**| US, Canada, United Kingdom, Germany, France,. +more** |Not available| Not available |
-| Toll-Free | US                 | US                                                   | US                                                    |US                | US |
-
-*Currently, you can receive calls only to a Microsoft number that is assigned to a Telephony Channel bot. Read more about Telephony Channel [here](/azure/bot-service/bot-service-channel-connect-telephony)
 **For more information about call destinations and pricing, see the [pricing page](../pricing.md).
 
 

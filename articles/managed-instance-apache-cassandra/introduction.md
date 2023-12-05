@@ -25,7 +25,7 @@ You can use this service to easily place managed instances of Apache Cassandra d
 - **Metrics:** each datacenter node provisioned by the service emits metrics using [Metric Collector for Apache Cassandra](https://github.com/datastax/metric-collector-for-apache-cassandra). The metrics can be [visualized in Prometheus or Grafana](visualize-prometheus-grafana.md). The service is also integrated with [Azure Monitor for metrics and diagnostic logging](monitor-clusters.md).
 
 >[!NOTE]
-> The service currently supports Cassandra versions 3.11 and 4.0. By default, version 3.11 is deployed, as version 4.0 is currently in public preview. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
+> The service currently supports Cassandra versions 3.11 and 4.0. Both versions are GA. See our [Azure CLI Quickstart](create-cluster-cli.md) (step 5) for specifying Cassandra version during cluster deployment.
 
 ### Simplified scaling
 

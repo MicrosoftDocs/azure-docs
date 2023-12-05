@@ -2,13 +2,15 @@
 title: Pricing tiers - Azure Database for MariaDB
 description: Learn about the various pricing tiers for Azure Database for MariaDB including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: conceptual
 ms.date: 06/24/2022
 ---
 
 # Azure Database for MariaDB pricing tiers
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 You can create an Azure Database for MariaDB server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MariaDB server level. A server can have one or many databases.
 

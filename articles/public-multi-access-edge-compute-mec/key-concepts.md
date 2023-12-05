@@ -1,17 +1,17 @@
 ---
-title: Key concepts for Azure public MEC Preview
+title: Key concepts for Azure public MEC
 description: Learn about important concepts for Azure public multi-access edge compute (MEC). 
-author: adhgupta
-ms.author: adhipgupta
+author: reemas
+ms.author: reemas
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: conceptual
-ms.date: 02/24/2022
-ms.custom: template-concept
+ms.date: 11/22/2022
+ms.custom: template-concept, devx-track-azurecli
 ---
 
-# Key concepts for Azure public MEC Preview
+# Key concepts for Azure public MEC
 
-This document describes important concepts for Azure public multi-access edge compute (MEC) Preview.
+This document describes important concepts for Azure public multi-access edge compute (MEC).
 
 ## ExtendedLocation field
 
@@ -53,6 +53,7 @@ Every Azure public MEC site is associated with a parent Azure region. This regio
 | -------------- | --------------------- | ------------ | ------------- |
 | AT&T | ATT Atlanta A | attatlanta1 | East US 2 |
 | AT&T | ATT Dallas A | attdallas1 | South Central US |
+| AT&T | ATT Detroit A | attdetroit1 | Central US |
 
 ## Azure services
 
@@ -62,8 +63,8 @@ Azure public MEC supports specific compute and GPU VM SKUs. The following table 
 
 | Type | Series | VM size |
 | ---- | ------ | ------- |
-| VM | D-series | D2s_v3, D4s_v3, D8s_v3 |
-| VM | E-series | E4s_v3, E8s_v3 |
+| VM | D-series | Standard_DS1_v2, Standard_DS2_v2, Standard_D2s_v3, Standard_D4s_v3, Standard_D8s_v3 |
+| VM | E-series | Standard_E4s_v3, Standard_E8s_v3 |
 | GPU | NCasT4_v3-series | Standard_NC4asT4_v3, Standard_NC8asT4_v3 |
 
 ### Public IP

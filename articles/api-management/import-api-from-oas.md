@@ -8,8 +8,7 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 10/26/2022
 ms.author: danlep
-ms.custom: engagement-fy23
-
+ms.custom: engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Import an OpenAPI specification
 
@@ -28,7 +27,7 @@ In this article, you learn how to:
 * An API Management instance. If you don't already have one, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 * Azure CLI
-    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 * Azure PowerShell
@@ -100,6 +99,10 @@ After importing the API, if needed, you can update the settings by using the [Se
 [!INCLUDE [api-management-append-apis.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
+
+## Validate against an OpenAPI specification
+
+You can configure API Management [validation policies](api-management-policies.md#validation-policies) to validate requests and responses (or elements of them) against the schema in an OpenAPI specification. For example, use the [validate-content](validate-content-policy.md) policy to validate the size or content of a request or response body.
 
 ## Next steps
 

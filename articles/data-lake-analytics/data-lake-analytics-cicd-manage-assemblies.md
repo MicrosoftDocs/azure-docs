@@ -1,16 +1,16 @@
 ---
 title: Manage U-SQL assemblies in a CI/CD pipeline - Azure Data Lake
 description: 'Learn the best practices for managing U-SQL C# assemblies in a CI/CD pipeline with Azure DevOps.'
-author: liudan66
-ms.author: liud
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 10/30/2018
+ms.date: 01/27/2023
 ---
 
 # Best practices for managing U-SQL assemblies in a CI/CD pipeline
 
 In this article, you learn how to manage U-SQL assembly source code with the newly introduced U-SQL database project. You also learn how to set up a continuous integration and deployment (CI/CD) pipeline for assembly registration by using Azure DevOps.
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## Use the U-SQL database project to manage assembly source code
 
@@ -84,7 +84,7 @@ You can deploy a U-SQL database by using a U-SQL database project or a `.usqldbp
 
 ### Deploy a U-SQL database in Azure DevOps
 
-`PackageDeploymentTool.exe` provides the programming and command-line interfaces that help to deploy U-SQL databases. The SDK is included in the [U-SQL SDK Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), located at `build/runtime/PackageDeploymentTool.exe`.
+`PackageDeploymentTool.exe` provides the programming and command-line interfaces that help to deploy U-SQL databases. The SDK is included in the [U-SQL SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), located at `build/runtime/PackageDeploymentTool.exe`.
 
 In Azure DevOps, you can use a command-line task and this SDK to set up an automation pipeline for the U-SQL database refresh. [Learn more about the SDK and how to set up a CI/CD pipeline for U-SQL database deployment](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-pipelines).
 

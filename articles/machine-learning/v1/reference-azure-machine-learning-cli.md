@@ -9,18 +9,15 @@ author: saachigopal
 ms.author: sagopal
 ms.reviewer: larryfr
 ms.date: 11/11/2022
-ms.custom: seodec18, devx-track-azurecli, cliv1
+ms.custom: UpdateFrequency5, seodec18, devx-track-azurecli, cliv1
 ---
 
 # Install & use the CLI (v1)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](reference-azure-machine-learning-cli.md)
-> * [v2 (current version)](../how-to-configure-cli.md)
 
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
 
 The Azure Machine Learning CLI is an extension to the [Azure CLI](/cli/azure/), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with Azure Machine Learning. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:
 
@@ -57,7 +54,7 @@ az login
 
 If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
 
-[!INCLUDE [select-subscription](../../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../includes/machine-learning-cli-subscription.md)]
 
 For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -173,7 +170,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
 For more information, see [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-amlcompute).
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-managed-identity-note.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-managed-identity-note.md)]
 
 <a id="computeinstance"></a>
 
@@ -316,7 +313,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
 
 ## Environment management
 
-The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](how-to-configure-environment-v1.md) for your workspace:
+The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](how-to-configure-environment.md) for your workspace:
 
 + Create scaffolding files for an environment:
 
@@ -475,7 +472,76 @@ The following commands demonstrate how to register a trained model, and then dep
 
 ## Inference configuration schema
 
-[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
+The entries in the `inferenceconfig.json` document map to the parameters for the [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) class. The following table describes the mapping between entities in the JSON document and the parameters for the method:
+
+| JSON entity | Method parameter | Description |
+| ----- | ----- | ----- |
+| `entryScript` | `entry_script` | Path to a local file that contains the code to run for the image. |
+| `sourceDirectory` | `source_directory` | Optional. Path to folders that contain all files to create the image, which makes it easy to access any files within this folder or subfolder. You can upload an entire folder from your local machine as dependencies for the Webservice. Note: your entry_script, conda_file, and extra_docker_file_steps paths are relative paths to the source_directory path. |
+| `environment` | `environment` | Optional.  Azure Machine Learning [environment](/python/api/azureml-core/azureml.core.environment.environment).|
+
+You can include full specifications of an Azure Machine Learning [environment](/python/api/azureml-core/azureml.core.environment.environment) in the inference configuration file. If this environment doesn't exist in your workspace, Azure Machine Learning will create it. Otherwise, Azure Machine Learning will update the environment if necessary. The following JSON is an example:
+
+```json
+{
+    "entryScript": "score.py",
+    "environment": {
+        "docker": {
+            "arguments": [],
+            "baseDockerfile": null,
+            "baseImage": "mcr.microsoft.com/azureml/intelmpi2018.3-ubuntu18.04",
+            "enabled": false,
+            "sharedVolumes": true,
+            "shmSize": null
+        },
+        "environmentVariables": {
+            "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+        },
+        "name": "my-deploy-env",
+        "python": {
+            "baseCondaEnvironment": null,
+            "condaDependencies": {
+                "channels": [
+                    "conda-forge"
+                ],
+                "dependencies": [
+                    "python=3.7",
+                    {
+                        "pip": [
+                            "azureml-defaults",
+                            "azureml-telemetry",
+                            "scikit-learn==0.22.1",
+                            "inference-schema[numpy-support]"
+                        ]
+                    }
+                ],
+                "name": "project_environment"
+            },
+            "condaDependenciesFile": null,
+            "interpreterPath": "python",
+            "userManagedDependencies": false
+        },
+        "version": "1"
+    }
+}
+```
+
+You can also use an existing Azure Machine Learning [environment](/python/api/azureml-core/azureml.core.environment.environment) in separated CLI parameters and remove the "environment" key from the inference configuration file. Use -e for the environment name, and --ev for the environment version. If you don't specify --ev, the latest version will be used. Here is an example of an inference configuration file:
+
+```json
+{
+    "entryScript": "score.py",
+    "sourceDirectory": null
+}
+```
+
+The following command demonstrates how to deploy a model using the previous inference configuration file (named myInferenceConfig.json). 
+
+It also uses the latest version of an existing Azure Machine Learning [environment](/python/api/azureml-core/azureml.core.environment.environment) (named AzureML-Minimal).
+
+```azurecli-interactive
+az ml model deploy -m mymodel:1 --ic myInferenceConfig.json -e AzureML-Minimal --dc deploymentconfig.json
+```
 
 <a id="deploymentconfig"></a>
 
@@ -483,15 +549,15 @@ The following commands demonstrate how to register a trained model, and then dep
 
 ### Local deployment configuration schema
 
-[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
+[!INCLUDE [deploymentconfig](../includes/machine-learning-service-local-deploy-config.md)]
 
 ### Azure Container Instance deployment configuration schema 
 
-[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
+[!INCLUDE [deploymentconfig](../includes/machine-learning-service-aci-deploy-config.md)]
 
 ### Azure Kubernetes Service deployment configuration schema
 
-[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
+[!INCLUDE [deploymentconfig](../includes/machine-learning-service-aks-deploy-config.md)]
 
 ## Next steps
 

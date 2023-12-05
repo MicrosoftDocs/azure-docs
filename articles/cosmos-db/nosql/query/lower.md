@@ -1,59 +1,56 @@
 ---
-title: LOWER in Azure Cosmos DB query language
-description: Learn about the LOWER SQL system function in Azure Cosmos DB to return a string expression after converting uppercase character data to lowercase
-author: ginamr
+title: LOWER
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a string expression with uppercase characters converted to lowercase.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 04/07/2021
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# LOWER (Azure Cosmos DB)
+
+# LOWER (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
 Returns a string expression after converting uppercase character data to lowercase.
 
 > [!NOTE]
-> This function uses culture-independent (invariant) casing rules when returning the converted string expression.
-
-The LOWER system function doesn't utilize the index. If you plan to do frequent case insensitive comparisons, the LOWER system function may consume a significant number of RUs. If so, instead of using the LOWER system function to normalize data each time for comparisons, you can normalize the casing upon insertion. Then a query such as SELECT * FROM c WHERE LOWER(c.name) = 'username' simply becomes SELECT * FROM c WHERE c.name = 'username'.
+> This function automatically uses culture-independent (invariant) casing rules when returning the converted string expression.
 
 ## Syntax
   
 ```sql
-LOWER(<str_expr>)  
+LOWER(<string_expr>)  
 ```  
   
 ## Arguments
-  
-*str_expr*  
-   Is a string expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`string_expr`** | A string expression. |
+
 ## Return types
   
-Returns a string expression.  
-  
+Returns a string expression.
+
 ## Examples
   
-The following example shows how to use `LOWER` in a query.  
+The following example shows how to use the function to modify various strings.
   
-```sql
-SELECT LOWER("Abc") AS lower
-```  
-  
- Here's the result set.  
-  
-```json
-[{"lower": "abc"}]
-```  
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/lower/query.sql" highlight="2-6":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/lower/result.json":::
 
 ## Remarks
 
-This system function won't [use indexes](../../index-overview.md#index-usage).
+- This function doesn't use the index.
+- If you plan to do frequent case insensitive comparisons, this function may consume a significant number of RUs. Consider normalizing the casing of strings when ingesting your data. Then a query like `SELECT * FROM c WHERE LOWER(c.name) = 'USERNAME'` is simplified to `SELECT * FROM c WHERE c.name = 'USERNAME'`.
 
-## Next steps
+## Related content
 
-- [String functions Azure Cosmos DB](string-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`UPPER`](upper.md)

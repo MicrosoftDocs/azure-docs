@@ -6,7 +6,7 @@ ms.author: greglin
 ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
-ms.date: 11/17/2021
+ms.date: 05/17/2023
 ---
 <!-- VERSION 2.2
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
@@ -57,8 +57,8 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
-|**Bytes received**|Bytes|Count of bytes received by the Application Gateway from the clients.|
-|**Bytes sent**|Bytes|Count of bytes sent by the Application Gateway to the clients.|
+|**Bytes received**|Bytes|Count of bytes received by the Application Gateway from the clients. (This metric accounts for only the Request content size observed by the Application Gateway. It doesn't include data transfers such as TLS header negotiations, TCP/IP packet headers, or retransmissions.)|
+|**Bytes sent**|Bytes|Count of bytes sent by the Application Gateway to the clients. (This metric accounts for only the Response Content size served by the Application Gateway. It doesn't include data transfers such as TCP/IP packet headers or retransmissions.)|
 |**Client TLS protocol**|Count|Count of TLS and non-TLS requests initiated by the client that established connection with the Application Gateway. To view TLS protocol distribution, filter by the TLS Protocol dimension.|
 |**Current capacity units**|Count|Count of capacity units consumed to load balance the traffic. There are three determinants to capacity unit - compute unit, persistent connections, and throughput. Each capacity unit is composed of at most: one compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.|
 |**Current compute units**|Count|Count of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing.|
@@ -68,7 +68,7 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 |**Fixed Billable Capacity Units**|Count|The minimum number of capacity units kept provisioned as per the *Minimum scale units* setting (one instance translates to 10 capacity units) in the Application Gateway configuration.|
 |**New connections per second**|Count|The average number of new TCP connections per second established from clients to the Application Gateway and from the Application Gateway to the backend members.|
 |**Response Status**|Status code|HTTP response status returned by Application Gateway. The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.|
-|**Throughput**|Bytes/sec|Number of bytes per second the Application Gateway has served.|
+|**Throughput**|Bytes/sec|Number of bytes per second the Application Gateway has served. (This metric accounts for only the Content size served by the Application Gateway. It doesn't include data transfers such as TLS header negotiations, TCP/IP packet headers, or retransmissions.)|
 |**Total Requests**|Count|Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.|
 
 #### Backend metrics
@@ -191,5 +191,5 @@ sslEnabled_s | Does the client request have SSL enabled|
 ## See Also
 
 <!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitoring Azure Azure Application Gateway](monitor-application-gateway.md) for a description of monitoring Azure Application Gateway.
+- See [Monitoring Azure Application Gateway](monitor-application-gateway.md) for a description of monitoring Azure Application Gateway.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

@@ -4,11 +4,11 @@ description: Provides an overview of the available compliance assurances for Azu
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.author: stevevi
-author: stevevi
+ms.author: eliotgra
+author: EliotSeattle
 ms.custom: references_regions
 recommendations: false
-ms.date: 04/06/2022
+ms.date: 04/02/2023
 ---
 
 # Azure Government compliance
@@ -45,7 +45,7 @@ For current Azure Government regions and available services, see [Products avail
 > [!NOTE]
 >
 > - Some Azure services deployed in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md).**
-> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](./documentation-government-overview-dod.md#azure-government-dod-regions-il5-audit-scope).**
+> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](./documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
 
 ## Services in audit scope
 
@@ -56,19 +56,7 @@ For a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform se
 
 ## Audit documentation
 
-You can access Azure and Azure Government audit reports and related documentation from the [Service Trust Portal](https://servicetrust.microsoft.com) (STP) in the following sections:
-
-- STP [Audit Reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3), which has a subsection for FedRAMP Reports.
-- STP [Data Protection Resources](https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3), which is further divided into Compliance Guides, FAQ and White Papers, and Pen Test and Security Assessments subsections.
-
-You must sign in to access audit reports on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](/microsoft-365/compliance/get-started-with-service-trust-portal).
-
-Alternatively, you can access certain audit reports and certificates in the Azure or Azure Government portal by navigating to *Home > Security Center > Regulatory compliance > Audit reports* or using direct links based on your subscription (sign in required):
-
-- Azure portal [audit reports blade](https://portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade)
-- Azure Government portal [audit reports blade](https://portal.azure.us/#blade/Microsoft_Azure_Security/AuditReportsBlade)
-
-You must have an existing subscription or free trial account in [Azure](https://azure.microsoft.com/free/) or [Azure Government](https://azure.microsoft.com/global-infrastructure/government/request/) to download audit documents.
+For information on how to access Azure and Azure Government audit reports and related documentation, see [Azure compliance offerings audit documentation](/azure/compliance/offerings/#audit-documentation).
 
 ## Azure Policy regulatory compliance built-in initiatives
 

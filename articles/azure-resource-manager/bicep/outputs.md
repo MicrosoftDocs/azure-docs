@@ -2,6 +2,7 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 09/28/2022
 ---
 
@@ -41,7 +42,7 @@ output stringOutput string = user['user-name']
 
 ## Conditional output
 
-When the value to return depends on a condition in the deployment, use the the `?` operator.
+When the value to return depends on a condition in the deployment, use the `?` operator.
 
 ```bicep
 output <name> <data-type> = <condition> ? <true-value> : <false-value>

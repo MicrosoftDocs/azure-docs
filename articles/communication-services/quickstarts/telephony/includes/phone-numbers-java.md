@@ -5,7 +5,8 @@
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
-- [Apache Maven](https://maven.apache.org/download.cgi).- A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- [Apache Maven](https://maven.apache.org/download.cgi).
+- A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
 ## Setting Up
 
@@ -77,7 +78,7 @@ public class App
 
 ## Authenticate the Phone Numbers Client
 
-The PhoneNumberClientBuilder is enabled to use Azure Active Directory Authentication
+The PhoneNumberClientBuilder is enabled to use Microsoft Entra authentication
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L52-L62 -->
 ```java
 // You can find your endpoint and access key from your resource in the Azure portal

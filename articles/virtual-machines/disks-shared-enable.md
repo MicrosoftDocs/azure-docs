@@ -2,11 +2,10 @@
 title: Enable shared disks for Azure managed disks
 description: Configure an Azure managed disk with shared disks so that you can share it across multiple VMs
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 04/11/2023
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -295,7 +294,7 @@ Update-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Dis
 ```azurecli
 #Modifying a disk to enable or modify sharing configuration
 
-az disk update --name mySharedDisk --max-shares 5
+az disk update --name mySharedDisk --max-shares 5 --resource-group myResourceGroup
 ```
 
 ## Using Azure shared disks with your VMs
@@ -370,3 +369,5 @@ If you prefer to use Azure Resource Manager templates to deploy your disk, the f
 - [Premium SSD](https://aka.ms/SharedPremiumDiskARMtemplate)
 - [Regional ultra disks](https://aka.ms/SharedUltraDiskARMtemplateRegional)
 - [Zonal ultra disks](https://aka.ms/SharedUltraDiskARMtemplateZonal)
+
+If you've additional questions, see the [shared disks](faq-for-disks.yml#azure-shared-disks) section of the FAQ.

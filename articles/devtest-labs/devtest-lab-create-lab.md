@@ -4,8 +4,8 @@ description: Learn how to quickly create a lab in Azure DevTest Labs by using th
 ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/03/2022
-ms.custom: mode-ui
+ms.date: 09/30/2023
+ms.custom: mode-ui, UpdateFrequency2
 ---
 
 # Quickstart: Create a lab in the Azure portal
@@ -18,7 +18,7 @@ This quickstart walks you through creating a lab in Azure DevTest Labs by using 
 
 ## Create a lab
 
-1. In the [Azure portal](https://portal.azure.com), search for and select *devtest labs*.
+1. In the [Azure portal](https://portal.azure.com), search for and select *DevTest Labs*.
 1. On the **DevTest Labs** page, select **Create**. The **Create DevTest Lab** page appears.
 1. On the **Basic Settings** tab, provide the following information:
    - **Subscription**: Change the subscription if you want to use a different subscription for the lab.
@@ -29,7 +29,12 @@ This quickstart walks you through creating a lab in Azure DevTest Labs by using 
 
    :::image type="content" source="./media/devtest-lab-create-lab/portal-create-basic-settings.png" alt-text="Screenshot of the Basic Settings tab in the Create DevTest Labs form.":::
 
-1. Optionally, select the [Auto-shutdown](#auto-shutdown-tab), [Networking](#networking-tab), or [Tags](#tags-tab) tabs at the top of the page, and customize those settings. You can also apply or change most of these settings after lab creation.
+1. Optionally, select each tab at the top of the page, and customize those settings
+   - [**Auto-shutdown**](#auto-shutdown-tab)
+   - [**Networking**](#networking-tab)
+   - [**Tags**](#tags-tab) 
+
+   You can also apply or change most of these settings after lab creation.
 1. After you complete all settings, select **Review + create** at the bottom of the page.
 1. If the settings are valid, **Succeeded** appears at the top of the **Review + create** page. Review the settings, and then select **Create**.
 

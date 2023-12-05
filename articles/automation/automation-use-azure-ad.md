@@ -1,30 +1,32 @@
 ---
-title: Use Azure AD in Azure Automation to authenticate to Azure
-description: This article tells how to use Azure AD within Azure Automation as the provider for authentication to Azure. 
+title: Use Microsoft Entra ID in Azure Automation to authenticate to Azure
+description: This article tells how to use Microsoft Entra ID within Azure Automation as the provider for authentication to Azure. 
 services: automation
-ms.date: 09/23/2021
+ms.date: 05/26/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 
-# Use Azure AD to authenticate to Azure
+# Use Microsoft Entra ID to authenticate to Azure
 
-The [Azure Active Directory (AD)](../active-directory/fundamentals/active-directory-whatis.md) service enables a number of administrative tasks, such as user management, domain management, and single sign-on configuration. This article describes how to use Azure AD within Azure Automation as the provider for authentication to Azure. 
+The [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) service enables a number of administrative tasks, such as user management, domain management, and single sign-on configuration. This article describes how to use Microsoft Entra ID within Azure Automation as the provider for authentication to Azure. 
 
-## Install Azure AD modules
+<a name='install-azure-ad-modules'></a>
 
-You can enable Azure AD through the following PowerShell modules:
+## Install Microsoft Entra modules
 
-* Azure Active Directory PowerShell for Graph (AzureRM and Az modules). Azure Automation ships with the AzureRM module and its recent upgrade, the Az module. Functionality includes non-interactive authentication to Azure using Azure AD user (OrgId) credential-based authentication. See [Azure AD 2.0.2.76](https://www.powershellgallery.com/packages/AzureAD/2.0.2.76).
+You can enable Microsoft Entra ID through the following PowerShell modules:
 
-* Microsoft Azure Active Directory for Windows PowerShell (MSOnline module). This module enables interactions with Microsoft Online, including Microsoft 365.
+* Azure Active Directory PowerShell for Graph (AzureRM and Az modules). Azure Automation ships with the AzureRM module and its recent upgrade, the Az module. Functionality includes non-interactive authentication to Azure using Microsoft Entra user (OrgId) credential-based authentication. See [Microsoft Entra ID 2.0.2.76](https://www.powershellgallery.com/packages/AzureAD/2.0.2.76).
+
+* Microsoft Entra ID for Windows PowerShell (MSOnline module). This module enables interactions with Microsoft Online, including Microsoft 365.
 
 >[!NOTE]
 >PowerShell Core does not support the MSOnline module. To use the module cmdlets, you must run them from Windows PowerShell. You're encouraged to use the newer Azure Active Directory PowerShell for Graph modules instead of the MSOnline module. 
 
 ### Preinstallation
 
-Before installing the Azure AD modules on your computer:
+Before installing the Microsoft Entra modules on your computer:
 
 * Uninstall any previous versions of the AzureRM/Az module and the MSOnline module. 
 
@@ -50,7 +52,7 @@ Before installing the Azure AD modules on your computer:
 
 3. Run Windows PowerShell as an administrator to create an elevated Windows PowerShell command prompt.
 
-4. Deploy Azure Active Directory from [MSOnline 1.0](http://www.powershellgallery.com/packages/MSOnline/1.0).
+4. Deploy Microsoft Entra ID from [MSOnline 1.0](https://www.powershellgallery.com/packages/MSOnline/1.0).
 
 5. If you're prompted to install the NuGet provider, type Y and press ENTER.
 
@@ -64,23 +66,25 @@ Azure Automation uses the [PSCredential](/dotnet/api/system.management.automatio
 
 You must assign an administrator for the Azure subscription. This person has the role of Owner for the subscription scope. See [Role-based access control in Azure Automation](automation-role-based-access-control.md). 
 
-## Change the Azure AD user's password
+<a name='change-the-azure-ad-users-password'></a>
 
-To change the Azure AD user's password:
+## Change the Microsoft Entra user's password
+
+To change the Microsoft Entra user's password:
 
 1. Log out of Azure.
 
-2. Have the administrator log in to Azure as the Azure AD user just created, using the full user name (including the domain) and a temporary password. 
+2. Have the administrator log in to Azure as the Microsoft Entra user just created, using the full user name (including the domain) and a temporary password. 
 
 3. Ask the administrator to change the password when prompted.
 
 ## Configure Azure Automation to manage the Azure subscription
 
-For Azure Automation to communicate with Azure AD, you must retrieve the credentials associated with the Azure connection to Azure AD. Examples of these credentials are tenant ID, subscription ID, and the like. For more about the connection between Azure and Azure AD, see [Connect your organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+For Azure Automation to communicate with Microsoft Entra ID, you must retrieve the credentials associated with the Azure connection to Microsoft Entra ID. Examples of these credentials are tenant ID, subscription ID, and the like. For more about the connection between Azure and Microsoft Entra ID, see [Connect your organization to Microsoft Entra ID](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## Create a credential asset
 
-With the Azure credentials for Azure AD available, it's time to create an Azure Automation credential asset to securely store the Azure AD credentials so that runbooks and Desire State Configuration (DSC) scripts can access them. You can do this using either the Azure portal or PowerShell cmdlets.
+With the Azure credentials for Microsoft Entra available, it's time to create an Azure Automation credential asset to securely store the Microsoft Entra credentials so that runbooks and Desire State Configuration (DSC) scripts can access them. You can do this using either the Azure portal or PowerShell cmdlets.
 
 ### Create the credential asset in Azure portal
 
@@ -88,7 +92,9 @@ You can use the Azure portal to create the credential asset. Do this operation f
 
 ### Create the credential asset with Windows PowerShell
 
-To prepare a new credential asset in Windows PowerShell, your script first creates a `PSCredential` object using the assigned user name and password. The script then uses this object to create the asset through a call to the [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential) cmdlet. Alternatively, the script can call the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet to prompt the user to type in a name and password. See [Credential assets in Azure Automation](shared-resources/credentials.md). 
+To prepare a new credential asset in Windows PowerShell, your script first creates a `PSCredential` object using the assigned user name and password. The script then uses this object to create the asset through a call to the [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) cmdlet. Alternatively, the script can call the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet to prompt the user to type in a name and password. See [Credential assets in Azure Automation](shared-resources/credentials.md). 
+
+
 
 ## Manage Azure resources from an Azure Automation runbook
 

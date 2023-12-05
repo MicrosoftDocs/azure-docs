@@ -6,31 +6,29 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 10/28/2022
+ms.date: 03/28/2023
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 
 # Quickstart: Add feature flags to an ASP.NET Core app
 
-In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control the availability of a new web page in an ASP.NET Core app without restarting or redeploying it. 
+In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control the availability of a new web page in an ASP.NET Core app without restarting or redeploying it.
 
 The feature management support extends the dynamic configuration feature in App Configuration. The example in this quickstart builds on the ASP.NET Core app introduced in the dynamic configuration tutorial. Before you continue, finish the [quickstart](./quickstart-aspnet-core-app.md), and the [tutorial](./enable-dynamic-configuration-aspnet-core.md) to create an ASP.NET Core app with dynamic configuration first.
 
 ## Prerequisites
 
 Follow the documents to create an ASP.NET Core app with dynamic configuration.
-* [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md)
-* [Tutorial: Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
+- [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md)
+- [Tutorial: Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)
 
 ## Create a feature flag
 
-Navigate to the Azure App Configuration store you created previously in Azure portal. Under **Operations** section, select **Feature manager** > **Create** to add a feature flag called *Beta*.
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
-
-Leave the rest of fields empty for now. Select **Apply** to save the new feature flag. To learn more, check out [Manage feature flags in Azure App Configuration](./manage-feature-flags.md).
 
 ## Use a feature flag
 

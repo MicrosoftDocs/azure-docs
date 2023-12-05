@@ -4,7 +4,7 @@ description: This article discusses the different possible business continuity a
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/27/2022
+ms.date: 06/08/2023
 ---
 
 # Azure HDInsight business continuity architectures
@@ -16,7 +16,7 @@ This article gives a few examples of business continuity architectures you might
 
 ## Apache Hive and Interactive Query
 
-[Hive Replication V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) is recommended for business continuity in HDInsight Hive and Interactive query clusters. The persistent sections of a standalone Hive cluster that need to be replicated are the Storage Layer and the Hive metastore. Hive clusters in a multi-user scenario with Enterprise Security Package need Azure Active Directory Domain Services and Ranger Metastore.
+[Hive Replication V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) is recommended for business continuity in HDInsight Hive and Interactive query clusters. The persistent sections of a standalone Hive cluster that need to be replicated are the Storage Layer and the Hive metastore. Hive clusters in a multi-user scenario with Enterprise Security Package need Microsoft Entra Domain Services and Ranger Metastore.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/hive-interactive-query.png" alt-text="Hive and interactive query architecture":::
 
@@ -184,7 +184,7 @@ Disadvantages:
 
 ## HDInsight Enterprise Security Package
 
-This set up is used to enable multi-user functionality in both primary and secondary, as well as [Azure AD DS replica sets](../active-directory-domain-services/tutorial-create-replica-set.md) to ensure that users can authenticate to both clusters. During normal operations, Ranger policies need to be set up in the Secondary to ensure that users are restricted to Read operations. The below architecture explains how an ESP enabled Hive Active Primary – Standby Secondary set up might look.
+This set up is used to enable multi-user functionality in both primary and secondary, as well as [Microsoft Entra Domain Services replica sets](../active-directory-domain-services/tutorial-create-replica-set.md) to ensure that users can authenticate to both clusters. During normal operations, Ranger policies need to be set up in the Secondary to ensure that users are restricted to Read operations. The below architecture explains how an ESP enabled Hive Active Primary – Standby Secondary set up might look.
 
 Ranger Metastore replication:
 

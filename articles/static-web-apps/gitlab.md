@@ -145,7 +145,7 @@ Next you add a workflow task responsible for building and deploying your site as
     variables:
       API_TOKEN: $DEPLOYMENT_TOKEN
       APP_PATH: '$CI_PROJECT_DIR/Client'
-      OUTPUT_PATH: '$CI_PROJECT_DIR/wwwroot'
+      OUTPUT_PATH: 'wwwroot'
     
     deploy:
       stage: deploy

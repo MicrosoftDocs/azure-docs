@@ -1,15 +1,15 @@
 ### YamlMime:FAQ
 metadata:
-    title: Deprecated Azure Marketplace images
-    description: "Learn about how the deprecation of Marketplace images can affect your deployment."
-    author: cynthn
-    ms.service: virtual-machines
-    ms.topic: faq
-    ms.subservice: imaging
-    ms.date: 09/27/2022
-    ms.author: cynthn
-    ms.reviewer: edewe
-    
+  title: Deprecated Azure Marketplace images
+  description: "Learn about how the deprecation of Marketplace images can affect your deployment."
+  author: cynthn
+  ms.service: virtual-machines
+  ms.topic: faq
+  ms.subservice: imaging
+  ms.custom: devx-track-azurepowershell
+  ms.date: 09/27/2022
+  ms.author: cynthn
+  ms.reviewer: edewe
 title: Deprecated Image FAQ
 summary: This article answers commonly asked questions about what happens when images in the Azure Marketplace are deprecated.
 
@@ -60,7 +60,7 @@ sections:
             To find the details of the image versions that are being used by VMs: 
           
           ```
-          Resources 
+          resources 
           |where type == "microsoft.compute/virtualmachines" 
           //| where properties.storageProfile.imageReference.publisher =~ 'Windows' //optional filter, uncomment this line to filter for a specific publisher.
           //| where properties.storageProfile.imageReference.sku =~ '2016-Datacenter' //optional filter, uncomment this line to filter for a specific deprecated SKU (Plan).
@@ -72,7 +72,7 @@ sections:
           To find details of the image versions that are being used by a scale set:  
           
           ```
-          Resources 
+          resources 
           |where type == "microsoft.compute/virtualmachinescalesets" 
           //| where properties.virtualMachineProfile.storageProfile.imageReference.publisher =~ 'Windows' //optional filter, uncomment this line to filter for a specific publisher.
           //| where properties.virtualMachineProfile.storageProfile.imageReference.sku =~ '2016-Datacenter' //optional filter, uncomment this line to filter for a specific deprecated SKU (Plan).

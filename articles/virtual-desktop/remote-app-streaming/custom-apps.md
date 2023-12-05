@@ -19,7 +19,7 @@ Azure Virtual Desktop can host multiple types of Windows applications. We recomm
 
 ## MSIX
 
-MSIX is the recommended type of package for custom apps in Azure Virtual Desktop because they can take advantage of the service's built-in [MSIX app attach feature](../app-attach-glossary.md). To learn how to repackage existing Win32 applications in the MSIX format, visit [Repackage your existing Win32 applications to the MSIX format](/windows/application-management/msix-app-packaging-tool).
+MSIX is the recommended type of package for custom apps in Azure Virtual Desktop because they can take advantage of the service's built-in [MSIX app attach feature](../what-is-app-attach.md). To learn how to repackage existing Win32 applications in the MSIX format, visit [Repackage your existing Win32 applications to the MSIX format](/windows/application-management/msix-app-packaging-tool).
 
 Once you've packaged your app in the MSIX format, you can use Azure Virtual Desktop’s MSIX app attach feature to deliver your apps to your customers. Learn how to use MSIX app attach for your apps at [Deploy apps with MSIX app attach](msix-app-attach.md).
 
@@ -31,9 +31,9 @@ You can also offer Win32 applications to your users without repackaging them in 
 
 Follow the instructions at [Prepare and customize a master VHD image](../set-up-customize-master-image.md) to include an app as part of the Windows image you use for your virtual machines. More specifically, follow the directions in the [Other applications and registry configuration](../set-up-customize-master-image.md#other-applications-and-registry-configuration) section to install the application for all users.
 
-### Use Microsoft Endpoint Manager to deploy the application at scale
+### Use Microsoft Intune to deploy the application at scale
 
-If you use Microsoft Endpoint Manager to manage your session hosts, you can deploy applications by following the instructions in [Install apps on Windows 10 devices](/mem/intune/apps/apps-windows-10-app-deploy#install-apps-on-windows-10-devices). Make sure you deploy your app in "device context" mode to all session hosts to make sure all users in your deployment can access the application.
+If you use Microsoft Intune to manage your session hosts, you can deploy applications by following the instructions in [Install apps on Windows 10 devices](/mem/intune/apps/apps-windows-10-app-deploy#install-apps-on-windows-10-devices). Make sure you deploy your app in "device context" mode to all session hosts to make sure all users in your deployment can access the application.
 
 ### Manual installation
 
@@ -46,7 +46,7 @@ If you must install your apps manually, you'll need to remote into your session 
 
 ## Microsoft Store applications
 
-We don't recommend using Microsoft Store apps for remote app streaming in Azure Virtual Desktop at this time.
+We don't recommend using Microsoft Store apps for RemoteApp streaming in Azure Virtual Desktop at this time.
 
 ## Next steps
 

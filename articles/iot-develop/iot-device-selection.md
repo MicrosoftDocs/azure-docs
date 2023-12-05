@@ -1,11 +1,11 @@
 ---
 title: Azure IOT prototyping device selection list
 description: This document provides guidance on choosing a hardware device for prototyping IoT Azure solutions.
-author: jenfoxbot
-ms.author: jefo
+author: timlt
+ms.author: timlt
 ms.service: iot-develop
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 09/29/2023
 ---
 # IoT device selection list
 
@@ -20,9 +20,9 @@ All boards listed support users of all experience levels.
 
 [^1]: *If you're new to hardware programming, for MCU dev work we recommend using VS Code Arduino Extension or VS Code Platform IO Extension. For SBC dev work, you program the device like you would a laptop, that is, on the device itself. The Raspberry Pi supports VS Code development.*
 
-[^2]: *Devices were chosen based on availability of support resources, common boards used for prototyping and PoCs, and boards that support beginner-friendly IDEs like Arduino IDE and VS Code extensions; for example, Arduino Extension and Platform IO extension. For simplicity, we aimed to keep the total device list <6. Some of these metrics are "squishy," which means that other teams and individuals may have chosen to feature different boards based on their interpretation of the criteria.*
+[^2]: *Devices in the availability of support resources, common boards used for prototyping and PoCs, and boards that support beginner-friendly IDEs like Arduino IDE and VS Code extensions; for example, Arduino Extension and Platform IO extension. For simplicity, we aimed to keep the total device list <6. Other teams and individuals may have chosen to feature different boards based on their interpretation of the criteria.*
 
-[^3]: *For bringing devices to production, you'll likely want to test a PoC with a specific chipset, ST's STM32 or Microchip's Pic-IoT breakout board series, design a custom board that can be manufactured for lower cost than the MCUs and SBCs listed here, or even explore FPGA-based dev kits. You may also want to use a development environment for professional electrical engineering like STM32CubeMX or ARM mBed browser-based programmer.*
+[^3]: *For bringing devices to production, you likely want to test a PoC with a specific chipset, ST's STM32 or Microchip's Pic-IoT breakout board series, design a custom board that can be manufactured for lower cost than the MCUs and SBCs listed here, or even explore FPGA-based dev kits. You may also want to use a development environment for professional electrical engineering like STM32CubeMX or ARM mBed browser-based programmer.*
 
 ## Contents
 
@@ -40,7 +40,7 @@ All boards listed support users of all experience levels.
 
 Use this document to better understand IoT terminology, device selection considerations, and to choose an IoT device for prototyping or building a proof-of-concept. We recommend the following procedure:
 
-1. Read through the 'what to consider when choosing a board' section below to identify needs and constraints.
+1. Read through the 'what to consider when choosing a board' section to identify needs and constraints.
 
 2. Use the Application Selection Visual to identify possible options for your IoT scenario.
 
@@ -48,11 +48,11 @@ Use this document to better understand IoT terminology, device selection conside
 
 ### What to consider when choosing a board
 
-Below are some suggestions for criteria to consider when choosing a device for your IoT prototype.
+To choose a device for your IoT prototype, see the following criteria:
 
 - **Microcontroller unit (MCU) or single board computer (SBC)**
   - An MCU is preferred for single tasks, like gathering and uploading sensor data or machine learning at the edge. MCUs also tend to be lower cost.
-  - An SBC is preferred when you need multiple different tasks, like gathering sensor data and controlling another device. It may also be preferred in the early stages when there are many options for possible solutions - an SBC will enable you to try lots of different approaches.
+  - An SBC is preferred when you need multiple different tasks, like gathering sensor data and controlling another device. It may also be preferred in the early stages when there are many options for possible solutions - an SBC enables you to try lots of different approaches.
 
 - **Processing power**
 
@@ -64,13 +64,13 @@ Below are some suggestions for criteria to consider when choosing a device for y
 
 - **Power consumption**
 
-  - **Power**: Consider how much voltage and current the board consumes. Determine if wall power is readily available or if you'll need a battery for your application.
+  - **Power**: Consider how much voltage and current the board consumes. Determine if wall power is readily available or if you need a battery for your application.
 
   - **Connection**: Consider the physical connection to the power source. If you need battery power, check if there's a battery connection port available on the board. If there's no battery connector, seek another comparable board, or consider other ways to add battery power to your device.
 
 - **Inputs and outputs**
   - **Ports and pins**: Consider how many and of what types of ports and I/O pins your project may require.
-        * Additional considerations include if your device will be communicating with other sensors or devices. If so, identify how many ports those signals require.
+        * Other considerations include if your device will be communicating with other sensors or devices. If so, identify how many ports those signals require.
 
   - **Protocols**: If you're working with other sensors or devices, consider what hardware communication protocols are required.
         * For example, you may need CAN, UART, SPI, I2C, or other communication protocols.
@@ -94,7 +94,7 @@ Below are some suggestions for criteria to consider when choosing a device for y
 
   - **Networking**: Consider if your device is connected to an external  network or if it can be kept behind a router and/or firewall. If your prototype needs to be connected to an externally facing network, we  recommend using the Azure Sphere as it is the only reliably secure device.
 
-  - **Peripherals**: Consider if any of the peripherals your device connects to will have wireless protocols (for example, WiFi, BLE).
+  - **Peripherals**: Consider if any of the peripherals your device connects to have wireless protocols (for example, WiFi, BLE).
 
   - **Physical location**: Consider if your device or any of the peripherals it's connected to will be accessible to the public. If so, we recommend making the device physically inaccessible. For example, in a closed, locked box.
 
@@ -156,7 +156,7 @@ Terminology and acronyms are listed in alphabetical order.
 
 ## MCU device list
 
-Following is a comparison table of MCUs in alphabetical order. Please note this is an intentionally brief list, it isn't intended to be exhaustive.
+Following is a comparison table of MCUs in alphabetical order. The list isn't not intended to be exhaustive.
 
 >[!NOTE]
 >This list is for educational purposes only, it is not intended to endorse any products. Prices shown represent the average across multiple distributors and are for illustrative purposes only.
@@ -172,14 +172,14 @@ Following is a comparison table of MCUs in alphabetical order. Please note this 
 
 ## SBC device list
 
-Following is a comparison table of SBCs in alphabetical order. Note this is an intentionally brief list, it isn't intended to be exhaustive.
+Following is a comparison table of SBCs in alphabetical order. This list isn't intended to be exhaustive.
 
 >[!NOTE]
 >This list is for educational purposes only, it is not intended to endorse any products. Prices shown represent the average across multiple distributors and are for illustrative purposes only.
 
 | Board Name | Price Range (USD) | What is it used for? | Software| Speed | Processor | Memory | Onboard Sensors and Other Features | IO Pins | Video | Radio | Battery Connector? | Operating Voltage | Getting Started Guides | **Alternatives** |
 | ---- | ---- | ---- | ----| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----|
-| [Raspberry Pi 4, Model B](https://aka.ms/IotDeviceList/RpiModelB) | ~$30 - $80 | Home automation; Robotics; Autonomous vehicles; Control systems; Field science | Raspberry Pi OS, Raspbian, Ubuntu 20.04/21.04, RISC OS, Windows 10 IoT, more | 1.5 GHz CPU, 500 MHz GPU | 64-bit Broadcom BCM2711 (quad-core Cortex-A72), VideoCore VI GPU | 2GB/4GB/8GB LPDDR4 RAM, SD Card (not included) | 2 x USB 3 ports, 1 x MIPI DSI display port, 1 x MIPI CSI camera port, 4-pole stereo audio and composite video port, Power over Ethernet (requires HAT) | 26 x Digital, 4 x PWM | 2 micro-HDMI composite, MPI DSI | WiFi, Bluetooth | √ | 5 V | 1. [Send data to IoT Hub](https://www.hackster.io/jenfoxbot/how-to-send-see-data-from-a-raspberry-pi-to-azure-iot-hub-908924), 2. [Monitor plants with Azure IoT](https://github.com/microsoft/IoT-For-Beginners/tree/main/2-farm/lessons/4-migrate-your-plant-to-the-cloud)| [BeagleBone Black Wireless (~$50 - $60)](https://aka.ms/IotDeviceList/BeagleBoard) |
+| [Raspberry Pi 4, Model B](https://aka.ms/IotDeviceList/RpiModelB) | ~$30 - $80 | Home automation; Robotics; Autonomous vehicles; Control systems; Field science | Raspberry Pi OS, Raspbian, Ubuntu 20.04/21.04, RISC OS, Windows 10 IoT, more | 1.5 GHz CPU, 500 MHz GPU | 64-bit Broadcom BCM2711 (quad-core Cortex-A72), VideoCore VI GPU | 2GB/4GB/8GB LPDDR4 RAM, SD Card (not included) | 2 x USB 3 ports, 1 x MIPI DSI display port, 1 x MIPI CSI camera port, 4-pole stereo audio and composite video port, Power over Ethernet (requires HAT) | 26 x Digital, 4 x PWM | 2 micro-HDMI composite, MPI DSI | WiFi, Bluetooth | √ | 5 V | 1. [Send data to IoT Hub](https://www.hackster.io/jenfoxbot/how-to-send-see-data-from-a-raspberry-pi-to-azure-iot-hub-908924), 2. [Monitor plants with Azure IoT](https://github.com/microsoft/IoT-For-Beginners/tree/main/2-farm/lessons/4-migrate-your-plant-to-the-cloud)| [BeagleBone Black Wireless (~$50 - $60)](https://www.beagleboard.org/boards/beaglebone-black-wireless) |
 | [NVIDIA Jetson 2 GB Nano Dev Kit](https://aka.ms/IotDeviceList/NVIDIAJetson) | ~$50 - $100 | AI/ML; Autonomous vehicles | Ubuntu-based JetPack | 1.43 GHz CPU, 921 MHz GPU | 64-bit Nvidia CPU (quad-core Cortex-A57), 128-CUDA-core Maxwell GPU coprocessor | 2GB/4GB LPDDR4 RAM | 472 GFLOPS for AI Perf, 1 x MIPI CSI-2 connector | 28 x Digital, 2 x PWM | HDMI, DP (4 GB only) | Gigabit Ethernet, 802.11ac WiFi | √ | 5 V | [Deepstream integration with Azure IoT Central](https://www.hackster.io/pjdecarlo/nvidia-deepstream-integration-with-azure-iot-central-d9f834) | [BeagleBone AI (~$110 - $120)](https://aka.ms/IotDeviceList/BeagleBoneAI) |
 | [Raspberry Pi Zero W2](https://aka.ms/IotDeviceList/RpiZeroW) | ~$15 - $20 | Home automation; ML; Vehicle modifications; Field Science | Raspberry Pi OS, Raspbian, Ubuntu 20.04/21.04, RISC OS, Windows 10 IoT, more | 1 GHz CPU, 400 MHz GPU | 64-bit Broadcom BCM2837 (quad-core Cortez-A53), VideoCore IV GPU | 512 MB LPDDR2 RAM, SD Card (not included) | 1 x CSI-2 Camera connector | 26 x Digital, 4 x PWM | Mini-HDMI | WiFi, Bluetooth | - | 5 V | [Send and visualize data to Azure IoT Hub](https://www.hackster.io/jenfoxbot/how-to-send-see-data-from-a-raspberry-pi-to-azure-iot-hub-908924) | [Onion Omega2+ (~$10 - $15)](https://onion.io/Omega2/) |
 | [DFRobot LattePanda](https://aka.ms/IotDeviceList/DFRobotLattePanda) | ~$100 - $160 | Home automation; Hyperscale cloud connectivity; AI/ML | Windows 10, Ubuntu 16.04, OpenSuSE 15 | 1.92 GHz | 64-bit Intel Z8350 (quad-core x86-64), Atmega32u4 coprocessor | 2 GB DDR3L RAM, 32 GB eMMC/4GB DDR3L RAM, 64-GB eMMC | - | 6 x Digital (20 x via Atmega32u4), 6 x PWM, 12 x ADC | HDMI, MIPI DSI | WiFi, Bluetooth | √ | 5 V | 1. [Getting started with Microsoft Azure](https://www.hackster.io/45361/dfrobot-lattepanda-with-microsoft-azure-getting-started-0ae8fb), 2. [Home Monitoring System with Azure](https://www.hackster.io/JiongShi/home-monitoring-system-based-on-lattepanda-zigbee-and-azure-ce4e03)| [Seeed Odyssey X86J4125800 (~$210 - $230)](https://aka.ms/IotDeviceList/SeeedOdyssey) |

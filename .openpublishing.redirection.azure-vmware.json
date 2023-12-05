@@ -1,0 +1,19 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-vmware/send-logs-to-log-analytics.md",
+            "redirect_url": "/azure/azure-vmware/configure-vmware-syslogs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/migrate-sql-server-always-on-cluster.md",
+            "redirect_url": "/azure/azure-vmware/migrate-sql-server-always-on-availability-group",
+            "redirect_document_id": false
+        }
+    ]
+}

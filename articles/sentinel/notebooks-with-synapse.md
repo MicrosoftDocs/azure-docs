@@ -88,7 +88,7 @@ To integrate Azure Machine Learning and Azure Synapse Analytics:
 
 1. Run the cells in step 4, **Configure Azure Synapse Spark Pool**, to create a new [Azure Synapse Apache Spark Pool](../synapse-analytics/spark/apache-spark-pool-configurations.md) to use when running your big data queries.
 
-1. Run the cells in step 5, **Configure Azure ML Workspace and Linked Services** to ensure that your Azure Machine Learning workspace can communicate with your Azure Synapse workspace. For more information, see [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools](../machine-learning/how-to-link-synapse-ml-workspaces.md).
+1. Run the cells in step 5, **Configure Azure ML Workspace and Linked Services** to ensure that your Azure Machine Learning workspace can communicate with your Azure Synapse workspace. For more information, see [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools](../machine-learning/v1/how-to-link-synapse-ml-workspaces.md).
 
 1. Run the cells in step 6, **Export Data from Azure Log Analytics to Azure Data Lake Storage Gen2**, to export your data you want to use for your queries from Azure Log Analytics to Azure Data Lake Storage.
 
@@ -190,5 +190,5 @@ For more information, see:
 
 - [Use Jupyter notebooks to hunt for security threats](notebooks.md)
 - [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
-- [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools(preview)](../machine-learning/how-to-link-synapse-ml-workspaces.md)
+- [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools(preview)](../machine-learning/v1/how-to-link-synapse-ml-workspaces.md)
 - [Create your first Microsoft Sentinel notebook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/creating-your-first-microsoft-sentinel-notebook/ba-p/2977745) (Blog series)

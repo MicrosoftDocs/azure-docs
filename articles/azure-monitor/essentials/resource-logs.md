@@ -1,12 +1,9 @@
 ---
 title: Azure resource logs 
 description: Learn how to stream Azure resource logs to a Log Analytics workspace in Azure Monitor.
-author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.custom: ignite-2022
-ms.date: 05/09/2022
-ms.author: bwren
+ms.date: 08/08/2023
 ms.reviewer: lualderm
 ---
 
@@ -44,25 +41,25 @@ The preceding example creates three tables:
 - Table `Service1AuditLogs`
 
     | Resource provider | Category | A | B | C |
-    | -- | -- | -- | -- | -- |
-    | Service1 | AuditLogs | x1 | y1 | z1 |
-    | Service1 | AuditLogs | x5 | y5 | z5 |
+    |:---|:---:|:---:|:---:|:---:| 
+    | Service 1 | AuditLogs | x1 | y1 | z1 |
+    | Service 1 | AuditLogs | x5 | y5 | z5 |
     | ... |
 
 - Table `Service1ErrorLogs`
 
     | Resource provider | Category | D | E | F |
-    | -- | -- | -- | -- | -- | 
-    | Service1 | ErrorLogs |  q1 | w1 | e1 |
-    | Service1 | ErrorLogs |  q2 | w2 | e2 |
+    |:---|:---:|:---:|:---:|:---:| 
+    | Service 1 | ErrorLogs |  q1 | w1 | e1 |
+    | Service 1 | ErrorLogs |  q2 | w2 | e2 |
     | ... |
 
 - Table `Service2AuditLogs`
 
     | Resource provider | Category | G | H | I |
-    | -- | -- | -- | -- | -- |
-    | Service2 | AuditLogs | j1 | k1 | l1|
-    | Service2 | AuditLogs | j3 | k3 | l3|
+    |:---|:---:|:---:|:---:|:---:| 
+    | Service 2 | AuditLogs | j1 | k1 | l1|
+    | Service 2 | AuditLogs | j3 | k3 | l3|
     | ... |
 
 ### Azure diagnostics mode
@@ -78,7 +75,7 @@ Consider an example where diagnostic settings are collected in the same workspac
 The `AzureDiagnostics` table looks like this example:
 
 | ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:||:---:|
 | Microsoft.Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
 | Microsoft.Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
 | Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | l1 |
@@ -91,9 +88,10 @@ The `AzureDiagnostics` table looks like this example:
 
 Most Azure resources write data to the workspace in either **Azure diagnostics** or **resource-specific** mode without giving you a choice. For more information, see [Common and service-specific schemas for Azure resource logs](./resource-logs-schema.md).
 
-All Azure services eventually use the resource-specific mode. As part of this transition, some resources allow you to select a mode in the diagnostic setting. Specify resource-specific mode for any new diagnostic settings because this mode makes the data easier to manage. It also might help you avoid complex migrations later.
+All Azure services will eventually use the resource-specific mode. As part of this transition, some resources allow you to select a mode in the diagnostic setting. Specify resource-specific mode for any new diagnostic settings because this mode makes the data easier to manage. It also might help you avoid complex migrations later.
   
-   ![Screenshot that shows the Diagnostics settings mode selector.](media/resource-logs/diagnostic-settings-mode-selector.png)
+:::image type="content" source="media/resource-logs/diagnostic-settings-mode-selector.png" alt-text="Screenshot that shows the Diagnostics settings mode selector." lightbox="media/resource-logs/diagnostic-settings-mode-selector.png":::
+
 
 > [!NOTE]
 > For an example that sets the collection mode by using an Azure Resource Manager template, see [Resource Manager template samples for diagnostic settings in Azure Monitor](./resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
@@ -188,7 +186,7 @@ The blob for a network security group might have a name similar to this example:
 insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 ```
 
-Each PT1H.json blob contains a JSON object with events from log files that were received during the hour specified in the blob URL. During the present hour, events are appended to the PT1H.json file as they are received, regardless of when they were generated. The minute value in the URL, `m=00` is always `00` as blobs are created on a per hour basis.
+Each PT1H.json blob contains a JSON object with events from log files that were received during the hour specified in the blob URL. During the present hour, events are appended to the PT1H.json file as they're received, regardless of when they were generated. The minute value in the URL, `m=00` is always `00` as blobs are created on a per hour basis.
 
 Within the PT1H.json file, each event is stored in the following format. It uses a common top-level schema but is unique for each Azure service, as described in [Resource logs schema](./resource-logs-schema.md).
 

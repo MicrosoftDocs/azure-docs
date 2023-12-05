@@ -1,8 +1,8 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/confidential-computing/virtual-machine-solutions.md",
-            "redirect_url": "/azure/confidential-computing/virtual-machine-solutions-sgx",
+            "source_path_from_root": "/articles/confidential-computing/virtual-machine-solutions-amd.md",
+            "redirect_url": "/azure/confidential-computing/virtual-machine-solutions",
             "redirect_document_id": true
         },
         {

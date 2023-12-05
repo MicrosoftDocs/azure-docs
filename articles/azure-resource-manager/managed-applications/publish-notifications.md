@@ -29,7 +29,7 @@ The following examples show how to add a notification endpoint URI using the por
 
 ### Azure portal
 
-To get started, see [Publish a service catalog application through Azure portal](./publish-portal.md).
+To get started, see [Quickstart: Create and publish an Azure Managed Application definition](./publish-service-catalog-app.md).
 
 :::image type="content" source="./media/publish-notifications/service-catalog-notifications.png" alt-text="Screenshot of the Azure portal that shows a service catalog managed application definition and the notification endpoint.":::
 

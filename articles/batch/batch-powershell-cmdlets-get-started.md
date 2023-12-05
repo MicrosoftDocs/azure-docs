@@ -2,8 +2,8 @@
 title: Get started with PowerShell
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 ms.topic: how-to
-ms.date: 01/21/2021
-ms.custom: seodec18, devx-track-azurepowershell
+ms.date: 05/24/2023
+ms.custom: seodec18, devx-track-azurepowershell, devx-track-linux
 ---
 
 # Manage Batch resources with PowerShell cmdlets
@@ -84,7 +84,7 @@ When prompted, confirm you want to remove the account. Account removal can take 
 
 ## Create a BatchAccountContext object
 
-You can authenticate to manage Batch resources using either shared key authentication or Azure Active Directory authentication. To authenticate using the Batch PowerShell cmdlets, first create a BatchAccountContext object to store your account credentials or identity. You pass the BatchAccountContext object into cmdlets that use the **BatchContext** parameter.
+You can authenticate to manage Batch resources using either shared key authentication or Microsoft Entra authentication. To authenticate using the Batch PowerShell cmdlets, first create a BatchAccountContext object to store your account credentials or identity. You pass the BatchAccountContext object into cmdlets that use the **BatchContext** parameter.
 
 ### Shared key authentication
 
@@ -95,7 +95,9 @@ $context = Get-AzBatchAccountKeys -AccountName <account_name>
 > [!NOTE]
 > By default, the account's primary key is used for authentication, but you can explicitly select the key to use by changing your BatchAccountContext object’s **KeyInUse** property: `$context.KeyInUse = "Secondary"`.
 
-### Azure Active Directory authentication
+<a name='azure-active-directory-authentication'></a>
+
+### Microsoft Entra authentication
 
 ```powershell
 $context = Get-AzBatchAccount -AccountName <account_name>
@@ -111,12 +113,12 @@ When using many of these cmdlets, in addition to passing a BatchContext object, 
 
 When creating or updating a Batch pool, you specify a [configuration](nodes-and-pools.md#configurations). Pools should generally be configured with Virtual Machine Configuration, which lets you either specify one of the supported Linux or Windows VM images listed in the [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or provide a custom image that you have prepared. Cloud Services Configuration pools provide only Windows compute nodes and do not support all Batch features.
 
-When you run **New-AzBatchPool**, pass the operating system settings in a PSVirtualMachineConfiguration or PSCloudServiceConfiguration object. For example, the following snippet creates a Batch pool with size Standard_A1 compute nodes in the virtual machine configuration, imaged with Ubuntu Server 18.04-LTS. Here, the **VirtualMachineConfiguration** parameter specifies the *$configuration* variable as the PSVirtualMachineConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
+When you run **New-AzBatchPool**, pass the operating system settings in a PSVirtualMachineConfiguration or PSCloudServiceConfiguration object. For example, the following snippet creates a Batch pool with size Standard_A1 compute nodes in the virtual machine configuration, imaged with Ubuntu Server 20.04-LTS. Here, the **VirtualMachineConfiguration** parameter specifies the *$configuration* variable as the PSVirtualMachineConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
 
 ```powershell
-$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
+$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","20.04-LTS")
 
-$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 18.04")
+$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 20.04")
 
 New-AzBatchPool -Id "mypspool" -VirtualMachineSize "Standard_a1" -VirtualMachineConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 ```

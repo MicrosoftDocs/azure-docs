@@ -1,14 +1,19 @@
 ---
 title: Back up Azure Disks using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure Disks using REST API.
-ms.topic: conceptual
-ms.date: 10/06/2021
+ms.topic: how-to
+ms.date: 05/30/2023
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy23
 ---
 
 # Back up Azure Disks using Azure Data Protection via REST API
 
 This article describes how to manage backups for Azure Disks via REST API.
+
+Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. You can manage the disk snapshots with zero infrastructure cost and without the need for custom scripting or any management overhead. This is a crash-consistent backup solution that takes point-in-time backup of a managed disk using incremental snapshots with support for multiple backups per day. It's also an agent-less solution and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether or not they're currently attached to a running Azure virtual machine.
 
 For information on the Azure Disk backup region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
 
@@ -50,7 +55,7 @@ You need to assign a few permissions via RBAC to the vault (represented by vault
 
 ### Prepare the request to configure backup
 
-Once the relevant permissions are set to the vault and the disk, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure backup for an Azure Disk. The Azure Resource Manager ID (ARM ID) of the Azure Disk and its details are mentioned in the _datasourceinfo_ section and the policy information is present in the _policyinfo_ section where the snapshot resource group is provided as one of the policy parameters.
+Once the relevant permissions are set to the vault and the disk, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure backup for an Azure Disk. The Azure Resource Manager ID (ARM ID) of the Azure Disk and its details are mentioned in the `datasourceinfo` section and the policy information is present in the `policyinfo` section where the snapshot resource group is provided as one of the policy parameters.
 
 ```json
 {
@@ -99,7 +104,7 @@ POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 The [request body](#prepare-the-request-to-configure-backup) that we prepared earlier will be used to provide details of the Azure Disk to be protected.
 
-#### Example request body
+**Example request body**
 
 ```json
 {
@@ -134,7 +139,7 @@ The [request body](#prepare-the-request-to-configure-backup) that we prepared ea
 
 Backup request validation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created and 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -142,9 +147,9 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |200 OK     |   [OperationJobExtendedInfo](/rest/api/dataprotection/backup-instances/validate-for-backup#operationjobextendedinfo)      |     Accepted    |
 | Other Status codes |    [CloudError](/rest/api/dataprotection/backup-instances/validate-for-backup#clouderror)    |    Error response describing why the operation failed    |
 
-##### Example responses for validate backup request
+**Example responses for validate backup request**
 
-###### Error response
+##### Error response
 
 If the given disk is already protected, it returns the response as HTTP 400 (Bad request) and states that the given disk is protected to a backup vault along with details.
 
@@ -194,7 +199,7 @@ X-Powered-By: ASP.NET
 }
 ```
 
-###### Tracking response
+##### Track response
 
 If the datasource is unprotected, then the API proceeds for further validations and creates a tracking operation.
 
@@ -457,7 +462,7 @@ DELETE "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/Test
 
 *DELETE* protection is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|

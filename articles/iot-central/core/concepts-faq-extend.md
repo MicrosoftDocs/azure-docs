@@ -1,9 +1,9 @@
 ---
-title: Extend IoT Central | Microsoft Docs
-description: How do I extend IoT Central if it's missing something I need?
+title: How to extend IoT Central
+description: How to use data exports, rules, or the REST API to extend IoT Central if it's missing something you need.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/09/2022
+ms.date: 06/12/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -24,7 +24,7 @@ To extend IoT Central's built-in rules and analytics capabilities, use the data 
 
 - Enrich, and transform your IoT data to generate advanced visualizations that provide insights.
 - Extract business metrics and use artificial intelligence and machine learning to derive business insights from your IoT data.
-- Monitoring and diagnostics for millions of connected IoT devices.
+- Monitoring and diagnostics for hundreds of thousands of connected IoT devices.
 - Combine your IoT data with other business data to build dashboards and reports.
 
 To learn more, see [IoT Central data integration guide](overview-iot-central-solution-builder.md).
@@ -50,7 +50,7 @@ The REST APIs enable extension scenarios such as:
 - Programmatic management  of your IoT Central applications.
 - Tight integration with other applications.
 
-To learn more, see [Manage an IoT Central application with the REST API](/training/modules/manage-iot-central-apps-with-rest-api/).
+To learn more, see [Tutorial: Use the REST API to manage an Azure IoT Central application](tutorial-use-rest-api.md).
 
 ## Next steps
 

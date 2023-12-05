@@ -1,54 +1,52 @@
 ---
-title: SIN in Azure Cosmos DB query language
-description: Learn about SQL system function SIN in Azure Cosmos DB.
-author: ginamr
+title: SIN
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the trigonometric sine of the specified angle.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# SIN (Azure Cosmos DB)
+
+# SIN (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the trigonometric sine of the specified angle, in radians, in the specified expression.  
+Returns the trigonometric sine of the specified angle in radians.
   
 ## Syntax
   
 ```sql
 SIN(<numeric_expr>)  
-```  
+```
   
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
 ## Return types
   
-  Returns a numeric expression.  
+Returns a numeric expression.  
   
 ## Examples
   
-  The following example calculates the `SIN` of the specified angle.  
+The following example calculates the sine of the specified angle using the function.
   
-```sql
-SELECT SIN(45.175643) AS sin  
-```  
-  
- Here is the result set.  
-  
-```json
-[{"sin": 0.929607286611012}]  
-```  
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/sin/query.sql" highlight="2":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/sin/result.json":::
 
 ## Remarks
 
-This system function will not utilize the index.
+- This function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [Mathematical functions Azure Cosmos DB](mathematical-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`COS`](cos.md)

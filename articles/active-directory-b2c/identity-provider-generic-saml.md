@@ -2,16 +2,16 @@
 title: Set up sign-up and sign-in with SAML identity provider
 titleSuffix: Azure Active Directory B2C
 description: Set up sign-up and sign-in with any SAML identity provider (IdP) in Azure Active Directory B2C.
-services: active-directory-b2c
-author: kengaderdus
+
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.custom: project-no-code
-ms.author: kengaderdus
+ms.custom: 
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -71,8 +71,7 @@ A self-signed certificate is acceptable for most scenarios. For production envir
 You need to store your certificate in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.
@@ -139,10 +138,10 @@ The **OutputClaims** element contains a list of claims returned by the SAML iden
 
 In the example above, *Contoso-SAML2* includes the claims returned by a SAML identity provider:
 
-* The **issuerUserId** claim is mapped to the **assertionSubjectName** claim.
+* The **assertionSubjectName** claim is mapped to the **issuerUserId** claim.
 * The **first_name** claim is mapped to the **givenName** claim.
 * The **last_name** claim is mapped to the **surname** claim.
-* The **displayName** claim is mapped to the `http://schemas.microsoft.com/identity/claims/displayname` claim.
+* The `http://schemas.microsoft.com/identity/claims/displayname` claim is mapped to the **displayName** claim.
 * The **email** claim without name mapping.
 
 The technical profile also returns claims that aren't returned by the identity provider:
@@ -222,8 +221,7 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 ## Test your custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.

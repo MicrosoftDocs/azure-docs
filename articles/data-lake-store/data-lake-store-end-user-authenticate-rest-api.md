@@ -1,6 +1,6 @@
 ---
 title: End-user authentication - REST with Data Lake Storage Gen1 - Azure
-description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Azure Active Directory using REST API
+description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Microsoft Entra ID using REST API
 
 author: normesta
 ms.service: data-lake-store
@@ -24,12 +24,12 @@ In this article, you learn about how to use the REST API to do end-user authenti
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Create an Azure Active Directory "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Create a Microsoft Entra ID "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Storage Gen1 using Microsoft Entra ID](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 * **[cURL](https://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Storage Gen1 account.
 
 ## End-user authentication
-End-user authentication is the recommended approach if you want a user to log in to your application using Azure AD. Your application is able to access Azure resources with the same level of access as the logged-in user. The user needs to provide their credentials periodically in order for your application to maintain access.
+End-user authentication is the recommended approach if you want a user to log in to your application using Microsoft Entra ID. Your application is able to access Azure resources with the same level of access as the logged-in user. The user needs to provide their credentials periodically in order for your application to maintain access.
 
 The result of having the end-user login is that your application is given an access token and a refresh token. The access token gets attached to each request made to Data Lake Storage Gen1 or Data Lake Analytics, and it is valid for one hour by default. The refresh token can be used to obtain a new access token, and it is valid for up to two weeks by default, if used regularly. You can use two different approaches for end-user login.
 

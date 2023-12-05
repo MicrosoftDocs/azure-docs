@@ -33,10 +33,6 @@
   - name: Automanage for Windows Server
     href: automanage-windows-server.md
     items:
-      - name: Automanage for Windows Server services
-        href: automanage-windows-server-services-overview.md
-      - name: Hotpatch for new virtual machines
-        href: automanage-hotpatch.md
       - name: SMB over QUIC
         href: automanage-smb-over-quic.md
   - name: Automanage for Azure Arc-enabled servers
@@ -63,8 +59,6 @@
     href: move-automanaged-vms.md
   - name: Move an Automanaged configuration profile across regions
     href: move-automanaged-configuration-profile.md
-  - name: Windows Server VNext Datacenter Azure Edition (preview)
-    href: windows-server-azure-edition-vnext.md
 - name: References
   items: 
   - name: SDKs

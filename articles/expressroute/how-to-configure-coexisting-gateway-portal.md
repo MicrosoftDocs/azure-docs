@@ -3,10 +3,9 @@ title: 'Configure ExpressRoute and S2S VPN coexisting connections: Azure portal'
 description: Configure ExpressRoute and a Site-to-Site VPN connection that can coexist for the Resource Manager model using the Azure portal.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 06/30/2023
 ms.author: duau
 ---
 
@@ -17,14 +16,14 @@ ms.author: duau
 > * [PowerShell - Classic](expressroute-howto-coexist-classic.md)
 > 
 
-This article helps you configure ExpressRoute and Site-to-Site VPN connections that coexist. Having the ability to configure Site-to-Site VPN and ExpressRoute has several advantages. You can configure Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that aren't connected through ExpressRoute. We'll cover the steps to configure both scenarios in this article. This article applies to the Resource Manager deployment model.
+This article helps you configure ExpressRoute and Site-to-Site VPN connections that coexist. Having the ability to configure Site-to-Site VPN and ExpressRoute has several advantages. You can configure Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that aren't connected through ExpressRoute. We cover the steps to configure both scenarios in this article. This article applies to the Resource Manager deployment model.
 
 Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several advantages:
 
 * You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute. 
 * Alternatively, you can use Site-to-Site VPNs to connect to sites that aren't connected through ExpressRoute. 
 
-The steps to configure both scenarios are covered in this article. You can configure either gateway first. Typically, you'll incur no downtime when adding a new gateway or gateway connection.
+The steps to configure both scenarios are covered in this article. You can configure either gateway first. Typically, you incur no downtime when adding a new gateway or gateway connection.
 
 >[!NOTE]
 >If you want to create a Site-to-Site VPN over an ExpressRoute connection, see [Site-to-site over Microsoft peering](site-to-site-vpn-over-microsoft-peering.md).
@@ -35,8 +34,8 @@ The steps to configure both scenarios are covered in this article. You can confi
 * **Only route-based VPN gateway is supported.** You must use a route-based [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). You also can use a route-based VPN gateway with a VPN connection configured for 'policy-based traffic selectors' as described in [Connect to multiple policy-based VPN devices](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 * **ExpressRoute-VPN Gateway coexist configurations are not supported on the Basic SKU**.
 * **If you want to use transit routing between ExpressRoute and VPN, the ASN of Azure VPN Gateway must be set to 65515.** Azure VPN Gateway supports the BGP routing protocol. For ExpressRoute and Azure VPN to work together, you must keep the Autonomous System Number of your Azure VPN gateway at its default value, 65515. If you previously selected an ASN other than 65515 and you change the setting to 65515, you must reset the VPN gateway for the setting to take effect.
-* **The gateway subnet must be /27 or a shorter prefix**, (such as /26, /25), or you'll receive an error message when you add the ExpressRoute virtual network gateway.
-* **Coexistence in a dual-stack vnet is not supported.** If you're using ExpressRoute IPv6 support and a dual-stack ExpressRoute gateway, coexistence with VPN Gateway won't be possible.
+* **The gateway subnet must be /27 or a shorter prefix**, such as /26, /25, or you receive an error message when you add the ExpressRoute virtual network gateway.
+* **Coexistence in a dual-stack vnet is not supported.** If you're using ExpressRoute IPv6 support and a dual-stack ExpressRoute gateway, coexistence with VPN Gateway isn't possible.
 
 ## Configuration designs
 
@@ -56,7 +55,7 @@ You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. Th
 ### Configure a Site-to-Site VPN to connect to sites not connected through ExpressRoute
 You can configure your network where some sites connect directly to Azure over Site-to-Site VPN, and some sites connect through ExpressRoute. 
 
-:::image type="content" source="media/expressroute-howto-coexist-resource-manager/scenario2.jpg" alt-text="Diagram of a site-to-site VPN connection co-existing with an ExpressRoute connection for two different sites.":::
+:::image type="content" source="media/expressroute-howto-coexist-resource-manager/scenario2.jpg" alt-text="Diagram of a site-to-site VPN connection coexisting with an ExpressRoute connection for two different sites.":::
 
 ## Selecting the steps to use
 There are two different sets of procedures to choose from. The configuration procedure that you select depends on whether you have an existing virtual network that you want to connect to, or you want to create a new virtual network.
@@ -69,11 +68,11 @@ There are two different sets of procedures to choose from. The configuration pro
   
     You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. In this scenario if the gateway subnet prefix is /28 or longer (/29, /30, etc.), you have to delete the existing gateway. The [To configure coexisting connections for an already existing VNet](#to-configure-coexisting-connections-for-an-already-existing-vnet) section walks you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections.
   
-    If you delete and recreate your gateway, you'll have downtime for your cross-premises connections. However, your VMs and services will still be able to communicate out through the load balancer while you configure your gateway if they're configured to do so.
+    If you delete and recreate your gateway, you have downtime for your cross-premises connections. However, your VMs and services can communicate out through the load balancer while you configure your gateway if they're configured to do so.
 
 ## To create a new virtual network and coexisting connections
 
-This procedure walks you through creating a VNet and Site-to-Site and ExpressRoute connections that will coexist.
+This procedure walks you through creating a VNet and Site-to-Site and ExpressRoute connections that coexist.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -113,7 +112,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
 
 ## To configure coexisting connections for an already existing VNet
 
-If you have a virtual network that has only one virtual network gateway (let's say, Site-to-Site VPN gateway) and you want to add another gateway of a different type (let's say, ExpressRoute gateway), check the gateway subnet size. If the gateway subnet is /27 or larger, you can skip the steps below and follow the steps in the previous section to add either a Site-to-Site VPN gateway or an ExpressRoute gateway. If the gateway subnet is /28 or /29, you've to first delete the virtual network gateway and increase the gateway subnet size. The steps in this section show you how to do that.
+If you have a virtual network that has only one virtual network gateway, for example, a Site-to-Site VPN gateway and you want to add another gateway of a different type, for example, ExpressRoute gateway, check the gateway subnet size. If the gateway subnet is /27 or larger, you can skip the following steps and follow the steps in the previous section to add either a Site-to-Site VPN gateway or an ExpressRoute gateway. If the gateway subnet is /28 or /29, you have to first delete the virtual network gateway and increase the gateway subnet size. The steps in this section show you how to do that.
 
 1. Delete the existing ExpressRoute or Site-to-site VPN gateway.
 
@@ -125,10 +124,11 @@ If you have a virtual network that has only one virtual network gateway (let's s
 
 ## To add point-to-site configuration to the VPN gateway
 
-You can add a Point-to-Site configuration to your co-existing set by following the instruction in [Configuring Point-to-Site VPN connection using Azure certificate authentication](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#addresspool)
+You can add a Point-to-Site configuration to your coexisting set by following the instruction in [Configuring Point-to-Site VPN connection using Azure certificate authentication](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#addresspool)
 
 ## To enable transit routing between ExpressRoute and Azure VPN
-If you want to enable connectivity between one of your local networks that is connected to ExpressRoute and another of your local network that is connected to a site-to-site VPN connection, you'll need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
+
+If you want to enable connectivity between one of your local networks that is connected to ExpressRoute and another of your local network that is connected to a site-to-site VPN connection, you need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

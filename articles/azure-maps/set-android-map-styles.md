@@ -1,26 +1,24 @@
 ---
-title: Set a map style in Android maps | Microsoft Azure Maps
+title: Set a map style in Android maps
+titleSuffix: Microsoft Azure Maps
 description: Learn two ways of setting the style of a map. See how to use the Azure Maps Android SDK in either the layout file or the activity class to adjust the style.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
 
 # Set map style (Android SDK)
 
-This article shows you two ways to set map styles using the Azure Maps Android SDK. Azure Maps has six different maps styles to choose from. For more information about supported map styles, see [supported map styles in Azure Maps](supported-map-styles.md).
+This article shows you two ways to set map styles using the Azure Maps Android SDK. Azure Maps has six different maps styles to choose from. For more information about supported map styles, see [supported map styles in Azure Maps].
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document.
-
->[!IMPORTANT]
->The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
-
+Be sure to complete the steps in the Quickstart: [Create an Android app].
 
 ## Set map style in the layout
 
@@ -135,7 +133,7 @@ map.setCamera(
 
 ::: zone-end
 
-Often it is desirable to focus the map over a set of data. A bounding box can be calculated from features using the `MapMath.fromData` method and can be passed into the `bounds` option of the map camera. When setting a map view based on a bounding box, it's often useful to specify a `padding` value to account for the pixel size of points being rendered as bubbles or symbols. The following code shows how to set all optional camera options when using a bounding box to set the position of the camera.
+Often it's desirable to focus the map over a set of data. A bounding box can be calculated from features using the `MapMath.fromData` method and can be passed into the `bounds` option of the map camera. When setting a map view based on a bounding box, it's often useful to specify a `padding` value to account for the pixel size of points being rendered as bubbles or symbols. The following code shows how to set all optional camera options when using a bounding box to set the position of the camera.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -197,7 +195,7 @@ map.setCamera(
 
 ::: zone-end
 
-The aspect ratio of a bounding box may not be the same as the aspect ratio of the map, as such the map will often show the full bounding box area, but will often only be tight vertically or horizontally.
+The aspect ratio of a bounding box may not be the same as the aspect ratio of the map, as such the map often show the full bounding box area, but are often only tight vertically or horizontally.
 
 ### Animate map view
 
@@ -205,10 +203,10 @@ When setting the camera options of the map, animation options can also be used t
 
 | Option | Description |
 |--------|-------------|
-| `animationDuration(Integer durationMs)` | Specifies how long the camera will animate between the views in milliseconds (ms). |
-| `animationType(AnimationType animationType)` | Specifies the type of animation transition to perform.<br/><br/> - `JUMP` - an immediate change.<br/> - `EASE` - gradual change of the camera's settings.<br/> - `FLY` - gradual change of the camera's settings following an arc resembling flight. |
+| `animationDuration(Integer durationMs)` | Specifies how long the camera animates between the views in milliseconds (ms). |
+| `animationType(AnimationType animationType)` | Specifies the type of animation transition to perform.<br><br> - `JUMP` - an immediate change.<br> - `EASE` - gradual change of the camera's settings.<br> - `FLY` - gradual change of the camera's settings that create an arc resembling flight. |
 
-The following code shows how to animate the map view using a `FLY` animation over a duration of three seconds.
+This code shows how to animate the map view using a `FLY` animation over a duration of three seconds:
 
 ::: zone pivot="programming-language-java-android"
 
@@ -236,7 +234,7 @@ map.setCamera(
 
 ::: zone-end
 
-The following demonstrates the above code animating the map view from New York to Seattle.
+The above code demonstrates animating the map view from New York to Seattle:
 
 ![Map animating the camera from New York to Seattle](media/set-android-map-styles/android-animate-camera.gif)
 
@@ -245,7 +243,12 @@ The following demonstrates the above code animating the map view from New York t
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer-android.md)
+> [Add a bubble layer]
+
+[Add a bubble layer]: map-add-bubble-layer-android.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Create an Android app]: quick-android-map.md
+[supported map styles in Azure Maps]: supported-map-styles.md

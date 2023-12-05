@@ -2,7 +2,7 @@
 title: Create a function in Go or Rust using Visual Studio Code - Azure Functions
 description: Learn how to create a Go function as an Azure Functions custom handler, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 06/22/2022
+ms.date: 08/03/2023
 ms.devlang: golang, rust
 ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
@@ -29,8 +29,6 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
-
 + [Go](https://go.dev/doc/install), latest version recommended. Use the `go version` command to check your version.
 
 # [Rust](#tab/rust)
@@ -41,11 +39,11 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
-
 + Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
 
 ---
+
+[!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
@@ -65,7 +63,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions cu
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
-    |**Select how you would like to open your project**|Choose `Add to workspace`.|
+    |**Select how you would like to open your project**|Choose `Open in current window`.|
 
     Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. 
 

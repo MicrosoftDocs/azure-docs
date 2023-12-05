@@ -2,23 +2,22 @@
 title: Azure DDoS Rapid Response
 description: Learn how to engage DDoS experts during an active attack for specialized support.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 11/06/2023
 ms.author: abell
 ---
 # Azure DDoS Rapid Response
 
-During an active attack, Azure DDoS Protection customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis.
+During an active attack, Azure DDoS Network Protection customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis.
 
 ## Prerequisites
 
-- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Protection plan](manage-ddos-protection.md).
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Before you can complete the steps in this guide, you must first create a [Azure DDoS Protection plan](manage-ddos-protection.md).
 
 ## When to engage DRR
 
@@ -35,11 +34,11 @@ You should only engage DRR if:
 2. Choose **Service** as **DDOS Protection**.
 3. Choose a resource in the resource drop-down menu. _You must select a DDoS Plan that’s linked to the virtual network being protected by DDoS Protection to engage DRR._
 
-    ![Choose Resource](./media/ddos-rapid-response/choose-resource.png)
+    :::image type="content" source="./media/ddos-rapid-response/choose-resource.png" alt-text="Screenshot of creating a DDoS Support Ticket in Azure.":::
 
 4. On the next **Problem** page, select the **severity** as A -Critical Impact and **Problem Type** as ‘Under attack.’
 
-    ![PSeverity and Problem Type](./media/ddos-rapid-response/severity-and-problem-type.png)
+    :::image type="content" source="./media/ddos-rapid-response/severity-and-problem-type.png" alt-text="Screenshot of choosing Severity and Problem Type.":::
 
 5. Complete additional details and submit the support request.
 

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
-ms.custom: subject-bicepqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-bicepqs, mode-arm, devx-track-bicep
 ms.date: 08/25/2022
 ms.author: victorh
 ---

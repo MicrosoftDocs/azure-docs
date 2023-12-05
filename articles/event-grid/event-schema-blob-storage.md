@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 12/02/2022
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -1262,8 +1262,8 @@ The data object has the following properties:
 | [Quickstart: route Blob storage events to a custom web endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send blob storage events to a WebHook. |
 | [Quickstart: route Blob storage events to a custom web endpoint with PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure PowerShell to send blob storage events to a WebHook. |
 | [Quickstart: create and route Blob storage events with the Azure portal](blob-event-quickstart-portal.md) | Shows how to use the portal to send blob storage events to a WebHook. |
-| [Azure CLI: subscribe to events for a Blob storage account](./scripts/event-grid-cli-subscribe-custom-topic.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
-| [PowerShell: subscribe to events for a Blob storage account](./scripts/event-grid-powershell-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
+| [Azure CLI: subscribe to events for a Blob storage account](./scripts/cli-subscribe-custom-topic.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
+| [PowerShell: subscribe to events for a Blob storage account](./scripts/powershell-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
 | [Resource Manager template: Create Blob storage and subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-subscription-and-storage) | Deploys an Azure Blob storage account and subscribes to events for that storage account. It sends events to a WebHook. |
 | [Overview: reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) | Overview of integrating Blob storage with Event Grid. |
 

@@ -66,13 +66,14 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 
 | Resource | Limit |
 | --- | --- |
-| Duration of the trial | 30 days¹²  |
+| Duration of the trial | 30 days¹² |
+| Type of account | Single node |
+| vCores | 2 |
+| Memory (GiB) | 8 |
+| Maximum storage size (GiB) | 128 |
 
 ¹ A new trial can be requested after expiration.
 ² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
-
-> [!NOTE]
-> Try Azure Cosmos DB supports global distribution in only the **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
 
 ---
 
@@ -93,7 +94,7 @@ Launch the Quickstart in Data Explorer in Azure portal to start using Azure Cosm
 * [API for PostgreSQL](postgresql/quickstart-create-portal.md)
 * [API for MongoDB](mongodb/quickstart-python.md#object-model)
 * [API for Apache Cassandra](cassandra/adoption.md)
-* [API for Apache Gremlin](gremlin/quickstart-console.md#add-a-graph)
+* [API for Apache Gremlin](gremlin/quickstart-console.md)
 * [API for Table](table/quickstart-dotnet.md)
 
 You can also get started with one of the learning resources in the Data Explorer.
@@ -157,7 +158,9 @@ If you desire, you can migrate your existing data from the free account to the n
 
 1. Back in the **Upgrade** page from the [Start upgrade](#start-upgrade) section of this guide, insert the connection string of the new Azure Cosmos DB account in the **Connection string** field.
 
-1. Select **Next** to move the data to your account.
+1. Select the region where you account was created.
+
+1. Select **Finish** to move the data to your account.
 
 #### [MongoDB / Cassandra / Gremlin / Table](#tab/mongodb+cassandra+gremlin+table)
 
@@ -189,7 +192,7 @@ After you create a Try Azure Cosmos DB sandbox account, you can start building a
   * [Get started with Azure Cosmos DB for PostgreSQL](postgresql/quickstart-create-portal.md)
   * [Get started with Azure Cosmos DB for MongoDB](mongodb/quickstart-python.md#object-model)
   * [Get started with Azure Cosmos DB for Cassandra](cassandra/adoption.md)
-  * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-console.md#add-a-graph)
+  * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-console.md)
   * [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for [capacity planning](sql/estimate-ru-with-capacity-planner.md).
 * If all you know is the number of vCores and servers in your existing database cluster, see [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).

@@ -22,6 +22,8 @@ This article provides details for configuring cloud metrics and logs for the [se
 
 The self-hosted gateway has to be associated with an API management service and requires outbound TCP/IP connectivity to Azure on port 443. The gateway leverages the outbound connection to send telemetry to Azure, if configured to do so. 
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 ## Metrics
 By default, the self-hosted gateway emits a number of metrics through [Azure Monitor](https://azure.microsoft.com/services/monitor/), same as the managed gateway [in the cloud](api-management-howto-use-azure-monitor.md). 
 

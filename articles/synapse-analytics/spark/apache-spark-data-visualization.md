@@ -8,6 +8,7 @@ services: synapse-analytics
 ms.service:  synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
+ms.custom: devx-track-python
 ms.date: 09/13/2020
 ---
 # Visualize data
@@ -353,7 +354,7 @@ fig
 
 ### Highcharter
 
-[Highcharter](https://jkunst.com/highcharter/) is a R wrapper for Highcharts Javascript library and its modules.
+[Highcharter](https://jkunst.com/highcharter/) is a R wrapper for Highcharts JavaScript library and its modules.
 
 To install Highcharter, you can use the following command:
 

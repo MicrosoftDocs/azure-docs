@@ -2,8 +2,8 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 01/19/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 05/22/2023
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Management group deployments with ARM templates

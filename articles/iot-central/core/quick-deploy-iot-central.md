@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Connect a device to an Azure IoT Central application | Microsoft Docs
-description: In this quickstart, you learn how to connect your first device to a new IoT Central application. This quickstart uses a smartphone app from either the Google Play or Apple app store as an IoT device.
+title: Quickstart - Connect a device to Azure IoT Central
+description: In this quickstart, you learn how to connect your first device to a new IoT Central application. This quickstart uses a smartphone app as an IoT device.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/28/2022
@@ -35,33 +35,25 @@ In this quickstart, you:
 
 ## Create an application
 
-Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with the Microsoft personal, work, or school account associated with your Azure subscription.
-
 IoT Central provides various industry-focused application templates to help you get started. This quickstart uses the **Custom application** template to create an application from scratch:
 
-1. Navigate to the **Build** page and select **Create app** in the **Custom app** tile:
+1. Navigate to the [Create IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal. If prompted, sign in with your Azure account.
 
-    :::image type="content" source="media/quick-deploy-iot-central/iot-central-create-new-application.png" alt-text="Build your IoT application page" lightbox="media/quick-deploy-iot-central/iot-central-create-new-application.png":::
+1. Enter the following information:
 
-    If you're prompted to sign in, use the Microsoft account associated with your Azure subscription.
+    | Field | Description |
+    | ----- | ----------- |
+    | Subscription | The Azure subscription you want to use. |
+    | Resource group | The resource group you want to use.  You can create a new resource group or use an existing one. |
+    | Resource name | A valid Azure resource name such as *my-contoso-app*. |
+    | Application URL | A URL subdomain for your application such as *my-contoso-app*. The URL for an IoT Central application looks like `https://my-contoso-app.azureiotcentral.com`. |
+    | Template | **Custom application** |
+    | Region | The Azure region you want to use. |
+    | Pricing plan | **Standard 2**|
 
-1. On the **New application** page, make sure that **Custom application** is selected under the **Application template**.
+1. Select **Review + create**. Then select **Create**.
 
-1. Azure IoT Central automatically suggests an **Application name** based on the application template you've selected. Enter your own application name such as *Contoso quickstart app*.
-
-1. Azure IoT Central also generates a unique **URL** prefix for you, based on the application name. You use this URL to access your application. Change this URL prefix to something more memorable if you'd like. This URL must be unique.
-
-    :::image type="content" source="media/quick-deploy-iot-central/iot-central-create-custom.png" alt-text="Azure IoT Central Create an application page" lightbox="media/quick-deploy-iot-central/iot-central-create-custom.png":::
-
-1. For this quickstart, leave the pricing plan set to **Standard 2**.
-
-1. Select your subscription in the **Azure subscription** drop-down.
-
-1. Select your closest location in the **Location** drop-down.
-
-1. Review the Terms and Conditions, and select **Create** at the bottom of the page. After a few seconds, your IoT Central application is ready to use:
-
-    :::image type="content" source="media/quick-deploy-iot-central/iot-central-application.png" alt-text="Azure IoT Central application" lightbox="media/quick-deploy-iot-central/iot-central-application.png":::
+[!INCLUDE [iot-central-navigate-from-portal](../../../includes/iot-central-navigate-from-portal.md)]
 
 ## Register a device
 

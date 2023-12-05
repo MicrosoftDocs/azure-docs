@@ -6,7 +6,6 @@ ms.author: v-denrea
 ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
-ms.subservice: education-hub
 ---
 
 # Create an assignment and allocate credit
@@ -34,7 +33,7 @@ policies before adding new users.
 
 When a work or school account (for example, student1@school.edu) is added by using Azure role-based access control (Azure RBAC) in the Educator Sponsor Portal or the [Azure portal](https://portal.azure.com), Azure automatically sends email to the recipient. This email requires the user to accept the new account and Azure role prior to receiving access to the subscription. If you're a course teaching assistant (TA) or professor, be sure to inform students of this so that their subscription displays in the Azure portal as expected. The email should look similar to this:
 
-:::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Azure Active Directory Get Started" border="false":::
+:::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Microsoft Entra ID Get Started" border="false":::
 
 ## Create an assignment and invite students to the course
 

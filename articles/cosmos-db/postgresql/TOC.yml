@@ -1,13 +1,17 @@
 - name: PostgreSQL documentation
   href: index.yml
-- name: Overview
-  items:
-    - name: What is Azure Cosmos DB for PostgreSQL?
-      href: introduction.md
+- name: What is Azure Cosmos DB for PostgreSQL?
+  href: introduction.md
+- name: Product updates
+  href: product-updates.md
 - name: Quickstart
   items:
     - name: Create cluster
-      href: quickstart-create-portal.md
+      items:
+        - name: Azure portal
+          href: quickstart-create-portal.md
+        - name: Bicep
+          href: quickstart-create-bicep.md
     - name: Connect
       href: quickstart-connect-psql.md
     - name: Distribute tables
@@ -54,19 +58,24 @@
           href: tutorial-shard.md
         - name: Design a multi-tenant database
           href: tutorial-design-database-multi-tenant.md
-          displayName: hyperscale, tutorial, multi-tenant
+          displayName: tutorial, multi-tenant
         - name: Design a real-time dashboard
           href: tutorial-design-database-realtime.md
-          displayName: hyperscale, tutorial, real-time
+          displayName: tutorial, real-time
+        - name: Design for microservices
+          href: tutorial-design-database-microservices.md
+          displayName: tutorial, microservices
     - name: Administer
       items:
         - name: Set up private access
           href: tutorial-private-access.md
-          displayName: hyperscale, tutorial, private
+          displayName: tutorial, private
 - name: Concepts
   items:
     - name: Clusters
       href: concepts-cluster.md
+    - name: Sharding models
+      href: concepts-sharding-models.md
     - name: Distributed data
       items:
         - name: Nodes and tables
@@ -88,31 +97,46 @@
           href: concepts-security-overview.md
         - name: Public access
           href: concepts-firewall-rules.md
-          displayName: firewall, rules, hyperscale
+          displayName: firewall, rules
         - name: Private access
           href: concepts-private-access.md
-          displayName: private, link, hyperscale
+          displayName: private, link
+        - name: Microsoft Entra ID and Postgres authentication
+          href: concepts-authentication.md
+          displayName: Azure Active Directory, AAD, authentication, PostgreSQL roles
+        - name: Node DNS names
+          href: concepts-node-domain-name.md
+          displayName: DNS, FQDN, connection, connect
+        - name: Customer managed keys
+          href: concepts-customer-managed-keys.md
+          displayName: customer-managed, keys, cmk
         - name: Row-level security
           href: concepts-row-level-security.md
-          displayName: row, level, security, rls, hyperscale
+          displayName: row, level, security, rls
         - name: Security baseline
           href: /security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline?toc=/azure/cosmos-db/toc.json?toc=/azure/cosmos-db/toc.json
     - name: Administration
       items:
         - name: Scheduled maintenance
           href: concepts-maintenance.md
+        - name: Burstable compute
+          href: concepts-burstable-compute.md
+        - name: Start and stop cluster compute
+          href: concepts-compute-start-stop.md
         - name: Upgrade
           href: concepts-upgrade.md
     - name: Business continuity
       items:
         - name: Back up and restore
           href: concepts-backup.md
-          displayName: backup, restore, outage, hyperscale
+          displayName: backup, restore, outage
         - name: High availability
           href: concepts-high-availability.md
+        - name: Availability zones
+          href: concepts-availability-zones.md
     - name: Replication
       href: concepts-read-replicas.md
-    - name: Connection pooling
+    - name: Connection pooling (PgBouncer)
       href: concepts-connection-pool.md
     - name: Monitor and tune
       items:
@@ -120,8 +144,14 @@
           href: concepts-monitoring.md
         - name: Performance tuning
           href: concepts-performance-tuning.md
-        - name: Audit logs
-          href: concepts-audit.md
+    - name: Multi-tenant monitoring
+      items:
+        - name: Tenant monitoring fundamentals
+          href: concepts-multi-tenant-monitoring.md
+          displayName: monitoring, statistics, tenant
+        - name: Tenant monitoring basic usage
+          href: howto-monitor-tenant-stats.md
+          displayName: monitoring, statistics
     - name: Columnar storage
       href: concepts-columnar.md
 - name: How-to guides
@@ -130,18 +160,21 @@
       href: howto-connect.md
     - name: Ingest data
       items:
-        - name: Azure Blob Storage (ABS)
+        - name: Pg_azure_storage Extension
           href: howto-ingest-azure-blob-storage.md
+          displayName: pg_azure_storage, azure_storage, Azure Blog Storage, ABS
         - name: Azure Stream Analytics (ASA)
           href: howto-ingest-azure-stream-analytics.md
         - name: Azure Data Factory (ADF)
           href: howto-ingest-azure-data-factory.md
     - name: Manage
       items:
-        - name: Create users
-          href: howto-create-users.md
+        - name: Manage Microsoft Entra ID and Postgres authentication
+          href: how-to-configure-authentication.md
         - name: Schedule maintenance
           href: howto-maintenance.md
+        - name: Start and stop cluster compute
+          href: how-to-start-stop-cluster.md
         - name: Restart cluster
           href: howto-restart.md
         - name: Upgrade cluster
@@ -152,10 +185,12 @@
           href: howto-monitoring.md
         - name: Create alerts on metrics
           href: howto-alert-on-metric.md
-          dispalyName: alerts on hyperscale
+          dispalyName: alerts
         - name: Access database logs
           href: howto-logging.md
-          displayName: log, hyperscale
+          displayName: log
+        - name: Audit logging
+          href: how-to-enable-audit.md
         - name: Useful diagnostic queries
           href: howto-useful-diagnostic-queries.md
     - name: Scale
@@ -178,6 +213,8 @@
       items:
         - name: Configure high availability
           href: howto-high-availability.md
+        - name: Use availability zones
+          href: howto-availability-zones.md
         - name: Manage read replicas
           href: howto-read-replicas-portal.md
           displayName: replication, read replica
@@ -187,31 +224,53 @@
       items:
         - name: Manage public access
           href: howto-manage-firewall-using-portal.md
-          displayName: firewall rule, hyperscale
+          displayName: firewall rule
         - name: Manage private access
           href: howto-private-access.md
           displayName: network, private link
-        - name: Configure SSL
+        - name: Manage Microsoft Entra ID and Postgres users
+          href: how-to-configure-authentication.md
+          displayName: Azure Active Directory, PosgreSQL roles, authentication
+        - name: Customer managed keys
+          href: how-to-customer-managed-keys.md
+          displayName: customer-managed, keys, cmk
+        - name: Configure TLS/SSL
           href: howto-ssl-connection-security.md
-          displayName: hyperscale, ssl
+          displayName: ssl, tls
+    - name: Use vectors and embeddings
+      items:
+        - name: Basics of pgvector
+          href: howto-use-pgvector.md
+          displayName: pgvector
+        - name: Optimize performance when using pgvector
+          href: howto-optimize-performance-pgvector.md
+          displayName: pgvector
     - name: Troubleshoot
       items:
         - name: Troubleshoot connection errors
           href: howto-troubleshoot-common-connection-issues.md
-          displayName: connection errors, hyperscale
+          displayName: connection errors
         - name: Troubleshoot read-only access
           href: howto-troubleshoot-read-only.md
-          displayName: read-only, hyperscale
+          displayName: read-only
         - name: Useful diagnostic queries
           href: howto-useful-diagnostic-queries.md
 - name: Reference
   items:
-    - name: Product updates
-      href: product-updates.md
     - name: PostgreSQL versions
       href: reference-versions.md
     - name: PostgreSQL extensions
-      href: reference-extensions.md
+      items:
+        - name: Overview
+          href: reference-extensions.md
+        - name: Pg_azure_storage
+          href: reference-pg-azure-storage.md
+          displayName: pg_azure_storage, extensions
+    - name: COPY
+      href: reference-copy-command.md
+      displayName: pg_azure_storage, copy
+    - name: Limits and limitations
+      href: reference-limits.md
     - name: Distributed SQL API
       items:
         - name: Overview
@@ -222,10 +281,31 @@
           href: reference-parameters.md
         - name: System tables
           href: reference-metadata.md
-    - name: Limits and limitations
-      href: reference-limits.md
+    - name: REST APIs
+      href: /rest/api/postgresqlhsc/
+    - name: ARM templates
+      href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-arm-template
+    - name: Bicep
+      href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-bicep
+    - name: Azure CLI
+      href: /cli/azure/cosmosdb/postgres
+    - name: Azure SDKs
+      items:
+        - name: .NET SDK
+          href: https://www.nuget.org/packages/Azure.ResourceManager.CosmosDBForPostgreSql/
+        - name: Go SDK
+          href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/cosmosforpostgresql/armcosmosforpostgresql
+        - name: Java SDK
+          href: https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmosdbforpostgresql/
+        - name: JavaScript SDK
+          href: https://www.npmjs.com/package/@azure/arm-cosmosdbforpostgresql/
+        - name: Python SDK
+          href: https://pypi.org/project/azure-mgmt-cosmosdbforpostgresql/
+
 - name: Resources
   items:
+    - name: Learning path - Azure Cosmos DB for PostgreSQL
+      href: /training/paths/azure-cosmos-db-for-postgresql/
     - name: Pricing
       href: resources-pricing.md
     - name: Regional availability

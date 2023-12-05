@@ -2,19 +2,17 @@
 title: 'Tutorial: View and configure DDoS protection telemetry for Azure DDoS Protection'
 description: Learn how to view and configure DDoS protection telemetry for Azure DDoS Protection.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 11/06/2023
 ms.author: abell
 ---
 # Tutorial: View and configure Azure DDoS protection telemetry
 
-Azure DDoS Protection provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+Azure DDoS Protection provides detailed attack insights and visualization with DDoS Attack Analytics. Customers protecting their virtual networks against DDoS attacks have detailed visibility into attack traffic and actions taken to mitigate the attack via attack mitigation reports & mitigation flow logs. Rich telemetry is exposed via Azure Monitor including detailed metrics during the duration of a DDoS attack. Alerting can be configured for any of the Azure Monitor metrics exposed by DDoS Protection. Logging can be further integrated with [Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 In this tutorial, you'll learn how to:
 
@@ -26,8 +24,9 @@ In this tutorial, you'll learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-* Before you can complete the steps in this tutorial, you must first create an [Azure DDoS Protection plan](manage-ddos-protection.md). DDoS Network Protection must be enabled on a virtual network or DDoS IP Protection must be enabled on a public IP address.  
-* DDoS monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. You can monitor the public IP address of all resources deployed through Resource Manager (not classic) listed in [Virtual network for Azure services](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (including Azure Load Balancers where the backend virtual machines are in the virtual network), except for Azure App Service Environments. To continue with this tutorial, you can quickly create a [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine.  
+
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* Before you can complete the steps in this tutorial, you must first create a DDoS simulation attack to generate the telemetry. Telemetry data is recorded during an attack. For more information, see [Test DDoS Protection through simulation](test-through-simulations.md).
 
 ## View Azure DDoS Protection telemetry
 
@@ -35,46 +34,7 @@ Telemetry for an attack is provided through Azure Monitor in real time. While [m
 
 You can view DDoS telemetry for a protected public IP address through three different resource types: DDoS protection plan, virtual network, and public IP address.
 
-
-### Metrics
-
-The metric names present different packet types, and bytes vs. packets, with a basic construct of tag names on each metric as follows:
-
-* **Dropped tag name** (for example, **Inbound Packets Dropped DDoS**): The number of packets dropped/scrubbed by the DDoS protection system.
-
-* **Forwarded tag name** (for example **Inbound Packets Forwarded DDoS**): The number of packets forwarded by the DDoS system to the destination VIP – traffic that wasn't filtered.
-
-* **No tag name** (for example **Inbound Packets DDoS**): The total number of packets that came into the scrubbing system – representing the sum of the packets dropped and forwarded.
-
-> [!NOTE]
-> While multiple options for **Aggregation** are displayed on Azure portal, only the aggregation types listed in the table below are supported for each metric. We apologize for this confusion and we are working to resolve it.
-The following [metrics](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkpublicipaddresses) are available for Azure DDoS Protection. These metrics are also exportable via diagnostic settings, see [View and configure DDoS diagnostic logging](diagnostic-logging.md).
-
-| Metric | Metric Display Name | Unit | Aggregation Type | Description |
-| --- | --- | --- | --- | --- |
-| BytesDroppedDDoS​ | Inbound bytes dropped DDoS​ | BytesPerSecond​ | Maximum​ | Inbound bytes dropped DDoS​|
-| BytesForwardedDDoS​ | Inbound bytes forwarded DDoS​ | BytesPerSecond​ | Maximum​ | Inbound bytes forwarded DDoS​ |
-| BytesInDDoS​ | Inbound bytes DDoS​ | BytesPerSecond​ | Maximum​ | Inbound bytes DDoS​ |
-| DDoSTriggerSYNPackets​ | Inbound SYN packets to trigger DDoS mitigation​ | CountPerSecond​ | Maximum​ | Inbound SYN packets to trigger DDoS mitigation​ |
-| DDoSTriggerTCPPackets​ | Inbound TCP packets to trigger DDoS mitigation​ | CountPerSecond​ | Maximum​ | Inbound TCP packets to trigger DDoS mitigation​ |
-| DDoSTriggerUDPPackets​ | Inbound UDP packets to trigger DDoS mitigation​ | CountPerSecond​ | Maximum​ | Inbound UDP packets to trigger DDoS mitigation​ |
-| IfUnderDDoSAttack​ | Under DDoS attack or not​ | Count​ | Maximum​ | Under DDoS attack or not​ |
-| PacketsDroppedDDoS​ | Inbound packets dropped DDoS​ | CountPerSecond​ | Maximum​ | Inbound packets dropped DDoS​ |
-| PacketsForwardedDDoS​ | Inbound packets forwarded DDoS​ | CountPerSecond​ | Maximum​ | Inbound packets forwarded DDoS​ |
-| PacketsInDDoS​ | Inbound packets DDoS​ | CountPerSecond​ | Maximum​ | Inbound packets DDoS​ |
-| TCPBytesDroppedDDoS​ | Inbound TCP bytes dropped DDoS​ | BytesPerSecond​ | Maximum​ | Inbound TCP bytes dropped DDoS​ |
-| TCPBytesForwardedDDoS​ | Inbound TCP bytes forwarded DDoS​ | BytesPerSecond​ | Maximum​ | Inbound TCP bytes forwarded DDoS​ |
-| TCPBytesInDDoS​ | Inbound TCP bytes DDoS​ | BytesPerSecond​ | Maximum​ | Inbound TCP bytes DDoS​ |
-| TCPPacketsDroppedDDoS​ | Inbound TCP packets dropped DDoS​ | CountPerSecond​ | Maximum​ | Inbound TCP packets dropped DDoS​ |
-| TCPPacketsForwardedDDoS​ | Inbound TCP packets forwarded DDoS​ | CountPerSecond​ | Maximum​ | Inbound TCP packets forwarded DDoS​ |
-| TCPPacketsInDDoS​ | Inbound TCP packets DDoS​ | CountPerSecond​ | Maximum​ | Inbound TCP packets DDoS​ |
-| UDPBytesDroppedDDoS​ | Inbound UDP bytes dropped DDoS​ | BytesPerSecond​ | Maximum​ | Inbound UDP bytes dropped DDoS​ |
-| UDPBytesForwardedDDoS​ | Inbound UDP bytes forwarded DDoS​ | BytesPerSecond​ | Maximum​ | Inbound UDP bytes forwarded DDoS​ |
-| UDPBytesInDDoS​ | Inbound UDP bytes DDoS​ | BytesPerSecond​ | Maximum​ | Inbound UDP bytes DDoS​ |
-| UDPPacketsDroppedDDoS​ | Inbound UDP packets dropped DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets dropped DDoS​ |
-| UDPPacketsForwardedDDoS​ | Inbound UDP packets forwarded DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets forwarded DDoS​ |
-| UDPPacketsInDDoS​ | Inbound UDP packets DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets DDoS​ |
-
+For more information on metrics, see [Monitoring Azure DDoS Protection](monitor-ddos-protection-reference.md) for details on DDoS Protection monitoring logs.
 ### View metrics from DDoS protection plan
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select your DDoS protection plan.

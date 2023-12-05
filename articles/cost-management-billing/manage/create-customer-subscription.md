@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 03/29/2023
 ms.author: banders
 ---
 
@@ -16,6 +16,8 @@ ms.author: banders
 This article helps a Microsoft Partner with a [Microsoft Partner Agreement](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) create a [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) subscription for their customer. 
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).
+
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-note](../../../includes/cost-management-billing-subscription-b2b-b2c-note.md)]
 
 ## Permission required to create Azure subscriptions
 
@@ -44,7 +46,7 @@ Partners with a Microsoft Partner Agreement use the following steps to create a 
 1. Select the partner's billing profile.
 1. Select the customer that you're creating the subscription for.
 1. If applicable, select a reseller.
-1. Next to **Plan**, select **Microsoft Azure Plan for DevTest** if the subscription will be used for development or testing workloads. Otherwise, select **Microsoft Azure Plan**.  
+1. Next to **Plan**, select **Microsoft Azure Plan**.  
     :::image type="content" source="./media/create-customer-subscription/create-customer-subscription-basics-tab.png" alt-text="Screenshot showing the Basics tab where you enter basic information about the customer subscription." lightbox="./media/create-customer-subscription/create-customer-subscription-basics-tab.png" :::
 1. Optionally, select the Tags tab and then enter tag pairs for **Name** and **Value**.
 1. Select **Review + create**. You should see a message stating `Validation passed`.

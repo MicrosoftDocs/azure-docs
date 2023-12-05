@@ -2,10 +2,10 @@
 title: Troubleshoot the Azure Backup agent
 description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.topic: troubleshooting
-ms.date: 10/21/2022
-author: v-amallick
+ms.date: 12/05/2022
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot the Microsoft Azure Recovery Services (MARS) agent
@@ -43,7 +43,7 @@ We recommend that you check the following before you start troubleshooting Micro
 
 | Causes | Recommended actions |
 | ---     | ---    |
-| **Vault credentials aren't valid** <br/> <br/> Vault credential files might be corrupt, might have expired, or they might have a different file extension than *.vaultCredentials*. (For example, they might have been downloaded more than 10 days before the time of registration.) | [Download new credentials](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) from the Recovery Services vault on the Azure portal. Then take these steps, as appropriate: <br><br>- If you've already installed and registered MARS, open the Microsoft Azure Backup Agent MMC console. Then select **Register Server** in the **Actions** pane to complete the registration with the new credentials. <br> - If the new installation fails, try reinstalling with the new credentials. <br><br> **Note**: If multiple vault credential files have been downloaded, only the latest file is valid for the next 10 days. We recommend that you download a new vault credential file. <br><br> - To prevent errors during vault registration, ensure that the MARS agent version 2.0.9249.0 or above is installed. If not, we recommend you to install it [from here](https://aka.ms/azurebackup_agent).|
+| **Vault credentials aren't valid** <br/> <br/> Vault credential files might be corrupt, might have expired, or they might have a different file extension than `.vaultCredentials`. (For example, they might have been downloaded more than 10 days before the time of registration.) | [Download new credentials](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) from the Recovery Services vault on the Azure portal. Then take these steps, as appropriate: <br><br>- If you've already installed and registered MARS, open the Microsoft Azure Backup Agent MMC console. Then select **Register Server** in the **Actions** pane to complete the registration with the new credentials. <br> - If the new installation fails, try reinstalling with the new credentials. <br><br> **Note**: If multiple vault credential files have been downloaded, only the latest file is valid for the next 10 days. We recommend that you download a new vault credential file. <br><br> - To prevent errors during vault registration, ensure that the MARS agent version 2.0.9249.0 or above is installed. If not, we recommend you to install it [from here](https://aka.ms/azurebackup_agent).|
 | **Proxy server/firewall is blocking registration** <br/>Or <br/>**No internet connectivity** <br/><br/> If your machine has limited internet access, and you don't ensure the firewall, proxy, and network settings allow access to the FQDNS and public IP addresses, the registration will fail.| Follow these steps:<br/> <br><br>- Work with your IT team to ensure the system has internet connectivity.<br>- If you don't have a proxy server, ensure the proxy option isn't selected when you register the agent. [Check your proxy settings](#verifying-proxy-settings-for-windows).<br>- If you do have a firewall/proxy server, work with your networking team to allow access to the following FQDNs and public IP addresses. Access to all of the URLs and IP addresses listed below uses the HTTPS protocol on port 443.<br/> <br> **URLs**<br> `*.microsoft.com` <br> `*.windowsazure.com` <br> `*.microsoftonline.com` <br> `*.windows.net` <br> `*blob.core.windows.net` <br> `*queue.core.windows.net` <br> `*blob.storage.azure.net`<br><br><br>- If you are a US Government customer, ensure that you have access to the following URLs:<br><br> `www.msftncsi.com` <br> `*.microsoft.com` <br> `*.windowsazure.us` <br> `*.microsoftonline.us` <br> `*.windows.net` <br> `*.usgovcloudapi.net` <br> `*blob.core.windows.net` <br> `*queue.core.windows.net` <br> `*blob.storage.azure.net` <br><br> Try registering again after you complete the preceding troubleshooting steps.<br></br> If your connection is via Azure ExpressRoute, make sure the settings are configured as described in Azure [ExpressRoute support](../backup/backup-support-matrix-mars-agent.md#azure-expressroute-support). |
 | **Antivirus software is blocking registration** |  If you've antivirus software installed on the server, add the exclusion rules to the antivirus scan for: <br><br> - Every file and folder under the *scratch* and *bin* folder locations - `<InstallPath>\Scratch\*` and `<InstallPath>\Bin\*`. <br> - cbengine.exe   |
 
@@ -247,6 +247,10 @@ Backup operations could fail if there isn't sufficient shadow copy storage space
 
 [!INCLUDE [antivirus-scan-exclusion-rules](../../includes/backup-azure-antivirus-scan-exclusion-rules.md)]
 
+### Backup or restore job is displayed as *in progress* in Azure for many days but is not visible in the console
+
+If a MARS Agent backup or restore job crashes during execution, it is marked as failed in the MARS console, but the status might not get propagated to Azure. Hence, the job might be displayed as "in progress" in the Azure Portal even when it is not running. This stale job entry will be removed from the Azure Portal automatically after 30 days.
+
 ## Common issues
 
 This section covers the common errors that you encounter while using MARS agent.
@@ -274,6 +278,14 @@ Backup failed due to insufficient storage in volume  where the scratch folder is
 Error message | Recommended action
 --|--
 Unable to find changes in a file. This could be due to various reasons. Please retry the operation | To resolve this issue, verify the following steps and retry the operation:<br/> - [Ensure the MARS agent is latest](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verify and resolve storage issues that impact backup scratch space](#prerequisites)
+
+## MARS offline seeding using customer-owned disks (Import/Export) is not working
+
+Azure Import/Export now uses Azure Data Box APIs for offline seeding on customer-owned disks. The Azure portal also list the Import/Export jobs created using the new API under [Azure Data Box jobs](../import-export/storage-import-export-view-drive-status.md?tabs=azure-portal-preview) with the Model column as Import/Export.
+
+MARS agent versions lower than *2.0.9250.0* used the [old Azure Import/Export APIs](/rest/api/storageimportexport/), which will be discontinued after February 28, 2023 and the old MARS agents (version lower than 2.0.9250.0) can't do offline seeding using your own disks. So, we recommend you to use MARS agent 2.0.9250 or higher that uses the new Azure Data Box APIs for offline seeding on your own disks.
+
+If you've ongoing Import/Export jobs created from older MARS agents, you can still monitor them in the Azure portal, under Import/Export jobs.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: quickstart
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
@@ -21,7 +21,7 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
 ## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - You can also complete this quickstart using [Azure PowerShell](private-dns-getstarted-powershell.md).
 

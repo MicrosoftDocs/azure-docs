@@ -2,9 +2,9 @@
 title: Log Analytics agent data sources in Azure Monitor
 description: Data sources define the log data that Azure Monitor collects from agents and other connected sources. This article describes how Azure Monitor uses data sources, explains how to configure them, and summarizes the different data sources available.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 05/10/2022
+author: guywi-ms
+ms.author: guywild
+ms.date: 10/19/2023
 ms.reviewer: shseth
 
 ---
@@ -13,7 +13,7 @@ ms.reviewer: shseth
 
 The data that Azure Monitor collects from virtual machines with the legacy [Log Analytics](./log-analytics-agent.md) agent is defined by the data sources that you configure in the [Log Analytics workspace](../logs/data-platform-logs.md). Each data source creates records of a particular type. Each type has its own set of properties.
 
-![Diagram that shows log data collection.](media/agent-data-sources/overview.png)
+:::image type="content" source="media/agent-data-sources/overview.png" lightbox="media/agent-data-sources/overview.png" alt-text="Diagram that shows log data collection.":::
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
@@ -36,11 +36,11 @@ The following table lists the agent data sources that are currently available wi
 
 ## Configure data sources
 
-To configure data sources for Log Analytics agents, go to the **Log Analytics workspaces** menu in the Azure portal and select a workspace. Select **Agents configuration**. Select the tab for the data source you want to configure. Use the links in the preceding table to access documentation for each data source and information on their configuration.
+To configure data sources for Log Analytics agents, go to the **Log Analytics workspaces** menu in the Azure portal and select a workspace. Select **Legacy agents management**. Select the tab for the data source you want to configure. Use the links in the preceding table to access documentation for each data source and information on their configuration.
 
 Any configuration is delivered to all agents connected to that workspace. You can't exclude any connected agents from this configuration.
 
-[![Screenshot that shows configuring Windows events.](media/agent-data-sources/configure-events.png)](media/agent-data-sources/configure-events.png#lightbox)
+:::image type="content" source="media/agent-data-sources/configure-events.png" lightbox="media/agent-data-sources/configure-events.png" alt-text="Screenshot that shows configuring Windows events.":::
 
 ## Data collection
 
@@ -58,6 +58,6 @@ All log data collected by Azure Monitor is stored in the workspace as records. R
 
 ## Next steps
 
-* Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the workspace.
+* Learn about [monitoring solutions](/previous-versions/azure/azure-monitor/insights/solutions) that add functionality to Azure Monitor and also collect data into the workspace.
 * Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and monitoring solutions.
 * Configure [alerts](../alerts/alerts-overview.md) to proactively notify you of critical data collected from data sources and monitoring solutions.

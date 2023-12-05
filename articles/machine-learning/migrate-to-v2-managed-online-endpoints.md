@@ -6,21 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: shohei1029
-ms.author: shnagata
+author: dem108
+ms.author: sehan
 ms.date: 09/28/2022
-ms.reviewer: blackmist
+ms.reviewer: mopeakande
 ms.custom: upgrade
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade steps for Azure Container Instances web services to managed online endpoints
 
-[Managed online endpoints](concept-endpoints.md#what-are-online-endpoints) help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. Details can be found on [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md).
+[Managed online endpoints](concept-endpoints-online.md) help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. Details can be found on [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md).
 
-You can deploy directly to the new compute target with your previous models and environments, or use the [scripts](https://aka.ms/moeonboard) (preview) provided by us to export the current services and then deploy to the new compute without affecting your existing services. If you regularly create and delete Azure Container Instances (ACI) web services, we strongly recommend the deploying directly and not using the scripts. 
-
-> [!IMPORTANT]
-> The scripts are preview and are provided without a service level agreement.
+You can deploy directly to the new compute target with your previous models and environments, or use the [scripts](https://aka.ms/moeonboard) provided by us to export the current services and then deploy to the new compute without affecting your existing services. If you regularly create and delete Azure Container Instances (ACI) web services, we strongly recommend the deploying directly and not using the scripts. 
 
 > [!IMPORTANT]
 > **The scoring URL will be changed after upgrade**. For example, the scoring url for ACI web service is like `http://aaaaaa-bbbbb-1111.westus.azurecontainer.io/score`. The scoring URI for a managed online endpoint is like `https://endpoint-name.westus.inference.ml.azure.com/score`.
@@ -56,7 +54,7 @@ The upgrade tool will map the CPU/Memory requirement to corresponding SKU. If yo
 > When upgrading from ACI, there will be some changes in how you'll be charged. See [our blog](https://aka.ms/acimoemigration) for a rough cost comparison to help you choose the right VM SKUs for your workload.
 
 ### Network isolation
-For private workspace and VNet scenarios, see [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md?tabs=model).
+For private workspace and VNet scenarios, see [Use network isolation with managed online endpoints](how-to-secure-online-endpoint.md?tabs=model).
 
 > [!IMPORTANT]
 > As there are many settings for your workspace and VNet, we strongly suggest that redeploy through the Azure CLI extension v2 for machine learning instead of the script tool.
@@ -67,12 +65,15 @@ For private workspace and VNet scenarios, see [Use network isolation with manage
 
 ## Upgrade steps
 
-### With our [CLI](how-to-deploy-managed-online-endpoints.md) or [SDK preview](how-to-deploy-managed-online-endpoint-sdk-v2.md)
+### With our [CLI](how-to-deploy-online-endpoints.md) or [SDK](how-to-deploy-managed-online-endpoint-sdk-v2.md)
 Redeploy manually with your model files and environment definition.
 You can find our examples on [azureml-examples](https://github.com/Azure/azureml-examples). Specifically, this is the [SDK example for managed online endpoint](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/managed).
 
-### With our [upgrade tool](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/managed/migration) (preview)
+### With our [upgrade tool](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/managed/migration)
 This tool will automatically create new managed online endpoint based on your existing web services. Your original services won't be affected. You can safely route the traffic to the new endpoint and then delete the old one.
+
+> [!NOTE]
+> The upgrade script is a sample script and is provided without a service level agreement (SLA).
 
 Use the following steps to run the scripts:
 
@@ -80,7 +81,7 @@ Use the following steps to run the scripts:
 > The new endpoint created by the scripts will be created under the same workspace.
 
 1. Use a bash shell to run the scripts. For example, a terminal session on Linux or the Windows Subsystem for Linux (WSL).
-2. Install [Python SDK V1](/python/api/overview/azure/ml/install) to run the python script.
+2. Install [Python SDK V1](/python/api/overview/azure/ml/install) to run the Python script.
 3. Install [Azure CLI](/cli/azure/install-azure-cli).
 4. Clone [the repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/managed/migration) to your local env. For example, `git clone https://github.com/Azure/azureml-examples`.
 5. Edit the following values in the `migrate-service.sh` file. Replace the values with ones that apply to your configuration.
@@ -107,4 +108,4 @@ If you have any questions or feedback on the upgrade script, contact us at moeon
 ## Next steps
 
 * [What are Azure Machine Learning endpoints?](concept-endpoints.md)
-* [Deploy and score a model with managed online endpoints](how-to-deploy-managed-online-endpoints.md)
+* [Deploy and score a model with an online endpoint](how-to-deploy-online-endpoints.md)

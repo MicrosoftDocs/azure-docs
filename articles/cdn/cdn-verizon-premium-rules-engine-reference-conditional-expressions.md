@@ -1,18 +1,19 @@
 ---
-title: 'Conditional expressions for Azure CDN - Verizon Premium rules engine'
-description: Reference documentation for Azure CDN from Verizon Premium rules engine match conditions and features.
+title: 'Conditional expressions for Azure CDN - Edgio Premium rules engine'
+description: Reference documentation for Azure CDN from Edgio Premium rules engine match conditions and features.
 services: cdn
 author: duongau
+manager: kumudd
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 02/27/2023
 ms.author: duau
 
 ---
 
-# Azure CDN from Verizon Premium rules engine conditional expressions
+# Azure CDN from Edgio Premium rules engine conditional expressions
 
-For more information on Verizon Premium rules engine expressions, see [Independent Conditional Expressions](https://docs.vdms.com/cdn/index.html#Whats_New/Whats-New-RE.htm#RuleSetup).
+For more information on Edgio Premium rules engine expressions, see [Independent Conditional Expressions](https://docs.vdms.com/cdn/index.html#Whats_New/Whats-New-RE.htm#RuleSetup).
 
 ## Next steps
 

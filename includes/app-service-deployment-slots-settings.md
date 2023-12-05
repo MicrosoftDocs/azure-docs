@@ -35,8 +35,9 @@ Features marked with an asterisk (*) are planned to be unswapped.
 * Diagnostic settings
 * Cross-origin resource sharing (CORS)
 * Virtual network integration
-* Managed identities
+* Managed identities and related settings
 * Settings that end with the suffix _EXTENSION_VERSION
+* Settings that created by [Service Connector](../articles/service-connector/overview.md)
 
 > [!NOTE]
 > To make aforementioned settings swappable, add the app setting `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in every slot of the app and set its value to `0` or `false`. These settings are either all swappable or not at all. You can't make just some settings swappable and not the others. Managed identities are never swapped and are not affected by this override app setting.

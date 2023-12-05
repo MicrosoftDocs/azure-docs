@@ -19,9 +19,9 @@ This document describes how to add Microsoft Purview labels in your Azure SQL Da
 
 ## Create an application
 
-1. From the Azure portal, open your **Azure Active Directory**.
+1. From the Azure portal, open your **Microsoft Entra ID**.
 2. Under **Manage**, select **App registration**.
-3. Create a new Azure Active Directory app by selecting **New Application**.
+3. Create a new Microsoft Entra app by selecting **New Application**.
 4. Enter a name for your application, and select **Register**.
 5. After your application is created, open **Certificates & secrets** under **Manager**.
 6. Create a new client secret by selecting on **New client secret** under **Client secrets**.

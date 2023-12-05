@@ -17,7 +17,7 @@ ms.author: mathapli
 Azure offers various RHEL images for different use cases.
 
 > [!NOTE]
-> All RHEL images are available in Azure public and Azure Government clouds. They are not available in Azure China clouds.
+> All RHEL images are available in Azure public and Azure Government clouds. They are not available in Microsoft Azure operated by 21Vianet clouds.
 
 ## List of RHEL images
 This section provides list of RHEL images available in Azure. Unless otherwise stated, all images are LVM-partitioned and attached to regular RHEL repositories (not EUS, not E4S). The following images are currently available for general use:

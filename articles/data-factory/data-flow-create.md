@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: quickstart
 ms.custom: seo-lt-2019
-ms.date: 08/03/2022
+ms.date: 07/13/2023
 ---
 
 # Create Azure Data Factory data flows
@@ -60,7 +60,7 @@ You can also add data flows directly to your workspace without using a template.
 
 ---
 
-## Next steps
+## Related content
 
 * [Tutorial: Transform data using mapping data flows](tutorial-data-flow.md)
 * Begin building your data transformation with a [source transformation](data-flow-source.md).

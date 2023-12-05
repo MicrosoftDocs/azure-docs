@@ -1,13 +1,12 @@
 ---
 title: Memory Optimized Azure Dedicated Host SKUs
 description: Specifications for VM packing of Memory Optimized ADH SKUs.
-author: brittanyrowe
-ms.author: brittanyrowe
+author: vamckMS
+ms.author: vakavuru
 ms.reviewer: mattmcinnes
-ms.service: virtual-machines
-ms.subservice: dedicated-hosts
+ms.service: azure-dedicated-host
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 01/23/2023
 ---
 
 # Memory Optimized Azure Dedicated Host SKUs
@@ -277,7 +276,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ### Esv3-Type1
 
 > [!NOTE]
->  **The Esv3-Type1 will be retired on March 31, 2023**. Refer to the [dedicated host retirement guide](dedicated-host-retirement.md) to learn more.
+>  **The Esv3-Type1 will be retired on June 30, 2023**. Refer to the [dedicated host retirement guide](dedicated-host-retirement.md) to learn more.
 
 The Esv3-Type1 is a Dedicated Host SKU utilizing the Intel® Broadwell (2.3 GHz Xeon® E5-2673 v4) processor. It offers 40 physical cores, 64 vCPUs, and 448 GiB of RAM. The Esv3-Type1 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
@@ -297,7 +296,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ### Esv3-Type2
 
 > [!NOTE]
->  **The Esv3-Type2 will be retired on March 31, 2023**. Refer to the [dedicated host retirement guide](dedicated-host-retirement.md) to learn more.
+>  **The Esv3-Type2 will be retired on June 30, 2023**. Refer to the [dedicated host retirement guide](dedicated-host-retirement.md) to learn more.
 
 The Esv3-Type2 is a Dedicated Host SKU utilizing the Intel® Skylake (Xeon® 8171M) processor. It offers 48 physical cores, 76 vCPUs, and 504 GiB of RAM. The Esv3-Type2 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
@@ -453,10 +452,11 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |----------------|-----------------|---------------|---------------|-------|
 | 224            | 416             | 11,400 GiB    | M208ms v2     | 2     |
 |                |                 |               | M208s  v2     | 2     |
-|                |                 |               | M416-208ms v2 | 1     | 
-|                |                 |               | M416-208s v2  | 1     | 
-|                |                 |               | M416ms v2     | 1     |  
-|                |                 |               | M416s v2      | 1     |  
+|                |                 |               | M416-208ms v2 | 1     |
+|                |                 |               | M416-208s v2  | 1     |
+||||M416ms v2|1|
+|                |                 |               | M416s-8 v2     | 1     |
+|                |                 |               | M416s v2      | 1     |
 
 ### Msv2-Type1
 
@@ -476,3 +476,4 @@ The following packing configuration outlines the max packing of uniform VMs you 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
 - There's sample template, available at [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), which uses both zones and fault domains for maximum resiliency in a region.
+

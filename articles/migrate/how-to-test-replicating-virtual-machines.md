@@ -5,6 +5,7 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: how-to
+ms.service: azure-migrate
 ms.date: 10/18/2022
 ms.custom: engagement-fy23
 ---
@@ -45,7 +46,7 @@ The following logic is used for subnet selection for other scenarios (Migration 
  
 - If a target subnet (other than default) was specified as an input while enabling replication. Azure Migrate prioritizes using a subnet with the same name in the Virtual Network selected for the test migration.
 
-- If the subnet with the same name ins't found, then Azure Migrate selects the first subnet available alphabetically that isn't a Gateway/Application Gateway/Firewall/Bastion subnet. For example, 
+- If the subnet with the same name isn't found, then Azure Migrate selects the first subnet available alphabetically that isn't a Gateway/Application Gateway/Firewall/Bastion subnet. For example, 
 
     - Suppose the target VNet is VNet-alpha and target subnet is Subnet-alpha for a replicating VM. VNet-beta is selected during test migration for this VM, then -
     - If VNet-beta has a subnet named Subnet-alpha, that subnet would be chosen for test migration.

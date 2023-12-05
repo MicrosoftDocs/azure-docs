@@ -14,26 +14,26 @@ ms.author: cshoe
 
 Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a code repository.
 
-:::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Azure Static Web Apps overview diagram":::
+:::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Azure Static Web Apps overview diagram.":::
 
-The workflow of Azure Static Web Apps is tailored to a developer's daily workflow. Apps are built and deployed based off code changes.
+The workflow of Azure Static Web Apps is tailored to a developer's daily workflow. Apps are built and deployed based on code changes.
 
-When you create an Azure Static Web Apps resource, Azure interacts directly with GitHub or Azure DevOps to monitor a branch of your choice. Every time you push commits or accept pull requests into the watched branch, a build automatically runs and your app and API is deployed to Azure.
+When you create an Azure Static Web Apps resource, Azure interacts directly with GitHub or Azure DevOps, to monitor a branch of your choice. Every time you push commits or accept pull requests into the watched branch, a build automatically runs and your app and API deploys to Azure.
 
 Static web apps are commonly built using libraries and web frameworks like Angular, React, Svelte, Vue, or Blazor where server side rendering isn't required. These apps include HTML, CSS, JavaScript, and image assets that make up the application. With a traditional web server, these assets are served from a single server alongside any required API endpoints.
 
-With Static Web Apps, static assets are separated from a traditional web server and are instead served from points geographically distributed around the world. This distribution makes serving files much faster as files are physically closer to end users. In addition, API endpoints are hosted using a [serverless architecture](../azure-functions/functions-overview.md), which avoids the need for a full back-end server all together.
+With Static Web Apps, static assets are separated from a traditional web server and are instead served from points geographically distributed around the world. This distribution makes serving files much faster as files are physically closer to end users. In addition, API endpoints are hosted using a [serverless architecture](../azure-functions/functions-overview.md), which avoids the need for a full back-end server altogether.
 
 ## Key features
 
 - **Web hosting** for static content like HTML, CSS, JavaScript, and images.
-- **Integrated API** support provided by Azure Functions with the option to link an existing Azure Functions app using a standard account.
-- **First-class GitHub and Azure DevOps integration** where repository changes trigger builds and deployments.
+- **Integrated API** support provided by managed Azure Functions, with the option to link an existing function app, web app, container app, or API Management instance using a standard account.  If you need your API in a region that doesn't support [managed functions](apis-functions.md), you can [bring your own functions](functions-bring-your-own.md) to your app.
+- **First-class GitHub and Azure DevOps integration** that allows repository changes to trigger builds and deployments.
 - **Globally distributed** static content, putting content closer to your users.
 - **Free SSL certificates**, which are automatically renewed.
 - **Custom domains** to provide branded customizations to your app.
 - **Seamless security model** with a reverse-proxy when calling APIs, which requires no CORS configuration.
-- **Authentication provider integrations** with Azure Active Directory, GitHub, and Twitter.
+- **Authentication provider integrations** with Microsoft Entra ID and GitHub.
 - **Customizable authorization role definition** and assignments.
 - **Back-end routing rules** enabling full control over the content and routes you serve.
 - **Generated staging versions** powered by pull requests enabling preview versions of your site before publishing.

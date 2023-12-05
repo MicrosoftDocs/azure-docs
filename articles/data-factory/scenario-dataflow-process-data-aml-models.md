@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 ms.author: amberz
 ms.co-author: Donnana
 ---
@@ -106,6 +106,6 @@ Let's look back at the entire pipeline logic.
 
 :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png" alt-text="Screenshot that shows the logic of the entire pipeline.":::
 
-## Next steps
+## Related content
 
 Build the rest of your data flow logic by using mapping data flow [transformations](concepts-data-flow-overview.md).

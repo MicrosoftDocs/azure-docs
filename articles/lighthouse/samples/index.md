@@ -2,13 +2,13 @@
 title: Azure Lighthouse samples and templates
 description: These samples and Azure Resource Manager templates help you onboard customers and support Azure Lighthouse scenarios.
 ms.topic: sample
-ms.date: 08/26/2021
+ms.date: 01/26/2023
 ---
 # Azure Lighthouse samples
 
 The following table includes links to key Azure Resource Manager templates for Azure Lighthouse. These files and more can also be found in the [Azure Lighthouse samples repository](https://github.com/Azure/Azure-Lighthouse-samples/).
 
-## Onboarding customers to Azure Lighthouse
+## Onboard customers
 
 [!INCLUDE [azure-lighthouse-samples-onboarding](../../../includes/azure-lighthouse-samples-onboarding.md)]
 

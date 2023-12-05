@@ -1,9 +1,8 @@
 ---
 title: Configuring event ordering policies for Azure Stream Analytics
 description: This article describes how to go about configuring even ordering settings in Stream Analytics
-author: sidramadoss
-ms.author: sidram
-
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/26/2022
@@ -24,7 +23,7 @@ Sometimes events arrive late because of various reasons. For example, an event t
 
 ## What is out-of-order policy? 
 
-Event may arrive out of order as well. After event time is adjusted based on late arrival policy, you can also choose to automatically drop or adjust events that are out-of-order. If you set this policy to 8 seconds, any events that arrive out of order but within the 8-second window are reordered by event time. Events that arrive later will be either dropped or adjusted to the maximum out-of-order policy value. Default out-of-order policy is 0 seconds. 
+Event may arrive out of order as well. After event time is adjusted based on late arrival policy, you can also choose to automatically drop or adjust events that are out-of-order. If you set this policy to 8 seconds, any events that arrive out of order, but within the 8-second window, are reordered by event time. Events that arrive later will be either dropped or adjusted to the maximum out-of-order policy value. Default out-of-order policy is 0 seconds. 
 
 ## Adjust or Drop events
 
@@ -39,7 +38,7 @@ Let us see an example of these policies in action.
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | Event arrived late and outside tolerance level. So event time gets adjusted to maximum late arrival tolerance.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | Event arrived late but within tolerance level. So event time doesn't get adjusted.  |
 | **3** | 00:10:42 | 00:10:42 | 00:10:42 | Event arrived on time. No adjustment needed.  |
-| **4** | 00:10:38  | 00:10:43  | 00:10:38 | Event arrived out-of-order but within the tolerance of 5 seconds. So, event time doesn't get adjusted. For analytics purposes, this event will be considered as preceding event number 4 (with considering the total 5 events. The actual order is: 1, 2, 5, 4, 3).  |
+| **4** | 00:10:38  | 00:10:43  | 00:10:38 | Event arrived out-of-order but within the tolerance of 5 seconds. So, event time doesn't get adjusted. For analytics purposes, this event will be considered as preceding event number 3 (with considering the total 5 events. The actual order is: 1, 2, 5, 4, 3).  |
 | **5** | 00:10:35 | 00:10:45  | 00:10:37 | Event arrived out-of-order and outside tolerance of 5 seconds. So, event time is adjusted to maximum of out-of-order tolerance. |
 
 ## Can these settings delay output of my job? 
@@ -62,7 +61,7 @@ Example of this message is: <br>
 
 Your input source (Event Hub/IoT Hub) likely has multiple partitions. Azure Stream Analytics produces output for time stamp t1 only after all the partitions that are combined are at least at time t1. For example, assume that the query reads from an event hub partition that has two partitions. One of the partitions, P1, has events until time t1. The other partition, P2, has events until time t1 + x. Output is then produced until time t1. But if there's an explicit Partition by PartitionId clause, both the partitions progress independently. 
 
-When multiple partitions from the same input stream are combined, the late arrival tolerance is the maximum amount of time that every partition waits for new data. If there's one partition in your event hub, or if IoT Hub doesn’t receive inputs, the timeline for that partition doesn't progress until it reaches the late arrival tolerance threshold. This delays your output by the late arrival tolerance threshold. In such cases, you may see the following message: 
+When multiple partitions from the same input stream are combined, the late arrival tolerance is the maximum amount of time that every partition waits for new data. If there's one partition in your event hub or if IoT Hub doesn’t receive inputs, the timeline for that partition doesn't progress until it reaches the late arrival tolerance threshold. This delays your output by the late arrival tolerance threshold. In such cases, you may see the following message: 
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
@@ -73,7 +72,7 @@ This message to inform you that at least one partition in your input is empty an
 ## Why do I see a delay of 5 seconds even when my late arrival policy is set to 0?
 This happens when there's an input partition that has never received any input. You can verify the input metrics by partition to validate this behavior. 
 
-When a partition doesn't have any data for more than the configured late arrival threshold, stream analytics advances application timestamp as explained in event ordering considerations section. This requires estimated arrival time. If the partition never had any data, stream analytics estimates the arrival time as *local time - 5 seconds*. Due to this, partitions that never had any data could show a watermark delay of 5 seconds.  
+When a partition doesn't have any data for more than the configured late arrival threshold, stream analytics advances application time stamp as explained in event ordering considerations section. This requires estimated arrival time. If the partition never had any data, stream analytics estimates the arrival time as *local time - 5 seconds*. Due to this, partitions that never had any data could show a watermark delay of 5 seconds.  
 
 ## Next steps
 * [Time handling considerations](stream-analytics-time-handling.md)

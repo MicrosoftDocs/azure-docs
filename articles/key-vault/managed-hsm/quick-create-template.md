@@ -4,12 +4,12 @@ description: Quickstart showing how to create Azure an Azure Key Vault Managed H
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/22/2022
+ms.date: 03/21/2023
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: managed-hsm
 tags: azure-resource-manager
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli
 #Customer intent: As a security admin who is new to Azure, I want to create a managed HSM using an Azure Resource Manager template.
 ---
 
@@ -27,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [Azure CLI prepare your environment](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure CLI prepare your environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Review the template
 
@@ -63,7 +63,7 @@ You can now deploy the ARM template:
 
     - **Subscription**: Select an Azure subscription.
     - **Resource group**: Select **Create new**, enter "myResourceGroup" as the name, and then select **OK**.
-    - **Location**: Select a location. For example, **West US 3**.
+    - **Location**: Select a location. For example, **East US 2**.
     - **managedHSMName**: Enter a name for your Managed HSM.
     - **Tenant ID**: The template function automatically retrieves your tenant ID; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved above.
     - **initialAdminObjectIds**: Enter the Object ID that you retrieved above.

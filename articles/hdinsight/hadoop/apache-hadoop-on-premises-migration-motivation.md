@@ -4,7 +4,7 @@ description: Learn the motivation and benefits for migrating on-premises Hadoop 
 ms.service: hdinsight
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 11/30/2022
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits
@@ -33,7 +33,7 @@ Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight ma
 
 - **Global availability** - HDInsight is available in more [regions](https://azure.microsoft.com/regions/services/) than any other big data analytics offering. Azure HDInsight is also available in Azure Government, China, and Germany, which allows you to meet your enterprise needs in key sovereign areas.
 
-- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
+- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Microsoft Entra ID](../domain-joined/hdinsight-security-overview.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
 
 - **Simplified version management** - Azure HDInsight manages the version of Hadoop eco-system components and keeps them up to date. Software updates are usually a complex process for on-premises deployments.
 
@@ -117,7 +117,6 @@ This section provides template questionnaires to help gather important informati
 |Spark batch jobs|50 jobs -- every 15 minutes||
 |Spark Streaming jobs|5 jobs -- every 3 minutes||
 |Structured Streaming jobs|5 jobs -- every minute||
-|ML Model training jobs|2 jobs -- once in a week||
 |Programming Languages|Python, Scala, Java||
 |Scripting|Shell, Python||
 |**Topic**: **Data**|||

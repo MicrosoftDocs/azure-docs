@@ -8,7 +8,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling)
 
 ### Language Detection
 
@@ -47,7 +47,7 @@ The following table of `locale` with out of the box translations. If you want to
 | Spanish | es | es |
 | Spanish (Spain) | esES | es-ES |
 | Turkish | tr | tr |
-| Turkish (Turkey) | trTR | tr-TR |
+| Turkish (Türkiye) | trTR | tr-TR |
 
 You can also obtain list of `locale` by the static function `SupportedLocale.values` will return list of Locale structs.
 
@@ -106,7 +106,7 @@ You can see below the right-to-left layout mirroring, by default without specify
 
 ### Customizing Translations
 
-There are two options to customize the language translations that we provide. To override a particular string, you can find the list of localization keys [here](https://github.com/Azure/communication-ui-library-ios/blob/main/AzureCommunicationUI/sdk/AzureCommunicationUICalling/AzureCommunicationUICalling/Localization/en.lproj/Localizable.strings) for the key-value pair. You can specify the `locale` to be one of the supported languages, and when a key isn't provided, will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language (using `Localizable.strings` file), and will fall back to English strings when a key isn't provided.
+There are two options to customize the language translations that we provide. To override a particular string, you can find the list of localization keys [here](https://github.com/Azure/communication-ui-library-ios/blob/main/AzureCommunicationUI/AzureCommunicationUIDemoApp/Sources/Views/en.lproj/Localizable.strings) for the key-value pair. You can specify the `locale` to be one of the supported languages, and when a key isn't provided, will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language (using `Localizable.strings` file), and will fall back to English strings when a key isn't provided.
 
 Let's say you wish to have the `ControlBar` with strings from our English (US) locale but you want to change the label of `JoinCall` button to "Start Meeting" (instead of "Join call") in Setup View.
 

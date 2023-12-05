@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 3/8/2021
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 4/6/2023
 ms.author: mattmcinnes
-
 ---
 
 # Deploy VMs to proximity placement groups using Azure CLI
@@ -21,7 +21,7 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 
 
 ## Create the proximity placement group
-Create a proximity placement group using [`az ppg create`](/cli/azure/ppg#az-ppg-create). 
+Create a proximity placement group using [az ppg create](/cli/azure/ppg#az-ppg-create). 
 
 ```azurecli-interactive
 az group create --name myPPGGroup --location eastus
@@ -29,7 +29,7 @@ az ppg create \
    -n myPPG \
    -g myPPGGroup \
    -l eastus \
-   -t standard 
+   -t standard \
    --intent-vm-sizes Standard_E64s_v4 Standard_M416ms_v2 \
    -z 1
 ```
@@ -72,13 +72,17 @@ az ppg show --name myPPG --resource-group myPPGGroup
 
 ## Create a VM
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Create a VM within the proximity placement group using [new az vm](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 az vm create \
    -n myVM \
    -g myPPGGroup \
-   --image UbuntuLTS \
+   --image Ubuntu2204 \
+   --orchestration-mode "Uniform"
    --ppg myPPG  \
    --generate-ssh-keys \
    --size Standard_E64s_v4 \
@@ -92,7 +96,7 @@ az ppg show --name myppg --resource-group myppggroup --query "virtualMachines"
 ```
 
 ## Availability Sets
-You can also create an  availability set in your proximity placement group. Use the same `--ppg` parameter with [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create) to create an availability set and all of the VMs in the availability set will also be created in the same proximity placement group.
+You can also create an availability set in your proximity placement group. Use the same `--ppg` parameter with [az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create) to add all VMs in the availability set to the same proximity placement group.
 
 ## Scale sets
 

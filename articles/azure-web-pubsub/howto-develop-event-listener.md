@@ -19,13 +19,18 @@ If you want to listen to your [client events](concept-service-internals.md#terms
 
 This tutorial shows you how to authorize your Web PubSub service to connect to Event Hubs and how to add an event listener rule to your service settings.
 
-Web PubSub service uses Azure Active Directory (Azure AD) authentication with managed identity to connect to Event Hubs. Therefore, you should enable the managed identity of the service and make sure it has proper permissions to connect to Event Hubs. You can grant the built-in [Azure Event Hubs Data sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) role to the managed identity so that it has enough permissions.
+Web PubSub service uses Microsoft Entra ID with managed identity to connect to Event Hubs. Therefore, you should enable the managed identity of the service and make sure it has proper permissions to connect to Event Hubs. You can grant the built-in [Azure Event Hubs Data sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) role to the managed identity so that it has enough permissions.
 
 To configure an Event Hubs listener, you need to:
 
-1.  [Add a managed identity to your Web PubSub service](#add-a-managed-identity-to-your-web-pubsub-service)
-2.  [Grant the managed identity an `Azure Event Hubs Data sender` role](#grant-the-managed-identity-an-azure-event-hubs-data-sender-role)
-3.  [Add an event listener rule to your service settings](#add-an-event-listener-rule-to-your-service-settings)
+- [Send client events to Event Hubs](#send-client-events-to-event-hubs)
+  - [Overview](#overview)
+  - [Configure an event listener](#configure-an-event-listener)
+    - [Add a managed identity to your Web PubSub service](#add-a-managed-identity-to-your-web-pubsub-service)
+    - [Grant the managed identity an `Azure Event Hubs Data sender` role](#grant-the-managed-identity-an-azure-event-hubs-data-sender-role)
+    - [Add an event listener rule to your service settings](#add-an-event-listener-rule-to-your-service-settings)
+  - [Test your configuration with live demo](#test-your-configuration-with-live-demo)
+  - [Next steps](#next-steps)
 
 ## Configure an event listener
 
@@ -50,7 +55,7 @@ Find your Azure Web PubSub service from **Azure portal**. Navigate to **Identity
 
 ### Add an event listener rule to your service settings
 
-1. Find your  service from **Azure portal**. Navigate to **Settings**. Then select **Add** to configure your event listener. For an existing hub configuration, select **...** on right side will navigate to the same editing page.
+1. Find your service from **Azure portal**. Navigate to **Settings**. Then select **Add** to configure your event listener. For an existing hub configuration, select **...** on right side will navigate to the same editing page.
    :::image type="content" source="media/howto-develop-event-listener/web-pubsub-settings.png" alt-text="Screenshot of Web PubSub settings":::
 
 1. Then in the below editing page, you'd need to configure hub name, and select **Add** to add an event listener.
@@ -59,19 +64,19 @@ Find your Azure Web PubSub service from **Azure portal**. Navigate to **Identity
 1. On the **Configure Event Listener** page, first configure an event hub endpoint. You can select **Select Event Hub from your subscription** to select, or directly input the fully qualified namespace and the event hub name. Then select `user` and `system` events you'd like to listen to. Finally select **Confirm** when everything is done.
    :::image type="content" source="media/howto-develop-event-listener/configure-event-hub-listener.png" alt-text="Screenshot of configuring Event Hubs Listener":::
 
-
 ## Test your configuration with live demo
 
 1. Open this [Event Hubs Consumer Client](https://awpseventlistenerdemo.blob.core.windows.net/eventhub-consumer/index.html) web app, input the Event Hubs connection string to connect to an event hub as a consumer. If you get the Event Hubs connection string from an Event Hubs namespace resource instead of an event hub instance, then you need to specify the event hub name. This event hub consumer client is connected with the mode that only reads new events; the events published before aren't seen here. You can change the consumer client connection mode to read all the available events in the production environment.
 
 1. Use this [WebSocket Client](https://awpseventlistenerdemo.blob.core.windows.net/webpubsub-client/websocket-client.html) web app to generate client events. If you've configured to send system event `connected` to that event hub, you should be able to see a printed `connected` event in the Event Hubs consumer client after connecting to Web PubSub service successfully. You can also generate a user event with the app.
-       :::image type="content" source="media/howto-develop-event-listener/eventhub-consumer-connected-event.png" alt-text="Screenshot of a printed connected event in the Event Hubs consumer client app":::
-       :::image type="content" source="media/howto-develop-event-listener/web-pubsub-client-specify-event-name.png" alt-text="The area of the WebSocket client app to generate a user event":::
+   :::image type="content" source="media/howto-develop-event-listener/eventhub-consumer-connected-event.png" alt-text="Screenshot of a printed connected event in the Event Hubs consumer client app.":::
+   :::image type="content" source="media/howto-develop-event-listener/web-pubsub-client-specify-event-name.png" alt-text="Screenshot showing the area of the WebSocket client app to generate a user event.":::
 
 ## Next steps
 
 In this article, you learned how event listeners work and how to configure an event listener with an event hub endpoint. To learn the data format sent to Event Hubs, read the following specification.
 
-> [!div class="nextstepaction"]
+> [!div class="nextstepaction"] 
 > [Specification: CloudEvents AMQP extension for Azure Web PubSub](./reference-cloud-events-amqp.md)
+
 <!--TODO: Add demo-->

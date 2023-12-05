@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
-ms.custom: [mvc, mqtt, "Role: Cloud Development", devx-track-azurecli, mode-other]
+ms.custom: [mvc, mqtt, 'Role: Cloud Development', devx-track-azurecli, mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-python]
 ms.date: 02/25/2022
 zone_pivot_groups: iot-hub-set1
 #Customer intent: As a developer new to IoT Hub, I need to see how to use a service application to control a device connected to the hub.

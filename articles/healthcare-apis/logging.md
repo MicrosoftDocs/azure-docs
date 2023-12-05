@@ -2,16 +2,16 @@
 title: Logging for Azure Health Data Services
 description: This article explains how logging works and how to enable logging for the Azure Health Data Services
 services: healthcare-apis
-author: mikaelweave
+author: chachachachami
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 10/10/2022
-ms.author: mikaelw
+ms.author: chrupa
 ---
 
 # Logging for Azure Health Data Services
 
-The Azure platform provides three types of logs, activity logs, resource logs and Azure Active Directory logs. For more information, see [activity logs](../azure-monitor/essentials/platform-logs-overview.md). In this article, you’ll learn about how logging works for the Azure Health Data Services.
+The Azure platform provides three types of logs, activity logs, resource logs and Microsoft Entra logs. For more information, see [activity logs](../azure-monitor/essentials/platform-logs-overview.md). In this article, you’ll learn about how logging works for the Azure Health Data Services.
 
 ## AuditLogs
 While activity logs are available for each Azure resource from the Azure portal, Azure Health Data Services emits resource logs, which include two categories of logs, AuditLogs and DiagnosticLogs.
@@ -65,5 +65,3 @@ For more information about service logs and metrics for the DICOM service and Me
 >[How to enable diagnostic settings for the MedTech service](./../healthcare-apis/iot/how-to-enable-diagnostic-settings.md)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
-
-

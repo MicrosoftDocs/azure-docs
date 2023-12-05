@@ -1,18 +1,19 @@
 ---
-title: 'Build an Azure Static Web Apps website with Blazor'
-description: Learn to build an Azure Static Web Apps website with Blazor.
+title: 'Deploy a Blazor app on Azure Static Web Apps'
+description: Learn to deploy a Blazor app on Azure Static Web Apps.
 services: static-web-apps
 ms.custom: engagement-fy23
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 10/11/2022
+ms.date: 07/21/2023
 ms.author: cshoe
 ---
 
-# Build an Azure Static Web Apps website with Blazor
+# Deploy a Blazor app on Azure Static Web Apps
 
-Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository, which is supported by a serverless backend. The following tutorial shows how to deploy C# Blazor WebAssembly app that displays weather data returned by a serverless API.
+Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository supported by a serverless backend. The following tutorial shows how to deploy C# Blazor WebAssembly app that displays weather data returned by a serverless API.
+
 ## Prerequisites
 
 - [GitHub](https://github.com) account
@@ -55,6 +56,9 @@ Now that the repository is created, create a static web app from the Azure porta
     | _Repository_ | Select **my-first-static-blazor-app**. |
     | _Branch_ | Select **main**. |
 
+   > [!NOTE]
+   > If you don't see any repositories, you may need to authorize Azure Static Web Apps on GitHub. Then browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps,** select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+
 7. In the _Build Details_ section, select **Blazor** from the _Build Presets_ drop-down and the following values are populated.
 
     | Property | Value | Description |
@@ -67,7 +71,7 @@ Now that the repository is created, create a static web app from the Azure porta
 
 9. Select **Create** to start the creation of the static web app and provision a GitHub Actions for deployment.
 
-10. Once the deployment completes select, **Go to resource**.
+10. Once the deployment is completed, select **Go to resource**.
 
 11. Select **Go to resource**.
 
@@ -88,13 +92,14 @@ The Static Web Apps overview window displays a series of links that help you int
 2. Once GitHub Actions workflow is complete, you can select the _URL_ link to open the website in new tab.
 
    :::image type="content" source="media/deploy-blazor/my-first-static-blazor-app.png" alt-text="Screenshot of Static Web Apps Blazor webpage.":::
+   
 ## 4. Understand the application overview
 
 Together, the following projects make up the parts required to create a Blazor WebAssembly application running in the browser supported by an Azure Functions API backend.
 
 |Visual Studio project |Description |
 |---------|---------|
-|API   | The C# Azure Functions application implements the API endpoint that provides weather information to the Blazor WebAssembly app. The **WeatherForecastFunction** returns an array of `WeatherForecast` objects.        |
+|Api   | The C# Azure Functions application implements the API endpoint that provides weather information to the Blazor WebAssembly app. The **WeatherForecastFunction** returns an array of `WeatherForecast` objects.        |
 |Client    |The front-end Blazor WebAssembly project. A [fallback route](#fallback-route) is implemented to ensure client-side routing is functional.         |
 |Shared    | Holds common classes referenced by both the Api and Client projects, which allow data to flow from API endpoint to the front-end web app. The [`WeatherForecast`](https://github.com/staticwebdev/blazor-starter/blob/main/Shared/WeatherForecast.cs) class is shared among both apps.        |
 
@@ -113,7 +118,7 @@ The app exposes URLs like `/counter` and `/fetchdata`, which map to specific rou
 }
 ```
 
-The json configuration ensures that requests to any route in the app return the `index.html` page.
+The JSON configuration ensures that requests to any route in the app return the `index.html` page.
 
 ## Clean up resources
 

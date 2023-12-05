@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/03/2022
+ms.date: 01/04/2023
 ms.author: victorh 
 ---
 
@@ -27,11 +27,13 @@ Azure Firewall scales in/out based on throughput and CPU usage. Scale in is perf
 
 ### Firewall maintenance
 
-The Azure Firewall engineering team updates the firewall on an as-needed basis (usually every month), generally during night time hours in the local time-zone for that region.  Updates include security patches, bug fixes, and new feature roll outs that are applied by configuring the firewall in a [rolling update mode](https://azure.microsoft.com/blog/deployment-strategies-defined/). The firewall instances are put in a drain mode before reimaging them to give short-lived sessions time to drain. Long running sessions remaining on an instance after the drain period are dropped during the restart.
+The Azure Firewall engineering team updates the firewall on an as-needed basis (usually every month), generally during night time hours in the local time-zone for that region.  Updates include security patches, bug fixes, and new feature roll outs that are applied by configuring the firewall in a [rolling update mode](https://blog.itaysk.com/2017/11/20/deployment-strategies-defined#rolling-upgrade). The firewall instances are put in a drain mode before reimaging them to give short-lived sessions time to drain. Long running sessions remaining on an instance after the drain period are dropped during the restart.
 
 ### Idle timeout
 
-An idle timer is in place to recycle idle sessions. The default value is four minutes. Applications that maintain keepalives don't idle out. If the application needs more than 4 minutes (typical of IOT devices), you can contact support to extend the time to 30 minutes in the backend.
+An idle timer is in place to recycle idle sessions. The default value is four minutes for east-west connections and can't be changed. Applications that maintain keepalives don't idle out. 
+
+For north-south connections that need more than 4 minutes (typical of IOT devices), you can contact support to extent the time for inbound connections to 30 minutes in the backend.
 
 ### Auto-recovery
 

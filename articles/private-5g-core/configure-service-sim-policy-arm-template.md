@@ -1,18 +1,18 @@
 ---
 title: Configure a service and SIM policy - ARM template
-titleSuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to configure a service and SIM policy using an Azure Resource Manager (ARM) template. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 03/21/2022
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-arm-template
 ---
 
 # Configure a service and SIM policy using an ARM template
 
-*Services* and *SIM policies* are the key components of Azure Private 5G Core Preview's customizable policy control, which allows you to provide flexible traffic handling. You can determine exactly how your packet core instance applies quality of service (QoS) characteristics to service data flows (SDFs) to meet your deployment's needs. For more information, see [Policy control](policy-control.md). In this how-to guide, you'll learn how to use an Azure Resource Manager template (ARM template) to create a simple service and SIM policy.
+*Services* and *SIM policies* are the key components of Azure Private 5G Core's customizable policy control, which allows you to provide flexible traffic handling. You can determine exactly how your packet core instance applies quality of service (QoS) characteristics to service data flows (SDFs) to meet your deployment's needs. For more information, see [Policy control](policy-control.md). In this how-to guide, you'll learn how to use an Azure Resource Manager template (ARM template) to create a simple service and SIM policy.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -24,14 +24,16 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network and the resource group containing it.
-- Identify the name of the data network to which your private mobile network connects. 
+- Identify the Azure region in which you deployed your private mobile network.
+- Identify the name of the network slice you want to assign the SIM policy to.
+- Identify the name of the data network to which you want to assign the new policy.
 - The ARM template is populated with values to configure a default service and SIM policy that allows all traffic in both directions. 
 
     If you want to create a service and SIM policy for another purpose, use the information in [Collect the required information for a service](collect-required-information-for-service.md) and [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md) to design a service and SIM policy to meet your requirements. You'll enter these new values as part of deploying the ARM template.
 
 ## Review the template
 
-The template used in this how-to guide is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-create-sim-policy).
+The template used in this how-to guide is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/mobilenetwork-create-sim-policy).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.mobilenetwork/mobilenetwork-create-sim-policy/azuredeploy.json":::
 
@@ -50,13 +52,13 @@ Two Azure resources are defined in the template.
 
     - **Subscription:** select the Azure subscription you used to create your private mobile network.
     - **Resource group:** select the resource group containing the Mobile Network resource representing your private mobile network.
-    - **Region:** select **East US**.
-    - **Location:** enter *eastus*.
+    - **Region:** select the region in which you deployed the private mobile network.
+    - **Location:** enter the [code name](region-code-names.md) of the region in which you deployed the private mobile network.
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
-    - **Existing Slice Name:** enter **slice-1**.
-    - **Existing Data Network Name:** enter the name of the data network to which your private mobile network connects. 
+    - **Existing Slice Name:** enter the name of the Slice resource representing your network slice.
+    - **Existing Data Network Name:** enter the name of the data network. This value must match the name you used when creating the data network.
 
-1. If you want to use the default service and SIM policy, leave the remaining fields unchanged. Otherwise, fill out the remaining fields to match the service and SIM policy you want to configure, using the information you collected from [Collect the required information for a service](collect-required-information-for-service.md) and [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md). 
+1. If you want to use the default service and SIM policy, leave the remaining fields unchanged. Otherwise, fill out the remaining fields to match the service and SIM policy you want to configure, using the information you collected from [Collect the required information for a service](collect-required-information-for-service.md) and [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md).
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 

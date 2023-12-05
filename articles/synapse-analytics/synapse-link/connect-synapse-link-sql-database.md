@@ -27,13 +27,13 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 1. Go to your Azure SQL logical server, select **Identity**, and then set **System assigned managed identity** to **On**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/set-identity-sql-database.png" alt-text="Screenshot of turning on the system-assigned managed identity.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/set-identity-sql-database.png" alt-text="Screenshot of turning on the system assigned managed identity.":::
 
 1. Go to **Networking**, and then select the **Allow Azure services and resources to access this server** checkbox. 
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/configure-network-firewall-sql-database.png" alt-text="Screenshot that shows how to configure firewalls for your SQL database by using the Azure portal.":::
 
-1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the logical server. If you want to have your Azure Synapse workspace connect to your Azure SQL database by using a managed identity, set the Azure Active Directory admin permissions on the logical server. To apply the privileges in step 6, use the same admin name to connect to the logical server with administrative privileges.
+1. Using Microsoft SQL Server Management Studio (SSMS) or Azure Data Studio, connect to the logical server. If you want to have your Azure Synapse workspace connect to your Azure SQL database by using a managed identity, set the Microsoft Entra admin permissions on the logical server. To apply the privileges in step 6, use the same admin name to connect to the logical server with administrative privileges.
 
 1. Expand **Databases**, right-click the database you've created, and then select **New Query**.
 

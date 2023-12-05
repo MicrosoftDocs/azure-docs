@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Migrate from CouchBase to Azure Cosmos DB for NoSQL

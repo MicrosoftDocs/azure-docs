@@ -2,12 +2,11 @@
 title: Planning for an Azure File Sync deployment
 description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 10/02/2023
 ms.author: kendownie
-ms.subservice: files
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions
 ---
 
 # Planning for an Azure File Sync deployment
@@ -72,7 +71,9 @@ Azure File Sync is supported with the following versions of Windows Server:
 | Windows Server 2022 | Azure, Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2019 | Datacenter, Standard, and IoT | Full and Core |
 | Windows Server 2016 | Datacenter, Standard, and Storage Server | Full and Core |
-| Windows Server 2012 R2 | Datacenter, Standard, and Storage Server | Full and Core |
+| Windows Server 2012 R2* | Datacenter, Standard, and Storage Server | Full and Core |
+
+*Requires downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
 
 Future versions of Windows Server will be added as they are released.
 
@@ -115,7 +116,7 @@ In the following table, we have provided both the size of the namespace as well 
 ### Evaluation cmdlet
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported operating system version. Its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
 
-The evaluation cmdlet can be installed by installing the Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+The evaluation cmdlet can be installed by installing the Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 #### Usage  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
@@ -155,7 +156,7 @@ The following table shows the interop state of NTFS file system features:
 | Mount points | Partially supported | Mount points might be the root of a server endpoint, but they are skipped if they are contained in a server endpoint's namespace. |
 | Junctions | Skipped | For example, Distributed File System DfrsrPrivate and DFSRoots folders. |
 | Reparse points | Skipped | |
-| NTFS compression | Fully supported | |
+| NTFS compression | Partially supported | Azure File Sync does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. |
 | Sparse files | Fully supported | Sparse files sync (are not blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
 | Alternate Data Streams (ADS) | Preserved, but not synced | For example, classification tags created by the File Classification Infrastructure are not synced. Existing classification tags on files on each of the server endpoints are left untouched. |
 
@@ -170,10 +171,14 @@ The following table shows the interop state of NTFS file system features:
 | ~$\*.\* | Office temporary file |
 | \*.tmp | Temporary file |
 | \*.laccdb | Access DB locking file|
-| 635D02A9D91C401B97884B82B3BCDAEA.* | Internal Sync file|
+| 635D02A9D91C401B97884B82B3BCDAEA.* | Internal sync file|
 | \\System Volume Information | Folder specific to volume |
 | $RECYCLE.BIN| Folder |
-| \\SyncShareState | Folder for Sync |
+| \\SyncShareState | Folder for sync |
+| .SystemShareInformation  | Folder for sync in Azure file share |
+
+> [!Note]  
+> While Azure File Sync supports syncing database files, databases are not a good workload for sync solutions (including Azure File Sync) since the log files and databases need to be synced together and they can get out of sync for various reasons which could lead to database corruption.
 
 ### Consider how much free space you need on your local disk
 When planning on using Azure File Sync, consider how much free space you need on the local disk you plan to have a server endpoint on.
@@ -194,11 +199,11 @@ With Azure File Sync, you will need to account for the following taking up space
 We'll use an example to illustrate how to estimate the amount of free space would need on your local disk. Let's say you installed your Azure File Sync agent on your Azure Windows VM, and plan to create a server endpoint on disk F. You have 1 million files and would like to tier all of them, 100,000 directories, and a disk cluster size of 4 KiB. The disk size is 1000 GiB. You want to enable cloud tiering and set your volume free space policy to 20%. 
 
 1. NTFS allocates a cluster size for each of the tiered files. 1 million files * 4 KiB cluster size = 4,000,000 KiB (4 GiB)
-> [!Note]  
-> The space occupied by tiered files is allocated by NTFS. Therefore, it will not show up in any UI.
-3. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KB cluster size = 4,400,000 KiB (4.4 GiB)
-4. Azure File Sync heatstore occupies 1.1 KiB per file. 1 million files * 1.1 KiB = 1,100,000 KiB (1.1 GiB)
-5. Volume free space policy is 20%. 1000 GiB * 0.2 = 200 GiB
+   > [!Note]  
+   > To fully benefit from cloud tiering, it is recommended to use smaller NTFS cluster sizes (less than 64KiB) since each tiered file occupies a cluster. Also, the space occupied by tiered files is allocated by NTFS. Therefore, it will not show up in any UI.
+1. Sync metadata occupies a cluster size per item. (1 million files + 100,000 directories) * 4 KB cluster size = 4,400,000 KiB (4.4 GiB)
+1. Azure File Sync heatstore occupies 1.1 KiB per file. 1 million files * 1.1 KiB = 1,100,000 KiB (1.1 GiB)
+1. Volume free space policy is 20%. 1000 GiB * 0.2 = 200 GiB
 
 In this case, Azure File Sync would need about 209,500,000 KiB (209.5 GiB) of space for this namespace. Add this amount to any additional free space that is desired in order to figure out how much free space is required for this disk.
 
@@ -242,7 +247,7 @@ Azure File Sync does not support Data Deduplication and cloud tiering on the sam
 ### Distributed File System (DFS)
 Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R).
 
-**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the server endpoints and the cloud endpoint. For more information, see [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported with DFS-N implementation. You can install the Azure File Sync agent on one or more file servers to sync data between the server endpoints and the cloud endpoint, and then use DFS-N to provide namespace service. For more information, see [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview) and [DFS Namespaces with Azure Files](../files/files-manage-namespaces.md).
  
 **DFS Replication (DFS-R)**: Since DFS-R and Azure File Sync are both replication solutions, in most cases, we recommend replacing DFS-R with Azure File Sync. There are however several scenarios where you would want to use DFS-R and Azure File Sync together:
 
@@ -323,7 +328,7 @@ Azure File Sync does not interoperate with NTFS Encrypted File System (NTFS EFS)
 ### Encryption in transit
 
 > [!NOTE]
-> Azure File Sync service will remove support for TLS1.0 and 1.1 on August 1st, 2020. All supported Azure File Sync agent versions already use TLS1.2 by default. Using an earlier version of TLS could occur if TLS1.2 was disabled on your server or a proxy is used. If you are using a proxy, we recommend you check the proxy configuration. Azure File Sync service regions added after 5/1/2020 will only support TLS1.2 and support for TLS1.0 and 1.1 will be removed from existing regions on August 1st, 2020.  For more information, see the [troubleshooting guide](file-sync-troubleshoot-cloud-tiering.md#tls-12-required-for-azure-file-sync).
+> Azure File Sync service will remove support for TLS1.0 and 1.1 on August 1st, 2020. All supported Azure File Sync agent versions already use TLS1.2 by default. Using an earlier version of TLS could occur if TLS1.2 was disabled on your server or a proxy is used. If you are using a proxy, we recommend you check the proxy configuration. Azure File Sync service regions added after 5/1/2020 will only support TLS1.2 and support for TLS1.0 and 1.1 will be removed from existing regions on August 1st, 2020.  For more information, see the [troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json#tls-12-required-for-azure-file-sync).
 
 Azure File Sync agent communicates with your Storage Sync Service and Azure file share using the Azure File Sync REST protocol and the FileREST protocol, both of which always use HTTPS over port 443. Azure File Sync does not send unencrypted requests over HTTP. 
 

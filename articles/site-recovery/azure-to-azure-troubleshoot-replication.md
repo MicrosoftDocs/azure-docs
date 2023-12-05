@@ -5,6 +5,8 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 03/07/2022
+ms.service: site-recovery
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot replication in Azure VM disaster recovery

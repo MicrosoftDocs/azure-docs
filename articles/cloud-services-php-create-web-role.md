@@ -1,20 +1,18 @@
 ---
 title: Create Azure web and worker roles for PHP
 description: A guide to creating PHP web and worker roles in an Azure cloud service, and configuring the PHP runtime.
-services: ''
 documentationcenter: php
 author: msangapu-msft
 manager: gwallace
-
 ms.assetid: 9f7ccda0-bd96-4f7b-a7af-fb279a9e975b
 ms.service: cloud-services
 ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ---
+
 # Create PHP web and worker roles
 ## Overview
 
@@ -178,7 +176,7 @@ PS C:\MyProject> Stop-AzureEmulator
 
 ## Publish your application
 
-To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](/powershell/module/servicemanagement/azure.service/import-azurepublishsettingsfile) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](/powershell/module/servicemanagement/azure.service/publish-azureserviceproject) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/).
+To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](/powershell/module/servicemanagement/azure/publish-azureserviceproject) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## Next steps
 

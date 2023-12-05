@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Set up twin-to-twin event handling
 titleSuffix: Azure Digital Twins
 description: Learn how to create a function in Azure for propagating events through the twin graph.
@@ -8,12 +7,11 @@ ms.author: baanders # Microsoft employees only
 ms.date: 06/21/2022
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy22q3 
+ms.custom: contperf-fy22q3, devx-track-azurecli
 ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 

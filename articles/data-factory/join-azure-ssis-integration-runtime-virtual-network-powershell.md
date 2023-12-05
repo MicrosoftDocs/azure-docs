@@ -4,7 +4,7 @@ description: Learn how to join Azure-SSIS integration runtime to a virtual netwo
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/11/2022
+ms.date: 07/20/2023
 author: chugugrace
 ms.author: chugu 
 ms.custom: devx-track-azurepowershell
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Join Azure-SSIS integration runtime to a virtual network via Azure PowerShell
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article shows you how to join your existing Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory to a virtual network via Azure PowerShell. 
 
@@ -120,7 +120,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 If you use the express/standard virtual network injection method, this command takes 5/20-30 minutes to finish, respectively.
 
-## Next steps
+## Related content
 
 - [Configure a virtual network to inject Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md)
 - [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md)

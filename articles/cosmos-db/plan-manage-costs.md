@@ -66,7 +66,7 @@ If you plan to use Azure Cosmos DB in serverless mode, you need to estimate how 
 | Execute a query | 10 RUs | Average cost for a query that takes full advantage of [indexing](index-overview.md) and returns 100 results or less |
 
 > [!IMPORTANT] 
-> Pay attention to the Notes from the table above. For a more accurate estimation of the actual costs of your operations, you can use the [Azure Cosmos DB Emulator](local-emulator.md) and [measure the exact RU cost of your operations](find-request-unit-charge.md). Although the Azure Cosmos DB Emulator doesn't support serverless, it reports a standard RU charge for database operations and can be used for this estimation.
+> Pay attention to the Notes from the table above. For a more accurate estimation of the actual costs of your operations, you can use the [Azure Cosmos DB Emulator](emulator.md) and [measure the exact RU cost of your operations](find-request-unit-charge.md). Although the Azure Cosmos DB Emulator doesn't support serverless, it reports a standard RU charge for database operations and can be used for this estimation.
 
 Once you have computed the total number of Request Units and GB of storage you're likely to consume over a month, the following formula will return your cost estimate: **([Number of Request units] / 1,000,000 * $0.25) + ([GB of storage] * $0.25)**.
 
@@ -117,7 +117,7 @@ When you use cost analysis, you can view the Azure Cosmos DB costs in graphs and
 
 To view Azure Cosmos DB costs in cost analysis:
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
 

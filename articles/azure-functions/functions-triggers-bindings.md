@@ -1,10 +1,10 @@
 ---
 title: Triggers and bindings in Azure Functions
 description: Learn to use triggers and bindings to connect your Azure Function to online events and cloud-based services.
-
 ms.topic: conceptual
-ms.date: 05/25/2022
-ms.custom: devdivchpfy22, ignite-2022
+ms.date: 08/14/2023
+ms.custom: devdivchpfy22, ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions triggers and bindings concepts
@@ -79,7 +79,9 @@ You can connect your function to other services by using input or output binding
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
+For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md). 
+
+Specific binding extension versions are only supported while the underlying service SDK is supported. Changes to support in the underlying service SDK version affect the support for the consuming extension.
 
 ## Bindings code examples
 

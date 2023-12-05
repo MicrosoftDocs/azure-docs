@@ -11,6 +11,6 @@ Add code that uses the `msg` output binding object on `context.bindings` to crea
 
 :::code language="javascript" range="5-7" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/index.js":::
 
-At this point, your function must look as follows:
+At this point, your function could look as follows:
 
 :::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/index.js":::

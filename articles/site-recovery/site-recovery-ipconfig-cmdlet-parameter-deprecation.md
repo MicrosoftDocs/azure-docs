@@ -5,10 +5,10 @@ services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
+ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 04/30/2021
 ms.author: ankitadutta 
-
 ---
 # Deprecation of IP Config parameters for the cmdlet New-AzRecoveryServicesAsrVMNicConfig
 

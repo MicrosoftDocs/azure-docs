@@ -1,14 +1,13 @@
 ---
 title: Run Azure Data Lake U-SQL scripts on your local machine
 description: Learn how to use Azure Data Lake Tools for Visual Studio to run U-SQL jobs on your local machine.
-author: liudan66
-ms.author: liud
-ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 07/03/2018
+ms.date: 01/20/2023
 ---
 # Run U-SQL scripts on your local machine
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 When you develop U-SQL scripts, you can save time and expense by running the scripts locally. Azure Data Lake Tools for Visual Studio supports running U-SQL scripts on your local machine. 
 

@@ -1,6 +1,6 @@
 ---
-title: Configure server parameters - Azure CLI - Azure Database for MySQL Flexible Server
-description: This article describes how to configure the service parameters in Azure Database for MySQL flexible server using the Azure CLI command line utility.
+title: Configure server parameters - Azure CLI - Azure Database for MySQL - Flexible Server
+description: This article describes how to configure the service parameters in Azure Database for MySQL - Flexible Server using the Azure CLI command line utility.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -10,11 +10,11 @@ ms.devlang: azurecli
 ms.custom: devx-track-azurecli, event-tier1-build-2022
 ms.date: 11/10/2020
 ---
-# Configure server parameters in Azure Database for MySQL Flexible Server using the Azure CLI
+# Configure server parameters in Azure Database for MySQL - Flexible Server using the Azure CLI
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-You can list, show, and update parameters for an Azure Database for MySQL flexible server by using Azure CLI, the Azure command-line utility. The server parameters are configured with the default and recommended value when you create the server.
+You can list, show, and update parameters for an Azure Database for MySQL - Flexible Server by using Azure CLI, the Azure command-line utility. The server parameters are configured with the default and recommended value when you create the server.
 
 This article describes how to list, show, and update server parameters by using the Azure CLI.
 
@@ -25,10 +25,10 @@ This article describes how to list, show, and update server parameters by using 
 
 To step through this how-to guide, you need:
 
-- [An Azure Database for MySQL flexible server](quickstart-create-server-cli.md)
+- [An Azure Database for MySQL - Flexible Server](quickstart-create-server-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 
-## List server parameters for Azure Database for MySQL flexible server
+## List server parameters for Azure Database for MySQL - Flexible Server
 
 To list all parameters in a server and their values, run the [az mysql flexible-server parameter list](/cli/azure/mysql/flexible-server/parameter) command.
 
@@ -53,6 +53,13 @@ To update the **slow\_query\_log** server parameter of server **mydemoserver.mys
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver --value ON
 ```
+
+To update multiple server parameters like **slow\_query\_log** and **audit\_log\_enabled** of server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup.**
+```azurecli-interactive
+az mysql flexible-server parameter set-batch -resource-group myresourcegroup --server-name mydemoserver --source "user-override" --args slow_query_log="ON" audit_log_enabled="ON"
+```
+
+
 If you want to reset the value of a parameter, omit the optional `--value` parameter, and the service applies the default value. For the example above, it would look like:
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver

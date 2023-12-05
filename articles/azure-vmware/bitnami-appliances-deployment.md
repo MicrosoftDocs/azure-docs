@@ -32,7 +32,7 @@ In this article, you'll learn how to install and configure the following virtual
 
 
 
-## Step 1. Download the Bitnami virtual appliance OVA/OVF file
+## Step 1: Download the Bitnami virtual appliance OVA/OVF file
 
 
 1. Go to the [VMware Marketplace](https://marketplace.cloud.vmware.com/) and download the virtual appliance you want to install on your Azure VMware Solution private cloud:
@@ -52,11 +52,14 @@ In this article, you'll learn how to install and configure the following virtual
    >[!NOTE]
    >Make sure the file is accessible from the virtual machine.
 
+## Step 2: Access the local vCenter Server of your private cloud
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-## Step 2. Access the local vCenter Server of your private cloud
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select your private cloud, and then **Manage** > **Identity**.
+1. Select your private cloud, and then **Manage** > **Identity**.
 
 1. Copy the vCenter Server URL, username, and password. You'll use them to access your virtual machine (VM). 
 
@@ -68,10 +71,7 @@ In this article, you'll learn how to install and configure the following virtual
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Screenshot showing the VMware vSphere sign in page." border="true":::
 
-
-
-
-## Step 3. Install the Bitnami OVA/OVF file in vCenter Server
+## Step 3: Install the Bitnami OVA/OVF file in vCenter Server
 
 1. Right-click the cluster that you want to install the LAMP virtual appliance and select **Deploy OVF Template**.
 
@@ -104,7 +104,7 @@ In this article, you'll learn how to install and configure the following virtual
 
 
 
-## Step 4. Assign a static IP to the virtual appliance
+## Step 4: Assign a static IP to the virtual appliance
 
 In this step, you'll modify the *bootproto* and *onboot* parameters and assign a static IP address to the Bitnami virtual appliance. 
 
@@ -143,9 +143,9 @@ In this step, you'll modify the *bootproto* and *onboot* parameters and assign a
 
 
 
-## Step 5. Enable SSH access to the virtual appliance
+## Step 5: Enable SSH access to the virtual appliance
 
-In this step, you'll enable SSH on your virtual appliance for remote access control. The SSH service is disabled by default. You'll also use PuTTy to connect to the host console.
+In this step, you'll enable SSH on your virtual appliance for remote access control. The SSH service is disabled by default. You'll also use an OpenSSH client to connect to the host console.
 
 1. Enable and start the SSH service.
 
@@ -173,7 +173,10 @@ In this step, you'll enable SSH on your virtual appliance for remote access cont
    sudo /etc/init.d/ssh force-reload
    ```
 
-1. Open PuTTY, select the **SSH** option and provide the host name and **22* for the port. Then select **Open**. 
+1. Start the SSH session.
+   ```bash
+   ssh hostname:22
+   ```
 
 1. At the virtual appliance console prompt, enter the Bitnami username and password to connect to the host. 
 

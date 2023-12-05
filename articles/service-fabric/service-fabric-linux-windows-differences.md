@@ -20,6 +20,8 @@ There are some features that are supported on Windows, but not yet on Linux. Eve
 * DNS service for Service Fabric services (DNS service is supported for containers on Linux)
 * CLI command equivalents of certain PowerShell commands (list below, most of which apply only to standalone clusters)
 * [Differences in log implementation that may affect scalability](service-fabric-concepts-scalability.md#choosing-a-platform)
+* [Difference in Service Fabric Events Channel](service-fabric-diagnostics-overview.md#platform-cluster-monitoring)
+
 
 ## PowerShell cmdlets that do not work against a Linux Service Fabric cluster
 

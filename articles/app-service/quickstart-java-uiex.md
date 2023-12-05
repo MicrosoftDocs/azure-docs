@@ -2,15 +2,15 @@
 title: 'Quickstart: Create a Java app on Azure App Service'
 description: Deploy your first Java Hello World to Azure App Service in minutes. The Azure Web App Plugin for Maven makes it convenient to deploy Java apps.
 keywords: azure, app service, web app, windows, linux, java, maven, quickstart
-author: jasonfreeberg
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/01/2020
-ms.author: jafreebe
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other, devx-track-java, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-jbosseap, devx-track-javaee, devx-track-extended-java
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
+author: cephalin
+ms.author: cephalin
 ---
 
 # Quickstart: Create a Java app on Azure App Service
@@ -23,7 +23,7 @@ There are also IDE versions of this article. Check out [Azure Toolkit for Intell
 
 Before you begin, you must have the following:
 
-+ An <abbr title="The profile that maintains billing information for Azure usage.">Azure account</abbr> with an active <abbr title="The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ An Azure account (The profile that maintains billing information for Azure usage.) with an active subscription (The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.). [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + The [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -224,7 +224,7 @@ Property | Required | Description | Version
 ---|---|---|---
 `<schemaVersion>` | false | Specify the version of the configuration schema. Supported values are: `v1`, `v2`. | 1.5.2
 `<subscriptionId>` | false | Specify the subscription ID. | 0.1.0+
-`<resourceGroup>` | true | Azure <abbr title="A logical container for related Azure resources that you can manage as a unit.">resource group</abbr> for your Web App. | 0.1.0+
+`<resourceGroup>` | true | Azure  resource group (A logical container for related Azure resources that you can manage as a unit.) for your Web App. | 0.1.0+
 `<appName>` | true | The name of your Web App. | 0.1.0+
 `<region>` | true | Specifies the region where your Web App will be hosted; the default value is **westeurope**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
 `<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1V2** for production workload, while **B2** is the recommended minimum for Java dev/test. [Learn more](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
@@ -292,3 +292,6 @@ This command may take a minute to run.
 
 > [!div class="nextstepaction"]
 > [Configure your Java app](configure-language-java.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

@@ -97,9 +97,9 @@ To create a cache in the Azure Government Cloud, use one of the following locati
 
 For more information about the Azure Government Cloud, see [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) and [Microsoft Azure Government Developer Guide](../azure-government/documentation-government-developer-guide.md).
 
-### To connect to the Azure 21Vianet China Cloud
+### To connect to the Microsoft Azure operated by 21Vianet Cloud
 
-To connect to the Azure China 21Vianet cloud, use one of the following commands.
+To connect to the Azure operated by 21Vianet cloud, use one of the following commands.
 
 ```azurepowershell
     Connect-AzAccount -EnvironmentName AzureChinaCloud
@@ -111,12 +111,10 @@ Or
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureChinaCloud)
 ```
 
-To create a cache in the Azure China Cloud, use one of the following locations.
+To create a cache in the Azure operated by 21Vianet Cloud, use one of the following locations.
 
 * China East
 * China North
-
-For more information about the Azure China Cloud, see [AzureChinaCloud for Azure operated by 21Vianet in China](https://www.windowsazure.cn/).
 
 ### To connect to Microsoft Azure Germany
 

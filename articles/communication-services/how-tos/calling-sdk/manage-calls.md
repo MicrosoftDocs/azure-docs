@@ -11,7 +11,7 @@ ms.date: 08/10/2021
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android-windows
 
-#Customer intent: As a developer, I want to manage calls with the acs sdks so that I can create a calling application that manages calls.
+#Customer intent: As a developer, I want to manage calls with the Azure Communication Services sdks so that I can create a calling application that manages calls.
 ---
 
 # Manage calls
@@ -22,7 +22,7 @@ Learn how to manage calls with the Azure Communication Services SDKS. We'll lear
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/access-tokens.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/identity/access-tokens.md)
 - Optional: Complete the quickstart for [getting started with adding calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 ::: zone pivot="platform-web"

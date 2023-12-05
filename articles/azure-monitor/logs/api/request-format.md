@@ -1,18 +1,18 @@
 ---
 title: Request format
 description: The Azure Monitor Log Analytics API request format.
-author: AbbyMSFT
-ms.author: abbyweisberg
 ms.date: 11/22/2021
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 # Azure Monitor Log Analytics API request format
 
 There are two endpoints through which you can communicate with the Log Analytics API:
-- A direct URL for the API: `https://api.loganalytics.io`
+- A direct URL for the API: `https://api.loganalytics.azure.com`
 - Through Azure Resource Manager (ARM).
 
-While the URLs are different, the query parameters are the same for each endpoint. Both endpoints require authorization through Azure Active Directory (Azure AD).
+While the URLs are different, the query parameters are the same for each endpoint. Both endpoints require authorization through Microsoft Entra ID.
 
 The API supports the `POST` and `GET` methods.
 
@@ -21,7 +21,7 @@ The API supports the `POST` and `GET` methods.
 The Public API format is:
 
 ```
-    https://api.loganalytics.io/{api-version}/workspaces/{workspaceId}/query?[parameters]
+    https://api.loganalytics.azure.com/{api-version}/workspaces/{workspaceId}/query?[parameters]
 ```
 where:
  - **api-version**: The API version. The current version is "v1"
@@ -35,7 +35,7 @@ When the HTTP method executed is `GET`, the parameters are included in the query
 For example, to count AzureActivity events by Category, make this call:
 
 ```
-    GET https://api.loganalytics.io/v1/workspaces/{workspace-id}/query?query=AzureActivity%20|%20summarize%20count()%20by%20Category
+    GET https://api.loganalytics.azure.com/v1/workspaces/{workspace-id}/query?query=AzureActivity%20|%20summarize%20count()%20by%20Category
     Authorization: Bearer <access token>
 ```
 ## POST /query
@@ -49,7 +49,7 @@ When the HTTP method executed is `POST`:
 For example, to count AzureActivity events by Category, make this call:
 
 ```
-    POST https://api.loganalytics.io/v1/workspaces/{workspace-id}/query
+    POST https://api.loganalytics.azure.com/v1/workspaces/{workspace-id}/query
     
     Authorization: Bearer <access token>
     Content-Type: application/json

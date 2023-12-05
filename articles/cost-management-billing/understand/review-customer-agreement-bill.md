@@ -2,12 +2,12 @@
 title: Review your Microsoft Customer Agreement bill - Azure
 description: Learn how to review your bill and resource usage and to verify charges for your Microsoft Customer Agreement invoice.
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 09/15/2021
+ms.date: 04/05/2023
 ms.author: banders
 ---
 
@@ -34,7 +34,7 @@ It must be more than 30 days from the day that you subscribed to Azure. Azure bi
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+- Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Check access to a Microsoft Customer Agreement
 

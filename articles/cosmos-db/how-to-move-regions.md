@@ -47,7 +47,7 @@ Azure Cosmos DB does not natively support migrating account metadata from one re
 > [!IMPORTANT]
 > It is not necessary to migrate the account metadata if the data is stored or moved to a different region. The region in which the account metadata resides has no impact on the performance, security or any other operational aspects of your Azure Cosmos DB account.
 
-A near-zero-downtime migration for the API for NoSQL requires the use of the [change feed](change-feed.md) or a tool that uses it. If you're migrating from the API for MongoDB, Cassandra, or another API, or to learn more about options for migrating data between accounts, see [Options to migrate your on-premises or cloud data to Azure Cosmos DB](migration-choices.md). 
+A near-zero-downtime migration for the API for NoSQL requires the use of the [change feed](change-feed.md) or a tool that uses it.
 
 The following steps demonstrate how to migrate an Azure Cosmos DB account for the API for NoSQL and its data from one region to another:
 
@@ -59,13 +59,13 @@ The following steps demonstrate how to migrate an Azure Cosmos DB account for th
 
     To create a new database and container, see [Create an Azure Cosmos DB container](how-to-create-container.md).
 
-1. Migrate data by using the Azure Cosmos DB Live Data Migrator tool.
+1. Migrate data by using the Azure Cosmos DB Spark Connector live migration sample.
 
-    To migrate data with near zero downtime, see [Azure Cosmos DB Live Data Migrator tool](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator).
+    To migrate data with near zero downtime, see [Live Migrate Azure Cosmos DB SQL API Containers data with Spark Connector](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/DatabricksLiveContainerMigration).
 
 1. Update the application connection string.
 
-    With the Live Data Migrator tool still running, update the connection information in the new deployment of your application. You can retrieve the endpoints and keys for your application from the Azure portal.
+    With the Live Data Migration sample still running, update the connection information in the new deployment of your application. You can retrieve the endpoints and keys for your application from the Azure portal.
 
     :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Access control in the Azure portal, demonstrating NoSQL database security.":::
 
@@ -75,7 +75,7 @@ The following steps demonstrate how to migrate an Azure Cosmos DB account for th
 
 1. Delete any resources that you no longer need.
 
-    With requests now fully redirected to the new instance, you can delete the old Azure Cosmos DB account and the Live Data Migrator tool.
+    With requests now fully redirected to the new instance, you can delete the old Azure Cosmos DB account and stop the Live Data Migrator sample.
 
 ## Next steps
 

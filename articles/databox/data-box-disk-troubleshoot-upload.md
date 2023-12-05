@@ -9,7 +9,7 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
 ms.date: 02/24/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Use logs to troubleshoot upload issues in Azure Data Box Disk

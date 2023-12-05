@@ -1,10 +1,12 @@
 ---
 title: Canada Federal PBMM blueprint sample
 description: Overview of the Canada Federal PBMM blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Canada Federal PBMM blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 The Canada Federal PBMM blueprint sample provides governance guardrails using
 [Azure Policy](../../policy/overview.md) that help you assess specific

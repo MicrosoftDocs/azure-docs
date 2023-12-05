@@ -2,17 +2,13 @@
 title: HTTP variables for Azure CDN rules engine | Microsoft Docs
 description: Learn about HTTP variables, which allow you to get HTTP request and response metadata for some rules engine features. Use metadata to alter a request/response.
 services: cdn
-documentationcenter: ''
 author: duongau
-manager: danielgi
-editor: ''
-
-ms.assetid: 
+manager: kumudd
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 02/27/2023
 ms.author: duau
 
 
@@ -32,11 +28,11 @@ The following table describes the supported HTTP variables. A blank value is ret
 
 | Name | Variable | Description | Sample value |
 | ---- | -------- | ----------- | ------------ |
-| ASN (Requester) | %{geo_asnum} | Indicates the requester's AS number. <br /><br />**Deprecated:** %{virt_dst_asnum}. <br />This variable has been deprecated in favor of %{geo_asnum}. Although a rule that uses this deprecated variable will continue to work, you should update it to use the new variable. | AS15133 |
+| ASN (Requester) | %{geo_asnum} | Indicates the requester's AS number. <br /><br />**Deprecated:** %{virt_dst_asnum}. <br />This variable has been deprecated in favor of %{geo_asnum}. Although a rule that uses this deprecated variable continues to work, you should update it to use the new variable. | AS15133 |
 | City (Requester) | %{geo_city} | Indicates the requester's city. | Los Angeles |
-| Continent (Requester) | %{geo_continent} | Indicates the requester's continent through its abbreviation. <br />Valid values are: <br />AF: Africa<br />AS: Asia<br />EU: Europe<br />NA: North America<br />OC: Oceania<br />SA: South America<br /><br />**Deprecated:** %{virt_dst_continent}. <br />This variable has been deprecated in favor of %{geo_continent}. <br />Although a rule that uses this deprecated variable will continue to work, you should update it to use the new variable.| N/A |
+| Continent (Requester) | %{geo_continent} | Indicates the requester's continent through its abbreviation. <br />Valid values are: <br />AF: Africa<br />AS: Asia<br />EU: Europe<br />NA: North America<br />OC: Oceania<br />SA: South America<br /><br />**Deprecated:** %{virt_dst_continent}. <br />This variable has been deprecated in favor of %{geo_continent}. <br />Although a rule that uses this deprecated variable continues to work, you should update it to use the new variable.| N/A |
 | Cookie Value | %{cookie_Cookie} | Returns the value corresponding to the cookie key identified by the Cookie term. | Sample Usage: <br />%{cookie__utma}<br /><br />Sample Value:<br />111662281.2.10.1222100123 |
-| Country/Region (Requester) | %{geo_country} | Indicates the requester's country/region of origin through its country/region code. <br />**Deprecated:** %{virt_dst_country}. <br /><br />This variable has been deprecated in favor of %{geo_country}. Although a rule that uses this deprecated variable will continue to work, you should update it to use the new variable. | US |
+| Country/Region (Requester) | %{geo_country} | Indicates the requester's country/region of origin through its country/region code. <br />**Deprecated:** %{virt_dst_country}. <br /><br />This variable has been deprecated in favor of %{geo_country}. Although a rule that uses this deprecated variable continues to work, you should update it to use the new variable. | US |
 | Designated Market Area (Requester) | %{geo_dma_code} |Indicates the requester's media market by its region code. <br /><br />This field is only applicable to requests that originate from the United States.| 745 |
 | HTTP Request Method | %{request_method} | Indicates the HTTP request method. | GET |
 | HTTP Status Code | %{status} | Indicates the HTTP status code for the response. | 200 |
@@ -57,7 +53,7 @@ The following table describes the supported HTTP variables. A blank value is ret
 | Request Protocol | %{request_protocol} | Indicates the request protocol. | HTTP/1.1 |
 | Request Scheme | %{scheme} | Indicates the request scheme. |http |
 | Request URI (Relative) | %{request_uri} | Indicates the relative path, including the query string, defined in the request URI. | /marketing/foo.js?loggedin=true |
-| Request URI (Relative without query string) | %{uri} | Indicates the relative path to the requested content. <br /><br/>Key information:<br />- This relative path excludes the query string.<br />- This relative path reflects URL rewrites. A URL will be rewritten under the following conditions:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- URL Rewrite Feature: This feature rewrites the relative path defined in the request URI.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Edge CNAME URL: This type of request is rewritten to the corresponding CDN URL. |/800001/corigin/rewrittendir/foo.js |
+| Request URI (Relative without query string) | %{uri} | Indicates the relative path to the requested content. <br /><br/>Key information:<br />- This relative path excludes the query string.<br />- This relative path reflects URL rewrites. A URL is rewritten under the following conditions:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- URL Rewrite Feature: This feature rewrites the relative path defined in the request URI.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Edge CNAME URL: This type of request is rewritten to the corresponding CDN URL. |/800001/corigin/rewrittendir/foo.js |
 | Request URI | %{request} | Describes the request. <br />Syntax: &lt;HTTP method&gt; &lt;relative path&gt; &lt;HTTP protocol&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
 | Response Header Value | %{resp_&lt;ResponseHeader&gt;} | Returns the value corresponding to the response header identified by the &lt;ResponseHeader&gt; term. <br /><br />If the name of the response header contains a dash (for example, User-Agent), replace it with an underscore (for example, User_Agent). | Sample Usage: %{resp_Content_Length}<br /><br />Sample Value: 100 |
 
@@ -90,11 +86,11 @@ The delimiters are described in the following table.
 
 | Delimiter | Description |
 | --------- | ----------- |
-| := | Indicates that a default value will be assigned to the variable when it is either: <br />- Missing <br />- Set to NULL. |
-| :+ | Indicates that a default value will be assigned to the variable when a value has been assigned to it. |
-| : | Indicates that a substring of the value assigned to the variable will be expanded. |
-| # | Indicates that the pattern specified after this delimiter should be deleted when it is found at the beginning of the value associated with the variable. |
-| % | Indicates that the pattern specified after this delimiter should be deleted when it is found at the end of the value associated with the variable. <br />This definition is only applicable when the % symbol is used as a delimiter. |
+| := | Indicates that a default value is assigned to the variable when it's either: <br />- Missing <br />- Set to NULL. |
+| :+ | Indicates that a default value is assigned to the variable when a value has been assigned to it. |
+| : | Indicates that a substring of the value assigned to the variable is expanded. |
+| # | Indicates that the pattern specified after this delimiter should be deleted when it's present at the beginning of the value associated with the variable. |
+| % | Indicates that the pattern specified after this delimiter should be deleted when it's present at the end of the value associated with the variable. <br />This definition is only applicable when the % symbol is used as a delimiter. |
 | / | Delimits an HTTP variable or a pattern. |
 | // | Find and replace all instances of the specified pattern. |
 | /= | Find, copy, and rewrite all occurrences of the specified pattern. |
@@ -108,11 +104,11 @@ The following table describes circumstances under which the specified text isn't
 
 | Condition | Description | Example |
 | --------- | ----------- | --------|
-| Escaping % symbol | The percentage symbol can be escaped through the use of a backslash. <br />The sample value to the right will be treated as a literal value and not as an HTTP variable.| \%{host} |
+| Escaping % symbol | The percentage symbol can be escaped by using a backslash. <br />The sample value to the right is treated as a literal value and not as an HTTP variable.| \%{host} |
 | Unknown variables | An empty string is always returned for unknown variables. | %{unknown_variable} |
 | Invalid characters or syntax | Variables that contain invalid characters or syntax are treated as literal values. <br /><br />Example #1: The specified value contains an invalid character (for example, -). <br /><br />Example #2: The specified value contains a double set of curly braces. <br /><br />Example #3: The specified value is missing a closing curly brace.<br /> | Example #1: %{resp_user-agent} <br /><br />Example #2: %{{host}} <br /><br />Example #3: %{host |
-| Missing variable name | A NULL value is always returned when a variable is not specified. | %{} |
-| Trailing characters | Characters that trail a variable are treated as literal values. <br />The sample value to the right contains a trailing curly brace that will be treated as a literal value. | %{host}} |
+| Missing variable name | A NULL value is always returned when a variable isn't specified. | %{} |
+| Trailing characters | Characters that trail a variable are treated as literal values. <br />The sample value to the right contains a trailing curly brace that gets treated as a literal value. | %{host}} |
 
 ## Setting default header values
 A default value can be assigned to a header when it meets any of the following conditions:
@@ -123,9 +119,9 @@ The following table describes how to define a default value.
 
 | Condition | Syntax | Example | Description |
 | --------- | ------ | --------| ----------- |
-| Set a header to a default value when it meets any of the following conditions: <br /><br />- Missing Header <br /><br />- Header value is set to NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | The Referrer header will only be set to *unspecified* when it is either missing or set to NULL. No action will take place if it has been set. |
-| Set a header to a default value when it is missing. | %{Variable=Value} | %{http_referrer=unspecified} | The Referrer header will only be set to *unspecified* when it is missing. No action will take place if it has been set. |
-| Set the header to a default value when it does not meet any of the following conditions: <br /><br />- Missing<br /><br /> - Set to NULL. | %{Variable:+Value} | %{http_referrer:+unspecified} | The Referrer header will only be set to *unspecified* when a value has been assigned to it. No action will take place if it is either missing or set to NULL. |
+| Set a header to a default value when it meets any of the following conditions: <br /><br />- Missing Header <br /><br />- Header value is set to NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | The Referrer header is set to *unspecified* only when it's either missing or set to NULL. No action takes place if it has been set. |
+| Set a header to a default value when it's missing. | %{Variable=Value} | %{http_referrer=unspecified} | The Referrer header is set to *unspecified* only when it's missing. No action takes place if it has been set. |
+| Set the header to a default value when it doesn't meet any of the following conditions: <br /><br />- Missing<br /><br /> - Set to NULL. | %{Variable:+Value} | %{http_referrer:+unspecified} | The Referrer header is set to *unspecified* only when a value has been assigned to it. No action takes place if it's either missing or set to NULL. |
 
 ## Manipulating variables
 Variables can be manipulated in the following ways:
@@ -134,7 +130,7 @@ Variables can be manipulated in the following ways:
 - Removing patterns
 
 ### Substring expansion
-By default, a variable will expand to its full value. Use the following syntax to only expand a substring of the variable's value.
+By default, a variable expands to its full value. Use the following syntax to only expand a substring of the variable's value.
 
 `%<Variable>:<Offset>:<Length>}`
 
@@ -146,7 +142,7 @@ Key information:
      - Zero: The starting character of the substring is the first character in the string.
      - Negative: The starting character of the substring is calculated from the last character in the string.
 
-- The length of the substring is determined by the *Length* term:
+- The length of the substring gets determined by the *Length* term:
 
      - Omitted: Omitting the Length term allows the substring to include all characters between the starting character and the end of the string.
      - Positive: Determines the length of the substring from the starting character to the right.
@@ -162,7 +158,7 @@ The following string demonstrates various methods for manipulating variables:
 
 https:\//www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm
 
-Based on the sample request URL, the above variable manipulation will produce the following value:
+Based on the sample request URL, the above variable manipulation produces the following value:
 
 https:\//www.mydomain.com/mobile/marketing/proposal.htm
 
@@ -214,7 +210,7 @@ Key information:
 
 - Expand text that matches the specified pattern by specifying a dollar sign followed by a whole integer (for example, $1).
 
-- Multiple patterns can be specified. The order in which the pattern is specified determines the integer that will be assigned to it. In the following example, the first pattern matches "www.," the second pattern matches the second-level domain, and the third pattern matches the top-level domain:
+- Multiple patterns can be specified. The order in which the pattern is specified determines the integer that is assigned to it. In the following example, the first pattern matches "www.," the second pattern matches the second-level domain, and the third pattern matches the top-level domain:
 
     `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$2.$3:80}`
 
@@ -238,8 +234,8 @@ Key information:
 - An operator must be specified before the pattern. The specified operator determines the pattern-capturing behavior:
 
      - `=`: Indicates that all occurrences of the specified pattern must be captured and rewritten.
-     - `^`: Indicates that only text that starts with the specified pattern will be captured.
-     - `$`: Indicates that only text that ends with the specified pattern will be capture.
+     - `^`: Indicates that only text that starts with the specified pattern is captured.
+     - `$`: Indicates that only text that ends with the specified pattern is captured.
  
 - If you omit the */Rewrite* value, the text that matches the pattern is deleted.
 

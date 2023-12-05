@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: bicep
 ms.topic: quickstart
-ms.date: 08/08/2022
+ms.date: 07/17/2023
 ms.author: xupzhou
 ms.custom: subject-armqs
 ---
@@ -20,15 +20,11 @@ Welcome to Azure Data Factory!  This getting started article will let you create
 ## Prerequisites
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Video introduction
+## Video summary
 
-Select the button below to try it out!  
-
-[![Try your first data factory demo](./media/quickstart-get-started/try-it-now.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-get-started%2Fazuredeploy.json)
-
+The following video provides a walkthrough of the sample:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE583aX]
-
 
 ## Try your first demo with one click
 In your first demo scenario you will use the [Copy activity](copy-activity-overview.md) in a data factory to copy an Azure blob named moviesDB2.csv from an input folder on an Azure Blob Storage to an output folder. In a real world scenario this copy operation could be between any of the many supported data sources and sinks available in the service. It could also involve transformations in the data.
@@ -100,7 +96,7 @@ All of the resources referenced above will be created in the new resource group,
 
 You can clean up all the resources you created in this quickstart in either of two ways. You can [delete the entire Azure resource group](../azure-resource-manager/management/delete-resource-group.md), which includes all the resources created in it.  Or if you want to keep some resources intact, browse to the resource group and delete only the specific resources you want, keeping the others.  For example, if you are using this template to create a data factory for use in another tutorial, you can delete the other resources but keep only the data factory.
 
-## Next steps
+## Related content
 
 In this quickstart, you created an Azure Data Factory containing a pipeline with a copy activity. To learn more about Azure Data Factory, continue on to the article and Learn module below.
 

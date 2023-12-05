@@ -1,5 +1,5 @@
 ---
-title: Azure CLI samples - Azure Database for MySQL Flexible Server 
+title: Azure CLI samples - Azure Database for MySQL - Flexible Server 
 description: This article lists the Azure CLI code samples available for interacting with Azure Database for MySQL - Flexible Server.
 author: shreyaaithal
 ms.author: shaithal
@@ -19,12 +19,12 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 | Sample link | Description  |
 |---|---|
 |**Create and connect to a server**||
-| [Create a server and enable public access connectivity](scripts/sample-cli-create-connect-public-access.md) | Creates a Azure Database for MySQL - Flexible Server, configures a server-level firewall rule (public access connectivity method) and connects to the server. |
+| [Create a server and enable public access connectivity](scripts/sample-cli-create-connect-public-access.md) | Creates an Azure Database for MySQL - Flexible Server, configures a server-level firewall rule (public access connectivity method) and connects to the server. |
 | [Create a server and enable private access connectivity (VNet Integration)](scripts/sample-cli-create-connect-private-access.md) | Creates an Azure Database for MySQL - Flexible Server in a VNet (private access connectivity method) and connects to the server through a VM within the VNet. |
 |**Monitor and scale**||
 | [Monitor metrics and scale a server](scripts/sample-cli-monitor-and-scale.md) | Monitors and scales a single Azure Database for MySQL - Flexible server up or down to allow for changing performance needs. |
 |**Backup and restore**||
-| [Restore a server](scripts/sample-cli-restore-server.md) | Restores a single Azure Database for MySQL Flexible Server to a previous point in time. |
+| [Restore a server](scripts/sample-cli-restore-server.md) | Restores a single Azure Database for MySQL - Flexible Server to a previous point in time. |
 |**High Availability**||
 | [Configure zone-redundant high availability](scripts/sample-cli-zone-redundant-ha.md) | Enables Zone-Redundant high availability while creating an Azure Database for MySQL - Flexible Server.|
 | [Configure same-zone high availability](scripts/sample-cli-same-zone-ha.md) | Enables Same-Zone high availability while creating an Azure Database for MySQL - Flexible Server.|

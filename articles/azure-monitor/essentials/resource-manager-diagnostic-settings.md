@@ -2,11 +2,11 @@
 title: Resource Manager template samples for diagnostic settings
 description: Sample Azure Resource Manager templates to apply Azure Monitor diagnostic settings to an Azure resource.
 ms.topic: sample
-author: bwren
-ms.author: bwren
-ms.date: 06/13/2022
+ms.custom: devx-track-arm-template
+author: EdB-MSFT
+ms.author: edbaynash
+ms.date: 08/09/2023
 ms.reviewer: lualderm
-
 ---
 
 # Resource Manager template samples for diagnostic settings in Azure Monitor
@@ -17,12 +17,12 @@ To create a diagnostic setting for an Azure resource, add a resource of type `<r
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
-## Diagnostic setting for Activity log
+## Diagnostic setting for an activity log
 
-The following sample creates a diagnostic setting for an Activity log by adding a resource of type `Microsoft.Insights/diagnosticSettings` to the template.
+The following sample creates a diagnostic setting for an activity log by adding a resource of type `Microsoft.Insights/diagnosticSettings` to the template.
 
 > [!IMPORTANT]
-> Diagnostic settings for Activity logs are created for a subscription, not for a resource group like settings for Azure resources. To deploy the Resource management template, use `New-AzSubscriptionDeployment` for PowerShell or `az deployment sub create` for Azure CLI.
+> Diagnostic settings for activity logs are created for a subscription, not for a resource group like settings for Azure resources. To deploy the Resource Manager template, use `New-AzSubscriptionDeployment` for PowerShell or `az deployment sub create` for the Azure CLI.
 
 ### Template file
 
@@ -463,7 +463,7 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
 }
 ```
 
-### Template file - enabling the 'audit' category group
+### Template file: Enabling the 'audit' category group
 
 # [Bicep](#tab/bicep)
 
@@ -560,7 +560,7 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
 
 ## Diagnostic setting for Azure Key Vault
 
-The following sample creates a diagnostic setting for an Azure Key Vault by adding a resource of type `Microsoft.KeyVault/vaults/providers/diagnosticSettings` to the template.
+The following sample creates a diagnostic setting for an instance of Azure Key Vault by adding a resource of type `Microsoft.KeyVault/vaults/providers/diagnosticSettings` to the template.
 
 > [!IMPORTANT]
 > For Azure Key Vault, the event hub must be in the same region as the key vault.
@@ -720,9 +720,9 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
 }
 ```
 
-## Diagnostic setting for Azure SQL database
+## Diagnostic setting for Azure SQL Database
 
-The following sample creates a diagnostic setting for an Azure SQL database by adding a resource of type `microsoft.sql/servers/databases/providers/diagnosticSettings` to the template.
+The following sample creates a diagnostic setting for an instance of Azure SQL Database by adding a resource of type `microsoft.sql/servers/databases/providers/diagnosticSettings` to the template.
 
 ### Template file
 
@@ -976,9 +976,9 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
 }
 ```
 
-## Diagnostic setting for Azure SQL managed instance
+## Diagnostic setting for Azure SQL Managed Instance
 
-The following sample creates a diagnostic setting for an Azure SQL managed instance by adding a resource of type `microsoft.sql/managedInstances/providers/diagnosticSettings` to the template.
+The following sample creates a diagnostic setting for an instance of Azure SQL Managed Instance by adding a resource of type `microsoft.sql/managedInstances/providers/diagnosticSettings` to the template.
 
 ### Template file
 
@@ -1111,9 +1111,9 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
 }
 ```
 
-## Diagnostic setting for Azure SQL managed database
+## Diagnostic setting for a managed instance of Azure SQL Database
 
-The following sample creates a diagnostic setting for an Azure SQL managed database by adding a resource of type `microsoft.sql/managedInstances/databases/providers/diagnosticSettings` to the template.
+The following sample creates a diagnostic setting for a managed instance of Azure SQL Database by adding a resource of type `microsoft.sql/managedInstances/databases/providers/diagnosticSettings` to the template.
 
 ### Template file
 
@@ -1496,9 +1496,9 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
 }
 ```
 
-## Diagnostic setting for Log Analytics workspace
+## Diagnostic setting for a Log Analytics workspace
 
-The following sample creates a diagnostic setting for a Log Analytics workspace vault by adding a resource of type `Microsoft.OperationalInsights/workspaces/providers/diagnosticSettings` to the template. This example sends audit data about queries executed in the workspace to the same workspace.
+The following sample creates a diagnostic setting for a Log Analytics workspace by adding a resource of type `Microsoft.OperationalInsights/workspaces/providers/diagnosticSettings` to the template. This example sends audit data about queries executed in the workspace to the same workspace.
 
 ### Template file
 
@@ -1615,7 +1615,9 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
 
 ## Diagnostic setting for Azure Storage
 
-The following sample creates a diagnostic setting for each storage service endpoint that is available in the storage account. A setting is applied to each individual storage service that is available on the account. The storage services that are available depend on the type of storage account. This template creates a diagnostic setting for a storage service in the account only if it exists for the account. For each available service, the diagnostic setting enables transaction metrics, and the collection of resource logs for read, write, and delete operations.
+The following sample creates a diagnostic setting for each storage service endpoint that's available in the Azure Storage account. A setting is applied to each individual storage service that's available on the account. The storage services that are available depend on the type of storage account.
+
+This template creates a diagnostic setting for a storage service in the account only if it exists for the account. For each available service, the diagnostic setting enables transaction metrics, and the collection of resource logs for read, write, and delete operations.
 
 ### Template file
 
@@ -1784,6 +1786,7 @@ resource queue 'Microsoft.Storage/storageAccounts/queueServices@2021-09-01' exis
 
 resource queueSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hasqueue) {
   name: settingName
+  scope: queue
   properties: {
     workspaceId: workspaceId
     storageAccountId: resourceId('Microsoft.Storage/storageAccounts', storageSyncName)
@@ -2059,5 +2062,5 @@ resource queueSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview'
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
-* [Learn more about diagnostic settings](../essentials/diagnostic-settings.md).
+* [Get other sample templates for Azure Monitor](../resource-manager-samples.md)
+* [Learn more about diagnostic settings](../essentials/diagnostic-settings.md)

@@ -1,7 +1,7 @@
 ---
 title:  Azure Connected Machine agent deployment options
 description: Learn about the different options to onboard machines to Azure Arc-enabled servers.
-ms.date: 10/08/2022
+ms.date: 05/04/2023
 ms.topic: how-to 
 ---
 
@@ -22,7 +22,7 @@ The following table highlights each method so that you can determine which works
 | At scale | [Connect machines using a service principal](onboard-service-principal.md) to install the agent at scale non-interactively.|
 | At scale | [Connect machines by running PowerShell scripts with Configuration Manager](onboard-configuration-manager-powershell.md)
 | At scale | [Connect machines with a Configuration Manager custom task sequence](onboard-configuration-manager-custom-task.md)
-| At scale | [Connect Windows machines using Group Policy](onboard-group-policy.md)
+| At scale | [Connect Windows machines using Group Policy](onboard-group-policy-powershell.md)
 | At scale | [Connect machines from Automation Update Management](onboard-update-management-machines.md) to create a service principal that installs and configures the agent for multiple machines managed with Azure Automation Update Management to connect machines non-interactively. |
 
 > [!IMPORTANT]
@@ -35,3 +35,4 @@ Be sure to review the basic [prerequisites](prerequisites.md) and [network confi
 * Learn about the Azure Connected Machine agent [prerequisites](prerequisites.md) and [network requirements](network-requirements.md).
 * Review the [Planning and deployment guide for Azure Arc-enabled servers](plan-at-scale-deployment.md)
 * Learn about [reconfiguring, upgrading, and removing the Connected Machine agent](manage-agent.md).
+* Try out Arc-enabled servers by using the [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers).

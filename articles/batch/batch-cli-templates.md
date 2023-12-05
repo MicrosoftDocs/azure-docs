@@ -2,10 +2,14 @@
 title: Run jobs end-to-end using templates
 description: With only CLI commands, you can create a pool, upload input data, create jobs and associated tasks, and download the resulting output data.
 ms.topic: how-to
-ms.date: 12/20/2021
-ms.custom: seodec18, devx-track-azurecli
+ms.date: 09/19/2023
+ms.custom: seodec18, devx-track-azurecli, devx-track-linux
 ---
 # Use Azure Batch CLI templates and file transfer
+
+> [!WARNING]
+> The Batch Azure CLI extension will be retired on **30 September 2024**. Please uninstall the extension with the command
+> `az extension remove --name azure-batch-cli-extensions`.
 
 By using a Batch extension to Azure CLI, users can run Batch jobs without writing code.
 
@@ -89,10 +93,10 @@ The following is an example of a template that creates a pool of Linux VMs with 
                 "imageReference": {
                     "publisher": "Canonical",
                     "offer": "UbuntuServer",
-                    "sku": "18.04-LTS",
+                    "sku": "20.04-LTS",
                     "version": "latest"
                 },
-                "nodeAgentSKUId": "batch.node.ubuntu 18.04"
+                "nodeAgentSKUId": "batch.node.ubuntu 20.04"
             },
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",

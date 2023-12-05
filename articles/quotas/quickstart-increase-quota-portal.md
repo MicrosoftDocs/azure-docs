@@ -24,7 +24,7 @@ You can submit a request for a quota increase directly from **My quotas**. Follo
 
    :::image type="content" source="media/quickstart-increase-quota-portal/quotas-portal.png" alt-text="Screenshot of the Quotas service page in the Azure portal.":::
 
-1. On the Overview page, select a provider, such as **Compute**.
+1. On the Overview page, select a provider, such as **Compute** or **AML**.
 
    > [!NOTE]
    > For all providers other than Compute, you'll see a **Request increase** column instead of the **Adjustable** column described below. There, you can request an increase for a specific quota, or create a support request for the increase.
@@ -45,6 +45,8 @@ If your request is not fulfilled, you'll see a link to create a support request.
 
 ## Next steps
 
-Advance to the next article to learn how to increase VM-family vCPU quotas.
-> [!div class="nextstepaction"]
-> [Increase VM-family vCPU quotas](per-vm-quota-requests.md)
+- [Increase VM-family vCPU quotas](per-vm-quota-requests.md)
+- [Increase regional vCPU quotas](regional-quota-requests.md)
+- [Increase spot vCPU family quotas](spot-quota.md)
+- [Increase networking quotas](networking-quota-requests.md)
+- [Increase Azure Storage account quotas](storage-account-quota-requests.md)

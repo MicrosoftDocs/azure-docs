@@ -28,7 +28,7 @@ Even if you do most of your work in Azure Machine Learning, there are times when
 + Save the CSV file to cloud storage and connect to it from Power BI to create visualizations.  
 + Use the CSV format to prepare data for use in R and Python. 
 
-When you convert a dataset to CSV, the csv is saved in your Azure ML workspace. You can use an Azure storage utility to open and use the file directly. You can also access the CSV in the designer by selecting the **Convert to CSV** component, then select the histogram icon under the **Outputs** tab in the right panel to view the output. You can download the CSV from the Results folder to a local directory.  
+When you convert a dataset to CSV, the csv is saved in your Azure Machine Learning workspace. You can use an Azure storage utility to open and use the file directly. You can also access the CSV in the designer by selecting the **Convert to CSV** component, then select the histogram icon under the **Outputs** tab in the right panel to view the output. You can download the CSV from the Results folder to a local directory.  
 
 ## How to configure Convert to CSV
 
@@ -44,7 +44,7 @@ When you convert a dataset to CSV, the csv is saved in your Azure ML workspace. 
 
 Select the **Outputs** tab in the right panel of **Convert to CSV**, and select on one of these icons under the **Port outputs**.  
 
-+ **Register dataset**: Select the icon and save the CSV file back to the Azure ML workspace as a separate dataset. You can find the dataset as a component in the component tree under the **My Datasets** section.
++ **Register dataset**: Select the icon and save the CSV file back to the Azure Machine Learning workspace as a separate dataset. You can find the dataset as a component in the component tree under the **My Datasets** section.
 
  + **View output**: Select the eye icon, and follow the instruction to browse the **Results_dataset** folder, and download the data.csv file.
 

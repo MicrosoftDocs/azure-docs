@@ -1,27 +1,47 @@
 ---
-title: Set up an app for testing on a lab VM
-description: Learn how to publish an app to an Azure file share for testing from a DevTest Labs virtual machine.
+title: Publish apps from Visual Studio to a lab VM
+titleSuffix: Azure DevTest Labs
+description: Learn how to publish an app from Visual Studio to an Azure file share for testing from a DevTest Labs virtual machine.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/29/2022
+ms.date: 09/30/2023
+ms.custom: engagement-fy23, UpdateFrequency2
 ---
 
-# Set up an app for testing on an Azure DevTest Labs VM
+# Publish app for testing on an Azure DevTest Labs VM
 
-This article shows how to set up an application for testing from an Azure DevTest Labs virtual machine (VM). In this example, you use Visual Studio to publish an app to an Azure file share. Then you access the file share from a lab VM for testing.
+In this article, you learn how to publish an application for testing on an Azure DevTest Labs virtual machine (VM). As a developer, you may need to validate that your application build runs correctly on another operating system than your developer workstation. You might also distribute an application build for installation and testing by the test team. 
+
+This article uses an app from Visual Studio as an example. Visual Studio enables you to deploy an application, service, or component to other computers, devices, servers, or in the cloud. To deploy an application to a lab VM in Azure DevTest Labs, you first [publish the application files to an Azure file share](#publish-your-app-from-visual-studio). You then [access the application on the file share from within the lab VM](#access-the-app-on-your-lab-vm).
+
+:::image type="content" source="./media/test-app-in-azure/visual-studio-publish-app-to-lab-vm.png" alt-text="Diagram that shows how to publish an app from Visual Studio to an Azure file share, which is accessed from a lab VM." lightbox="./media/test-app-in-azure/visual-studio-publish-app-to-lab-vm.png":::
+
+Learn more about the [deployment options in Visual Studio](/visualstudio/deployment/deploying-applications-services-and-components).
+
+Instead of deploying the application directly from the developer workstation, you might [integrate the lab creation and application deployment into your CI/CD pipeline](./use-devtest-labs-build-release-pipelines.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Windows-based [DevTest Labs VM](devtest-lab-add-vm.md) to use for testing the app.
 - [Visual Studio](https://visualstudio.microsoft.com/free-developer-offers/) installed on a different workstation.
-- A [file share](../storage/files/storage-how-to-create-file-share.md) created in your lab's [Azure Storage Account](encrypt-storage.md).
-- The [file share mounted](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share) to your Visual Studio workstation, and to the lab VM you want to use for testing.
+
+## Create an Azure file share
+
+To access the application from your lab VM, you use an Azure file share to store the application files. You [publish the application with Visual Studio](#publish-your-app-from-visual-studio), and then [access the file share in the Lab VM](#access-the-app-on-your-lab-vm).
+
+Azure DevTest Labs creates an Azure storage account when you create a lab. To create an Azure file share in this storage account:
+
+1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your lab.
+1. Follow these steps to [select the storage account linked to your lab](./encrypt-storage.md#view-storage-account-contents).
+1. Follow these steps to [create a file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share).
 
 ## Publish your app from Visual Studio
 
-First, publish an app from Visual Studio to your Azure file share.
+In Visual Studio you can publish your application to other computers, or devices. Publish your application to the Azure file share you created previously.
+
+To publish your app to your Azure file share from Visual Studio:
 
 1. Open Visual Studio, and choose **Create a new project** in the **Start** window.
 
@@ -35,11 +55,11 @@ First, publish an app from Visual Studio to your Azure file share.
 
 1. On the **Additional information** page, keep the defaults and select **Create**.
 
-1. In Visual Studio **Solution Explorer**, right-click your project name, and select **Build**.
+1. In Visual Studio **Solution Explorer**, select and hold your project name, and select **Build**.
 
-1. When the build succeeds, in **Solution Explorer**, right-click your project name, and select **Publish**.
+1. When the build succeeds, in **Solution Explorer**, select and hold your project name, and select **Publish**.
 
-   :::image type="content" source="./media/test-app-in-azure/publish-application.png" alt-text="Screenshot of selecting Publish from Solution Explorer.":::
+   :::image type="content" source="./media/test-app-in-azure/publish-application.png" alt-text="Screenshot of selecting Publish from Solution Explorer." lightbox="./media/test-app-in-azure/publish-application.png":::
 
 1. On the **Publish** screen, select **Folder**, and then select **Next**.
 
@@ -49,34 +69,41 @@ First, publish an app from Visual Studio to your Azure file share.
 
 1. For the **Location** option, select **Browse**, and then select the file share you mounted earlier.
 
-   :::image type="content" source="./media/test-app-in-azure/selecting-file-share.png" alt-text="Screenshot of browsing and selecting the file share.":::
+   :::image type="content" source="./media/test-app-in-azure/selecting-file-share.png" alt-text="Screenshot of browsing and selecting the file share." lightbox="./media/test-app-in-azure/selecting-file-share.png":::
 
-1.  Select **OK**, and then select **Finish**.
+1. Select **OK**, and then select **Finish**.
 
 1. Select **Publish**.
 
    :::image type="content" source="./media/test-app-in-azure/final-publish.png" alt-text="Screenshot of selecting Publish.":::
 
-Visual Studio publishes your application to the file share.
+When the publish operation finishes, the application files are available on the Azure file share. You can now mount the file share from another computer, server, or lab VM, to access the application.
+
+## Mount the file share to your lab VM
+
+To access the application files in the Azure file share, you need to first mount the share to your lab VM.
+
+Follow these steps to [mount the Azure file share to your lab VM](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share).
 
 ## Access the app on your lab VM
 
-1. Connect to your lab test VM.
+When you connect to your lab VM, you can now access the application files from the mounted file share.
 
-1. On the lab VM, start up **File Explorer**, select **This PC**, and find the file share you mounted earlier.
+1. [Connect to your lab test VM by using RDP](./connect-windows-virtual-machine.md).
 
-   :::image type="content" source="./media/test-app-in-azure/find-share-on-vm.png" alt-text="Screenshot of the file share in the V M's File Explorer.":::
+1. On the lab VM, start **File Explorer**, select **This PC**, and find the file share you mounted earlier.
+
+   :::image type="content" source="./media/test-app-in-azure/find-share-on-vm.png" alt-text="Screenshot of the file share in the VM's File Explorer." lightbox="./media/test-app-in-azure/find-share-on-vm.png":::
 
 1. Open the file share, and confirm that you see the app you deployed from Visual Studio.
 
-   :::image type="content" source="./media/test-app-in-azure/open-file-share.png" alt-text="Screenshot of contents of file share.":::
+   :::image type="content" source="./media/test-app-in-azure/open-file-share.png" alt-text="Screenshot of contents of file share." lightbox="./media/test-app-in-azure/open-file-share.png":::
 
-You can now test your app on your lab VM.
+You can now run and test your app on your lab VM.
 
 ## Next steps
 
-See the following articles to learn how to use VMs in a lab. 
+You've published an application directly from Visual Studio on your developer workstation into your lab VM.
 
-- [Add a VM to a lab](devtest-lab-add-vm.md)
-- [Restart a lab VM](devtest-lab-restart-vm.md)
-- [Resize a lab VM](devtest-lab-resize-vm.md)
+- Learn how you can [integrate the lab creation and application deployment into your CI/CD pipeline](./use-devtest-labs-build-release-pipelines.md).
+- Learn more about [deploying an application to a folder with Visual Studio](/visualstudio/deployment/deploying-applications-services-and-components-resources#folder).

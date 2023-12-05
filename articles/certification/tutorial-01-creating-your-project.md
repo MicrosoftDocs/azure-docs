@@ -22,7 +22,7 @@ In this tutorial, you will learn how to:
 
 ## Prerequisites
 
-- Valid work/school [Azure Active Directory account](../active-directory/fundamentals/active-directory-whatis.md).
+- Valid work/school [Microsoft Entra account](../active-directory/fundamentals/active-directory-whatis.md).
 - Verified Microsoft Partner Network (MPN) account. If you don't have an MPN account, [join the partner network](https://partner.microsoft.com/) before you begin. 
 
 > [!NOTE] 
@@ -65,7 +65,7 @@ Then, you must supply basic device information. You can to edit this information
 
 1. Select the `Next` button to continue to the `Certifications` tab.
 
-    ![Image of the Create new project form, Certifications tab](./media/images/create-new-project-certificationswindow.png)
+    ![Image of the Create new project form, Certifications tab](./media/images/select-the-certification.png)
 
 1. Specify which certification(s) you wish to achieve for your device.
 1. Select `Create` and the new project will be saved and visible in the home page of the portal.

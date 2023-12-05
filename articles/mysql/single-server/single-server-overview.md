@@ -1,16 +1,16 @@
 ---
-title: Overview - Azure Database for MySQL Single Server
-description: Learn about the Azure Database for MySQL Single server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
-author: savjani
+title: Overview - Azure Database for MySQL single server
+description: Learn about the Azure Database for MySQL single server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
+author: sudheeshgh
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
-ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 06/20/2022
 ---
 
-# Azure Database for MySQL Single Server
+# Azure Database for MySQL single server
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
@@ -24,7 +24,7 @@ ms.date: 06/20/2022
 In this article, we'll provide an overview and introduction to core concepts of the Single Server deployment model. To learn about flexible server deployment mode, refer [flexible server overview](../flexible-server/index.yml). For information on how to decide what deployment option is appropriate for your workload, see [choosing the right MySQL server option in Azure](select-right-deployment-type.md).
 
 ## Overview
-Azure Database for MySQL Single Server is a fully managed database service designed for minimal customization. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability on single availability zone. It supports community version of MySQL 5.6 (retired), 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for MySQL single server is a fully managed database service designed for minimal customization. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability on single availability zone. It supports community version of MySQL 5.6 (retired), 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 Single servers are best suited **only for existing applications already leveraging single server**. For all new developments or migrations, Flexible Server would be the recommended deployment option. To learn about the differences between Flexible Server and Single Server deployment options, refer [select the right deployment option for you](select-right-deployment-type.md) documentation.
 
@@ -63,7 +63,7 @@ Single Server uses the FIPS 140-2 validated cryptographic module for storage enc
 
 The service allows private access to the servers using [private link](concepts-data-access-security-private-link.md) and offers threat protection through the optional [Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md) plan. Microsoft Defender for open-source relational databases detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-In addition to native authentication, Single Server supports [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) authentication. Azure AD authentication is a mechanism of connecting to the MySQL servers using identities defined and managed in Azure AD. With Azure AD authentication, you can manage database user identities and other Azure services in a central location, which simplifies and centralizes access control.
+In addition to native authentication, Single Server supports [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) authentication. Microsoft Entra authentication is a mechanism of connecting to the MySQL servers using identities defined and managed in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Azure services in a central location, which simplifies and centralizes access control.
 
 [Audit logging](concepts-audit-logs.md) is available to track all database level activity. 
 

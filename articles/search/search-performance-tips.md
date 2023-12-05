@@ -1,16 +1,17 @@
 ---
 title: Performance tips
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Learn about tips and best practices for maximizing performance on a search service.
-
-author: LiamCavanagh
-ms.author: liamca
+author: mattmsft
+ms.author: magottei
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 04/20/2023
 ---
 
-# Tips for better performance in Azure Cognitive Search
+# Tips for better performance in Azure AI Search
 
 This article is a collection of tips and best practices that are often recommended for boosting performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
 
@@ -19,7 +20,7 @@ This article is a collection of tips and best practices that are often recommend
 + Service capacity (tier, and the number of replicas and partitions)
 
 > [!NOTE]
-> Looking for strategies on high volume indexing? See [Index large data sets in Azure Cognitive Search](search-howto-large-index.md).
+> Looking for strategies on high volume indexing? See [Index large data sets in Azure AI Search](search-howto-large-index.md).
 
 ## Index size and schema
 
@@ -132,12 +133,17 @@ As this hypothetical scenario illustrates, you can have configurations on lower 
 
 An important benefit of added memory is that more of the index can be cached, resulting in lower search latency, and a greater number of queries per second. With this extra power, the administrator may not need to even need to increase the replica count and could potentially pay less than by staying on the S1 service.
 
+### Tip: Consider alternatives to regular expression queries
+
+[Regular expression queries](query-lucene-syntax.md#bkmk_regex) or regex can be particularly expensive. While they can be very useful for complex searches, they also may require a lot of processing power to be executed, especially if the regular expression has a lot of complexity or when searching through a large amount of data. This would result in high search latency. In order to reduce the search latency, try to simplify the regular expression or break the complex query down into smaller, more manageable queries. 
+
+
 ## Next steps
 
 Review these other articles related to service performance:
 
 + [Analyze performance](search-performance-analysis.md)
-+ [Index large data sets in Azure Cognitive Search](search-howto-large-index.md)
++ [Index large data sets in Azure AI Search](search-howto-large-index.md)
 + [Choose a service tier](search-sku-tier.md)
 + [Plan or add capacity](search-capacity-planning.md#adjust-capacity)
 + [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

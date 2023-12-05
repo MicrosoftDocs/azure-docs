@@ -10,7 +10,7 @@ ms.date: 10/20/2021
 
 # Tutorial: Create a function app that connects to Azure services using identities instead of secrets
 
-This tutorial shows you how to configure a function app using Azure Active Directory identities instead of secrets or connection strings, where possible. Using identities helps you avoid accidentally leaking sensitive secrets and can provide better visibility into how data is accessed. To learn more about identity-based connections, see [configure an identity-based connection](functions-reference.md#configure-an-identity-based-connection).
+This tutorial shows you how to configure a function app using Microsoft Entra identities instead of secrets or connection strings, where possible. Using identities helps you avoid accidentally leaking sensitive secrets and can provide better visibility into how data is accessed. To learn more about identity-based connections, see [configure an identity-based connection](functions-reference.md#configure-an-identity-based-connection).
 
 While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions on Windows specifically. 
 
@@ -28,21 +28,21 @@ After you complete this tutorial, you should complete the follow-on tutorial tha
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
++ The [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
 
 ## Why use identity?
 
-Managing secrets and credentials is a common challenge for teams of all sizes. Secrets need to be secured against theft or accidental disclosure, and they may need to be periodically rotated. Many Azure services allow you to instead use an identity in [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) to authenticate clients and check against permissions which can be modified and revoked quickly. This allows for greater control over application security with less operational overhead. An identity could be a human user, such as the developer of an application, or a running application in Azure with a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
+Managing secrets and credentials is a common challenge for teams of all sizes. Secrets need to be secured against theft or accidental disclosure, and they may need to be periodically rotated. Many Azure services allow you to instead use an identity in [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) to authenticate clients and check against permissions which can be modified and revoked quickly. This allows for greater control over application security with less operational overhead. An identity could be a human user, such as the developer of an application, or a running application in Azure with a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
-Some services do not support Azure Active Directory authentication, so secrets may still be required by your applications. However, these can be stored in [Azure Key Vault](../key-vault/general/overview.md), which helps simplify the management lifecycle for your secrets. Access to a key vault is also controlled with identities.
+Some services do not support Microsoft Entra authentication, so secrets may still be required by your applications. However, these can be stored in [Azure Key Vault](../key-vault/general/overview.md), which helps simplify the management lifecycle for your secrets. Access to a key vault is also controlled with identities.
 
 By understanding how to use identities instead of secrets when you can and to use Key Vault when you can't, you'll be able to reduce risk, decrease operational overhead, and generally improve the security posture for your applications.
 
 ## Create a function app that uses Key Vault for necessary secrets
 
-Azure Files is an example of a service that does not yet support Azure Active Directory authentication for SMB file shares. Azure Files is the default file system for Windows deployments on Premium and Consumption plans. While we could [remove Azure Files entirely](./storage-considerations.md#create-an-app-without-azure-files), this introduces limitations you may not want. Instead, you will move the Azure Files connection string into Azure Key Vault. That way it is centrally managed, with access controlled by the identity.
+Azure Files is an example of a service that does not yet support Microsoft Entra authentication for SMB file shares. Azure Files is the default file system for Windows deployments on Premium and Consumption plans. While we could [remove Azure Files entirely](./storage-considerations.md#create-an-app-without-azure-files), this introduces limitations you may not want. Instead, you will move the Azure Files connection string into Azure Key Vault. That way it is centrally managed, with access controlled by the identity.
 
 ### Create an Azure Key Vault
 
@@ -256,7 +256,7 @@ Whenever your app would need to add a reference to a secret, you would just need
 > [!TIP]
 > The [Application Insights connection string](../azure-monitor/app/sdk-connection-string.md) and its included instrumentation key are not considered secrets and can be retrieved from App Insights using [Reader](../role-based-access-control/built-in-roles.md#reader) permissions. You do not need to move them into Key Vault, although you certainly can.
 
-## Use managed identity for AzureWebJobsStorage (Preview)
+## Use managed identity for AzureWebJobsStorage
 
 Next you will use the system-assigned identity you configured in the previous steps for the `AzureWebJobsStorage` connection. `AzureWebJobsStorage` is used by the Functions runtime and by several triggers and bindings to coordinate between multiple running instances. It is required for your function app to operate, and like Azure Files, it is configured with a connection string by default when you create a new function app.
 
@@ -294,7 +294,7 @@ Similar to the steps you took before with the user-assigned identity and your ke
 Next you will update your function app to use its system-assigned identity when it uses the blob service for host storage.
 
 > [!IMPORTANT]
-> The `AzureWebJobsStorage` configuration is used by some triggers and bindings, and those extensions must be able to use identity-based connections, too. Apps that use blob triggers or event hub triggers may need to update those extensions. Because no functions have been defined for this app, there isn't a concern yet. To learn more about this requirement, see [Connecting to host storage with an identity (Preview)](./functions-reference.md#connecting-to-host-storage-with-an-identity-preview).
+> The `AzureWebJobsStorage` configuration is used by some triggers and bindings, and those extensions must be able to use identity-based connections, too. Apps that use blob triggers or event hub triggers may need to update those extensions. Because no functions have been defined for this app, there isn't a concern yet. To learn more about this requirement, see [Connecting to host storage with an identity](./functions-reference.md#connecting-to-host-storage-with-an-identity).
 >
 > Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption. When you enable identity-based connections for `AzureWebJobsStorage` in Linux Consumption, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
 

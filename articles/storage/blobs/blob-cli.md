@@ -3,10 +3,13 @@ title: Manage block blobs with Azure CLI
 titleSuffix: Azure Storage
 description: Manage blobs with Azure CLI 
 author: StevenMatthew
+
 ms.author: shaas
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 08/28/2023
+ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Manage block blobs with Azure CLI
@@ -17,15 +20,15 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 - This article requires version 2.0.46 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ### Authorize access to Blob storage
 
-You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using a storage account access key. Using Azure AD credentials is recommended, and this article's examples use Azure AD exclusively.
+You can authorize access to Blob storage from the Azure CLI either with Microsoft Entra credentials or by using a storage account access key. Using Microsoft Entra credentials is recommended, and this article's examples use Microsoft Entra ID exclusively.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to *login* to authorize with Azure AD credentials. Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization. For more information, see [Choose how to authorize access to blob data with Azure CLI](authorize-data-operations-cli.md).
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to *login* to authorize with Microsoft Entra credentials. Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Microsoft Entra credentials for authorization. For more information, see [Choose how to authorize access to blob data with Azure CLI](authorize-data-operations-cli.md).
 
 Run the `login` command to open a browser and connect to your Azure subscription.
 
@@ -65,14 +68,14 @@ You can use the `az storage blob upload-batch` command to recursively upload mul
 
 In the following example, the first operation uses the `az storage blob upload` command to upload a single, named file. The source file and destination storage container are specified with the `--file` and `--container-name` parameters.  
 
-The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-unmodified-since` parameter ensures that only files modified with the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
+The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-modified-since` parameter ensures that only files modified within the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
 
 ```azurecli-interactive
 
 #!/bin/bash
 storageAccount="<storage-account>"
 containerName="demo-container"
-lastModified=`date -d "10 days ago" '+%Y-%m-%dT%H:%MZ'`
+lastModified=`date -d "7 days ago" '+%Y-%m-%dT%H:%MZ'`
 
 path="C:\\temp\\"
 filename="demo-file.txt"
@@ -93,7 +96,7 @@ az storage blob upload-batch \
     --pattern *.png \
     --account-name $storageAccount \
     --auth-mode login \
-    --if-unmodified-since $lastModified
+    --if-modified-since $lastModified
 
 ```
 
@@ -328,15 +331,15 @@ az storage blob snapshot \
 
 ## Set blob tier
 
-When you change a blob's tier, you move the blob and all of its data to the target tier. You can change the tier between **Hot**, **Cool**, and **Archive** with the `az storage blob set-tier` command.
+When you change a blob's tier, you move the blob and all of its data to the target tier. You can change the tier between **hot**, **cool**, and **archive** with the `az storage blob set-tier` command.
 
 Depending on your requirements, you may also utilize the *Copy Blob* operation to copy a blob from one tier to another. The *Copy Blob* operation will create a new blob in the desired tier while leaving the source blob remains in the original tier.
 
-Changing tiers from **Cool** or **Hot** to **Archive** takes place almost immediately. After a blob is moved to the **Archive** tier, it's considered to be offline and can't be read or modified. Before you can read or modify an archived blob's data, you'll need to rehydrate it to an online tier. Read more about [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+Changing tiers from **cool** or **hot** to **archive** takes place almost immediately. After a blob is moved to the **archive** tier, it's considered to be offline and can't be read or modified. Before you can read or modify an archived blob's data, you'll need to rehydrate it to an online tier. Read more about [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 For additional information, see the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) reference.
 
-The following sample code sets the tier to **Hot** for a single, named blob within the `archive` container.
+The following sample code sets the tier to **hot** for a single, named blob within the `archive` container.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -354,10 +357,6 @@ az storage blob set-tier
 ## Operations using blob tags
 
 Blob index tags make data management and discovery easier. Blob index tags are user-defined key-value index attributes that you can apply to your blobs. Once configured, you can categorize and find objects within an individual container or across all containers. Blob resources can be dynamically categorized by updating their index tags without requiring a change in container organization. This approach offers a flexible way to cope with changing data requirements. You can use both metadata and index tags simultaneously. For more information on index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
-
-> [!IMPORTANT]
-> Support for blob index tags is in preview status.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!TIP]
 > The code sample provided below uses pattern matching to obtain text from an XML file having a known structure. The example is used to illustrate a simplified approach for adding blob tags using basic Bash functionality. The use of an actual data parsing tool is always recommended when consuming data for production workloads.
@@ -622,5 +621,5 @@ fi
 ## Next steps
 
 - [Choose how to authorize access to blob data with Azure CLI](./authorize-data-operations-cli.md)
-- [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-cli.md)
+- [Run PowerShell commands with Microsoft Entra credentials to access blob data](./authorize-data-operations-cli.md)
 - [Manage blob containers using CLI](blob-containers-cli.md)

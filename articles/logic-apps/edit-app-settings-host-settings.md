@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 10/10/2023
 ms.custom: fasttrack-edit
 ---
 
@@ -47,14 +47,20 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `AzureWebJobsStorage` | None | Sets the connection string for an Azure storage account. |
+| `AzureWebJobsStorage` | None | Sets the connection string for an Azure storage account. For more information, see [AzureWebJobsStorage](../azure-functions/functions-app-settings.md#azurewebjobsstorage) |
+| `FUNCTIONS_WORKER_RUNTIME` | `node` | Sets the language worker runtime to use with your logic app resource and workflows. However, this setting is no longer necessary due to automatically enabled multi-language support. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](../azure-functions/functions-app-settings.md#functions_worker_runtime). |
+| `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
+| `ServiceProviders.Sftp.OperationTimeout` | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
+| `ServiceProviders.Sftp.ServerAliveInterval` | `00:30:00` <br>(30 min) | Send a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. For more information, see the [ServerAliveInterval setting](https://man.openbsd.org/ssh_config.5#ServerAliveInterval). |
+| `ServiceProviders.Sftp.SftpConnectionPoolSize` | `2` connections | Sets the number of connections that each processor can cache. The total number of connections that you can cache is *ProcessorCount* multiplied by the setting value. |
+| `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
 | `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
 | `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
 | `Workflows.CustomHostName` | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
 | `Workflows.<workflowName>.FlowState` | None | Sets the state for <*workflowName*>. |
 | `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | None | Sets the amount of time in days to keep the run history for <*workflowName*>. |
-| `Workflows.RuntimeConfiguration.RetentionInDays` | `90.00:00:00` <br>(90 days) | Sets the amount of time in days to keep workflow run history after a run starts. |
+| `Workflows.RuntimeConfiguration.RetentionInDays` | `90` days | Sets the amount of time in days to keep workflow run history after a run starts. |
 | `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
 
 <a name="manage-app-settings"></a>
@@ -65,33 +71,31 @@ To add, update, or delete app settings, select and review the following sections
 
 ### [Azure portal](#tab/azure-portal)
 
-To review the app settings for your single-tenant based logic app in the Azure portal, follow these steps:
+##### View app settings in the portal
 
 1. In the [Azure portal](https://portal.azure.com/) search box, find and open your logic app.
 
-1. On your logic app menu, under **Settings**, select **Configuration**.
+1. On your logic app menu, under **Settings**, select **Environment variables**.
 
-1. On the **Configuration** page, on the **Application settings** tab, review the app settings for your logic app.
+1. On the **Environment variables** page, on the **App settings** tab, review the app settings for your logic app.
 
    For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
 
-1. To view all values, select **Show Values**. Or, to view a single value, select that value.
+1. To view all values, select **Show Values**. Or, to view a single value, in the **Value** column, next to the value, select the "eye".
 
-To add a setting, follow these steps:
+##### Add an app setting in the portal
 
-1. On the **Application settings** tab, under **Application settings**, select **New application setting**.
-
-1. For **Name**, enter the *key* or name for your new setting.
+1. On the **App settings** tab, at the bottom of the list, in the **Name** column, enter the *key* or name for your new setting.
 
 1. For **Value**, enter the value for your new setting.
 
-1. When you're ready to create your new *key-value* pair, select **OK**.
+1. When you're ready to create your new *key-value* pair, select **Apply**.
 
-:::image type="content" source="./media/edit-app-settings-host-settings/portal-app-settings-values.png" alt-text="Screenshot showing the Azure portal and the configuration pane with the app settings and values for a single-tenant based logic app." lightbox="./media/edit-app-settings-host-settings/portal-app-settings-values.png":::
+   :::image type="content" source="./media/edit-app-settings-host-settings/portal-app-settings-values.png" alt-text="Screenshot shows Azure portal with app settings page and values for a Standard logic app resource." lightbox="./media/edit-app-settings-host-settings/portal-app-settings-values.png":::
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-To review the app settings for your logic app in Visual Studio Code, follow these steps:
+##### View app settings in Visual Studio Code
 
 1. In your logic app project, at the root project level, find and open the **local.settings.json** file.
 
@@ -99,7 +103,7 @@ To review the app settings for your logic app in Visual Studio Code, follow thes
 
    For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
 
-To add an app setting, follow these steps:
+##### Add an app setting in Visual Studio Code
 
 1. In the **local.settings.json** file, find the `Values` object.
 
@@ -152,7 +156,6 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Jobs.BackgroundJobs.NumPartitionsInJobDefinitionsTable` | `4` job partitions | Sets the number of job partitions in the job definition table. This value controls how much execution throughput is affected by partition storage limits. |
 | `Jobs.BackgroundJobs.NumPartitionsInJobTriggersQueue` | `1` job queue | Sets the number of job queues monitored by job dispatchers for jobs to process. This value also affects the number of storage partitions where job queues exist. |
 | `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
-| `Jobs.StuckJobThreshold` | `00:60:00` <br>(60 minutes) | Sets the time duration before a job is declared as stuck. If you have an action that requires more than 60 minutes to run, you might need to increase this setting's default value and also the [`functionTimeout` property](../azure-functions/functions-scale.md#timeout) value in the same **host.json** file to the same value. |
 
 <a name="recurrence-triggers"></a>
 
@@ -166,6 +169,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 ### Trigger concurrency
 
+The following settings work only for workflows that start with a recurrence-based trigger for [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/). For a workflow that starts with a function-based trigger, you might try to [set up batching where supported](logic-apps-batch-process-send-receive-messages.md). However, batching isn't always the correct solution. For example, with Azure Service Bus triggers, a batch might hold onto messages beyond the lock duration. As a result, any action, such as complete or abandon, fails on such messages.
+
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Trigger.MaximumRunConcurrency` | `100` runs | Sets the maximum number of concurrent runs that a trigger can start. This value appears in the trigger's concurrency definition. |
@@ -177,7 +182,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. <br><br>**Important**: Make sure this value is less than or equal to the value for the app setting named `Workflows.RuntimeConfiguration.RetentionInDays`. Otherwise, run histories can get deleted before the associated jobs are complete. |
+| `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. The minimum value for this setting is 7 days. <br><br>**Important**: Make sure this value is less than or equal to the value for the app setting named `Workflows.RuntimeConfiguration.RetentionInDays`. Otherwise, run histories can get deleted before the associated jobs are complete. |
 | `Runtime.FlowMaintenanceJob.RetentionCooldownInterval` | `7.00:00:00` <br>(7 days) | Sets the amount of time in days as the interval between when to check for and delete run history that you no longer want to keep. |
 
 <a name="run-actions"></a>
@@ -194,8 +199,9 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.ContentLink.MaximumContentSizeInBytes` | `104857600` bytes | Sets the maximum size in bytes that an input or output can have in a trigger or action. |
-| `Runtime.FlowRunActionJob.MaximumActionResultSize` | `209715200` bytes | Sets the maximum size in bytes that the combined inputs and outputs can have in an action. |
+| `Microsoft.Azure.Workflows.TemplateLimits.InputParametersLimit` | `50` | Change the default limit on [cross-environment workflow parameters](create-parameters-workflows.md) up to 500 for Standard logic apps created by [exporting Consumption logic apps](export-from-consumption-to-standard-logic-app.md). |
+| `Runtime.ContentLink.MaximumContentSizeInBytes` | `104857600` bytes | Sets the maximum size in bytes that an input or output can have in a single trigger or action. |
+| `Runtime.FlowRunActionJob.MaximumActionResultSize` | `209715200` bytes | Sets the maximum size in bytes that the combined inputs and outputs can have in a single action. |
 
 <a name="pagination"></a>
 
@@ -294,6 +300,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
+| `Microsoft.Azure.Workflows.ContentStorage.RequestOptionsThreadCount` | None | Sets the thread count for blob upload and download operations. You can use this setting to force the Azure Logic Apps runtime to use multiple threads when uploading and downloading content from action inputs and outputs. |
 | `Runtime.ContentStorage.RequestOptionsDeltaBackoff` | `00:00:02` <br>(2 sec) | Sets the backoff interval between retries sent to blob storage. |
 | `Runtime.ContentStorage.RequestOptionsMaximumAttempts` | `4` retries | Sets the maximum number of retries sent to table and queue storage. |
 | `Runtime.ContentStorage.RequestOptionsMaximumExecutionTime` | `00:02:00` <br>(2 min) | Sets the operation timeout value, including retries, for blob requests from the Azure Logic Apps runtime. |
@@ -309,6 +316,14 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.DataStorage.RequestOptionsMaximumAttempts` | `4` retries | Sets the maximum number of retries sent to table and queue storage. |
 | `Runtime.DataStorage.RequestOptionsMaximumExecutionTime` | `00:00:45` <br>(45 sec) | Sets the operation timeout value, including retries, for table and queue storage requests from the Azure Logic Apps runtime. |
 | `Runtime.DataStorage.RequestOptionsServerTimeout` | `00:00:16` <br>(16 sec) | Sets the timeout value for table and queue storage requests from the Azure Logic Apps runtime. |
+
+<a name="built-in-file-share"></a>
+
+#### File share
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `ServiceProviders.AzureFile.MaxFileSizeInBytes` | `150000000` bytes | Sets the maximum file size in bytes for an Azure file share. |
 
 <a name="built-in-azure-functions"></a>
 
@@ -331,6 +346,15 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 |---------|---------------|-------------|
 | `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` | `00:01:00` <br>(1 min) | Sets the timeout for sending messages with the built-in Service Bus operation. |
 | `Runtime.ServiceProviders.ServiceBus.MessageSenderPoolSizePerProcessorCount` | `64` message senders | Sets the number of Azure Service Bus message senders per processor core to use in the message sender pool. |
+
+<a name="built-in-sftp"></a>
+
+### Built-in SFTP operations
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Runtime.ServiceProviders.Sftp.MaxFileSizeInBytes` | `2147483648` bytes | Sets the maximum file size in bytes for the **Get file content (V2)** action. |
+| `Runtime.ServiceProviders.Sftp.MaximumFileSizeToReadInBytes`| `209715200` bytes | Sets the maximum file size in bytes for the **Get file content** action. Make sure this value doesn't exceed the referenceable memory size because this action reads file content in memory. |
 
 <a name="managed-api-connector"></a>
 

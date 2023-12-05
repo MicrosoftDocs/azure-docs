@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial - Connect an on-premises network and a virtual network: S2S VPN: Azure portal'
-description: In this tutorial, learn how to create a site-to-site VPN Gateway IPsec connection from your on-premises network to a VNet.
+description: In this tutorial, learn how to create a site-to-site VPN Gateway IPsec connection between your on-premises network to a VNet.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/21/2022
+ms.date: 11/21/2023
 
 ---
 
 # Tutorial: Create a site-to-site VPN connection in the Azure portal
 
-Azure VPN gateways provide cross-premises connectivity between customer premises and Azure. This tutorial shows you how to use the Azure portal to create a site-to-site VPN gateway connection from your on-premises network to the VNet. You can also create this configuration using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
+This tutorial shows you how to use the Azure portal to create a site-to-site VPN gateway connection between your on-premises network and a virtual network (VNet). You can also create this configuration using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
-:::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Site-to-site VPN Gateway cross-premises connection diagram.":::
+:::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram of site-to-site VPN Gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
 
 In this tutorial, you learn how to:
 
@@ -48,6 +48,8 @@ In this section, you'll create a virtual network (VNet) using the following valu
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
+After you create your VNet, you can optionally configure Azure DDos Protection. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md)
+
 ## <a name="VNetGateway"></a>Create a VPN gateway
 
 In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
@@ -63,7 +65,6 @@ Create a virtual network gateway (VPN gateway) using the following values:
 * **Name:** VNet1GW
 * **Region:** East US
 * **Gateway type:** VPN
-* **VPN type:** Route-based
 * **SKU:** VpnGw2
 * **Generation:** Generation 2
 * **Virtual network:** VNet1
@@ -106,7 +107,7 @@ Create a local network gateway using the following values:
 Site-to-site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When configuring your VPN device, you need the following values:
 
 * A shared key. This is the same shared key that you specify when creating your site-to-site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use.
-* The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the Public IP address of your VPN gateway using the Azure portal, go to **Virtual network gateways**, then select the name of your gateway.
+* The public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the public IP address of your VPN gateway using the Azure portal, go to **Virtual network gateways**, then select the name of your gateway.
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
@@ -124,7 +125,7 @@ Create a connection using the following values:
 
 ### <a name="configure-connect"></a>To configure additional connection settings (optional)
 
-You can configure additional settings for your connection, if necessary. Otherwise, skip this section and leave the defaults in place.
+You can configure additional settings for your connection, if necessary. Otherwise, skip this section and leave the defaults in place. For more information, see [Configure custom IPsec/IKE connection policies](ipsec-ike-policy-howto.md).
 
 [!INCLUDE [Configure additional connection settings with screenshot](../../includes/vpn-gateway-connection-settings-portal-include.md)]
 
@@ -140,7 +141,7 @@ You can configure additional settings for your connection, if necessary. Otherwi
 
 ### <a name="resize"></a>Resize a gateway SKU
 
-There are specific rules regarding resizing vs. changing a gateway SKU. In this section, we'll resize the SKU. For more information, see [Gateway settings - resizing and changing SKUs](vpn-gateway-about-vpn-gateway-settings.md#resizechange).
+There are specific rules regarding resizing vs. changing a gateway SKU. In this section, we'll resize the SKU. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
 
 [!INCLUDE [resize a gateway](../../includes/vpn-gateway-resize-gw-portal-include.md)]
 

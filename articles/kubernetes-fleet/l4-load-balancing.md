@@ -6,7 +6,10 @@ ms.date: 09/09/2022
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2022
+  - devx-track-azurecli
+  - ignite-2023
 ---
 
 # Set up multi-cluster layer 4 load balancing across Azure Kubernetes Fleet Manager member clusters (preview)
@@ -21,7 +24,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 
-* You must have a Fleet resource with member clusters to which a workload has been deployed. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](configuration-propagation.md)
+* You must have a Fleet resource with member clusters to which a workload has been deployed. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](resource-propagation.md)
 
 * These target clusters should be using [Azure CNI networking](../aks/configure-azure-cni.md).
 
@@ -43,7 +46,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     az aks get-credentials --resource-group ${GROUP} --name ${MEMBER_CLUSTER_1} --file aks-member-1
     ```
 
-[!INCLUDE [preview features note](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [preview features note](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Deploy a sample workload to demo clusters
 
@@ -164,6 +167,21 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     ```bash
     KUBECONFIG=aks-member-1 kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-mcs.yaml
     ```
+
+    > [!NOTE]
+    > To expose the service via the internal IP instead of public one, add the annotation to the MultiClusterService:
+    >  
+    > ```yaml
+    > apiVersion: networking.fleet.azure.com/v1alpha1
+    > kind: MultiClusterService
+    > metadata:
+    >   name: kuard
+    >   namespace: kuard-demo
+    >   annotations:
+    >      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    >   ...
+    > ```
+
 
     Output will look similar to the following example:
 

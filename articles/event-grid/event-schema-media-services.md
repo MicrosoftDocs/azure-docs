@@ -2,7 +2,7 @@
 title: Azure Media Services as Event Grid source
 description: Describes the properties that are provided for Media Services events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 12/02/2022
 ---
 
 # Azure Media Services as an Event Grid source
@@ -53,7 +53,7 @@ See [Schema examples](#event-schema-examples) that follow.
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.Media.JobOutputProgress| This event reflects the job processing progress, from 0% to 100%. The service attempts to send an event if there has been 5% or greater increase in the progress value or it has been more than 30 seconds since the last event (heartbeat). The progress value isn't guaranteed to start at 0%, or to reach 100%, nor is it guaranteed to increase at a constant rate over time. This event should not be used to determine that the processing has been completed – you should instead use the state change events.|
+| Microsoft.Media.JobOutputProgress| This event reflects the job processing progress, from 0% to 100%. The service attempts to send an event if there has been 5% or greater increase in the progress value or it has been more than 30 seconds since the last event (heartbeat). The progress value isn't guaranteed to start at 0%, or to reach 100%, nor is it guaranteed to increase at a constant rate over time. This event shouldn't be used to determine that the processing has been completed – you should instead use the state change events.|
 
 See [Schema examples](#event-schema-examples) that follow.
 
@@ -344,7 +344,7 @@ For each JobOutput state change, the example schema looks similar to the followi
 
 The example schema looks similar to the following:
 
- ```json
+```json
 [{
   "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
   "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
@@ -894,10 +894,10 @@ The data object has the following properties:
 | `nonIncreasingCount` | integer | Number of data chunks with timestamps in the past were received in last 20 seconds. |
 | `unexpectedBitrate` | bool | If expected and actual bitrates differ by more than allowed limit in last 20 seconds. It's true if and only if, incomingBitrate >= 2* bitrate OR incomingBitrate <= bitrate/2 OR IncomingBitrate = 0. |
 | `state` | string | State of the live event. |
-| `healthy` | bool | Indicates whether ingest is healthy based on the counts and flags. Healthy is true if overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
+| `healthy` | bool | Indicates whether ingest is healthy, based on the counts and flags. Healthy is true if overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 | `lastFragmentArrivalTime` | string |The last time stamp in UTC that a fragment arrived at the ingest endpoint. Example date format is "2020-11-11 12:12:12:888999" |
-| `ingestDriftValue` | string | Indicates the speed of delay, in seconds-per-minute, of the incoming audio or video data during the last minute. The value is greater than zero if data is arriving to the live event slower than expected in the last minute; zero if data arrived with no delay; and "n/a" if no audio or video data was received. For example, if you have a contribution encoder sending in live content, and it is slowing down due to processing issues, or network latency, it may be only able to deliver a total of 58 seconds of audio or video in a one minute period. This would be reported as 2 seconds-per-minute of drift. If the encoder is able to catch up and send all 60 seconds or more of data every minute you will see this value reported as 0. If there was a disconnection, or discontinuity from the encoder, this value may still display as 0, as it does not account for breaks in the data - only data that is delayed in timestamps.|
-| `transcriptionState` | string | This value is "On" for audio track heartbeats if live transcription is turned on, otherwise you will see an empty string. This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value.|
+| `ingestDriftValue` | string | Indicates the speed of delay, in seconds-per-minute, of the incoming audio or video data during the last minute. The value is greater than zero if data is arriving to the live event slower than expected in the last minute; zero if data arrived with no delay; and "n/a" if no audio or video data was received. For example, if you have a contribution encoder sending in live content, and it is slowing down due to processing issues, or network latency, it may be only able to deliver a total of 58 seconds of audio or video in a one minute period. This would be reported as 2 seconds-per-minute of drift. If the encoder is able to catch up and send all 60 seconds or more of data every minute you'll see this value reported as 0. If there was a disconnection, or discontinuity from the encoder, this value may still display as 0, as it doesn't account for breaks in the data - only data that is delayed in timestamps.|
+| `transcriptionState` | string | This value is "On" for audio track heartbeats if live transcription is turned on, otherwise you'll see an empty string. This state is only applicable to`tracktype` of `audio` for Live transcription. All other tracks will have an empty value.|
 | `transcriptionLanguage` | string  | The language code (in BCP-47 format) of the transcription language. For example “de-de” indicates German (Germany). The value is empty for the video track heartbeats, or when live transcription is turned off. |
 
 
@@ -978,7 +978,7 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `topic` | string | The event grid topic. This property has the resource ID for the Media Services account. |
+| `topic` | string | The Event Grid topic. This property has the resource ID for the Media Services account. |
 | `subject` | string | The resource path for the Media Services channel under the Media Services account. Concatenating the topic and subject give you the resource ID for the job. |
 | `eventType` | string | One of the registered event types for this event source. For example, "Microsoft.Media.JobStateChange". |
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |
@@ -993,7 +993,7 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `source` | string | The event grid topic. This property has the resource ID for the Media Services account. |
+| `source` | string | The Event Grid topic. This property has the resource ID for the Media Services account. |
 | `subject` | string | The resource path for the Media Services channel under the Media Services account. Concatenating the topic and subject give you the resource ID for the job. |
 | `type` | string | One of the registered event types for this event source. For example, "Microsoft.Media.JobStateChange". |
 | `time` | string | The time the event is generated based on the provider's UTC time. |
@@ -1005,11 +1005,10 @@ An event has the following top-level data:
 ---
 
 ## Next steps
-
-[Register for job state change events](/azure/media-services/latest/monitoring/job-state-events-cli-how-to)
+See [Register for job state change events](/azure/media-services/latest/monitoring/job-state-events-cli-how-to)
 
 ## See also
 
-- [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Event Grid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
 - [Live Event error codes](/azure/media-services/latest/live-event-error-codes-reference)

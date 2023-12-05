@@ -1,173 +1,168 @@
 ---
 title: Manage backed up SAP HANA databases on Azure VMs
-description: In this article, learn common tasks for managing and monitoring SAP HANA databases that are running on Azure virtual machines.
-ms.topic: conceptual
-ms.date: 10/08/2022
-author: v-amallick
+description: In this article, you'll learn common tasks for managing and monitoring SAP HANA databases that are running on Azure virtual machines.
+ms.topic: how-to
+ms.date: 06/30/2023
 ms.service: backup
 ms.custom: ignite-2022
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Manage and monitor backed up SAP HANA databases
 
-This article describes common tasks for managing and monitoring SAP HANA databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](./backup-overview.md) service. You'll learn how to monitor jobs and alerts, trigger an on-demand backup, edit policies, stop and resume database protection and unregister a VM from backups.
+This article describes common tasks for managing and monitoring SAP HANA databases that are running on an Azure virtual machine (VM) and backed up to an Azure Backup Recovery Services vault by the [Azure Backup](./backup-overview.md) service. 
+
+You'll learn how to monitor jobs and alerts, trigger an on-demand backup, edit policies, stop and resume database protection, and unregister a VM from backups.
 
 >[!Note]
->Support for HANA Instance snapshot and support for HANA System Replication mode are in preview.
+>Support for HANA instance snapshots is in now generally available.
 
-If you haven't configured backups yet for your SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md). Learn more about the [supported configurations and scenarios](sap-hana-backup-support-matrix.md).
+If you haven't configured backups yet for your SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md). To earn more about the supported configurations and scenarios, see [Support matrix for backup of SAP HANA databases on Azure VMs](sap-hana-backup-support-matrix.md).
 
-## Monitor manual backup jobs using the Azure portal
+## Run on-demand backups
 
-Azure Backup shows all manually triggered jobs in the **Backup jobs** section in **Backup center**.
+Backups run according to the policy schedule.
 
-:::image type="content" source="./media/sap-hana-db-manage/backup-center-jobs-list-inline.png" alt-text="Screenshot showing the Backup jobs section." lightbox="./media/sap-hana-db-manage/backup-center-jobs-list-expanded.png":::
+To run on-demand backups, follow these steps:
 
-The jobs you see in this portal includes database discovery and registering, and backup and restore operations. Scheduled jobs, including log backups aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) also don't show up here.
+1. On the left pane of the Recovery Services vault, select **Backup items**.
 
-:::image type="content" source="./media/sap-hana-db-manage/hana-view-jobs-inline.png" alt-text="Screenshot showing the Backup jobs list." lightbox="./media/sap-hana-db-manage/hana-view-jobs-expanded.png":::
+   ![Screenshot that shows the 'Backup items' link on the Recovery Services vault dashboard.](./media/sap-hana-db-manage/backup-items.png)
 
-To learn more about monitoring, go to [Monitoring in the Azure portal](./backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+1. On the **Backup Items** pane, select the VM that's running the SAP HANA database, and then select **Backup now**.
 
-## View backup alerts
+1. On the **Backup Now** pane, choose the type of backup that you want to perform, and then select **OK**.
 
-Alerts are an easy means of monitoring backups of SAP HANA databases. Alerts help you focus on the events you care about the most without getting lost in the multitude of events that a backup generates. Azure Backup allows you to set alerts, and they can be monitored as follows:
-
-* Sign in to the [Azure portal](https://portal.azure.com/).
-* On the vault dashboard, select **Backup Alerts**.
-
-  ![Backup alerts on vault dashboard](./media/sap-hana-db-manage/backup-alerts-dashboard.png)
-
-* You'll be able to see the alerts:
-
-  ![List of backup alerts](./media/sap-hana-db-manage/backup-alerts-list.png)
-
-* Select the alerts to see more details:
-
-  ![Alert details](./media/sap-hana-db-manage/alert-details.png)
-
-Today, Azure Backup allows the sending of alerts through email. These alerts are:
-
-* Triggered for all backup failures.
-* Consolidated at the database level by error code.
-* Sent only for a database's first backup failure.
-
-To learn more about monitoring, go to [Monitoring in the Azure portal](./backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
-
-## Manage operations
-
-Azure Backup makes management of a backed-up SAP HANA database easy with an abundance of management operations that it supports. These operations are discussed in more detail in the following sections.
-
-### Run an on-demand backup
-
-Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
-
-1. In the vault menu, select **Backup items**.
-1. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
-1. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**.
-
-   The retention period of this backup is determined by the type of on-demand backup you have run.
+   The retention period of this backup is determined by the type of on-demand backup you want to run.
 
    - *On-demand full backups* are retained for a minimum of *45 days* and a maximum of *99 years*.
    - *On-demand differential backups* are retained as per the *log retention set in the policy*.
    - *On-demand incremental backups* aren't currently supported.
 
-1. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
+1. Monitor the Azure portal notifications. To do so, on the Recovery Services vault dashboard, select **Backup Jobs**, and then select **In progress**. 
 
-### HANA native client integration
+   >[!Note]
+   >- Based on the size of your database, creating the initial backup might take a while.
+   >- Before a planned failover, ensure that both VMs/Nodes are registered to the vault (physical and logical registration). [Learn more](#verify-the-registration-status-of-vms-or-nodes-to-the-vault).
 
-In the following sections, you'll learn how to trigger the backup and restore operations from non-Azure clients, such as HANA studio.
+## Monitor manual backup jobs
 
->[!Note]
->HANA native clients are integrated for Backint based operations only. Snapshots and HANA System Replication mode related operations are currently not supported.
+Azure Backup shows all manually triggered jobs in the **Backup jobs** section of **Backup center**.
 
-#### Backup
+:::image type="content" source="./media/sap-hana-db-manage/backup-center-jobs-list-inline.png" alt-text="Screenshot that shows the 'Backup jobs' section of 'Backup center'." lightbox="./media/sap-hana-db-manage/backup-center-jobs-list-expanded.png":::
 
-On-demand backups triggered from any of the HANA native clients (to **Backint**) will show up in the backup list on the **Backup Instances** page.
+The jobs that are displayed in the Azure portal include database discovery and registering, and backup and restore operations. Scheduled jobs, including log backups, aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio, Cockpit, and DBA Cockpit) also aren't shown here.
 
-![Last backups run](./media/sap-hana-db-manage/last-backups.png)
+:::image type="content" source="./media/sap-hana-db-manage/hana-view-jobs-inline.png" alt-text="Screenshot that shows the 'Backup jobs' list." lightbox="./media/sap-hana-db-manage/hana-view-jobs-expanded.png":::
 
-You can also [monitor these backups](#monitor-manual-backup-jobs-using-the-azure-portal) from the **Backup jobs** page.
+To learn more about monitoring, go to [Monitor Azure Backup workloads in the Azure portal](./backup-azure-monitoring-built-in-monitor.md) and [Monitor at scale by using Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
 
-These on-demand backups will also show up in the list of restore points for restore.
+## Monitor backup alerts
 
-![List of restore points](./media/sap-hana-db-manage/list-restore-points.png)
+Alerts are an easy means of monitoring backups of SAP HANA databases. Alerts help you focus on the events you care about the most without getting lost in the multitude of events that a backup generates. 
 
-#### Restore
+Azure Backup lets you set alerts, which you can monitor by doing the following:
 
-Restores triggered from HANA native clients (using **Backint**) to restore to **the same machine** can be [monitored](#monitor-manual-backup-jobs-using-the-azure-portal) from the **Backup jobs** page.
-Restores triggered from HANA native clients to restore to another machine are not allowed. This is because Azure Backup service cannot authenticate the target server, as per Azure RBAC rules, for restore.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-#### Delete
+1. On the left pane of the Recovery Services vault, select **Backup Alerts**.
 
-Delete operation from HANA native is **NOT** supported by Azure Backup since the backup policy determines the lifecycle of backups in Azure Recovery services vault.
+   ![Screenshot that shows the 'Backup Alerts' link on the Recovery Services vault dashboard.](./media/sap-hana-db-manage/backup-alerts-dashboard.png)
 
-### Change policy
+   The **Backup Alerts** pane opens.
+
+   ![Screenshot that shows a list of backup alerts on the 'Backup Alerts' pane.](./media/sap-hana-db-manage/backup-alerts-list.png)
+
+1. To view alert details, select the alert:
+
+   ![Screenshot that shows the details of an alert.](./media/sap-hana-db-manage/alert-details.png)
+
+With Azure Backup, you can send alerts by email. These alerts are:
+
+* Triggered for all backup failures.
+* Consolidated at the database level by error code.
+* Sent only for a database's first backup failure.
+
+## Manage operations using the Azure portal
+
+This section describes several Azure Backup supported  management operations that make it easy to manage a backed-up SAP HANA database.
+
+### Change a policy
 
 You can change the underlying policy for an SAP HANA backup item.
 
->[!Note]
->In the case of HANA snapshot, the new HANA instance policy can have a different resource group and/or another user-assigned managed identity. Currently, the Azure portal performs all validations during the backup configuration. So, you must assign the required roles on the new snapshot resource group and/or the new user-assigned identity using the [CLI scripts](https://github.com/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/tree/main/SnapshotPreReqCLIScripts).
+> [!Note]
+> For HANA snapshots, the new HANA instance policy can have a different resource group or another user-assigned managed identity. Currently, the Azure portal performs all validations during the backup configuration. So, you must assign the required roles on the new snapshot resource group or the new user-assigned identity by using the [CLI scripts](https://github.com/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/tree/main/SnapshotPreReqCLIScripts).
 
-In the **Backup center** dashboard, go to **Backup Instances**:
+On the **Backup center** dashboard, go to **Backup Instances**, and then do the following:
 
-* Choose **SAP HANA in Azure VM** as the datasource type.
+1. Choose **SAP HANA in Azure VM** as the datasource type.
 
-  :::image type="content" source="./media/sap-hana-db-manage/hana-backup-instances-inline.png" alt-text="Screenshot showing to choose SAP HANA in Azure VM." lightbox="./media/sap-hana-db-manage/hana-backup-instances-expanded.png":::
+   :::image type="content" source="./media/sap-hana-db-manage/hana-backup-instances-inline.png" alt-text="Screenshot that shows where to choose 'SAP HANA in Azure VM'." lightbox="./media/sap-hana-db-manage/hana-backup-instances-expanded.png":::
 
-* Choose the backup item whose underlying policy you want to change.
-* Select the existing Backup policy.
+1. Choose the backup item whose underlying policy you want to change.
 
-  ![Select existing backup policy](./media/sap-hana-db-manage/existing-backup-policy.png)
+1. Select the existing Azure Backup policy.
 
-* Change the policy, choosing from the list. [Create a new backup policy](./backup-azure-sap-hana-database.md#create-a-backup-policy) if needed.
+   ![Screenshot that shows where to select existing backup policy.](./media/sap-hana-db-manage/existing-backup-policy.png)
 
-  ![Choose policy from drop-down list](./media/sap-hana-db-manage/choose-backup-policy.png)
+1. On the **Backup Policy** pane, change the policy by selecting it in the dropdown list. If necessary, [Create a new backup policy](./backup-azure-sap-hana-database.md#create-a-backup-policy).
 
-* Save the changes.
+   ![Screenshot that shows the dropdown list for changing the backup policy.](./media/sap-hana-db-manage/choose-backup-policy.png)
 
-  ![Save the changes](./media/sap-hana-db-manage/save-changes.png)
+1. Select **Save**.
 
-* Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
+   ![Screenshot that shows the 'Save' button for changing the backup policy change.](./media/sap-hana-db-manage/save-changes.png)
 
->[!NOTE]
-> Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
+Making policy modifications affects all the associated backup items and triggers corresponding *configure protection* jobs.
 
-### Modify Policy
+### Edit a policy
 
-To modify policy to change backup types, frequencies, and retention range, follow these steps:
+To modify the policy to change backup types, frequencies, and retention range, follow these steps:
 
 >[!NOTE]
->- Any change in the retention period will be applied retroactively to all the older recovery points, in addition to the new ones.
+> * Any change in the retention period will be applied to both the new recovery points and, retroactively, to all older recovery points.
 >
->- In the case of HANA snapshot, you can edit the HANA instance policy to have a different resource group and/or another user-assigned managed identity. Currently, the Azure portal performs all validations during the backup configure only. So, you must assign the required roles on the new snapshot resource group and/or the new user-assigned identity using the [CLI scripts](https://github.com/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/tree/main/SnapshotPreReqCLIScripts).
+> * For HANA snapshots, you can edit the HANA instance policy to have a different resource group or another user-assigned managed identity. Currently, the Azure portal performs all validations during the backup configuration only. So, you must assign the required roles on the new snapshot resource group or the new user-assigned identity by using the [CLI scripts](https://github.com/Azure/Azure-Workload-Backup-Troubleshooting-Scripts/tree/main/SnapshotPreReqCLIScripts).
 
-1. In the **Backup center** dashboard, go to **Backup Policies** and choose the policy you want to edit.
+1. On the **Backup center** dashboard, go to **Backup Policies**, and then select the policy you want to edit.
 
-   :::image type="content" source="./media/sap-hana-db-manage/backup-center-policies-inline.png" alt-text="Screenshot showing to choose the policy to edit." lightbox="./media/sap-hana-db-manage/backup-center-policies-expanded.png":::
+   :::image type="content" source="./media/sap-hana-db-manage/backup-center-policies-inline.png" alt-text="Screenshot that shows where to select the policy to edit." lightbox="./media/sap-hana-db-manage/backup-center-policies-expanded.png":::
 
-1. Select **Modify**.
+1. On the **Backup policy** pane, select **Modify**.
 
-   ![Select Modify](./media/sap-hana-db-manage/modify-policy.png)
+   ![Screenshot that shows the 'Modify' button for changing the backup policy.](./media/sap-hana-db-manage/modify-policy.png)
 
-1. Choose the frequency for the backup types.
+1. Select the frequency of the backups.
 
-   ![Choose backup frequency](./media/sap-hana-db-manage/choose-frequency.png)
+   ![Screenshot that shows where to select the backup frequency.](./media/sap-hana-db-manage/choose-frequency.png)
 
-Policy modification will impact all the associated backup items and trigger corresponding **configure protection** jobs.
+Modifying the backup policy affects all the associated backup items and triggers corresponding *configure protection* jobs.
+
+### Upgrade from SDC to MDC
+
+Learn how to continue backing up an [SAP HANA database after you upgrade from a single container database (SDC) to a multiple container database (MDC)](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid).
 
 ### Inconsistent policy
 
-Occasionally a modify policy operation can lead to an **inconsistent** policy version for some backup items. This happens when the corresponding **configure protection** job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
+Occasionally, a *modify policy* operation can lead to an *inconsistent* policy version for some backup items. This happens when the corresponding *configure protection* job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
 
-![Inconsistent policy](./media/sap-hana-db-manage/inconsistent-policy.png)
+![Screenshot that displays a message saying that the policy is inconsistent and provides a link for fixing the issue.](./media/sap-hana-db-manage/inconsistent-policy.png)
 
 You can fix the policy version for all the impacted items in one click:
 
-![Fix policy version](./media/sap-hana-db-manage/fix-policy-version.png)
+![Screenshot that shows the 'Fix Inconsistent Policy' pane.](./media/sap-hana-db-manage/fix-policy-version.png)
 
-### Stop protection for an SAP HANA database/ HANA Instance
+### Upgrade from SDC to MDC without a SID change
+
+Learn how to continue backing up an [SAP HANA database whose SID hasn't changed after your upgrade from an SDC to an MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
+
+### Upgrade to a new version in either SDC or MDC
+
+Learn how to continue backing up an [SAP HANA database whose version you're upgrading](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm).
+
+### Stop protection for an SAP HANA database or HANA instance
 
 You can stop protecting an SAP HANA database in a couple of ways:
 
@@ -177,79 +172,137 @@ You can stop protecting an SAP HANA database in a couple of ways:
 If you choose to leave recovery points, keep these details in mind:
 
 * All recovery points will remain intact forever, and all pruning will stop at stop protection with retain data.
-* You'll be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
+* You'll incur charges for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
 * If you delete a data source without stopping backups, new backups will fail.
 
->[!Note]
->In the case of HANA instances, first stop the protection of HANA instance, and then stop protection of all related databases; otherwise the the stop protection operation will fail.
+> [!Note]
+> For HANA instances, first stop the protection of the HANA instance, and then stop protection of all related databases; otherwise, the stop protection operation will fail.
 
-To stop protection for a database:
+To stop protection of a database:
 
-1. In the **Backup center** dashboard, select **Backup Instances**.
+1. On the **Backup center** dashboard, select **Backup Instances**.
 1. Select **SAP HANA in Azure VM** as the datasource type.
 
-   :::image type="content" source="./media/sap-hana-db-manage/hana-backup-instances-inline.png" alt-text="Screenshot showing to select SAP HANA in Azure VM." lightbox="./media/sap-hana-db-manage/hana-backup-instances-expanded.png":::
+   :::image type="content" source="./media/sap-hana-db-manage/hana-backup-instances-inline.png" alt-text="Screenshot that shows where to select 'SAP HANA in Azure VM'." lightbox="./media/sap-hana-db-manage/hana-backup-instances-expanded.png":::
 
-1. Select the database for which you want to stop protection on.
+1. Select the database for which you want to stop protection.
 
-1. In the database menu, select **Stop backup**.
+1. On the database menu, select **Stop backup**.
 
-   :::image type="content" source="./media/sap-hana-db-manage/stop-backup.png" alt-text="Screenshot showing to select stop backup.":::
+   :::image type="content" source="./media/sap-hana-db-manage/stop-backup.png" alt-text="Screenshot that shows where to select 'Stop backup'.":::
 
-1. In the **Stop Backup** menu, select whether to retain or delete data. If you want, provide a reason and comment.
+1. On the **Stop Backup** menu, select whether to retain or delete data. Optionally, you can provide a reason and comment.
 
-   :::image type="content" source="./media/sap-hana-db-manage/retain-backup-data.png" alt-text="Screenshot showing to select retain or delete data.":::
+   :::image type="content" source="./media/sap-hana-db-manage/retain-backup-data.png" alt-text="Screenshot that shows where to select to retain or delete data.":::
 
 1. Select **Stop backup**.
 
-### Resume protection for an SAP HANA database/ HANA Instance
+### Resume protection for an SAP HANA database or HANA instance
 
-When you stop protection for the SAP HANA database or SAP HANA Instance, if you select the **Retain Backup Data** option, you can later resume protection. If you don't retain the backed-up data, you can't resume protection.
+When you stop protection for an SAP HANA database or SAP HANA instance, if you select the **Retain Backup Data** option, you can later resume protection. If you don't retain the backed-up data, you can't resume protection.
 
 To resume protection for an SAP HANA database:
 
-* Open the backup item and select **Resume backup**.
+1. Open the backup item, and then select **Resume backup**.
 
    ![Select resume backup](./media/sap-hana-db-manage/resume-backup.png)
 
-* On the **Backup policy** menu, select a policy, and then select **Save**.
+1. On the **Backup policy** menu, select a policy, and then select **Save**.
 
-### Upgrading from SDC to MDC
+### Re-register an extension on the SAP HANA server VM
 
-Learn how to continue backup for an SAP HANA database [after upgrading from SDC to MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid).
+The workload extension on the VM might sometimes be adversely affected for one reason or another. If it is, all operations that are triggered on the VM will begin to fail. You might then need to re-register the extension on the VM. The re-register operation reinstalls the workload backup extension on the VM for operations to continue.
 
-### Upgrading from SDC to MDC without a SID change
-
-Learn how to continue backup of an SAP HANA database whose [SID hasn't changed after upgrade from SDC to MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
-
-### Upgrading to a new version in either SDC or MDC
-
-Learn how to continue backup of an SAP HANA database [whose version is being upgraded](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm).
+Use this option with caution: when it's triggered on a VM with an already healthy extension, the operation will cause the extension to restart. This might in turn cause all the in-progress jobs to fail. Before you trigger a re-register operation, [check for one or more of the symptoms](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures).
 
 ### Unregister an SAP HANA instance
 
 Unregister an SAP HANA instance after you disable protection but before you delete the vault:
 
-* On the vault dashboard, under **Manage**, select **Backup Infrastructure**.
+1. In the Recovery Services vault, under **Manage**, select **Backup Infrastructure**.
 
-   ![Select Backup Infrastructure](./media/sap-hana-db-manage/backup-infrastructure.png)
+   ![Screenshot that shows the 'Backup Infrastructure' link on the Recovery Services dashboard.](./media/sap-hana-db-manage/backup-infrastructure.png)
 
-* Select the **Backup Management type** as **Workload in Azure VM**
+1. For **Backup Management type**, select **Workload in Azure VM**.
 
-   ![Select the Backup Management type as Workload in Azure VM](./media/sap-hana-db-manage/backup-management-type.png)
+   ![Screenshot that shows where to select the 'Backup Management Type' as 'Workload in Azure VM'.](./media/sap-hana-db-manage/backup-management-type.png)
 
-* In **Protected Servers**, select the instance to unregister. To delete the vault, you must unregister all servers/ instances.
+1. On the **Protected Servers** pane, select the instance to unregister. To delete the vault, you must unregister all servers and instances.
 
-* Right-click the protected instance and select **Unregister**.
+1. Right-click the protected instance, and then select **Unregister**.
 
    ![Select unregister](./media/sap-hana-db-manage/unregister.png)
 
-### Re-register extension on the SAP HANA server VM
+### Verify the registration status of VMs or Nodes to the vault
 
-Sometimes the workload extension on the VM may get impacted for one reason or another. In such cases, all the operations triggered on the VM will begin to fail. You may then need to re-register the extension on the VM. Re-register operation reinstalls the workload backup extension on the VM for operations to continue.
+Before a planned failover, ensure that both VMs/Nodes are registered to the vault (physical and logical registration). If backups fail after failover/fallback, ensure that physical/logical registration is complete. Otherwise, [rediscover the VMs/Nodes](sap-hana-database-with-hana-system-replication-backup.md#discover-the-databases).
 
-Use this option with caution: when triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may cause all the in-progress jobs to fail. Check for one or more of the [symptoms](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures) before triggering the re-register operation.
+**Confirm the physical registration**
+
+Go to the *Recovery Services vault* > **Manage** > **Backup Infrastructure** > **Workload in Azure VM**.
+
+The status of both primary and secondary VMs should be **registered**.
+
+:::image type="content" source="./media/sap-hana-db-manage/confirm-physical-registration-status-of-node.png" alt-text="Screenshot shows the physical registration status." lightbox="./media/sap-hana-db-manage/confirm-physical-registration-status-of-node.png":::
+
+
+**Confirm the logical registration**
+
+Follow these steps:
+
+1. Go to *Recovery services vault* > **Backup Items** > **SAP HANA in Azure VM**.
+
+2. Under **HANA System**, select the name of the HANA instance.
+
+   :::image type="content" source="./media/sap-hana-db-manage/select-database-name.png" alt-text="Screenshot shows how to select the database name." lightbox="./media/sap-hana-db-manage/select-database-name.png":::
+
+   Two VMs/Nodes appear under **FQDN** and are in **registered** state.
+ 
+   :::image type="content" source="./media/sap-hana-db-manage/confirm-logical-registration-status.png" alt-text="Screenshot shows the logical registration status." lightbox="./media/sap-hana-db-manage/confirm-logical-registration-status.png":::
+ 
+>[!Note]
+>If status is in **not registered** state, you need to [rediscover the VMs/Nodes](sap-hana-database-with-hana-system-replication-backup.md#discover-the-databases) and check the status again.
+
+## Manage operations using SAP HANA native clients
+
+This section describes how to manage various operations from non-Azure clients, such as HANA Studio.
+
+> [!Note]
+> HANA native clients are integrated for Backint-based operations only. Snapshots and HANA System Replication mode-related operations are currently not supported.
+
+### Backup via Backint
+
+On-demand backups that are triggered from any of the HANA native clients that use Backint are displayed in the backup list on the **Backup Instances** page.
+
+![Screenshot that shows the 'Restore points' pane for viewing the most recently run backups.](./media/sap-hana-db-manage/last-backups.png)
+
+> [!Note]
+> You can also [monitor the backups](#monitor-manual-backup-jobs) from the **Backup jobs** page.
+
+These on-demand backups are also displayed in the list of restore points on the **Select restore point** pane.
+
+![Screenshot that shows a list of restore points.](./media/sap-hana-db-manage/list-restore-points.png)
+
+#### Back up to local files instead of Backint
+
+To back up local files, in the SAP HANA native client (HANA Studio/Cockpit), change the target to *local filesystem* instead of *Backint*.
+
+Then HANA dumps the backups to the mentioned filesystem path and Azure Backup (the Backint service) places the subsequent catalog on that path using the `basepath_catalogbackup` parameter.
+
+### Restore the backups
+
+Restore operations that are triggered from HANA native clients that use Backint to restore backups *to the same machine* can be [monitored](#monitor-manual-backup-jobs) from the **Backup jobs** page.
+
+Restore operations that are triggered from HANA native clients to restore *to another machine* aren't allowed. This is because, according to Azure role-based access control (RBAC) rules, the Azure Backup service can't authenticate the target server for restore operations.
+
+### Delete the backups
+
+The delete operation from HANA native clients isn't supported by Azure Backup, because the backup policy determines the lifecycle of backups in the Azure Recovery services vault.
+
+### Clean up HANA catalog
+
+The Azure Backup service currently doesn't modify the HANA backup catalog as per the policy. Because you can store the backup locally (outside of Backint), you need to maintain the lifecycle of the catalog. You can clean up the catalog as per the [SAP documentation](https://help.sap.com/docs/HANA_SERVICE_CF/7c78579ce9b14a669c1f3295b0d8ca16/22275913eb9e4a5bb539fc8df3da77f1.html) and Azure Backup (the Backint service) places the subsequent catalog in the path specified by the `basepath_catalogbackup` parameter.
 
 ## Next steps
 
-* Learn how to [troubleshoot common issues when backing up SAP HANA databases.](./backup-azure-sap-hana-database-troubleshoot.md)
+- [Troubleshoot common issues with SAP HANA database backups](./backup-azure-sap-hana-database-troubleshoot.md)

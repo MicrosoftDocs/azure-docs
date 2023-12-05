@@ -55,8 +55,8 @@ landingContent:
     linkLists:
      - linkListType: sample
        links:
-          - text: Jumpstart
-            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_k8s/
+          - text: Jumpstart for Azure Arc-enabled Kubernetes
+            url: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_k8s
   
   - title: Manage your cluster
     linkLists:
@@ -79,6 +79,8 @@ landingContent:
         links:
           - text: Manage deployments and configurations for hybrid Kubernetes clusters
             url: /azure/architecture/hybrid/arc-hybrid-kubernetes
+          - text: Azure Arc landing zone accelerator for hybrid and multicloud
+            url: https://aka.ms/ArcLZAcceleratorReady
 
   - title: API reference
     linkLists:

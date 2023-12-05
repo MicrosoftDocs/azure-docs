@@ -4,8 +4,9 @@ description: This article describes primary Azure DevTest Labs scenarios, and ho
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/03/2022
+ms.date: 09/30/2023
 ms.reviewer: christianreddington,anthdela,juselph
+ms.custom: UpdateFrequency2
 ---
 
 # Azure DevTest Labs scenarios
@@ -35,7 +36,7 @@ The following diagram shows how lab owners can configure policies and provide re
 
 To create a lab in the Azure portal, see [Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md).
 
-You can also automate lab creation, including custom settings, with a reusable *Azure Resource Manager (ARM) template*. For more information, see [Create a lab by using a Resource Manager template](./devtest-lab-faq.yml#how-do-i-create-a-lab-from-a-resource-manager-template-).
+You can also automate lab creation, including custom settings, with a reusable *Azure Resource Manager (ARM) template*. For more information, refer to [Azure Resource Manager (ARM) templates in Azure DevTest Labs](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 
 ### Add a virtual network to a lab
 
@@ -117,7 +118,7 @@ Lab owners can allow users more control by giving them Contributor rights to the
 DevTest Labs is well-suited for transient activities like workshops, hands-on labs, training, or hackathons. In these scenarios:
 
 - Training leaders or lab owners can use custom templates to create identical, isolated VMs or environments.
-- Trainees can [access the lab by using a URL](./devtest-lab-faq.yml#how-do-i-share-a-direct-link-to-my-lab-).
+- Trainees can [access the lab by using a URL](tutorial-create-custom-lab.md#share-a-link-to-the-lab).
 - Trainees can claim already-created, preconfigured machines with a single action.
 - Lab owners can control lab costs and lifespan by:
   - Configuring policies.
@@ -130,7 +131,7 @@ Lab owners can manage costs by deleting labs and VMs when they're no longer need
 
 - Set [expiration dates](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) on VMs.
 - [Delete labs](devtest-lab-delete-lab-vm.md#delete-a-lab) and all related resources.
-- [Delete all lab VMs by running a single PowerShell script](./devtest-lab-faq.yml#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab-).
+- [Delete all lab VMs by running a single PowerShell script](devtest-lab-delete-lab-vm.md#automate-the-process-of-deleting-all-the-vms-in-a-lab).
 
 ## Proof of concept and scaled deployments
 
@@ -151,6 +152,6 @@ For a successful proof of concept:
 ## Next steps
 
 - [DevTest Labs concepts](devtest-lab-concepts.md)
-- [DevTest Labs FAQ](devtest-lab-faq.yml)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

@@ -149,7 +149,7 @@ Based on the number of events that Event Hubs receives or messages that Service 
 The following examples illustrate hosting plan pricing tier and configuration options that provide the best throughput and cost for specific replication task scenarios, based on whether the scenario is Event Hubs or Service Bus and various configuration values.
 
 > [!NOTE]
-> The examples in the following sections use 800 as the default value for the the prefetch count, 
+> The examples in the following sections use 800 as the default value for the prefetch count, 
 > maximum event batch size for Event Hubs, and maximum message count for Service Bus, assuming 
 > that the event or message size is 1 KB. Based on your event sizes, you might want to adjust the 
 > prefetch count, maximum event batch size, or maximum message count. For example, if your event 
@@ -396,7 +396,7 @@ This example shows how to view a task's history of workflow runs along with thei
 
    The run details pane opens and shows the underlying workflow that ran.
 
-   - A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with a Service Bus trigger that waits for messages to arrive in the source Service Bus queue.
+   - A workflow always starts with a [*trigger*](../connectors/introduction.md#triggers). For this task, the workflow starts with a Service Bus trigger that waits for messages to arrive in the source Service Bus queue.
 
    - Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 

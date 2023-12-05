@@ -131,7 +131,7 @@ ce-connectionState: eyJrZXkiOiJhIn0=
 
 * `subprotocols`
 
-    The `connect` event forwards the subprotocol and authentication information to Upstream from the client. The Azure SignalR Service uses the status code to determine if the request will be upgraded to WebSocket protocol.
+    The `connect` event forwards the subprotocol and authentication information to Upstream from the client. Web PubSub service uses the status code to determine if the request will be upgraded to WebSocket protocol.
 
     If the request contains the `subprotocols` property, the server should return one subprotocol it supports. If the server doesn't want to use any subprotocols, it should **not** send the `subprotocol` property in response. [Sending a blank header is invalid](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#Subprotocols).
 

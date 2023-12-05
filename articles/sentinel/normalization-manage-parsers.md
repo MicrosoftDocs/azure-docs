@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Manage Advanced Security Information Model (ASIM) parsers (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Advanced Security Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and get all the data relevant to the schema in a single query. Each unifying parser uses multiple source-specific parsers that handle each source's specific details. 
 
 To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
@@ -178,6 +176,8 @@ For example, the following code shows a DNS filtering unifying parser, having re
 Some parsers requires you to update the list of sources that are relevant to the parser. For example, a parser that uses Syslog data, may not be able to determine what Syslog events are relevant to the parser. Such a parser may use the `Sources_by_SourceType` watchlist to determine which sources send information relevant to the parser. For such parses add a record for each relevant source to the watchlist:
 - Set the `SourceType` field to the parser specific value specified in the parser documentation. 
 - Set the `Source` field to the identifier of the source used in the events. You may need to query the original table, such as Syslog, to determine the correct value.
+
+If you system does not have the `Sources_by_SourceType` watchlist deployed, deploy the watchlist to your Microsoft Sentinel workspace from the Microsoft Sentinel [GitHub](https://aka.ms/DeployASimWatchlists) repository.
 
 ## <a name="next-steps"></a>Next steps
 

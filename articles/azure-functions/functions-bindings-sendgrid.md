@@ -3,9 +3,9 @@ title: Azure Functions SendGrid bindings
 description: Azure Functions SendGrid bindings reference.
 ms.topic: reference
 ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/04/2022
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions SendGrid bindings
@@ -20,17 +20,13 @@ This article explains how to send email by using [SendGrid](https://sendgrid.com
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [In-process](#tab/in-process)
-
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-# [C# script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
 ---
 
@@ -42,6 +38,8 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions v1.x](#tab/functionsv1/in-process)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), version 2.x.
 
 # [Functions v2.x+](#tab/functionsv2/isolated-process)
@@ -52,18 +50,10 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 Functions 1.x doesn't support running in an isolated worker process.
 
-# [Functions v2.x+](#tab/functionsv2/csharp-script)
-
-This version of the extension should already be available to your function app with [extension bundle], version 2.x. 
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-You can add the extension to your project by explicitly installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), version 2.x. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
-
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
@@ -84,9 +74,13 @@ You can add the extension to your project by explicitly installing the [NuGet pa
 ## Example
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+[!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [In-process](#tab/in-process)    
+# [Isolated worker model](#tab/isolated-process)
+
+We don't currently have an example for using the SendGrid binding in a function app running in an isolated worker process. 
+
+# [In-process model](#tab/in-process)    
 
 The following examples shows a [C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
 
@@ -157,72 +151,10 @@ public class OutgoingEmail
 
 You can omit setting the attribute's `ApiKey` property if you have your API key in an app setting named "AzureWebJobsSendGridApiKey".
 
-# [Isolated process](#tab/isolated-process)
-
-We don't currently have an example for using the SendGrid binding in a function app running in an isolated worker process. 
-
-# [C# Script](#tab/csharp-script)
-
-The following example shows a SendGrid output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding.
-
-Here's the binding data in the *function.json* file:
-
-```json 
-{
-    "bindings": [
-        {
-          "type": "queueTrigger",
-          "name": "mymsg",
-          "queueName": "myqueue",
-          "connection": "AzureWebJobsStorage",
-          "direction": "in"
-        },
-        {
-          "type": "sendGrid",
-          "name": "$return",
-          "direction": "out",
-          "apiKey": "SendGridAPIKeyAsAppSetting",
-          "from": "{FromEmail}",
-          "to": "{ToEmail}"
-        }
-    ]
-}
-```
-
-The [configuration](#configuration) section explains these properties.
-
-Here's the C# script code:
-
-```csharp
-#r "SendGrid"
-
-using System;
-using SendGrid.Helpers.Mail;
-using Microsoft.Azure.WebJobs.Host;
-
-public static SendGridMessage Run(Message mymsg, ILogger log)
-{
-    SendGridMessage message = new SendGridMessage()
-    {
-        Subject = $"{mymsg.Subject}"
-    };
-    
-    message.AddContent("text/plain", $"{mymsg.Content}");
-
-    return message;
-}
-public class Message
-{
-    public string ToEmail { get; set; }
-    public string FromEmail { get; set; }
-    public string Subject { get; set; }
-    public string Content { get; set; }
-}
-```
 ---
 
 ::: zone-end
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 The following example shows a SendGrid output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
 Here's the binding data in the *function.json* file:
@@ -383,19 +315,7 @@ public class HttpTriggerSendGrid {
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
 
-# [In-process](#tab/in-process)
-
-In [in-process](functions-dotnet-class-library.md) function apps, use the [SendGridAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), which supports the following parameters.
-
-| Attribute/annotation property | Description | 
-|-------------------------------|-------------|
-| **ApiKey** | The name of an app setting that contains your API key. If not set, the default app setting name is `AzureWebJobsSendGridApiKey`.|
-| **To** | (Optional) The recipient's email address. | 
-| **From** | (Optional) The sender's email address. |  
-| **Subject** | (Optional) The subject of the email. | 
-| **Text** | (Optional) The email content. | 
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `SendGridOutputAttribute` supports the following parameters:
 
@@ -407,20 +327,17 @@ In [isolated worker process](dotnet-isolated-process-guide.md) function apps, th
 | **Subject** | (Optional) The subject of the email. | 
 | **Text** | (Optional) The email content. | 
 
-# [C# Script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-The following table explains the trigger configuration properties that you set in the *function.json* file:
+In [in-process](functions-dotnet-class-library.md) function apps, use the [SendGridAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), which supports the following parameters.
 
-| *function.json* property |  Description | 
-|--------------------------|---------------------|
-| **type** | Must be set to `sendGrid`.| 
-| **direction** | Must be set to `out`.| 
-| **name** | The variable name used in function code for the request or request body. This value is `$return` when there is only one return value. | 
-| **apiKey** |  The name of an app setting that contains your API key. If not set, the default app setting name is *AzureWebJobsSendGridApiKey*.|
-| **to**| (Optional) The recipient's email address. | 
-| **from**| (Optional) The sender's email address. |  
-| **subject**|  (Optional) The subject of the email. | 
-| **text**| (Optional) The email content. | 
+| Attribute/annotation property | Description | 
+|-------------------------------|-------------|
+| **ApiKey** | The name of an app setting that contains your API key. If not set, the default app setting name is `AzureWebJobsSendGridApiKey`.|
+| **To** | (Optional) The recipient's email address. | 
+| **From** | (Optional) The sender's email address. |  
+| **Subject** | (Optional) The subject of the email. | 
+| **Text** | (Optional) The email content. | 
 
 ---
 
@@ -439,7 +356,7 @@ The [SendGridOutput](/java/api/com.microsoft.azure.functions.annotation.sendgrid
 + [text](/java/api/com.microsoft.azure.functions.annotation.sendgridoutput.text)
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"  
 
 ## Configuration
 

@@ -91,7 +91,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 ## Insert document into Azure Cosmos DB
 
-1. Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account.
+1. Sign in to the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account.
 1. Open the **Data Explore** tab and select **Databases**
 1. Open the "kafkaconnect" database and "kafka" container you created earlier.
 1. To create a new JSON document, in the API for NoSQL pane, expand "kafka" container, select **Items**, then select **New Item** in the toolbar.
@@ -153,6 +153,7 @@ The following settings are used to configure the Kafka source connector. These c
 | connect.cosmos.master.key | String | The Azure Cosmos DB primary key. | Required |
 | connect.cosmos.connection.endpoint | URI | The account endpoint. | Required |
 | connect.cosmos.containers.topicmap | String | Comma-separated topic to container mapping. For example,  topic1#coll1, topic2#coll2 | Required |
+| connect.cosmos.connection.gateway.enabled | boolean | Flag to indicate whether to use gateway mode. By default it is false. | Optional  |
 | connect.cosmos.messagekey.enabled | Boolean | This value represents if the Kafka message key should be set. Default value is `true` | Required |
 | connect.cosmos.messagekey.field | String | Use the field's value from the document as the message key. Default is `id`. | Required |
 | connect.cosmos.offset.useLatest | Boolean |  Set to `true` to use the most recent source offset. Set to `false` to use the earliest recorded offset. Default value is `false`. | Required |

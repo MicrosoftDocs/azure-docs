@@ -4,7 +4,7 @@ description: Use watchlists in searches or detection rules for Microsoft Sentine
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 1/04/2022
+ms.date: 01/05/2023
 ---
 
 # Build queries or detection rules with watchlists in Microsoft Sentinel
@@ -20,7 +20,7 @@ To use a watchlist in search query, write a Kusto query that uses the _GetWatchl
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **Configuration**, select **Watchlist**.
 1. Select the watchlist you want to use.
-1. Select **View in Log Analytics**.
+1. Select **View in Logs**.
 
     :::image type="content" source="./media/watchlists-queries/sentinel-watchlist-queries-list.png" alt-text="Screenshot that shows how to use watchlists in queries." lightbox="./media/watchlists-queries/sentinel-watchlist-queries-list.png" :::
 
@@ -53,7 +53,7 @@ To use watchlists in analytics rules, create a rule using the _GetWatchlist('wat
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **Configuration**, select **Analytics**.
 1. Select **Create** and the type of rule you want to create.
-1. On the **General**, enter the appropriate information.
+1. On the **General** tab, enter the appropriate information.
 1. On the **Set rule logic** tab, under **Rule query** use the `_GetWatchlist('<watchlist>')` function in the query.
 
    For example, let's say you have a watchlist named “ipwatchlist”  that you created from a CSV file with the following values:
@@ -99,7 +99,7 @@ To use watchlists in analytics rules, create a rule using the _GetWatchlist('wat
 
 1. Complete the rest of the tabs in the **Analytics rule wizard**.
 
-For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
+Watchlists are refreshed in your workspace every 12 days, updating the `TimeGenerated` field.. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md#query-scheduling-and-alert-threshold).
 
 ## View list of watchlist aliases
 

@@ -1,21 +1,21 @@
 ---
-title: Azure CDN from Verizon Premium rules engine match conditions
-description: Reference documentation for Azure Content Delivery Network from Verizon Premium rules engine match conditions.
+title: Azure CDN from Edgio Premium rules engine match conditions
+description: Reference documentation for Azure Content Delivery Network from Edgio Premium rules engine match conditions.
 services: cdn
 author: duongau
-
+manager: kumudd
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 05/26/2020
+ms.date: 02/27/2023
 ms.author: duau
 
 ---
 
-# Azure CDN from Verizon Premium rules engine match conditions
+# Azure CDN from Edgio Premium rules engine match conditions
 
-This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) from Verizon Premium [rules engine](cdn-verizon-premium-rules-engine.md).
+This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) from Edgio Premium [rules engine](cdn-verizon-premium-rules-engine.md).
 
-The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features will be performed.
+The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features is performed.
 
 For example, you can use a match condition to:
 
@@ -52,12 +52,12 @@ These match conditions are designed to identify requests based on the client's u
 | [Is App?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-App.htm) | Identifies requests by whether a native application requested content. |
 | [Is Full Desktop?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Full-Desktop.htm) | Identifies requests by whether the device provides a full desktop experience. |
 | [Is iOS?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-iOS.htm) | Identifies requests by whether the device uses iOS. |
-| [Is Robot?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Robot.htm) | Identifies requests by whether the device is considered to be an automated HTTP client (e.g., a robot crawler). |
+| [Is Robot?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Robot.htm) | Identifies requests by whether the device is considered to be an automated HTTP client (for example, a robot crawler). |
 | [Is Smart TV?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Smart-TV.htm) | Identifies requests by whether the device is a smart TV. |
 | [Is Smartphone?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Smartphone.htm) | Identifies requests by whether the device is a smartphone.
 | [Is Tablet?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Tablet.htm) | Identifies requests by whether the device is a tablet. |
 | [Is Touchscreen?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Touchscreen.htm) | Identifies requests by whether the device's primary pointing device is a touchscreen. |
-| [Is Windows Phone?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Windows-Phone.htm) | Identifies requests by whether the device is a Windows Mobile 6.5/Windows Phone 7 or higher. |
+| [Is Windows Phone?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Windows-Phone.htm) | Identifies requests by whether the device is a Windows Mobile 6.5/ Windows Phone 7 or higher. |
 | [Is Wireless Device?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Wireless-Device.htm) | Identifies requests by whether the device is wireless. 
 | Marketing Name | Identifies requests by whether the device's marketing name matches a: <br> **-** Specific value ([Marketing Name Literal](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Literal.htm)) <br> **-** Regular expression ([Marketing Name Regex](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Regex.htm)) <br> **-** Specific pattern ([Marketing Name Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Wildcard.htm)) |
 | Mobile Browser | Identifies requests by whether the device's browser matches a: <br> **-** Specific value ([Mobile Browser Literal](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Literal.htm)) <br> **-** Regular expression ([Mobile Browser Regex](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Regex.htm)) <br> **-** Specific pattern ([Mobile Browser Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Wildcard.htm)) |
@@ -79,7 +79,7 @@ These match conditions are designed to identify requests based on the requester'
 | [AS Number](https://docs.vdms.com/cdn/Content/HRE/M/AS-Number.htm) | Identifies requests that originate from a particular network. |
 | City Name | Identifies requests by whether they originate from a city whose name matches a: <br> **-** Specific value ([City Name Literal](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Literal.htm)) <br> **-** Regular expression ([City Name Regex](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Regex.htm)) |
 | [Continent](https://docs.vdms.com/cdn/Content/HRE/M/Continent.htm) | Identifies requests that originate from the specified continents. |
-| [Country](https://docs.vdms.com/cdn/Content/HRE/M/Country.htm) | Identifies requests that originate from the specified countries. |
+| [Country](https://docs.vdms.com/cdn/Content/HRE/M/Country.htm) | Identifies requests that originate from the specified countries/regions. |
 | [DMA Code](https://docs.vdms.com/cdn/Content/HRE/M/DMA-Code.htm) | Identifies requests that originate from the specified metros (Designated Market Areas). |
 | [Latitude](https://docs.vdms.com/cdn/Content/HRE/M/Latitude.htm) | Identifies requests that originate from the specified latitudes. |
 | [Longitude](https://docs.vdms.com/cdn/Content/HRE/M/Longitude.htm) | Identifies requests that originate from the specified longitudes. |
@@ -113,7 +113,7 @@ These match conditions are designed to identify requests based on their properti
 | [Client IP Address](https://docs.vdms.com/cdn/Content/HRE/M/Client-IP-Address.htm) | Identifies requests that originate from a particular IP address. |
 | Cookie Parameter  | Identifies a request by whether it contains a cookie that matches a: <br> **-** Specific Value ([Cookie Parameter Literal](https://docs.vdms.com/cdn/Content/HRE/M/Cookie-Parameter-Literal.htm)) <br> **-** Regular expression ([Cookie Parameter Regex](https://docs.vdms.com/cdn/Content/HRE/M/Cookie-Parameter-Regex.htm) <br> **-** Specific pattern ([Cookie Parameter Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/Cookie-Parameter-Wildcard.htm)) |
 | [Edge CNAME](https://docs.vdms.com/cdn/Content/HRE/M/Edge-CNAME.htm) | Identifies requests that point to a specific edge CNAME. |
-| Referring Domain | Identifies a request by whether it was referred by a hostname that matches a: <br> **-** Specific value ([Referring Domain Literal](https://docs.vdms.com/cdn/Content/HRE/M/Referring-Domain-Literal.htm)) <br> **-** Specific pattern ([Referring Domain Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/Referring-Domain-Wildcard.htm)) |
+| Referring Domain | Identifies a request by whether it gets referred by a hostname that matches a: <br> **-** Specific value ([Referring Domain Literal](https://docs.vdms.com/cdn/Content/HRE/M/Referring-Domain-Literal.htm)) <br> **-** Specific pattern ([Referring Domain Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/Referring-Domain-Wildcard.htm)) |
 | Request Header | Identifies a request by whether it contains a header that matches a: <br> **-** Specific value ([Request Header Literal](https://docs.vdms.com/cdn/Content/HRE/M/Request-Header-Literal.htm)) <br> **-** Regular expression ([Request Header Regex](https://docs.vdms.com/cdn/Content/HRE/M/Request-Header-Regex.htm)) <br> **-** Specific pattern ([Request Header Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/Request-Header-Wildcard.htm)) |
 | [Request Method](https://docs.vdms.com/cdn/Content/HRE/M/Request-Method.htm) | Identifies requests by their HTTP method. |
 | [Request Scheme](https://docs.vdms.com/cdn/Content/HRE/M/Request-Scheme.htm) | Identifies requests by their HTTP protocol. |
@@ -133,7 +133,7 @@ These match conditions are designed to identify requests based on their properti
 
 **[Back to Top](#top)**
 
-For the most recent match conditions, see the [Verizon Rules Engine documentation](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Conditio).
+For the most recent match conditions, see the [Edgio Rules Engine documentation](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Conditio).
 
 ## Next steps
 

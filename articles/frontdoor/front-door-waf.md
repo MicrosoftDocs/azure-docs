@@ -2,12 +2,11 @@
 title: 'Tutorial: Scale and protect a web app by using Azure Front Door and Azure Web Application Firewall (WAF)' 
 description: This tutorial will show you how to use Azure Web Application Firewall with the Azure Front Door service.
 services: frontdoor
-documentationcenter: ''
 author: duongau
 ms.service: frontdoor
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 10/01/2020
 ms.author: duau
 ---
@@ -134,7 +133,7 @@ Finally, if you're using a custom domain to reach your web application and want 
 
 ## Lock down your web application
 
-We recommend you ensure only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](./front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-).
+We recommend you ensure only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](./front-door-faq.yml#what-are-the-steps-to-restrict-the-access-to-my-backend-to-only-azure-front-door-).
 
 ## Clean up resources
 

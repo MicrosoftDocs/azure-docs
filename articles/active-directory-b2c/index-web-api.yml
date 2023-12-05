@@ -5,13 +5,13 @@ summary: >
   Learn how to protect web APIs and how to call them in Azure AD B2C by using our how-to guides.
 
 metadata:
-   author: kengaderdus
-   manager: CelesteDG
-   ms.author: kengaderdus
-   ms.date: 08/31/2022
-   ms.service: active-directory
-   ms.subservice: B2C
-   ms.topic: landing-page
+  author: kengaderdus
+  manager: CelesteDG
+  ms.author: kengaderdus
+  ms.date: 08/31/2022
+  ms.service: active-directory
+  ms.subservice: B2C
+  ms.topic: landing-page
 
 landingContent:
 

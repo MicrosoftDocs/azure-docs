@@ -7,7 +7,7 @@ metadata:
   
   ms.service: virtual-desktop
   ms.topic: faq
-  ms.date: 08/17/2020
+  ms.date: 10/16/2023
   ms.author: helohr
   manager: femila
 title: MSIX app attach FAQ
@@ -23,59 +23,59 @@ sections:
           MSIX is a packaging format for apps, while MSIX app attach is the feature that delivers MSIX packages to your deployment.
 
       - question: |
+          How do I get an MSIX package?
+        answer: |
+          Your software vendor gives you an MSIX package. You can also convert non-MSIX packages to MSIX. Learn more at [How to move your existing installers to MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix).
+          
+      - question: |
+          Which operating systems support MSIX app attach?
+        answer: |
+          Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 or later.
+
+      - question: |
+          Is MSIX app attach currently generally available?
+        answer: |
+          MSIX app attach is part of Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 or later. Both operating systems are currently generally available. 
+
+      - question: |
+          Can I use MSIX app attach outside of Azure Virtual Desktop?
+        answer: |
+          MSIX and MSIX app attach APIs are part of Windows 11, Windows 10 Enterprise, and Windows 10 Enterprise Multi-session, version 2004 and later. We don't provide management software for MSIX app attach outside of Azure Virtual Desktop. For more information on how to test MSIX packages outside of Azure Virtual Desktop, see [Test MSIX packages](app-attach.md).
+
+      - question: |
+          Can I run two versions of the same application at the same time?
+        answer: |
+          For two versions of the same MSIX applications to run simultaneously, the MSIX package family defined in the appxmanifest.xml file must be different for each app.
+
+      - question: |
           Does MSIX app attach use FSLogix?
         answer: |
           MSIX app attach doesn't use FSLogix. However, MSIX app attach and FSLogix are designed to work together to provide a seamless user experience.
 
       - question: |
-          Can I use the MSIX app attach outside of Azure Virtual Desktop?
+          Should I disable automatic updating of applications when using MSIX app attach?
         answer: |
-          The APIs that power MSIX app attach are available for Windows 10 Enterprise. These APIs can be used outside of Azure Virtual Desktop. However, there's no management plane for MSIX app attach outside of Azure Virtual Desktop.
-
-      - question: |
-          How do I get an MSIX package?
-        answer: |
-          Your software vendor will give you an MSIX package. You can also convert non-MSIX packages to MSIX. Learn more at [How to move your existing installers to MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix).
-          
-      - question: |
-          Which operating systems support MSIX app attach?
-        answer: |
-          Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 or later.
-
-      - question: |
-          Is MSIX app attach currently generally available?
-        answer: |
-          MSIX app attach is part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 or later. Both operating systems are currently generally available. 
-
-      - question: |
-          Can I use MSIX app attach outside of Azure Virtual Desktop?
-        answer: |
-          MSIX and MSIX app attach APIs are part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 and later. We currently don't provide management software for MSIX app attach outside of Azure Virtual Desktop.
-
-      - question: |
-          Can I run two versions of the same application at the same time?
-        answer: |
-          For two version of the same MSIX applications to run simultaneously, the MSIX package family defined in the appxmanifest.xml file must be different for each app.
-
-      - question: |
-          Should I disable auto-update when using MSIX app attach?
-        answer: |
-          Yes. MSIX app attach doesn't support auto-update for MSIX applications.
+          Yes. MSIX app attach doesn't support automatic updating for MSIX applications.
 
       - question: |
           How do permissions work with MSIX app attach?
         answer: |
-          All virtual machines (VMs) in a host pool that uses MSIX app attach must have read permissions on the file share where the MSIX images are stored. If it also uses Azure Files, they'll need to be granted both role-based access control (RBAC) and New Technology File System (NTFS) permissions.
+          All virtual machines (VMs) in a host pool that uses MSIX app attach must have read permissions on the file share where the MSIX images are stored. If it also uses Azure Files, they need to be granted both role-based access control (RBAC) and New Technology File System (NTFS) permissions.
 
       - question: |
           How many users can use an MSIX image handle?
         answer: |
-          MSIX app attach mounts MSIX images on a per-machine basis, not a per-user basis. The amount of users who can use an MSIX image handle is based on the size of the machine's file system and throughput of the network. Also, Azure Files has a limit of 2,000 open handles per file. 
+          MSIX app attach mounts MSIX images on a per-machine basis, not a per-user basis. The number of users who can use an MSIX image handle is based on the size of the machine's file system and throughput of the network. Also, Azure Files has a limit of 2,000 open handles per file. 
 
       - question: |
-          Can I use Azure Active Directory Domain Services (Azure AD DS) with MSIX app attach?
+          Can I use Microsoft Entra Domain Services with MSIX app attach?
         answer: |
-          MSIX app attach doesn't currently support Azure AD DS. Because Azure AD DS computer objects aren't synchronized to Azure Active Directory (Azure AD), the administrator can't provide the required role-based access control (RBAC) permissions for Azure Files.
+          MSIX app attach doesn't currently support Microsoft Entra Domain Services. Because Microsoft Entra Domain Services computer objects aren't synchronized to Microsoft Entra ID, the administrator can't provide the required role-based access control (RBAC) permissions for Azure Files.
+
+      - question: |
+          Can I use Microsoft Entra ID joined VMs with MSIX app attach?
+        answer: |
+          MSIX app attach doesn't support Microsoft Entra ID joined VMs.
 
       - question: |
           Can I use MSIX app attach for HTTP or HTTPs?
@@ -100,7 +100,7 @@ sections:
           Certain applications can't be application layered, which means they can't be repackaged into an MSIX file. Here's a list of the applications that can't be repackaged:
           
           - Drivers 
-          - Active-X or Silverlight
+          - ActiveX or Silverlight
           - VPN clients
           - Antivirus programs
 
@@ -110,7 +110,7 @@ sections:
           Each session host has different limits based on their CPU, memory, and OS. Going over these limits can affect application performance and overall user experience. However, MSIX app attach itself has no limit on how many applications it can use.
 
       - question: |
-          How many .VHD or .VHDX files can I mount on a host pool?
+          How many VHD or VHDX files can I mount on a host pool?
         answer: |
           MSIX app attach itself doesn't have a limit to the number of files you can mount. However, the host pool itself can be limited by the following factors:
 
@@ -129,4 +129,4 @@ additionalContent: |
 
   ## Next steps
   
-  If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) and [glossary](app-attach-glossary.md). Otherwise, get started with [Set up app attach](app-attach.md).
+  If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md). Otherwise, get started with [Set up app attach](app-attach.md).

@@ -4,8 +4,9 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN virtual hub routing preference using Azure PowerShell.
 author: cherylmc
 ms.service: virtual-wan
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 10/26/2022
+ms.date: 11/21/2023
 ms.author: cherylmc
 ---
 # Configure virtual hub routing preference - Azure PowerShell

@@ -5,6 +5,7 @@ description: Learn how to use the Create Python Model component in Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: devx-track-python
 ms.topic: reference
 
 author: likebupt
@@ -47,7 +48,7 @@ This article shows how to use **Create Python Model** with a simple pipeline. He
 
    ```Python
 
-   # The script MUST define a class named AzureMLModel.
+   # The script MUST define a class named Azure Machine LearningModel.
    # This class MUST at least define the following three methods:
        # __init__: in which self.model must be assigned,
        # train: which trains self.model, the two input arguments must be pandas DataFrame,

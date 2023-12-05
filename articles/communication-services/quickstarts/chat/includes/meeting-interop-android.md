@@ -22,11 +22,11 @@ You must be a member of the owning organization of both entities to use this fea
 
 ## Joining the meeting chat 
 
-Once Teams interoperability is enabled, a Communication Services user can join the Teams call as an external user using the Calling SDK. Joining the call will add them as a participant to the meeting chat as well, where they can send and receive messages with other users on the call. The user will not have access to chat messages that were sent before they joined the call. To join the meeting and start chatting, you can follow the next steps.
+Once Teams interoperability is enabled, a Communication Services user can join the Teams call as an external user using the Calling SDK. Joining the call adds them as a participant to the meeting chat as well, where they can send and receive messages with other users on the call. The user will not have access to chat messages that were sent before they joined the call. To join the meeting and start chatting, you can follow the next steps.
 
 ## Add Chat to the Teams calling app
 
-In your module level build.gradle add the dependency on the chat sdk.
+In your module level `build.gradle`, add the dependency on the chat sdk.
 
 > [!IMPORTANT]
 > Known issue: When using Android Chat and Calling SDK together in the same application, the Chat SDK's real-time notifications feature won't work. You'll get a dependency resolution issue. While we're working on a solution, you can turn off the real-time notifications feature by adding the following exclusions to the Chat SDK dependency in the app's `build.gradle` file:
@@ -181,7 +181,7 @@ Replace the code in activity_main.xml with the following snippet. It adds inputs
 
 ### Import packages and define state variables
 
-To the content of `MainActivity.java`, add the following additional imports:
+To the content of `MainActivity.java`, add the following imports:
 
 ```
 import android.graphics.Typeface;
@@ -254,7 +254,7 @@ Update the end of the `MainActivity.joinTeamsMeeting()` method with the code bel
 
 ### Enable sending messages
 
-Add the `sendMessage()` method to `MainActivity`. It will use the `ChatThreadClient` to send messages on behalf of the user.
+Add the `sendMessage()` method to `MainActivity`. It uses the `ChatThreadClient` to send messages on behalf of the user.
 
 ```
     private void sendMessage() {
@@ -273,7 +273,7 @@ Add the `sendMessage()` method to `MainActivity`. It will use the `ChatThreadCli
 ### Enable polling for messages and rendering them in the application
 
 > [!IMPORTANT]
-> Known issue: Since the Chat SDK's real-time notifications feature does not work together with the Calling SDK's, we will have to poll the `GetMessages` API at predefined intervals. In our sample we will use 3 second intervals.
+> Known issue: Since the Chat SDK's real-time notifications feature does not work together with the Calling SDK's, we will have to poll the `GetMessages` API at predefined intervals. In our sample we will use 3-second intervals.
 
 We can obtain the following data from the message list returned by the `GetMessages` API: 
  - The `text` and `html` messages on the thread since joining
@@ -281,7 +281,7 @@ We can obtain the following data from the message list returned by the `GetMessa
  - Updates to the thread topic
 
 
-To the `MainActivity` class, add a handler and a runnable task that will be run at 3 second intervals:
+To the `MainActivity` class, add a handler and a runnable task that will be run at 3-second intervals:
 
 ```
     private Handler handler = new Handler();
@@ -301,7 +301,7 @@ To the `MainActivity` class, add a handler and a runnable task that will be run 
 
 Note that the task has already been started at the end of the `MainActivity.joinTeamsMeeting()` method updated in the initialization step.
 
-Finally, we will add the method for querying all accessible messages on the thread, parsing them by message type and displaying the `html` and `text` ones:
+Finally, we add the method for querying all accessible messages on the thread, parsing them by message type and displaying the `html` and `text` ones:
 
 ```
     private void retrieveMessages() throws InterruptedException {
@@ -381,16 +381,16 @@ Finally, we will add the method for querying all accessible messages on the thre
     }
 ```
 
-Display names of the chat thread participants are not set by the Teams client. The names will be returned as null in the API for listing participants, in the `participantsAdded` event and in the `participantsRemoved` event. The display names of the chat participants can be retrieved from the `remoteParticipants` field of the `call` object.
+Display names of the chat thread participants are not set by the Teams client. The names are returned as null in the API for listing participants, in the `participantsAdded` event and in the `participantsRemoved` event. The display names of the chat participants can be retrieved from the `remoteParticipants` field of the `call` object.
 
 ## Get a Teams meeting chat thread for a Communication Services user
 
 The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They are returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 
-With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), you can also obtain the `threadID`. The response will have a `chatInfo` object that contains the `threadID`.
+With the [Graph APIs](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), you can also obtain the `threadID`. The response has a `chatInfo` object that contains the `threadID`.
 
 You can also get the required meeting information and thread ID from the **Join Meeting** URL in the Teams meeting invite itself.
-A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. The `threadId` will be where `meeting_chat_thread_id` is in the link. Ensure that the `meeting_chat_thread_id` is unescaped before use. It should be in the following format: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
+A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. The `threadId` is where `meeting_chat_thread_id` is in the link. Ensure that the `meeting_chat_thread_id` is unescaped before use. It should be in the following format: `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
 
 
 ## Run the code
@@ -399,9 +399,10 @@ The app can now be launched using the "Run App" button on the toolbar (Shift+F10
 
 To join the Teams meeting and chat, enter your Team's meeting link and the thread ID in the UI.
 
-After you join the Team's meeting you will need to admit the user to the meeting in your Team's client. Once the user is admitted and has joined the chat you will be able to send and receive messages.
+After joining the Team's meeting, you need to admit the user to the meeting in your Team's client. Once the user is admitted and has joined the chat, you are able to send and receive messages.
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart-android.png" alt-text="Screenshot of the completed Android Application.":::
 
 > [!NOTE] 
-> Currently only sending, receiving, and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.
+> Certain features are currently not supported for interoperability scenarios with Teams. Learn more about the supported features, please see [Teams meeting capabilities for Teams external users](../../../concepts/interop/guest/capabilities.md)
+
