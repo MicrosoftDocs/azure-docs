@@ -78,6 +78,10 @@ The following recommendations are displayed for OT and Enterprise IoT devices:
 | **Set a secure password for devices with missing authentication** | Devices with this recommendation are found without authentication based on successful sign-ins. <br><br> We recommend that you enable authentication, and that you set a stronger password with minimum length and complexity. |
 | **Set a stronger password with minimum length and complexity** | Devices with this recommendation are found with weak passwords based on successful sign-ins. <br><br> We recommend that you change the device password to a password that has 8 or more characters and that contains characters from 3 of the following categories: <br><br> - Uppercase letters <br> - Lowercase letters <br> - Special characters <br> - Numbers (0-9) |
 | **Disable insecure administration protocol**| Devices with this recommendation are exposed to malicious threats because they use Telnet, which isn't a secured and encrypted communication protocol. <br><br>We recommend that you switch to a more secure protocol, such as SSH, disable the server altogether, or apply network access restrictions.|
+| **Require authentication for Telnet management interface** |  |
+| **Disable insecure administration protocol – Telnet** |  |
+| **Remove insecure administration protocols SNMP V1 and SNMP V2** |  |
+| **Require authentication for VNC management interface** |  |
 
 Other recommendations you may see in the **Recommendations** page are relevant for the  [Defender for IoT micro agent](../device-builders/index.yml).
 
