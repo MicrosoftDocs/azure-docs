@@ -38,7 +38,7 @@ As a security best practice, if you choose to use user-assigned identities, use 
 1. Under **System assigned**, set **Status** to **On**.
 1. Select **Save**.
 
-    :::image type="content" source="./media/configure-managed-identity/configure-system-assigned-managed-identity.png" alt-text="Screenshot that shows the system-assigned managed identity." lightbox="media/configure-system-assigned-managed-identity.png":::
+    :::image type="content" source="media/configure-managed-identity/configure-system-assigned-managed-identity.png" alt-text="Screenshot that shows the system-assigned managed identity." lightbox="media/configure-managed-identity/configure-system-assigned-managed-identity.png":::
 
 1. In the **Enable system assigned managed identity** dialog, select **Yes**.
 
@@ -49,7 +49,7 @@ As a security best practice, if you choose to use user-assigned identities, use 
 1. On the left menu under **Settings**, select **Identity**.
 1. Under **User assigned**, select **Add** to attach an existing identity.
 
-   :::image type="content" source="./media/configure-managed-identity/configure-user-assigned-managed-identity.png" alt-text="Screenshot that shows the user-assigned managed identity." lightbox="media/configure-user-assigned-managed-identity.png":::
+   :::image type="content" source="media/configure-managed-identity/configure-user-assigned-managed-identity.png" alt-text="Screenshot that shows the user-assigned managed identity." lightbox="media/configure-managed-identity/configure-user-assigned-managed-identity.png":::
 
 1. On **Add user assigned managed identity**, enter or select the following information:
 
@@ -67,7 +67,7 @@ The identity attached to the dev center should be assigned the Contributor and U
 1. On the left menu under **Settings**, select **Identity**.
 1. Under **System assigned** > **Permissions**, select **Azure role assignments**.
   
-    :::image type="content" source="./media/configure-managed-identity/system-assigned-azure-role-assignment.png" alt-text="Screenshot that shows the Azure role assignment for system-assigned identity." lightbox="media/system-assigned-azure-role-assignment.png":::
+    :::image type="content" source="media/configure-managed-identity/system-assigned-azure-role-assignment.png" alt-text="Screenshot that shows the Azure role assignment for system-assigned identity." lightbox="media/configure-managed-identity/system-assigned-azure-role-assignment.png":::
 
 1. To give Contributor access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
 

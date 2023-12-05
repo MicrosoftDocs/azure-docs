@@ -19,7 +19,7 @@ In this article, you'll learn how to:
 * Add a new environment type to a dev center.
 * Delete an environment type from a dev center.
 
-:::image type="content" source="./media/configure-dev-center-environment-types/azure-deployment-environments-environment-types.png" alt-text="Screenshot of example environment types." lightbox="media/azure-deployment-environments-environment-types.png":::
+:::image type="content" source="media/configure-dev-center-environment-types/azure-deployment-environments-environment-types.png" alt-text="Screenshot of example environment types." lightbox="media/configure-dev-center-environment-types/azure-deployment-environments-environment-types.png":::
 
 ## Add a new dev center environment type
 
@@ -35,7 +35,7 @@ To add a new environment type to the dev center:
    1. For **Tags**, add tags by adding **Name** and **Value** information (optional).
 1. Select **Add**.
 
-:::image type="content" source="./media/configure-dev-center-environment-types/create-new-dev-center-environment-type.png" alt-text="Screenshot that shows the page for adding an environment type.":::
+:::image type="content" source="media/configure-dev-center-environment-types/create-new-dev-center-environment-type.png" alt-text="Screenshot that shows the page for adding an environment type." lightbox="media/configure-dev-center-environment-types/create-new-dev-center-environment-type.png":::
 
 >[!NOTE]
 > A dev center environment type is available to a specific project only after you add an associated [project environment type](how-to-configure-project-environment-types.md).

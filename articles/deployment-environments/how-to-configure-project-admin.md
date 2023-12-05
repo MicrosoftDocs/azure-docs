@@ -39,7 +39,7 @@ When you assign the role at the project level, the user can perform the precedin
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have administrative access to the project. |
 
-    :::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot that shows the Add role assignment pane." lightbox="media/add-role-assignment-admin.png":::
+    :::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot that shows the Add role assignment pane." lightbox="media/configure-project-admin/add-role-assignment-admin.png":::
 
 The users can now view the project and manage all the environment types that you've enabled within it. DevCenter Project Admin users can also [create environments from the Azure CLI](how-to-create-access-environments.md).
 
@@ -49,7 +49,7 @@ The users can now view the project and manage all the environment types that you
 1. Navigate to Azure Deployment Environments, then select the project that you want your development team members to be able to access.
 1. Select **Environment types**, and then select the ellipsis (**...**) beside the specific environment type.
 
-   :::image type="content" source=".\media\configure-project-admin\project-environment-types.png" alt-text="Screenshot that shows the environment types associated with a project." lightbox="media/project-environment-types.png":::
+   :::image type="content" source="media\configure-project-admin\project-environment-types.png" alt-text="Screenshot that shows the environment types associated with a project." lightbox="media\configure-project-admin\project-environment-types.png":::
 
 1. Select **Access control (IAM)** from the menu.
 
@@ -63,7 +63,7 @@ The users can now view the project and manage all the environment types that you
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups you want to have administrative access to the environment type. |
 
-    :::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot that shows the Add role assignment pane." lightbox="media/add-role-assignment-admin.png.png":::
+    :::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot that shows the Add role assignment pane." lightbox="media/configure-project-admin/add-role-assignment-admin.png":::
 
 The users can now view the project and manage only the specific environment type that you've granted them access to. DevCenter Project Admin users can also [create environments by using the Azure CLI](how-to-create-access-environments.md).
 
