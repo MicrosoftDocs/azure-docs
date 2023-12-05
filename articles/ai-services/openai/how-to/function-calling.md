@@ -152,7 +152,7 @@ print(response.choices[0].message.model_dump_json(indent=2))
 }
 ```
 
-# [PowerShell]($tab/powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell-interactive
 $openai = @{
