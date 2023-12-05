@@ -217,14 +217,7 @@ Example:
 
 ## Request configuration
 
-The request section defines how the CCP data connector sends requests to your data source. This section includes some available built-in variables.
-- `_QueryWindowStartTime`
-- `_QueryWindowEndTime`
-- `_APIKeyName`
-- `_APIKey`
-
-`_QueryWindowStartTime` and `_QueryWindowEndTime` are only supported in the `queryParameters` and `queryParametersTemplate` request parameters.
-{_APIKeyName} and {_APIKey} are only supported in the queryParametersTemplate request parameter.
+The request section defines how the CCP data connector sends requests to your data source, like the API endpoint and how often to poll that endpoint.
 
 |Field |Required |Type |Description	|
 | ---- | ---- | ---- | ---- |
@@ -244,6 +237,15 @@ The request section defines how the CCP data connector sends requests to your da
 | **QueryTimeIntervalPrepend** | True when `QueryTimeIntervalAttributeName` is set | String | See `QueryTimeIntervalAttributeName` |
 | **QueryTimeIntervalDelimiter** |  True when `QueryTimeIntervalAttributeName` is set | String | See `QueryTimeIntervalAttributeName` |
 | **QueryParametersTemplate** |  | String | Query template to use when passing parameters in advanced scenarios.<br>br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"` | 
+
+When the API requires complex parameters, use the `queryParameters` or `queryParametersTemplate` which include some built-in variables.
+
+| built-in variable | for use in `queryParameters` | for use in `queryParametersTemplate` |
+| ---- | ---- | ---- |
+| `_QueryWindowStartTime` | yes | yes |
+| `_QueryWindowEndTime` | yes | yes |
+| `_APIKeyName` | no | yes |
+| `_APIKey` | no | yes |
 
 ### StartTimeAttributeName example
 
