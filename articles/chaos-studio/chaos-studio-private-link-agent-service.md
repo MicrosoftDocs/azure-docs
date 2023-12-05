@@ -55,6 +55,7 @@ az feature register --namespace Microsoft.Network --name "AllowPrivateEndpoints"
 
 > [!NOTE]
 > If you are going to be using private endpoints using manual requests across multiple subscriptions, you'll need to ensure you register the Microsoft.Network Resource Provider (RP) in your respective tenants/subscriptions. See [Register RP](../azure-resource-manager/management/resource-providers-and-types.md) for more info about this.
+>
 > 
 > This step is not needed if you are using the same subscription across both the Chaos and Networking Resource Providers.
  
@@ -194,6 +195,7 @@ In this step, you need to continue to edit files on the host VM machine. You nee
 
 > [!NOTE]
 > **Path of agentSettings.json file on Windows:** C:\Packages\Plugins\Microsoft.Azure.Chaos.ChaosWindowsAgent-\<Version\>\win-x64\agentSettings.json
+>
 > 
 > **Path of agentSettings.json file on Linux:** /var/lib/waagent/Microsoft.Azure.Chaos.ChaosLinuxAgent-\<Version\>\linux-x64
 
@@ -212,6 +214,7 @@ Example of updated agentSettings.json:
 
 > [!NOTE]
 > **Path of agentInstanceConfig.json file on Windows:** C:\Windows\System32\config\systemprofile\.azure-chaos-	agent\data
+>
 > 
 > **Path of agentInstanceConfig.json file on Linux:** /.azure-chaos-agent/data/agentInstanceConfig.json
 
@@ -247,7 +250,7 @@ After making all the required changes to the host, restart the Azure Chaos Agent
 
 ### Windows
 
-[![Screenshot of restarting Windows VM.](images/restar-windows-vm.png)](images/restart-windows-vm.png#lightbox)
+[![Screenshot of restarting Windows VM.](images/restart-windows-vm.png)](images/restart-windows-vm.png#lightbox)
 
 ### Linux
 
