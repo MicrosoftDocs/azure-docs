@@ -23,9 +23,9 @@ keywords:
 - Full VPN and private endpoint support for Azure OpenAI on your data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
 - New article for using [Azure OpenAI on your data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
 
-### GPT-4 with Vision now available
+### GPT-4 Turbo with Vision now available
 
-GPT-4 with Vision lets you use images and videos in your AI chat conversations. The AI model can analyze and reference the media you share. With enhanced mode, you can use the [Azure AI Vision](/azure/ai-services/computer-vision/overview) features to generate additional insights from the images.
+We are thrilled to announce that GPT-4 Turbo with Vision on Azure OpenAI service is coming soon to public preview. GPT-4 Turbo with Vision is a large multimodal model (LMM) developed by OpenAI that can analyze images and provide textual responses to questions about them. It incorporates both natural language processing and visual understanding. With enhanced mode, you can use the [Azure AI Vision](/azure/ai-services/computer-vision/overview) features to generate additional insights from the images.
 
 - Explore the capabilities of GPT-4 Turbo with Vision in a no-code experience using the [Azure Open AI Playground](https://oai.azure.com/). Learn more in the [Quickstart guide](./gpt-v-quickstart.md).
 - Vision enhancement using GPT-4 Turbo with Vision is now available in the [Azure Open AI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, visualization with Object Detection, image support for "add your data," and support for Video Q&A. 

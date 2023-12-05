@@ -76,7 +76,7 @@ You can also use the Whisper model via Azure AI Speech [batch transcription](../
 ### GPT-4 and GPT-4 Turbo Preview models
 
 
-GPT-4, GPT-4-32k, and GPT-4 with Vision are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
+GPT-4, GPT-4-32k, and GPT-4 Turbo with Vision are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
 
 These models can only be used with the Chat Completion API.
 

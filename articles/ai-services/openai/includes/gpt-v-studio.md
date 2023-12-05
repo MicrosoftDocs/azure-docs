@@ -28,7 +28,7 @@ From the Azure OpenAI Studio landing page, select **Chat playground**.
 
 ## Playground
 
-Start exploring GPT-4 Vision capabilities with a no-code approach through the Azure OpenAI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities. 
+Start exploring GPT-4 Turbo with Vision capabilities with a no-code approach through the Azure OpenAI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities. 
 
 For help with assistant setup, chat sessions, settings, and panels, refer to the [Chat quickstart](/azure/ai-services/openai/chatgpt-quickstart?tabs=command-line&pivots=programming-language-studio). 
 

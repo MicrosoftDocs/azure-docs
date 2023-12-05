@@ -178,7 +178,7 @@ sections:
           Can I use quota to increase the max token limit of a model?
         answer:
           No, quota Tokens-Per-Minute (TPM) allocation isn't related to the max input token limit of a model. Model input token limits are defined in the [models table](./concepts/models.md) and aren't impacted by changes made to TPM. 
-  - name: GPT-4 with Vision
+  - name: GPT-4 Turbo with Vision
     questions:
       - question: |
           Can I fine-tune the image capabilities in GPT-4?
@@ -201,17 +201,17 @@ sections:
         answer: |
           No, we'll delete the image for you automatically after it has been processed by the model.
       - question: |
-          Where can I learn more about the considerations of GPT-4 with Vision?
+          Where can I learn more about the considerations of GPT-4 Turbo with Vision?
         answer: |
-          You can find details about our evaluations, preparation, and mitigation work in the [GPT-4 with Vision system card](tbd).
+          You can find details about our evaluations, preparation, and mitigation work in the [GPT-4 Turbo with Vision system card](tbd).
 
           We have further implemented a system to block the submission of CAPTCHAs.
       - question: |
-          How do the rate limits for GPT-4 with Vision work?
+          How do the rate limits for GPT-4 Turbo with Vision work?
         answer: |
           We process images at the token level, so each image we process counts towards your tokens per minute (TPM) limit. See the [calculating costs](tbd) section for details on the formula used to determine token count per image.
       - question: |
-          Can GPT-4 with Vision understand image metadata?
+          Can GPT-4 Turbo with Vision understand image metadata?
         answer: |
           No, the model doesn't receive image metadata.
       - question: |
@@ -219,9 +219,9 @@ sections:
         answer: |
           If an image is ambiguous or unclear, the model will do its best to interpret it. However, the results might be less accurate. A good rule of thumb is that if an average human can't see the info in an image at the resolutions used in low/high res mode, then the model can't either.
       - question: |
-          What are the known limitations of GPT-4 with Vision?
+          What are the known limitations of GPT-4 Turbo with Vision?
         answer: |
-          While GPT-4 with Vision is powerful and can be used in many situations, it is important to understand the limitations of the model. Here are some of the limitations we are aware of:
+          While GPT-4 Turbo with Vision is powerful and can be used in many situations, it is important to understand the limitations of the model. Here are some of the limitations we are aware of:
 
           Scenario limitations:
           - Medical images: The model is not suitable for interpreting specialized medical images like CT scans and shouldn't be used for medical advice.
