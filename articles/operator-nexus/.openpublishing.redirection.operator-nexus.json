@@ -34,6 +34,11 @@
             "source_path": "troubleshoot-aks-hybrid-cluster.md",
             "redirect_url": "troubleshoot-isolation-domain.md",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "howto-use-azure-policy-for-aks-cluster-security.md",
+            "redirect_url": "howto-use-azure-policy.md",
+            "redirect_document_id": false
         }
     ]
 }
