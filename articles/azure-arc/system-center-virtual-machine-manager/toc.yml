@@ -37,7 +37,7 @@
   - name: Enable Extended Security Updates
     items:
     - name: Deliver ESUs for SCVMM VMs through Arc
-      href: deliver-esus-for-scvmm-vms.md
+      href: deliver-esus-for-system-center-virtual-machine-manager-vms.md
   - name: Administer
     items:
     - name: Perform recovery operations for Arc resource bridge

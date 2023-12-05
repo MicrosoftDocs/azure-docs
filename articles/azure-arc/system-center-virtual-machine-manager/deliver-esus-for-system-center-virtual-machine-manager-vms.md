@@ -1,7 +1,7 @@
 ---
 title:  Deliver ESUs for SCVMM VMs through Arc
 description: Deliver ESUs for SCVMM VMs through Azure Arc. 
-ms.date: 12/04/2023
+ms.date: 12/05/2023
 ms.topic: how-to
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
