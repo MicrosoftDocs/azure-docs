@@ -97,7 +97,7 @@ After you provision and start an instance of Azure-SSIS integration runtime, you
    Remove-AzResourceGroup -Name $ResourceGroupName -Force 
    ```
 
-## Next steps
+## Related content
 For more information about Azure-SSIS runtime, see the following topics: 
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general including the Azure-SSIS IR. 

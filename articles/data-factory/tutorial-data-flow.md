@@ -197,7 +197,7 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
 
 If you followed this tutorial correctly, you should have written 83 rows and 2 columns into your sink folder. You can verify the data is correct by checking your blob storage.
 
-## Next steps
+## Related content
 
 The pipeline in this tutorial runs a data flow that aggregates the average rating of comedies from 1910 to 2000 and writes the data to ADLS. You learned how to:
 
