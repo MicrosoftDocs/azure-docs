@@ -21,12 +21,12 @@ If you're new to Azure Policy, here are some helpful resources that you can use 
 - **Policy Definitions**: These are the rules that your resources need to comply with. They can be built-in or custom.
 - **Assignments**: The process of applying a policy definition to your resources.
 
-##### Steps for Security Enforcement
+##### Steps for security enforcement
 
-1. **Explore Built-in Policies**: Review built-in policies relevant to Nexus Bare Metal Machine resources.
-2. **Customize Policies**: Customize policies to address specific needs of your resources.
-3. **Policy Assignment**: Assign policies through the Azure portal, ensuring correct scope.
-4. **Monitoring and Compliance**: Regularly monitor policy compliance using Azure tools.
+1. **Explore built-in policies**: Review built-in policies relevant to Nexus Bare Metal Machine (BMM) resources.
+2. **Customize policies**: Customize policies to address specific needs of your resources.
+3. **Policy assignment**: Assign policies through the Azure portal, ensuring correct scope.
+4. **Monitoring and compliance**: Regularly monitor policy compliance using Azure tools.
 5. **Troubleshooting**: Address common issues that arise during policy assignment.
 
 ##### Visual Guides and Examples
@@ -39,7 +39,7 @@ If you're new to Azure Policy, here are some helpful resources that you can use 
 - One or more on-premises Nexus resources that are Arc-connected to Azure.
 
   > [!NOTE]
-  > Operator Nexus does not require you to install the Azure Policy add-on for the Undercloud Kubernetes Connected Cluster or Bare Metal Machine Connected Machine resources since the extensions are automatically installed during cluster deployment.
+  > Operator Nexus does not require you to install the Azure Policy add-on for the Undercloud Kubernetes connected cluster or BMM connected machine resources since the extensions are automatically installed during cluster deployment.
 
 - A user account in your subscription with the appropriate role:
 
@@ -52,32 +52,32 @@ If you're new to Azure Policy, here are some helpful resources that you can use 
   - [ ] Review your organization's security and compliance requirements.
   - [ ] Identify specific Azure Policy features relevant to your needs.
 
-# Use Azure Policy to secure your Nexus Bare Metal Machine resources
+# Use Azure Policy to secure your Nexus BMM resources
 
-The Operator Nexus service offers a built-in policy definition that is recommended to be assigned to your Nexus Bare Metal Machine resources. This policy definition is called **[Preview]: Nexus Compute Machines should meet Security Baseline**. This policy definition is used to ensure that your Nexus Bare Metal Machine resources are configured with industry best practice security settings.
+The Operator Nexus service offers a built-in policy definition that is recommended to be assigned to your Nexus BMM resources. This policy definition is called **[Preview]: Nexus compute machines should meet security baseline**. This policy definition is used to ensure that your Nexus BMM resources are configured with industry best practice security settings.
 
-- [[Preview]: Nexus Compute Machines should meet Security Baseline](../../includes/policy/reference/byrp/microsoft.guestconfiguration.md)
+- [[Preview]: Nexus compute machines should meet security baseline](../../includes/policy/reference/byrp/microsoft.guestconfiguration.md)
 
-# Use Azure Policy to secure your Nexus Azure Kubernetes Service (NAKS) Clusters
+# Use Azure Policy to secure your Nexus Kubernetes cluster
 
-Operator Nexus Arc-connected NAKS clusters do not yet have built-in policy definitions available. However, you can create custom policy definitions to meet your organization's security and compliance requirements or utilize built-in policy definitions for AKS clusters.
+Operator Nexus Arc-connected Nexus Kubernetes do not yet have built-in policy definitions available. However, you can create custom policy definitions to meet your organization's security and compliance requirements or utilize built-in policy definitions for AKS clusters.
 
 - [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md)
 - [Azure Policy Built-in definitions for AKS](../../includes/policy/reference/bycat/policysets-kubernetes.md)
 
-### Customizing Policies for NAKS Clusters
+### Customizing Policies for Nexus Kubernetes cluster
 
-- Customize policies considering the unique aspects of NAKS, such as network configurations and container security.
+- Customize policies considering the unique aspects of Nexus Kubernetes clusters, such as network configurations and container security.
 - Refer to [Custom policy definitions](../governance/policy/tutorials/create-custom-policy-definition.md) for guidance.
 
-## Apply and Validate Policies for Nexus Resources
+## Apply and validate Policies for Nexus resources
 
-Whether you are securing Nexus Bare Metal Machine resources or NAKS clusters, the process of applying and validating policies is similar. Here's a generalized approach:
+Whether you are securing Nexus BMM resources or Nexus Kubernetes clusters, the process of applying and validating policies is similar. Here's a generalized approach:
 
 1. **Identify Suitable Policies**:
 
-   - For Nexus Bare Metal Machine resources, consider the recommended **[Preview]: Nexus Compute Machines should meet Security Baseline** policy.
-   - For NAKS clusters, explore [built-in AKS policies](../aks/policy-reference.md) or create custom policy definitions to meet specific security and compliance needs.
+   - For Nexus Bare Metal Machine resources, consider the recommended **[Preview]: Nexus compute machines should meet security baseline** policy.
+   - For Nexus Kubernetes clusters, explore [built-in AKS policies](../aks/policy-reference.md) or create custom policy definitions to meet specific security and compliance needs.
    - Review [Azure Policy Built-in definitions](../governance/includes/policy/reference/bycat/policysets-kubernetes.md) and [Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md) for more insights.
 
 2. **Assign Policies**:
