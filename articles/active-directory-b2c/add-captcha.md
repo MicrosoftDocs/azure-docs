@@ -21,6 +21,9 @@ zone_pivot_groups: b2c-policy-type
 
 Azure Active Directory B2C (Azure AD B2C) enables you to enable CAPTCHA prevent automated attacks on your web applications. Azure AD B2C’s CAPTCHA supports both audio and visual captcha challenges. You can enable this security feature in both sign-up and sign-in flows of your local accounts. CAPTCHA isn't applicable for social identity providers' sign-in.   
 
+> [!NOTE]
+> This feature is in public preview
+
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)] 
