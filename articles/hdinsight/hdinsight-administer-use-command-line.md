@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to manage Azure HDInsight clusters. 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-azurecli
-ms.date: 11/17/2022
+ms.date: 12/05/2023
 ---
 
 # Manage Azure HDInsight clusters using Azure CLI
