@@ -188,12 +188,12 @@ In this step, you need to continue to edit files on the host VM machine. You nee
 ### Updating the agentSettings.json
 
 > [!NOTE]
-> **Path of agentSettings.json file on Windows:** C:\Packages\Plugins\Microsoft.Azure.Chaos.ChaosWindowsAgent-<agentVersion>\win-x64\agentSettings.json
-> **Path of agentSettings.json file on Linux:** /var/lib/waagent/Microsoft.Azure.Chaos.ChaosLinuxAgent-<agentVersion>\linux-x64
+> **Path of agentSettings.json file on Windows:** C:\Packages\Plugins\Microsoft.Azure.Chaos.ChaosWindowsAgent-\<Version\>\win-x64\agentSettings.json
+> **Path of agentSettings.json file on Linux:** /var/lib/waagent/Microsoft.Azure.Chaos.ChaosLinuxAgent-\<Version\>\linux-x64
 
 <br/>
 
-**Communication endpoint format:** https://acs-frontdoor-prod-<chaosAzureRegion>.chaosagent.trafficmanager.net
+**Communication endpoint format:** https://acs-frontdoor-prod-\<azureRegion\>.chaosagent.trafficmanager.net
 
 <br/>
 
@@ -210,7 +210,7 @@ Example of updated agentSettings.json:
 
 <br/>
 
-**Communication endpoint format:** https://acs-frontdoor-prod-<chaosAzureRegion>.chaosagent.trafficmanager.net
+**Communication endpoint format:** https://acs-frontdoor-prod-\<azureRegion\>.chaosagent.trafficmanager.net
 
 <br/>
 
