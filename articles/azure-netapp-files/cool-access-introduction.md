@@ -29,7 +29,7 @@ The following diagram illustrates an application with a volume enabled for cool 
 
 :::image type="content" source="../media/azure-netapp-files/cool-access-explainer.png" alt-text="Diagram of cool access tiering." lightbox="../media/azure-netapp-files/cool-access-explainer.png" border="false":::
 
-In the initial write, data blocks are assign a "warm" temperature value and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the cooling period. The cooling period can be between 7 and 183 days; it has a default value of 31 days. Once marked "cold,"  the tiering scan collects blocks and packages them into 4 MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
+In the initial write, data blocks are assigned a "warm" temperature value and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the cooling period. The cooling period can be between 7 and 183 days; it has a default value of 31 days. Once marked "cold,"  the tiering scan collects blocks and packages them into 4-MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
 
 By `Default` (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. Once marked as _warm_, the data blocks are again subjected to the temperature scan. However, large sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data nor do they trigger inactive data to be moved back to the hot tier.
 
@@ -191,7 +191,7 @@ In these examples, assume:
 * The hot tier storage cost is $0.000202/GiB/hr. The cool tier storage cost is $0.000082/GiB/hr.  
 * Network transfer cost (including read or write activities from the cool tier) is $0.020000/GiB.
 * You have a 5-TiB capacity pool with cool access enabled.
-* You have 1-TiB of unallocated capacity within the capacity pool
+* You have 1 TiB of unallocated capacity within the capacity pool
 * You have a 4-TiB volume enabled for cool access.
 * 3 TiB of the 4 TiB is moved to the cool tier after the coolness period. 
 * You read or write 20% of data each month from the cool tier.
