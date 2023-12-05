@@ -1,7 +1,7 @@
 ---
 title: "Content Moderator REST API quickstart"
 titleSuffix: Azure AI services
-description: In this quickstart, learn how to get started with the Azure AI Content Moderator REST API. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
+description: In this quickstart, learn how to get started with the Azure Content Moderator REST API. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 12/08/2020
 ms.author: pafarley
 ---
 
-Get started with the Azure AI Content Moderator REST API. 
+Get started with the Azure Content Moderator REST API. 
 
 Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. Use the AI-powered content moderation service to scan text, image, and videos and apply content flags automatically. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 

@@ -1,5 +1,5 @@
 ---
-title: What is Azure AI Content Moderator?
+title: What is Azure Content Moderator?
 titleSuffix: Azure AI services
 description: Learn how to use Content Moderator to track, flag, assess, and filter inappropriate material in user-generated content.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.topic: overview
 ms.date: 11/06/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-keywords: content moderator, Azure AI Content Moderator, online moderator, content filtering software, content moderation service, content moderation
+keywords: content moderator, Azure Content Moderator, online moderator, content filtering software, content moderation service, content moderation
 
-#Customer intent: As a developer of content management software, I want to find out whether Azure AI Content Moderator is the right solution for my moderation needs.
+#Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
 ---
 
-# What is Azure AI Content Moderator?
+# What is Azure Content Moderator?
 
 [!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
-Azure AI Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. It includes the AI-powered content moderation service which scans text, image, and videos and applies content flags automatically.
+Azure Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. It includes the AI-powered content moderation service which scans text, image, and videos and applies content flags automatically.
 
 You may want to build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
@@ -33,7 +33,7 @@ This documentation contains the following article types:
 
 For a more structured approach, follow a Training module for Content Moderator.
 * [Introduction to Content Moderator](/training/modules/intro-to-content-moderator/)
-* [Classify and moderate text with Azure AI Content Moderator](/training/modules/classify-and-moderate-text-with-azure-content-moderator/)
+* [Classify and moderate text with Azure Content Moderator](/training/modules/classify-and-moderate-text-with-azure-content-moderator/)
 
 ## Where it's used
 
