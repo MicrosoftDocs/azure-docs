@@ -58,16 +58,15 @@ You need the following items to ensure you're set up to begin the onboarding pro
 
 The following **Register features** are for provider registration using Azure CLI.
 
+```
 az provider register --namespace Microsoft.ConnectedVMwarevSphere 
 az provider register --namespace Microsoft.ExtendedLocation 
 az provider register --namespace Microsoft.KubernetesConfiguration 
 az provider register --namespace Microsoft.ResourceConnector 
 az provider register --namespace Microsoft.AVS
 ```
-
 Alternately, users can sign into their Subscription, navigate to the **Resource providers** tab, and register themselves on the resource providers mentioned previously.
 
-```
 
 ## Onboard process to deploy Azure Arc
 
