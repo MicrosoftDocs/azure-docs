@@ -108,6 +108,8 @@ See [grant admin consent](/entra/identity/enterprise-apps/grant-admin-consent?pi
 
 [!INCLUDE [deploy-restful-api-app-with-consumption-plan](includes/quickstart-deploy-restful-api-app/deploy-restful-api-app-with-consumption-plan.md)]
 
+## 5. Validate the app
+
 [!INCLUDE [validate-the-app-portal](includes/quickstart-deploy-restful-api-app/validate-the-app-portal.md)]
 
 ::: zone-end

@@ -13,8 +13,6 @@ For clarity of structure, a separate markdown file is used to describe how to va
 
 -->
 
-## 5. Validate the app
-
 You can now access the RESTful API to see if it works.
 
 ### 5.1. Request an access token
