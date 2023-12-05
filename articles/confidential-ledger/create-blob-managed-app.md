@@ -23,7 +23,7 @@ The **Blob Storage Digest Backed by Confidential Ledger** Managed Application ca
 
 ## Deploying the managed application
 
-The Managed Application can be found in the Azure Marketplace here: [Blob Storage Digests Backed by Confidential Ledger (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/azureconfidentialledger.acl-blob-storage-preview/resourceGroupId//resourceGroupLocation//dontDiscardJourney~/false/_provisioningContext~/%7B%22initialValues%22%3A%7B%22subscriptionIds%22%3A%5B%22027da7f8-2fc6-46d4-9be9-560706b60fec%22%5D%2C%22resourceGroupNames%22%3A%5B%5D%2C%22locationNames%22%3A%5B%22eastus%22%5D%7D%2C%22telemetryId%22%3A%225be042b2-6422-4ee3-9457-4d6d96064009%22%2C%22marketplaceItem%22%3A%7B%22categoryIds%22%3A%5B%5D%2C%22id%22%3A%22Microsoft.Portal%22%2C%22itemDisplayName%22%3A%22NoMarketplace%22%2C%22products%22%3A%5B%5D%2C%22version%22%3A%22%22%2C%22productsWithNoPricing%22%3A%5B%5D%2C%22publisherDisplayName%22%3A%22Microsoft.Portal%22%2C%22deploymentName%22%3A%22NoMarketplace%22%2C%22launchingContext%22%3A%7B%22telemetryId%22%3A%225be042b2-6422-4ee3-9457-4d6d96064009%22%2C%22source%22%3A%5B%5D%2C%22galleryItemId%22%3A%22%22%7D%2C%22deploymentTemplateFileUris%22%3A%7B%7D%2C%22uiMetadata%22%3Anull%7D%7D).
+The Managed Application can be found in the Azure Marketplace here: [Blob Storage Digests Backed by Confidential Ledger (preview)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azureconfidentialledger.acl-blob-storage?tab=Overview).
 
 ### Resources to be created
 
