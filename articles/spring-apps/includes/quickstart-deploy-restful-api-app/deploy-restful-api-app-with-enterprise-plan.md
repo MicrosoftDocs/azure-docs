@@ -100,21 +100,6 @@ Use the following steps to connect your service instances:
 
 [!INCLUDE [update-application-configuration](update-application-configuration.md)]
 
-## 4. Deploy the app to Azure Spring Apps
-
-You can now deploy the app to Azure Spring Apps.
-
-[!INCLUDE [deploy-restful-api-app-with-maven-plugin](restful-api-spring-apps-maven-plugin.md)]
-   
-   ```output  
-   [INFO] Deployment Status: Running
-   [INFO]   InstanceName:simple-todo-api-default-15-xxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:N/A       
-   [INFO] Getting public url of app(simple-todo-api)...
-   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-simple-todo-api.azuremicroservices.io
-   ```
-
-[!INCLUDE [validate-the-app-portal](validate-the-app-portal.md)]
-
 ### [Azure CLI](#tab/Azure-CLI)
 
 ### 3.1. Provide names for each resource
@@ -183,10 +168,10 @@ Use the following steps to create a new resource group.
 
 Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace: `Microsoft.SaaS`:
 
-```azurecli
-az extension add --name spring --upgrade
-az provider register --namespace Microsoft.SaaS
-```
+   ```azurecli
+   az extension add --name spring --upgrade
+   az provider register --namespace Microsoft.SaaS
+   ```
 
 ### 3.4. Create an Azure Spring Apps instance
 
@@ -265,7 +250,7 @@ After the application instance and the PostgreSQL instance are created, the appl
    ```azurecli
    az ad app create --display-name ${TODO_APP_NAME} \
        --sign-in-audience AzureADandPersonalMicrosoftAccount \
-       --identifier-uris ${TODO_APP_URL} \
+       --identifier-uris ${TODO_APP_URL}
    ```
 
 1. Use the following command to create service principal for the application:
@@ -316,7 +301,7 @@ After the application instance and the PostgreSQL instance are created, the appl
             "userConsentDisplayName": null,
             "value": "ToDo.Read"
         }
-    ]}' | jq .)
+    ]}')
    ```
 
 1. Use the following command to add scopes:
@@ -329,7 +314,7 @@ After the application instance and the PostgreSQL instance are created, the appl
 1. Use the following command to get the tenant ID to use in the next step:
 
    ```azurecli
-   az account list | jq -r '.[].tenantId'
+   az account show --query "tenantId" --output tsv
    ```
 
 1. Use the following command to get the application-id to use in the next steps:
@@ -345,18 +330,52 @@ After the application instance and the PostgreSQL instance are created, the appl
 
 [!INCLUDE [update-application-configuration](update-application-configuration.md)]
 
+---
+
 ## 4. Deploy the app to Azure Spring Apps
 
-Use the following command to deploy the .jar file for the app:
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+You can now deploy the app to Azure Spring Apps.
+
+[!INCLUDE [deploy-restful-api-app-with-maven-plugin](restful-api-spring-apps-maven-plugin.md)]
+
+   ```output  
+   [INFO] Deployment Status: Running
+   [INFO]   InstanceName:simple-todo-api-default-15-xxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:N/A       
+   [INFO] Getting public url of app(simple-todo-api)...
+   [INFO] Application url: https://<your-Azure-Spring-Apps-instance-name>-simple-todo-api.azuremicroservices.io
+   ```
+
+### [Azure CLI](#tab/Azure-CLI)
+
+For enterprise tier, user doesn't need to deploy jar, can directory deploy source code.
+
+1. Use the following command to clean package:
+
+   ```azurecli
+   ./mvnw clean
+   ```
+
+1. Use the following command to deploy the app based on source code:
 
    ```azurecli
    az spring app deploy \
     --service ${AZURE_SPRING_APPS_NAME} \
     --name ${APP_NAME} \
-    --artifact-path target/simple-todo-api-0.0.2-SNAPSHOT.jar
+    --build-env BP_JVM_VERSION=17 \
+    --source-path .
    ```
 
+---
+
 ## 5. Validate the app
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+[!INCLUDE [validate-the-app-portal](validate-the-app-portal.md)]
+
+### [Azure CLI](#tab/Azure-CLI)
 
 You can now access the RESTful API to see if it works.
 
@@ -366,32 +385,18 @@ The RESTful APIs act as a resource server, which is protected by Microsoft Entra
 
 #### Register the client application
 
-1. Use the following command to create a json file contains permissions info：
-
-   ```azurecli
-   echo '[{ "resourceAppId": "'$appid'",
-        "resourceAccess": [
-            {
-                "id": "'$permissionid1'",
-                "type": "Scope"
-            },
-            {
-                "id": "'$permissionid2'",
-                "type": "Scope"
-            },
-            {
-                "id": "'$permissionid3'",
-                "type": "Scope"
-            }]}]' > manifest.json
-   ```
-
 1. Use the following command to create a Microsoft Entra ID application,  which is used to add the permissions for the `ToDo` app:
 
    ```azurecli
    az ad app create --display-name ${TODOWEB_APP_NAME} \
        --sign-in-audience AzureADMyOrg \
-       --identifier-uris ${TODOWEB_APP_URL} \
-       --required-resource-accesses @manifest.json
+       --identifier-uris ${TODOWEB_APP_URL}
+   ```
+
+1. Use the following command to add permissions:
+
+   ```azurecli
+   az ad app permission add --id api://simple-todowebtest2 --api $appid --api-permissions $permissionid1=Scope $permissionid2=Scope $permissionid3=Scope
    ```
 
 1. Use the following command to grant admin consent for the permissions you added:
@@ -430,7 +435,7 @@ The RESTful APIs act as a resource server, which is protected by Microsoft Entra
 
    ```azurecli
    az spring app show --name ${APP_NAME} \
-       --service ${AZURE_SPRING_APPS_NAME} \ 
+       --service ${AZURE_SPRING_APPS_NAME} \
        --query properties.url
    ```
 
