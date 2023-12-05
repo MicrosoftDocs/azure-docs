@@ -622,7 +622,7 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
-## Next steps
+## Related content
 
 - [Create an Azure-SSIS IR via Azure portal](create-azure-ssis-integration-runtime-portal.md).
 - [Create an Azure-SSIS IR via Azure Resource Manager template](create-azure-ssis-integration-runtime-resource-manager-template.md).

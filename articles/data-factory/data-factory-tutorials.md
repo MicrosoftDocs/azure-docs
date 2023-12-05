@@ -85,5 +85,5 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [Microsoft Purview](turorial-push-lineage-to-purview.md)
 
-## Next steps
+## Related content
 Learn more about Data Factory [pipelines](concepts-pipelines-activities.md) and [data flows](concepts-data-flow-overview.md).

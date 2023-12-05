@@ -20,7 +20,7 @@ In some cases, like with a free text field, simply selecting the correct [langua
 This tutorial uses Postman and Azure AI Search's [REST APIs](/rest/api/searchservice/) to:
 
 > [!div class="checklist"]
-> * Explain how analyzers work
+> * Show how analyzers work
 > * Define a custom analyzer for searching phone numbers
 > * Test how the custom analyzer tokenizes text
 > * Create separate analyzers for indexing and searching to further improve results

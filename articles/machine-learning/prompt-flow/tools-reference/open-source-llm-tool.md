@@ -30,7 +30,7 @@ This prompt flow supports two different LLM API types:
 1. Choose a Model from the Azure Machine Learning Model Catalog and deploy.
 2. Setup and select the connections to the model deployment.
 3. Configure the tool with the model settings.
-4. [Prepare the prompt](./prompt-tool.md#how-to-write-prompt).
+4. [Prepare the prompt](./prompt-tool.md#write-a-prompt).
 5. Run the flow.
 
 ## Prerequisites: Model Deployment

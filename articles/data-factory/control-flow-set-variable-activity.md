@@ -134,7 +134,7 @@ A common scenario involving variable is to use a variable as an iterator within 
 Variables are scoped at the pipeline level. This means that they're not thread safe and can cause unexpected and undesired behavior if they're accessed from within a parallel iteration activity such as a ForEach loop, especially when the value is also being modified within that foreach activity.
 
 
-## Next steps
+## Related content
 Learn about another related control flow activity: 
 - [Append Variable Activity](control-flow-append-variable-activity.md)
 

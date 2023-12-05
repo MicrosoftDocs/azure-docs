@@ -699,6 +699,8 @@
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
         - name: Windows AKS partner solutions
           href: windows-aks-partner-solutions.md
+        - name: Windows AKS customer stories
+          href: windows-aks-customer-stories.md
     - name: Develop and run applications
       items:
         - name: Install existing applications with Helm
@@ -753,8 +755,6 @@
           href: open-ai-quickstart.md
         - name: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
           href: open-ai-secure-access-quickstart.md
-        - name: Deploy an AI model with the AI toolchain operator
-          href: ai-toolchain-operator.md 
     - name: DevOps
       items:
         - name: Azure DevOps Project
