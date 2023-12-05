@@ -197,7 +197,7 @@ To make your portal and its latest changes available to visitors, you need to *p
 1. In the left menu, under **Developer portal**, select **Portal overview**.
 1. In the **Portal overview** window, select **Publish**.
 
-    :::image type="content" source="media/developer-portal-overview/pubish-portal-azure-portal.png" alt-text="Publish portal from Azure portal":::
+    :::image type="content" source="media/developer-portal-overview/pubish-portal-azure-portal.png" alt-text="Screenshot of publishing the developer portal from the Azure portal":::
 
 ## Migrate from the legacy portal
 

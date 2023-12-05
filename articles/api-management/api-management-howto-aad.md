@@ -203,7 +203,7 @@ Although a new account will automatically be created when a new user signs in wi
 > [!IMPORTANT]
 > You need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the Azure AD changes to take effect.
 
-## Next Steps
+## Related content
 
 - Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 - Learn more about [MSAL](../active-directory/develop/msal-overview.md) and [migrating to MSAL](../active-directory/develop/msal-migration.md).

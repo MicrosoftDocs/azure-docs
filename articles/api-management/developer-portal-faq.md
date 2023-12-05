@@ -21,7 +21,7 @@ This articles provides answers to frequently asked questions about the [develope
 
 You have the following options:
 
-* For small customizations, use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget) .
+* For small customizations, use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget).
 
 * For larger customizations, [create and upload](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget) a custom widget to the managed developer portal.
 

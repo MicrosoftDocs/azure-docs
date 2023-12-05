@@ -12,7 +12,7 @@ ms.author: danlep
 
     :::image type="content" source="media/api-management-developer-portal-add/add-section.png" alt-text="Screenshot showing the add section icon in the developer portal.":::
 
-* Add a widget (for example, text, image, custom widget, or APIs list) by hovering over a blank area, then click a grey icon with a plus sign.
+* Add a widget (for example, text, image, custom widget, or APIs list) by hovering over a blank area, then click a gray icon with a plus sign.
 
     :::image type="content" source="media/api-management-developer-portal-add/add-widget.png" alt-text="Screenshot showing the add widget icon in the developer portal.":::
 
