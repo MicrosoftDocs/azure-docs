@@ -1,13 +1,13 @@
 ---
-title: Overview of Azure Monitor pipeline for edge and multicloud
-description: Overview of Azure Monitor pipeline for edge and multicloud
+title: Configuration of Azure Monitor pipeline for edge and multicloud
+description: Configuration of Azure Monitor pipeline for edge and multicloud
 ms.topic: conceptual
 ms.date: 11/14/2023
 ms.author: bwren
 author: bwren
 ---
 
-# Overview of Azure Monitor pipeline for edge and multicloud
+# Configuration of Azure Monitor pipeline for edge and multicloud
 
 Azure Monitor pipeline for edge and multicloud is an Azure Monitor component that enables at-scale collection, transformation, and routing of telemetry data at the edge and to the cloud. It leverages OpenTelemetry Collector as a foundation that enables an extensibility model to support collection from a wide range of data sources.
 
@@ -76,8 +76,10 @@ az k8s-extension show --name <name> --cluster-name <cluster-name> --resource-gro
 
 Use the output from this command as input to this next command to entitle Azure Monitor Pipeline to send its telemetry to the DCR created in the section above.
 
-
+```azurecli
 az role assignment create --assignee "<extension principal ID>" --role "Monitoring Metrics Publisher" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Insights/dataCollectionRules/<dcr-name>"
+```
+
 
 | Parameter | Description |
 |:---|:--|
@@ -95,7 +97,7 @@ The configuration file defines how the Azure Monitor Pipeline Controller will co
 | Parameter | Description |
 |:---|:--|
 | `namespace` | Namespace provided during deployment of the Arc extension. |
-| `dcr_endpoint` | Endpoint of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value.<br>Example: https://example-dce-82qc.eastus-1.ingest.monitor.azure.com |
+| `dcr_endpoint` | Endpoint of your DCE. You can locate this in the Azure portal by navigating to the DCE and copying the Logs Ingestion value.<br>Example: `https://example-dce-82qc.eastus-1.ingest.monitor.azure.com` |
 | `stream_name` | Name of the stream in your DCR. From the JSON view of your DCR, copy the value of the stream name in the **Data sources** section.<br>Example: Custom-TestData_CL |
 | `dcr` | Immutable ID of the DCR. From the JSON view of your DCR, copy the value of the immutable ID in the **General** section.<br>Example: dcr-00000000-0000-0000-0000-000000000000. |
 

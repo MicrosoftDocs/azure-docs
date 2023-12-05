@@ -688,6 +688,14 @@ items:
         - name: Text log transformation
           displayName: Custom text logs
           href: agents/azure-monitor-agent-transformation.md
+  - name: Edge pipeline
+    items:
+    - name: Overview
+      displayName: Edge pipeline
+      href: essentials/edge-pipeline-overview.md
+    - name: Configure
+      displayName: Edge pipeline
+      href: essentials/edge-pipeline-configure.md
   - name: Diagnostic Settings
     items:
     - name: Overview 
