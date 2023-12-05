@@ -71,11 +71,11 @@ You create the Azure Operator Insights Data Product resource.
 1. To add owner(s) for the Data Product, which will also appear in Microsoft Purview, select **Add owner**, enter the email address, and select **Add owners**.
 1. In the Tags tab of the **Create a Data Product** page, select or enter the name/value pair used to categorize your data product resource.
 1. Select **Review + create**.
-1. Select **Create**. Your Data Product instance is created in about 20-25 minutes. During this time, all the underlying components are provisioned post which you can work with your data ingestion, exploring sample dashboards, queries etc.
+1. Select **Create**. Your Data Product instance is created in about 20-25 minutes. During this time, all the underlying components are provisioned. After this process completes, you can work with your data ingestion, explore sample dashboards and queries, and so on.
 
 ## Deploy Sample Insights
 
-Once your Data Product instance is created, you can deploy sample insights dashboard which works against the sample data that came along with the Data Product instance.
+Once your Data Product instance is created, you can deploy a sample insights dashboard. This dashboard works with the sample data that came along with the Data Product instance.
 
 1. Navigate to your Data Product resource on the Azure portal and select the Permissions tab on the Security section.
 1. Select **Add Reader**. Type the user's email address to be added to Data Product reader role. 
@@ -83,7 +83,9 @@ Once your Data Product instance is created, you can deploy sample insights dashb
 > [!NOTE] 
 > The reader role is required for you to have access to the insights consumption URL.
 
-3.    Download the sample JSON template file from the Data product overview page by clicking on the link shown after the text "Sample Dashboard". Alternatively [download the sample JSON template file here](https://aka.ms/aoidashboard).
+3. Download the sample JSON template file for your data product's dashboard:
+    * Quality of Experience - Affirmed MCC GIGW: [https://go.microsoft.com/fwlink/p/?linkid=2254536](https://go.microsoft.com/fwlink/p/?linkid=2254536)
+    * Monitoring - Affirmed MCC: [https://go.microsoft.com/fwlink/p/?linkid=2254551](https://go.microsoft.com/fwlink/?linkid=2254551)
 1. Copy the consumption URL from the Data Product overview screen into the clipboard.
 1. Open a web browser, paste in the URL and select enter.
 1. When the URL loads, select on the Dashboards option on the left navigation pane.
