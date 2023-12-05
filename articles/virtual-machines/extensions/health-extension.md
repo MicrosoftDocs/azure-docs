@@ -385,7 +385,8 @@ The extension.json file content.
 ```
 ---
 ## Troubleshoot
-### View VMHealth - single instance
+### View VMHealth
+
 # [REST API](#tab/rest-api)
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/instanceView?api-version=2023-07-01
