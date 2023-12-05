@@ -20,7 +20,7 @@ The following screenshot shows the high-level example workflow:
 
 ![Screenshot shows example workflow with RSS trigger named When a feed item is published, and with the Outlook action named Send an email.](./media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png)
 
-This example specifially creates a Consumption logic app resource and workflow that runs in multi-tenant Azure Logic Apps. To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md). The connectors in this example are only two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
+This example specifically creates a Consumption logic app resource and workflow that runs in multi-tenant Azure Logic Apps. To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md). The connectors in this example are only two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
 
 As you progress through this quickstart, you'll learn the following basic steps:
 
@@ -125,7 +125,7 @@ To create and manage a Consumption logic app workflow using other tools, see the
 
 A workflow always starts with a single *trigger*, which specifies the condition to meet before running any subsequent actions in the workflow. Each time the trigger fires, Azure Logic Apps creates and runs a workflow instance. If the trigger doesn't fire, no workflow instance is created or run.
 
-This example uses an RSS trigger that checks an RSS feed, based on the specified schedule. If a new item exists in the feed, the trigger fires, and a new workflow instance is created and run. If multiple new items exist between checks, the trigger fires for each item, and a separate new workflow instance runs for each item. By default, workflow instances created at the same time also run at the same time, or concurrently.
+This example uses an RSS trigger that checks an RSS feed, based on the specified schedule. If a new item exists in the feed, the trigger fires, and a new workflow instance is created and run. If multiple new items exist between checks, the trigger fires for each item, and a separate new workflow instance runs for each item. By default, workflow instances that are created at the same time also run at the same time, or concurrently.
 
 1. On the workflow designer, [follow these general steps to add the **RSS** trigger named **When a feed item is published**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-a-trigger-to-start-your-workflow).
 
