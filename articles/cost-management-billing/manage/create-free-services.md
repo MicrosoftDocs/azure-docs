@@ -6,7 +6,7 @@ ms.reviewer: amberrb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/02/2022
+ms.date: 10/20/2022
 ms.author: banders
 ---
 
@@ -22,7 +22,7 @@ Your Azure free account includes a *specified quantity* of free services for 12 
 
 We recommend that use the [Free service page](https://go.microsoft.com/fwlink/?linkid=859151) in the Azure portal to create free services. Or you can sign in to the [Azure portal](https://portal.azure.com), and search for **free services**. If you create resources outside of the Free services pages, free tiers or free resource configuration options aren’t always selected by default. To avoid charges, ensure that you create resources from the Free services page. And then when you create a resource, be sure to the select the tier that's free.
 
-![Screenshot that shows free services page](./media/create-free-services/billing-freeservices-grid.png)
+:::image type="content" source="./media/create-free-services/billing-freeservices-grid.png" alt-text="Screenshot that shows free services page." lightbox="./media/create-free-services/billing-freeservices-grid.png" :::
 
 ## Services can be created in any region
 

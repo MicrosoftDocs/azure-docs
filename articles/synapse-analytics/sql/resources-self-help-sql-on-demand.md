@@ -35,7 +35,7 @@ Usually, this problem occurs for one of two reasons:
 Your query might fail with the error message `Websocket connection was closed unexpectedly.` This message means that your browser connection to Synapse Studio was interrupted, for example, because of a network issue.
 
 - To resolve this issue, rerun your query. 
-- Try [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
+- Try [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
 - If this message occurs often in your environment, get help from your network administrator. You can also check firewall settings, and check the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
 - If the issue continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure portal. 
 
@@ -949,10 +949,6 @@ Other operations are not allowed in Lake databases.
 
 > [!NOTE]
 > If you are creating a view, procedure, or function in `dbo` schema (or omitting schema and using the default one that is usually `dbo`), you will get the error message.
-
-### Dataverse real-time snapshot tables are not available in serverless SQL pool
-
-If you are exporting your [Dataverse table to Azure Data Lake storage](/power-apps/maker/data-platform/azure-synapse-link-data-lake#manage-table-data-to-the-data-lake) to Data Lake, and you don't see the [snapshot data](/power-apps/maker/data-platform/azure-synapse-link-synapse#access-near-real-time-data-and-read-only-snapshot-data) (the tables with the `_partitioned` suffix) in your Lake database, make sure that your workspace Managed Identity has read-access on the ADLS storage that contains exported data. The serverless SQL pool reads the schema of the exported data using Managed Identity access to create the table schema.
 
 ### Delta tables in Lake databases are not available in serverless SQL pool
 

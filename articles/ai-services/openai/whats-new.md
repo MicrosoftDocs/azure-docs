@@ -6,14 +6,64 @@ manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
+ms.custom:
+  - ignite-2023
 ms.topic: whats-new
-ms.date: 10/16/2023
+ms.date: 11/30/2023
 recommendations: false
-keywords:  
+keywords:
 ---
 
 # What's new in Azure OpenAI Service
 
+## December 2023
+
+### Azure OpenAI on your data
+
+- Full VPN and private endpoint support for Azure OpenAI on your data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
+- New article for using [Azure OpenAI on your data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
+
+## November 2023
+
+### New data source support in Azure OpenAI on your data 
+
+- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db.md#ingesting-your-data) as well as URLs/web addresses as data sources to ingest your data and chat with a supported Azure OpenAI model.
+
+### GPT-4 Turbo Preview & GPT-3.5-Turbo-1106 released
+
+Both models are the latest release from OpenAI with improved instruction following, [JSON mode](./how-to/json-mode.md), [reproducible output](./how-to/reproducible-output.md), and parallel function calling.
+
+- **GPT-4 Turbo Preview** has a max context window of 128,000 tokens and can generate 4,096 output tokens. It has the latest training data with knowledge up to April 2023. This model is in preview and is not recommended for production use. All deployments of this preview model will be automatically updated in place once the stable release becomes available.
+
+- **GPT-3.5-Turbo-1106** has a max context window of 16,385 tokens and can generate 4,096 output tokens.
+
+For information on model regional availability consult the [models page](./concepts/models.md).
+
+The models have their own unique per region [quota allocations](./quotas-limits.md).
+
+### DALL-E 3 public preview
+
+DALL-E 3 is the latest image generation model from OpenAI. It features enhanced image quality, more complex scenes, and improved performance when rendering text in images. It also comes with more aspect ratio options. DALL-E 3 is available through OpenAI Studio and through the REST API. Your OpenAI resource must be in the `SwedenCentral` Azure region.
+
+DALL-E 3 includes built-in prompt rewriting to enhance images, reduce bias, and increase natural variation.
+
+Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
+
+### Responsible AI
+
+- **Expanded customer configurability**: All Azure OpenAI customers can now configure all severity levels (low, medium, high) for the categories hate, violence, sexual and self-harm, including filtering only high severity content. [Configure content filters](./how-to/content-filters.md)
+
+- **Content Credentials in all DALL-E models**: AI-generated images from all DALL-E models now include a digital credential that discloses the content as AI-generated. Applications that display image assets can leverage the open source [Content Authenticity Initiative SDK](https://opensource.contentauthenticity.org/docs/js-sdk/getting-started/quick-start/) to display credentials in their AI generated images. [Content Credentials in Azure OpenAI](/azure/ai-services/openai/concepts/content-credentials)
+
+- **New RAI models**
+    
+    - **Jailbreak risk detection**: Jailbreak attacks are user prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. The jailbreak risk detection model is optional (default off), and available in annotate and filter model. It runs on user prompts.
+    - **Protected material text**: Protected material text describes known text content (for example, song lyrics, articles, recipes, and selected web content) that can be outputted by large language models. The protected material text model is optional (default off), and available in annotate and filter model. It runs on LLM completions.
+    - **Protected material code**: Protected material code describes source code that matches a set of source code from public repositories, which can be outputted by large language models without proper citation of source repositories. The protected material code model is optional (default off), and available in annotate and filter model. It runs on LLM completions.
+
+    [Configure content filters](./how-to/content-filters.md)
+
+- **Blocklists**: Customers can now quickly customize content filter behavior for prompts and completions further by creating a custom blocklist in their filters. The custom blocklist allows the filter to take action on a customized list of patterns, such as specific terms or regex patterns. In addition to custom blocklists, we provide a Microsoft profanity blocklist (English). [Use blocklists](./how-to/use-blocklists.md)
 ## October 2023
 
 ### New fine-tuning models (preview)
@@ -27,6 +77,14 @@ keywords:
 - Fine-tuned models have different [quota limits](quotas-limits.md) than regular models.
 
 - [Tutorial: fine-tuning GPT-3.5-Turbo](./tutorials/fine-tune.md)
+
+### Azure OpenAI on your data
+
+- New [custom parameters](./concepts/use-your-data.md#custom-parameters) for determining the number of retrieved documents and strictness.
+    - The strictness setting sets the threshold to categorize documents as relevant to your queries.
+    - The retrieved documents setting specifies the number of top-scoring documents from your data index used to generate responses.
+- You can see data ingestion/upload status in the Azure OpenAI Studio.
+- Support for [private endpoints & VPNs for blob containers](./how-to/use-your-data-securely.md#security-support-for-azure-blob-storage)
 
 ## September 2023
 

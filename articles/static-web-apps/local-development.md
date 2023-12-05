@@ -76,8 +76,11 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 1. Install the CLI.
 
     ```console
-    npm install @azure/static-web-apps-cli
+    npm install -D @azure/static-web-apps-cli
     ```
+
+    > [!TIP]
+    > If you want to install the SWA CLI globally, use `-g` in place of `-D`. It is highly recommended, however, to install SWA as a development dependency.
 
 1. Build your app if required by your application.
 

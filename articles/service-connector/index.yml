@@ -11,13 +11,9 @@ metadata:
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.date: 05/24/2022
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  ms.date: 10/19/2023
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card
   - title: About Service Connector
     linkLists:
       - linkListType: overview
@@ -35,7 +31,6 @@ landingContent:
           - text: Frequently asked questions
             url: faq.yml
 
-  # Card
   - title: Get started using the Azure portal
     linkLists:
       - linkListType: quickstart

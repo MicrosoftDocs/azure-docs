@@ -89,6 +89,9 @@ For more information, see [Confidential computing nodes on AKS][conf-com-node].
 
 ### Azure Linux nodes
 
+> [!NOTE]
+> The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
+
 The Azure Linux container host for AKS is an open-source Linux distribution created by Microsoft, and it’s available as a container host on Azure Kubernetes Service (AKS). The Azure Linux container host for AKS provides reliability and consistency from cloud to edge across the AKS, AKS-HCI, and Arc products. You can deploy Azure Linux node pools in a new cluster, add Azure Linux node pools to your existing Ubuntu clusters, or migrate your Ubuntu nodes to Azure Linux nodes.
 
 For more information, see [Use the Azure Linux container host for AKS](use-azure-linux.md).
@@ -181,3 +184,4 @@ Learn more about deploying and managing AKS.
 [azure-monitor-logs]: ../azure-monitor/logs/data-platform-logs.md
 [helm]: quickstart-helm.md
 [aks-best-practices]: best-practices.md
+[intro-azure-linux]: ../azure-linux/intro-azure-linux.md

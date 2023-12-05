@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.custom: references_regions, ignite-2022
-ms.date: 08/29/2023
+ms.date: 11/28/2023
 ---
 
 # Regional availability for Azure Cosmos DB for PostgreSQL
@@ -16,43 +16,40 @@ ms.date: 08/29/2023
 
 Azure Cosmos DB for PostgreSQL is available in the following Azure regions:
 
-* Americas:
-	* Brazil South
-	* Canada Central
-    * Canada East
-	* Central US
-	* East US
-	* East US 2
-	* North Central US
-	* South Central US
-	* West Central US
-	* West US
-	* West US 2
-	* West US 3
-* Asia Pacific:
-	* Australia Central
-	* Australia East
-	* Central India
-	* East Asia
-	* Japan East
-	* Japan West
-	* Korea Central
-	* Southeast Asia
-* Europe:
-	* France Central
-	* Germany West Central
-	* North Europe
-	* Sweden Central
-	* Switzerland North
-	* Switzerland West†
-	* UK South
-	* West Europe
-* Middle East:
-	* Qatar Central
+| Region | HA | AZ outage resiliency |  Geo-redundant backup stored in |
+| --- | --- | --- | --- |
+| Australia Central | :heavy_check_mark: | N/A | :x: |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | Canada East |
+| Canada East | :heavy_check_mark: | N/A | Canada Central |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | East US 2 |
+| East Asia | :heavy_check_mark: | :heavy_check_mark: | Southeast Asia |
+| East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East US 2 | :heavy_check_mark: | :x: | Central US |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | Japan West |
+| Japan West | :heavy_check_mark: | :x: | Japan East |
+| Korea Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| North Central US | :heavy_check_mark: | N/A | South Central US |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: | West Europe |
+| Qatar Central | :heavy_check_mark: | :x: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | North Central US |
+| South India | :heavy_check_mark: | N/A | :x: |
+| Southeast Asia | :heavy_check_mark: | :x:| East Asia |
+| Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Switzerland North | :heavy_check_mark: | :heavy_check_mark: | Switzerland West |
+| Switzerland West † | :heavy_check_mark: | N/A | Switzerland North |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West Central US | :heavy_check_mark: | N/A | West US 2 |
+| West Europe | :heavy_check_mark: | :x: | North Europe |
+| West US | :heavy_check_mark: | :x: | East US |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: | West Central US |
+| West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
-
-† This Azure region is a [restricted one](../../availability-zones/cross-region-replication-azure.md#azure-paired-regions). To use it you need to request access to it by opening a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
+† This Azure region is a [restricted one](../../availability-zones/cross-region-replication-azure.md#azure-paired-regions). To use it, you need to request access to it by opening a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 Some of these regions may not be activated on all Azure
 subscriptions. If you want to use a region from the list and don't see it
@@ -62,5 +59,6 @@ request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportB
  
 **Next steps**
 
-- Learn how to [create a cluster in the portal](quickstart-create-portal.md).
-- See [Azure regions with availability zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support)
+- Learn how to [create a cluster in the portal](./quickstart-create-portal.md).
+- See details about [availability zone outage resiliency](./concepts-availability-zones.md) in Azure Cosmos DB for PostgreSQL.
+- Check out [backup redundancy options](./concepts-backup.md#backup-redundancy).

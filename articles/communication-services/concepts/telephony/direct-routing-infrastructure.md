@@ -125,13 +125,12 @@ The port ranges of the Media Processors are shown in the following table:
 
 Media Processors are placed in the same datacenters as SIP proxies:
 - NOAM (US South Central, two in US West and US East datacenters)
-- Europe (UK South, France Central, Amsterdam and Dublin datacenters)
+- Europe (EU West, EU North, Sweden, France Central)
 - Asia (Singapore datacenter)
 - Japan (JP East and West datacenters)
 - Australia (AU East and Southeast datacenters)
 - LATAM (Brazil South)
 - Africa (South Africa North)
-
 
 ## Media traffic: Codecs
 

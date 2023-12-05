@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.author: banders
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.topic: troubleshooting
 ms.date: 01/06/2023
 ---

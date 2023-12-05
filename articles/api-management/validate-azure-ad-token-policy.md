@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 10/19/2023
 ms.author: danlep
 ---
 
@@ -28,7 +28,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
     tenant-id="tenant ID or URL (for example, "contoso.onmicrosoft.com") of the Azure Active Directory service"
     header-name="name of HTTP header containing the token (alternatively, use query-parameter-name or token-value attribute to specify token)"
     query-parameter-name="name of query parameter used to pass the token (alternative, use header-name or token-value attribute to specify token)"
-    token-value="expression returning the token as a stripng (alternatively, use header-name or query-parameter attribute to specify token)"
+    token-value="expression returning the token as a string (alternatively, use header-name or query-parameter attribute to specify token)"
     failed-validation-httpcode="HTTP status code to return on failure"
     failed-validation-error-message="error message to return on failure"
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
@@ -92,7 +92,6 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 ### Usage notes
 
 * You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Microsoft Entra authentication by applying the `validate-azure-ad-token` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
-* When using a custom header (`header-name`), the header value cannot be prefixed with `Bearer ` and should be removed.
 
 ## Examples
 

@@ -5,7 +5,7 @@ description: Learn how to enable multifactor authentication (MFA) for VPN users.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 10/17/2023
 ms.author: cherylmc
 
 ---

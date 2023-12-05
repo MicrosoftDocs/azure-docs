@@ -1,8 +1,8 @@
 ---
 title: IP addresses used by Azure Monitor | Microsoft Docs
 description: This article discusses server firewall exceptions that are required by Azure Monitor
-ms.topic: conceptual
-ms.date: 08/11/2023
+ms.topic: reference
+ms.date: 11/15/2023
 ms.reviewer: saars
 ---
 
@@ -10,7 +10,7 @@ ms.reviewer: saars
 
 [Azure Monitor](../overview.md) uses several IP addresses. Azure Monitor is made up of core platform metrics and logs in addition to Log Analytics and Application Insights. You might need to know IP addresses if the app or infrastructure that you're monitoring is hosted behind a firewall.
 
-:::image type="content" source="https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png" alt-text="A diagram illustrating the ingestion flow of telemetry" lightbox="https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png":::
+:::image type="content" source="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png" alt-text="A diagram illustrating the ingestion flow of telemetry" lightbox="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png":::
 
 > [!NOTE]
 > Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhook action groups, which also require inbound firewall rules.

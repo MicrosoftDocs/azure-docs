@@ -4,14 +4,15 @@ title: Azure Backup service documentation
 summary: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
 
 metadata:
-  title: Azure Backup Documentation 
-  description: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. 
+  title: Azure Backup Documentation
+  description: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
   ms.service: backup
-  ms.custom: engagement-fy23
-  ms.topic: landing-page 
+  ms.custom:
+    - ignite-2023
+  ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-abhmallick 
-  ms.date: 09/29/2023
+  ms.date: 11/07/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -62,24 +63,21 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Back up database instance snapshots
+            url: sap-hana-database-about.md#back-up-database-instance-snapshots
           - text: Multiple backups per day for Azure VMs
             url: backup-azure-vms-enhanced-policy.md
           - text: Multi-user authorization for Backup vault 
             url: multi-user-authorization-concept.md?tabs=backup-vault
           - text: Enhanced soft delete
             url: backup-azure-enhanced-soft-delete-about.md
-          - text: Azure Kubernetes Service backup (preview)
+          - text: Azure Kubernetes Service backup
             url: azure-kubernetes-service-backup-overview.md
-          - text: Azure Blob vaulted backups (preview)
-            url: blob-backup-overview.md
-          - text: Selective Disk backup with Enhanced policy for Azure VM (preview)
+          - text: Selective Disk backup with Enhanced policy for Azure VM
             url: selective-disk-backup-restore.md
-          - text: SAP HANA System Replication backup
-            url: sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled
-          - text: Cross Region Restore for PostgreSQL (preview)
-            url: backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview
-          - text: Cross Region Restore support for MARS agent (preview)
-            url: about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview
+          - text: Azure Database for PostgreSQL Flexible server backup (preview) 
+            url: backup-azure-database-postgresql-flex-overview.md
+          
 
   # Card
   - title: Back up Azure VMs
@@ -131,7 +129,7 @@ landingContent:
             url: backup-azure-sap-hana-database.md
           - text: Back up SAP HSR databases on Azure VMs
             url: sap-hana-database-with-hana-system-replication-backup.md
-          - text: Back up SAP HANA databases' instance snapshots on Azure VMs (preview)
+          - text: Back up SAP HANA databases' instance snapshots on Azure VMs
             url: sap-hana-database-instances-backup.md
           - text: Manage and monitor backed up SAP HANA databases
             url: sap-hana-db-manage.md

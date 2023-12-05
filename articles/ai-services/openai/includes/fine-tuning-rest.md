@@ -2,7 +2,7 @@
 title: 'Customize a model with Azure OpenAI Service and the REST API'
 titleSuffix: Azure OpenAI
 description: Learn how to create your own customized model with Azure OpenAI Service by using the REST APIs.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
@@ -14,9 +14,13 @@ keywords:
 
 ## Prerequisites
 
+- Read the [When to use Azure OpenAI fine-tuning guide](../concepts/fine-tuning-considerations.md).
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 - An Azure OpenAI resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- Fine-tuning access requires **Cognitive Services OpenAI Contributor**.
+- If you do not already have access to view quota, and deploy models in Azure OpenAI Studio you will require [additional permissions](../how-to/role-based-access-control.md).  
+
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access).
@@ -99,7 +103,7 @@ OpenAI's CLI data preparation tool was developed for the previous generation of 
 To install the OpenAI CLI, run the following Python command:
 
 ```console
-pip install --upgrade openai 
+pip install openai==0.28.1
 ```
 
 To analyze your training data with the data preparation tool, run the following Python command. Replace the _\<LOCAL_FILE>_ argument with the full path and file name of the training data file to analyze:
@@ -146,7 +150,7 @@ For large data files, we recommend that you import from an Azure Blob store. Lar
 ### Upload training data
 
 ```bash
-curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-09-15-preview \
+curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-10-01-preview \
   -H "Content-Type: multipart/form-data" \
   -H "api-key: $AZURE_OPENAI_KEY" \
   -F "purpose=fine-tune" \
@@ -156,7 +160,7 @@ curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-09-15-preview 
 ### Upload validation data
 
 ```bash
-curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-09-15-preview \
+curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-10-01-preview \
   -H "Content-Type: multipart/form-data" \
   -H "api-key: $AZURE_OPENAI_KEY" \
   -F "purpose=fine-tune" \
@@ -168,7 +172,7 @@ curl -X POST $AZURE_OPENAI_ENDPOINT/openai/files?api-version=2023-09-15-preview 
 After you uploaded your training and validation files, you're ready to start the fine-tuning job. The following code shows an example of how to create a new fine-tuning job with the REST API:
 
 ```bash
-curl -X POST $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs?api-version=2023-09-15-preview \
+curl -X POST $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs?api-version=2023-10-01-preview \
   -H "Content-Type: application/json" \
   -H "api-key: $AZURE_OPENAI_KEY" \
   -d '{
@@ -183,7 +187,7 @@ curl -X POST $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs?api-version=2023-09-
 After you start a fine-tune job, it can take some time to complete. Your job might be queued behind other jobs in the system. Training your model can take minutes or hours depending on the model and dataset size. The following example uses the REST API to check the status of your fine-tuning job. The example retrieves information about your job by using the job ID returned from the previous example:
 
 ```bash
-curl -X GET $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/<YOUR-JOB-ID>?api-version=2023-09-15-preview \
+curl -X GET $AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/<YOUR-JOB-ID>?api-version=2023-10-01-preview \
   -H "api-key: $AZURE_OPENAI_KEY"
 ```
 
@@ -262,12 +266,12 @@ Azure OpenAI attaches a result file named _results.csv_ to each fine-tune job af
 The following Python example uses the REST API to retrieve the file ID of the first result file attached to the fine-tune job for your customized model, and then downloads the file to your working directory for analysis.
 
 ```bash
-curl -X GET "$AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/<JOB_ID>?api-version=2023-09-15-preview" \
+curl -X GET "$AZURE_OPENAI_ENDPOINT/openai/fine_tuning/jobs/<JOB_ID>?api-version=2023-10-01-preview" \
   -H "api-key: $AZURE_OPENAI_KEY")
 ```
 
 ```bash
-curl -X GET "$AZURE_OPENAI_ENDPOINT/openai/files/<RESULT_FILE_ID>/content?api-version=2023-09-15-preview" \
+curl -X GET "$AZURE_OPENAI_ENDPOINT/openai/files/<RESULT_FILE_ID>/content?api-version=2023-10-01-preview" \
     -H "api-key: $AZURE_OPENAI_KEY" > <RESULT_FILENAME>
 ```
 
@@ -309,6 +313,12 @@ You can optionally delete training and validation files that you uploaded for tr
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
 
+## Troubleshooting
+
+### How do I enable fine-tuning? Create a custom model is greyed out in Azure OpenAI Studio?
+
+In order to successfully access fine-tuning you need **Cognitive Services OpenAI Contributor assigned**. Even someone with high-level Service Administrator permissions would still need this account explicitly set in order to access fine-tuning. For more information please review the [role-based access control guidance](/azure/ai-services/openai/how-to/role-based-access-control#cognitive-services-openai-contributor).
+ 
 ## Next steps
 
 - Explore the fine-tuning capabilities in the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md).

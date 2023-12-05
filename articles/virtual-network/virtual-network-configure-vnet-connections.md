@@ -155,7 +155,7 @@ You can add a site-to-site (*S2S* in the following diagram) connection to a virt
 
 Azure currently works with two deployment models: Resource Manager and classic. The two models aren't completely compatible with each other. To configure a multisite connection with different models, see the following articles:
 
-* [Add a site-to-site connection to a virtual network with an existing VPN gateway connection](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+* [Add a site-to-site connection to a virtual network with an existing VPN gateway connection](../vpn-gateway/add-remove-site-to-site-connections.md)
 * [Add a site-to-site connection to a virtual network with an existing VPN gateway connection (classic)](../vpn-gateway/vpn-gateway-multi-site.md)
 
 > [!Note]

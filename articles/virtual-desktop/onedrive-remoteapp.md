@@ -18,7 +18,7 @@ You can use Microsoft OneDrive alongside a RemoteApp in Azure Virtual Desktop (p
 > [!IMPORTANT]
 > - You should only use OneDrive with a RemoteApp for testing purposes as it requires an Insider Preview build of Windows 11 for your session hosts.
 >
-> - You can't use the OneDrive setting **Start OneDrive automatically when I sign in to Windows**, which starts OneDrive when a user signs in. Instead, you need to configure OneDrive to launch by configuring a registry value, which is described in this article.
+> - You can't use the setting **Start OneDrive automatically when I sign in to Windows** in the OneDrive preferences, which starts OneDrive when a user signs in. Instead, you need to configure OneDrive to launch by configuring a registry value, which is described in this article.
 
 ## User experience
 

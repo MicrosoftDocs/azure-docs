@@ -8,7 +8,7 @@ metadata:
   author: suzizuber
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 03/02/2021
+  ms.date: 11/06/2023
   ms.author: v-szuber
 
 landingContent:
@@ -18,34 +18,54 @@ landingContent:
         links:
           - text: What is Azure Arc-enabled VMware vSphere?
             url: overview.md
-
-  - title: Get started
+  - title: Get started with Arc-enabled VMware
     linkLists:
       - linkListType: quickstart
         links:
-        - text: Connect vCenter to Arc
+        - text: Connect VMware vCenter Server to Azure Arc by using the helper script
           url: quick-start-connect-vcenter-to-arc-using-script.md
-
-
-  - title: Configure and manage VMware virtual machines
+      - linkListType: tutorial
+        links:        
+        - text: Create a virtual machine on VMware vCenter using Azure Arc
+          url: quick-start-create-a-vm.md
+      - linkListType: concept
+        links:
+        - text: Azure Arc agent
+          url: azure-arc-agent.md
+  - title: Use Azure to manage VMware VMs
     linkLists:
       - linkListType: how-to-guide
         links:  
+        - text: Plan for deployment
+          url: support-matrix-for-arc-enabled-vmware-vsphere.md
         - text: Enable VMware vCenter resources in Azure
           url: browse-and-enable-vcenter-resources-in-azure.md
-        - text: Install Arc agent at scale for your VMware VMs
-          url: enable-guest-management-at-scale.md
         - text: Manage access to VMware resources through Azure RBAC
           url: setup-and-manage-self-service-access.md
-        - text: Create a virtual machine on VMware vCenter
-          url: quick-start-create-a-vm.md   
         - text: Manage VMware virtual machines in Azure
           url: perform-vm-ops-through-azure.md
- 
+        - text: Install Arc agent at scale for your VMware VMs
+          url: enable-guest-management-at-scale.md
+  - title: Reference
+    linkLists:
+     - linkListType: reference
+       links:
+          - text: Azure CLI
+            url: https://learn.microsoft.com/en-us/cli/azure/connectedvmware?view=azure-cli-latest
   - title: Proof of concept
     linkLists:
      - linkListType: sample
        links:
-          - text: Jumpstart for Azure Arc-enabled VMware vSphere
-            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/ 
+        - text: Jumpstart for Azure Arc-enabled VMware vSphere
+          url: https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_vsphere
+  - title: Administer Arc-enabled VMware
+    linkLists:
+      - linkListType: how-to-guide
+        links:  
+        - text: Administer for Arc-enabled VMware vSphere
+          url: administer-arc-vmware.md
+        - text: Remove vCenter from Azure Arc
+          url: remove-vcenter-from-arc-vmware.md
+        - text: Perform recovery operations
+          url: recover-from-resource-bridge-deletion.md  
 

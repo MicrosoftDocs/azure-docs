@@ -11,7 +11,7 @@ ms.reviewer: jeffwo
 # customer-intent: As an IT manager, I want to investigate agent issue on a particular virtual machine and determine if I can resolve the issue on my own.
 ---
 # Use the Azure Monitor Agent Troubleshooter
-The Azure Monitor Agent isn't a service that runs in the context of an Azure Resource Provider. It may even be running in on premise machines within a customer network boundary. The Azure Monitor Agent Troubleshooter is designed to help diagnose issues with the agent, and general agent health checks. It can run checks to verify agent installation, connection, general heartbeat, and collect AMA-related logs automatically from the affected Windows or Linux VM. More scenarios will be added over time to increase the number of issues that can be diagnosed.
+The Azure Monitor Agent isn't a service that runs in the context of an Azure Resource Provider. It might even be running in on-premises machines within a customer network boundary. The Azure Monitor Agent Troubleshooter is designed to help diagnose issues with the agent, and general agent health checks. It can run checks to verify agent installation, connection, general heartbeat, and collect AMA-related logs automatically from the affected Windows or Linux VM. More scenarios will be added over time to increase the number of issues that can be diagnosed.
 > [!Note]
 > Note: Troubleshooter is a command line executable that is shipped with the agent for all versions newer than **1.12.0.0** for Windows and **1.25.1 for Linux**. 
 > If you have a older version of the agent, you can not copy the Troubleshooter on in to a VM to diagnose an older agent.
@@ -51,7 +51,7 @@ The Troubleshooter runs two tests and collects several diagnostic logs.
 
 
 ### Share the Windows Results
-The detailed data collected by the troubleshooter include system configuration, network configuration, environment variables, and agent configuration that can aid the customer in finding any issues.  The troubleshooter make is easy to send this data to customer support by creating a Zip file that should be attached to any customer support request. The file is located in C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent/{version}/Troubleshooter.  The agent logs can be cryptic but they can give you insight into problems that you may be experiencing.
+The detailed data collected by the troubleshooter include system configuration, network configuration, environment variables, and agent configuration that can aid the customer in finding any issues.  The troubleshooter make is easy to send this data to customer support by creating a Zip file that should be attached to any customer support request. The file is located in C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent/{version}/Troubleshooter.  The agent logs can be cryptic but they can give you insight into problems that you might be experiencing.
 
 |Logfile                              | Contents|
 |:---|:---|
@@ -85,6 +85,14 @@ The details for the covered scenarios are below:
 
 ### Share Linux Logs
 To create a zip file use this command when running the troubleshooter: sudo sh ama_troubleshooter.sh -A L.  You'll be asked for a file location to create the zip file.
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How can I confirm that the Log Analytics agent can communicate with Azure Monitor?
+
+From Control Panel on the agent computer, select **Security & Settings** > **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent can communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
 
 ## Next steps
 - [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.

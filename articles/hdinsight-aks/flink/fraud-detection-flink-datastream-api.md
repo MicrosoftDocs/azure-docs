@@ -1,12 +1,12 @@
 ---
-title: Fraud detection with the Apache Flink DataStream API
-description: Learn about Fraud detection with the Apache Flink DataStream API
+title: Fraud detection with the Apache Flink® DataStream API
+description: Learn about Fraud detection with the Apache Flink® DataStream API
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# Fraud detection with the Apache Flink DataStream API
+# Fraud detection with the Apache Flink® DataStream API
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -14,7 +14,7 @@ In this article, learn how to run Fraud detection use case with the Apache Flink
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
+* [Flink cluster 1.16.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
 * IntelliJ Idea community edition installed locally
 
 ## Develop code in IDE
@@ -159,3 +159,4 @@ After making the code changes, create the jar using the following steps in Intel
 ## Reference
 * [Fraud Detector v2: State + Time](https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/try-flink/datastream/#fraud-detector-v2-state--time--1008465039)
 * [Sample TransactionIterator.java](https://github.com/apache/flink/blob/master/flink-walkthroughs/flink-walkthrough-common/src/main/java/org/apache/flink/walkthrough/common/source/TransactionIterator.java)
+* Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

@@ -13,8 +13,10 @@ ms.reviewer: shseth
 Overview of Azure Monitor Agent for Linux Syslog collection and supported RFC standards:
 
 - Azure Monitor Agent installs an output configuration for the system Syslog daemon during the installation process. The configuration file specifies the way events flow between the Syslog daemon and Azure Monitor Agent.
-- For `rsyslog` (most Linux distributions), the configuration file is `/etc/rsyslog.d/10-azuremonitoragent.conf`. For `syslog-ng`, the configuration file is `/etc/syslog-ng/conf.d/azuremonitoragent.conf`.
-- Azure Monitor Agent listens to a UNIX domain socket to receive events from `rsyslog` / `syslog-ng`. The socket path for this communication is `/run/azuremonitoragent/default_syslog.socket`.
+- For `rsyslog` (most Linux distributions), the configuration file is `/etc/rsyslog.d/10-azuremonitoragent-omfwd.conf`. For `syslog-ng`, the configuration file is `/etc/syslog-ng/conf.d/azuremonitoragent-tcp.conf`.
+- Azure Monitor Agent listens to a TCP port to receive events from `rsyslog` / `syslog-ng`. The port for this communication is logged at `/etc/opt/microsoft/azuremonitoragent/config-cache/syslog.port`.
+  > [!NOTE]
+  > Before Azure Monitor Agent version 1.28, it used a Unix domain socket instead of TCP port to receive events from rsyslog. `omfwd` output module in `rsyslog` offers spooling and retry mechanisms for improved reliability.
 - The Syslog daemon uses queues when Azure Monitor Agent ingestion is delayed or when Azure Monitor Agent isn't reachable.
 - Azure Monitor Agent ingests Syslog events via the previously mentioned socket and filters them based on facility or severity combination from data collection rule (DCR) configuration in `/etc/opt/microsoft/azuremonitoragent/config-cache/configchunks/`. Any `facility` or `severity` not present in the DCR is dropped.
 - Azure Monitor Agent attempts to parse events in accordance with **RFC3164** and **RFC5424**. It also knows how to parse the message formats listed on [this website](./azure-monitor-agent-overview.md#data-sources-and-destinations).
@@ -85,10 +87,10 @@ rsyslogd 1484 syslog   14w   REG    8,1 3601566564     0 35280 /var/log/syslog (
 ### Rsyslog default configuration logs all facilities to /var/log/
 On some popular distros (for example, Ubuntu 18.04 LTS), rsyslog ships with a default configuration file (`/etc/rsyslog.d/50-default.conf`), which logs events from nearly all facilities to disk at `/var/log/syslog`. RedHat/CentOS family Syslog events are stored under `/var/log/` but in a different file:  `/var/log/messages`.
 
-Azure Monitor Agent doesn't rely on Syslog events being logged to `/var/log/`. Instead, it configures the rsyslog service to forward events over a socket directly to the `azuremonitoragent` service process (mdsd).
+Azure Monitor Agent doesn't rely on Syslog events being logged to `/var/log/`. Instead, it configures the rsyslog service to forward events over a TCP port directly to the `azuremonitoragent` service process (mdsd).
 
 #### Fix: Remove high-volume facilities from /etc/rsyslog.d/50-default.conf
-If you're sending a high log volume through rsyslog and your system is set up to log events for these facilities, consider modifying the default rsyslog config to avoid logging and storing them under `/var/log/`. The events for this facility would still be forwarded to Azure Monitor Agent because rsyslog uses a different configuration for forwarding placed in `/etc/rsyslog.d/10-azuremonitoragent.conf`.
+If you're sending a high log volume through rsyslog and your system is set up to log events for these facilities, consider modifying the default rsyslog config to avoid logging and storing them under `/var/log/`. The events for this facility would still be forwarded to Azure Monitor Agent because rsyslog uses a different configuration for forwarding placed in `/etc/rsyslog.d/10-azuremonitoragent-omfwd.conf`.
 
 1. For example, to remove `local4` events from being logged at `/var/log/syslog` or `/var/log/messages`, change this line in `/etc/rsyslog.d/50-default.conf` from this snippet:
 

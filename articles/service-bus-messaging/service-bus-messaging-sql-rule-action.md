@@ -207,13 +207,12 @@ For examples, see [Service Bus filter examples](service-bus-filter-examples.md).
 - SET performs implicit conversion if possible when the expression type and the existing property type are different.
 - Action fails if non-existent system properties were referenced.
 - Action doesn't fail if non-existent user properties were referenced.
-- A non-existent user property is evaluated as "Unknown" internally, following the same semantics as [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) when evaluating operators.
+- A non-existent user property is evaluated as "Unknown" internally, following the same semantics as [SQLRuleFilter](/dotnet/api/azure.messaging.servicebus.administration.sqlrulefilter) when evaluating operators.
 
 ## Next steps
 
-- [SQLRuleAction class (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLRuleAction class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
-- [SqlRuleAction class (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
+- [SQLRuleAction (.NET)](/dotnet/api/azure.messaging.servicebus.administration.sqlruleaction)
+- [SqlRuleAction (Java)](/java/api/com.azure.messaging.servicebus.administration.models.sqlruleaction)
 - [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
 - [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

@@ -1,8 +1,8 @@
 ---
 title: Deploy Unity sample to Quest 2 or Quest Pro
 description: Quickstart that shows how to get the Unity sample onto a Meta Quest device
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/01/2023
 ms.topic: quickstart
 ms.custom: mode-other

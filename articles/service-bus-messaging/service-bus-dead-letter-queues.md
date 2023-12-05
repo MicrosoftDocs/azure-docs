@@ -10,7 +10,7 @@ ms.custom: "fasttrack-edit, devx-track-csharp"
 
 Azure Service Bus queues and topic subscriptions provide a secondary subqueue, called a *dead-letter queue* (DLQ). The dead-letter queue doesn't need to be explicitly created and can't be deleted or managed independent of the main entity.
 
-This article describes dead-letter queues in Service Bus. Much of the discussion is illustrated by the [Dead-Letter queues sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/DeadletterQueue) on GitHub. This sample uses the deprecated library, not the current `Azure.Messaging.ServiceBus`, but the concepts are the same. 
+This article describes dead-letter queues in Service Bus. Much of the discussion is illustrated by the [Dead-Letter queues sample](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/DeadLetterQueue) on GitHub.
  
 ## The dead-letter queue
 
@@ -59,7 +59,7 @@ If you enable dead-lettering on filter evaluation exceptions, any errors that oc
 
 In addition to the system-provided dead-lettering features, applications can use the DLQ to explicitly reject unacceptable messages. They can include messages that can't be properly processed because of any sort of system issue, messages that hold malformed payloads, or messages that fail authentication when some message-level security scheme is used.
 
-This can be done by calling [QueueClient.DeadLetterAsync(Guid lockToken, string deadLetterReason, string deadLetterErrorDescription)](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletterasync#microsoft-servicebus-messaging-queueclient-deadletterasync(system-guid-system-string-system-string)) method.
+This can be done by calling [ServiceBusReceiver.DeadLetterMessageAsync method](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.deadlettermessageasync).
 
 We recommend that you include the type of the exception in the `DeadLetterReason` and the stack trace of the exception in the `DeadLetterDescription` as it makes it easier to troubleshoot the cause of the problem resulting in messages being dead-lettered. Be aware that this might result in some messages exceeding [the 256 KB quota limit for the Standard Tier of Azure Service Bus](./service-bus-quotas.md), further indicating that the Premium Tier is what should be used for production environments.
 
@@ -73,9 +73,9 @@ Messages are sent to the dead-letter queue under the following conditions:
 
 ## Dead-lettering in send via scenarios
 
-- If the destination queue or topic is disabled, the message is sent to a transfer dead letter queue (TDLQ).
+- If the destination queue or topic is disabled, the message is sent to a transfer dead letter queue (TDLQ) of the source queue.
 - If the destination queue or topic is deleted, the 404 exception is raised.
-- If the destination queue or entity exceeds the entity size, the message doesn't go to either DLQ or TDLQ. 
+- If the destination queue or entity exceeds the entity size, the message is sent to a TDLQ of the source queue.
  
 
 ## Path to the dead-letter queue

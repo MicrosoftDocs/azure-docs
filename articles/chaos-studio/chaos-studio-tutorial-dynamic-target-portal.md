@@ -22,7 +22,7 @@ You can use these same steps to set up and run an experiment for any fault that 
 
 ## Enable Chaos Studio on your virtual machine scale sets
 
-Azure Chaos Studio Preview can't inject faults against a resource until that resource is added to Chaos Studio. To add a resource to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource.
+Azure Chaos Studio can't inject faults against a resource until that resource is added to Chaos Studio. To add a resource to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource.
 
 Virtual Machine Scale Sets has only one target type (`Microsoft-VirtualMachineScaleSet`) and one capability (`shutdown`). Other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Other resources also might have many other capabilities.
 
@@ -40,7 +40,7 @@ You've now successfully added your virtual machine scale set to Chaos Studio.
 
 Now you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
 
-1. In Chaos Studio, go to **Experiments** > **Create**.
+1. In Chaos Studio, go to **Experiments** > **Create** > **New experiment**.
 
    [![Screenshot that shows the Experiments screen, with the Create button highlighted.](images/tutorial-dynamic-targets-experiment-browse.png)](images/tutorial-dynamic-targets-experiment-browse.png#lightbox)
 1. Add a name for your experiment that complies with resource naming guidelines. Select **Next: Experiment designer**.

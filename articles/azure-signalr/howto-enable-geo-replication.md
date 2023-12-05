@@ -51,18 +51,72 @@ With the new geo-replication feature, Contoso can now establish a replica in Can
 ![Diagram of using one Azure SignalR instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/signalr-replica.png "Replica Example")
 
 ## Create a SignalR replica
-
+# [Portal](#tab/Portal)
 To create a replica, Navigate to the SignalR **Replicas** blade on the Azure portal and click **Add** to create a replica. It will be automatically enabled upon creation.
 
 ![Screenshot of creating replica for Azure SignalR on Portal.](./media/howto-enable-geo-replication/signalr-replica-create.png "Replica create")
 
-> [!NOTE]
-> * Geo-replication is a feature available in premium tier.
-> * A replica is considered a separate resource when it comes to billing. See [Pricing and resource unit](#pricing-and-resource-unit) for more details. 
-
 After creation, you would be able to view/edit your replica on the portal by clicking the replica name.
 
 ![Screenshot of overview blade of Azure SignalR replica resource. ](./media/howto-enable-geo-replication/signalr-replica-overview.png "Replica Overview")
+# [Bicep](#tab/Bicep)
+
+Use Visual Studio Code or your favorite editor to create a file with the following content and name it main.bicep:
+
+```bicep
+@description('The name for your SignalR service')
+param primaryName string = 'contoso'
+
+@description('The region in which to create your SignalR service')
+param primaryLocation string = 'eastus'
+
+@description('Unit count of your SignalR service')
+param primaryCapacity int = 1
+
+resource primary 'Microsoft.SignalRService/signalr@2023-08-01-preview' = {
+  name: primaryName
+  location: primaryLocation
+  sku: {
+    capacity: primaryCapacity
+    name: 'Premium_P1'
+  }
+  properties: {
+  }
+}
+
+@description('The name for your SignalR replica')
+param replicaName string = 'contoso-westus'
+
+@description('The region in which to create the SignalR replica')
+param replicaLocation string = 'westus'
+
+@description('Unit count of the SignalR replica')
+param replicaCapacity int = 1
+
+@description('Whether to enable region endpoint for the replica')
+param regionEndpointEnabled string = 'Enabled'
+
+resource replica 'Microsoft.SignalRService/signalr/replicas@2023-08-01-preview' = {
+  parent: primary
+  name: replicaName
+  location: replicaLocation
+  sku: {
+    capacity: replicaCapacity
+    name: 'Premium_P1'
+  }
+  properties: {
+    regionEndpointEnabled: regionEndpointEnabled
+  }
+}
+```
+
+Deploy the Bicep file using Azure CLI 
+   ```azurecli
+   az group create --name MyResourceGroup --location eastus
+   az deployment group create --resource-group MyResourceGroup --template-file main.bicep
+   ```
+
+----
 
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
@@ -70,6 +124,8 @@ Each replica has its **own** `unit` and `autoscale settings`.
 Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/details/signalr-service/) of Azure SignalR Service. Each replica is billed **separately** according to its own unit and outbound traffic. Free message quota is also calculated separately.
 
 In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
+
+There will be egress fees for cross region outbound traffic. If a message is transferred across replicas **and** successfully sent to a client or server after the transfer, it will be billed as an outbound message.
 
 ## Delete a replica
 After you've created a replica for your Azure SignalR Service, you can delete it at any time if it's no longer needed. 
@@ -114,6 +170,23 @@ This failover and recovery process is **automatic** and requires no manual inter
 For **server connections**, the failover and recovery work the same way as it does for client connections. 
 > [!NOTE]
 > *  This failover mechanism is for Azure SignalR service. Regional outages of app server are beyond the scope of this document.
+
+## Disable or enable the replica endpoint
+When setting up a replica, you have the option to enable or disable its endpoint. If it's disabled, the primary FQDN's DNS resolution won't include the replica, and therefore, traffic won't be directed to it.
+
+![Diagram of Azure SignalR replica endpoint setting. ](./media/howto-enable-geo-replication/signalr-replica-endpoint-setting.png "Replica Endpoint Setting")
+
+You can also enable of disable the endpoint after it's been created. On the primary resource's replicas blade, click the ellipsis button on the right side of the replica and choose **Enable Endpoint** or **Disable Endpoint**:
+
+![Diagram of Azure SignalR replica endpoint modification. ](./media/howto-enable-geo-replication/signalr-replica-endpoint-modify.png "Replica Endpoint Modify")
+
+Before deleting a replication, consider disabling its endpoint first. Over time, existing connections will disconnect. As no new connections are coming, the replication becomes idle finally. This ensures a seamless deletion process.
+ 
+This feature is also useful for troubleshooting regional issues.
+
+> [!NOTE]
+> * Due to the DNS cache, it may take several minutes for the DNS update to take effect. 
+> * Existing connections remain unaffected until they disconnect.
 
 ## Impact on performance after adding replicas
 

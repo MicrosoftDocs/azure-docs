@@ -29,7 +29,7 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
 
 + Azure Kubernetes Service (AKS) cluster
 + Prometheus sending metrics to an Azure Monitor workspace. For more information, see [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
-
++ Microsoft Entra Workload ID. For more information, see [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/).
 
 ## Set up a workload identity
 
@@ -178,38 +178,10 @@ keda-operator-metrics-apiserver-7dc6f59678-745nz   1/1     Running   0          
 
 ## Scalers
 
-Scalers define how and when KEDA should scale a deployment. KEDA supports a variety of scalers. For more information on scalers, see [Scalers](https://keda.sh/docs/2.10/scalers/prometheus/). Azure Managed Prometheus utilizes already existing Prometheus scaler to retrieve Prometheus metrics from Azure Monitor Workspace. The following yaml file is an example to use Azure Managed Prometheus.
+Scalers define how and when KEDA should scale a deployment. KEDA supports a variety of scalers. For more information on scalers, see [Scalers](https://keda.sh/docs/2.10/scalers/prometheus/). Azure Managed Prometheus utilizes already existing Prometheus scaler to retrieve Prometheus metrics from Azure Monitor Workspace. The following yaml file is an example to use Azure Managed Prometheus. 
 
-```yml
-apiVersion: keda.sh/v1alpha1
-kind: TriggerAuthentication
-metadata:
-  name: azure-managed-prometheus-trigger-auth
-spec:
-  podIdentity:
-      provider: azure-workload | azure # use "azure" for pod identity and "azure-workload" for workload identity
-      identityId: <identity-id> # Optional. Default: Identity linked with the label set when installing KEDA.
----
-apiVersion: keda.sh/v1alpha1
-kind: ScaledObject
-metadata:
-  name: azure-managed-prometheus-scaler
-spec:
-  scaleTargetRef:
-    name: deployment-name-to-be-scaled
-  minReplicaCount: 1
-  maxReplicaCount: 20
-  triggers:
-  - type: prometheus
-    metadata:
-      serverAddress: https://test-azure-monitor-workspace-name-1234.eastus.prometheus.monitor.azure.com
-      metricName: http_requests_total
-      query: sum(rate(http_requests_total{deployment="my-deployment"}[2m])) # Note: query must return a vector/scalar single element response
-      threshold: '100.50'
-      activationThreshold: '5.5'
-    authenticationRef:
-      name: azure-managed-prometheus-trigger-auth
-```
+[!INCLUDE[managed-identity-yaml](../includes/prometheus-sidecar-keda-scaler-yaml.md)]
+
 + `serverAddress` is the Query endpoint of your Azure Monitor workspace. For more information, see [Query Prometheus metrics using the API and PromQL](../essentials/prometheus-api-promql.md#query-endpoint)
 + `metricName` is the name of the metric you want to scale on. 
 + `query` is the query used to retrieve the metric. 
