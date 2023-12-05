@@ -16,7 +16,7 @@ In this article, learn how to update the Arc appliance credentials, upgrade the 
 
 When **cloud admin** credentials are updated, use the following steps to update the credentials in the appliance store. 
 
-1. Sign into the jumpbox VM from where the [onboard process](https://learn.microsoft.com/azure/azure-vmware/arc-enabled-azure-vmware-solution?tabs=windows#onboard-process-to-deploy-azure-arc) was performed. Change the directory to **onboarding directory**.
+1. Sign into the jumpbox VM from where the onboard process was performed. Change the directory to **onboarding directory**.
 1. Run the following command:
 	For Windows-based jumpbox VM.
     
