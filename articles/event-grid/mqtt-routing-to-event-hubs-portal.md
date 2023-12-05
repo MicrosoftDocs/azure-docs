@@ -1,14 +1,16 @@
 ---
 title: 'Tutorial: Route MQTT messages to Event Hubs using portal'
-description: 'Tutorial: Use Azure Event Grid to route MQTT messages to Azure Event Hubs.' 
-ms.topic: tutorial 
-ms.custom: build-2023
-ms.date: 05/23/2023
+description: 'Tutorial: Use Azure Event Grid to route MQTT messages to Azure Event Hubs.'
+ms.topic: tutorial
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---
 
-# Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with Azure portal (Preview)
+# Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with Azure portal
 
 Use message routing in Azure Event Grid to send data from your MQTT clients to Azure services such as storage queues, and Event Hubs.
 In this tutorial, you perform the following tasks:
@@ -16,14 +18,13 @@ In this tutorial, you perform the following tasks:
 - Configure routing in your Event Grid Namespace.
 - View the MQTT messages in the Event Hubs using Azure Stream Analytics.
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
 
 ## Prerequisites
 
 - If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - If you're new to Azure Event Grid, read through [Event Grid overview](/azure/event-grid/overview) before starting this tutorial.
 - Register the Event Grid resource provider as per [Register the Event Grid resource provider](/azure/event-grid/custom-event-quickstart-portal#register-the-event-grid-resource-provider).
-- Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments.
+- Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environment.
 - An Event Grid Namespace in your Azure subscription. If you don't have a namespace yet, you can follow the steps in [Publish and subscribe on a MQTT topic](./mqtt-publish-and-subscribe-portal.md).
 - This tutorial uses Event Hubs, Event Grid custom topic, and Event Subscriptions.  You can find more information here:
 - Creating an Event Grid topic:  [Create a custom topic using portal](/azure/event-grid/custom-event-quickstart-portal).  While creating the Event Grid topic, ensure to create with Event Schema as Cloud Event Schema v1.0 in the Advanced tab.
@@ -47,15 +48,16 @@ In this tutorial, you perform the following tasks:
 
 5. Then **Create** the Event subscription.
 
-
 ## Configure routing in the Event Grid Namespace
 
 1. Navigate to Routing page in your Event Grid Namespace.
-:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/event-grid-namespace-routing-configuration.png" alt-text="Screenshot showing the Event Grid routing configuration page to enable routing for the namespace.":::
-2. Select **Enable routing**
-3. Under Topic, select the Event Grid topic that you have created where all MQTT messages will be routed.
+:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/event-grid-namespace-routing-configuration.png" alt-text="Screenshot showing the Event Grid routing configuration page to enable routing for the namespace." lightbox="./media/mqtt-routing-to-event-hubs-portal/event-grid-namespace-routing-configuration.png":::
 
-:::image type="content" source="./media/mqtt-routing/routing-portal-configuration.png" alt-text="Screenshot showing the routing configuration through the portal.":::
+2. Select **Enable routing**
+3. Select 'Custom topic' option for Topic type
+1. Under Topic, select the Event Grid topic that you have created where all MQTT messages will be routed.
+
+:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/routing-portal-configuration.png" alt-text="Screenshot showing the routing configuration through the portal." lightbox="./media/mqtt-routing-to-event-hubs-portal/routing-portal-configuration.png":::
 
 4. Select **Apply**
 

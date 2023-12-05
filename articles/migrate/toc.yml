@@ -1,3 +1,4 @@
+items:
 - name: Azure Migrate Documentation
   href: index.yml
 - name: Overview
@@ -231,6 +232,8 @@
       href: how-to-view-a-business-case.md
   - name: Assess
     items:
+    - name: Azure Migrate application and code assessment
+      href: appcat/index.yml
     - name: Add assessment tools
       href: how-to-assess.md
     - name: Group machines for assessment

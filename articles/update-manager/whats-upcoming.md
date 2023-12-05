@@ -12,11 +12,6 @@ ms.date: 11/07/2023
 
 The article [What's new in Azure Update Manager](whats-new.md) contains updates of feature releases. This article lists all the upcoming features for Azure Update Manager.
 
-## Azure Stack HCI patching (preview)
-Azure Update Manager will allow you to patch Azure Stack HCI cluster.
-
-## Alerting 
-Enable alerts to address events as captured in updates data.
 
 ## Prescript and postscript
 

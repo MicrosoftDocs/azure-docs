@@ -121,7 +121,7 @@ Follow the instructions in [Run the Azure Resource Manager template for provisio
 
 ## Next steps
 
-Now that you've expanded your existing host pool, you can sign in to a Azure Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
+Now that you've expanded your existing host pool, you can sign in to an Azure Virtual Desktop client to test them as part of a user session. You can connect to a session with any of the following clients:
 
 - [Connect with the Windows Desktop client](connect-windows-2019.md)
 - [Connect with the web client](connect-web-2019.md)

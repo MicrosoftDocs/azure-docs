@@ -535,6 +535,6 @@ When installing a self-hosted integration runtime consider following
 - Share across multiple data sources
 - Share across multiple data factories
 
-## Next steps
+## Related content
 
 For step-by-step instructions, see [Tutorial: Copy on-premises data to cloud](tutorial-hybrid-copy-powershell.md).

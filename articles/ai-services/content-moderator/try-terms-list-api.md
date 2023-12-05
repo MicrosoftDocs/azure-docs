@@ -2,7 +2,7 @@
 title: Moderate text with custom term lists - Content Moderator
 titleSuffix: Azure AI services
 description: Use the List Management API to create custom lists of terms to use with the Text Moderation API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator

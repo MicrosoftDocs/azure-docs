@@ -8,9 +8,46 @@ ms.author: eur
 
 ### November 2023 release
 
+#### Personal voice
+
+Personal voice is available in preview in the following regions: West Europe, East US, and South East Asia. With personal voice (preview), you can get AI generated replication of your voice (or users of your application) in a few seconds. You provide a one-minute speech sample as the audio prompt, and then use it to generate speech in any of the more than 90 languages supported across more than 100 locales.  
+
+For more information, see [personal voice](../../personal-voice-overview.md).
+
+#### Text to speech avatar
+
+Text to speech avatar is available in preview in the following regions: West US 2, West Europe, and Southeast Asia. 
+
+Text to speech avatar converts text into a digital video of a photorealistic human (either a prebuilt avatar or a [custom text to speech avatar](../../text-to-speech-avatar/what-is-custom-text-to-speech-avatar.md)) speaking with a natural-sounding voice. The text to speech avatar video can be synthesized asynchronously or in real time. Developers can build applications integrated with text to speech avatar through an API, or use a content creation tool on Speech Studio to create video content without coding.
+
+For more information, see [text to speech avatar](../../text-to-speech-avatar/what-is-text-to-speech-avatar.md), [transparency notes](/legal/cognitive-services/speech-service/text-to-speech/transparency-note?context=/azure/ai-services/speech-service/context/context), and [disclosure for voice and avatar talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context).
+
 #### Custom neural voice
 
-- Added support for the 24 new locales for cross-lingual voice. See the [full language list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+Added support for the 24 new locales for cross-lingual voice. See the [full language list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+
+#### Prebuilt neural voice
+Introducing new voices for public preview:
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `de-DE` | German (Germany) | `SeraphinaNeural` (Female) |
+| `es-ES` | Spanish (Spain) | `XimenaNeural` (Female) |
+| `fr-CA` | French (Canada) | `ThierryNeural` (Male) |
+| `fr-FR` | French (France) | `VivienneNeural` (Female) |
+| `it-IT` | Italian (Italy) | `GiuseppeNeural` (Male) |
+| `ko-KR` | Korean (Korea) | `HyunsuNeural` (Male) |
+| `pt-BR` | Portuguese (Brazil) | `ThalitaNeural` (Female) |
+
+Models updated with bugs fixed and quality improvement:
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `es-ES` | Spanish (Spain) | `AlvaroNeural` (Male) |
+| `en-GB` | English (United Kingdom) | `RyanNeural` (Male) |
+| `ko-KR` | Korean (Korea) | `InjoonNeural` (Male) |
+
+See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
 
 ### October 2023 release
 
@@ -21,7 +58,7 @@ ms.author: eur
 ### September 2023 release
 
 #### Prebuilt neural voice
-- Introducing new multilingual voices for public preview:
+- Introducing new voices for public preview:
 
 | Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |
@@ -85,7 +122,7 @@ Introducing new features in public preview for below voices:
 #### Audio Content Creation
 
 - All prebuilt voices with speaking styles and multi-style custom voices support style degree adjustment.
-- Now you can fix the pronunciation of a word by simply speaking the word and recording it. The phonemes can be automatically recognized from your recording. The **Recognize by speaking** feature is now in public previw.
+- Now you can fix the pronunciation of a word by speaking the word and recording it. The phonemes can be automatically recognized from your recording. The **Recognize by speaking** feature is now in public preview.
 
 ### April 2023 release
 
@@ -107,7 +144,7 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### New features
 
-Speech Synthesis Markup Language (SSML) has been updated to support audio effect processor elements that optimize the quality of the synthesized speech output for specific scenarios on devices. Learn more at [speech synthesis markup](../../speech-synthesis-markup-voice.md#use-voice-elements).
+Speech Synthesis Markup Language (SSML) is updated to support audio effect processor elements that optimize the quality of the synthesized speech output for specific scenarios on devices. Learn more at [speech synthesis markup](../../speech-synthesis-markup-voice.md#use-voice-elements).
 
 #### Custom neural voice
 
@@ -144,7 +181,7 @@ The following voices are now generally available. See the [full language and voi
 
 #### Batch synthesis REST API (Preview)
 
-The Batch synthesis API is currently in public preview. Once it's generally available, the Long Audio API will be deprecated. For more information, see [Migrate to batch synthesis API](../../migrate-to-batch-synthesis.md).
+The Batch synthesis API is currently in public preview. Once it's generally available, the Long Audio API is deprecated. For more information, see [Migrate to batch synthesis API](../../migrate-to-batch-synthesis.md).
 
 ### November 2022 release
 

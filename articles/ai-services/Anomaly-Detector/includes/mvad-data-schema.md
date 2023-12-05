@@ -1,7 +1,7 @@
 ---
 title: MVAD data schema
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: quying
 manager: tonyxin
 ms.service: azure-ai-anomaly-detector

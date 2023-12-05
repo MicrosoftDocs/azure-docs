@@ -21,13 +21,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - [Connect your AWS account to Microsoft Defender for Cloud](quickstart-onboard-aws.md#connect-your-aws-account)
 
-- Validate the following domains only if you're using a relevant OS.
-
-    | Domain                     | Port | Host operating systems |
-    | -------------------------- | ---- |--|
-    | amazonlinux.*.amazonaws.com/2/extras/\* | 443 | Amazon Linux 2 |
-    | yum default repositories | - | RHEL / Centos |
-    | apt default repositories | - | Debian |
+- Verify your Kubernetes nodes can access source repositories of your package manager.
 
 - Ensure the following [Azure Arc-enabled Kubernetes network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md) are validated.
 
