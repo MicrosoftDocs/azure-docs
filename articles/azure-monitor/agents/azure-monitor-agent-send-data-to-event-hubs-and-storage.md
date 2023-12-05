@@ -522,7 +522,7 @@ Create a data collection rule for collecting events and sending to storage and e
 
 1. Select **Save**.
 
-## Create DCR association and deploy AzureMonitorAgent
+## Create DCR association and deploy Azure Monitor Agent
 
 Use custom template deployment to create the DCR association and AMA deployment.
 
@@ -534,7 +534,9 @@ Use custom template deployment to create the DCR association and AMA deployment.
 
     :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal screen to build template in the editor.":::
 
-1. Paste this Azure Resource Manager template into the editor:
+1. Paste this Azure Resource Manager template into the editor.
+
+    ### [Windows](#tab/windows-1)
 
     ```json
     {
@@ -611,6 +613,84 @@ Use custom template deployment to create the DCR association and AMA deployment.
     }
     ```
 
+    ### [Linux](#tab/linux-1)
+
+    ```json
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+        "defaultValue": "[concat(resourceGroup().name, 'vm')]",
+        "type": "String"
+        },
+        "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+            "description": "Location for all resources."
+        }
+        },
+        "dataCollectionRulesName": {
+        "defaultValue": "[concat(resourceGroup().name, 'DCR')]",
+        "type": "String",
+        "metadata": {
+            "description": "Data Collection Rule Name"
+        }
+        },
+        "dcraName": {
+        "type": "string",
+        "defaultValue": "[concat(uniquestring(resourceGroup().id), 'DCRLink')]",
+        "metadata": {
+            "description": "Name of the association."
+        }
+        },
+        "identityName": {
+        "type": "string",
+        "defaultValue": "[concat(resourceGroup().name, 'UAI')]",
+        "metadata": {
+            "description": "Managed Identity"
+        }
+        }
+    },
+    "resources": [
+        {
+        "type": "Microsoft.Compute/virtualMachines/providers/dataCollectionRuleAssociations",
+        "name": "[concat(parameters('vmName'),'/microsoft.insights/', parameters('dcraName'))]",
+        "apiVersion": "2021-04-01",
+        "properties": {
+            "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
+            "dataCollectionRuleId": "[resourceID('Microsoft.Insights/dataCollectionRules',parameters('dataCollectionRulesName'))]"
+        }
+        },
+        {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(parameters('vmName'), '/AMAExtension')]",
+        "apiVersion": "2020-06-01",
+        "location": "[parameters('location')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines/providers/dataCollectionRuleAssociations', parameters('vmName'), 'Microsoft.Insights', parameters('dcraName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.Azure.Monitor",
+            "type": "AzureMonitorLinuxAgent",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+            "authentication": {
+                "managedIdentity": {
+                "identifier-type": "mi_res_id",
+                "identifier-value": "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',parameters('identityName'))]"
+                }
+            }
+            }
+        }
+        }
+    ]
+    }
+    ```
+    ---
+   
 1. Select **Save**.
 
 ## Troubleshooting

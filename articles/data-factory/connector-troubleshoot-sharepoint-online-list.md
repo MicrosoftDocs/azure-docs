@@ -58,7 +58,7 @@ You need to enable ACS to acquire the access token. Take the following steps:
 1. Use ACS to get the access token. 
 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
