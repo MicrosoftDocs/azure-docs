@@ -29,7 +29,7 @@ Create OpenAI resources:
 
 - **Azure OpenAI Service**:
 
-    Create Azure OpenAI resources with these [instructions](../../../ai-services/openai/how-to/create-resource.md).
+    Create Azure OpenAI resources with [these instructions](../../../ai-services/openai/how-to/create-resource.md).
 
 ## Connections
 
@@ -54,7 +54,7 @@ Set up connections to provide resources in the embedding tool.
 |-------------|------------------------------------------|
 | list        | Vector representations for inputs    |
 
-Here's an example response returned by the embedding tool:
+Here's an example response that the embedding tool returns:
 
 <details>
   <summary>Output</summary>
