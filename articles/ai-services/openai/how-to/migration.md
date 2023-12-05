@@ -211,16 +211,21 @@ Additional examples including how to handle semantic text search without `embedd
 OpenAI doesn't support calling asynchronous methods in the module-level client, instead you should instantiate an async client.
 
 ```python
+import os
+import asyncio
 from openai import AsyncAzureOpenAI
 
-client = AsyncAzureOpenAI(  
-  api_key = os.getenv("AZURE_OPENAI_KEY"),  
-  api_version = "2023-10-01-preview",
-  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-)
-response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}])
+async def main():
+    client = AsyncAzureOpenAI(  
+      api_key = os.getenv("AZURE_OPENAI_KEY"),  
+      api_version = "2023-10-01-preview",
+      azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+    response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}])
 
-print(response.model_dump_json(indent=2))
+    print(response.model_dump_json(indent=2))
+
+asyncio.run(main())
 ```
 
 ## Authentication

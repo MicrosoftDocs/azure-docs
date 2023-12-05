@@ -144,7 +144,7 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [xor](data-flow-expressions-usage.md#xor) | Logical XOR operator. Same as ^ operator.  |
 |||
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).
