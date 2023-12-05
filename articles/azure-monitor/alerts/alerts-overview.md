@@ -116,20 +116,18 @@ Each metric alert rule is charged based on the number of time series that are mo
 
 ### Log alerts
 
-Use [log alert rules](alerts-create-new-alert-rule.md) to query multiple resources. Use the **Split by dimensions** setting in the rule to create separate alerts for each resource to create resource-centric alerts at scale for a subscription or resource group. Alerts are split into separate alerts by grouping combinations. Splitting on an Azure resource ID column makes the specified resource into the alert target.
+Use [log alert rules](alerts-create-log-alert-rule.md) to query multiple resources. When you use **Splitting by dimensions**, you use grouping to split into separate alerts by grouping combinations. Using one alert rule, you can:
+-  create separate alerts for each resource of a subscription or resource group. Splitting on an Azure resource ID column makes the specified resource into the alert target.
+-  monitor resources across many subscriptions and regions if they are all part of the Log Analytics workspace. When using this method, you need to set up data collection rules to collect the required telemetry to an LA workspace.
  
-Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query.
+Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to an LA workspace, there is no additional cost. If you want to use metric data at scale, you'll now need to pay for its ingestion.
 
 > [!NOTE]
-> Resource-centric log query alert rules currently in public preview allow you to use all resources in a subscription or resource group as a target for a log query alert.
+> Resource-centric log alert rules currently in public preview allow you to use all resources in a subscription or resource group as a target for a log query alert.
 
-### Using Azure policies in Azure Landing Zones
+### Using Azure policies for alerting at scale
 
-An [Azure landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) is an environment that follows key design principles to accommodate all application portfolios and enable application migration, modernization, and innovation at scale. An Azure landing zone uses subscriptions to isolate and scale application resources and platform resources.
-
-If you use Azure landing zones, you can [set up basic alerts](/azure/cloud-adoption-framework/manage/azure-server-management/setup-alerts) as part of the landing zone deployment. The alerts are set up by using Azure Policies as part of your landing zone implementation. 
-
-Using policies and landing zones to set up alerts means that you can set up alerts at scale for all subscriptions in your landing zone, and you will have to maintain a large alert rule set.
+You can use Azure policies(/azure/governance/policy/overview) to set up alerts alerts at scale. This has the advantage of easily implementing alerts at-scale. The disadvantage is that you will have to maintain a large alert rule set. One implementation of this is using policies to [Azure Monitor baseline alerts](https://aka.ms/amba).  
 
 ## Azure role-based access control for alerts
 
