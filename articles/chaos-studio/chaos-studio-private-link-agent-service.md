@@ -4,7 +4,7 @@ description: Understand the steps to set up a chaos experiment using private lin
 services: chaos-studio
 author: nikhilkaul-msft
 ms.topic: how-to
-ms.date: 12/04/23
+ms.date: 12/04/2023
 ms.author: nikhilkaul
 ms.service: chaos-studio
 ms.custom: ignite-fall-2023
