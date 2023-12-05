@@ -14,7 +14,7 @@ CustomerIntent: As a cloud architect/engineer, I need general guidance reliabili
 
 This article describes reliability support in [Microsoft Defender for Cloud DevOps security features](../defender-for-cloud/defender-for-devops-introduction.md), which includes [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-This article is specific to recover in the case of a region outage.  If you are looking to move your existing DevOps connector to a new region, please see [Common questions about Defender for DevOps](https://learn.microsoft.com/azure/defender-for-cloud/faq-defender-for-devops#can-i-migrate-the-connector-to-a-different-region-)
+This article is specific to recover in the case of a region outage.  If you are looking to move your existing DevOps connector to a new region, please see [Common questions about Defender for DevOps](/azure/defender-for-cloud/faq-defender-for-devops#can-i-migrate-the-connector-to-a-different-region-)
 
 
 ## Cross-region disaster recovery and business continuity
@@ -26,7 +26,7 @@ Microsoft Defender for Cloud DevOps security supports single-region disaster rec
 
 ### Supported regions
 
-For regions that support DevOps security in Defender for Cloud, see [DevOps security region support](https://learn.microsoft.com/azure/defender-for-cloud/devops-support#cloud-and-region-support).  
+For regions that support DevOps security in Defender for Cloud, see [DevOps security region support](/azure/defender-for-cloud/devops-support#cloud-and-region-support).  
 
 
 ### Single-region disaster recovery process
@@ -39,7 +39,7 @@ When a region goes down, your configurations for the connector of that region is
 
 To request recovery of a connector created in a downed region:
 
-1. Create a new connector in a new region. See onboarding documentation for [Azure DevOps](https://learn.microsoft.com/azure/defender-for-cloud/quickstart-onboard-devops), [GitHub](https://learn.microsoft.com/azure/defender-for-cloud/quickstart-onboard-github), and/or [GitLab](https://learn.microsoft.com/azure/defender-for-cloud/quickstart-onboard-gitlab).
+1. Create a new connector in a new region. See onboarding documentation for [Azure DevOps](/azure/defender-for-cloud/quickstart-onboard-devops), [GitHub](/azure/defender-for-cloud/quickstart-onboard-github), and/or [GitLab](/azure/defender-for-cloud/quickstart-onboard-gitlab).
     >[!NOTE]
     >You can use an existing connector in the new region, as long as it's authenticated to have access to the scope of DevOps resources in the old connector.
 
@@ -57,7 +57,7 @@ To request recovery of a connector created in a downed region:
    ```
    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{connectorName}
 
-1. Once the DevOps resources have been released from the old connector and appear for the new connector, [reconfigure the pull request annotations](https://learn.microsoft.com/azure/defender-for-cloud/enable-pull-request-annotations) as needed.
+1. Once the DevOps resources have been released from the old connector and appear for the new connector, [reconfigure the pull request annotations](/azure/defender-for-cloud/enable-pull-request-annotations) as needed.
     >[!NOTE]
     >The time it takes to reconfigure the pull request annotation configuration is proportional for how long it takes for the new connector to discover all the DevOps resources.
 
