@@ -162,7 +162,7 @@ After you browse each function of the Pet Clinic, the Log Analytics workspace co
 
 Application Insights monitors the application dependencies, as shown by the following application tracing map:
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/application-insights-map.png" alt-text="Screenshot of the Azure portal showing the Application map page for an Application Insights." lightbox="media/quickstart-deploy-microservice-apps/application-insights-map.png":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png" alt-text="Screenshot of the Azure portal showing the Application map page for Azure Spring Apps enterprise instance." lightbox="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png":::
 
 Open the App Live View URL exposed by the Developer Tools to monitor application runtimes, as shown in the following screenshot:
 

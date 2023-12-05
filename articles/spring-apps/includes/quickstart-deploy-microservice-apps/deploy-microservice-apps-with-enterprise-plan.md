@@ -151,12 +151,12 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
    [INFO] Deployment Status: Running
    ```
 
-2. Use the following command to deploy the frontend app:
+2. Since the Azure portal currently does not support deploying the frontend apps, use the following Azure CLI command to deploy the frontend app:
 
    ```bash
    az spring app deploy --resource-group ${RESOURCE_GROUP} --name ${APP_FRONTEND} \
      --service ${SPRING_APPS_NAME}  --source-path spring-petclinic-frontend \
-     --build-env BP_WEB_SERVER=nginx --builder frontend
+     --build-env BP_WEB_SERVER=nginx --builder ${APP_FRONTEND}
    ```
    
    After the command is executed, you can see from the following log messages that the deployment was successful:
