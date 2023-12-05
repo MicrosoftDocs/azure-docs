@@ -1,5 +1,5 @@
 ---
-title: How to use Open Source foundation models curated by Azure Machine Learning (preview)
+title: How to use Open Source foundation models curated by Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to discover, evaluate, fine-tune and deploy Open Source foundation models in Azure Machine Learning
 services: machine-learning
@@ -9,15 +9,10 @@ ms.topic: how-to
 ms.reviewer: ssalgado
 author: swatig007
 ms.author: swatig
-ms.date: 06/15/2023
+ms.date: 12/05/2023
 ---
 
-# How to use Open Source foundation models curated by Azure Machine Learning (preview)
-
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# How to use Open Source foundation models curated by Azure Machine Learning 
 
 In this article, you learn how to access and evaluate foundation models using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio). Additionally, you learn how to fine-tune each model and how to deploy the model at scale.
 
@@ -26,7 +21,7 @@ Foundation models are machine learning models that have been pre-trained on vast
 
 ## How to access foundation models in Azure Machine Learning
 
-The 'Model catalog' (preview) in Azure Machine Learning studio is a hub for discovering foundation models. The Open Source Models collection is a repository of the most popular open source foundation models curated by Azure Machine Learning. These models are packaged for out of the box usage and are optimized for use in Azure Machine Learning. Currently, it includes the top open source large language models, with support for other tasks coming soon. You can view the complete list of supported open source foundation models in the [model catalog](https://ml.azure.com/model/catalog), under the `Open Source Models` collection.
+The 'Model catalog' in Azure Machine Learning studio is a hub for discovering foundation models. The Open Source Models collection is a repository of the most popular open source foundation models curated by Azure Machine Learning. These models are packaged for out of the box usage and are optimized for use in Azure Machine Learning. Currently, it includes the top open source large language models, with support for other tasks coming soon. You can view the complete list of supported open source foundation models in the [model catalog](https://ml.azure.com/model/catalog), under the `Open Source Models` collection.
 
 :::image type="content" source="./media/how-to-use-foundation-models/model-catalog.png" lightbox="./media/how-to-use-foundation-models/model-catalog.png" alt-text="Screenshot showing the model catalog section in Azure Machine Learning studio." :::
 
