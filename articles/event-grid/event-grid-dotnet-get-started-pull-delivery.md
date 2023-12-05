@@ -95,7 +95,7 @@ This section shows you how to create a .NET console application to send messages
 1. Replace the contents of `Program.cs` with the following code. The important steps are outlined,  with additional information in the code comments.
 
     > [!IMPORTANT]
-    > Update placeholder values (`<ENDPOINT>` , `<TOPIC-NAME>`, `<TOPIC-ACCESS-KEY>`, <TOPIC-SUBSCRIPTION-NAME>) in the code snippet with your topic endpoint, topic name, topic key, topic's subscription name.
+    > Update placeholder values (`<ENDPOINT>` , `<TOPIC-NAME>`, `<TOPIC-ACCESS-KEY>`, `<TOPIC-SUBSCRIPTION-NAME>`) in the code snippet with your topic endpoint, topic name, topic key, topic's subscription name.
 
     ```csharp
     using Azure.Messaging;
@@ -181,7 +181,7 @@ In this section, you add code to retrieve messages from the queue.
 1. Within the `Program` class, add the following code:
     
     > [!IMPORTANT]
-    > Update placeholder values (`<ENDPOINT>` , `<TOPIC-NAME>`, `<TOPIC-ACCESS-KEY>`, <TOPIC-SUBSCRIPTION-NAME>) in the code snippet with your topic endpoint, topic name, topic key, topic's subscription name.
+    > Update placeholder values (`<ENDPOINT>` , `<TOPIC-NAME>`, `<TOPIC-ACCESS-KEY>`, `<TOPIC-SUBSCRIPTION-NAME>`) in the code snippet with your topic endpoint, topic name, topic key, topic's subscription name.
 
     ```csharp
     using Azure;
