@@ -20,7 +20,7 @@ Each of these operations requires either SSH key to the resource bridge VM or th
 
 ## Upgrade the Arc resource bridge manually
 
-Azure Arc-enabled VMware vSphere requires the Arc resource bridge to connect your VMware vSphere environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates. The Arc resource bridge can be manually upgraded from the SCVMM server. You must meet all upgrade [prerequisites](../resource-bridge/upgrade.md#prerequisites) before attempting to upgrade. The SCVMM server must have the kubeconfig and appliance configuration files stored locally. If the SCVMM account credentials changed after the initial deployment of the resource bridge, [update the new account credentials](administer-arc-scvmm.md#update-the-scvmm-account-credentials-using-a-new-password-or-a-new-scvmm-account-after-onboarding) before attempting manual upgrade.
+Azure Arc-enabled VMware vSphere requires the Arc resource bridge to connect your VMware vSphere environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates. The Arc resource bridge can be manually upgraded from the VMware vSphere server. You must meet all upgrade [prerequisites](../resource-bridge/upgrade.md#prerequisites) before attempting to upgrade. The VMware vSphere server must have the kubeconfig and appliance configuration files stored locally. If the VMware vSphere account credentials changed after the initial deployment of the resource bridge, [update the new account credentials](administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding) before attempting manual upgrade.
 
 > [!NOTE]
 > The manual upgrade feature is available for resource bridge version 1.0.14 and later. Resource bridges below version 1.0.14 must [perform the recovery option](./disaster-recovery.md) to upgrade to version 1.0.15 or later.
@@ -41,7 +41,7 @@ az arcappliance upgrade scvmm --config-file <file path to ARBname-appliance.yaml
 
 
 
-Azure Arc-enabled VMware vSphere requires the Arc resource bridge to connect your VMware vSphere environment with Azure. Periodically, new images of Arc resource bridge will be released to include security and feature updates.
+
 
 > [!NOTE]
 > To upgrade the Arc resource bridge VM to the latest version, you need to perform the onboarding again with the **same resource IDs**. This will cause some downtime as operations performed through Arc during this time might fail.
