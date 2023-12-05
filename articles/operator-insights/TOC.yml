@@ -45,7 +45,7 @@
       href: how-to-manage-mcc-edr-agent.md
     - name: Monitor and troubleshoot MCC EDR Ingestion Agents
       href: troubleshoot-mcc-edr-agent.md
-    - name: MCC EDR Ingestion Agent Configuration Reference
+    - name: MCC EDR Ingestion Agent configuration reference
       href: mcc-edr-agent-configuration.md
   - name: Deploy Ingestion Agents for SFTP files
     expanded: true
@@ -56,5 +56,5 @@
       href: how-to-manage-sftp-agent.md
     - name: Monitor and troubleshoot SFTP Ingestion Agents
       href: troubleshoot-sftp-agent.md
-    - name: SFTP Ingestion Agent Configuration Reference
+    - name: SFTP Ingestion Agent configuration reference
       href: sftp-agent-configuration.md

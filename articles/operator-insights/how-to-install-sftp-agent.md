@@ -1,5 +1,5 @@
 ---
-title: Create and configure SFTP Ingestion Agents
+title: Create and configure SFTP Ingestion Agents for Azure Operator Insights
 description: Learn how to create and configure SFTP Ingestion Agents for Azure Operator Insights 
 author: rcdun
 ms.author: rdunstan
@@ -20,7 +20,7 @@ The SFTP agent is a software package that is installed onto a Linux Virtual Mach
 
 ### Choosing agents and VMs
 
-An agent collect files from _file sources_ that you configure on it. File sources include the details of the SFTP server, the files to collect from it and how to manage those files.
+An agent collects files from _file sources_ that you configure on it. File sources include the details of the SFTP server, the files to collect from it and how to manage those files.
 
 You must choose how to set up your agents, file sources and VMs using the following rules:
 - File sources must not overlap, meaning that they must not collect the same files from the same servers.
@@ -56,7 +56,7 @@ Each VM running the agent must meet the following specifications.
 | Network  | Connectivity to the SFTP server and to Azure                        |
 | Software | systemd, logrotate and zip installed                                |
 | Other    | SSH or alternative access to run shell commands                     |
-| DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [VMs without public DNS: map Azure host names to IP addresses.](#vms-without-public-dns-map-azure-host-names-to-ip-addresses). |
+| DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [VMs without public DNS: Map Azure host names to IP addresses.](#vms-without-public-dns-map-azure-host-names-to-ip-addresses). |
 
 
 > [!TIP]
@@ -149,7 +149,7 @@ Follow these steps on the SFTP server:
    - The secret file must contain only the secret value, with no extra whitespace.
 5. If you're using an SSH key that has a passphrase to authenticate, use the same method to create a separate secret file that contains the passphrase.
 
-## VMs without public DNS: map Azure host names to IP addresses
+## VMs without public DNS: Map Azure host names to IP addresses
 
 **If your agent VMs have access to public DNS, skip this step and continue to [Install and configure agent software](#install-and-configure-agent-software).**
 
@@ -241,8 +241,8 @@ For the **Monitoring - Affirmed MCC** Data Product, set the following parameters
 > - Specifying a pattern of files in the `base_path` folder which will be uploaded (by default all files in the folder are uploaded)
 > - Specifying a pattern of files in the `base_path` folder which should not be uploaded
 > - A time and date before which files in the `base_path` folder will not be uploaded
-> - How often the SFTP agent uploads files (The value provided in the example config file corresponds to every hour).
-> - A settling time, which is a time period after a file is last modified that the agent will wait before it is uploaded (The value provided in the example config file is 5 minutes).
+> - How often the SFTP agent uploads files (the value provided in the example configuration file corresponds to every hour)
+> - A settling time, which is a time period after a file is last modified that the agent will wait before it is uploaded (the value provided in the example configuration file is 5 minutes)
 >
 > For more information about these configuration options, see [SFTP Ingestion Agents configuration reference](sftp-agent-configuration.md).
 

@@ -10,6 +10,8 @@ ms.date: 12/06/2023
 
 # Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights
 
+If you notice problems with data collection from your MCC EDR ingestion agents, use the information in this section to fix common problems or create a diagnostics package. You can upload the diagnostics package to support tickets that you create in the Azure portal.
+
 ## Agent diagnostics overview
 
 The ingestion bus agents are software packages, so their diagnostics are limited to the functioning of the application.  Microsoft doesn't provide OS or resource monitoring. You're encouraged to use standard tooling such as snmpd, Prometheus node exporter, or others to send OS-level data and telemetry to your own monitoring systems. [Monitor virtual machines with Azure Monitor](../azure-monitor/vm/monitor-virtual-machine.md) describes tools you can use if your ingestion agents are running on Azure VMs.
@@ -20,16 +22,7 @@ The agent writes logs and metrics to files under */var/log/az-mcc-edr-uploader/*
 
 Metrics are reported in a simple human-friendly form.  They're provided primarily for Microsoft Support to have telemetry for debugging unexpected issues.
 
-## Collecting diagnostics
-
-Microsoft Support might request diagnostic packages when investigating an issue.
-
-To collect a diagnostics package, SSH to the Virtual Machine and run the command `/usr/bin/microsoft/az-ingestion-gather-diags`.  This command generates a date-stamped zip file in the current directory that you can copy from the system.
-
-> [!NOTE]
-> Diagnostics packages don't contain any customer data or the value of the Azure Storage connection string.
-
-## Troubleshooting common issues
+## Troubleshoot common issues
 
 For most of these troubleshooting techniques, you need an SSH connection to the VM running the agent.
 
@@ -81,3 +74,12 @@ Steps to fix:
 - Check agent metrics for dropped bytes/dropped EDRs.  If the metrics don't show any dropped data, then MCC isn't sending the data to the agent. Check the "received bytes" metrics to see how much data is being received from MCC.
 
 - Check that the agent VM isn't overloaded – monitor CPU and memory usage.   In particular, ensure no other process is taking resources from the VM.
+
+## Collect diagnostics
+
+Microsoft Support might request diagnostic packages when investigating an issue.
+
+To collect a diagnostics package, SSH to the Virtual Machine and run the command `/usr/bin/microsoft/az-ingestion-gather-diags`.  This command generates a date-stamped zip file in the current directory that you can copy from the system.
+
+> [!NOTE]
+> Diagnostics packages don't contain any customer data or the value of the Azure Storage connection string.

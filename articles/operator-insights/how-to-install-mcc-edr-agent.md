@@ -27,7 +27,7 @@ The MCC EDR agent is a software package that is installed onto a Linux Virtual M
 | Network  | Connectivity from MCCs and to Azure                                 |
 | Software | systemd, logrotate and zip installed                                |
 | Other    | SSH or alternative access to run shell commands                     |
-| DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [VMs without public DNS: map Azure host names to IP addresses.](#vms-without-public-dns-map-azure-host-names-to-ip-addresses). |
+| DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [VMs without public DNS: Map Azure host names to IP addresses.](#vms-without-public-dns-map-azure-host-names-to-ip-addresses). |
 
 Each agent instance must run on its own VM. The number of VMs needed depends on the scale and redundancy characteristics of your deployment. This recommended specification can achieve 1.5-Gbps throughput on a standard D4s_v3 Azure VM. For any other VM spec, we recommend that you measure throughput at the network design stage.
 
@@ -107,7 +107,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 1. Obtain the ingestion agent RPM and copy it to the VM.
 1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to an accessible location on the VM (such as /etc/az-mcc-edr-uploader).
 
-## VMs without public DNS: map Azure host names to IP addresses.
+## VMs without public DNS: Map Azure host names to IP addresses
 
 **If your agent VMs have access to public DNS, then you can skip this step and continue to [Install agent software](#install-agent-software).**
 

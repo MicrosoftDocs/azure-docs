@@ -10,10 +10,12 @@ ms.date: 12/06/2023
 
 # Manage SFTP Ingestion Agents for Azure Operator Insights
 
+The SFTP agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. You might need to upgrade the agent, update its configuration, roll back changes or rotate its certificates.
+
 > [!TIP]
 > When the agent restarts, each configured file source performs an immediate catch-up upload run. Subsequent upload runs take place according to the configured schedule for each file source.
 
-## Agent software upgrade
+## Upgrade the agent software
 
 To upgrade to a new release of the agent, repeat the following steps on each VM that has the old agent.
 
@@ -30,7 +32,7 @@ To upgrade to a new release of the agent, repeat the following steps on each VM 
 6. Once the agent is running, configure the az-sftp-uploader service to automatically start on a reboot: `sudo systemctl enable az-sftp-uploader.service`
 7. Verify that the agent is running and that it's copying files as described in [Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md).
 
-## Agent configuration update
+## Update agent configuration
 
 If you need to change the agent's configuration, perform the following steps:
 
@@ -43,7 +45,7 @@ If you need to change the agent's configuration, perform the following steps:
 
 3. Restart the agent: `sudo systemctl restart az-sftp-uploader.service`
 
-## Rollback
+## Roll back upgrades or configuration changes
 
 If an upgrade or configuration change fails:
 
@@ -55,7 +57,7 @@ If an upgrade or configuration change fails:
 
 1. If this was software upgrade, configure the az-sftp-uploader service to automatically start on a reboot: `sudo systemctl enable az-sftp-uploader.service`
 
-## Certificate rotation
+## Rotate certificates
 
 You must refresh your service principal credentials before they expire.
 
