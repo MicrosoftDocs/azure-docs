@@ -68,9 +68,9 @@ Use the following steps to perform a manual upgrade for Arc appliance virtual ma
 
 	`"register":false`
 
-1. Download the latest version of the Azure VMware Solution [onboarding script](https://learn.microsoft.com/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows#onboard-process-to-deploy-azure-arc). 
+1. Download the latest version of the Azure VMware Solution [onboarding script](/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows#onboard-process-to-deploy-azure-arc). 
 1. Run the new onboarding script with the previous `config_avs.json` from the jump box VM, without changing other config items. 
 
 ## Collect logs from the Arc resource bridge
 
-Perform ongoing administration for Arc-enabled VMware vSphere by [collecting logs from the Arc resource bridge](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/administer-arc-vmware#collecting-logs-from-the-arc-resource-bridge).
+Perform ongoing administration for Arc-enabled VMware vSphere by [collecting logs from the Arc resource bridge](/azure/azure-arc/vmware-vsphere/administer-arc-vmware#collecting-logs-from-the-arc-resource-bridge).
