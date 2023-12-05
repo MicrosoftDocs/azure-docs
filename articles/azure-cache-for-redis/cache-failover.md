@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/28/2023
+ms.date: 12/04/2023
 ms.custom: engagement-fy23
 
 ---
