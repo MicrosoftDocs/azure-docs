@@ -1,13 +1,13 @@
 ---
 title: Create example Consumption workflow using Azure portal
-description: Quickstart for how to create your first example Consumption logic app workflow that runs in multi-tenant Azure Logic Apps by using the Azure portal.
+description: Quickstart for how to create your first example Consumption logic app workflow that runs in multitenant Azure Logic Apps by using the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: contperf-fy21q4, mode-ui
 ms.date: 12/05/2023
-#Customer intent: As a developer, I want to create my first example Consumption logic app workflow that runs in multi-tenant Azure Logic Apps using the Azure portal.
+#Customer intent: As a developer, I want to create my first example Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
 ---
 
 # Quickstart: Create an example Consumption logic app workflow using the Azure portal
@@ -20,11 +20,11 @@ The following screenshot shows the high-level example workflow:
 
 ![Screenshot shows example workflow with RSS trigger named When a feed item is published, and with the Outlook action named Send an email.](./media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png)
 
-This example specifically creates a Consumption logic app resource and workflow that runs in multi-tenant Azure Logic Apps. To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md). The connectors in this example are only two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
+This example specifically creates a Consumption logic app resource and workflow that runs in multitenant Azure Logic Apps. To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md). The connectors in this example are only two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
 
 As you progress through this quickstart, you'll learn the following basic steps:
 
-* Create a Consumption logic app resource that's hosted in multi-tenant Azure Logic Apps.
+* Create a Consumption logic app resource that's hosted in multitenant Azure Logic Apps.
 * Select the blank logic app workflow template.
 * Add a trigger that specifies when to run the workflow.
 * Add an action that performs a task after the trigger fires.
@@ -75,7 +75,7 @@ To create and manage a Consumption logic app workflow using other tools, see the
       | Plan type | Description |
       |-----------|-------------|
       | **Standard** | This logic app resource is the default selection and supports multiple workflows. These workflows run in single-tenant Azure Logic Apps and use the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
-      | **Consumption** | This logic app resource type is the alternative selection and supports only a single workflow. This workflow runs in multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
+      | **Consumption** | This logic app resource type is the alternative selection and supports only a single workflow. This workflow runs in multitenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
 
 1. Provide the following information for your logic app resource:
 
