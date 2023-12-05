@@ -44,17 +44,16 @@ The links above reference the OpenAI API for Python. There is no Azure-specific 
 
 In this quickstart you can use your own data with Azure OpenAI models. Using Azure OpenAI's models on your data can provide you with a powerful conversational AI platform that enables faster and more accurate communication.
 
-
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
-    Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. [See Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
+  Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. [See Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
 - An Azure OpenAI resource with a chat model deployed (for example, GPT-3 or GPT-4). For more information about model deployment, see the [resource deployment guide](./how-to/create-resource.md).
 
-    - Your chat model can use version `gpt-35-turbo (0301)`, `gpt-35-turbo-16k`, `gpt-4`, and `gpt-4-32k`. You can view or change your model version in [Azure OpenAI Studio](./how-to/working-with-models.md#model-updates).
+  - Your chat model can use version `gpt-35-turbo (0301)`, `gpt-35-turbo-16k`, `gpt-4`, and `gpt-4-32k`. You can view or change your model version in [Azure OpenAI Studio](./how-to/working-with-models.md#model-updates).
 
 - Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource.
 
@@ -118,7 +117,6 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 ::: zone-end
 
-
 ## Clean up resources
 
 If you want to clean up and remove an OpenAI or Azure AI Search resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
@@ -128,5 +126,6 @@ If you want to clean up and remove an OpenAI or Azure AI Search resource, you ca
 - [Azure app service resources](/azure/app-service/quickstart-dotnetcore?pivots=development-environment-vs#clean-up-resources)
 
 ## Next steps
+
 - Learn more about [using your data in Azure OpenAI Service](./concepts/use-your-data.md)
 - [Chat app sample code on GitHub](https://go.microsoft.com/fwlink/?linkid=2244395).
