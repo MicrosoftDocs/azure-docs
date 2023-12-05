@@ -463,11 +463,13 @@ azurite --disableProductStyleUrl
 
 #### In-memory persistence
 
-**Optional**. Disable persisting any data to disk and only store data in-memory. If the Azurite process is terminated, all data is lost. By default, blob and queue metadata is persisted to disk and content is persisted to extent files. Table storage persists all data to disk. This behavior can be disabled using this option. This setting is rejected when the SQL-based metadata implementation is enabled (via `AZURITE_DB`), and when the `--location` option is specified.
+**Optional**. Disable persisting any data to disk and only store data in-memory. If the Azurite process is terminated, all data is lost. By default, blob and queue metadata is persisted to disk and content is persisted to extent files. Table storage persists all data to disk. The default persistence behavior can be disabled using the following option:
 
 ```cmd
 azurite --inMemoryPersistence
 ```
+
+This setting is rejected when the SQL-based metadata implementation is enabled (via `AZURITE_DB`), and when the `--location` option is specified.
 
 #### Extent memory limit
 
