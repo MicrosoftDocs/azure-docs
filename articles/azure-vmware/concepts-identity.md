@@ -169,7 +169,7 @@ Unlike on-premises deployment, not all predefined NSX-T Data Center RBAC roles a
 - Enterprise Admin
 - Network Admin
 - Security Admin
-- Netx Partner Admin
+- NetX Partner Admin
 - GI Partner Admin
 
 You can create custom roles in NSX-T Data Center with permissions lesser than or equal to CloudAdmin role created by Microsoft. Following are examples on how to create a supported "Network Admin" and "Security Admin" role.
@@ -214,7 +214,7 @@ You can create custom roles in NSX-T Data Center with permissions lesser than or
 > The VMware NSX-T Data Center **System** > **Identity Firewall AD** configuration option isn't supported by the NSX-T Data Center custom role. The recommendation is to assign the **Security Operator** role to the user with the custom role to allow managing the Identity Firewall (IDFW) feature for that user.
 
 > [!NOTE]
-> The VMware NSX-T Data Center Traceflow feature isn't supported by the VMware NSX-T Data Center custom role. The recommendation is to assign the **Auditor** role to the user along with above custom role to enable Traceflow feature for that user.
+> The VMware NSX-T Data Center Traceflow feature isn't supported by the VMware NSX-T Data Center custom role. The recommendation is to assign the **Auditor** role to the user along with the custom role to enable Traceflow feature for that user.
 
 > [!NOTE]
 > VMware vRealize Automation (vRA) integration with the NSX-T Data Center component of the Azure VMware Solution requires the “auditor” role to be added to the user with the NSX-T Manager cloudadmin role.
