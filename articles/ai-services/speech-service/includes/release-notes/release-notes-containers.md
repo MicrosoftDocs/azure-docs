@@ -13,7 +13,6 @@ Add support for the latest model versions:
 - Speech to text 4.5.0
 - Neural text to speech 2.19.0
 
-Vulnerability issues
 
 ### 2023-October release
 
