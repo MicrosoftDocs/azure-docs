@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Update language versions in Azure Functions 
 
-The Azure Functions supports specific versions of each native language. This support changes based on the support of specific versions of each language or language stack. As these supported versions change, you need to update your function app to stay on a supported version. You can also want to update your apps to take advantage of features in newer supported versions of your language. For more information, see [Languages](functions-versions.md#languages).   
+The Azure Functions supports specific versions of each native language. This support changes based on the support of specific versions of each language or language stack. As these supported versions change, you need to update your function app to stay on a supported version. You might also want to update your apps to take advantage of features in newer supported versions of your language. For more information about supported versions, see [Languages](functions-versions.md#languages).   
 
 The way that you update your function app depends on: 
 
