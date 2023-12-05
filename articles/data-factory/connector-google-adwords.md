@@ -1,6 +1,6 @@
 ---
-title: Copy data from Google AdWords
-description: Learn how to copy data from Google AdWords to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+title: Copy data from Google Ads
+description: Learn how to copy data from Google Ads to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
@@ -11,16 +11,16 @@ ms.custom: synapse
 ms.date: 09/14/2023
 ---
 
-# Copy data from Google AdWords using Azure Data Factory or Synapse Analytics
+# Copy data from Google Ads using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Google AdWords. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Google Ads. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
-This Google AdWords connector is supported for the following capabilities:
+This Google Ads connector is supported for the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|
@@ -37,9 +37,9 @@ The service provides a built-in driver to enable connectivity, therefore you don
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to Google AdWords using UI
+## Create a linked service to Google Ads using UI
 
-Use the following steps to create a linked service to Google AdWords in the Azure portal UI.
+Use the following steps to create a linked service to Google Ads in the Azure portal UI.
 
 1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
 
@@ -51,32 +51,32 @@ Use the following steps to create a linked service to Google AdWords in the Azur
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for Google and select the Google AdWords connector.
+2. Search for Google Ads and select the Google Ads connector.
 
-   :::image type="content" source="media/connector-google-adwords/google-adwords-connector.png" alt-text="Screenshot of the Google AdWords connector.":::    
+   :::image type="content" source="media/connector-google-adwords/google-adwords-connector.png" alt-text="Screenshot of the Google Ads connector.":::    
 
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-   :::image type="content" source="media/connector-google-adwords/configure-google-adwords-linked-service.png" alt-text="Screenshot of linked service configuration for Google AdWords.":::
+   :::image type="content" source="media/connector-google-adwords/configure-google-adwords-linked-service.png" alt-text="Screenshot of linked service configuration for Google Ads.":::
 
 ## Connector configuration details
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Google AdWords connector.
+The following sections provide details about properties that are used to define Data Factory entities specific to Google Ads connector.
 
 ## Linked service properties
 
 > [!Important]
-> Due to the sunset of Google AdWords API by **April 27, 2022**, the service has upgraded to the new Google Ads API. Please refer this [document](connector-troubleshoot-google-adwords.md#migrate-to-the-new-version-of-google-ads-api) for detailed migration steps and recommendations. Please make sure the migration to be done before **April 27, 2022**.  
+> Due to the sunset of Google Ads API by **April 27, 2022**, the service has upgraded to the new Google Ads API. Please refer this [document](connector-troubleshoot-google-adwords.md#migrate-to-the-new-version-of-google-ads-api) for detailed migration steps and recommendations. Please make sure the migration to be done before **April 27, 2022**.  
 
-The following properties are supported for Google AdWords linked service:
+The following properties are supported for Google Ads linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **GoogleAdWords** | Yes |
-| googleAdsApiVersion | The Google Ads API version that you use.| No |
+| googleAdsApiVersion | The Google Ads API version that you use.| Yes |
 | clientCustomerID | The Client customer ID of the AdWords account that you want to fetch report data for.  | Yes |
-| loginCustomerID | The customer ID of the Google AdWords manager account through which you want to fetch report data of specific customer.| No |
+| loginCustomerID | The customer ID of the Google Ads manager account through which you want to fetch report data of specific customer.| No |
 | developerToken | The developer token associated with the manager account that you use to grant access to the AdWords API.  You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | authenticationType | The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR. <br/>Allowed values are: **ServiceAuthentication**, **UserAuthentication** | Yes |
 | refreshToken | The refresh token obtained from Google for authorizing access to AdWords for UserAuthentication. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
@@ -84,15 +84,15 @@ The following properties are supported for Google AdWords linked service:
 | clientSecret | The client secret of the google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | email | The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.  | No |
 | privateKey | The service private key that is used for ServiceAuthentication for recommended driver version (Google Ads API version v14). You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md).| No |
-| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Specify this when you use ServiceAuthentication for the legacy driver version. | No |
-| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Specify this when you use ServiceAuthentication for the legacy driver version. | No |
-| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Specify this when you use ServiceAuthentication for the legacy driver version. | No |
+| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
+| trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
+| useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
 
 **Example:**
 
 ```json
 {
-    "name": "GoogleAdWordsLinkedService",
+    "name": "GoogleAdsLinkedService",
     "properties": {
         "type": "GoogleAdWords",
         "typeProperties": {
@@ -103,7 +103,7 @@ The following properties are supported for Google AdWords linked service:
                     "type": "SecureString",
                     "value": "<developerToken>"
                 },
-                "authenticationType": "ServiceAuthentication",
+                "authenticationType": "UserAuthentication",
                 "refreshToken": {
                     "type": "SecureString",
                     "value": "<refreshToken>"
@@ -116,10 +116,7 @@ The following properties are supported for Google AdWords linked service:
                     "type": "SecureString",
                     "value": "<clientSecret>"
                 },
-                "email": "<email>",
-                "keyFilePath": "<keyFilePath>",
-                "trustedCertPath": "<trustedCertPath>",
-                "useSystemTrustStore": true,
+                "googleAdsApiVersion": "v14"
             }
         }
     }
@@ -128,26 +125,26 @@ The following properties are supported for Google AdWords linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Google AdWords dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Google Ads dataset.
 
-To copy data from Google AdWords, set the type property of the dataset to **GoogleAdWordsObject**. The following properties are supported:
+To copy data from Google Ads, set the type property of the dataset to **GoogleAdWordsObject**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **GoogleAdWordsObject** | Yes |
-| tableName | Name of the table. | No (if "query" in activity source is specified) |
+| tableName | Name of the table. Specify this property when you use the legacy driver version.| No (if "query" in activity source is specified) |
 
 **Example**
 
 ```json
 {
-    "name": "GoogleAdWordsDataset",
+    "name": "GoogleAdsDataset",
     "properties": {
         "type": "GoogleAdWordsObject",
         "typeProperties": {},
         "schema": [],
         "linkedServiceName": {
-            "referenceName": "<GoogleAdWords linked service name>",
+            "referenceName": "<GoogleAds linked service name>",
             "type": "LinkedServiceReference"
         }
     }
@@ -157,11 +154,11 @@ To copy data from Google AdWords, set the type property of the dataset to **Goog
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Google AdWords source.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Google Ads source.
 
-### Google AdWords as source
+### Google Ads as source
 
-To copy data from Google AdWords, set the source type in the copy activity to **GoogleAdWordsSource**. The following properties are supported in the copy activity **source** section:
+To copy data from Google Ads set the source type in the copy activity to **GoogleAdWordsSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -173,11 +170,11 @@ To copy data from Google AdWords, set the source type in the copy activity to **
 ```json
 "activities":[
     {
-        "name": "CopyFromGoogleAdWords",
+        "name": "CopyFromGoogleAds",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<GoogleAdWords input dataset name>",
+                "referenceName": "<GoogleAds input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -204,17 +201,17 @@ To copy data from Google AdWords, set the source type in the copy activity to **
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Google AdWords linked service
+## Upgrade the Google Ads linked service
 
-To upgrade your Google AdWords linked service, you need update your linked service and learn how to migrate from SQL to Google Ads Query Language (GAQL).
+To upgrade your Google Ads linked service, you need update your linked service and learn how to migrate from SQL to Google Ads Query Language (GAQL).
 
 ### Update the linked service configuration
 
-Create a new Google AdWords linked service and configure it by referring to [Linked service properties](#linked-service-properties). Note that you need to select **Recommended** in **Driver version**, and apply the new configuration for **Service authentication** if you use it.
+Create a new Google Ads linked service and configure it by referring to [Linked service properties](#linked-service-properties). Note that you need to select **Recommended** in **Driver version**, and apply the new configuration for **Service authentication** if you use it.
 
 ### Migrate from SQL to GAQL
 
-If you use SQL statements in your pipelines that refer to the old Google AdWords linked service, you need to update them to GAQL statements. 
+If you use SQL statements in your pipelines that refer to the old Google Ads linked service, you need to update them to GAQL statements. 
 
 In contrast to SQL, the query in GAQL is made up of six kinds of clauses:
 
