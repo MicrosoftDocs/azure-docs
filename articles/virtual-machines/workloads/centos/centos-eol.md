@@ -21,7 +21,7 @@ CentOS 7 and 8 are the final releases of CentOS Linux. The end-of-life dates for
 - CentOS 8 - December 31, 2021
 - CentOS 7 - June 30, 2024
 
-Workloads running on these CentOS versions will need to be migrated to alternate platforms to continue to get updates and security patches. This article will discuss some of the options available as you start planning for the future of your workload.
+Workloads boldly running on these CentOS versions will need to be migrated to alternate platforms to continue to get updates and security patches. This article will discuss some of the options available as you start planning for the future of your workload.
 
 ## Migration options
 
