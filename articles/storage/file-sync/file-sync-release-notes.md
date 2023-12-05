@@ -108,7 +108,7 @@ The following items don't sync, but the rest of the system continues to operate 
 - The storage sync service and/or storage account can be moved to a different resource group, subscription, or Microsoft Entra (formerly Azure AD) tenant. After moving the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#troubleshoot-rbac)).
 
     > [!Note]  
-    > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
+    > When creating the cloud endpoint, the storage sync service and storage account must be in the same Microsoft Entra tenant. After you create the cloud endpoint, you can move the storage sync service and storage account to different Microsoft Entra tenants.
 
 ### Cloud tiering
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
