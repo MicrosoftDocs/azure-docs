@@ -92,7 +92,7 @@ Enter Azure Data Explorer configuration settings.
     When you configure an Azure Data Explorer data source with the Current User authentication method, Grafana queries Azure Data Explorer using the user's credentials.
 
    > [!NOTE]
-   > Rollout of the user-based authentication in Azure Managed Grafana is in progress and will be complete in all regions by the end of 2023.
+   > Rollout of the user-based authentication in Azure Managed Grafana is in progress.
 
    > [!CAUTION]
    > User-based authentication in Grafana data sources is experimental.
