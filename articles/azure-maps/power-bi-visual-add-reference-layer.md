@@ -28,7 +28,7 @@ To add a spatial dataset as a reference layer:
 
     :::image type="content" source="./media/power-bi-visual/reference-layer.png" alt-text="Screenshot showing the reference layers upload a file control.":::
 
-Once the file is added to the reference layer, its name replaces the **+ Add Local File** button. An '**X**' button is added that removes the data from the visual and deletes the associated file from Power BI when selected.
+Once the file is added to the reference layer, the file name appears in the **Browse** field. An '**X**' button is added that removes the data from the visual and deletes the associated file from Power BI when selected.
 
 The following map displays [2016 census tracts for Colorado]. The areas are colored, based on population, using the reference layer.
 
@@ -38,7 +38,7 @@ The following are all settings in the **Format** pane that are available in the 
 
 | Setting              | Description   |
 |----------------------|---------------|
-| Reference layer data | The data file to upload to the visual as another layer within the map. The **+ Add local file** button opens a file dialog the user can use to select a file that has a `.json`, `.geojson`, `.wkt` or `.kml` file extension. |
+| Reference layer data | The data file to upload to the visual as another layer within the map. Selecting **Browse** shows a list of files with a `.json`, `.geojson`, `.wkt` or `.kml` file extension that can be opened. |
 
 ## Styling data in a reference layer
 
