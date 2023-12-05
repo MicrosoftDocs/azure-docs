@@ -182,7 +182,7 @@ Update your application following the tutorial [Migrate a Java application to us
     ```
 
 ### [Other](#tab/sql-me-id-none)
-For other languages, you can use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
 
 
 ---

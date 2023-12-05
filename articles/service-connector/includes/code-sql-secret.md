@@ -222,7 +222,7 @@ ms.author: wchi
     ```
 
 ### [Other](#tab/sql-secret-none)
-For other languages, you can use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
 
 ---
 
