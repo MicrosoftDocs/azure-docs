@@ -391,7 +391,7 @@ The extension.json file content.
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/instanceView?api-version=2023-07-01
 ```
-Sample Response (see "vmHealth" section for updates on VM health status)
+Sample Response (see "vmHealth" object for the latest VM health status)
 ```
 "vmHealth": {
     "status": {
