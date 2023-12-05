@@ -220,8 +220,6 @@ $Datatable | ForEach-Object {
             }
             $response = Invoke-RestMethod @params
             $Datatable.rows.find($doc.title).vectors = $response.data.embedding -join ','
-
-            # if the prior commands didn't error, end the loop
             break
         } catch {
             if ($_.Exception.Response.StatusCode -eq 429) {
