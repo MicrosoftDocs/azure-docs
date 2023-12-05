@@ -71,11 +71,11 @@ The specification for the WFS standard makes use of OGC filters. The WFS client 
 - `PropertyIsNull`
 - `PropertyIsNil`
 - `PropertyIsBetween`
-
+<!--------------------------------------------------
 The [WFS filter example] sample demonstrates the use of different filters with the WFS client. For the source code for this sample, see [WFS filter example source code].
 
 :::image type="content" source="./media/spatial-io-connect-wfs-service/wfs-filter-example.png"alt-text="A screenshot that shows The WFS filter sample that demonstrates the use of different filters with the WFS client.":::
-
+-------------------------------------------------->
 <!--------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true]
 -------------------------------------------------->
