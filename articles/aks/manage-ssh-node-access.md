@@ -81,6 +81,7 @@ To help troubleshoot any issues with SSH connectivity to your clusters nodes, yo
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-update]: /cli/azure/aks#az-aks-update
+[az-aks-create]: /cli/azure/aks#az-aks-create
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: monitor-aks-reference.md#resource-logs
 [node-image-upgrade]: node-image-upgrade.md
