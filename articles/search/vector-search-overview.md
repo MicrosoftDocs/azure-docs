@@ -38,7 +38,7 @@ The following diagram shows the indexing and query workflows for vector search.
 
 :::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram-3.svg" alt-text="Architecture of vector search workflow." border="false" lightbox="media/vector-search-overview/vector-search-architecture-diagram-3-high-res.png":::
 
-On the indexing side, Azure AI Search takes vector embeddings and uses a [nearest neighbors algorithm](vector-search-ranking.md) to co-locate similar vectors together in the search index. For example, within vector space, content about popular movies are closer than content about popular dog breeds. 
+On the indexing side, Azure AI Search takes vector embeddings and uses a [nearest neighbors algorithm](vector-search-ranking.md) to co-locate similar vectors together in the search index (vectors about popular movies are closer than vectors about popular dog breeds). 
 
 How you get embeddings from your source content depends on your approach and whether you can use preview features. You can vectorize or generate embeddings using models from OpenAI, Azure OpenAI, and any number of providers, over a wide range of source content including text, images, videos, and audio. You can then push pre-vectorized content to [vector fields](vector-search-how-to-create-index.md) in a search index. That's the generally available approach. If you can use preview features, Azure AI Search provides [integrated data chunking and vectorization](vector-search-integrated-vectorization.md) in an indexer pipeline. You still provide the resources (endpoints and connection information), but Azure AI Search makes all of the calls and handles the transitions.
 
