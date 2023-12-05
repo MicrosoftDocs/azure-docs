@@ -14,7 +14,7 @@ ms.custom:
 
 # Compare Custom Vision to alternative Azure services
 
-The [Azure AI Vision Image Analysis API](../../computer-vision/overview-image-analysis.md), a separate offering from Custom Vision, now supports custom models. Use this guide to compare the two services.
+The [Azure AI Vision Image Analysis API](../../computer-vision/overview-image-analysis.md), based on Florence foundational model, now supports custom models with few-shot learning capability. Image Analysis is a separate offering from Azure Custom Vision. Use this guide to compare the two services.
 
 To migrate an existing Custom Vision project to the Image Analysis 4.0 system, see the [Migration guide](../../computer-vision/how-to/migrate-from-custom-vision.md).
 
