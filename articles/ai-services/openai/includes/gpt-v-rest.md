@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use GPT-4 with Vision on your images and videos with the Azure Open AI REST API'
+title: 'Quickstart: Use GPT-4 Turbo with Vision on your images and videos with the Azure Open AI REST API'
 titleSuffix: Azure OpenAI
-description: Get started using the Azure OpenAI REST APIs to deploy and use the GPT-4 with Vision model.
+description: Get started using the Azure OpenAI REST APIs to deploy and use the GPT-4 Turbo with Vision model.
 services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
@@ -9,7 +9,7 @@ ms.topic: include
 ms.date: 11/02/2023
 ---
 
-Use this article to get started using the Azure OpenAI REST APIs to deploy and use the GPT-4 with Vision model. 
+Use this article to get started using the Azure OpenAI REST APIs to deploy and use the GPT-4 Turbo with Vision model. 
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ Use this article to get started using the Azure OpenAI REST APIs to deploy and u
 - Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue. 
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
 - The following Python libraries: `requests`, `json`.
-- An Azure OpenAI Service resource with a GPT-4 Vision model deployed. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
+- An Azure OpenAI Service resource with a GPT-4 Turbo with Vision model deployed. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
 
 ## Retrieve key and endpoint
 
@@ -77,7 +77,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
 1. Make the following changes:
     1. Enter your endpoint URL and key in the appropriate fields.
-    1. Enter your GPT-4 Vision deployment name in the appropriate field. 
+    1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
     1. Change the value of the `"image"` field to the base 64 byte data of your image.
 1. Run the application with the `python` command:
 
