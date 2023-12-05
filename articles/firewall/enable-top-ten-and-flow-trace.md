@@ -104,7 +104,13 @@ The following additional properties can be added:
 
 - INVALID (flows)
 
-   Indicates packet can’t be identified or don't have any state; TCP packet is landing on a Virtual Machine Scale Sets instance, which doesn't have any prior history to this packet.
+   Indicates packet can’t be identified or don't have any state. 
+
+   For example: 
+   - A TCP packet lands on a Virtual Machine Scale Sets instance, which doesn't have any prior history for this packet
+   - Bad CheckSum packets
+   - Connection Tracking table entry is full and new connections cannot be accepted
+   - Overly delayed ACK packets
 
 ### Prerequisites
 
