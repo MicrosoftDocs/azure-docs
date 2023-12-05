@@ -247,7 +247,7 @@ You update the key for the FHIR service by using the Azure portal or an ARM temp
 
 1. Select **Review + create** to deploy the updates to the key.
 
-:::image type="content" source="media/configure-customer-managed-keys/cmk-arm-deploy.png" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/configure-customer-managed-keys/cmk-arm-deploy.png":::
+:::image type="content" source="media/configure-customer-managed-keys/arm-deploy.png" alt-text="Screenshot of the deployment template with details, including Key Encryption Key URL filled in." lightbox="media/configure-customer-managed-keys/arm-deploy.png":::
 
 ## Configure a key when you create the FHIR service
 
