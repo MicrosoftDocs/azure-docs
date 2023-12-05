@@ -19,7 +19,7 @@ This article describes how to configure the SSH key (preview) on your AKS cluste
 
 ## Create an AKS cluster with SSH key (preview)
 
-Use the [az aks create][az-aks-create] command to deploy an AKS cluster with a SSH public key. You can either specify the key or a key file using the `--ssh-key-value` argument.
+Use the [az aks create][az-aks-create] command to deploy an AKS cluster with an SSH public key. You can either specify the key or a key file using the `--ssh-key-value` argument.
 
 |SSH parameter |Description |Default value |
 |-----|-----|-----|
@@ -38,7 +38,7 @@ The following are examples of this command:
     az aks create --name myAKSCluster --resource-group MyResourceGroup --generate-ssh-key
     ```
 
-* To specify a SSH public key file, specify it with the `--ssh-key-value` argument:
+* To specify an SSH public key file, specify it with the `--ssh-key-value` argument:
 
     ```azurecli
     az aks create --name myAKSCluster --resource-group MyResourceGroup --generate-ssh-key --ssh-key-value ~/.ssh/id_rsa.pub
@@ -63,7 +63,7 @@ The following are examples of this command:
     az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value 'ssh-rsa AAAAB3Nza-xxx'
     ```
 
-* To specify a SSH public key file, specify it with the `--ssh-key-value` argument:
+* To specify an SSH public key file, specify it with the `--ssh-key-value` argument:
 
     ```azurecli
     az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value ~/.ssh/id_rsa.pub
