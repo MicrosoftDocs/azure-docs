@@ -1,6 +1,6 @@
 ---
 title: Set up Private Link for a Chaos Studio agent-based experiment [Preview]
-description: Understand the steps to set up a a chaos experiment using private link for agent-based experiments
+description: Understand the steps to set up a chaos experiment using private link for agent-based experiments
 services: chaos-studio
 author: nikhilkaul-msft
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.service: chaos-studio
 ms.custom: ignite-fall-2023
 ---
 # How-to: Configure Private Link for Agent-Based experiments
-In this guide, we'll show you the steps needed to configure Private Link for a Chaos Studio **Agent-based** Experiment. The current user experience is based on the private endpoints support enabled as part of public preview of the private endpoints feature. This experience will evolve with time as the feature is enhanced through public preview and GA lifecycle events. 
+This guide explains the steps needed to configure Private Link for a Chaos Studio **Agent-based** Experiment. The current user experience is based on the private endpoints support enabled as part of public preview of the private endpoints feature. Expect this experience to evolve with time as the feature is enhanced to GA quality.
 
 ---
 ## Prerequisites
@@ -23,11 +23,11 @@ In this guide, we'll show you the steps needed to configure Private Link for a C
 
 <br/>
 
-3. Ensure that the `Microsoft.Resources/EUAPParticipation` feature flag is enabled for your subscription. If you have used Chaos Studio in your subscription before, this may have already been done via the Portal when you created your first experiment. 
+3. Ensure that the `Microsoft.Resources/EUAPParticipation` feature flag is enabled for your subscription. Previous Chaos Studio users may already have the feature flag enabled if you succesfully ran your first experiment via the Azure portal in the past. 
 
 <br/>
 
-The feature flag can be enabled using Azure CLI. Here is an example of how to do this:
+The feature flag can be enabled using Azure CLI. Here's an example:
 
 ```AzCLI
 az feature register --namespace Microsoft.Resources --name "EUAPParticipation" --subscription <subscription id>
@@ -35,36 +35,36 @@ az feature register --namespace Microsoft.Resources --name "EUAPParticipation" -
 
 ## Limitations
 
-- You will need to use our **2023-10-27-preview REST API** to create and use private link for agent-based experiments ONLY. There is **no** support for private link for agent-based experiments in our GA-stable REST API until H1 2024. 
+- You'll need to use our **2023-10-27-preview REST API** to create and use private link for agent-based experiments ONLY. There's **no** support for private link for agent-based experiments in our GA-stable REST API until H1 2024. 
 
-- The entire end-to-end for this flow requires some use of the CLI. While you can define your experiment using the existing flows via the Azure Portal, enabling the private endpoints will require using the CLI. 
+- The entire end-to-end for this flow requires some use of the CLI. The current end-to-end experience cannot be done from the Azure Portal currently. 
 
 # Steps
 
-## Step 1: Make sure you have allowlisted Microsoft.Network/AllowPrivateEndpoints in your subscription
+## Step 1: Make sure you allowlist Microsoft.Network/AllowPrivateEndpoints in your subscription
 
-The first step you will need to take is to ensure that your desired subscription allows the Networking Resource Provider to operate. 
+The first step is to ensure that your desired subscription allows the Networking Resource Provider to operate. 
 
-Ensure that the `Microsoft.Network/AllowPrivateEndpoints` feature flag is enabled for your subscription. If you have used Chaos Studio in your subscription before, this may have already been done via the Portal when you created your first experiment. 
+Ensure that the `Microsoft.Network/AllowPrivateEndpoints` feature flag is enabled for your subscription. 
 
 <br/>
 
-The feature flag can be enabled using Azure CLI. Here is an example of how to do this:
+The feature flag can be enabled using Azure CLI. Here's an example:
 
 ```AzCLI
 az feature register --namespace Microsoft.Network --name "AllowPrivateEndpoints" --subscription <subscription id>
 ```
 
 > [!NOTE]
-> If you are going to be using private endpoints using manual requests across multiple subscriptions, you will need to ensure you register the Microsoft.Network Resource Provider (RP) in your respective tenants/subscriptions. See [Register RP](articles/azure-resource-manager/management/resource-providers-and-types.md) for more info about this.
+> If you are going to be using private endpoints using manual requests across multiple subscriptions, you'll need to ensure you register the Microsoft.Network Resource Provider (RP) in your respective tenants/subscriptions. See [Register RP](articles/azure-resource-manager/management/resource-providers-and-types.md) for more info about this.
 > This step is not needed if you are using the same subscription across both the Chaos and Networking Resource Providers.
  
 ## Step 2: Create a Chaos Studio Private Access (CSPA) resource. 
 
-To use Private endpoints for agent-based chaos experiments, you will need to create a new resource type called **Chaos Studio Private Accesses**. This will be the resource against which the private endpoints will be created.
+To use Private endpoints for agent-based chaos experiments, you need to create a new resource type called **Chaos Studio Private Accesses**. CSPA is the resource against which the private endpoints are created.
 
 > [!NOTE]
-> Currently this resource can **only be created from the CLI**. See the example code below for how to do this:
+> Currently this resource can **only be created from the CLI**. See the example code for how to do this:
 
  ```AzCLI
 az rest --verbose --skip-authorization-header --header "Authorization=Bearer $accessToken" --uri-parameters api-version=2023-10-27-preview --method PUT --uri "https://centraluseuap.management.azure.com/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Chaos/privateAccesses/<CSPAResourceName>?api-version=2023-10-27-preview" --body ' 
@@ -90,7 +90,7 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 }'
  ```
 
-| Name |Required | Type | Description
+| Name |Required | Type | Description |
 |-|-|-|-|
 |subscriptionID|True|String|GUID that represents an Azure subscription ID|
 |resourceGroupName|True|String|String that represents an Azure resource group|
@@ -102,7 +102,7 @@ az rest --verbose --skip-authorization-header --header "Authorization=Bearer $ac
 
 [Set up your desired Virtual Network, Subnet, and Endpoint](articles/private-link/create-private-endpoint-portal.md) for the experiment if you haven't already.
 
-Make sure you attach it to the same VM's VNET. Screenshots provide examples of doing this. It is important to note that you need to set the "Resource Type" to "Microsoft.Chaos/privateAccesses" as seen in the screenshot. 
+Make sure you attach it to the same VM's VNET. Screenshots provide examples of creating the VNET, Subnet and Private Endpoint. It's important to note that you need to set the "Resource Type" to "Microsoft.Chaos/privateAccesses" as seen in the screenshot. 
 
 [![Screenshot of resource tab of private endpoint creation](images/resourcePrivateEndpoint.png)](images/resourcePrivateEndpoint.png#lightbox)
 
@@ -119,21 +119,21 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 <br/>
 
-This will return a large response. We will use this response and modify it before running a "PUT Target" command to map the two resources. 
+The GET command returns a large response. Note this response. We use this response and modify it before running a "PUT Target" command to map the two resources. 
 
 <br/>
 
-Invoke a "PUT Target" command using this response. You will need to append **TWO ADDITIONAL FIELDS** to the body of the PUT command before running it.
+Invoke a "PUT Target" command using this response. You need to append **TWO ADDITIONAL FIELDS** to the body of the PUT command before running it.
 
-These additional fields are shown in the following screenshot: 
+These extra fields are shown in the following screenshot: 
 
 [![Screenshot of additional CSPA fields](images/additionalCSPAfields.png)](images/additionalCSPAfields.png#lightbox)
 
 
-Below is an example block for what the "PUT Target" command should look like and the fields that you would need to fill out:
+Here's an example block for what the "PUT Target" command should look like and the fields that you would need to fill out:
 
 > [!NOTE]
-> The body should be copied from the previous GET command. You will need to manually append the "privateAccessID" and "allowPublicAccess" fields. 
+> The body should be copied from the previous GET command. You'll need to manually append the "privateAccessID" and "allowPublicAccess" fields. 
 
 ```AzCLI
 
@@ -167,7 +167,7 @@ During the Preview of this feature, customers need to update the Agent VM extens
 
 [![Screenshot of Private Ednpoint DNS Config tab](images/DNSConfig.png)](images/DNSConfig.png#lightbox)
 
-After noting the IP address, you need to open the "hosts" file on your host VM and updatwe it with the following entry:
+After noting the IP address, you need to open the "hosts" file on your host VM and update it with the following entry:
 
 ```
 <IP address>    acs-frontdoor-prod-<azureRegion>.chaosagent.trafficmanager.net
@@ -177,7 +177,7 @@ After noting the IP address, you need to open the "hosts" file on your host VM a
 > **Path of hosts file on Windows:** C:\Windows\System32\drivers\etc
 > **Path of hosts file on Linux:** /etc/hosts
 
-Example of what the "hosts" file should look like. The IP address and azure region will change for your scenario:
+Example of what the "hosts" file should look like. The IP address and azure region change for your scenario:
 
 [![Screenshot of hosts file](images/CSPAhosts.png)](images/CSPAhosts.png#lightbox)
 
@@ -185,7 +185,7 @@ Save and close the file.
 
 ## Step 6: Update the communication endpoint in agentSettings and agentInstanceConfig JSON files
 
-In this step you will need to continue to edit files on the host VM machine. You will be updating the "agentSettings.json" and "agentInstanceConfig.json" files to include the communication endpoint based on the region in which the VM targets were created in the previous steps. 
+In this step, you need to continue to edit files on the host VM machine. You need to update the "agentSettings.json" and "agentInstanceConfig.json" files to include the communication endpoint based on the region in which the VM targets were created in the previous steps. 
 
 ### Updating the agentSettings.json
 
@@ -222,7 +222,7 @@ Example of updated agentInstanceConfig.json:
 
 ## Step 6.5: Disable CRL verification in agentSettings.JSON
 
-**IF** you have blocked outbound access to Microsoft Certificate Revocation List (CRL) verification endpoints, then you will need to update agentSettings.JSON to disable CRL verification check in the agent.
+**IF** you blocked outbound access to Microsoft Certificate Revocation List (CRL) verification endpoints, then you need to update agentSettings.JSON to disable CRL verification check in the agent.
 
 ```
 "communicationApi": {
@@ -234,7 +234,7 @@ The final agentSettings.JSON should appear as shown:
 
 [![Screenshot of agentSettings JSON with disabled CRL verification](images/agentSettingsCRL.png)](images/agentSettingsCRL.png#lightbox)
 
-If you have not blocked outbound access to Microsoft CRL verification endpoints, you can ignore this step. 
+If outbound access to Microsoft CRL verification endpoints is not blocked, then you can ignore this step. 
 
 ## Step 7: Restart the Azure Chaos Agent service in the VM
 
