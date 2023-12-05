@@ -6,7 +6,7 @@ ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 11/17/2022
+ms.date: 12/05/2023
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Bicep
 ---
 
