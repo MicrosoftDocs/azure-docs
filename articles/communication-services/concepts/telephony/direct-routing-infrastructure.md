@@ -58,12 +58,14 @@ Learn more:
 [Included CA Certificate List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)
 
 >[!IMPORTANT]
->Azure Communication Services direct routing supports only TLS 1.2 (or a later version). To avoid any service impact, ensure that your SBCs are configured to support TLS1.2 and can connect using one of the following cipher suites: 
+>Azure Communication Services direct routing supports only TLS 1.2 (or a later version). To avoid any service impact, ensure that your SBCs are configured to support TLS1.2 and can connect using one of the following cipher suites for signalling: 
 >
 >TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 i.e. ECDHE-RSA-AES256-GCM-SHA384 
 >TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 i.e. ECDHE-RSA-AES128-GCM-SHA256 
 >TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 i.e. ECDHE-RSA-AES256-SHA384 
 >TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 i.e. ECDHE-RSA-AES128-SHA256
+>
+>For media only AES_CM_128_HMAC_SHA1_80 is supported.
 
 SBC pairing works on the Communication Services resource level. It means you can pair many SBCs to a single Communication Services resource. Still, you can't pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
 
