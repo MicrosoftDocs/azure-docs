@@ -240,7 +240,7 @@ You update the key for the FHIR service by using the Azure portal or an ARM temp
 }
 ```
 
-1. When prompted, select the values for the resource group, region, workspace, and FHIR service name.   
+1. When prompted, select the values for the resource group, region, workspace, and FHIR service name. 
 
     * If you're using a system-assigned managed identity, enter the **Key Identifier** you copied from the key vault in the **Key Encryption Key Url** field.
     * If you're using a user-assigned managed identity, enter the values for the key vault name, key name, user assigned identity name, and tenant ID.
