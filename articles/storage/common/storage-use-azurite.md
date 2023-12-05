@@ -465,7 +465,7 @@ azurite --disableProductStyleUrl
 
 You can connect to Azurite from Azure Storage SDKs, or tools like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Authentication is required, and Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
 
-If you're using the Azure SDKs, start Azurite with the `--oauth basic`` and `--cert --key/--pwd` options. To learn more about using Azurite with the Azure SDKs, see [Azure SDKs](#azure-sdks).
+If you're using the Azure SDKs, start Azurite with the `--oauth basic` and `--cert --key/--pwd` options. To learn more about using Azurite with the Azure SDKs, see [Azure SDKs](#azure-sdks).
 
 #### Well-known storage account and key
 
@@ -526,7 +526,7 @@ The full connection string is:
 
 `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;`
 
-For specific services, you can use the following connection strings:
+To connect to a specific service, you can use the following connection strings:
 
 ##### [Blob Storage](#tab/blob-storage)
 
@@ -554,17 +554,27 @@ The full HTTPS connection string is:
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;TableEndpoint=https://127.0.0.1:10002/devstoreaccount1;`
 
+To connect to a specific service, you can use the following connection strings:
+
+##### [Blob Storage](#tab/blob-storage)
+
 To use the blob service only, the HTTPS connection string is:
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;`
+
+##### [Queue Storage](#tab/queue-storage)
 
 To use the queue service only, the HTTPS connection string is:
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
 
+##### [Table Storage](#tab/table-storage)
+
 To use the table service only, the HTTPS connection string is:
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=https://127.0.0.1:10002/devstoreaccount1;`
+
+---
 
 If you used `dotnet dev-certs` to generate your self-signed certificate, use the following connection string.
 
