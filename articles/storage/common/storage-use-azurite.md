@@ -416,8 +416,6 @@ azurite --version
 
 **Optional** - By default, Azurite uses the HTTP protocol. You can enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch. HTTPS is required to connect to Azurite using [OAuth authentication](#oauth-configuration).
 
-```console
-
 When `--cert` is provided for a PEM file, you must provide a corresponding `--key` switch.
 
 ```console
@@ -432,7 +430,7 @@ azurite --cert path/server.pfx --pwd pfxpassword
 
 ##### HTTPS setup
 
-For detailed information on creating PEM and PFX files, see [HTTPS Setup](https://github.com/Azure/Azurite/blob/master/README.md#https-setup).
+For detailed information on generating PEM and PFX files, see [HTTPS Setup](https://github.com/Azure/Azurite/blob/master/README.md#https-setup).
 
 #### OAuth configuration
 
@@ -447,7 +445,7 @@ azurite --oauth basic --cert path/server.pem --key path/key.pem
 
 Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite performs basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite doesn't check the token signature or permissions. To learn more about authorization, see [Authorization for tools and SDKs](#connect-to-azurite-with-sdks-and-tools).
 
-#### Skip API Version Check
+#### Skip API version check
 
 **Optional** - When starting up, Azurite checks that the requested API version is valid. The following command skips the API version check:
 
@@ -455,13 +453,33 @@ Azurite supports basic authentication by specifying the `basic` parameter to the
 azurite --skipApiVersionCheck
 ```
 
-#### Disable Production Style Url
+#### Disable production-style URL
 
-**Optional**. When using the fully qualified domain name instead of the IP in request Uri host, by default Azurite parses the storage account name from request Uri host. You can force the parsing of the storage account name from request Uri path by using `--disableProductStyleUrl`:
+**Optional**. When using the fully qualified domain name instead of the IP in request Uri host, by default Azurite parses the storage account name from request URI host. You can force the parsing of the storage account name from request URI path by using `--disableProductStyleUrl`:
 
 ```cmd
 azurite --disableProductStyleUrl
 ```
+
+#### In-memory persistence
+
+**Optional**. Disable persisting any data to disk and only store data in-memory. If the Azurite process is terminated, all data is lost. By default, blob and queue metadata is persisted to disk and content is persisted to extent files. Table storage persists all data to disk. This behavior can be disabled using this option. This setting is rejected when the SQL-based metadata implementation is enabled (via `AZURITE_DB`), and when the `--location` option is specified.
+
+```cmd
+azurite --inMemoryPersistence
+```
+
+#### Extent memory limit
+
+**Optional**. By default, the in-memory extent store (for blob and queue content) is limited to 50% of the total memory on the host machine. This total is evaluated using `os.totalmem()`, and the limit can be overridden using the following option:
+
+```
+azurite --extentMemoryLimit <megabytes>
+```
+
+There is no restriction on the value specified for this option, but virtual memory may be used if the limit exceeds the amount of available physical memory as provided by the operating system. A high limit may eventually lead to out of memory errors or reduced performance. This option is rejected when `--inMemoryPersistence` isn't specified.
+
+To learn more, see [Use in-memory storage](https://github.com/Azure/Azurite#use-in-memory-storage).
 
 ## Connect to Azurite with SDKs and tools
 
