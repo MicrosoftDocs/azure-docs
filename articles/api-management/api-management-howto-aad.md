@@ -196,7 +196,7 @@ Users from the configured Microsoft Entra instance can now:
 Groups configured in Microsoft Entra usually synchronize automatically with API Management so that you can add them to your instance. However, if necessary, do one of the following to synchronize group information manually:
 
 * Sign out and sign back into Microsoft Entra ID. This activity usually triggers synchronization of groups.
-* Ensure that the Microsoft Entra sign-in tenant is specified consistently (using one of tenant ID or domain name) when you configure a Microsoft Entra ID identity provider for the developer portal and when you add a Microsoft Entra group to API Management.
+* Ensure that the Microsoft Entra sign-in tenant is specified consistently (using one of tenant ID or domain name) in your configuration settings in API Management. Specify the identical sign-in tenant when you configure a Microsoft Entra ID identity provider for the developer portal and when you add a Microsoft Entra group to API Management.
 
 ## <a id="log_in_to_dev_portal"></a> Developer portal: Add Microsoft Entra account authentication
 
