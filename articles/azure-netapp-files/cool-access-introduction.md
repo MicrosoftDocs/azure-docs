@@ -25,13 +25,13 @@ Most cold data is associated with unstructured data. It can account for more tha
 
 Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level. Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.  
 
-You can configure the standard storage with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 183 days) for inactive data to be considered "cool". When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This move to the cool tier can take a few days. For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or write), it's qualified for movement to the cool tier.  
+The following diagram illustrates an application with a volume enabled for cool access. 
 
 :::image type="content" source="../media/azure-netapp-files/cool-access-explainer.png" alt-text="Diagram of cool access tiering." lightbox="../media/azure-netapp-files/cool-access-explainer.png" border="false":::
 
-Tiered data will appear to be online and continue to be available to users and applications by transparent and automated retrieval from the cool tier.
+In the initial write, data blocks are assign a "warm" temperature value and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the cooling period. The cooling period can be between 7 and 183 days; it has a default value of 31 days. Once marked "cold,"  the tiering scan collects blocks and packages them into 4 MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
 
-By `Default` (unless cool access retrieval policy is configured otherwise), after inactive data is moved to the cool tier and if it's read randomly again, it becomes "warm" and is moved back to the hot tier. Sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data and won't trigger inactive data to be moved back to the hot tier.
+By `Default` (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. Once marked as _warm_, the data blocks are again subjected to the temperature scan. However, large sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data nor do they trigger inactive data to be moved back to the hot tier.
 
 Metadata is never cooled and always remains in the hot tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) aren't affected by tiering.
 
