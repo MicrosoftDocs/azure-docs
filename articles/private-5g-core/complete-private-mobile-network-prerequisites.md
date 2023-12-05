@@ -295,7 +295,6 @@ To use Azure Private 5G Core, you need to register some additional resource prov
     az feature register --name previewAccess --namespace  Microsoft.Kubernetes
     az feature register --name sourceControlConfiguration --namespace  Microsoft.KubernetesConfiguration
     az feature register --name extensions --namespace  Microsoft.KubernetesConfiguration
-    az feature register --name CustomLocations-ppauto --namespace  Microsoft.ExtendedLocation
     ```
 
 ## Retrieve the Object ID (OID)
