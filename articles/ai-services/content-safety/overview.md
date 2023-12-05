@@ -111,7 +111,6 @@ For more information, see [Language support](/azure/ai-services/content-safety/l
 ### Region/location
 
 To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, it is available in the following Azure regions: 
-
 - Australia East
 - Canada East
 - Central US
@@ -125,6 +124,10 @@ To use the Content Safety APIs, you must create your Azure AI Content Safety res
 - UK South
 - West Europe
 - West US 2
+
+Private preview features, such as jailbreak risk detection and protected material detection, are available in the following Azure regions:
+- East US
+- West Europe
 
 Feel free to [contact us](mailto:acm-team@microsoft.com) if you need other regions for your business.
 
