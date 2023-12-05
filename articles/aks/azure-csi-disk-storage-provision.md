@@ -328,7 +328,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
     pvc-azuredisk   Bound    pv-azuredisk   20Gi        RWO                           5s
     ```
 
-5. Create a *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*.
+5. Create an *azure-disk-pod.yaml* file to reference your *PersistentVolumeClaim*.
 
     ```yaml
     apiVersion: v1
