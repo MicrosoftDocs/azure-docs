@@ -414,7 +414,9 @@ azurite --version
 
 #### Certificate configuration (HTTPS)
 
-**Optional** - By default, Azurite uses the HTTP protocol. Enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch.
+**Optional** - By default, Azurite uses the HTTP protocol. You can enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch. HTTPS is required to connect to Azurite using [OAuth authentication](#oauth-configuration).
+
+```console
 
 When `--cert` is provided for a PEM file, you must provide a corresponding `--key` switch.
 
@@ -465,7 +467,7 @@ azurite --disableProductStyleUrl
 
 You can connect to Azurite from Azure Storage SDKs, or tools like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Authentication is required, and Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
 
-If you're using the Azure SDKs, start Azurite with the `--oauth basic` and `--cert --key/--pwd` options. To learn more about using Azurite with the Azure SDKs, see [Azure SDKs](#azure-sdks).
+To learn more about using Azurite with the Azure SDKs, see [Azure SDKs](#azure-sdks).
 
 #### Well-known storage account and key
 
@@ -586,13 +588,18 @@ For more information, see [Configure Azure Storage connection strings](storage-c
 
 #### Azure SDKs
 
-To use Azurite with the [Azure SDKs](https://aka.ms/azsdk), use OAuth with HTTPS options:
+To connect to Azurite with the [Azure SDKs](https://aka.ms/azsdk), follow these steps:
+
+- Enable OAuth authentication for Azurite via the `--oauth` switch. To learn more, see [OAuth configuration](#oauth-configuration).
+- Enable HTTPS by using a self-signed certificate via the `--cert` and `--key`/`--pwd` options. To learn more about generating certificates, see [Certificate configuration (HTTPS)](#certificate-configuration-https) and [HTTPS setup](#https-setup).
+
+Once the certificates are in place, start Azurite with the following command line options:
 
 ```console
-azurite --oauth basic --cert certname.pem --key certname-key.pem
+azurite --oauth basic --cert cert-name.pem --key cert-name-key.pem
 ```
 
-To learn more about configuring OAuth for Azurite, see [OAuth configuration](#oauth-configuration). To learn about certificate configuration and HTTPS setup, see [Certificate configuration (HTTPS)](#certificate-configuration-https).
+Replace `cert-name.pem` and `certname-key.pem` with the names of your certificate and key files. If you are using a PFX certificate, use the `--pwd` option instead of the `--key` option.
 
 #### [Blob Storage](#tab/blob-storage)
 
