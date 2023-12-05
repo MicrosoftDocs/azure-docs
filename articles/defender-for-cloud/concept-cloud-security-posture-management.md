@@ -3,7 +3,7 @@ title: Cloud Security Posture Management (CSPM)
 description: Learn more about CSPM in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: ignite-2022, build-2023
-ms.date: 11/15/2023
+ms.date: 12/05/2023
 ---
 
 # Cloud security posture management (CSPM)
@@ -70,7 +70,7 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
 
 - Defender CSPM for GCP is free until January 31, 2024.
 
-- Starting on March 1, 2024, [premium DevOps security posture capabilities](concept-cloud-security-posture-management.md#cspm-features) will only be available through the Defender CSPM plan. Foundational DevOps posture management will remain available for all Defender for Cloud users. Learn more about what is included in each plan.
+- From March 1, 2023, advanced DevOps security posture capabilities will only be available through the paid Defender CSPM plan. Free foundational security posture management in Defender for Cloud will continue providing a number of Azure DevOps recommendations. Learn more about [DevOps security features](devops-support.md#azure-devops).
 
 - For subscriptions that use both Defender CSPM and Defender for Containers plans, free vulnerability assessment is calculated based on free image scans provided via the Defender for Containers plan, as summarized [in the Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
