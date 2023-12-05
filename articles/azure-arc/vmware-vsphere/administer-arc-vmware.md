@@ -22,9 +22,6 @@ Each of these operations requires either SSH key to the resource bridge VM or th
 
 Azure Arc-enabled VMware vSphere requires the Arc resource bridge to connect your vSphere environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates. The Arc resource bridge can be manually upgraded from the vCenter server. You must meet all upgrade [prerequisites](../resource-bridge/upgrade.md#prerequisites) before attempting to upgrade. The vCenter server must have the kubeconfig and appliance configuration files stored locally. If the vSphere account credentials changed after the initial deployment of the resource bridge, [update the new account credentials](administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding) before attempting manual upgrade.
 
-> [!NOTE]
-> The manual upgrade feature is available for resource bridge version 1.0.14 and later. Resource bridges below version 1.0.14 must [perform the recovery option](./recover-from-resource-bridge-deletion.md) to upgrade to version 1.0.15 or later.
-
 The manual upgrade generally takes between 30-90 minutes, depending on the network speed. The upgrade command takes your Arc resource bridge to the immediate next version, which might not be the latest available version. Multiple upgrades could be needed to reach a [supported version](../resource-bridge/upgrade.md#supported-versions). You can check your resource bridge version by checking the Azure resource of your Arc resource bridge.
 
 To manually upgrade your Arc resource bridge, make sure you've installed the latest `az arcappliance` CLI extension by running the extension upgrade command from the vCenter server:
