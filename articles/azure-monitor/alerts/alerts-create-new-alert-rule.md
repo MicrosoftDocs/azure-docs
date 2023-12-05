@@ -401,7 +401,8 @@ To edit an existing alert rule:
         - “Alert Fired reason": "Percentage CPU GreaterThan5 Fired. The value is 10.585"
 
     > [!NOTE]
-    > The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
+    > * The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
+    > * Custom properties are added to the payload of the alert but not to the e-mail template.
    
 
 ### Finish creating the alert rule
