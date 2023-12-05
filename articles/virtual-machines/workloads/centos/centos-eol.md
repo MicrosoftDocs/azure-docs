@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 12/1/2023
 ms.author: ClausWieser
 ---
-# CentOS end-of-life (EOL) guidance
+# CentOS End-Of-Life guidance
 
 ## Impact for CentOS users
 
@@ -21,23 +21,23 @@ CentOS 7 and 8 are the final releases of CentOS Linux. The end-of-life dates for
 - CentOS 8 - December 31, 2021
 - CentOS 7 - June 30, 2024
 
-Workloads boldly running on these CentOS versions will need to be migrated to alternate platforms to continue to get updates and security patches. This article will discuss some of the options available as you start planning for the future of your workload.
+Workloads running on these CentOS versions will need to migrate to alternate platforms to continue to get updates and security patches. This article will discuss options available as you start planning for the future of your workload.
 
 ## Migration options
 
-There are several options for CentOS customers to move to a supported OS. The decision of where and how to move will largely be determined by three things:
+There are several options for CentOS customers to move to a supported OS. The decision of where and how to migrate will depend on whether you need to:
 
-- Retain compatibility with CentOS / RHEL
-- Community supported distribution vs. commercial distribution (e.g., RHEL)
+- retain compatibility with CentOS / Red Hat Enterprise Linux (RHEL)
+- prefer a community supported distribution vs. commercial distribution (for example Red Hat Enterprise Linux or RHEL)
 - Configuration and image source(s) of your CentOS estate in Azure
 
-If CentOS compatibility is required,  migration to Red Hat Enterprise Linux, a commercial distribution, is a low-risk option. There are also several alternatives such as Oracle Linux, Alma Linux, Rocky Linux, etc.
+If you need to keep CentOS compatibility, migration to Red Hat Enterprise Linux, a commercial distribution, is a low-risk option. There are also several choices such as Oracle Linux, Alma Linux, Rocky Linux, etc.
 
-If your workload is supported by multiple distributions, you may want to consider moving to another distribution, either community based or commercial.
+If your workload runs on many distributions, you may want to consider moving to another distribution, either community based or commercial.
 
-As you evaluate your end state, consider whether performing an in-place conversion (multiple distributions provide tools for this purpose) is preferable vs. taking this opportunity to start with a clean slate and a new VM / OS / image. Microsoft recommends starting with a fresh VM / OS.
+While you evaluate your end state, consider whether performing an in-place conversion (many distributions give tools for this purpose) is preferable vs. taking this opportunity to start with a clean slate and a new VM / OS / image. Microsoft recommends starting with a fresh VM / OS.
 
-There are also several companies offering extended support for CentOS 7, which may provide you with some additional time to migrate.<br>
+There are also several companies offering extended support for CentOS 7, which may give you more time to migrate.<br>
 
 - SUSE: [Liberty Linux: Proven enterprise support for RHEL & CentOS | SUSE](https://www.suse.com/products/suse-liberty-linux/)
 - OpenLogic: [Enterprise Linux Support](https://www.openlogic.com/solutions/enterprise-linux-support/centos)
@@ -72,17 +72,19 @@ Notes:
 
 ## Migrating your systems and workloads
 
-### CentOS compatible
+### Stay CentOS compatible
 
-If you decide to stay CentOS compatible and have picked a distribution, you need to decide whether you want to perform an in-place conversion of your OS or start with a fresh VM (redeploy).
+If you stay CentOS compatible and have picked a distribution, you need to decide whether you want to perform an in-place conversion or start with a fresh VM (redeploy).
 
-Most CentOS compatible distributions have conversions utilities that will assess the system for suitability to be converted and perform the replacement of key binaries and update the source for updated and content.
+Many CentOS compatible distributions have conversions utilities that will assess the system and perform the replacement of binaries and update the content source.
 
 If you move to a commercial distribution, you may need a valid subscription / license to perform the conversion.
 
-As you consider whether to convert your VM in place vs redeploying, the way you created your VM in Azure will become important. <br><br> **Converting a custom VM**
+As you consider whether to convert your VM in place vs redeploying, the way you created your VM in Azure will become important. <br><br>
 
-If you created your own VM for use in Azure, no software billing information is associated with your VM and you are likely OK to convert it in place (after a backup and any necessary prerequisites and remediations).
+**Converting a custom VM**
+
+If you created your own VM for use in Azure, no software billing information is present in your VM. You are likely OK to convert it in place (after a backup and any necessary prerequisites and updates).
 
 Rogue Wave Software (formerly OpenLogic) Azure marketplace offer
 
@@ -92,21 +94,21 @@ Rogue Wave Software (formerly OpenLogic) Azure marketplace offer
 
 - [CentOS-based LVM](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-lvm?tab=Overview)
 
-These are the official / endorsed CentOS image in Azure, and do not have software billing information associated. They are candidates for an in-place conversion (after a backup and any necessary prerequisites and remediations).
+These are the official / endorsed CentOS image in Azure, and don't have software billing information associated. They're candidates for an in-place conversion (after a backup and any necessary prerequisites and updates).
 
 **Other Azure marketplace offers**
 
-There are a multitude of CentOS based offers from a variety of publishers available in the Azure marketplace. They range from simple OS only offers to a variety of bundled offers with additional software, desktop versions as well as configurations for specific cases (e.g., CIS hardened images).
+There are a multitude of CentOS based offers from a variety of publishers available in the Azure marketplace. They range from simple OS only offers to a variety of bundled offers with more software, desktop versions and configurations for specific cases (for example CIS hardened images).
 
 Some of these offers do have a price tag associated, and can include services such as end customer support etc.
 
-If you choose to convert a system with a price associated you will continue to be charged the original price after conversion, even though you may have a separate subscription or license for the converted system, in essence potentially double paying.
+If you convert a system with a price associated you will continue to pay the original price after conversion. Even if you have a separate subscription or license for the converted system, you my be double paying.
 
-Check with your image provider whether they recommend / support an in-place upgrade and/or have further guidance.
+Check with your image provider whether they recommend / support an in-place upgrade or have further guidance.
 
 ### Changing distributions
 
-If you are moving to another distribution, you will need to redeploy your VMs and workloads. Make sure to look at the [MicrosoftCloud Adoption Framework](https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework) for Azure for guidance, best practices and templates to deploy your solution in Azure.
+If you are moving to another distribution, you will need to redeploy your Virtual Machines and workloads. Make sure to look at the [MicrosoftCloud Adoption Framework](https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework) for Azure for guidance, best practices and templates to deploy your solution in Azure.
 
 ### Modernize
 
