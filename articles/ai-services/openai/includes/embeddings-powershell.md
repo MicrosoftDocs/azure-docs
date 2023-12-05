@@ -147,7 +147,7 @@ param(
     # markdown
     $replace += @('###','##','#','```')
     $replace | ForEach-Object {
-        $content = $content -replace $_, ''
+        $content = $content -replace $_, ' '
     }
     return $content
 }
