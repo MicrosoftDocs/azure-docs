@@ -157,9 +157,9 @@ print(response.choices[0].message.model_dump_json(indent=2))
 ```powershell-interactive
 $openai = @{
     api_key     = $Env:AZURE_OPENAI_KEY
-    api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https:/YOUR_RESOURCE_NAME.openai.azure.com/
-    api_version = '2023-10-01-preview' # this may change in the future
-    name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deploymentwhen you deployed a model.
+    api_base    = $Env:AZURE_OPENAI_ENDPOINT # should look like https:/YOUR_RESOURCE_NAME.openai.azure.com/
+    api_version = '2023-10-01-preview' # may change in the future
+    name        = 'YOUR-DEPLOYMENT-NAME-HERE' # the custom name you chose for your deployment
 }
 
 $headers = [ordered]@{
@@ -239,6 +239,8 @@ If you want to describe a function that doesn't accept any parameters, use `{"ty
 
 ### Managing the flow with functions
 
+Example in Python.
+
 ```python
 
 response = openai.ChatCompletion.create(
@@ -293,6 +295,8 @@ else:
     print(response["choices"][0]["message"])
 ```
 
+Example in Powershell.
+
 ```powershell
 # continues from the previous PowerShell example
 
@@ -335,6 +339,8 @@ if ($null -ne $response.choices[0].message.function_call) {
     $secondResponse.choices[0].message | ConvertTo-Json
 }
 ```
+
+Example output.
 
 ```output
 {
