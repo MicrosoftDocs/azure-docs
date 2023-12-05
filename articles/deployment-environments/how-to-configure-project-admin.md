@@ -12,11 +12,11 @@ ms.topic: how-to
 
 # Provide access to projects for dev team leads
 
-In Azure Deployment Environments, you can create multiple projects associated with the dev center to align with each team's requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. DevCenter Project Admin users can configure [project environment types](concept-environments-key-concepts.md#project-environment-types) to enable developers to create various types of [environments](concept-environments-key-concepts.md#environments) and apply settings to each environment type. 
+This guide explains how to assign permissions to dev team leads for a project in Azure Deployment Environments.
 
-You can assign the DevCenter Project Admin role to a dev team lead at either the project level or the environment type level.
+You can create multiple projects associated with the dev center to align with each team's requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. DevCenter Project Admin users can configure [project environment types](concept-environments-key-concepts.md#project-environment-types) to enable developers to create various types of [environments](concept-environments-key-concepts.md#environments) and apply settings to each environment type.
 
-Based on the scope of access that you allow, a DevCenter Project Admin user can:
+You can assign the DevCenter Project Admin role to a dev team lead at either the project level or the environment type level. Based on the scope of access that you allow, a DevCenter Project Admin user can:
 
 * View, add, update, disable, or delete the project environment types.
 * Create an environment.
