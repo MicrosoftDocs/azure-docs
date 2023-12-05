@@ -15,7 +15,7 @@ keywords:
 
 # Quickstart: Detect protected material (preview)
 
-The protected material text describes language that matches known text content (for example, song lyrics, articles, recipes, selected web content). This feature can use used to identify and block known text content from being displayed in language model output (English content only).
+The protected material text describes language that matches known text content (for example, song lyrics, articles, recipes, selected web content). This feature can be used to identify and block known text content from being displayed in language model output (English content only).
 
 ## Prerequisites
 
