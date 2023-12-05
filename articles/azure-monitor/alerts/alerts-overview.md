@@ -122,12 +122,9 @@ Use [log alert rules](alerts-create-log-alert-rule.md) to query multiple resourc
  
 Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to an LA workspace, there is no additional cost. If you want to use metric data at scale, you'll now need to pay for its ingestion.
 
-> [!NOTE]
-> Resource-centric log alert rules currently in public preview allow you to use all resources in a subscription or resource group as a target for a log query alert.
-
 ### Using Azure policies for alerting at scale
 
-You can use Azure policies(/azure/governance/policy/overview) to set up alerts alerts at scale. This has the advantage of easily implementing alerts at-scale. The disadvantage is that you will have to maintain a large alert rule set. One implementation of this is using policies to [Azure Monitor baseline alerts](https://aka.ms/amba).  
+You can use [Azure policies](/azure/governance/policy/overview) to set up alerts alerts at scale. This has the advantage of easily implementing alerts at-scale. The disadvantage is that you will have to maintain a large alert rule set. One implementation of this is using policies to [Azure Monitor baseline alerts](https://aka.ms/amba).  
 
 ## Azure role-based access control for alerts
 
