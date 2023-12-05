@@ -13,9 +13,9 @@ ms.date: 12/06/2023
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Some scenarios require that your workflow connect to an on-premises data source and can use only connectors that provide this access through an on-premises data gateway. To set up this on-premises data gateway, you have to complete the following tasks: install the local on-premises data gateway and create an on-premises data gateway resource in Azure for the local data gateway. When you add a trigger or action to your workflow from a connector that requires the data gateway, you can select the data gateway resource to use with your connection. The data gateway installation works as a bridge that provides quick data transfer and encryption between on-premises data sources and your workflows.
+Some scenarios require that your workflow connect to an on-premises data source and can use only connectors that provide this access through an on-premises data gateway. To set up this on-premises data gateway, you must complete the following tasks: install the local on-premises data gateway and create an on-premises data gateway resource in Azure for the local data gateway. When you add a trigger or action to your workflow from a connector that requires the data gateway, you can select the data gateway resource to use with your connection. The data gateway installation works as a bridge that provides quick data transfer and encryption between on-premises data sources and your workflows.
 
-In Consumption logic app workflows, you can connect to on-premises data sources using only [connectors that provide access through the on-premises data gateway](../connectors/managed.md#on-premises-connectors). In Standard logic app workflows, you can directly access on-premises resources in Azure virtual networks or use [built-in service provider connectors](/azure/logic-apps/connectors/built-in/reference/) that don't need the data gateway to access your on-premises data source. Instead, you provide information that authenticates your identity and authorizes access to your data source. However, if a built-in service provider connector isn't available for your data source, but a managed connector is available, you need to use the on-premises data gateway.
+In Consumption logic app workflows, you can connect to on-premises data sources using only [connectors that provide access through the on-premises data gateway](../connectors/managed.md#on-premises-connectors). In Standard logic app workflows, you can directly access on-premises resources in Azure virtual networks or use [built-in service provider connectors](/azure/logic-apps/connectors/built-in/reference/) that don't need the data gateway to access your on-premises data source. Instead, you provide information that authenticates your identity and authorizes access to your data source. However, if a built-in service provider connector isn't available for your data source, but a managed connector is available, you must use the on-premises data gateway.
 
 This guide shows how to download, install, and set up your local on-premises data gateway so that you can later create the data gateway resource in the Azure portal. You can also learn more about [how the data gateway works](#how-the-gateway-works) later in this article. For more information about the gateway, see [What is an on-premises gateway](/data-integration/gateway/service-gateway-onprem)? To automate gateway installation and management tasks, see the [Data Gateway PowerShell cmdlets in the PowerShell gallery](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
 
@@ -42,17 +42,17 @@ You can use the same gateway installation with other cloud services, such as Pow
 
     To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's associated with a Microsoft account, first [create a Microsoft Entra tenant](../active-directory/develop/quickstart-create-new-tenant.md), or use the default directory. Add a user with a password to the directory, and then give that user access to your Azure subscription. You can then sign in during gateway installation with this username and password.
 
-  * Your Azure account must belong only to a single [Microsoft Entra tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You need to use that account when you install and administer the gateway on your local computer.
+  * Your Azure account must belong only to a single [Microsoft Entra tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You have to use that account when you install and administer the gateway on your local computer.
 
   * When you install the gateway, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. You can't link the same gateway installation across multiple Azure accounts or Microsoft Entra tenants.
 
-  * Later in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that's associated with your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, you can use your Azure account to set up different gateway installations that are each associated with an Azure gateway resource. Your logic app workflows can then use these gateway resources in triggers and actions that can access on-premises data sources.
+  * Later in the Azure portal, you must use the same Azure account to create an Azure gateway resource that's associated with your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, you can use your Azure account to set up different gateway installations that are each associated with an Azure gateway resource. Your logic app workflows can then use these gateway resources in triggers and actions that can access on-premises data sources.
 
 * For local computer operating system and hardware requirements, see the [main guide for how to install the on-premises data gateway](/data-integration/gateway/service-gateway-install).
 
 ## Considerations
 
-* Install the on-premises data gateway only on a local computer, not a domain controller. You don't have to install the gateway on the same computer as your data source. You need only one gateway for all your data sources, so you don't need to install the gateway for each data source.
+* Install the on-premises data gateway only on a local computer, not a domain controller. You don't have to install the gateway on the same computer as your data source. You need only one gateway for all your data sources, so you don't have to install the gateway for each data source.
 
 * To minimize latency, install the gateway as close as possible to your data source, or on the same computer, assuming that you have permissions.
 
@@ -153,7 +153,7 @@ You can use the same gateway installation with other cloud services, such as Pow
 
 The on-premises data gateway depends on [Service Bus messaging](../service-bus-messaging/service-bus-messaging-overview.md) to provide cloud connectivity and to establish the corresponding outbound connections to the gateway's associated Azure region. If your work environment requires that traffic goes through a proxy or firewall to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and Service Bus messaging. The gateway has several communication settings, which you can adjust.
 
-An example scenario is where you use custom connectors that access on-premises resources by using the on-premises data gateway resource in Azure. If you also have a firewall that limits traffic to specific IP addresses, you need to set up the gateway installation to allow access for the corresponding managed connector [outbound IP addresses](logic-apps-limits-and-config.md#outbound). *All* logic app workflows in the same region use the same IP address ranges.
+An example scenario is where you use custom connectors that access on-premises resources by using the on-premises data gateway resource in Azure. If you also have a firewall that limits traffic to specific IP addresses, you must set up the gateway installation to allow access for the corresponding managed connector [outbound IP addresses](logic-apps-limits-and-config.md#outbound). *All* logic app workflows in the same region use the same IP address ranges.
 
 For more information, see the following documentation:
 
@@ -186,7 +186,7 @@ For more information, see [High availability clusters for on-premises data gatew
 
 ## Change location, migrate, restore, or take over existing gateway
 
-If you must change your gateway's location, move your gateway installation to a new computer, recover a damaged gateway, or take ownership for an existing gateway, you need the recovery key that you used during gateway installation.
+If you must change your gateway's location, move your gateway installation to a new computer, recover a damaged gateway, or take ownership for an existing gateway, you must have the recovery key that you used during gateway installation.
 
 > [!NOTE]
 >
@@ -231,7 +231,7 @@ Like any other Windows service, you can start and stop a gateway in various ways
 
 ## How the gateway works
 
-Other developers in your organization can access on-premises data for which they already have authorized access. However, before these developers can connect to your on-premises data source, you need to install and set up an on-premises data gateway. Usually, an admin is the person who installs and sets up a gateway. These actions might require **Server Administrator** permissions or special knowledge about your on-premises servers.
+Other developers in your organization can access on-premises data for which they already have authorized access. However, before these developers can connect to your on-premises data source, you must install and set up an on-premises data gateway. Usually, an admin is the person who installs and sets up a gateway. These actions might require **Server Administrator** permissions or special knowledge about your on-premises servers.
 
 The gateway helps facilitate faster and more secure behind-the-scenes communication. This communication flows between a user in the cloud, the gateway cloud service, and your on-premises data source. The gateway cloud service encrypts and stores your data source credentials and gateway details. The service also routes queries and their results between the user, the gateway, and your on-premises data source.
 
@@ -241,7 +241,7 @@ The gateway works with firewalls and uses only outbound connections. All traffic
 
 > [!NOTE]
 >
-> Depending on the cloud service, you might need to set up a data source for the gateway.
+> Depending on the cloud service, you might have to set up a data source for the gateway.
 
 These steps describe what happens when you interact with an element that's connected to an on-premises data source:
 
@@ -275,7 +275,7 @@ If you're not a domain admin, you might not know your UPN. To find the UPN for y
 
 ### Synchronize an on-premises Active Directory with Microsoft Entra ID
 
-You need to use the same UPN for your on-premises Active Directory accounts and Microsoft Entra accounts. So, make sure that the UPN for each on-premises Active Directory account matches your Microsoft Entra account UPN. The cloud services know only about accounts within Microsoft Entra ID. So, you don't need to add an account to your on-premises Active Directory. If an account doesn't exist in Microsoft Entra ID, you can't use that account.
+You must use the same UPN for your on-premises Active Directory accounts and Microsoft Entra accounts. So, make sure that the UPN for each on-premises Active Directory account matches your Microsoft Entra account UPN. The cloud services know only about accounts within Microsoft Entra ID. So, you don't have to add an account to your on-premises Active Directory. If an account doesn't exist in Microsoft Entra ID, you can't use that account.
 
 Here are ways that you can match your on-premises Active Directory accounts with Microsoft Entra ID.
 
