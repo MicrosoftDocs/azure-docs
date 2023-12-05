@@ -3,7 +3,7 @@ title: Limits for resources, SKUs, and regions in Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn about the default quotas, restricted node VM SKU sizes, and region availability of the Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 12/05/2023
 ---
 
 # Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)
@@ -51,24 +51,27 @@ For the latest list of where you can deploy and run clusters, see [AKS region av
 
 When you create a cluster using the Azure portal, you can choose a preset configuration to quickly customize based on your scenario. You can modify any of the preset values at any time.
 
-| Preset           | Description                                                            |
-|------------------|------------------------------------------------------------------------|
-| Standard         | Best if you're not sure what to choose. Works well with most applications. |
-| Dev/Test         | Best for experimenting with AKS or deploying a test application. |
-| Cost-optimized   | Best for reducing costs on production workloads that can tolerate interruptions. |
-| Batch processing | Best for machine learning, compute-intensive, and graphics-intensive workloads. Suited for applications requiring fast scale-up and scale-out of the cluster. |
-| Hardened access  | Best for large enterprises that need full control of security and stability. |
+| Preset                      | Description                                                            |
+|-----------------------------|------------------------------------------------------------------------|
+| Production Standard         | Best for most applications serving production traffic with AKS recommended best practices. |
+| Dev/Test                    | Best for developing new workloads or testing existing workloads. |
+| Production Economy          | Best for serving production traffic in a cost conscious way if your workloads can tolerate interruptions. |
+| Production Enterprise       | Best for serving production traffic with rigorous permissions and hardened security. |
 
-
-|                              |Standard |Dev/Test|Cost-optimized|Batch processing|Hardened access|
-|------------------------------|---------|--------|--------|--------|--------|
-|**System node pool node size**|DS2_v2   |B4ms|B4ms|D4s_v3|D4s_v3|
-|**User node pool node size**|-   |-|B4ms|NC6s_v3|D4s_v3|
-|**Cluster autoscaling**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
-|**Private cluster**|-|-|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
-|**Availability zones**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
-|**Azure Policy**|-|-|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
-|**Azure Monitor**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|                              | Production Standard |Dev/Test|Production Economy|Production Enterprise|
+|------------------------------|---------|--------|--------|--------|
+|**System node pool node size**|Standard_D8ds_v5 |Standard_DS2_v2|Standard_D8ds_v5|Standard_D16ds_v5|
+|**System node pool autoscaling range**|2-5 nodes|2-100 nodes|2-5 nodes|2-5 nodes|
+|**User node pool node size**|Standard_D8ds_v5|-|Standard_D8as_v4|Standard_D8ds_v5|
+|**User node pool autoscaling range**|2-100 nodes|-|-|2-100 nodes|
+|**Private cluster**|-|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Availability zones**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Azure Policy**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Azure Monitor**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Secrets store CSI driver**|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|-|-|:::image type="icon" source="./media/quotas-skus-regions/yes-icon.svg":::|
+|**Network configuration**|Azure CNI|Kubenet|Azure CNI|Azure CNI|
+|**Network configuration**|Calico|Calico|Calico|Calico|
+|**Authentication and Authorization**|Local accounts with Kubernetes RBAC|Local accounts with Kubernetes RBAC|Azure AD Authentication with Azure RBAC|Azure AD authentication with Azure RBAC|
 
 
 ## Next steps
