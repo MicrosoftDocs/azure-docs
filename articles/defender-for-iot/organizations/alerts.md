@@ -49,14 +49,6 @@ For more information, see:
 
 Alert options also differ depending on your location and user role. For more information, see [Azure user roles and permissions](roles-azure.md) and [On-premises users and roles](roles-on-premises.md).
 
-### Enterprise IoT alerts and Microsoft Defender for Endpoint
-
-If you're using [Enterprise IoT security](eiot-defender-for-endpoint.md) in Microsoft 365 Defender, alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Microsoft 365 Defender only. Most Microsoft Defender for Endpoint network-based detections are also relevant for Enterprise IoT devices. For example, network-based detections include alerts for scans involving managed endpoints.
-
-Alerts triggered by [Enterprise IoT sensors](eiot-sensor.md) are shown in the Azure portal only.
-
-For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
-
 ## Managing OT alerts in a hybrid environment
 
 Users working in hybrid environments might be managing OT alerts in [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, the OT sensor, and an on-premises management console.
@@ -70,6 +62,12 @@ Setting an alert status to **Closed** or **Muted** on a sensor or on-premises ma
 >
 > For more information, see [Tutorial: Investigate and detect threats for IoT devices](iot-advanced-threat-monitoring.md).
 >
+
+### Enterprise IoT alerts and Microsoft Defender for Endpoint
+
+If you're using [Enterprise IoT security](eiot-defender-for-endpoint.md) in Microsoft 365 Defender, alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Microsoft 365 Defender only. Many network-based detections from Microsoft Defender for Endpoint are pertinent to Enterprise IoT devices, such as alerts triggered by scans involving managed endpoints.
+
+For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
 
 ## Accelerating OT alert workflows
 

@@ -9,7 +9,7 @@ ms.custom: enterprise-iot
 
 # Securing IoT devices in the enterprise
 
-The number of IoT devices continues to grow exponentially across enterprise networks, such as the printers, Voice over Internet Protocol (VoIP) devices, smart TVs, and conferencing systems scattered around many office buildings. 
+The number of IoT devices continues to grow exponentially across enterprise networks, such as printers, Voice over Internet Protocol (VoIP) devices, smart TVs, and conferencing systems scattered around many office buildings. 
 
 While the number of IoT devices continues to grow, they often lack the security safeguards that are common on managed endpoints like laptops and mobile phones. To bad actors, these unmanaged devices can be used as a point of entry for lateral movement or evasion, and too often, the use of such tactics leads to the exfiltration of sensitive information.
 
@@ -33,13 +33,11 @@ The following image shows the architecture and extra features added with **Enter
 
 - Most Microsoft Defender for Endpoint network-based detections are also relevant for Enterprise IoT devices. For example, network-based detections include alerts for scans involving managed endpoints.
 
-- The following Defender for Endpoint recommendations are available in Microsoft Secure Score and are relevant for Enterprise IoT devices:
+- The following security recommendations are supported for Enterprise IoT devices:
     - **Require authentication for Telnet management interface**
     - **Disable insecure administration protocol – Telnet**
     - **Remove insecure administration protocols SNMP V1 and SNMP V2**
     - **Require authentication for VNC management interface**
-
-Devices supported for Enterprise IoT monitoring are discovered by Defender for Endpoint agents using passive and active discovery methods. The list of supported vendors and hardware models is extensive and covers corporate IoT devices, such as printers, cameras, and VoIP phones.
 
 ## Frequently asked questions
 
@@ -52,6 +50,10 @@ This section provides a list of frequently asked questions about securing Enterp
 - **Enterprise IoT**: Enterprise IoT provides visibility and security for IoT devices in the corporate environment.
 
     Enterprise IoT network protection extends agentless features beyond operational environments, providing coverage for all IoT devices in your environment. For example, an enterprise IoT environment might include printers, cameras, and purpose-built, proprietary, devices.
+
+### Which devices are supported for Enterprise IoT security?
+
+Enterprise IoT security encompasses a broad spectrum of devices, identified by Defender for Endpoint using both passive and active discovery methods. The supported devices include an extensive range of hardware models and vendors, spanning corporate IoT devices such as printers, cameras, and VoIP phones, among others.
 
 ### How can I start using Enterprise IoT?
 

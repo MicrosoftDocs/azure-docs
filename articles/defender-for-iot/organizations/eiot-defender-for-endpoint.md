@@ -82,45 +82,7 @@ On the **Device inventory** page, select **Go hunt** to query devices using tabl
 
 ## Sample advanced hunting queries for Enterprise IoT
 
-This section lists sample advanced hunting queries that you can use in Microsoft 365 Defender to help you monitor and secure your IoT devices with Enterprise for IoT security. 
-
-### To find devices within a subnet:
-
-Use the following queries to help find devices that were discovered on a specific subnet in your network. 
-
-```kusto
-| let IpV6Range = “<IP address range>”;  
-| DeviceNetworkInfo  
-| where Timestamp > ago(7d)  
-| summarize arg_max(Timestamp, *) by DeviceId  
-| mv-expand IPAddressEntry=todynamic(IPAddresses)  
-| extend IPAddress=tostring(IPAddressEntry.IPAddress)  
-| where ipv6_is_match(IPAddress, IpV6Range)  
-```
-
-```kusto
-| let IpV4Range = “<IP address range>”;  
-| DeviceNetworkInfo  
-| where Timestamp > ago(7d)  
-| summarize arg_max(Timestamp, *) by DeviceId  
-| mv-expand IPAddressEntry=todynamic(IPAddresses)  
-| extend IPAddress=tostring(IPAddressEntry.IPAddress)  
-| where ipv4_is_in_range(IPAddress, IpV4Range)  
-```
-
-The term `<IP address range>` is the range of IP addresses you're looking for.
-
-### To find devices that you can better protect by onboarding them to Defender for Endpoint:
-
-Use the following query to identify devices on your network that are supported by Defender for Endpoint, but aren't yet onboarded. Onboard all your devices to Defender for Endpoint to ensure that they're better protected, with detection and response capabilities, and the vulnerability assessments provided with Enterprise IoT security.  
-
-Run the following query in your tenant to understand which of your devices can be onboarded:
-
-```kusto
-| DeviceInfo  
-| summarize arg_max(Timestamp, *) by DeviceId  
-| where OnboardingStatus == "Can be onboarded"  
-```
+This section lists 2 sample advanced hunting queries that you can use in Microsoft 365 Defender to help you monitor and secure your IoT devices with Enterprise for IoT security. 
 
 ### To find devices by specific type or subtype:
 
@@ -130,34 +92,6 @@ Use the following query to identify devices that exist in your corporate network
 | DeviceInfo  
 | summarize arg_max(Timestamp, *) by DeviceId  
 | where DeviceType == "NetworkDevice" and DeviceSubtype  == "Router"  
-```
-
-### To find devices with a prefix or suffix in the host name 
-
-Use the following query if you manage your devices with a specific naming convention and need to query your devices based on these names as well. Change the values after `startswith` or `endswith` as needed for your search:  
-
-```kusto
-| DeviceInfo  
-| summarize arg_max(Timestamp, *) by DeviceId  
-| where OnboardingStatus != "Onboarded"  
-| where DeviceName startswith "minint"  
-``` 
-
-```kusto
-| DeviceInfo  
-| summarize arg_max(Timestamp, *) by DeviceId  
-| where OnboardingStatus != "Onboarded"  
-| where DeviceName endswith "-pc"  
-```
-
-### To find specific device models   
-Use the following query to identify specific models of your devices:   
-
-```kusto
-| DeviceInfo  
-| summarize arg_max(Timestamp, *) by DeviceId  
-| summarize ModelCount=dcount(DeviceId) by Model  
-| where ModelCount < 5  
 ```
 
 ## To find and export vulnerabilities for your IoT devices
