@@ -402,7 +402,8 @@ To edit an existing alert rule:
 
     > [!NOTE]
     > * The [common schema](alerts-common-schema.md) overwrites custom configurations. Therefore, you can't use both custom properties and the common schema for log alerts.
-    > * Custom properties are added to the payload of the alert but not to the e-mail template.
+    > * Custom properties are added to the payload of the alert but not to the alert portal expirence ore-mail template.
+    > * Custom properties is not supported in Service Health alerts
    
 
 ### Finish creating the alert rule
