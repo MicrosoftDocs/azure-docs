@@ -69,6 +69,28 @@ Use the following steps to create the service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png" alt-text="Screenshot of the Azure portal that shows the apps creation." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png":::
 
+#### Configure Build Service
+
+1. From the navigation pane, open the **Build Service** pane and select **Add** under the **Builders** section.
+
+1. On the **Add Builder** page, for the **Builder name**, use *frontend*; select *io.buildpacks.stacks.jammy-base* for **OS Stack**;
+   select *tanzu-buildpacks/web-servers* for the **Name** of Buildpacks, then select **Save** to create the builder for  *frontend* app deployment.
+
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png" alt-text="Screenshot of the Azure portal that shows the builder creation in Build Service page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png":::
+
+#### Configure Service Registry
+
+1. From the navigation pane, open the **Service Registry** pane.
+
+1. Select **App binding** tab, select **Bind app**, and select `customers-service` from the app name drop-down list, then select **Apply**.
+
+1. Repeat the previous step to bind the following application names:
+
+    - *vets-service*
+    - *visits-service*
+
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png" alt-text="Screenshot of the Azure portal that shows the bind apps in Service Registry page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png":::
+
 #### Configure Application Configuration Service
 
 1. From the navigation pane, open the **Application Configuration Service** pane and select **Settings**.
@@ -101,30 +123,9 @@ Use the following steps to create the service instance:
 
 1. Referring to the *customer-service* app setting, save the config file patterns corresponding to each application name below:
 
-    - *vets-service*: **application** and **vets-service**
-    - *visits-service*: **application** and **visits-service**
+    - **vets-service**: *application* and *vets-service*
+    - **visits-service**: *application* and *visits-service*
 
-#### Configure Build Service
-
-1. From the navigation pane, open the **Build Service** pane and select **Add** under the **Builders** section.
-
-1. On the **Add Builder** page, for the **Builder name**, use *frontend*; select *io.buildpacks.stacks.jammy-base* for **OS Stack**; 
-   select *tanzu-buildpacks/web-servers* for the **Name** of Buildpacks, then select **Save** to create the builder for  *frontend* app deployment.
-
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png" alt-text="Screenshot of the Azure portal that shows the builder creation in Build Service page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png":::
-
-#### Configure Service Registry
-
-1. From the navigation pane, open the **Service Registry** pane.
-
-1. Select **App binding** tab, select **Bind app**, and select `customers-service` from the app name drop-down list, then select **Apply**.
-
-1. Repeat the previous step to bind the following application names:
-
-    - *vets-service*
-    - *visits-service*
-
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png" alt-text="Screenshot of the Azure portal that shows the bind apps in Service Registry page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png":::
 
 #### Configure Spring Cloud Gateway
 

@@ -154,8 +154,8 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 2. Use the following command to deploy the frontend app:
 
    ```bash
-   az spring app deploy --resource-group ${RESOURCE_GROUP} --name frontend \
-     --service ${SPRING_APPS_SERVICE_NAME}  --source-path spring-petclinic-frontend \
+   az spring app deploy --resource-group ${RESOURCE_GROUP} --name ${APP_FRONTEND} \
+     --service ${SPRING_APPS_NAME}  --source-path spring-petclinic-frontend \
      --build-env BP_WEB_SERVER=nginx --builder frontend
    ```
    
