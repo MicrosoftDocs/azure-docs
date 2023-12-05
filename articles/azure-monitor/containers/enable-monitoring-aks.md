@@ -90,7 +90,7 @@ This option enables Prometheus metrics on a cluster without enabling Container i
 Use the following options to enable Container insights on your AKS cluster.
 
 
-### [CLI](#tab/azure-cli)
+### [CLI](#tab/cli)
 
 > [!NOTE]
 > Managed identity authentication will be default in CLI version 2.49.0 or higher. If you need to use legacy/non-managed identity authentication, use CLI version < 2.49.0. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](container-insights-logging-v2.md) via the ConfigMap
@@ -114,7 +114,7 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
 ```
 
 
-### [Resource Manager template](#tab/arm)
+### [Azure Resource Manager](#tab/arm)
 
 #### Prerequisites
  
@@ -247,7 +247,7 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
 
 
 
-## Prometheus
+## Enable Prometheus and Grafana
 
 
 #### [CLI](#tab/cli)
@@ -433,7 +433,7 @@ If you're using an existing Azure Managed Grafana instance that's already linked
 
     ```json
     resource grafanaResourceId_8 'Microsoft.Dashboard/grafana@2022-08-01' = {
-      name: split(grafanaResourceId, '/')[8]
+        name: split(grafanaResourceId, '/')[8]
       sku: {
         name: grafanaSku
       }
@@ -491,9 +491,9 @@ Note: Pass the variables for `annotations_allowed` and `labels_allowed` keys in 
 > [!NOTE]
 > Edit the main.tf file appropriately before running the terraform template. Add in any existing azure_monitor_workspace_integrations values to the grafana resource before running the template. Else, older values gets deleted and replaced with what is there in the template during deployment. Users with 'User Access Administrator' role in the subscription  of the AKS cluster can enable 'Monitoring Reader' role directly by deploying the template. Edit the grafanaSku parameter if you're using a nonstandard SKU and finally run this template in the Grafana Resource's resource group.
 
-### [Azure Policy](#tab/azurepolicy)
+### [Azure Policy](#tab/policy)
 
-### Download Azure Policy rules and parameters and deploy
+#### Download Azure Policy rules and parameters and deploy
 
 1. Download Azure Policy template and parameter files.
 
@@ -528,7 +528,7 @@ Afterwards, if you create a new Managed Grafana instance, you can link it with t
 1. Select the **system-assigned managed identity** with the `principalId` from the Grafana resource.
 1. Choose **Select** > **Review+assign**.
 
-#### Limitations during enablement/deployment
+##### Limitations during enablement/deployment
 
 - Ensure that you update the `kube-state metrics` annotations and labels list with proper formatting. There's a limitation in the ARM template deployments that require exact values in the `kube-state` metrics pods. If the Kubernetes pod has any issues with malformed parameters and isn't running, the feature might not run as expected.
 - A data collection rule and data collection endpoint are created with the name `MSProm-\<short-cluster-region\>-\<cluster-name\>`. Currently, these names can't be modified.
