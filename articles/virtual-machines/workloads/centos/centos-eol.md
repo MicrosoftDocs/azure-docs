@@ -10,15 +10,11 @@ ms.topic: article
 ms.date: 12/1/2023
 ms.author: ClausWieser
 ---
-
 # CentOS end-of-life (EOL) guidance
 
-In September 2019 Red Hat announced its intent to sunset CentOS and replace it with CentOS Stream, a new / upstream platform for the CentOS community. For more information, see  [Transforming the development experience within CentOS][01].
-
-> [!IMPORTANT]
-> CentOS images will be out of support starting 6/30/2024 with no more software updates or security patches. Customers will need to move to a supported distribution and version, or purchase Extended Support from a partner for continued supportability.
-
 ## Impact for CentOS users
+
+In September 2019 Red Hat announced its intent to sunset CentOS and replace it with CentOS Stream, a new / upstream platform for the CentOS community. For more information, see  [Transforming the development experience within CentOS](https://www.redhat.com/en/blog/transforming-development-experience-within-centos)
 
 CentOS 7 and 8 are the final releases of CentOS Linux. The end-of-life dates for CentOS 7 and 8 are:
 
@@ -31,8 +27,8 @@ Workloads running on these CentOS versions will need to be migrated to alternate
 
 There are several options for CentOS customers to move to a supported OS. The decision of where and how to move will largely be determined by three things:
 
-- Your need to retain compatibility with CentOS / RHEL
-- Community supported distribution (e.g. Debian, Alma, etc.) vs. commercial distribution (e.g., RHEL)
+- Retain compatibility with CentOS / RHEL
+- Community supported distribution vs. commercial distribution (e.g., RHEL)
 - Configuration and image source(s) of your CentOS estate in Azure
 
 If CentOS compatibility is required,  migration to Red Hat Enterprise Linux, a commercial distribution, is a low-risk option. There are also several alternatives such as Oracle Linux, Alma Linux, Rocky Linux, etc.
@@ -41,116 +37,81 @@ If your workload is supported by multiple distributions, you may want to conside
 
 As you evaluate your end state, consider whether performing an in-place conversion (multiple distributions provide tools for this purpose) is preferable vs. taking this opportunity to start with a clean slate and a new VM / OS / image. Microsoft recommends starting with a fresh VM / OS.
 
-There are several partners offering extended support for CentOS 7, which may provide you with  additional time to migrate.
+There are also several companies offering extended support for CentOS 7, which may provide you with some additional time to migrate.<br>
 
-SUSE: [Liberty Linux: Proven enterprise support for RHEL & CentOS][02]
-OpenLogic: [CentOS Transitional Support][03]
-TuxCare: Extended Lifecycle Support (tuxcare.com)
+- SUSE: [Liberty Linux: Proven enterprise support for RHEL & CentOS | SUSE](https://www.suse.com/products/suse-liberty-linux/)
+- OpenLogic: [Enterprise Linux Support](https://www.openlogic.com/solutions/enterprise-linux-support/centos)
+- TuxCare: [Extended Lifecycle Support](https://docs.tuxcare.com/extended-lifecycle-support/)
 
-Please see the [Endorsed Distribution][04] page for details on Azure endorsed distributions and images.
+Please see the [Endorsed Distribution](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros) page for details on Azure endorsed distributions and images.
 
+## CentOS compatible distributions
 
-## Convert to Ubuntu Pro using the Azure CLI
+| **Distribution** | **Description** | **Azure Images** | **Support Model** |
+|---|---|---|---|
+| **Red Hat Enterprise Linux** | Best binary compatible OS w/ support and EUS available. <br/> [Migration offer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.rh-rhel-3p-migration?tab=Overview) available in the Azure marketplace.<br/> [Conversion tool](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux) available from Red Hat.<br/> [Multiple offers and images](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/redhat/overview#red-hat-enterprise-linux-images) | Yes PAYG, BYOS, ARM64 | Commercial, integrated support |
+| **AlmaLinux** | Official community images: <br/> [AlmaLinux OS (x86_64/AMD64)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/almalinux.almalinux-x86_64?tab=Overview)<br/> [AlmaLinux OS (AArch64/Arm64)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/almalinux.almalinux-arm?tab=Overview)<br/> [AlmaLinux HPC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/almalinux.almalinux-hpc?tab=Overview)<br/> [Conversion tool](https://wiki.almalinux.org/documentation/migration-guide.html#how-to-migrate) available from AlmaLinux. | Yes (multiple publishers) | Community, Commercial support by 3<sup>rd</sup> parties |
+| **Oracle Linux** | [Migration tooling and guidance](https://docs.oracle.com/en/learn/switch_centos7_ol7/index.html#introduction) available from Oracle. | YesPAYG, BYOS, ARM64 | Community and commercial |
+| **Rocky Linux** | Official community images:<br/>[Rocky Linux for x86_64 (AMD64) - Official](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64?tab=PlansAndPrice)<br/> [Conversion tool](https://docs.rockylinux.org/guides/migrate2rocky/) available from Rocky.| Yes (multiple publishers) | Community and commercial |
 
-The following command enables Ubuntu Pro on a virtual machine in Azure:
+Notes:
+- “Binary compatible” means based on the same upstream distribution (Fedora). There is no guarantee of bug for bug compatibility.
+- For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros)
+- For details on Red Hat & Microsoft Integrated Support see: Microsoft and Red Hat Partner and Deliver Integrated Support, a Unique Offering in the IT World | Microsoft Learn
 
-```Azure CLI
-az vm update -g myResourceGroup -n myVmName --license-type UBUNTU_PRO
-```
+## Alternate distributions
 
-Execute these commands inside the VM:
+| **Distribution** | **Description** | **Azure Images** | **Support Model(s)** |
+|---|---|---|---|
+| **CentOS Stream** | Official replacement for CentOS, upstream vs. downstream of RHEL. [CentOS Stream](https://www.centos.org/centos-stream/) | Community Gallery | Community |
+| **Fedora** | Upstream project for CentOS stream and RHEL. [Fedora Linux &#124; The Fedora Project](https://www.fedoraproject.org/) | Community Gallery | Community |
+| **SUSE / OpenSUSE** | SUSE Enterprise Linux (SLES) is SUSE’s commercial Linux distribution. | YesPAYG, BYOS, ARM64 | Community (OpenSUSE) and commercial (SLES) |
+| **Ubuntu (Server / Pro)** | Both free (Server) and paid (Pro) versions available. In place conversion from Server to Pro possible: [In-place upgrade to Ubuntu Pro Linux images on Azure - Azure Virtual Machines &#124; Microsoft Learn](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/canonical/ubuntu-pro-in-place-upgrade) | YesPAYG, BYOS, ARM64 | Community (server)Enterprise (Pro) |
+| **Debian** | Community  Linux Distribution. | Yes (multiple publishers) | Community |
+| **Flatcar** | Community Container Linux | Yes | Community |
 
-```bash
-sudo apt install ubuntu-advantage-tools
-sudo pro auto-attach
-```
+## Migrating your systems and workloads
 
-If the `pro --version` is lower than 28, execute this command:
+### CentOS compatible
 
-```bash
-sudo apt install ubuntu-advantage-tools
-```
+If you decide to stay CentOS compatible and have picked a distribution, you need to decide whether you want to perform an in-place conversion of your OS or start with a fresh VM (redeploy).
 
-## Validate the license
+Most CentOS compatible distributions have conversions utilities that will assess the system for suitability to be converted and perform the replacement of key binaries and update the source for updated and content.
 
-use the `pro status --all` command to validate the license:
+If you move to a commercial distribution, you may need a valid subscription / license to perform the conversion.
 
-Expected output:
+As you consider whether to convert your VM in place vs redeploying, the way you created your VM in Azure will become important. <br><br> **Converting a custom VM**
 
-```output
-SERVICE      ENTITLED    STATUS    DESCRIPTION
-cc-eal       yes         disabled  Common Criteria EAL2 Provisioning Packages
-cis          yes         disables  Security compliance and audit tools
-esm-apps     yes         enabled   Expanded Security Maintenance and audit tools
-esm-infra    yes         enabled   Expanded Security Maintenance for infrastructure
-fips         yes         disabled  NIST-certified core packages
-fips-updates yes         disabled  NIST-certified core packages with priority security updates
-livepatch    yes         enabled   Canonical Livepatch service
-```
+If you created your own VM for use in Azure, no software billing information is associated with your VM and you are likely OK to convert it in place (after a backup and any necessary prerequisites and remediations).
 
-## Create an Ubuntu Pro VM using the Azure CLI
+Rogue Wave Software (formerly OpenLogic) Azure marketplace offer
 
-You can create a new VM using the Ubuntu Server images and apply Ubuntu Pro at the time of creation.
-The following command enables Ubuntu Pro on a virtual machine in Azure:
+- [CentOS-based](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos?tab=Overview)
 
-```Azure CLI
-az vm update -g myResourceGroup -n myVmName --license-type UBUNTU_PRO
-```
+- [CentOS-based HPC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-hpc?tab=Overview)
 
-Execute these commands inside the VM:
+- [CentOS-based LVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-lvm?tab=Overview)
 
-```bash
-sudo apt install ubuntu-advantage-tools
-sudo pro auto-attach
-```
+These are the official / endorsed CentOS image in Azure, and do not have software billing information associated. They are candidates for an in-place conversion (after a backup and any necessary prerequisites and remediations).
 
-> [!NOTE]
-> For systems with advantage tools using version 28 or higher, installed the system will perform a
-> `pro attach` during a reboot.
+**Other Azure marketplace offers**
 
-## Check licensing model using the Azure CLI
+There are a multitude of CentOS based offers from a variety of publishers available in the Azure marketplace. They range from simple OS only offers to a variety of bundled offers with additional software, desktop versions as well as configurations for specific cases (e.g., CIS hardened images).
 
-> [!TIP]
-> You can query the metadata in _Azure Instance Metadata Service_ to determine the virtual machine's
-> _licenseType_ value. You can use the `az vm get-instance-view` command to check the status. Look
-> for the _licenseType_ field in the response. If the field exists and the value is UBUNTU_PRO, your
-> virtual machine has Ubuntu Pro enabled. [Learn more about attested metadata][02].
+Some of these offers do have a price tag associated, and can include services such as end customer support etc.
 
-```Azure CLI
-az vm get-instance-view -g MyResourceGroup -n MyVm
-```
+If you choose to convert a system with a price associated you will continue to be charged the original price after conversion, even though you may have a separate subscription or license for the converted system, in essence potentially double paying.
 
-## Billing
+Check with your image provider whether they recommend / support an in-place upgrade and/or have further guidance.
 
-Visit the [pricing calculator][03] for more details on Ubuntu Pro pricing. To cancel the Pro
-subscription during the preview period, open a support ticket through the Azure portal.
+### Changing distributions
 
+If you are moving to another distribution, you will need to redeploy your VMs and workloads. Make sure to look at the [MicrosoftCloud Adoption Framework](https://azure.microsoft.com/en-us/solutions/cloud-enablement/cloud-adoption-framework) for Azure for guidance, best practices and templates to deploy your solution in Azure.
 
-## Frequently Asked Questions
+### Modernize
 
-**Does shutting down the machine stop billing?**
+The end-of-life moment for CentOS may also be an opportunity for you to consider modernizing your workload, move to a PaaS, SaaS or containerized solution.
 
-Launching Ubuntu Pro from Azure Marketplace is you pay as you go and only charges for running
-machines.
+[What is Application Modernization? | Microsoft Azure](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-application-modernization/)
 
-**Are there volume discounts?**
-
-Yes. Contact your Microsoft sales representative.
-
-**Are Reserved Instances available?**
-
-Yes.
-
-**If the customer doesn't perform the `auto attach` function, will they still get attached to pro on reboot?**
-
-If the customer doesn't perform the _auto attach_, they still get the Pro attached upon reboot.
-However, this action only applies if they're using version 28 of the Pro client.
-
-- For Ubuntu Jammy and Focal, this process works as expected.
-- For Ubuntu Bionic and Xenial, this process doesn't work due to older versions of the Pro client installed.
-
-<!-- link references -->
-[01]: https://www.redhat.com/en/blog/transforming-development-experience-within-centos
-[02]: https://www.suse.com/products/suse-liberty-linux/
-[03]: https://ter.li/nnd2rf
-[04]: https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros
+[Modernize in the cloud - Cloud Adoption Framework | Microsoft Learn](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/modernize/)
