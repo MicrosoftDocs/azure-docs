@@ -391,7 +391,7 @@ The extension.json file content.
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/instanceView?api-version=2023-07-01
 ```
-Sample Response
+Sample Response (see "vmHealth" section for updates on VM health status)
 ```
 "vmHealth": {
     "status": {
@@ -402,12 +402,18 @@ Sample Response
     }
 }
 ```
+
 # [Azure PowerShell](#tab/azure-powershell)
 ```azurepowershell-interactive
 Get-AzVM
   -ResourceGroupName "<rgName>" `
-  -Name "<VMName>" `
+  -Name "<vmName>" `
   -Status
+```
+
+# [Azure CLI 2.0](#tab/azure-cli)
+```azurecli-interactive
+az vm get-instance-view --name <vmName> --resource-group <rgName>
 ```
 ---
 ### Extension execution output log
