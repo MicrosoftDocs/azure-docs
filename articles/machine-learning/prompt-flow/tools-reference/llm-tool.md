@@ -16,7 +16,7 @@ ms.date: 11/02/2023
 
 # LLM tool
 
-The prompt flow large language model (LLM) tool enables you to take advantage of widely used large language models like [OpenAI](https://platform.openai.com/) or [Azure OpenAI Service](../../../cognitive-services/openai/overview.md) for natural language processing.
+The large language model (LLM) tool for prompt flow enables you to take advantage of widely used large language models like [OpenAI](https://platform.openai.com/) or [Azure OpenAI Service](../../../cognitive-services/openai/overview.md) for natural language processing.
 
 Prompt flow provides a few different large language model APIs:
 
@@ -37,7 +37,7 @@ Create OpenAI resources:
 
 - **Azure OpenAI**:
 
-    - Create Azure OpenAI resources with these [instructions](../../../ai-services/openai/how-to/create-resource.md).
+    - Create Azure OpenAI resources with [these instructions](../../../ai-services/openai/how-to/create-resource.md).
 
 ## Connections
 
