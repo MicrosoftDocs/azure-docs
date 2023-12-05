@@ -58,7 +58,7 @@ You need the following items to ensure you're set up to begin the onboarding pro
 
 The following **Register features** are for provider registration using Azure CLI.
 
-```
+```azurecli
 az provider register --namespace Microsoft.ConnectedVMwarevSphere 
 az provider register --namespace Microsoft.ExtendedLocation 
 az provider register --namespace Microsoft.KubernetesConfiguration 
