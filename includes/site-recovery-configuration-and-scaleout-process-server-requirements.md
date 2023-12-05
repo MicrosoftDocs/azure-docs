@@ -6,8 +6,8 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 07/08/2020
-ms.author: raynew
+ms.date: 12/04/2023
+ms.author: ankitadutta
 ms.custom: include file
 ---
 
