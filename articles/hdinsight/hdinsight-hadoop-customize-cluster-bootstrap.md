@@ -4,7 +4,7 @@ description: Learn how to customize HDInsight cluster configuration programmatic
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurepowershell, devx-track-dotnet
-ms.date: 11/17/2022
+ms.date: 12/05/2023
 ---
 
 # Customize HDInsight clusters using Bootstrap
