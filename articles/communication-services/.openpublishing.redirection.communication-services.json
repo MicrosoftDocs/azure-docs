@@ -11,6 +11,11 @@
         "redirect_document_id": false
       },
       {
+        "source_path_from_root": "/articles/communication-services/concepts/voice-video-calling/diagnose-calls.md",
+        "redirect_url": "/azure/communication-services/concepts/voice-video-calling/call-diagnostics",
+        "redirect_document_id": false
+      },
+      {
         "source_path_from_root": "/articles/communication-services/quickstarts/meeting/getting-started-with-teams-embed.md",
         "redirect_url": "/azure/communication-services/quickstarts/ui-library/get-started-call",
         "redirect_document_id": false
