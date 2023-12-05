@@ -41,6 +41,8 @@ from     sys.pdw_loader_backup_runs
 order by run_id desc
 ;
 ```
+> [!NOTE]
+> Backups occur every four (4) hours to meet an eight (8) hour SLA. Therefore, the sys.pdw_loader_backup_runs dynamic management view will display backup activity every four (4) hours.
 
 ## User-Defined Restore Points
 
