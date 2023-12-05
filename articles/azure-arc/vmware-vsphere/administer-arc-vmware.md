@@ -23,11 +23,11 @@ Each of these operations requires either SSH key to the resource bridge VM or th
 Azure Arc-enabled VMware vSphere requires the Arc resource bridge to connect your VMware vSphere environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates. The Arc resource bridge can be manually upgraded from the VMware vSphere server. You must meet all upgrade [prerequisites](../resource-bridge/upgrade.md#prerequisites) before attempting to upgrade. The VMware vSphere server must have the kubeconfig and appliance configuration files stored locally. If the VMware vSphere account credentials changed after the initial deployment of the resource bridge, [update the new account credentials](administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding) before attempting manual upgrade.
 
 > [!NOTE]
-> The manual upgrade feature is available for resource bridge version 1.0.14 and later. Resource bridges below version 1.0.14 must [perform the recovery option](./disaster-recovery.md) to upgrade to version 1.0.15 or later.
+> The manual upgrade feature is available for resource bridge version 1.0.14 and later. Resource bridges below version 1.0.14 must [perform the recovery option]() to upgrade to version 1.0.15 or later.
 
 The manual upgrade generally takes between 30-90 minutes, depending on the network speed. The upgrade command takes your Arc resource bridge to the immediate next version, which might not be the latest available version. Multiple upgrades could be needed to reach a [supported version](../resource-bridge/upgrade.md#supported-versions). You can check your resource bridge version by checking the Azure resource of your Arc resource bridge.
 
-To manually upgrade your Arc resource bridge, make sure you've installed the latest `az arcappliance` CLI extension by running the extension upgrade command from the SCVMM server:
+To manually upgrade your Arc resource bridge, make sure you've installed the latest `az arcappliance` CLI extension by running the extension upgrade command from the VMware vSphere server:
 
 ```azurecli
 az extension add --upgrade --name arcappliance 
@@ -36,49 +36,8 @@ az extension add --upgrade --name arcappliance
 To manually upgrade your resource bridge, use the following command:
 
 ```azurecli
-az arcappliance upgrade scvmm --config-file <file path to ARBname-appliance.yaml> 
+az arcappliance upgrade vmware --config-file <file path to ARBname-appliance.yaml> 
 ```
-
-
-
-
-
-> [!NOTE]
-> To upgrade the Arc resource bridge VM to the latest version, you need to perform the onboarding again with the **same resource IDs**. This will cause some downtime as operations performed through Arc during this time might fail.
-
-To upgrade to the latest version of the resource bridge, perform the following steps:
-
-1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location and vCenter Azure resources
-
-2. Find and delete the old Arc resource bridge **template** from your vCenter
-
-3. Download the script from the portal and update the following section in the script
-
-    ```powershell
-    $location = <Azure region of the resources>
-    
-    $applianceSubscriptionId = <subscription-id>
-    $applianceResourceGroupName = <resourcegroup-name>
-    $applianceName = <resource-bridge-name>
-    
-    $customLocationSubscriptionId = <subscription-id>
-    $customLocationResourceGroupName = <resourcegroup-name>
-    $customLocationName = <custom-location-name>
-    
-    $vCenterSubscriptionId = <subscription-id>
-    $vCenterResourceGroupName = <resourcegroup-name>
-    $vCenterName = <vcenter-name-in-azure>
-    ```
-
-4. [Run the onboarding script](quick-start-connect-vcenter-to-arc-using-script.md#run-the-script) again with the `--force` parameter
-
-    ``` powershell-interactive
-    ./resource-bridge-onboarding-script.ps1 --force
-    ```
-
-5. [Provide the inputs](quick-start-connect-vcenter-to-arc-using-script.md#inputs-for-the-script) as prompted.
-
-6. Once the onboarding is successfully completed, the resource bridge is upgraded to the latest version.
 
 ## Updating the vSphere account credentials (using a new password or a new vSphere account after onboarding)
 
