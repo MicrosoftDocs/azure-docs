@@ -14,13 +14,14 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagem
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-This article describes plan comparison in Azure Spring Apps. Azure Spring Apps has several plans each of which serves for different customer scenario and purpose:
-- Basic plan: entry level plan for individual dev/test
-- Standard consumption&dedicated plan: hosted in Azure Container Apps environments and designed to seamlessly interact with other apps running in the same environment with simplified networking and unified observability.
-- Standard plan: Spring centric and opinionated application hosting platform with built-in and pre-configured settings for build, service registry, storage, etc.
-- Enterprise plan: provides VMware Tanzu components and address enterprise requirements around configuration management, integration, portability, flexibility, all backed by commercial support from VMware and Microsoft.
+This article provides a comparison of plans available in Azure Spring Apps. Each plan is designed to cater to different customer scenarios and purposes:
 
-Learn more through below table in a comparison view.
+- Basic plan: An entry-level plan for individual development and testing.
+- Standard consumption & dedicated plan: Hosted in Azure Container Apps environments, this plan is designed to seamlessly interact with other apps running in the same environment with simplified networking and unified observability.
+- Standard plan: A Spring-centric and opinionated application hosting platform with built-in and pre-configured settings for build, service registry, storage, and more.
+- Enterprise plan: Provides VMware Tanzu components and addresses enterprise requirements around configuration management, integration, portability, and flexibility, all backed by commercial support from VMware and Microsoft.
+- 
+For more information, please refer to the comparison table below.
 | Feature                                                   | Description                                                                                                                                                                 | Standard consumption&dedicated                                  | Basic                        | Standard                     | Enterprise                     |
 | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ---------------------------- | ---------------------------- | ------------------------------ |
 | **Limits**                                                    | limits per plan                                                                                                                                                             |                                                                 |                              |                              |                                |
