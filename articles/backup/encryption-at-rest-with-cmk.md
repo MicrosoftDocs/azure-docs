@@ -59,16 +59,16 @@ To configure a vault, perform the following actions in the given sequence to ac
 
 2. Assign permissions to the vault to access the encryption key in Azure Key Vault.
 
-3. Enable soft-delete and purge protection on Azure Key Vault.
+3. Enable soft delete and purge protection on Azure Key Vault.
 
 4. Assign the encryption key to the Recovery Services vault.
 
 > [!NOTE]
-> After you enable a managed identity, you must **not** disable it (even temporarily). Disabling the managed identity can lead to inconsistent behavior.
+> After you enable a managed identity, you must *not* disable it (even temporarily). Disabling the managed identity can lead to inconsistent behavior.
 
 ### Enable managed identity for your Recovery Services vault
 
-Azure Backup uses system-assigned managed identities and user-assigned managed identities to authenticate the Recovery Services vault to access encryption keys stored in Azure Key Vault. To enable managed identity for your Recovery Services vault, follow these steps:
+Azure Backup uses system-assigned managed identities and user-assigned managed identities to authenticate the Recovery Services vault to access encryption keys stored in Azure Key Vault. To enable managed identity for your Recovery Services vault, follow these steps.
 
 ### Enable system-assigned managed identity for the vault
 
@@ -78,15 +78,15 @@ Choose a client:
 
 1. Go to *your Recovery Services vault* > **Identity**.
 
-    ![Identity settings](media/encryption-at-rest-with-cmk/enable-system-assigned-managed-identity-for-vault.png)
-
-2. Navigate to the **System assigned** tab.
+2. Go to the **System assigned** tab.
 
 3. Change the **Status** to **On**.
 
 4. Select **Save** to enable the identity for the vault.
 
-An Object ID is generated, which is the system-assigned managed identity of the vault.
+![Identity settings](media/encryption-at-rest-with-cmk/enable-system-assigned-managed-identity-for-vault.png)
+
+An object ID is generated, which is the system-assigned managed identity of the vault.
 
 # [PowerShell](#tab/powershell)
 
@@ -143,9 +143,7 @@ To assign the user-assigned managed identity for your Recovery Services vault, c
 
 1. Go to *your Recovery Services vault* > **Identity**.
 
-    ![Assign user-assigned managed identity to the vault](media/encryption-at-rest-with-cmk/assign-user-assigned-managed-identity-to-vault.png)
-
-2. Navigate to the **User assigned** tab.
+2. Go to the **User assigned** tab.
 
 3. Select **+Add** to add a user-assigned managed identity.
 
@@ -154,6 +152,8 @@ To assign the user-assigned managed identity for your Recovery Services vault, c
 5. Select the identity from the list. You can also filter by the name of the identity or the resource group.
 
 6. Select **Add** to finish assigning the identity.
+
+![Assign user-assigned managed identity to the vault](media/encryption-at-rest-with-cmk/assign-user-assigned-managed-identity-to-vault.png)
 
 # [PowerShell](#tab/powershell)
 
@@ -204,8 +204,7 @@ UserAssignedIdentities : {[/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/r
 
 You now need to permit the Recovery Services vault to access the Azure key vault that contains the encryption key. This is done by allowing the Recovery Services vault's managed identity to access the key vault.
 
-> [!NOTE]
-> If you are using user-assigned identities, the same permissions must be assigned to the user-assigned identity.
+If you are using user-assigned identities, the same permissions must be assigned to the user-assigned identity.
 
 Choose a client:
 
@@ -255,11 +254,11 @@ az keyvault set-policy --name myKeyVault --object-id <object-id> --key-permissio
 
 ---
 
-### Enable soft-delete and purge protection on Azure Key Vault
+### Enable soft delete and purge protection on Azure Key Vault
 
 You need to enable soft delete and purge protection on your Azure key vault that stores your encryption key.
 
-To enable soft-delete and purge protection, choose a client:
+To enable soft delete and purge protection, choose a client:
 
 # [Azure portal](#tab/portal)
 
@@ -332,11 +331,11 @@ You can do this from the Azure Key Vault UI as shown below. Alternatively, you c
 
 ### Assign encryption key to the Recovery Services vault
 
-Before you select the encryption key for your vault, ensure that all the steps mentioned above have been completed successfully:
+Before you select the encryption key for your vault, ensure that you successfully:
 
-- The Recovery Services vault's managed identity has been enabled and has been assigned the required permissions.
-- The Azure key vault has soft-delete and purge-protection enabled.
-- The Recovery Services vault for which you want to enable CMK encryption does not have any items protected or registered to it.
+- Enabled the Recovery Services vault's managed identity and assigned the required permissions to it.
+- Enabled soft delete and purge protection for the Azure key vault.
+- Don't have any items protected or registered to the Recovery Services vault for which you want to enable CMK encryption.
 
 To assign the key and follow the steps, choose a client:
 
@@ -348,9 +347,9 @@ To assign the key and follow the steps, choose a client:
 
 2. Select **Update** under **Encryption Settings**.
 
-3. In the Encryption Settings pane, select **Use your own key** and continue to specify the key using one of the following ways.
+3. In the **Encryption Settings** pane, select **Use your own key** and continue to specify the key using one of the following ways.
 
-   *Ensure that you use an RSA key, which is in enabled state.*
+   Ensure that you use an RSA key, which is in enabled state.
 
     1. Enter the **Key URI** with which you want to encrypt the data in this Recovery Services vault. You  also need to specify the subscription in which the Azure key vault (that contains this key) is present. This key URI can be obtained from the corresponding key in your Azure key vault. Ensure the key URI is copied correctly. It's recommended that you use the **Copy to clipboard** button provided with the key identifier.
 
@@ -420,10 +419,10 @@ LastUpdateStatus              : Succeeded
 InfrastructureEncryptionState : Disabled
 ```
 
-This process remains the same when you wish to update or change the encryption key. If you wish to update and use a key from another key vault (different from the one that's being currently used), ensure that:
+This process remains the same when you wish to update or change the encryption key. If you want to update and use a key from another key vault (different from the one that's being currently used), ensure that:
 
 - The key vault is located in the same region as the Recovery Services vault.
-- The key vault has soft-delete and purge protection enabled.
+- The key vault has soft delete and purge protection enabled.
 - The Recovery Services vault has the required permissions to access the key vault.
 
 ---
@@ -432,13 +431,13 @@ This process remains the same when you wish to update or change the encryption k
 
 Before proceeding to configure protection, we strongly recommend you adhere to the following checklist. This is important because after an item has been configured to be backed up (or attempted to be configured) to a non-CMK encrypted vault, encryption using customer-managed keys can't be enabled on it and it will continue to use platform-managed keys.
 
-Before you configure backup protection, confirm that you *successfully* completed the following steps:
+Before you configure backup protection, confirm that you successfully:
 
-1. Created your Recovery Services vault
-2. Enabled the Recovery Services vault's system-assigned managed identity or assigned a user-assigned managed identity to the vault
-3. Assigned permissions to your Recovery Services vault (or the user-assigned managed identity) to access encryption keys from your key vault
-4. Enabled soft delete and purge protection for your key vault
-5. Assigned a valid encryption key for your Recovery Services vault
+- Created your Recovery Services vault.
+- Enabled the Recovery Services vault's system-assigned managed identity or assigned a user-assigned managed identity to the vault.
+- Assigned permissions to your Recovery Services vault (or the user-assigned managed identity) to access encryption keys from your key vault.
+- Enabled soft delete and purge protection for your key vault.
+- Assigned a valid encryption key for your Recovery Services vault.
 
 The process to configure and perform backups to a Recovery Services vault encrypted with customer-managed keys is the same as to a vault that uses platform-managed keys,m with no changes to the experience. This holds true for [backup of Azure VMs](./quick-backup-vm-portal.md) as well as backup of workloads running inside a VM (for example, [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) databases).
 
@@ -448,8 +447,7 @@ The process to configure and perform backups to a Recovery Services vault encryp
 
 Data stored in the Recovery Services vault can be restored according to the steps described [here](./backup-azure-arm-restore-vms.md). When restoring from a Recovery Services vault encrypted using customer-managed keys, you can choose to encrypt the restored data with a Disk Encryption Set (DES).
 
-> [!NOTE]
-> The experience described in this section only applies when you restore data from CMK encrypted vaults. When you restore data from a vault that isn't using CMK encryption, the restored data would be encrypted using Platform Managed Keys. If you restore from an instant recovery snapshot, it would be encrypted using the mechanism used for encrypting the source disk.
+The experience described in this section applies only when you restore data from CMK encrypted vaults. When you restore data from a vault that isn't using CMK encryption, the restored data would be encrypted using Platform Managed Keys. If you restore from an instant recovery snapshot, it would be encrypted using the mechanism used for encrypting the source disk.
 
 #### Restore VM/disk
 
@@ -523,9 +521,7 @@ Enabling encryption at vault creation using customer managed keys is in limited 
 
 When your subscription is allow-listed, the **Backup Encryption** tab will display. This allows you to enable encryption on the backup using customer-managed keys during the creation of a new Recovery Services vault. To enable the encryption, perform the following steps:
 
-1. Next to the **Basics** tab, on the **Backup Encryption** tab, specify the encryption key and the identity to use for encryption. The settings apply to Backup only and are optional.
-
-   ![Enable encryption at vault level](media/encryption-at-rest-with-cmk/enable-encryption-using-cmk-at-vault.png)
+1. On the **Backup Encryption** tab, specify the encryption key and the identity to use for encryption. The settings apply to Backup only and are optional.
 
 1. Select **Use customer-managed key** as the Encryption type.
 
@@ -535,7 +531,9 @@ When your subscription is allow-listed, the **Backup Encryption** tab will displ
 
 1. Specify the user assigned managed identity to manage encryption with customer-managed keys. Click **Select** to browse and select the required identity.
 
-1. Proceed to add Tags (optional) and continue creating the vault.
+1. Add tags (optional) and continue creating the vault.
+
+![Enable encryption at vault level](media/encryption-at-rest-with-cmk/enable-encryption-using-cmk-at-vault.png)
 
 ### Enable autorotation of encryption keys
 
