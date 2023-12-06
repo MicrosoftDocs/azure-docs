@@ -76,7 +76,7 @@ Notes:
 
 If you stay CentOS compatible and have picked a distribution, you need to decide whether you want to perform an in-place conversion or start with a fresh VM (redeploy).
 
-Many CentOS compatible distributions have conversions utilities that will assess the system and perform the replacement of binaries and update the content source.
+Many CentOS compatible distributions have conversions utilities that assess the system and perform the replacement of binaries and update the content source.
 
 If you move to a commercial distribution, you may need a valid subscription / license to perform the conversion.
 
