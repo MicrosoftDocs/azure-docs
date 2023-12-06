@@ -30,29 +30,28 @@ If you aren't familiar with how to deploy a Resource Manager template, see [Depl
 >Deploy the template in the same resource group as the virtual machine or virtual machine scale set being enabled.
 
 ## Azure Monitor agent
-Download the [Azure Monitor agent templates](https://github.com/Azure/AzureMonitorForVMs-ArmTemplates/releases/download/vmi_ama_ga/DeployDcr.zip). You must first install the data collection rule and can then install agents to use that DCR. 
+ First install the data collection rule, and then install agents to use that DCR. 
 
 ###  Deploy data collection rule
-You only need to perform this step once. This will install the DCR that's used by each agent. The DCR will be created in the same resource group as the workspace with a name in the format "MSVMI-{WorkspaceName}".
 
-Use on of the following sets of template and parameter files folders depending on your requirements:
+This step installs the data collection rule in the same resource group as the Log Analytics workspace with a name in the format "MSVMI-{WorkspaceName}":
 
-| Folder | File | Description |
-|:---|:---|
-| DeployDcr\\<br>PerfAndMapDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable both Performance and Map experience of VM Insights. |
-| DeployDcr\\<br>PerfOnlyDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable only Performance experience of VM Insights. |
+1. Download the [VM insights data collection rule templates](https://github.com/Azure/AzureMonitorForVMs-ArmTemplates/releases/download/vmi_ama_ga/DeployDcr.zip).
+1. Install one of these sets of template and parameter files based on on your requirements:
+
+  | Folder | File | Description |
+  |:---|:---|
+  | DeployDcr\\<br>PerfAndMapDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable both Performance and Map experience of VM Insights. |
+  | DeployDcr\\<br>PerfOnlyDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable only Performance experience of VM Insights. |
 
 
 ### Deploy agents to machines
-Once the data collection rule has been created, deploy the agents using one of the templates in the following table. You specify the resource ID of the DCR that you created in the first step in the parameters file. Each of the templates requires that the virtual machine or Virtual Machine Scale Set is already created.
 
-| Folder | File | Description |
-|:---|:---|
-| ExistingVmOnboarding\\<br>PerfAndMapOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmOnboardingParameters.json  | Enable both Performance and Map experience for virtual machine. Use with PerfAndMapDcr. |
-| ExistingVmOnboarding\\<br>PerfOnlyOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmOnboardingParameters.json  | Enable only Performance experience for virtual machine. Use with PerfOnlyDCR. |
-| ExistingVmssOnboarding\\<br>PerfAndMapOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmssOnboardingParameters.json  | Enable both Performance and Map experience for Virtual Machine Scale Set. Use with PerfAndMapDcr. |
-| ExistingVmssOnboarding\\<br>PerfOnlyOnboarding | ExistingVmOnboardingTemplate.json<br>ExistingVmssOnboardingParameters.json  | Enable only Performance experience for Virtual Machine Scale Set. Use with PerfOnlyDCR. |
+After you create the data collection rule, deploy:
 
+- [Azure Monitor Agent for Linux or Windows](../../agents/resource-manager-agent?tabs=json#azure-monitor-agent).
+- [Dependency agent for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) or [Dependency agent or Windows](../../virtual-machines/extensions/agent-dependency-windows.md) if you want to enable the Map feature. 
+  
 > [!NOTE]
 > If your virtual machines scale sets have an upgrade policy set to manual, VM insights will not be enabled for instances by default after installing the template. You must manually upgrade the instances.
 
