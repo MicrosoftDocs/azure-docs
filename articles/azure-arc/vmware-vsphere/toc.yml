@@ -39,7 +39,7 @@
   - name: Enable Extended Security Updates
     items:
       - name: Deliver ESUs for VMware VMs through Arc
-        href: deliver-esus-for-vmware-vms-through-arc.md
+        href: deliver-extended-security-updates-for-vmware-vms-through-arc.md
   - name: Administer
     items: 
     - name: Administer Arc-enabled VMware vSphere
