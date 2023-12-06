@@ -80,7 +80,7 @@ For the default environment variable names, see the following articles:
 ### [Service Connector](#tab/Service-Connector)
 
 > [!NOTE]
-> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
+> By default, Service Connectors are created at the application level. To override the connections, you can create other connections again in the deployments.
 
 #### Use the Azure CLI
 
