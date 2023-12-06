@@ -25,7 +25,7 @@ To recover from Arc resource bridge VM deletion, you need to deploy a new resour
 
 >[!Note]
 > DHCP-based Arc Resource Bridge deployment is no longer supported.<br><br>
-If you had deployed Arc Resource Bridge earlier using DHCP, you must clean up your installation and perform a fresh onboarding.
+If you had deployed Arc Resource Bridge earlier using DHCP, you must clean up your deployment by removing your resources from Azure and do a [fresh onboarding](./quickstart-connect-system-center-virtual-machine-manager-to-arc.md).
 
 1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location, and SCVMM Azure resources.
 
