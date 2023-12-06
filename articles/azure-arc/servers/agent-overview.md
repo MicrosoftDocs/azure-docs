@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Connected Machine agent, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 09/11/2023
+ms.date: 12/06/2023
 ms.topic: conceptual
 ---
 
@@ -209,6 +209,8 @@ Metadata information about a connected machine is collected after the Connected 
   * Project number
   * Service accounts
   * Zone
+* Oracle Cloud Infrastructure metadata, when running in OCI:
+  * Display name
 
 The agent requests the following metadata information from Azure:
 
