@@ -168,7 +168,6 @@ You can verify the version of the language using the command listed in the table
 - [Learn about Azure PowerShell][14]
 
 <!-- link references -->
-<!-- updated link references -->
 [01]: ../azure-functions/functions-run-local.md
 [02]: ../key-vault/general/manage-with-cli2.md#prerequisites
 [03]: ../service-fabric/service-fabric-cli.md
@@ -192,7 +191,6 @@ You can verify the version of the language using the command listed in the table
 [23]: https://docs.d2iq.com/dkp/2.6/azure-infrastructure
 [24]: https://docs.docker.com/desktop/
 [25]: https://dotnet.microsoft.com/download/dotnet/7.0
-[26]: https://github.com/Azure/CloudShell/issues
 [27]: https://github.com/microsoft/mssql-scripter/blob/dev/doc/usage_guide.md
 [28]: https://helm.sh/docs/
 [29]: https://kubernetes.io/docs/reference/kubectl/
