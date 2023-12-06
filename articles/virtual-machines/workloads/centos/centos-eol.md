@@ -8,7 +8,7 @@ ms.custom: devx-track-linux, devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 12/1/2023
-ms.author: clausw
+ms.author: chasecrum
 ---
 # CentOS End-Of-Life guidance
 
