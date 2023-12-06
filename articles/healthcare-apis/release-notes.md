@@ -20,12 +20,9 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 This article provides details about the features and enhancements made to Azure Health Data Services, including the different services (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
-## November 2023
+## December 2023
 
 ### Azure Health Data Services
-
-**Unified Azure portal landing page**
-In the Azure portal, we launched a unified landing page that lets users access all Microsoft Healthcare Data and AI Services in one place. The landing page makes it easier to find and use all related Healthcare Data and AI Services and includes links to relevant documentation to help users get started.
 
 **Encryption with customer-managed keys is generally available for the FHIR and DICOM services**
 Data stored in Azure Health Data Services is automatically and seamlessly encrypted with service-managed keys managed by Microsoft. You can enable data encryption with customer-managed keys (CMK) for new and existing FHIR® and DICOM® services, providing your organization with improved flexibility to manage access controls.
@@ -34,6 +31,14 @@ Learn more:
 
 - [Configure customer-managed keys for the FHIR service](fhir/configure-customer-managed-keys.md)
 - [Configure customer-managed keys for the DICOM service](dicom/configure-customer-managed-keys.md)
+
+
+## November 2023
+
+### Azure Health Data Services
+
+**Unified Azure portal landing page**
+In the Azure portal, we launched a unified landing page that lets users access all Microsoft Healthcare Data and AI Services in one place. The landing page makes it easier to find and use all related Healthcare Data and AI Services and includes links to relevant documentation to help users get started.
 
 ### FHIR service
 
