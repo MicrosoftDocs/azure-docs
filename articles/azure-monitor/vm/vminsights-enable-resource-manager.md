@@ -18,18 +18,16 @@ This article describes how to enable VM insights for a virtual machine or Virtua
 ## Prerequisites
 
 - [Log Analytics workspace](./vminsights-configure-workspace.md).
-- To enable VM insights for Log Analytics agent, [configure your Log Analytics workspace for VM insights](../vm/vminsights-configure-workspace.md). This prerequisite isn't relevant if you're using Azure Monitor Agent.  
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or Virtual Machine Scale Set you're enabling is supported. 
 - See [Manage the Azure Monitor agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor agent.
 
 ## Resource Manager templates
 Azure Resource Manager templates are available for download that onboard virtual machines and Virtual Machine Scale Sets. A different set of templates is used for Azure Monitor agent and Log Analytics agent. The templates install the required agents and perform the configuration required to onboard to machine to VM insights.
 
-
-If you aren't familiar how to deploy a Resource Manager template, see [Deploy templates](#deploy-templates) for different options.
+If you aren't familiar with how to deploy a Resource Manager template, see [Deploy templates](#deploy-templates).
 
 >[!NOTE]
->The template needs to be deployed in the same resource group as the virtual machine or virtual machine scale set being enabled.
+>Deploy the template in the same resource group as the virtual machine or virtual machine scale set being enabled.
 
 ## Azure Monitor agent
 Download the [Azure Monitor agent templates](https://github.com/Azure/AzureMonitorForVMs-ArmTemplates/releases/download/vmi_ama_ga/DeployDcr.zip). You must first install the data collection rule and can then install agents to use that DCR. 
