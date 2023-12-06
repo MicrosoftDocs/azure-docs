@@ -216,6 +216,11 @@ There are two options to provide access to Azure Monitor for containers:
 |**`arcmktplaceprod.azurecr.io`**|**`HTTPS:443`**|This address is required to pull container images for installing marketplace extensions on AKS cluster.|
 |**`*.ingestion.msftcloudes.com, *.microsoftmetrics.com`**|**`HTTPS:443`**|This address is used to send agents metrics data to Azure.|
 |**`marketplaceapi.microsoft.com`**|**`HTTPS: 443`**|This address is used to send custom meter-based usage to the commerce metering API.|
+| **`arcmktplaceprod.centralindia.data.azurecr.io`** | **`HTTPS:443`** | This address is used to access Azure Marketplace data in Central India region.|
+| **`arcmktplaceprod.japaneast.data.azurecr.io`** | **`HTTPS:443`** | This address is used to access Azure Marketplace data in East Japan region.|
+| **`arcmktplaceprod.westus2.data.azurecr.io`** | **`HTTPS:443`** | This address is used to access Azure Marketplace data in the West US 2 region.|
+| **`arcmktplaceprod.westeurope.data.azurecr.io`** | **`HTTPS:443`** | This address is used to access Azure Marketplace data in the West Europe region.|
+| **`arcmktplaceprod.eastus.data.azurecr.io`** | **`HTTPS:443`** | This address is used to access Azure Marketplace data in the West US region.|
 
 #### Azure US Government required FQDN / application rules
 
@@ -237,4 +242,6 @@ If you want to restrict how pods communicate between themselves and East-West tr
 <!-- LINKS - internal -->
 
 [private-clusters]: ./private-clusters.md
+
 [use-network-policies]: ./use-network-policies.md
+
