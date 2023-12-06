@@ -1,5 +1,5 @@
 ---
-title: Define a captcha technical profile in a custom policy
+title: Define a CAPTCHA technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a captcha technical profile in a custom policy in Azure Active Directory B2C.
 
@@ -14,7 +14,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Define a captcha technical profile in an Azure Active Directory B2C custom policy
+# Define a CAPTCHA technical profile in an Azure Active Directory B2C custom policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -24,6 +24,9 @@ A Completely Automated Public Turing Tests to Tell Computer and Human Apart (CAP
 
 The **Name** attribute of the **Protocol** element needs to be set to `Proprietary`. The **handler** attribute must contain the fully qualified name of the protocol handler assembly that is used by Azure AD B2C, for captcha:
 `Web.TPEngine.Providers.CaptchaProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+
+> [!NOTE]
+> This feature is in public preview
 
 The following example shows a self-asserted technical profile for email sign-up:
 
