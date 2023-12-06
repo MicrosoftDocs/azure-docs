@@ -42,7 +42,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql
 ```
 
-To use a preview version of the Microsoft.Azure.Functions.Worker.Extensions.Sql package, add the `--prerelease` flag to the command. You can view preview functionality on the [Extensions Bundles Preview release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+To use a preview version of the Microsoft.Azure.Functions.Worker.Extensions.Sql package, add the `--prerelease` flag to the command. You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
@@ -61,7 +61,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql
 ```
 
-To use a preview version of the Microsoft.Azure.WebJobs.Extensions.Sql package, add the `--prerelease` flag to the command. You can view preview functionality on the [Extensions Bundles Preview release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+To use a preview version of the Microsoft.Azure.WebJobs.Extensions.Sql package, add the `--prerelease` flag to the command. You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
