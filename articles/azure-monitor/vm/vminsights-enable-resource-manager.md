@@ -39,17 +39,17 @@ This step installs the data collection rule in the same resource group as the Lo
 1. Download the [VM insights data collection rule templates](https://github.com/Azure/AzureMonitorForVMs-ArmTemplates/releases/download/vmi_ama_ga/DeployDcr.zip).
 1. Install one of these sets of template and parameter files based on on your requirements:
 
-  | Folder | File | Description |
-  |:---|:---|
-  | DeployDcr\\<br>PerfAndMapDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable both Performance and Map experience of VM Insights. |
-  | DeployDcr\\<br>PerfOnlyDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable only Performance experience of VM Insights. |
+   | Folder | File | Description |
+   |:---|:---|
+   | DeployDcr\\<br>PerfAndMapDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable both Performance and Map experience of VM Insights. |
+   | DeployDcr\\<br>PerfOnlyDcr | DeployDcrTemplate<br>DeployDcrParameters | Enable only Performance experience of VM Insights. |
 
 
 ### Deploy agents to machines
 
 After you create the data collection rule, deploy:
 
-- [Azure Monitor Agent for Linux or Windows](../../agents/resource-manager-agent?tabs=json#azure-monitor-agent).
+- [Azure Monitor Agent for Linux or Windows](../../agents/resource-manager-agent.md#azure-monitor-agent).
 - [Dependency agent for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) or [Dependency agent or Windows](../../virtual-machines/extensions/agent-dependency-windows.md) if you want to enable the Map feature. 
   
 > [!NOTE]
