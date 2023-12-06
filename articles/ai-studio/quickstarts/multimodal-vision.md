@@ -47,7 +47,7 @@ You need a video up to three minutes in length to complete the video quickstart.
 
 In this chat session, you instruct the assistant to aid in understanding images that you input. 
 
-1. Sign in to [Azure AI Studio](https://aka.ms/aistudio).
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
 1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
 
@@ -80,7 +80,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
 In this chat session, you instruct the assistant to aid in understanding images that you input. Try out the capabilities of the augmented vision model.  
 
-1. Sign in to [Azure AI Studio](https://aka.ms/aistudio).
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
 1. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
 
@@ -117,7 +117,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
 In this chat session, you'll be instructing the assistant to aid in understanding videos that you input. The assistant extracts several frames from the video and uses them to answer your questions.
 
-1. Sign in to [Azure AI Studio](https://aka.ms/aistudio).
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
 1. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
 1. In the **Vision enhancements settings** dialog, select an Azure AI Vision resource and then select **Save**. 
