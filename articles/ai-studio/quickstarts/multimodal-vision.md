@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: quickstart
-ms.date: 11/15/2023
+ms.date: 12/11/2023
 ms.author: eur
 ---
 
