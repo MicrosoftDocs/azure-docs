@@ -35,7 +35,7 @@ You can use the following parameters as inputs for this tool:
 | self_harm_category | string | Moderation sensitivity for the `Self-harm` category. Choose from four options: `disable`, `low_sensitivity`, `medium_sensitivity`, or `high_sensitivity`. The `disable` option means no moderation for the `Self-harm` category. The other three options mean different degrees of strictness in filtering out self-harm content. The default is `medium_sensitivity`. | Yes |
 | violence_category | string | Moderation sensitivity for the `Violence` category. Choose from four options: `disable`, `low_sensitivity`, `medium_sensitivity`, or `high_sensitivity`. The `disable` option means no moderation for the `Violence` category. The other three options mean different degrees of strictness in filtering out violence content. The default is `medium_sensitivity`. | Yes |
 
-For more information, see [Azure AI Content Safety](https://aka.ms/acs-doc)
+For more information, see [Azure AI Content Safety](https://aka.ms/acs-doc).
 
 ## Outputs
 
