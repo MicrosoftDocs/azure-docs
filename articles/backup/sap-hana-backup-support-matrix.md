@@ -27,11 +27,10 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | **Encryption** | SSLEnforce, HANA data encryption |            |
 | **HANA Instances**         | A single SAP HANA instance on a  single Azure VM – scale up only | Multiple SAP HANA instances on a  single VM. You can protect only one of these multiple instances at a time.                  |
 | **HANA database types**    | Single Database Container (SDC)  ON 1.x, Multi-Database Container (MDC) on 2.x | MDC in HANA 1.x                                              |
-| **HANA database size**     | HANA databases of size <= 8 TB  (this isn't the memory size of the HANA system)               |                                                              |
+| **HANA database size**     | HANA database of size upto 40 TB (this isn't the memory size of the HANA system).               |                                                              |
 | **Backup types**           | Full, Differential, Incremental and Log backups, Snapshots |                                      |
 | **Restore types**          | Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the supported restore types |                                                              |
 | **Cross Subscription Restore** | Supported via the Azure portal and Azure CLI. [Learn more](sap-hana-database-restore.md#cross-subscription-restore). |          |
-| **Backup limits**          | Up to 8 TB of full backup size per SAP HANA instance (soft limit)         |                                                              |
 | **Number of full backups per day**     |   One scheduled backup.  <br><br>   Three on-demand backups. <br><br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.  |
 | **HANA deployments** | HANA System Replication (HSR) |           |
 | **Special configurations** |                                                              | SAP HANA + Dynamic Tiering <br>  Cloning through LaMa        |
