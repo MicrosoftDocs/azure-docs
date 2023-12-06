@@ -130,7 +130,7 @@ In this step, except tags, you can also specify the environment used by the depl
 
 #### Use environment of current flow definition
 
-By default the deployment will use the environment created based on the base image specified in the `flow.dag.yaml` and dependencies speicifed in the `requirements.txt`.
+By default the deployment will use the environment created based on the base image specified in the `flow.dag.yaml` and dependencies specified in the `requirements.txt`.
 
 - You can specify the base image in the `flow.dag.yaml` by selecting `Raw file mode` of the flow. If there is no image specified, the default base image is the latest prompt flow base image.
     
@@ -138,7 +138,7 @@ By default the deployment will use the environment created based on the base ima
 
 - You can find `requirements.txt` in the root folder of your flow folder, and add dependencies within it.
 
-    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of flow requirements-text. " lightbox = "./media/how-to-deploy-for-real-time-inference/requirements-text.png":::
+    :::image type="content" source="./media/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of flow requirements text. " lightbox = "./media/how-to-deploy-for-real-time-inference/requirements-text.png":::
 
 #### Use customized environment
 
