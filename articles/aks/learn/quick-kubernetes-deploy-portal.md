@@ -18,8 +18,6 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
-:::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-portal/aks-store-application.png":::
-
 ## Before you begin
 
 - This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
@@ -83,8 +81,6 @@ It takes a few minutes to create the AKS cluster. When your deployment is comple
 To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. If you're unfamiliar with the Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
 1. Open Cloud Shell using the `>_` button on the top of the Azure portal.
-
-    :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-cloud-shell.png" alt-text="Screenshot of Open the Azure Cloud Shell in the portal option." lightbox="media/quick-kubernetes-deploy-portal/aks-cloud-shell.png":::
 
     > [!NOTE]
     > To perform these operations in a local shell installation:
@@ -384,6 +380,7 @@ To deploy the application, you use a manifest file to create all the objects req
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
+1. If you create and save the YAML file locally, then you can upload the manifest file to your default directory in CloudShell by selecting the **Upload/Download files** button and selecting the file from your local file system.
 1. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest:
 
     ```console
@@ -422,7 +419,7 @@ When the application runs, a Kubernetes service exposes the application front en
     store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   4h4m
     ```
 
-1. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+    Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
     The following example output shows a valid public IP address assigned to the service:
 
