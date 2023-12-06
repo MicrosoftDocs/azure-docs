@@ -328,7 +328,7 @@ const localVideoStreams = call.localVideoStreams;
 ```
 
 ## Manage chat thread
-Providing a chat ID is mandatory for making group calls and adding participants to existing calls. Associated chat and call have a separate list of participants. Before adding participants to the call, add the user to the chat to provide the best user experience and satisfy information barrier requirements. Adding a user to the call without adding the user to the chat can result in exceptions if an information barrier is set up.
+Providing a chat ID is optional for making group calls and adding participants to existing calls (We have a flag config to control if providing chat thread ID is mandatory or not). Associated chat and call have a separate list of participants. Before adding participants to the call, add the user to the chat to provide the best user experience and satisfy information barrier requirements. Adding a user to the call without adding the user to the chat can result in exceptions if an information barrier is set up.
 
 Consider the following scenario, where Alice makes a call to Bob, then Alice adds Charlie, and 3 minutes later, Alice removes Charlie from the call.
 
@@ -342,10 +342,17 @@ Consider the following scenario, where Alice makes a call to Bob, then Alice add
 If Teams user stops call recording, the recording is placed into the chat associated with the thread. Provided chat ID impacts the experience of Teams users in Teams clients.
 
 Recommendations for the management of chat ID:
-- Escalation of the 1:1 phone call by adding another phone participant: Use Graph API to get the existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00000000-0000-0000-0000-000000000000"
-- Group call with single Teams user and multiple phone participants: Use Graph API to get existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00000000-0000-0000-0000-000000000000"
-- Group call with more than 2 Teams users: Use Graph API to get or create a group chat with the Teams users
-
+- Escalation of the 1:1 phone call by adding another phone participant:
+  * (Optional way) Use addParticipant API on web calling SDK to add another participant without providing chat thread ID. You only need to provide identifier of the participant you want to add into the call.
+  * Use Graph API to get the existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00000000-0000-0000-0000-000000000000".
+- Group call with single Teams user and multiple phone participants:
+  * (Optional way) Use startCall API on web calling SDK without providing chat thread ID to create a group chat for participants. You only need to provide identifier for all the participants when leveraging API.
+  * Use Graph API to get existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00000000-0000-0000-0000-000000000000".
+- Group call with more than 2 Teams users:
+  * (Optional way) Use startCall API on web calling SDK without providing chat thread ID to create a group chat for participants. You only need to provide identifier for all the participants when leveraging API.
+  * Use Graph API to get or create a group chat with the Teams users.
+> [!NOTE]
+> If you are using optional way to leverage API without providing chat thread Id, then you need to be consistently using this way to let web calling SDK to create/manage the thread ID for your App. In this way, You can access thread ID via TeamsCallInfo object on web calling SDK.
 ## Send or receive a reaction from other participants
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher
