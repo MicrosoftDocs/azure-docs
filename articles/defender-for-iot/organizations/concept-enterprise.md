@@ -40,10 +40,10 @@ For more information, see [Alerts queue in Microsoft 365 Defender](/microsoft-36
 ### Recommendations
 
 The following security recommendations are supported for Enterprise IoT devices:
-    - **Require authentication for Telnet management interface**
-    - **Disable insecure administration protocol – Telnet**
-    - **Remove insecure administration protocols SNMP V1 and SNMP V2**
-**Require authentication for VNC management interface**
+- **Require authentication for Telnet management interface**
+- **Disable insecure administration protocol – Telnet**
+- **Remove insecure administration protocols SNMP V1 and SNMP V2**
+- **Require authentication for VNC management interface**
 
 For more information, see [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation).
 
