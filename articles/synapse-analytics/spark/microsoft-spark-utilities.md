@@ -1545,7 +1545,7 @@ mssparkutils.session.stop()
 
 ## Package Dependencies
 
-If you want to develop notebooks or packages locally and need to reference the relevant packages for compilation/IDE hints, you can use the following packages.
+If you want to develop notebooks or jobs locally and need to reference the relevant packages for compilation/IDE hints, you can use the following packages.
 
 :::zone pivot = "programming-language-python"
 [PyPI package](https://pypi.org/project/dummy-notebookutils/)
