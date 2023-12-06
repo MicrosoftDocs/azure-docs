@@ -24,13 +24,13 @@ This article explains how to deploy microservice applications to Azure Spring Ap
 
 The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on Azure Spring Apps enterprise plan.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on Azure Spring Apps." lightbox="media/quickstart-deploy-microservice-apps/petclinic-architecture.png" border="false":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-enterprise-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on Azure Spring Apps enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-enterprise-architecture.png" border="false":::
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
-- Uses Azure Spring Apps to manage the frontend and backend apps, the frontend app is built with Angular JS; the backend apps are built with Spring Boot and each app uses HSQLDB as the persistent store.
-- Uses the managed Tanzu components on Azure Spring Apps, they are Build Service, Service Registry, Application Configuration Service, Spring Cloud Gateway and Developer Tools. The Application Configuration Service reads Git repository configuration.
-- Exposes the URL of Spring Cloud Gateway to load balance requests to service apps, and exposes the URL of the App Live View to monitor the applications.
+- Uses Azure Spring Apps to manage the frontend and backend apps, the frontend app is built with Node JS; the backend apps are built with Spring Boot and each app uses HSQLDB as the persistent store.
+- Uses the managed components on Azure Spring Apps, they are Build Service, Service Registry, Application Configuration Service, Spring Cloud Gateway and Application Live View. The Application Configuration Service reads Git repository configuration.
+- Exposes the URL of Spring Cloud Gateway to load balance requests to backend service apps, and exposes the URL of the Application Live View to monitor the backend apps.
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
 
@@ -45,12 +45,12 @@ The diagram shows the following architectural flows and relationships of the Pet
 
 The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on Azure Spring Apps standard plan.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on Azure Spring Apps." lightbox="media/quickstart-deploy-microservice-apps/petclinic-architecture.png" border="false":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on Azure Spring Apps standard plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" border="false":::
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
 - Uses Azure Spring Apps to manage the Spring Boot apps. Each app uses HSQLDB as the persistent store.
-- Uses the managed components Spring Cloud Config Server and Eureka Service Discovery on Azure Spring Apps. The Config Server reads Git repository configuration.
+- Uses the managed components Spring Cloud Config Server and Eureka Service Registry on Azure Spring Apps. The Config Server reads Git repository configuration.
 - Exposes the URL of API Gateway to load balance requests to service apps, and exposes the URL of the Admin Server to manage the applications.
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
