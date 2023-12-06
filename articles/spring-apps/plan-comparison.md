@@ -20,7 +20,7 @@ This article provides a comparison of plans available in Azure Spring Apps. Each
 - Standard consumption & dedicated plan: Hosted in Azure Container Apps environments, this plan is designed to seamlessly interact with other apps running in the same environment with simplified networking and unified observability.
 - Standard plan: A Spring-centric and opinionated application hosting platform with built-in and pre-configured settings for build, service registry, storage, and more.
 - Enterprise plan: Provides VMware Tanzu components and addresses enterprise requirements around configuration management, integration, portability, and flexibility, all backed by commercial support from VMware and Microsoft.
-- 
+  
 For more information, please refer to the comparison table below.
 | Feature                                                   | Description                                                                                                                                                                 | Standard consumption&dedicated                                  | Basic                        | Standard                     | Enterprise                     |
 | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ---------------------------- | ---------------------------- | ------------------------------ |
