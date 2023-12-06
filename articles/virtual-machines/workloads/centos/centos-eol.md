@@ -116,4 +116,4 @@ The end-of-life moment for CentOS may also be an opportunity for you to consider
 
 [What is Application Modernization? | Microsoft Azure](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-application-modernization/)
 
-[Modernize in the cloud - Cloud Adoption Framework | Microsoft Learn](../../cloud-adoption-framework/modernize.md)
+[Modernize in the cloud - Cloud Adoption Framework | Microsoft Learn](../../../cloud-adoption-framework/modernize)
