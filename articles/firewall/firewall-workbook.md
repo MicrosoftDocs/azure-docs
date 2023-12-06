@@ -36,10 +36,10 @@ Once you've set up Firewall structured logs, you're all set to use the Azure Fir
 2. Under **Monitoring**, select **Workbooks**.
 3. In the Gallery, you can create new workbooks or use the existing Azure Firewall workbook as shown here:
 
-   :::image type="content" source="media/firewall-workbook/firewall-workbook-gallery.png" alt-text="Screenshot showing the firewall workbook gallery.":::
+   :::image type="content" source="media/firewall-workbook/firewall-workbook-gallery.png" alt-text="Screenshot showing the firewall workbook gallery." lightbox="media/firewall-workbook/firewall-workbook-gallery.png":::
 4. Select the log analytics workspace and one or more firewall names you want to use in this workbook as shown here:
 
-   :::image type="content" source="media/firewall-workbook/structured-logs.png" alt-text="Screenshot showing structured logs.":::
+   :::image type="content" source="media/firewall-workbook/structured-logs.png" alt-text="Screenshot showing structured logs." lightbox="media/firewall-workbook/structured-logs.png" :::
 
 ## Workbook sections
 
@@ -74,7 +74,7 @@ The Application rules tab shows Layer 7 related events statistics correlated wit
 - **Denied Web Categories overtime**: Displays denied web categories over time.
 - **Denied Web Categories by count**: Counts denied web categories.
 
-:::image type="content" source="media/firewall-workbook/application-rules-tab.png" alt-text="Screenshot showing the application rules tab.":::
+:::image type="content" source="media/firewall-workbook/application-rules-tab.png" alt-text="Screenshot showing the application rules tab." lightbox="media/firewall-workbook/application-rules-tab.png":::
 
 ## Network rules
 
@@ -91,7 +91,7 @@ The Network rules tab shows Layer 4 related events statistics correlated with yo
 - **Actions, by time**: Displays network actions over time.
 - **All IP addresses events with GeoLocation**: Shows all events involving IP addresses, categorized by geographical location.
 
-:::image type="content" source="media/firewall-workbook/network-rules-tab.png" alt-text="Screenshot showing network rules tab.":::
+:::image type="content" source="media/firewall-workbook/network-rules-tab.png" alt-text="Screenshot showing network rules tab." lightbox="media/firewall-workbook/network-rules-tab.png":::
 
 ## DNS proxy
 
@@ -103,7 +103,7 @@ This tab is relevant if you've set up Azure Firewall to function as a DNS proxy,
 - **DNS Proxy Request over time by Client IP**: Displays DNS proxy requests over time, categorized by client IP.
 - **DNS Proxy Information**: Provides log information related to your DNS proxy setup.
 
-:::image type="content" source="media/firewall-workbook/dns-proxy-tab.png" alt-text="Screenshot showing the DNS proxy tab." lightbox="media/firewall-workbook/dns-proxy-tab.png":::
+:::image type="content" source="media/firewall-workbook/dns-proxy-tab.png" alt-text="Screenshot showing the DNS proxy tab." lightbox="media/firewall-workbook/dns-proxy-tab.png" lightbox="media/firewall-workbook/dns-proxy-tab.png" :::
 
 ## Intrusion Detection and Prevention System (IDPS)
 
@@ -120,7 +120,7 @@ The IDPS log statistics tab offers a summary of malicious traffic events and the
 - **Azure Firewall IDPS count over time**: Shows Azure Firewall IDPS count over time.
 - **Azure Firewall IDPS logs with GeoLocation**: Provides Azure Firewall IDPS logs, categorized by geographical location.
 
-:::image type="content" source="media/firewall-workbook/idps-tab.png" alt-text="Screenshot showing the IDPS tab.":::
+:::image type="content" source="media/firewall-workbook/idps-tab.png" alt-text="Screenshot showing the IDPS tab." lightbox="media/firewall-workbook/idps-tab.png" :::
 
 ## Threat Intelligence (TI)
 
@@ -133,7 +133,7 @@ This tab offers a thorough perspective on threat intelligence activities, spotli
 - **Azure Firewall Threat Intel Over Time**: Displays Azure Firewall Threat Intelligence detections over time.
 - **Azure Firewall Threat Intel**: Provides logs from Azure Firewall's Threat Intelligence.
 
-:::image type="content" source="media/firewall-workbook/threat-intelligence-tab.png" alt-text="Screenshot showing the threat intelligence tab.":::
+:::image type="content" source="media/firewall-workbook/threat-intelligence-tab.png" alt-text="Screenshot showing the threat intelligence tab." lightbox="media/firewall-workbook/threat-intelligence-tab.png":::
 
 ## Investigations
 
