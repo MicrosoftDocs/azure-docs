@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, laveeshb, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 09/07/2022
+ms.date: 12/06/2023
 ---
 
 # Handle errors and exceptions in Azure Logic Apps
@@ -195,36 +195,6 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
 ### Change "run after" behavior in the designer
 
-### [Consumption](#tab/consumption)
-
-1. In the [Azure portal](https://portal.azure.com), open the logic app workflow in the designer.
-
-1. On the action shape, open the ellipses menu (**...**), and select **Configure run after**.
-
-   ![Screenshot showing Consumption workflow designer and current action with ellipses and "Configure run after" selected.](./media/logic-apps-exception-handling/configure-run-after-consumption.png)
-
-   The action shape expands and shows the predecessor action for the currently selected action.
-
-   ![Screenshot showing Consumption workflow designer, current action, and "run after" status for predecessor action.](./media/logic-apps-exception-handling/predecessor-action-consumption.png)
-
-1. Expand the predecessor action node to view all the "run after" statuses.
-
-   By default, the "run after" status is set to **is successful**. So, the predecessor action must run successfully before the currently selected action can run.
-
-   ![Screenshot showing Consumption designer, current action, and default "run after" set to "is successful".](./media/logic-apps-exception-handling/default-run-after-status-consumption.png)
-
-1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
-
-   The following example selects **has failed**.
-
-   ![Screenshot showing Consumption designer, current action, and "run after" set to "has failed".](./media/logic-apps-exception-handling/failed-run-after-status-consumption.png)
-
-1. To specify that the current action runs whether the predecessor action is marked as **Failed**, **Skipped**, or **TimedOut**, select the other statuses.
-
-   ![Screenshot showing Consumption designer, current action, and multiple "run after" statuses selected.](./media/logic-apps-exception-handling/run-after-multiple-statuses-consumption.png)
-
-1. When you're ready, select **Done**.
-
 ### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open the logic app workflow in the designer.
@@ -256,6 +226,36 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 1. To require that more than one predecessor action runs, each with their own "run after" statuses, expand the **Select actions** list. Select the predecessor actions that you want, and specify their required "run after" statuses.
 
    ![Screenshot showing Standard designer, current action, and multiple predecessor actions available.](./media/logic-apps-exception-handling/multiple-predecessor-actions-standard.png)
+
+1. When you're ready, select **Done**.
+
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open the logic app workflow in the designer.
+
+1. On the action shape, open the ellipses menu (**...**), and select **Configure run after**.
+
+   ![Screenshot showing Consumption workflow designer and current action with ellipses and "Configure run after" selected.](./media/logic-apps-exception-handling/configure-run-after-consumption.png)
+
+   The action shape expands and shows the predecessor action for the currently selected action.
+
+   ![Screenshot showing Consumption workflow designer, current action, and "run after" status for predecessor action.](./media/logic-apps-exception-handling/predecessor-action-consumption.png)
+
+1. Expand the predecessor action node to view all the "run after" statuses.
+
+   By default, the "run after" status is set to **is successful**. So, the predecessor action must run successfully before the currently selected action can run.
+
+   ![Screenshot showing Consumption designer, current action, and default "run after" set to "is successful".](./media/logic-apps-exception-handling/default-run-after-status-consumption.png)
+
+1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
+
+   The following example selects **has failed**.
+
+   ![Screenshot showing Consumption designer, current action, and "run after" set to "has failed".](./media/logic-apps-exception-handling/failed-run-after-status-consumption.png)
+
+1. To specify that the current action runs whether the predecessor action is marked as **Failed**, **Skipped**, or **TimedOut**, select the other statuses.
+
+   ![Screenshot showing Consumption designer, current action, and multiple "run after" statuses selected.](./media/logic-apps-exception-handling/run-after-multiple-statuses-consumption.png)
 
 1. When you're ready, select **Done**.
 
