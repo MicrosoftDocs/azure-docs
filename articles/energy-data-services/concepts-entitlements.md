@@ -24,7 +24,7 @@ The entitlements service enables three use cases for authorization:
 1. **Data groups** are used to enable authorization for data.
    1. Some examples are data.welldb.viewers and data.welldb.owners.
    2. Individual users are added to the data groups which are added in the ACL of individual data records to enable `viewer` and `owner` access of the data once the data has been loaded in the system.
-   3. To `upload` the data, you need to have entitlements of various OSDU services which are used during ingestion process. The combination of OSDU services depends on the method of ingestion. E.g., for manifest ingestion, refer [this](energy-data-services/concepts-manifest-ingestion.md) to understand the OSDU services APIs used. The user **need not be part of the ACL** to upload the data.
+   3. To `upload` the data, you need to have entitlements of various OSDU services which are used during ingestion process. The combination of OSDU services depends on the method of ingestion. E.g., for manifest ingestion, refer [this](concepts-manifest-ingestion.md) to understand the OSDU services APIs used. The user **need not be part of the ACL** to upload the data.
 
 2. **Service groups** are used to enable authorization for services.
    1. Some examples are service.storage.user and service.storage.admin.
