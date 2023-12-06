@@ -50,7 +50,7 @@ If there are no entries in the list of attack paths, you can still test this fea
     az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>    
     ```
 
-1. Install Ingress [ngnix ingress Controller](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/) :
+1. Install [ngnix ingress Controller](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/) :
     
     ```
     helm install ingress-controller oci://ghcr.io/nginxinc/charts/nginx-ingress --version 1.0.1
@@ -115,4 +115,4 @@ The results are listed below the query.
 
 ## Next steps 
 
- - Learn more about the Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).
+- Learn more about the Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).
