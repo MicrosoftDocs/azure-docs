@@ -14,10 +14,10 @@ ms.date: 11/13/2023
 
 ## November 2023
 
-## Alerting (preview)
+### Alerting (preview)
 Azure Update Manager allows you to enable alerts to address events as captured in updates data.
 
-## Azure Stack HCI patching (preview)
+### Azure Stack HCI patching (preview)
 
 Azure Update Manager allows you to patch Azure Stack HCI cluster. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
 

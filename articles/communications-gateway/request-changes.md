@@ -18,7 +18,7 @@ This article provides an overview of how to raise support requests for Azure Com
 
 ## Prerequisites
 
-We strongly recommend a Microsoft support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or [Premier Support](https://www.microsoft.com/en-us/unifiedsupport/premier).
+We strongly recommend a Microsoft support plan that includes technical support, such as [Microsoft Unified Support](https://www.microsoft.com/en-us/unifiedsupport/overview) or Premier Support.
 
 You must have an **Owner**, **Contributor**, or **Support Request Contributor** role in your Azure Communications Gateway subscription, or a custom role with [Microsoft.Support/*](../role-based-access-control/resource-provider-operations.md#microsoftsupport) at the subscription level.
 
@@ -68,7 +68,7 @@ In this section, we collect more details about the problem or the change and how
 
 ## Review and create your support request
 
-Before creating your request, review the details and diagnostics that you'll send to support. If you want to change your request or the files you've uploaded, select **Previous** to return to any tab. When you're happy with your request, select **Create**.
+Before creating your request, review the details and diagnostic files that you're providing. If you want to change your request or the files that you're uploading, select **Previous** to return to any tab. When you're happy with your request, select **Create**.
 
 ## Next steps
 

@@ -29,13 +29,13 @@ If you're unable to successfully link your Azure Arc-enabled server to an activa
 
 - **Operating system:** Only Azure Arc-enabled servers running the Windows Server 2012 and 2012 R2 operating system are eligible to enroll in Extended Security Updates.
 
-- **Environment:** The connected machine should not be running on Azure Stack HCI, Azure VMware solution, or as an Azure virtual machine. In these scenarios, WS2012 ESUs are available for free. For information about no-cost ESUs through Azure Stack HCI, see [Free Extended Security Updates through Azure Stack HCI](/azure-stack/hci/manage/azure-benefits-esu?tabs=windows-server-2012).
+- **Environment:** The connected machine should not be running on Azure Stack HCI, Azure VMware solution (AVS), or as an Azure virtual machine. **In these scenarios, WS2012 ESUs are available for free**. For information about no-cost ESUs through Azure Stack HCI, see [Free Extended Security Updates through Azure Stack HCI](/azure-stack/hci/manage/azure-benefits-esu?tabs=windows-server-2012).
 
 - **License properties:** Verify the license is activated and has been allocated sufficient physical or virtual cores to support the intended scope of servers.
 
 ## ESU patches issues
 
-Ensure that both the licensing package and SSU are downloaded for the Azure Arc-enabled server as documented at [KB5031043: Procedure to continue receiving security updates after extended support has ended on October 10, 2023](https://support.microsoft.com/topic/kb5031043-procedure-to-continue-receiving-security-updates-after-extended-support-has-ended-on-october-10-2023-c1a20132-e34c-402d-96ca-1e785ed51d45). Ensure you are following all of the networking prerequisites as recorded at [Prepare to deliver Extended Security Updates for Windows Server 2012](prepare-extended-security-updates.md?tabs=azure-cloud#networking).
+Ensure that both the licensing package and servicing stack update (SSU) are downloaded for the Azure Arc-enabled server as documented at [KB5031043: Procedure to continue receiving security updates after extended support has ended on October 10, 2023](https://support.microsoft.com/topic/kb5031043-procedure-to-continue-receiving-security-updates-after-extended-support-has-ended-on-october-10-2023-c1a20132-e34c-402d-96ca-1e785ed51d45). Ensure you are following all of the networking prerequisites as recorded at [Prepare to deliver Extended Security Updates for Windows Server 2012](prepare-extended-security-updates.md?tabs=azure-cloud#networking).
 
 If installing the Extended Security Update enabled by Azure Arc fails with errors such as "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12029)" or "ESU: Trying to Check IMDS Again LastError=HRESULT_FROM_WIN32(12002)", there is a known remediation approach:
 

@@ -2,13 +2,12 @@
 title: Azure Synapse Runtime for Apache Spark 3.3 
 description: New runtime is GA and ready for production workloads. Spark 3.3.1, Python 3.10, Delta Lake 2.2.
 author: ekote
+ms.author: eskot 
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/17/2022 
-ms.author: eskot
 ms.custom: has-adal-ref, ignite-2022, devx-track-python
-ms.reviewer: ekote
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.3 (GA)
