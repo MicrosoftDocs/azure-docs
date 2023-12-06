@@ -11,6 +11,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-gateway-connection.md",
+            "redirect_url": "/azure/logic-apps/connect-on-premises-data-sources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-gateway-install.md",
+            "redirect_url": "/azure/logic-apps/install-on-premises-data-gateway",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/app-service-logic/app-service-logic-gateway-connection.md",
+            "redirect_url": "/azure/logic-apps/connect-on-premises-data-sources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service-logic/app-service-logic-gateway-install.md",
+            "redirect_url": "/azure/logic-apps/install-on-premises-data-gateway",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md",
             "redirect_url": "https://learn.microsoft.com/azure/connectors/integrate-3270-apps-ibm-mainframe",
             "redirect_document_id": false
@@ -351,6 +371,7 @@
             "redirect_document_id": false
         },
         {
+<<<<<<< HEAD
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-gateway-connection.md",
             "redirect_url": "/azure/logic-apps/logic-apps-gateway-connection",
             "redirect_document_id": false
@@ -358,6 +379,10 @@
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-gateway-install.md",
             "redirect_url": "/azure/logic-apps/logic-apps-gateway-install",
+=======
+            "source_path_from_root": "/articles/app-service-logic/app-service-logic-exception-handling.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-exception-handling",
+>>>>>>> 8268fd0535bb525536f96bbc7da67ad5ae122e3f
             "redirect_document_id": false
         },
         {
