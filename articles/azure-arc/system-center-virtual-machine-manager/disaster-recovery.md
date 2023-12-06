@@ -24,8 +24,8 @@ To recover from Arc resource bridge VM deletion, you need to deploy a new resour
 > If you have VMs that are still in the older version, i.e., have *Enabled (Deprecated)* set under the *Virtual hardware operations* column in the Virtual Machines inventory of your SCVMM server in Azure, switch them to the new version by following the steps in [this article](./switch-to-the-new-version-scvmm.md#switch-to-the-new-version-existing-customer) before proceeding with the steps for resource bridge recovery.
 
 >[!Note]
-> DHCP-based Arc Resource Bridge deployment is no longer supported.<br>
-If you had deployed Arc Resource Bridge earlier using DHCP, you must to clean up your installation and do a fresh onboarding.
+> DHCP-based Arc Resource Bridge deployment is no longer supported.<br><br>
+If you had deployed Arc Resource Bridge earlier using DHCP, you must clean up your installation and perform a fresh onboarding.
 
 1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location, and SCVMM Azure resources.
 
