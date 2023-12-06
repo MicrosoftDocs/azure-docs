@@ -30,7 +30,7 @@ Use the Azure Resource Manager templates provided in this article to onboard vir
 > Deploy the template in the same resource group as the virtual machine or virtual machine scale set being enabled.
 
 ## Enable VM insights using Azure Monitor Agent
- First install the data collection rule, and then install agents to use that DCR. 
+First deploy the data collection rule, and then install agents to use that data collection rule. 
 
 ###  Deploy data collection rule
 
