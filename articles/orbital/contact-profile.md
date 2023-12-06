@@ -12,24 +12,22 @@ ms.author: apoorvanori
 
 # Configure a contact profile
 
-Learn how to configure a [contact profile](concepts-contact-profile.md) with Azure Orbital Ground Station to save and reuse contact configurations. To schedule a contact, you must have a contact profile resource and satellite resource.
+Learn how to create a [contact profile](concepts-contact-profile.md) with Azure Orbital Ground Station to save and reuse contact configurations. To schedule a contact, you must have a contact profile resource and [spacecraft resource](spacecraft-object.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Contributor permissions at the subscription level.
-- To collect telemetry during the contact, [create an event hub](receive-real-time-telemetry.md). [Learn more about Azure Event Hubs](../event-hubs/event-hubs-about.md).
+- A delegated subnet that is created in the relevant VNET and resource group. See [prepare network for Azure Orbital Ground Station integration](prepare-network.md).
 - An IP address (private or public) for data retrieval/delivery. Learn how to [create a VM and use its private IP](../virtual-machines/windows/quick-create-portal.md).
+- To collect telemetry during the contact, [create an event hub](receive-real-time-telemetry.md). [Learn more about Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
-## Sign in to Azure
+## Azure portal method
 
-Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
-
-## Create a contact profile resource
-
-1. In the Azure portal search box, enter **Contact Profiles**. Select **Contact Profiles** in the search results. Alternatively, navigate to the Azure Orbital service and click **Contact profiles** in the left column.
-2. In the **Contact Profiles** page, click **Create**.
-3. In **Create Contact Profile Resource**, enter or select the following information in the **Basics** tab:
+1. Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
+2. In the Azure portal search box, enter **Contact Profiles**. Select **Contact Profiles** in the search results. Alternatively, navigate to the Azure Orbital service and click **Contact profiles** in the left column.
+3. In the **Contact Profiles** page, click **Create**.
+4. In **Create Contact Profile Resource**, enter or select the following information in the **Basics** tab:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -47,8 +45,8 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
    :::image type="content" source="media/orbital-eos-contact-profile.png" alt-text="Screenshot of the contact profile basics page." lightbox="media/orbital-eos-contact-profile.png":::
 
-4. Click **Next**. In the **Links** pane, click **Add new Link**.
-5. In the **Add Link** page, enter or select the following information per link direction:
+5. Click **Next**. In the **Links** pane, click **Add new Link**.
+6. In the **Add Link** page, enter or select the following information per link direction:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -60,7 +58,7 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 
    :::image type="content" source="media/orbital-eos-contact-link.png" alt-text="Screenshot of the contact profile links pane." lightbox="media/orbital-eos-contact-link.png":::
 
-6. Click **Add Channel**. In the **Add Channel** pane, enter or select the following information per channel:
+7. Click **Add Channel**. In the **Add Channel** pane, enter or select the following information per channel:
 
    | **Field** | **Value** |
    | --- | --- |
@@ -77,8 +75,8 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
    | **Modulation Configuration** (_uplink only_) | Refer to [configure the RF chain](modem-chain.md) for options. |
    | **Encoding Configuration** (_uplink only_)| If applicable, paste your encoding configuration. |
 
-7. Click **Submit** to add the channel. After adding all channels, click **Submit** to add the link.  
-8. If a mission requires third-party providers, click the **Third-Party Configuration** tab.
+8. Click **Submit** to add the channel. After adding all channels, click **Submit** to add the link.  
+9. If a mission requires third-party providers, click the **Third-Party Configuration** tab.
    
    > [!NOTE] 
    > Mission configurations are agreed upon with partner network providers. Contacts can only be successfully scheduled with the partners if the contact profile contains the appropriate mission configuration.
@@ -95,6 +93,10 @@ Sign in to the [Azure portal - Orbital](https://aka.ms/orbital/portal).
 14. Click **Review + create**. After the validation is complete, click **Create**.
 
 After a successful deployment, the contact profile is added to your resource group.
+
+## API method
+
+Use the Contact Profiles REST Operation Group to [create a contact profile](/rest/api/orbital/azureorbitalgroundstation/contact-profiles/create-or-update/) in the Azure Orbital Ground Station API.
 
 ## Next steps
 

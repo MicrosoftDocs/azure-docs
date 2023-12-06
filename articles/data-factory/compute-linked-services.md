@@ -632,6 +632,6 @@ You create an Azure Function linked service and use it with the [Azure Function 
 | function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | yes |
 |   |   |   |
 
-## Next steps
+## Related content
 
 For a list of the supported transformation activities, see [Transform data](transform-data.md).

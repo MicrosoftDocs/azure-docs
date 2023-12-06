@@ -284,19 +284,18 @@ If you're using a network configuration (custom Firewall or UDR configurations) 
 ```output
 # Azure Global
 RHUI 3 
-13.91.47.76
-40.85.190.91
-52.187.75.218
-52.174.163.213
-52.237.203.198
+West US - 13.91.47.76
+East Us - 40.85.190.91
+South East Asia - 52.187.75.218
+West Europe - 52.174.163.213
+Austraila East - 52.237.203.198
 
-# For RHUI 4 connections, You are required to allow all IPs in your firewall/UDR configuration as updates are delivered from the nearest healthy region.
 RHUI 4
-westeurope - 52.136.197.163
-southcentralus - 20.225.226.182
-eastus - 52.142.4.99
-australiaeast - 20.248.180.252
-southeastasia - 20.24.186.80
+West Europe - 52.136.197.163
+South Central US - 20.225.226.182
+East US - 52.142.4.99
+Australia East - 20.248.180.252
+Southeast Asia - 20.24.186.80
 
 # Azure US Government.
 # To be deprecated after 10th April 2023.

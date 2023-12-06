@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 11/27/2023
+ms.date: 12/06/2023
 ms.custom: references_regions
 ---
 
@@ -128,13 +128,15 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
   ```sh
     bash resource-bridge-onboarding-script.sh --force
   ```
+>[!IMPORTANT]
+> After successful deployment, save the config YAML files in a secure location. The config files are required to perform management operations on the resource bridge.
+
 >[!NOTE]
 > - After successful deployment, we recommend maintaining the state of **Arc Resource Bridge VM** as *online*.
-> - Intermittently appliance might become unreachable when you shut down and restart the VM.
-> - After successful deployment, save the config YAML files in a secure location. The config files are required to perform management operations on the resource bridge.   
+> - Intermittently appliance might become unreachable when you shut down and restart the VM. 
 > - After the execution of command, your setup is complete, and you can try out the capabilities of Azure Arc-enabled SCVMM. 
-
 
 ## Next steps
 
-[Create a VM](create-virtual-machine.md)
+- [Browse and enable SCVMM resources through Azure RBAC](enable-scvmm-inventory-resources.md).
+- [Create a VM using Azure Arc-enabled SCVMM](create-virtual-machine.md).
