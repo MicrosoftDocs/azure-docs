@@ -124,6 +124,13 @@ Copy the following template into your REST API body.
 ``` 
 Run the API call.
 
+
+
+## Next Steps: 
+
+To Customize and manage the cluster, please refer to the following documentation: 
+[Cluster Management using REST API](/rest/api/hdinsightonaks/operation-groups?view=rest-hdinsightonaks-2023-06-01-preview)
+
  
 
 
