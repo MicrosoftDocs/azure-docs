@@ -68,6 +68,7 @@ items:
             href: security-controls-policy.md
           - name: Azure Policy built-ins
             displayName: samples, policies, definitions
+            href: ./policy-reference.md
           - name: Network security (MQTT)
             href: network-security-mqtt.md
         - name: Use cases
@@ -153,7 +154,8 @@ items:
           - name: Security controls by Azure Policy
             href: security-controls-policy.md
           - name: Azure Policy built-ins
-            displayName: samples, policies, definitions          
+            displayName: samples, policies, definitions
+            href: ./policy-reference.md
           - name: Network security
             href: network-security-namespaces.md            
       - name: How-to
