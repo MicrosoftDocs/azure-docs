@@ -108,7 +108,7 @@ Check with your image provider whether they recommend / support an in-place upgr
 
 ### Changing distributions
 
-If you are moving to another distribution, you will need to redeploy your Virtual Machines and workloads. Make sure to look at the [MicrosoftCloud Adoption Framework](https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework) for Azure for guidance, best practices and templates to deploy your solution in Azure.
+If you are moving to another distribution, you need to redeploy your Virtual Machines and workloads. Make sure to look at the [MicrosoftCloud Adoption Framework](https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework) for Azure for guidance, best practices and templates to deploy your solution in Azure.
 
 ### Modernize
 
