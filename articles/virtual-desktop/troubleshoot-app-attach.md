@@ -40,13 +40,13 @@ To validate that your session hosts have the necessary access to a file share co
 
 1. Mount an MSIX image from the file share manually by using one of the following examples, changing the UNC paths to your own values.
 
-   1. To mount an MSIX image in `.vhdx` format, run the following command:
+   - To mount an MSIX image in `.vhdx` format, run the following command:
 
       ```powershell
       Mount-DiskImage -ImagePath \\fileshare\msix\MyApp.vhdx
       ```
 
-   1. To mount an MSIX image in `.cim` format, run the following commands. The [CimDiskImage PowerShell module from the PowerShell Gallery](https://www.powershellgallery.com/packages/CimDiskImage) will be installed, if it's not already.
+   - To mount an MSIX image in `.cim` format, run the following commands. The [CimDiskImage PowerShell module from the PowerShell Gallery](https://www.powershellgallery.com/packages/CimDiskImage) will be installed, if it's not already.
 
       ```powershell
       # Install the CimDiskImage PowerShell module, if it's not already installed.
@@ -65,13 +65,13 @@ To validate that your session hosts have the necessary access to a file share co
 
 1. Dismount the MSIX image by using one of the following examples.
 
-   1. To dismount an MSIX image in `.vhdx` format, run the following command:
+   - To dismount an MSIX image in `.vhdx` format, run the following command:
 
       ```powershell
       Dismount-DiskImage -ImagePath \\fileshare\msix\MyApp.vhdx
       ```
 
-   1. To dismount an MSIX image in `.cim` format, run the following commands:
+   - To dismount an MSIX image in `.cim` format, run the following commands:
 
       ```powershell
       Get-CimDiskImage | Dismount-CimDiskImage

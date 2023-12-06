@@ -193,42 +193,36 @@ Once your MSI package is staged, you can register your MSIX package.
 
 ## Register an MSIX package
 
-To register an MSIX package, run the following PowerShell cmdlets with the placeholder values replaced with values that apply to your environment. This command uses the `$msixPackageFullName` variable created in the previous section.
+To register an MSIX package, run the following commands in the same PowerShell session. This command uses the `$msixPackageFullName` variable created in a previous section.
 
-1. In the same PowerShell session, run the following commands:
-
-   ```powershell
-   $manifestPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') (Join-Path $msixPackageFullName AppxManifest.xml)
-   Add-AppxPackage -Path $manifestPath -DisableDevelopmentMode -Register
-   ```
+```powershell
+$manifestPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') (Join-Path $msixPackageFullName AppxManifest.xml)
+Add-AppxPackage -Path $manifestPath -DisableDevelopmentMode -Register
+```
 
 Now that your MSIX package is registered, your application should be available for use in your session. You can now open the application for testing and troubleshooting. Once you're finished, you can deregister and destage your MSIX package.
 
 ## Deregister an MSIX package
 
-Once you're finished with your MSIX package and are ready to remove it, you need to deregister it. In order to deregister an MSIX package, you need the `$msixPackageFullName` parameter again.
+Once you're finished with your MSIX package and are ready to remove it, you need to deregister it. To deregister an MSIX package, run the following command in the same PowerShell session. This command uses the `$msixPackageFullName` variable created in a previous section.
 
-1. In the same PowerShell session, run the following commands:
-
-   ```powershell
-   Remove-AppxPackage $msixPackageFullName -PreserveRoamableApplicationData
-   ```
+```powershell
+Remove-AppxPackage $msixPackageFullName -PreserveRoamableApplicationData
+```
 
 ## Destage an MSIX package
 
-To destage an MSIX package, you need the `$msixPackageFullName` parameter again.
+To destage an MSIX package, run the following commands in the same PowerShell session to get the disk's `DeviceId` parameter. This command uses the `$msixPackageFullName` variable created in a previous section.
 
-1. In the same PowerShell session, run the following commands to get the disk's `DeviceId` parameter.
+ ```powershell
+$appPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') $msixPackageFullName
+$folderInfo = Get-Item $appPath
+$deviceId = '\\?\' + $folderInfo.LinkTarget.Split('\')[0] +'\'
+Write-Output $deviceId #Save this for later
 
-   ```powershell
-   $appPath = Join-Path (Join-Path $Env:ProgramFiles 'WindowsApps') $msixPackageFullName
-   $folderInfo = Get-Item $appPath
-   $deviceId = '\\?\' + $folderInfo.LinkTarget.Split('\')[0] +'\'
-   Write-Output $deviceId #Save this for later
-
-   Remove-AppxPackage -AllUsers -Package $msixPackageFullName
-   Remove-AppxPackage -Package $msixPackageFullName
-   ```
+Remove-AppxPackage -AllUsers -Package $msixPackageFullName
+Remove-AppxPackage -Package $msixPackageFullName
+```
 
 ### Dismount the disks from the system
 
@@ -236,23 +230,19 @@ To finish the destaging process, you need to dismount the disks from the system.
 
 ### [CimFS](#tab/cimfs)
 
-To dismount a CimFS disk image:
+To dismount a CimFS disk image, run the following commands in the same PowerShell session:
 
-1. In the same PowerShell session, run the following command:
-
-   ```powershell
-   DisMount-CimDiskimage -DeviceId $deviceId
-   ```
+```powershell
+DisMount-CimDiskimage -DeviceId $deviceId
+```
 
 ### [VHDX or VHD](#tab/vhdx)
 
-To dismount a VHDX or VHD disk image:
+To dismount a VHDX or VHD disk image, run the following command in the same PowerShell session:
 
-1. In the same PowerShell session, run the following command:
-
-   ```powershell
-   DisMount-DiskImage -DevicePath $deviceId.TrimEnd('\')
-   ```
+```powershell
+DisMount-DiskImage -DevicePath $deviceId.TrimEnd('\')
+```
 
 ---
 

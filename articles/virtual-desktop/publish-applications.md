@@ -73,7 +73,7 @@ Here's how to add applications to a RemoteApp application group using the Azure 
 
 1. On the **Basics** tab, from **application source** drop-down list, select **App Attach**, **Start menu**, or **File path**. The remaining fields change depending on the application source you select.
 
-   1. For **App Attach**, complete the following information. Your MSIX package must already be [added and assigned to your host pool](app-attach-setup.md).
+   - For **App Attach**, complete the following information. Your MSIX package must already be [added and assigned to your host pool](app-attach-setup.md).
 
       | Parameter | Value/Description |
       |--|--|
@@ -83,7 +83,7 @@ Here's how to add applications to a RemoteApp application group using the Azure 
       | Display name | Enter a friendly name for the application that is to users. |
       | Description | Enter a description for the application. |
 
-   1. For **Start menu**, complete the following information:
+   - For **Start menu**, complete the following information:
 
       | Parameter | Value/Description |
       |--|--|
@@ -93,7 +93,7 @@ Here's how to add applications to a RemoteApp application group using the Azure 
       | Application path | Review the file path to the `.exe` file for the application and change it if necessary.  |
       | Require command line | Select if you need to add a specific command to run when the application launches. If you select **Yes**, enter the command in the **Command line** field. |
 
-   1. For **File path**, complete the following information:
+   - For **File path**, complete the following information:
 
       | Parameter | Value/Description |
       |--|--|
@@ -107,7 +107,7 @@ Here's how to add applications to a RemoteApp application group using the Azure 
 
 1. On the **Icon** tab, the options you see depend on the application source you selected on the **Basics** tab. With **app attach** you can use a UNC path, but for **Start Menu** and **File path** you can only use a local path.
 
-   1. If you selected **App Attach**, select **Default** to use the default icon for the application, or select **File path** to use a custom icon.
+   - If you selected **App Attach**, select **Default** to use the default icon for the application, or select **File path** to use a custom icon.
      
       For **File path**, select one of the following options:
 
@@ -115,7 +115,7 @@ Here's how to add applications to a RemoteApp application group using the Azure 
       
       - **UNC file path** to use an icon from a file share. For **Icon path**, enter the UNC path to your icon file, for example `\\MyFileShare\MyApp.ico`. You can also use a `.png` file. For **Icon index**, specify the index number for the icon you want to use. This is usually **0**.
 
-   1. If you selected **Start menu** or **File path**, for **Icon path**, enter a local path to the `.exe` file or your icon file, for example `C:\Program Files\MyApp\MyApp.exe`. For **Icon index**, specify the index number for the icon you want to use. This is usually **0**.
+   - If you selected **Start menu** or **File path**, for **Icon path**, enter a local path to the `.exe` file or your icon file, for example `C:\Program Files\MyApp\MyApp.exe`. For **Icon index**, specify the index number for the icon you want to use. This is usually **0**.
 
    Once you've completed this tab, select **Review + add**.
 
@@ -132,7 +132,7 @@ Here's how to add applications to a RemoteApp application group using the [Az.De
 
 2. Add an application to a RemoteApp application group by running the commands in one of the following examples.
 
-   1. To add an application from the **Windows Start menu** of your session hosts, run the following commands. This example publishes WordPad with its default icon and has no command line parameters.
+   - To add an application from the **Windows Start menu** of your session hosts, run the following commands. This example publishes WordPad with its default icon and has no command line parameters.
    
       ```azurepowershell
       # List the available applications in the start menu
@@ -159,7 +159,7 @@ Here's how to add applications to a RemoteApp application group using the [Az.De
       New-AzWvdApplication @parameters
       ```
 
-   1. To add an application by specifying a **file path** on your session hosts, run the following commands. This example specifies Microsoft Excel with a different icon index, and adds a command line parameter.
+   - To add an application by specifying a **file path** on your session hosts, run the following commands. This example specifies Microsoft Excel with a different icon index, and adds a command line parameter.
    
       ```azurepowershell
       $parameters = @{
@@ -177,9 +177,9 @@ Here's how to add applications to a RemoteApp application group using the [Az.De
       New-AzWvdApplication @parameters
       ```
 
-   1. To add an MSIX or Appx application from *MSIX app attach* or *app attach (preview)*, your MSIX package must already be [added and assigned to your host pool](app-attach-setup.md). Run the commands from one of the following examples:
+   - To add an MSIX or Appx application from *MSIX app attach* or *app attach (preview)*, your MSIX package must already be [added and assigned to your host pool](app-attach-setup.md). Run the commands from one of the following examples:
    
-      1. For **MSIX app attach**, get the application details and store them in a variable:
+      - For **MSIX app attach**, get the application details and store them in a variable:
       
          ```azurepowershell
          $parameters = @{
@@ -209,7 +209,7 @@ Here's how to add applications to a RemoteApp application group using the [Az.De
          New-AzWvdApplication @parameters
          ```
 
-      1. For **app attach**, get the package and application details and store them in a variable by running the following commands:
+      - For **app attach**, get the package and application details and store them in a variable by running the following commands:
       
          ```azurepowershell
          $parameters = @{

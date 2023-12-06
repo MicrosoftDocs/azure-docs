@@ -19,7 +19,7 @@ Several Azure Virtual Desktop features require you to assign Azure role-based ac
 > [!TIP]
 > You can find which role you need to assign to which service principal in the article for each feature. For a list of all the available roles specifically for Azure Virtual Desktop, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md) To learn more about Azure RBAC, see [Azure RBAC documentation](../role-based-access-control/index.yml).
 
-Depending on when you registered the *Microsoft.DesktopVirtualization* resource provider, the service principal name begins with either *Azure Virtual Desktop* or *Windows Virtual Desktop*. If you used both Azure Virtual Desktop Classic and an Azure Virtual Desktop (Azure Resource Manager), you see two apps with the same name. You can make sure you're assigning roles to the correct service principal by checking its application ID. The application ID for each service principal is in the following table:
+Depending on when you registered the *Microsoft.DesktopVirtualization* resource provider, the service principal names begin with either *Azure Virtual Desktop* or *Windows Virtual Desktop*. If you used both Azure Virtual Desktop Classic and an Azure Virtual Desktop (Azure Resource Manager), you see apps with the same name. You can make sure you're assigning roles to the correct service principal by checking its application ID. The application ID for each service principal is in the following table:
 
 | Service principal | Application ID |
 |--|--|
