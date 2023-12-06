@@ -2,11 +2,11 @@
 title: 'Azure ExpressRoute: Designing for disaster recovery'
 description: This page provides architectural recommendations for disaster recovery while using Azure ExpressRoute.
 services: expressroute
-author: duongau
+author: rambk
 ms.service: expressroute
 ms.topic: article
-ms.date: 06/15/2023
-ms.author: duau
+ms.date: 12/06/2023
+ms.author: rambala
 ---
 
 # Designing for disaster recovery with ExpressRoute private peering
@@ -22,6 +22,12 @@ However, taking Murphy's popular adage--*if anything can go wrong, it will*--int
 ## Need for redundant connectivity solution
 
 There are possibilities and instances where an ExpressRoute peering locations or an entire regional service gets degraded. The root cause for such regional wide service outage include natural calamity. Therefore it's important to plan for disaster recovery for business continuity and mission critical applications.   
+
+> [!NOTE]
+> If you are implementing a disaster recovery design in a time crunch situation, for example to ensure business continuity in the face of a natural calamity, consider the following:
+> - If you already have or you have got adequate time to configure multiple ExpressRoute circuits via different peering locations, this document will help you implement a proper disaster receovery design.
+> - If you want to quickly configure a disaster recovery design for a non-geo-redundant ExpressRoute circuit, consider [using site-to-site VPN as a backup for private peering](./use-s2s-vpn-as-backup-for-expressroute-privatepeering.md) traffic and Internet connectivity as backup for Microsoft peering traffic.
+>
 
 No matter what, whether you run your mission critical applications in an Azure region or on-premises or anywhere else, you can use another Azure region as your failover site. The following articles addresses disaster recovery from applications and frontend access perspectives:
 
