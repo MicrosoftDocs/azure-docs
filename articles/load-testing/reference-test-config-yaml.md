@@ -49,8 +49,9 @@ The following YAML snippet contains an example load test configuration.
 version: v0.1
 testId: SampleTest
 displayName: Sample Test
-testPlan: SampleTest.jmx
 description: Load test website home page
+testPlan: SampleTest.jmx
+testType: JMX
 engineInstances: 1
 subnetId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.Network/virtualNetworks/load-testing-vnet/subnets/load-testing
 configurationFiles:
@@ -58,6 +59,16 @@ configurationFiles:
 zipArtifacts:
    - bigdata.zip
 splitAllCSVs: True
+failureCriteria:
+  - avg(response_time_ms) > 300
+  - percentage(error) > 50
+  - GetCustomerDetails: avg(latency) >200
+autoStop:
+  errorPercentage: 80
+  timeWindow: 60
+secrets:
+  - name: my-secret
+    value: https://akv-contoso.vault.azure.net/secrets/MySecret/abc1234567890def12345
 keyVaultReferenceIdentity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
 ```
 
@@ -90,8 +101,9 @@ The following code snippet shows a load test configuration, which has three load
 version: v0.1
 testId: SampleTest
 displayName: Sample Test
-testPlan: SampleTest.jmx
 description: Load test website home page
+testPlan: SampleTest.jmx
+testType: JMX
 engineInstances: 1
 failureCriteria:
   - avg(response_time_ms) > 300
@@ -116,8 +128,9 @@ The following code snippet shows a load test configuration, which has three load
 version: v0.1
 testId: SampleTest
 displayName: Sample Test
-testPlan: SampleTest.jmx
 description: Load test website home page
+testPlan: SampleTest.jmx
+testType: JMX
 engineInstances: 1
 autoStop:
   errorPercentage: 80
@@ -140,8 +153,9 @@ The following code snippet shows a load test configuration, which specifies a us
 version: v0.1
 testId: SampleTest
 displayName: Sample Test
-testPlan: SampleTest.jmx
 description: Load test website home page
+testPlan: SampleTest.jmx
+testType: JMX
 engineInstances: 1
 properties:
   userPropertyFile: 'user.properties'
@@ -164,8 +178,9 @@ The following code snippet shows a load test configuration, which references a s
 version: v0.1
 testId: SampleTest
 displayName: Sample Test
-testPlan: SampleTest.jmx
 description: Load test website home page
+testPlan: SampleTest.jmx
+testType: JMX
 engineInstances: 1
 secrets:
   - name: my-secret
@@ -189,8 +204,9 @@ The following code snippet shows a load test configuration, which specifies an e
 version: v0.1
 testId: SampleTest
 displayName: Sample Test
-testPlan: SampleTest.jmx
 description: Load test website home page
+testPlan: SampleTest.jmx
+testType: JMX
 engineInstances: 1
 env:
   - name: my-variable
@@ -214,8 +230,9 @@ The following code snippet shows a load test configuration, which references a c
 version: v0.1
 testId: SampleTest
 displayName: Sample Test
-testPlan: SampleTest.jmx
 description: Load test website home page
+testPlan: SampleTest.jmx
+testType: JMX
 engineInstances: 1
 certificates:
   - name: my-certificate
