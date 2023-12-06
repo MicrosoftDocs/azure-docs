@@ -57,7 +57,7 @@ You can increase the storage size to give your database more room to grow. For e
 
 1. To increase the storage size, select the new size from the drop-down menu.
 
-   :::image type="content" source="media/how-to-scale-cluster/configure-storage.png" alt-text="Screenshot of the storage per node option in the Scale page of a cluster.":::
+   :::image type="content" source="media/how-to-scale-cluster/configure-storage.png" alt-text="Screenshot of the storage per shard option in the Scale page of a cluster.":::
 
     > [!NOTE]
     > This change is performed live to the cluster without downtime. Also, storage size can only be increased, not decreased.
@@ -66,7 +66,7 @@ You can increase the storage size to give your database more room to grow. For e
 
 ## Enable or disable high availability
 
-You can enable or disable high availability (HA) to suit your needs. HA avoids database downtime by maintaining replica nodes of every primary node in a cluster. If a primary node goes down, incoming connections are automatically redirected to its replica node, ensuring that there's minimal downtime.
+You can enable or disable high availability (HA) to suit your needs. HA avoids database downtime by maintaining replica shards of every primary shard in a cluster. If a primary shard goes down, incoming connections are automatically redirected to its replica shard, ensuring that there's minimal downtime.
 
 1. To enable or disable HA, toggle the checkbox option.
 

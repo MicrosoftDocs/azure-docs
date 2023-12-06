@@ -39,13 +39,13 @@ Automatic backups are retained in various intervals based on whether the cluster
 
 ## Design for high availability
 
-High availability (HA) should be enabled for critical Azure Cosmos DB for MongoDB vCore clusters running production workloads. In an HA-enabled cluster, each node serves as a primary along with a hot-standby node provisioned in another availability zone. Replication between the primary and the secondary node is synchronous by default. Any modification to the database is persisted on both the primary and the secondary (hot-standby) nodes before a response from the database is received.
+High availability (HA) should be enabled for critical Azure Cosmos DB for MongoDB vCore clusters running production workloads. In an HA-enabled cluster, each shard serves as a primary along with a hot-standby shard provisioned in another availability zone. Replication between the primary and the secondary shard is synchronous by default. Any modification to the database is persisted on both the primary and the secondary (hot-standby) shards before a response from the database is received.
 
-The service maintains health checks and heartbeats to each primary and secondary node of the cluster. If a primary node becomes unavailable due to a zone or regional outage, the secondary node is automatically promoted to become the new primary and a subsequent secondary node is built for the new primary. In addition, if a secondary node becomes unavailable, the service auto creates a new secondary node with a full copy of data from the primary.
+The service maintains health checks and heartbeats to each primary and secondary shard of the cluster. If a primary shard becomes unavailable due to a zone or regional outage, the secondary shard is automatically promoted to become the new primary and a subsequent secondary shard is built for the new primary. In addition, if a secondary shard becomes unavailable, the service auto creates a new secondary shard with a full copy of data from the primary.
 
-If the service triggers a failover from the primary to the secondary node, connections are seamlessly routed under the covers to the new primary node.
+If the service triggers a failover from the primary to the secondary shard, connections are seamlessly routed under the covers to the new primary shard.
 
-Synchronous replication between the primary and secondary nodes guarantees no data loss if there's a failover.
+Synchronous replication between the primary and secondary shards guarantees no data loss if there's a failover.
 
 ### Configure high availability
 

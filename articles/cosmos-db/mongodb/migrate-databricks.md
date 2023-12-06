@@ -132,7 +132,7 @@ df.write.format("mongo").mode("append").option("uri", targetConnectionString).op
 
 The migration performance can be adjusted through these configurations:
 
-- **Number of workers and cores in the Spark cluster**: More workers mean more compute nodes to execute tasks.
+- **Number of workers and cores in the Spark cluster**: More workers mean more compute shards to execute tasks.
 
 - **maxBatchSize**: The `maxBatchSize` value controls the rate at which data is saved to the target Azure Cosmos DB collection. However, if the maxBatchSize is too high for the collection throughput, it can cause [rate limiting](prevent-rate-limiting-errors.md) errors.
 
