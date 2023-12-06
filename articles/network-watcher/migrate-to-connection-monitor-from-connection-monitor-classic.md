@@ -52,7 +52,7 @@ The following are key benefits of the new Connection monitor:
 
 ## Connection monitor (classic) vs new Connection monitor
 
-The following table compares Network performance monitor and the new Connection monitor:
+The following table compares Connection monitor (classic) and the new Connection monitor:
 
 | Feature | Connection monitor (classic) | Connection monitor |
 | ------- | --------------------------- | ------------------ |
