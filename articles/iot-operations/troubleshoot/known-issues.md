@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 12/06/2023
 ---
 
 # Known issues: Azure IoT Operations
@@ -21,6 +21,10 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - Uninstalling K3s: When you uninstall k3s on Ubuntu by using the `/usr/local/bin/k3s-uninstall.sh` script, you may encounter an issue where the script gets stuck on unmounting the NFS pod. A workaround for this issue is to run the following command before you run the uninstall script: `sudo systemctl stop k3s`.
 
+## Azure Data Processor (preview)
+
+- Some clusters that have slow Kubernetes API calls may result in selftest ping failures and "Status {Failed}. Probe failed: Ping: 1/2" messages from az iot ops check
+
 ## Azure IoT MQ (preview)
 
 - You can only access the default deployment by using the cluster IP, TLS, and a service account token. Clients outside the cluster need extra configuration before they can connect.
@@ -29,47 +33,9 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - You can't configure the size of a disk-backed buffer unless your chosen storage class supports it.
 
-- Resource synchronization isn't currently supported: updating a custom resource in the cluster doesn't reflect to Azure.
-
-- QoS2 isn't currently available.
-
-- Full persistence support isn't currently available.
-
-- There are known intermittent issues with IoT MQ's MQTT bridge connecting to Azure Event Grid.
-
-- It's possible for an IoT MQ pod to fail to reconnect if it loses connection to other pods in the cluster. You might also see errors such as `invalid sat: [invalid bearer token, service account token has expired]`. If you notice this happening, run the following command, to manually restart the affected pods:
-
-    ```bash
-    kubectl -n azure-iot-operations delete pods <pod-name>
-    ```
-
 - Even though IoT MQ's [diagnostic service](../monitor/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
 
-- You can't currently access these [observability metrics](../reference/observability-metrics-mq.md) for IoT MQ.
-
-    - aio_mq_backend_replicas
-    - aio_mq_backend_replicas_current
-    - aio_mq_frontend_replicas
-    - aio_mq_frontend_replicas_current
-
-## Azure IoT Data Processor (preview)
-
-If edits you make to a pipeline aren't applied to messages, run the following commands to propagate the changes:
-
-```bash
-kubectl rollout restart deployment aio-dp-operator -n azure-iot-operations 
-
-kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations 
-
-kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
-```
-
-It's possible a momentary loss of communication with IoT MQ broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
-
-```bash
-kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
-kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
-```
+- When implementing Azure Event Grid and Kafka, you may encounter timeout errors in the logs. Despite this, the connector will continue to function and forward messages
 
 ## Layered Network Management (preview)
 
@@ -85,13 +51,7 @@ kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 
 ## OPC UA Broker (preview)
 
-- Users are unable to add assets when there's more than one _AssetEndpointProfile_ for the OPC UA Connector. Resolution: You need to recreate the cluster.
-- If more than one transport authentication certificate is available, the OPC UA Broker might exhibit random behavior. Resolution: Provide only one certificate for transport authentication.
-- When you adjust the publishing interval in the Digital Operations Experience portal, the OPC UA Broker continues to use the default settings.
-- When you delete an asset in the Digital Operations Experience portal, the asset isn't removed from the cluster. Resolution: manually delete the retained messages associated with the asset from MQ and then restart OPC UA Connector pod (opc.tcp-1).
-- Configuration of OPC UA user authentication with an X.509 user certificate isn't currently supported.
-- Configuration of OPC UA issuer and trust lists isn't yet supported.
-- Support for QoS1 isn't available.
+- All AssetEndpointProfiles in the cluster have to be configured with the same transport authentication certificate, otherwise the OPC UA Broker might exhibit random behavior. To avoid this issue when using transport authentication, configure all asset endpoints with the same thumbprint for the transport authentication certificate in the Azure IoT Operations portal.
 
 ## OPC PLC simulator
 
