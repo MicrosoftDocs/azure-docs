@@ -29,5 +29,6 @@ Oracle Database@Azure is an Oracle Cloud Database service that runs Oracle Datab
 Oracle Database@Azure offers [Oracle Exadata Database Service on Dedicated Infrastructure](https://docs.oracle.com/en/engineered-systems/exadata-cloud-service/ecscm/index.html). 
 
 ## Next steps 
-
-Oracle solutions On Azure 
+- [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
+- [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
+- [Oracle Database@Azure support information](oracle-database-support.md)

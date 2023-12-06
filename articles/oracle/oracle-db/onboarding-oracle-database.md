@@ -66,3 +66,8 @@ Optionally, you can create identity federation for your OCI account so that user
 
 For more information, see [Activate Your Order from Your Welcome Email](https://docs.oracle.com/iaas/Content/GSG/Tasks/buysubscription.htm#activate_order) in the Oracle Cloud documentation.
 
+## Next steps
+- [Overview - Oracle Database@Azure](database-overview.md)
+- [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
+- [Oracle Database@Azure support information](oracle-database-support.md)
+

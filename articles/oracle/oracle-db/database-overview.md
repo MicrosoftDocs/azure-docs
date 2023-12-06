@@ -31,7 +31,7 @@ Database and application developers can interact, manage, and monitor their Orac
 
 ## Purchasing Oracle Database@Azure 
 
-To purchase the Oracle Database@Azure offer contact your Microsoft representative or [Oracle sales team](https://www.oracle.com/corporate/contact/) or your Oracle sales representative for a sale offer. Oracle Sales team creates aPrivate Offer in the Azure Marketplace to set terms and offer custom pricing. 
+To purchase the Oracle Database@Azure offer, contact your Microsoft representative, the [Oracle sales team](https://www.oracle.com/corporate/contact/), or your Oracle sales representative. The Oracle Sales team creates a private offer in the Azure Marketplace to set terms and offer custom pricing. 
 
 Current Azure customers can use a Microsoft Azure Consumption Commitment (MACC) to pay for Oracle Database@Azure. Existing Oracle Database software customers can use the Bring Your Own License (BYOL) option or Unlimited License Agreements (ULAs). Billing and payment for the service is done through Azure. On your regular Microsoft Azure bills, you see charges for your Oracle Database@Azure service alongside charges for your other Azure services. 
 
@@ -46,3 +46,6 @@ Oracle Database@Azure is available in the locations listed on this page. Oracle 
 |East US (Virginia)|
 
 ## Next steps 
+- [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
+- [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
+- [Oracle Database@Azure support information](oracle-database-support.md)

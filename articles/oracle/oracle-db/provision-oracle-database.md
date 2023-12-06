@@ -159,3 +159,8 @@ Consent Tab of the Create Oracle Exadata Virtual Machine Cluster Flow.
 ## Troubleshooting
 
 Use the information in this section to resolve common errors and provisioning issues in the Oracle Database@Azure. The issues covered in this guide don't cover general issues related to Oracle Database@Azure configuration, settings, and account setup. For that troubleshooting guide, see the [xref-here](http://link-to-be-determined.com) guide.
+
+## Next steps
+- [Overview - Oracle Database@Azure](database-overview.md)
+- [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
+- [Oracle Database@Azure support information](oracle-database-support.md)
