@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 11/14/2023
+ms.date: 12/6/2023
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -111,7 +111,7 @@ You can use the preview extension bundle by adding or replacing the following co
 }
 ```
 
-You can view preview functionality on the [Extensions Bundles Preview release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 > [!NOTE]
 > Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
@@ -162,7 +162,7 @@ You can use the preview extension bundle by adding or replacing the following co
 }
 ```
 
-You can view preview functionality on the [Extensions Bundles Preview release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 > [!NOTE]
 > Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
@@ -207,7 +207,7 @@ You can use the preview extension bundle by adding or replacing the following co
 }
 ```
 
-You can view preview functionality on the [Extensions Bundles Preview release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 > [!NOTE]
 > Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
