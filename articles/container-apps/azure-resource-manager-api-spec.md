@@ -27,11 +27,16 @@ To learn more about the differences between API versions, see [Microsoft.App cha
 
 ### Updating API versions
 
-To use a specific API version in ARM or Bicep, update the version referenced in your templates. To use the latest API version in the Azure CLI, update the Azure Container Apps extension by running the following command:
+To use a specific API version in ARM or Bicep, update the version referenced in your templates. To use the latest API version in Azure CLI or Azure PowerShell, update them to the latest version.
+
+Update Azure CLI and the Azure Container Apps extension by running the following commands:
 
 ```bash
+az upgrade
 az extension add -n containerapp --upgrade
 ```
+
+To update Azure PowerShell, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 To programmatically manage Azure Container Apps with the latest API version, use the latest versions of the management SDK:
 
