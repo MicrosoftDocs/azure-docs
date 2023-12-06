@@ -10,7 +10,7 @@ ms.date: 11/02/2023
 
 ## Access private virtual network
 
-With Microsoft.Resources/deploymentScripts version 2023-08-01, you can run deployment scripts in private networks with some additional configurations.
+With Microsoft.Resources/deploymentScripts version `2023-08-01`, you can run deployment scripts in private networks with some additional configurations.
 
 - Create a user-assigned managed identity, and specify it in the `identity` property. To assign the identity, see [Identity](#identity).
 - Create a storage account in the private network, and specify the deployment script to use the existing storage account. To specify an existing storage account, see [Use existing storage account](#use-existing-storage-account). Some additional configuration is required for the storage account.

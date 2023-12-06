@@ -9,8 +9,11 @@ ms.date: 11/02/2023
 # Use deployment scripts in Bicep
 
 *** jgao - verify the samples using the latest API version
+
 *** jgao - verify the samples using the latest powershell and cli versions.
+
 *** jgao - provide the matching powershell and cli samples
+
 *** jgao - incorporate ARM samples
 
 With the [`deploymentScripts`](/azure/templates/microsoft.resources/deploymentscripts) resource, users can execute scripts in Bicep deployments and review execution results.
@@ -45,7 +48,7 @@ If you would rather learn about deployment scripts through step-by-step guidance
 
 ## Configure the minimum permissions
 
-For deployment script API version 2020-10-01 or later, there are two principals involved in deployment script execution:
+For deployment script API version `2020-10-01` or later, there are two principals involved in deployment script execution:
 
 - **Deployment principal** (the principal used to deploy the Bicep file): this principal is used to create underlying resources required for the deployment script resource to execute—a storage account and an Azure container instance. To configure the least-privilege permissions, assign a custom role with the following properties to the deployment principal:
 
@@ -84,28 +87,51 @@ Currently, there is a not a built-in role for deployment script.
 
 ## Create deployment scripts
 
-The following Bicep file is a simple deployment script example. The script takes one string parameter, and creates another string.
+The following Bicep file demonstrates a simple deployment script. The script takes one string parameter, and creates another string.
+
+# [CLI](#tab/CLI)
 
 ```bicep
 param name string = '\\"John Dole\\"'
 param location string = resourceGroup().location
 
-resource runPowerShellInlineWithOutput 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'simplePowershellInline'
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'simpleCliInline'
+  location: location
+  kind: 'AzureCLI'
+  properties: {
+    azCliVersion: '2.40.0'
+    arguments: name
+    scriptContent: 'output="Hello $1"; echo $output'
+    retentionInterval: 'P1D'
+  }
+}
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```bicep
+param name string = '\\"John Dole\\"'
+param location string = resourceGroup().location
+
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'simplePowerShellInline'
   location: location
   kind: 'AzurePowerShell'
   properties: {
     azPowerShellVersion: '10.0'
+    arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
       $output = "Hello {0}" -f $name
       Write-Output "Output is: '$output'."
     '''
-    arguments: '-name ${name}'
     retentionInterval: 'P1D'
   }
 }
 ```
+
+---
 
 For more information about creating deployment scripts, see [Create deployments scripts](./deployment-script-develop.md).
 
@@ -124,9 +150,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Configure development environment
 
-You can use a preconfigured container image as your deployment script development environment. For more information, see [Configure development environment for deployment scripts](../templates/deployment-script-template-configure-dev.md).
-
-After the script is tested successfully, you can use it as a deployment script in your Bicep files.
+You have the option to utilize an Azure container instance or Docker for developing your deployment script. Once the script passes successful testing, integrate it as your deployment script within your Bicep files. For more information, see [Configure development environment for deployment scripts](../templates/deployment-script-template-configure-dev.md).
 
 ## Create deployment script
 
@@ -152,7 +176,7 @@ The identity that your deployment script uses needs to be authorized to work wit
 
 ## Access private virtual network
 
-See [Access private virtual network](./deployment-script-vnet.md).
+You can run deployment scripts in private networks with some additional configurations. For more information, see [Access private virtual network](./deployment-script-vnet.md).
 
 ## Next steps
 

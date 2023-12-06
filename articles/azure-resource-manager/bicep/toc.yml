@@ -400,7 +400,7 @@
       - name: Troubleshoot deployment script
         href: deployment-script-troubleshoot.md
       - name: Access private virtual networks
-        href: deployment-script-bicep-vnet.md
+        href: deployment-script-vnet.md
     - name: Template specs
       href: template-specs.md
     - name: Deployment stacks

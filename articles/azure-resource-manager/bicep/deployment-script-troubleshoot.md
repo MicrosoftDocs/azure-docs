@@ -13,7 +13,7 @@ ms.date: 11/02/2023
 
 ## Monitor and troubleshoot deployment scripts
 
-The script service creates two supporting resources, a [storage account](../../storage/common/storage-account-overview.md) and a [container instance](../../container-instances/container-instances-overview.md), for script execution (unless you specify an existing storage account and/or an existing container instance). If these supporting resources are automatically created by the script service, both resources have the `azscripts` suffix in the resource names.
+The script service creates two supporting resources, a [storage account](../../storage/common/storage-account-overview.md) and a [container instance](../../container-instances/container-instances-overview.md), for script execution (unless you specify an existing storage account and/or an existing container instance). If these supporting resources are automatically created by the script service, both resources have the `azscripts` suffix in the resource names. The other way to identify the the supporting resources is by using tags. For more information, see [tags](./deployment-script-develop.md#syntax).
 
 ![Resource Manager template deployment script resource names](./media/deployment-script-bicep/resource-manager-template-deployment-script-resources.png)
 
