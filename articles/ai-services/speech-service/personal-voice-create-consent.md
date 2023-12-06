@@ -18,6 +18,16 @@ With the personal voice feature, it's required that every voice be created with 
 
 To add user consent to the personal voice project, you get the prerecorded consent audio file from a publicly accessible URL (`Consents_Create`) or upload the audio file (`Consents_Post`). In this article, you add consent from a URL. 
 
+## Consent statement
+
+You need an audio recording of the user speaking the consent statement.
+
+You can get the consent statement text for each locale from the text to speech GitHub repository. See [SpeakerAuthorization.txt](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/English%20(United%20States)_en-US/SpeakerAuthorization.txt) for the consent statement for the `en-US` locale:
+
+```
+"I  [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice."
+```
+
 ## Add consent from a URL
 
 To add consent to a personal voice project from the URL of an audio file, use the `Consents_Create` operation of the custom voice API. Construct the request body according to the following instructions:
