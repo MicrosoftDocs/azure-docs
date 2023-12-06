@@ -368,7 +368,7 @@
     - name: Enable CORS for custom connector
       displayName: Power Platform
       href: enable-cors-power-platform.md
-  - name: Customize the developer portal
+  - name: Manage and customize the developer portal
     items:
     - name: Understand the developer portal
       href: developer-portal-overview.md
