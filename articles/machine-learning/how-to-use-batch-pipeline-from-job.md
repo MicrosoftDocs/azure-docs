@@ -10,11 +10,12 @@ ms.author: fasantia
 reviewer: msakande
 ms.reviewer: mopeakande
 ms.topic: how-to
-ms.date: 05/12/2023
 ms.custom:
   - how-to
   - devplatv2
   - ignite-2023
+ms.date: 11/15/2023
+
 ---
 
 # Deploy existing pipeline jobs to batch endpoints

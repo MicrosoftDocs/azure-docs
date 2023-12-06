@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 11/20/2023
 ---
 # PostgreSQL extensions in Azure Cosmos DB for PostgreSQL
 
@@ -57,7 +57,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object maintenance. | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Provides a data type for hierarchical tree-like structures. | 1.1 | 1.1 | 1.2 | 1.2 | 1.2 | 1.2 |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Data type for representing line segments or floating-point intervals. | 1.3 | 1.3 | 1.3 | 1.4 | 1.4 | 1.4 |
-> | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. | 1.4.0 | 1.4.0 | 1.4.0 | 1.4.0 | 1.4.0 | 1.4.0 |
+> | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 |
 > | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. | 2.6.0 | 2.6.0 | 2.6.0 | 2.6.0 | 2.6.0 | 2.6.0 |
 
 ### Full-text search extensions
@@ -81,7 +81,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | Integer aggregator and enumerator (obsolete). | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Provides functions and operators for manipulating null-free arrays of integers. | 1.2 | 1.2 | 1.3 | 1.5 | 1.5 | 1.5 |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Functions for tracking last modification time. | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
-> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.7.4 | 4.7.4 | 4.7.4 | 4.7.4 | 4.7.4 | 4.7.4 |
+> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.7.4 | 4.7.4 | 4.7.4 | 5.0.0 | 5.0.0 | 5.0.0 |
 > | [pg\_surgery](https://www.postgresql.org/docs/current/pgsurgery.html) | Functions to perform surgery on a damaged relation. |     |     |     | 1.0 | 1.0 | 1.0 |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 | 1.6 |
 > | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Provides cryptographic functions. | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 |
@@ -114,7 +114,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > |---|---|---|---|---|---|
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Functions for verifying relation integrity. | 1.1 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 |
 > | [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. See the "dblink and postgres_fdw" section for information about this extension. | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 |
-> | [old\_snapshot](https://www.postgresql.org/docs/current/oldsnapshot.html) | Allows inspection of the server state that is used to implement old_snapshot_threshold. |     |     |     | 1.0 | 1.0 | 1.0 |
+> | [old\_snapshot](https://www.postgresql.org/docs/current/oldsnapshot.html) | Allows inspection of the server state that is used to implement old_snapshot_threshold. |     |     |     | 1.0 | 1.0 |     |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspect the contents of database pages at a low level. | 1.7 | 1.7 | 1.8 | 1.9 | 1.11 | 1.12 |
 > | [pg\_azure\_storage](howto-ingest-azure-blob-storage.md) | Azure integration for PostgreSQL. | | | 1.3 | 1.3 | 1.3 | 1.3 |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.4 |
@@ -135,7 +135,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** | **PG 16** |
 > |---|---|---|---|---|---|
-> [pgvector](https://github.com/pgvector/pgvector#installation-notes) | Open-source vector similarity search for Postgres | 0.5.0 | 0.5.0 | 0.5.0 | 0.5.0 | 0.5.0 | 0.5.0 |
+> [pgvector](https://github.com/pgvector/pgvector#installation-notes) | Open-source vector similarity search for Postgres | 0.5.1 | 0.5.1 | 0.5.1 | 0.5.1 | 0.5.1 | 0.5.1 |
 
 ### PostGIS extensions
 

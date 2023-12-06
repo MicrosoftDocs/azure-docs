@@ -1,13 +1,14 @@
 ---
 title: Configure core MQTT broker settings
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Configure core MQTT broker settings for high availability, scale, memory usage, and disk-backed message buffer behavior.
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
+ms.subservice: mq
 ms.custom:
   - ignite-2023
-ms.date: 10/27/2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---
@@ -138,6 +139,57 @@ Then, run the following command to deploy the broker:
 
 ```bash
 kubectl apply -f <path-to-yaml-file>
+```
+
+## Configure MQ broker diagnostic settings
+
+Diagnostic settings allow you to enable metrics and tracing for MQ broker.
+
+- Metrics provide information about the resource utilization and throughput of MQ broker.
+- Tracing provides detailed information about the requests and responses handled by MQ broker.
+
+To enable these features, first [Configure the MQ diagnostic service settings](../monitor/howto-configure-diagnostics.md).
+
+To override default diagnostic settings for MQ broker, update the `spec.diagnostics` section in  the Broker CR. You also need to specify the diagnostic service endpoint, which is the address of the service that collects and stores the metrics and traces. The default endpoint is `aio-mq-diagnostics-service :9700`.
+
+You can also adjust the log level of MQ broker to control the amount and detail of information that is logged. The log level can be set for different components of MQ broker. The default log level is `info`.
+
+If you don't specify settings, default values are used. The following table shows the properties of the broker diagnostic settings and all default values.
+
+| Name                                       | Required | Format           | Default| Description                                              |
+| ------------------------------------------ | -------- | ---------------- | -------|----------------------------------------------------------|
+| `brokerRef`                                | true    | String            |N/A     |The associated broker                                     |
+| `diagnosticServiceEndpoint`                | true    | String            |N/A     |An endpoint to send metrics/ traces to                    |
+| `enableMetrics`                            | false   | Boolean           |true    |Enable or disable broker metrics                          |
+| `enableTracing`                            | false   | Boolean           |true    |Enable or disable tracing                                 |
+| `logLevel`                                 | false   | String            | `info` |Log level. `trace`, `debug`, `info`, `warn`, or `error`   |
+| `enableSelfCheck`                          | false   | Boolean           |true    |Component that periodically probes the health of broker   |
+| `enableSelfTracing`                        | false   | Boolean           |true    |Automatically traces incoming messages at a frequency of 1 every `selfTraceFrequencySeconds`  |
+| `logFormat`                                | false   | String            | `text` |Log format in `json` or `text`                         |
+| `metricUpdateFrequencySeconds`             | false   | Integer           | 30     |The frequency to send metrics to diagnostics service endpoint, in seconds |
+| `selfCheckFrequencySeconds`                | false   | Integer           | 30     |How often the probe sends test messages|
+| `selfCheckTimeoutSeconds`                  | false   | Integer           |  15    |Timeout interval for probe messages  |
+| `selfTraceFrequencySeconds`                | false   | Integer           |30      |How often to automatically trace external messages if `enableSelfTracing` is true |  
+| `spanChannelCapacity`                      | false   | Integer           |1000    |Maximum number of spans that selftest can store before sending to the diagnostics service     |  
+| `probeImage`                               | true    | String            |mcr.microsoft.com/azureiotoperations/diagnostics-probe:0.1.0-preview | Image used for self check |
+
+
+Here's an example of a Broker CR with metrics and tracing enabled and self-check disabled:
+
+```yml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: Broker
+metadata:
+  name: broker
+  namespace: azure-iot-operations
+spec:
+  mode: auto
+  diagnostics:
+    diagnosticServiceEndpoint: diagnosticservices.mq.iotoperations:9700
+    enableMetrics: true  
+    enableTracing: true
+    enableSelfCheck: false
+    logLevel: debug,hyper=off,kube_client=off,tower=off,conhash=off,h2=off
 ```
 
 ## Configure encryption of internal traffic

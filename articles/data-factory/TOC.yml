@@ -390,7 +390,7 @@ items:
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
       displayName: timeout
-    - name: Azure Cognitive Search
+    - name: Azure AI Search
       href: connector-azure-search.md
     - name: Azure Cosmos DB analytical store
       href: connector-azure-cosmos-analytical-store.md

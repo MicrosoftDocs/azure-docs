@@ -4,8 +4,7 @@ description: Learn how to use cost analysis to surface granular cost allocation 
 author: nickomang
 ms.author: nickoman
 ms.service: azure-kubernetes-service
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/06/2023
 
@@ -48,7 +47,7 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
 
 * The `ClusterCostAnalysis` feature flag must be registered on your subscription.
 
-* Kubernetes cost views are available only for the following subscription agreement types:
+* Kubernetes cost views are available only for the following Microsoft Azure Offer types. For more information on offer types, see [Supported Microsoft Azure offers](/azure/cost-management-billing/costs/understand-cost-mgt-data#supported-microsoft-azure-offers). 
     * Enterprise Agreement
     * Microsoft Customer Agreement
 
@@ -131,4 +130,6 @@ See the following guide to troubleshoot [AKS cost analysis add-on issues](/troub
 
 <!-- LINKS -->
 [az-extension-add]: /cli/azure/extension#az-extension-add
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az_feature_show
 [az-extension-update]: /cli/azure/extension#az-extension-update

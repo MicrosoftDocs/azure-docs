@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Azure management client library for Python"
 description: In this quickstart, get started with the Azure management client library for Python.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services

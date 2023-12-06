@@ -1,12 +1,12 @@
 ---
 title: Sub journeys in Azure Active Directory B2C  
 description: Specify the sub journeys element of a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 02/09/2022
 ms.author: kengaderdus

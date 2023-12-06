@@ -5,8 +5,7 @@ author: dominicbetts
 ms.author: dobett
 # ms.subservice: orchestrator
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 11/07/2023
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
@@ -25,7 +24,6 @@ An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure Io
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- At least **Contributor** role permissions in your subscription plus the **Microsoft.Authorization/roleAssignments/write** permission.
 - [Azure CLI version 2.42.0 or newer installed](/cli/azure/install-azure-cli) on your development machine.
 - Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
 

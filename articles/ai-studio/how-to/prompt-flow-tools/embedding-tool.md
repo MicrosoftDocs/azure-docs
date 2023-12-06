@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: This article introduces the Embedding tool for flows in Azure AI Studio.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
@@ -58,3 +58,4 @@ The output is a list of vector representations for the input text. For example:
 ## Next steps
 
 - [Learn more about how to create a flow](../flow-develop.md)
+

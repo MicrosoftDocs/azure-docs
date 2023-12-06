@@ -2,7 +2,7 @@
 title: What's new in Azure AI Vision?
 titleSuffix: Azure AI services
 description: Stay up to date on recent releases and updates to Azure AI Vision.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
@@ -19,6 +19,12 @@ ms.author: pafarley
 Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
 ## November 2023
+
+## Analyze Image 4.0 GA
+
+The Analyze 4.0 REST API is now in General Availability. Follow the [Analyze Image 4.0 quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
+
+The other features of Image Analysis, such as model customization, background removal, and multi-modal embeddings, remain in public preview. 
 
 ### Face client-side SDK for liveness detection
 

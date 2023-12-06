@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: This article introduces the Vector DB Lookup tool for flows in Azure AI Studio.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
@@ -221,3 +221,6 @@ For Weaviate, the following fields are populated:
 ## Next steps
 
 - [Learn more about how to create a flow](../flow-develop.md)
+
+
+

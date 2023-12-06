@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: This tutorial guides you through using Azure AI Studio with a screen reader.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: tutorial
@@ -139,4 +139,5 @@ If you're a government, commercial, or enterprise customer, please contact the e
 
 ## Next steps
 * Learn how you can build generative AI applications in the [Azure AI Studio](../what-is-ai-studio.md).
-* Get answers to frequently asked questions in the [Azure AI FAQ article](../what-is-ai-studio.md).
+* Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml).
+

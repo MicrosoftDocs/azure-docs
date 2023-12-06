@@ -1,6 +1,6 @@
 ---
 titleSuffix: Azure OpenAI
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
@@ -33,7 +33,7 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with crede
 
     1. For Azure OpenAI to access your storage account, you will need to turn on [Cross-origin resource sharing (CORS)](https://go.microsoft.com/fwlink/?linkid=2237228). If CORS isn't already turned on for the Azure Blob storage resource, select **Turn on CORS**. 
 
-    1. Select your Azure Cognitive Search resource, and select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
+    1. Select your Azure AI Search resource, and select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
 
     :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 

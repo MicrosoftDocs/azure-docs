@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: This article introduces Azure AI capabilities in Azure AI Studio.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
@@ -31,11 +31,14 @@ On the **Explore** page, select a capability from the left menu to learn more an
 
 [Azure AI Speech](/azure/ai-services/speech-service/) provides speech to text and text to speech capabilities using a Speech resource. You can transcribe speech to text with high accuracy, produce natural-sounding text to speech voices, translate spoken audio, and use speaker recognition during conversations.
 
+:::image type="content" source="../media/explore/explore-speech.png" alt-text="Screenshot of speech capability cards in the Azure AI Studio explore tab." lightbox="../media/explore/explore-speech.png":::
+
 You can try the following capabilities of Azure AI Speech in AI Studio:
 - Real-time speech to text: Quickly test live transcription capabilities on your own audio without writing any code.
-- Custom voice: Use your own audio recordings to create a distinct, one-of-a-kind voice for your text to speech apps.
+- Custom Neural Voice: Use your own audio recordings to create a distinct, one-of-a-kind voice for your text to speech apps. For more information, see the [Custom Neural Voice overview](../../ai-services/speech-service/custom-neural-voice.md) in the Azure AI Speech documentation. The steps to create a Custom Neural Voice are similar in Azure AI Studio and the [Speech Studio](https://aka.ms/speechstudio/).
 
-:::image type="content" source="../media/explore/explore-speech.png" alt-text="Screenshot of speech capability cards in the Azure AI Studio explore tab." lightbox="../media/explore/explore-speech.png":::
+> [!TIP]
+> You can also try speech to text and text to speech capabilities in the Azure AI Studio playground. For more information, see [Hear and speak with chat in the playground](../quickstarts/hear-speak-playground.md).
 
 Explore more Speech capabilities in the [Speech Studio](https://aka.ms/speechstudio/) and the [Azure AI Speech documentation](/azure/ai-services/speech-service/).
 

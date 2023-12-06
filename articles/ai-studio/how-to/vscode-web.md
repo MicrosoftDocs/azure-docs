@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: This article provides instructions on how to get started with Azure AI projects in VS Code (Web).
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
@@ -67,6 +67,7 @@ To get started with the AI SDK, we recommend the [aistudio-copilot-sample repo](
     git clone https://github.com/azure/aistudio-copilot-sample
     ```
 
+1. If you have existing notebooks or code files, you can import `import azure.ai.generative` and use intellisense to browse capabilities included in that package
 
 ### The Azure AI CLI
 

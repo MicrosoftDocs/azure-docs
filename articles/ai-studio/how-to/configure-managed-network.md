@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Learn how to configure a managed network for Azure AI
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
@@ -16,14 +16,14 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-We have two network isolation aspects. One is the network isolation to access an Azure AI resource. Another is the network isolation of computing resources in your Azure AI and Azure AI projects such as Compute Instance, Serverless and Managed Online Endpoint. This document explains the latter highlighted in the diagram. You can use Azure AI built-in network isolation to protect your computing resources.
+We have two network isolation aspects. One is the network isolation to access an Azure AI. Another is the network isolation of computing resources in your Azure AI and Azure AI projects such as Compute Instance, Serverless and Managed Online Endpoint. This document explains the latter highlighted in the diagram. You can use Azure AI built-in network isolation to protect your computing resources.
 
 :::image type="content" source="../media/how-to/network/azure-ai-network-outbound.png" alt-text="Diagram of Azure AI network isolation." lightbox="../media/how-to/network/azure-ai-network-outbound.png":::
 
 You need to configure following network isolation configurations.
 
 - Choose network isolation mode. You have two options: allow internet outbound mode or allow only approved outbound mode.
-- Create private endpoint outbound rules to your private Azure AI services, Azure AI Search and any other private Azure resources you need to access.
+- Create private endpoint outbound rules to your private Azure resources. Note that private Azure AI Services and Azure AI Search are not supported yet. 
 - If you use Visual Studio Code integration with allow only approved outbound mode, create FQDN outbound rules described [here](#scenario-use-visual-studio-code).
 - If you use HuggingFace models in Models with allow only approved outbound mode, create FQDN outbound rules described [here](#scenario-use-huggingface-models).
 
@@ -37,10 +37,11 @@ There are three different configuration modes for outbound traffic from the mana
 | ----- | ----- | ----- |
 | Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | You want unrestricted access to machine learning resources on the internet, such as python packages or pretrained models.<sup>1</sup> |
 | Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | * You want to minimize the risk of data exfiltration, but you need to prepare all required machine learning artifacts in your private environment.</br>* You want to configure outbound access to an approved list of services, service tags, or FQDNs. |
-| Disabled | Inbound and outbound traffic isn't restricted or you're using your own Azure Virtual Network to protect resources. | You want public inbound and outbound from the Azure AI, or you're handling network isolation with your own Azure VNet. |
+| Disabled | Inbound and outbound traffic isn't restricted. | You want public inbound and outbound from the Azure AI. |
 
 <sup>1</sup> You can use outbound rules with _allow only approved outbound_ mode to achieve the same result as using allow internet outbound. The differences are:
 
+* Always use private endpoints to access Azure resources. 
 * You must add rules for each outbound connection you need to allow.
 * Adding FQDN outbound rules increase your costs as this rule type uses Azure Firewall.
 * The default rules for _allow only approved outbound_ are designed to minimize the risk of data exfiltration. Any outbound rules you add might increase your risk.
@@ -65,7 +66,7 @@ The following diagram shows a managed VNet configured to __allow only approved o
 
 # [Azure CLI](#tab/azure-cli)
 
-Not available.
+Not available in AI CLI, but you can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-internet-outbound). Use your Azure AI name as workspace name in Azure Machine Learning CLI.
 
 # [Python SDK](#tab/python)
 
@@ -112,7 +113,7 @@ Not available.
 
 # [Azure CLI](#tab/azure-cli)
 
-Not available.
+Not available in AI CLI, but you can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-only-approved-outbound). Use your Azure AI name as workspace name in Azure Machine Learning CLI.
 
 # [Python SDK](#tab/python)
 
@@ -177,7 +178,7 @@ Not available.
 
 # [Azure CLI](#tab/azure-cli)
 
-Not available.
+Not available in AI CLI, but you can use [Azure Machine Learning CLI](../../machine-learning/how-to-managed-network.md#manage-outbound-rules). Use your Azure AI name as workspace name in Azure Machine Learning CLI.
 
 # [Python SDK](#tab/python)
 
@@ -208,10 +209,10 @@ __Private endpoints__:
 __Outbound__ service tag rules:
 
 * `AzureActiveDirectory`
-* `Azure AI`
+* `Azure Machine Learning`
 * `BatchNodeManagement.region`
 * `AzureResourceManager`
-* `AzureFrontDoor`
+* `AzureFrontDoor.firstparty`
 * `MicrosoftContainerRegistry`
 * `AzureMonitor`
 
@@ -257,6 +258,9 @@ If you plan to use __Visual Studio Code__ with Azure AI, add outbound _FQDN_ rul
 * `update.code.visualstudio.com`
 * `*.vo.msecnd.net`
 * `marketplace.visualstudio.com`
+* `ghcr.io`
+* `pkg-containers.githubusercontent.com`
+* `github.com`
 
 ### Scenario: Use HuggingFace models
 
@@ -299,26 +303,23 @@ When you create a private endpoint, you provide the _resource type_ and _subreso
 
 When you create a private endpoint for Azure AI dependency resources, such as Azure Storage, Azure Container Registry, and Azure Key Vault, the resource can be in a different Azure subscription. However, the resource must be in the same tenant as the Azure AI.
 
+A private endpoint is automatically created for a connection if the target resource is an Azure resource listed above. A valid target ID is expected for the private endpoint. A valid target ID for the connection can be the ARM ID of a parent resource. The target ID is also expected in the target of the connection or in `metadata.resourceid`. For more on connections, see [How to add a new connection in Azure AI Studio](connections-add.md).
+
 ## Pricing
 
 The Azure AI managed VNet feature is free. However, you're charged for the following resources that are used by the managed VNet:
 
 * Azure Private Link - Private endpoints used to secure communications between the managed VNet and Azure resources relies on Azure Private Link. For more information on pricing, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
-* FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. 
+* FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. Azure Firewall SKU is standard. Azure Firewall is provisioned per Azure AI.
 
     > [!IMPORTANT]
     > The firewall isn't created until you add an outbound FQDN rule. If you don't use FQDN rules, you will not be charged for Azure Firewall. For more information on pricing, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ## Limitations
 
+* Azure AI services provisioned with Azure AI and Azure AI Search attached with Azure AI should be public.
+* The "Add your data" feature in the Azure AI Studio playground doesn't support private storage account.
 * Once you enable managed VNet isolation of your Azure AI, you can't disable it.
 * Managed VNet uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
 * The managed VNet is deleted when the Azure AI is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
-
-### Migration of compute resources
-
-If you have an existing Azure AI and want to enable managed VNet for it, there's currently no supported migration path for existing manged compute resources. You'll need to delete all existing managed compute resources and recreate them after enabling the managed VNet. The following list contains the compute resources that must be deleted and recreated:
-
-* Compute instance
-* Managed online endpoints

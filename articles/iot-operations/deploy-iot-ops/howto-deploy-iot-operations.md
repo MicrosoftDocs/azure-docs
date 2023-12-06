@@ -5,8 +5,7 @@ author: kgremban
 ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 11/07/2023
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
@@ -29,7 +28,7 @@ Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes clust
 * The Azure IoT Operations extension for Azure CLI.
 
   ```bash
-  az extension add --name az-iot-ops
+  az extension add --name azure-iot-ops
   ```
 
 * An [Azure Key Vault](../../key-vault/general/overview.md) that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.

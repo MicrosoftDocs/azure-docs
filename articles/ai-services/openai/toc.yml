@@ -43,12 +43,16 @@ items:
       href: ./concepts/fine-tuning-considerations.md
     - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
+    - name: Image provenance
+      href: ./concepts/content-credentials.md
     - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
     - name: Model versions
       href: ./concepts/model-versions.md
     - name: Prompt engineering techniques
       href: ./concepts/advanced-prompt-engineering.md
+    - name: Provisioned throughput units (PTU)
+      href: ./concepts/provisioned-throughput.md
     - name: System message templates
       href: ./concepts/system-message.md
     - name: Using your data (preview)
@@ -64,17 +68,23 @@ items:
       href: ./how-to/function-calling.md
     - name: Completions
       href: ./how-to/completions.md
+    - name: JSON mode
+      href: ./how-to/json-mode.md
+    - name: Reproducible output
+      href: ./how-to/reproducible-output.md
     - name: Work with code
       href: ./how-to/work-with-code.md
     - name: Use with large datasets
       href: ./how-to/integrate-synapseml.md
   - name: Content filtering
     href: ./how-to/content-filters.md
+  - name: Use blocklists
+    href: ./how-to/use-blocklists.md
   - name: Embeddings
     items:
     - name: Embeddings basics
       href: ./how-to/embeddings.md
-    - name: Getting started with embeddings (Python)
+    - name: Getting started with embeddings
       href: ./tutorials/embeddings.md
   - name: Fine-tuning
     items:
@@ -94,6 +104,8 @@ items:
         href: encrypt-data-at-rest.md
       - name: Manage identity
         href: ./how-to/managed-identity.md
+      - name: Use Azure OpenAI on your data securely
+        href: ./how-to/use-your-data-securely.md
   - name: Service management
     items:
       - name: Resource creation & model deployment
@@ -106,6 +118,8 @@ items:
         href: ./how-to/monitoring.md
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
+      - name: Performance & latency
+        href: ./how-to/latency.md
       - name: Role-based access control (Azure RBAC)
         href: ./how-to/role-based-access-control.md
       - name: Business continuity & disaster recovery (BCDR)
@@ -151,6 +165,23 @@ items:
       href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2023-10-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)
       href: /rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP
+    - name: Templates
+      items: 
+        - name: Retrieval Augmented Generation (RAG) enterprise chat
+          displayName: RAG, rag
+          items:
+            - name: C#
+              href: /dotnet/azure/ai/get-started-app-chat-template
+              displayName: RAG, rag
+            - name: Java
+              href: /azure/developer/java/quickstarts/get-started-app-chat-template
+              displayName: RAG, rag
+            - name: JavaScript
+              href: /azure/developer/javascript/get-started-app-chat-template
+              displayName: RAG, rag
+            - name: Python
+              href: /azure/developer/python/get-started-app-chat-template
+              displayName: RAG, rag
 - name: Resources
   items: 
     - name: Support and help options

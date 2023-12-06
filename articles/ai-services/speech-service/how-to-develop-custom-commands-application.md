@@ -2,7 +2,7 @@
 title: 'How-to: Develop Custom Commands applications - Speech service'
 titleSuffix: Azure AI services
 description: Learn how to develop and customize Custom Commands applications. These voice-command apps are best suited for task completion or command-and-control scenarios.
-services: cognitive-services
+#services: cognitive-services
 
 author: eric-urban
 manager: nitinme

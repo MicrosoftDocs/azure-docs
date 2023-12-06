@@ -3,7 +3,7 @@ title: Improve security and resiliency of storage accounts using Microsoft Copil
 description: Learn how Microsoft Copilot for Azure (preview) can improve the security posture and data resiliency of storage accounts.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -20,6 +20,8 @@ Responses are dynamic and based on your specific storage account and settings. B
 When you ask Microsoft Copilot for Azure (preview) about improving security accounts, it automatically pulls context when possible, based on the current conversation or on the page you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify the storage resource for which you want information.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
+
+[!INCLUDE [preview-note](includes/preview-note.md)]
 
 ## Sample prompts
 

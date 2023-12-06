@@ -2,7 +2,7 @@
 title: How to mitigate latency and improve performance when using the Face service
 titleSuffix: Azure AI services
 description: Learn how to mitigate network latency and improve service performance when using the Face service.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
@@ -107,7 +107,7 @@ The following are other tips to ensure the reliability and high support of your 
 
 ## Next steps
 
-In this guide, you learned how to improve performance when using the Face service. Next, Follow the tutorial to set up a working software solution that combines server-side and client-side logic to do face liveness detection on users.
+In this guide, you learned how to improve performance when using the Face service. Next, follow the tutorial to set up a working software solution that combines server-side and client-side logic to do face liveness detection on users.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Detect face liveness](../Tutorials/liveness.md)

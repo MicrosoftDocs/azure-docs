@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.custom:
   - build-2023
   - ignite-2023
-ms.date: 05/23/2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---
@@ -14,7 +14,7 @@ ms.author: veyaddan
 
 In this article, you use the Azure portal to do the following tasks:
 
-1. Create an Event Grid namespace and enable MQTT
+1. Create an Event Grid namespace and enable MQTT broker
 2. Create sub resources such as clients, client groups, and topic spaces
 3. Grant clients access to publish and subscribe to topic spaces
 4. Publish and receive messages between clients
@@ -81,15 +81,15 @@ After a successful installation of Step, you should open a command prompt in you
     > [!NOTE]
     > To keep the QuickStart simple, you'll be using only the Basics page to create a namespace. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see [Create a Namespace](create-view-manage-namespaces.md).
 1. After the deployment succeeds, select **Go to resource** to navigate to the Event Grid Namespace Overview page for your namespace.
-1. In the Overview page, you see that the **MQTT** is in **Disabled** state. To enable MQTT, select the **Disabled** link, it will redirect you to Configuration page.
-1. On **Configuration** page, select the **Enable MQTT** option, and then select **Apply** to apply the settings.
+1. In the Overview page, you see that the **MQTT broker** is in **Disabled** state. To enable MQTT broker, select the **Disabled** link, it will redirect you to Configuration page.
+1. On **Configuration** page, select the **Enable MQTT broker** option, and then select **Apply** to apply the settings.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-enable-mqtt-on-configuration.png" alt-text="Screenshot showing Event Grid namespace configuration page to enable MQTT." lightbox="./media/mqtt-publish-and-subscribe-portal/mqtt-enable-mqtt-on-configuration.png":::
 
 
 ## Create clients
 
-1. On the left menu, select **Clients** in the **MQTT** section.
+1. On the left menu, select **Clients** in the **MQTT broker** section.
 2. On the **Clients** page, select **+ Client** on the toolbar.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png" alt-text="Screenshot of the Clients page with Add button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/add-client-menu.png":::
@@ -109,7 +109,7 @@ After a successful installation of Step, you should open a command prompt in you
     
 ## Create topic spaces
 
-1. On the left menu, select **Topic spaces** in the **MQTT** section.
+1. On the left menu, select **Topic spaces** in the **MQTT broker** section.
 2. On the **Topic spaces** page, select **+ Topic space** on the toolbar.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space-menu.png" alt-text="Screenshot of Topic spaces page with create button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/create-topic-space-menu.png":::
@@ -123,7 +123,7 @@ After a successful installation of Step, you should open a command prompt in you
 
 ## Configuring access control using permission bindings
 
-1. On the left menu, select **Permission bindings** in the **MQTT** section.
+1. On the left menu, select **Permission bindings** in the **MQTT broker** section.
 2. On the Permission bindings page, select **+ Permission binding** on the toolbar.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-menu.png" alt-text="Screenshot that shows the Permission bindings page with the Create button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-menu.png":::    

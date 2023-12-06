@@ -38,9 +38,7 @@ To configure backup on the Azure PostgreSQL-flex databases using Azure Backup, f
 1. Choose one of the Azure PostgreSQL-Flex servers across subscriptions if they're in the same region as that of the vault. Expand the arrow to see the list of databases within a server.
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/select-resources.png" alt-text="Screenshot showing the select resources option.":::
 
-1. After the selection, the validation starts. The backup readiness check ensures the vault has sufficient permissions for backup operations. Resolve any access issues by selecting **Assign missing roles** action button in the top action menu to grant permissions.
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/assign-missing-roles.png" alt-text="Screenshot showing the **Assign missing roles** option.":::
-
+1. After the selection, the validation starts. The backup readiness check ensures the vault has sufficient permissions for backup operations. Resolve any access issues by granting appropriate [permissions](/azure/backup/backup-azure-database-postgresql-flex-overview) to the vault MSI and re-triggering the validation.
 1. Submit the configure backup operation and track the progress under **Backup instances**.
      
 
