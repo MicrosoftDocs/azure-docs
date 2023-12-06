@@ -17,6 +17,22 @@ This article describes how to configure the SSH key (preview) on your AKS cluste
 * You need the Azure CLI version 2.46.0 or later installed and configured. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * This feature supports Linux, Mariner, and CBLMariner node pools on existing clusters.
 
+## Install the `aks-preview` Azure CLI extension
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
+
+    ```azurecli
+    az extension add --name aks-preview
+    ```
+
+2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command.
+
+    ```azurecli
+    az extension update --name aks-preview
+    ```
+
 ## Create an AKS cluster with SSH key (preview)
 
 Use the [az aks create][az-aks-create] command to deploy an AKS cluster with an SSH public key. You can either specify the key or a key file using the `--ssh-key-value` argument.
@@ -28,7 +44,7 @@ Use the [az aks create][az-aks-create] command to deploy an AKS cluster with an 
 |--no-ssh-key | If you don't require an SSH key, specify this argument. However, AKS automatically generates a set of SSH keys because the Azure Virtual Machine resource dependency doesn’t support an empty SSH key file. As a result, the keys aren't returned and can't be used to SSH into the node VMs. ||
 
 >[!NOTE]
->If the `--ssh-key-value` is not specified, the Azure CLI defaults to referencing the SSH keys stored in the `~/.ssh/` directory. If the keys aren't found in the directory, the command returns a `key not found` error message.
+>If no parameters are specified, the Azure CLI defaults to referencing the SSH keys stored in the `~/.ssh/` directory. If the keys aren't found in the directory, the command returns a `key not found` error message.
 
 The following are examples of this command:
 
