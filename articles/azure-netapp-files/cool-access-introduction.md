@@ -27,7 +27,7 @@ Azure NetApp Files supports three [service levels](azure-netapp-files-service-le
 
 The following diagram illustrates an application with a volume enabled for cool access.
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-explainer.png" alt-text="Diagram of cool access tiering showing cool volumes being moved to ." lightbox="../media/azure-netapp-files/cool-access-explainer.png" border="false":::
+:::image type="content" source="../media/azure-netapp-files/cool-access-explainer.png" alt-text="Diagram of cool access tiering showing cool volumes being moved to the cool tier." lightbox="../media/azure-netapp-files/cool-access-explainer.png" border="false":::
 
 In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the cooling period. The cooling period can be between 7 and 183 days; it has a default value of 31 days. Once marked "cold,"  the tiering scan collects blocks and packages them into 4-MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear online. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
 
