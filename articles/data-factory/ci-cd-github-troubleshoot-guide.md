@@ -367,7 +367,7 @@ Dynamic content isn't written as per expression language requirements.
 * For debug run, check expressions in pipeline within current git branch.
 * For Triggered run, check expressions in pipeline within *Live* mode.
  
-## Next steps
+## Related content
 
 For more help with troubleshooting, try the following resources:
 
