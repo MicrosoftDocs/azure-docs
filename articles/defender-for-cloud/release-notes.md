@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 12/05/2023
+ms.date: 12/06/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,12 +24,14 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| December 6 | [Replacing deprecated policies](#replacing-deprecated-policies) | 
+| December 6 | [Deny effect - replacing deprecated policies](#deny-effect---replacing-deprecated-policies) | 
 | December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account) |
 
-### Replacing deprecated policies
+### Deny effect - replacing deprecated policies
 
-Fort Knox requires the following built-in policies in order to support the [Deny effect](manage-mcsb.md#deny-and-enforce-recommendations). A change in policy effects requires the deprecation of the current versions of the policy which will be replaced with a new version to maintain the Deny effect.
+The [Deny effect](manage-mcsb.md#deny-and-enforce-recommendations) is used to prevent deployment of resources that don't comply with the [Microsoft Cloud Security Benchmark (MCSB) standard](concept-regulatory-compliance.md). A change in the policy's effects requires the deprecation of the current versions of the policy, which has been replaced with a new version to maintain the Deny effect.
+
+To make sure you can still use the Deny effect, you must delete the old policies and assign the new policies in their place.
 
 The following table shows the list of policies that are deprecated and the new policies that replace them.
 
