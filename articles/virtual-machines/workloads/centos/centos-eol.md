@@ -1,7 +1,7 @@
 ---
 title: CentOS end-of-life (EOL) guidance
 description: Understand your options for moving CentOS workloads
-author: clausw
+author: ClausWieser
 ms.service: virtual-machines
 ms.subservice:
 ms.custom: devx-track-linux, devx-track-azurecli, linux-related-content
