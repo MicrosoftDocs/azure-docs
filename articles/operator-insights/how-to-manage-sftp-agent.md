@@ -3,6 +3,7 @@ title: Manage SFTP Ingestion Agents for Azure Operator Insights
 description: Learn how to upgrade, update, roll back and manage SFTP Ingestion agents for AOI
 author: rcdun
 ms.author: rdunstan
+ms.reviewer: rathishr
 ms.service: operator-insights
 ms.topic: how-to #Required; leave this attribute/value as-is
 ms.date: 12/06/2023

@@ -3,6 +3,7 @@ title: SFTP Ingestion Agents configuration reference for Azure Operator Insights
 description: This article documents the complete set of configuration for the SFTP ingestion agent, listing all fields with examples and explanatory comments.
 author: rcdun
 ms.author: rdunstan
+ms.reviewer: rathishr
 ms.service: operator-insights
 ms.topic: conceptual
 ms.date: 12/06/2023

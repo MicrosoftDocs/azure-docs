@@ -3,6 +3,7 @@ title: Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insight
 description: Learn how to monitor SFTP Ingestion Agents and troubleshoot common issues 
 author: rcdun
 ms.author: rdunstan
+ms.reviewer: rathishr
 ms.service: operator-insights
 ms.topic: troubleshooting-general
 ms.date: 12/06/2023

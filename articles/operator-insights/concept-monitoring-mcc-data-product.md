@@ -1,11 +1,12 @@
 ---
 title: Monitoring - Affirmed MCC Data Product - Azure Operator Insights
-description: This article gives an overview of the *Monitoring - Affirmed MCC* Data Product provided by Azure Operator Insights 
-author: bettylew
-ms.author: rathishr
+description: This article gives an overview of the Monitoring - Affirmed MCC Data Product provided by Azure Operator Insights 
+author: rcdun
+ms.author: rdunstan
+ms.reviewer: rathishr
 ms.service: operator-insights
 ms.topic: concept-article
-ms.date: 10/25/2023
+ms.date: 12/06/2023
 
 #CustomerIntent: As an MCC operator, I want to understand the capabilities of the Monitoring - Affirmed MCC Data Product so that I can use it to provide insights to my network.
 ---
