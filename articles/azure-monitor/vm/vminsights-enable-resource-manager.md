@@ -15,6 +15,8 @@ This article describes how to enable VM insights for a virtual machine or Virtua
 - Azure Virtual Machine Scale Sets
 - Hybrid virtual machines connected with Azure Arc
 
+If you aren't familiar with how to deploy a Resource Manager template, see [Deploy templates](#deploy-templates).
+
 ## Prerequisites
 
 - [Log Analytics workspace](./vminsights-configure-workspace.md).
@@ -24,12 +26,10 @@ This article describes how to enable VM insights for a virtual machine or Virtua
 ## Resource Manager templates
 Use the Azure Resource Manager templates provided in this article to onboard virtual machines and Virtual Machine Scale Sets using Azure Monitor agent and Log Analytics agent. The templates install the required agents and perform the configuration required to onboard to machine to VM insights.
 
-If you aren't familiar with how to deploy a Resource Manager template, see [Deploy templates](#deploy-templates).
-
 >[!NOTE]
 > Deploy the template in the same resource group as the virtual machine or virtual machine scale set being enabled.
 
-## Azure Monitor agent
+## Enable VM insights using Azure Monitor Agent
  First install the data collection rule, and then install agents to use that DCR. 
 
 ###  Deploy data collection rule
@@ -55,7 +55,7 @@ After you create the data collection rule, deploy:
 > [!NOTE]
 > If your virtual machines scale sets have an upgrade policy set to manual, VM insights will not be enabled for instances by default after installing the template. You must manually upgrade the instances.
 
-## Log Analytics agent
+## Enable VM insights using Log Analytics agent
 Download the [Logs Analytics agent templates](https://aka.ms/VmInsightsARMTemplates). You must first configure the workspace and can then install agents to use that DCR.
 
 ### Configure workspace
@@ -78,7 +78,7 @@ Once the workspace has been configured, deploy the agents using one of the templ
 | ExistingVmssOnboarding | ExistingVmssOnboarding.json<br>ExistingVmssOnboarding.json | Enables VM insights on existing Virtual Machine Scale Set. |
 | ExistingArcVmOnboarding | ExistingArcVmOnboarding.json<br>ExistingArcVmOnboarding.json | Enables VM insights on existing Arc-enabled server. |
 
-## To deploy a Resource Manager template
+## Deploy templates
 Each folder in the download has a template and a parameters file. Modify the parameters file with required details such as Virtual Machine Resource ID, Workspace resource ID, data collection rule resource ID, Location, and OS Type. Don't modify the template file unless you need to customize it for your particular scenario.
 
 ### Deploy with the Azure portal
