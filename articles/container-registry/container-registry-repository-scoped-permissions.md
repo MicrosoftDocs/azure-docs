@@ -46,8 +46,6 @@ To configure repository-scoped permissions, you create a *token* with an associa
 
 * A **scope map** groups the repository permissions you apply to a token and can reapply to other tokens. Every token is associated with a single scope map. With a scope map, you can:
 
-   With a scope map:
-
   * Configure multiple tokens with identical permissions to a set of repositories.
   * Update token permissions when you add or remove repository actions in the scope map, or apply a different scope map.
 
