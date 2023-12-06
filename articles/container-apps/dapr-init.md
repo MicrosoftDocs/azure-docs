@@ -13,7 +13,7 @@ ms.date: 12/05/2023
 
 Easily initialize Dapr components in the same environment as your container app using a single Azure CLI command. Run `az containerapp env dapr-component init` to [create and connect](./connect-services.md) Dapr pub/sub and state store components for your Azure Container Apps solution. 
 
-This tutorial demonstrates how to connect your solution with the Dapr dependencies you typically get in the open-source experience, backed by development-grade services.
+This guide demonstrates how to connect your solution with the Dapr dependencies you typically get in the open-source experience, backed by development-grade services.
 
 > [!NOTE]
 > The `dapr-component init` command creates and connects to [dev services](./services.md), and is not production-ready.
@@ -25,7 +25,7 @@ The `dapr-component init` command supports the following Dapr components:
 - Apache Kafka for pub/sub
 - PostgreSQL for state stores
 
-[The sample provided for this tutorial](https://github.com/Azure-Samples/containerapps-dapr-components-init) uses the default Redis pub/sub component. 
+[The sample provided for this guide](https://github.com/Azure-Samples/containerapps-dapr-components-init) uses the default Redis pub/sub component. 
 
 ## Prerequisites
 
@@ -119,7 +119,7 @@ When you run the deployment command:
 
 In the Azure portal, navigate to your resource group. Select either the **order-processor** or **order-publisher** container apps to view their log streams.
 
-:::image type="content" source="media/dapr-init/view-resource-group.png" alt-text="Screenshot showing the resource group just created in the tutorial with all of the resources included with the sample.":::
+:::image type="content" source="media/dapr-init/view-resource-group.png" alt-text="Screenshot showing the resource group just created in the guide with all of the resources included with the sample.":::
 
 Verify the `order-publisher` container app published messages to the Redis topic for the `order-processor` to pick up.
 
@@ -131,7 +131,7 @@ Verify the `order-processor` container app recieved the messages from `order-pub
 
 ## Clean up resources
 
-When you're finished experimenting with this tutorial, remove the sample resources with the following command.
+When you're finished experimenting with this guide, remove the sample resources with the following command.
 
 ```azurecli
 az group delete --name "$VAR_RESOURCE_GROUP"
