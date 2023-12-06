@@ -45,17 +45,19 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 The compute target you use to host your model will affect the cost and availability of your deployed endpoint. Use this table to choose an appropriate compute target.
 
-> [!IMPORTANT]
-> For completeness, this table includes compute targets that are usable from both the v1 and v2 SDK/CLI. Use the information in the SDK/CLI column to determine whether a compute target is supported in the SDK/CLI that you're using. Also note that support for Kubernetes is different between v1 and v2; with v1 support is provided for Azure Kubernetes Service (AKS) only, while with v2 support is provided for AKS and Kubernetes anywhere through Azure ARC.
-
-
-| Compute target | Used for | GPU support | SDK/CLI<br/> version| Description |
+:::moniker range="azureml-api-2"
+| Compute target | Used for | GPU support | Description |
 | ----- | ----- | ----- | ----- | 
-| [Azure Machine Learning endpoints](~/articles/machine-learning/concept-endpoints.md) (SDK/CLI v2 only) | Real-time inference <br/><br/>Batch&nbsp;inference | Yes | V2 | Fully managed computes for real-time (managed online endpoints) and batch scoring (batch endpoints) on serverless compute. |
-| [Azure Machine Learning Kubernetes (v2)](~/articles/machine-learning/how-to-attach-kubernetes-anywhere.md) | Real-time inference <br/><br/> Batch inference | Yes | V2 | Run inferencing workloads on on-premises, cloud, and edge Kubernetes clusters. |  
-| [Local&nbsp;web&nbsp;service](~/articles/machine-learning/v1/how-to-deploy-local-container-notebook-vm.md) | Testing/debugging |  &nbsp; | V1 | Use for limited testing and troubleshooting. Hardware acceleration depends on use of libraries in the local system. |
-| [Azure Machine Learning Kubernetes (v1)](~/articles/machine-learning/v1/how-to-deploy-azure-kubernetes-service.md) | Real-time inference | Yes | V1 | Run inferencing workloads in the cloud. | 
-| [Azure Container Instances](~/articles/machine-learning/v1/how-to-deploy-azure-container-instance.md) (SDK/CLI v1 only) | Real-time inference <br/><br/> Recommended for dev/test purposes only.| &nbsp;  | V1 | Use for low-scale CPU-based workloads that require less than 48 GB of RAM. Doesn't require you to manage a cluster.<br/><br/> Only suitable for models less than 1 GB in size.<br/><br/> Supported in the designer. |
+| [Azure Machine Learning endpoints](~/articles/machine-learning/concept-endpoints.md) | Real-time inference <br/><br/>Batch&nbsp;inference | Yes | Fully managed computes for real-time (managed online endpoints) and batch scoring (batch endpoints) on serverless compute. |
+| [Azure Machine Learning Kubernetes](~/articles/machine-learning/how-to-attach-kubernetes-anywhere.md) | Real-time inference <br/><br/> Batch inference | Yes | Run inferencing workloads on on-premises, cloud, and edge Kubernetes clusters. |  
+:::moniker-end
+:::moniker range="azureml-api-1"
+| Compute target | Used for | GPU support | Description |
+| ----- | ----- | ----- | ----- | 
+| [Local&nbsp;web&nbsp;service](~/articles/machine-learning/v1/how-to-deploy-local-container-notebook-vm.md) | Testing/debugging |  &nbsp; | Use for limited testing and troubleshooting. Hardware acceleration depends on use of libraries in the local system. |
+| [Azure Machine Learning Kubernetes](~/articles/machine-learning/v1/how-to-deploy-azure-kubernetes-service.md) | Real-time inference | Yes | Run inferencing workloads in the cloud. | 
+| [Azure Container Instances](~/articles/machine-learning/v1/how-to-deploy-azure-container-instance.md) | Real-time inference <br/><br/> Recommended for dev/test purposes only.| &nbsp;  | Use for low-scale CPU-based workloads that require less than 48 GB of RAM. Doesn't require you to manage a cluster.<br/><br/> Only suitable for models less than 1 GB in size.<br/><br/> Supported in the designer. |
+:::moniker-end
 
 > [!NOTE]
 > When choosing a cluster SKU, first scale up and then scale out. Start with a machine that has 150% of the RAM your model requires, profile the result and find a machine that has the performance you need. Once you've learned that, increase the number of machines to fit your need for concurrent inference.

@@ -416,8 +416,7 @@ The compute target you use to host your model will affect the cost and availabil
 > [!NOTE]
 > When choosing a cluster SKU, first scale up and then scale out. Start with a machine that has 150% of the RAM your model requires, profile the result and find a machine that has the performance you need. Once you've learned that, increase the number of machines to fit your need for concurrent inference.
 
-> [!IMPORTANT]
-> The information in this table applies when using SDK v1 or CLI v1 capabilities. When using SDK or CLI v2, there are additional compute targets available. For more information, see [Compute targets](../concept-compute-target.md).
+[!INCLUDE [endpoints-option](../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Deploy to cloud
 
