@@ -52,9 +52,10 @@ If you're new to Azure Policy, here are some helpful resources that you can use 
 
   **Preparation Checklist:**
 
-  - [ ] Familiarize with Azure CLI or PowerShell for policy management.
-  - [ ] Review your organization's security and compliance requirements.
-  - [ ] Identify specific Azure Policy features relevant to your needs.
+  > [!div class="checklist"]
+  > * Familiarize with Azure CLI or PowerShell for policy management.
+  > * Review your organization's security and compliance requirements.
+  > * Identify specific Azure Policy features relevant to your needs.
 
 ## Use Azure Policy to secure your Nexus BMM resources
 
