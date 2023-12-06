@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/03/2023
+ms.date: 12/06/2023
 ---
 
 # User-defined data types in Bicep
@@ -19,6 +19,8 @@ You can use the `type` statement to define user-defined data types. In addition,
 ```bicep
 type <user-defined-data-type-name> = <type-expression>
 ```
+
+> [!NOTE] The [`@allowed` decorator](./parameters.md#decorators) is only permitted on [`param` statements](./parameters.md). To declare that a property must be one of a set of predefined values in a `type` or `output` statement, use union type syntax. Union type syntax may also be used in `param` statements.
 
 The valid type expressions include:
 
@@ -92,6 +94,13 @@ The valid type expressions include:
     }
     ```
 
+    The following sample shows how to use the union type syntax to list a set of predefined values:
+
+    ```bicep
+    type obj = {
+      level: 'bronze' | 'silver' | 'gold'
+    }
+    ```
     **Recursion**
 
     Object types may use direct or indirect recursion so long as at least leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:

@@ -3,7 +3,7 @@ title: Parameters in Bicep files
 description: Describes how to define parameters in a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/12/2023
+ms.date: 12/06/2023
 ---
 
 # Parameters in Bicep
@@ -49,6 +49,17 @@ param <parameter-name> = <value>
 ```
 
 For more information, see [Parameters file](./parameter-files.md).
+
+User-defined type expressions can be used as the type clause of a `param` statement. For example:
+
+```bicep
+param storageAccountConfig {
+  name: string
+  sku: string
+}
+```
+
+For more information, see [User-defined data types](./user-defined-data-types.md#user-defined-data-type-syntax).
 
 ## Default value
 
