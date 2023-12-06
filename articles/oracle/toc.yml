@@ -21,7 +21,3 @@ items:
   items:
   - name: Solution design for Oracle Database@Azure
     href: oracle-db/oracle-database-solution-design.md
-- name: FAQs
-  items:
-  - name: Oracle Database@Azure FAQs
-    href: oracle-db/oracle-db-faq.md

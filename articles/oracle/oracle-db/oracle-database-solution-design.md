@@ -4,7 +4,7 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 description: Learn about topologies and constraints for Oracle Database@Azure. 
 ms.topic: conceptual
-ms.subservice: oracle
+ms.service: oracle
 ms.custom: engagement-fy23
 ms.date: 12/6/2023
 ---
@@ -45,11 +45,11 @@ The following table describes what’s supported for each network features confi
 |Features |Basic network features |
 | :------------------- | -------------------: |
 |Delegated subnet per virtual network |1|
-|[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on Oracle Database@Azure-delegated subnets|No|
-|[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on Oracle Database@Azure-delegated subnets with VWAN|Yes|
-[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on Oracle Database@Azure-delegated subnets without VWAN| No|
-|Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in the same virtual network on Azure-delegated subnets|No|
-|Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in a different spoke virtual network connected to vWAN|Yes|
+|[Network Security Groups](../virtual-network/network-security-groups-overview.md) on Oracle Database@Azure-delegated subnets|No|
+|[User-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md#user-defined) on Oracle Database@Azure-delegated subnets with VWAN|Yes|
+[User-defined routes (UDRs)](./virtual-network/virtual-networks-udr-overview.md#user-defined) on Oracle Database@Azure-delegated subnets without VWAN| No|
+|Connectivity from BareMetal to [private endpoints](./private-link/private-endpoint-overview.md) in the same virtual network on Azure-delegated subnets|No|
+|Connectivity from BareMetal to [private endpoints](./private-link/private-endpoint-overview.md) in a different spoke virtual network connected to vWAN|Yes|
 |Load balancers for Oracle Database@Azure traffic|No|
 |Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
 
