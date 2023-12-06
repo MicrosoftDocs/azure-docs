@@ -3,7 +3,7 @@ title: Update language versions in Azure Functions
 description: Learn how to update the version of the native language used by a function app in Azure Functions.
 ms.topic: how-to
 ms.custom: devx-track-extended-java
-ms.date: 11/20/2023
+ms.date: 12/06/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -135,7 +135,6 @@ az functionapp list-runtimes --os "windows" --query "[?runtime == 'powershell'].
 
 az functionapp config set --powershell-version "<VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
 ```  
-::: zone-end 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell"  
 In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of your function app and resource group, respectively. Also replace `<VERSION>` with the supported language version to which you're updating. If you aren't using a staging slot, remove the `--slot` parameter.
