@@ -65,12 +65,26 @@
     displayName: environment variables
   - name: Inject custom code at runtime
     href: snippets.md  
-- name: Traffic management
+- name: Custom domains
   items:
-  - name: Split traffic
-    href: traffic-splitting.md
-  - name: Azure Front Door
-    href: front-door-manual.md
+  - name: About custom domains
+    href: custom-domain.md
+  - name: Use Azure DNS
+    items:
+    - name: Delegate your domain to Azure DNS
+      href: azure-dns-zone.md
+    - name: Set up a custom domain
+      href: custom-domain-azure-dns.md
+    - name: Set up the apex domain
+      href: apex-domain-azure-dns.md
+  - name: Use an external provider
+    items:
+    - name: Set up a custom domain
+      href: custom-domain-external.md
+    - name: Set up the apex domain
+      href: apex-domain-external.md
+  - name: Manage the default domain
+    href: custom-domain-default.md
 - name: API backends
   items:
   - name: Overview
@@ -130,6 +144,12 @@
   - name: Overview
     href: local-development.md
     displayName: swa cli
+- name: Traffic management
+  items:
+  - name: Split traffic
+    href: traffic-splitting.md
+  - name: Azure Front Door
+    href: front-door-manual.md
 - name: Hosting & development
   items:
   - name: Use external providers
@@ -149,26 +169,6 @@
       href: bitbucket.md
     - name: GitLab
       href: gitlab.md
-- name: Custom domains
-  items:
-  - name: About custom domains
-    href: custom-domain.md
-  - name: Use Azure DNS
-    items:
-    - name: Delegate your domain to Azure DNS
-      href: azure-dns-zone.md
-    - name: Set up a custom domain
-      href: custom-domain-azure-dns.md
-    - name: Set up the apex domain
-      href: apex-domain-azure-dns.md
-  - name: Use an external provider
-    items:
-    - name: Set up a custom domain
-      href: custom-domain-external.md
-    - name: Set up the apex domain
-      href: apex-domain-external.md
-  - name: Manage the default domain
-    href: custom-domain-default.md
 - name: Preview environments
   items:
     - name: About preview environments
