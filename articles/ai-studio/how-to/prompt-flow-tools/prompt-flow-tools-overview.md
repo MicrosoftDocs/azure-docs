@@ -5,7 +5,7 @@ description: Learn about prompt flow tools that are available in Azure AI Studio
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-studio
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/6/2023
 ms.author: eur
 ---
