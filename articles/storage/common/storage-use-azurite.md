@@ -463,23 +463,23 @@ azurite --disableProductStyleUrl
 
 #### In-memory persistence
 
-**Optional**. Disable persisting any data to disk and only store data in-memory. If the Azurite process is terminated, all data is lost. By default, blob and queue metadata is persisted to disk and content is persisted to extent files. Table storage persists all data to disk. The default persistence behavior can be disabled using the following option:
+**Optional**. By default, blob and queue metadata is persisted to disk and content is persisted to extent files. Table storage persists all data to disk. You can disable persisting any data to disk and only store data in-memory. In the in-memory persistence scenario, if the Azurite process is terminated, all data is lost. The default persistence behavior can be overridden using the following option:
 
 ```cmd
 azurite --inMemoryPersistence
 ```
 
-This setting is rejected when the SQL-based metadata implementation is enabled (via `AZURITE_DB`), and when the `--location` option is specified.
+This setting is rejected when the SQL-based metadata implementation is enabled (via `AZURITE_DB`), or when the `--location` option is specified.
 
 #### Extent memory limit
 
-**Optional**. By default, the in-memory extent store (for blob and queue content) is limited to 50% of the total memory on the host machine. This total is evaluated using `os.totalmem()`, and the limit can be overridden using the following option:
+**Optional**. By default, the in-memory extent store (for blob and queue content) is limited to 50% of the total memory on the host machine. The total is evaluated using `os.totalmem()`. This limit can be overridden using the following option:
 
 ```
 azurite --extentMemoryLimit <megabytes>
 ```
 
-There is no restriction on the value specified for this option, but virtual memory may be used if the limit exceeds the amount of available physical memory as provided by the operating system. A high limit may eventually lead to out of memory errors or reduced performance. This option is rejected when `--inMemoryPersistence` isn't specified.
+There's no restriction on the value specified for this option, but virtual memory might be used if the limit exceeds the amount of available physical memory as provided by the operating system. A high limit might eventually lead to out of memory errors or reduced performance. This option is rejected when `--inMemoryPersistence` isn't specified.
 
 To learn more, see [Use in-memory storage](https://github.com/Azure/Azurite#use-in-memory-storage).
 
@@ -619,7 +619,7 @@ Once the certificates are in place, start Azurite with the following command lin
 azurite --oauth basic --cert cert-name.pem --key cert-name-key.pem
 ```
 
-Replace `cert-name.pem` and `certname-key.pem` with the names of your certificate and key files. If you are using a PFX certificate, use the `--pwd` option instead of the `--key` option.
+Replace `cert-name.pem` and `certname-key.pem` with the names of your certificate and key files. If you're using a PFX certificate, use the `--pwd` option instead of the `--key` option.
 
 #### [Blob Storage](#tab/blob-storage)
 
@@ -740,7 +740,7 @@ Follow these steps to add Azurite HTTPS to Storage Explorer:
 
 ## Workspace structure
 
-The following files and folders may be created in the workspace location when initializing Azurite.
+The following files and folders might be created in the workspace location when initializing Azurite.
 
 - `__blobstorage__` - Directory containing Azurite blob service persisted binary data
 - `__queuestorage__` - Directory containing Azurite queue service persisted binary data
@@ -809,7 +809,7 @@ DefaultEndpointsProtocol=http;AccountName=account1;AccountKey=key1;BlobEndpoint=
 
 Don't access default account in this way with Azure Storage Explorer. There's a bug that Storage Explorer is always adding account name in URL path, causing failures.
 
-By default, when using Azurite with a production-style URL, the account name should be the host name in fully qualified domain name such as "http://devstoreaccount1.blob.localhost:10000/container". To use production-style URL with account name in the URL path such as "http://foo.bar.com:10000/devstoreaccount1/container", make sure to use the `--disableProductStyleUrl` parameter when you start Azurite.
+By default, when using Azurite with a production-style URL, the account name should be the host name in fully qualified domain name such as `http://devstoreaccount1.blob.localhost:10000/container`. To use production-style URL with account name in the URL path such as `http://foo.bar.com:10000/devstoreaccount1/container`, make sure to use the `--disableProductStyleUrl` parameter when you start Azurite.
 
 If you use `host.docker.internal` as request Uri host (For example: `http://host.docker.internal:10000/devstoreaccount1/container`), Azurite gets the account name from the request Uri path. This behavior is true regardless of whether you use the `--disableProductStyleUrl` parameter when you start Azurite. 
 
@@ -819,7 +819,7 @@ Azurite doesn't support large numbers of connected clients. There's no performan
 
 #### Error handling
 
-Azurite is aligned with Azure Storage error handling logic, but there are differences. For example, error messages may be different, while error status codes align.
+Azurite is aligned with Azure Storage error handling logic, but there are differences. For example, error messages might be different, while error status codes align.
 
 #### RA-GRS
 
@@ -843,5 +843,5 @@ Contributions and suggestions for Azurite are welcome. Go to the Azurite [GitHub
 
 ## Next steps
 
-- [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md) documents the legacy Azure Storage Emulator, which is being superseded by Azurite.
+- [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md) documents the legacy Azure Storage Emulator, which is superseded by Azurite.
 - [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure Storage connection string.
