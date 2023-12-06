@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: This article describes how to create and manage an Azure AI resource
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
@@ -18,12 +18,14 @@ ms.author: eur
 
 As an administrator, you can create and manage Azure AI resources. Azure AI resources provide a hosting environment for the projects of a team, and help you as an IT admin centrally set up security settings and govern usage and spend. You can create and manage an Azure AI resource from the Azure portal or from the Azure AI Studio. 
 
-In this article, you learn how to create an Azure AI resource from AI studio (for getting started) and from the Azure portal (for advanced security setup) and manage it from the Azure portal and Azure AI Studio.
+In this article, you learn how to create and manage an Azure AI resource in Azure AI Studio (for getting started) and from the Azure portal (for advanced security setup).
 
-## Create an Azure AI resource in AI studio for getting started
-To create a new Azure AI resource, you need either the Owner or Contributor role on the resource group or on an existing Azure AI resource. If you are unable to create an Azure AI resource due to permissions, reach out to your administrator. 
+## Create an Azure AI resource in AI Studio for getting started
+To create a new Azure AI resource, you need either the Owner or Contributor role on the resource group or on an existing Azure AI resource. If you are unable to create an Azure AI resource due to permissions, reach out to your administrator. If your organization is using [Azure Policy](../../governance/policy/overview.md), don't create the resource in AI Studio. Create the Azure AI resource [in the Azure Portal](#create-a-secure-azure-ai-resource-in-the-azure-portal) instead.
 
-1. From Azure AI studio, navigate to `manage` and select `New Azure AI resoure`.
+Follow these steps to create a new Azure AI resource in AI Studio.
+
+1. From Azure AI Studio, navigate to `manage` and select `New Azure AI resource`.
 
 1. Fill in **Subscription**, **Resource group**, and **Location** for your new Azure AI resource.
 
@@ -31,9 +33,11 @@ To create a new Azure AI resource, you need either the Owner or Contributor role
 
 1. Optionally, choose an existing Azure AI services provider. By default a new provider is created. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource.
 
-1. Optionally, connect an existing Azure AI Search instance to share search indices with all projects in this Azure AI resource. No AI Search instance is created for you if you don't provide one.
+1. Optionally, connect an existing Azure AI Search instance to share search indices with all projects in this Azure AI resource. An Azure AI Search instance isn't created for you if you don't provide one.
 
 ## Create a secure Azure AI resource in the Azure portal
+
+If your organization is using [Azure Policy](../../governance/policy/overview.md), setup a resource that meets your organization's requirements instead of using AI Studio for resource creation.
 
 1. From the Azure portal, search for `Azure AI Studio` and create a new resource by selecting **+ New Azure AI**
 1.	Fill in **Subscription**, **Resource group**, and **Region**. **Name** your new Azure AI resource.  
@@ -42,7 +46,7 @@ To create a new Azure AI resource, you need either the Owner or Contributor role
 
         :::image type="content" source="../media/how-to/resource-create-basics.png" alt-text="Screenshot of the option to set Azure AI resource basic information." lightbox="../media/how-to/resource-create-basics.png":::
 
-1.	Select an existing **Azure AI services** or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry, and **Application insights** to host artifacts generated when you use AI studio.
+1.	Select an existing **Azure AI services** or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry, and **Application insights** to host artifacts generated when you use AI Studio.
 
     :::image type="content" source="../media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI resource with the option to set resource information." lightbox="../media/how-to/resource-create-resources.png"::: 
 

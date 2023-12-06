@@ -121,6 +121,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-machines/whats-new.md",
+            "redirect_url": "/articles/virtual-machines/",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-machines/troubleshooting/boot-error-disk-read-error-occurred.md",
             "redirect_url": "/troubleshoot/azure/virtual-machines/boot-error-disk-read-error-occurred",
             "redirect_document_id": false

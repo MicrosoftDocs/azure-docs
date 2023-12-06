@@ -31,7 +31,7 @@ The prices used in the following examples are hypothetical and don't intend to i
 - [Pricing example: Get delta data from SAP ECC via SAP CDC in mapping data flows](pricing-examples-get-delta-data-from-sap-ecc.md)
 
 
-## Next steps
+## Related content
 Now that you understand the pricing for Azure Data Factory, you can get started!
 
 - [Create a data factory by using the Azure Data Factory UI](quickstart-create-data-factory-portal.md)
