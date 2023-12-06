@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 Access management is a critical function for any service or resource. The entitlement service lets you control who can use your Azure Data Manager for Energy, what they can see or change, and which services or data they can use.
 
-## Groups
+## OSDU Groups Structure
 
 The entitlements service of Azure Data Manager for Energy allows you to create groups and manage memberships of the groups. An entitlement group defines permissions on services/data sources for a given data partition in your Azure Data Manager for Energy instance. Users added to a given group obtain the associated permissions. 
 
@@ -23,8 +23,12 @@ The entitlements service enables three use cases for authorization:
 
 1. **Data groups** are used to enable authorization for data.
    1. Some examples are data.welldb.viewers and data.welldb.owners.
-   2. The data groups are added in the ACL of individual data records to enable viewer and owner access of the data.
+   2. The data groups are added in the ACL of individual data records to enable viewer and owner access of the data once it has been loaded in the system.
    3. Individual users who are part of the data groups are authorized to view or own the data depending on the scope of the data group.
+   4. To upload the data, you need to have entitlements of various OSDU services which are called during ingestion process. The combindation of OSDU services used depends on the method of ingestion. E.g., for manifest ingestion, refer [this](energy-data-services/concepts-manifest-ingestion.md) to understand the OSDU services APIs used. The user need not be part of the ACL.
+	
+
+
 2. **Service groups** are used to enable authorization for services.
    1. Some examples are service.storage.user and service.storage.admin.
    2. The service groups are predefined when OSDU services are provisioned in each data partition of Azure Data Manager for Energy instance.
