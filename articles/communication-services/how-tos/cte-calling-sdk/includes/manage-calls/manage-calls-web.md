@@ -344,12 +344,21 @@ If Teams user stops call recording, the recording is placed into the chat associ
 Recommendations for the management of chat ID:
 - Escalation of the 1:1 phone call by adding another phone participant:
   * (Optional way) Use addParticipant API on web calling SDK to add another participant without providing chat thread ID. You only need to provide identifier of the participant you want to add into the call.
+    ```js
+    addParticipant(participant: MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)
+    ```
   * Use Graph API to get the existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00000000-0000-0000-0000-000000000000".
 - Group call with single Teams user and multiple phone participants:
   * (Optional way) Use startCall API on web calling SDK without providing chat thread ID to create a group chat for participants. You only need to provide identifier for all the participants when leveraging API.
+    ```js
+    startCall(MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)[])
+    ```
   * Use Graph API to get existing chat ID with only Teams user as a participant or create a new group chat with participants: Teams user ID and "00000000-0000-0000-0000-000000000000".
 - Group call with more than 2 Teams users:
   * (Optional way) Use startCall API on web calling SDK without providing chat thread ID to create a group chat for participants. You only need to provide identifier for all the participants when leveraging API.
+    ```js
+    startCall(MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)[])
+    ```
   * Use Graph API to get or create a group chat with the Teams users.
 > [!NOTE]
 > If you are using optional way to leverage API without providing chat thread Id, then you need to be consistently using this way to let web calling SDK to create/manage the thread ID for your App. In this way, You can access thread ID via TeamsCallInfo object on web calling SDK.
