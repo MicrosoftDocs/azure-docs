@@ -66,6 +66,8 @@ items:
     - name: GPT-35-Turbo & GPT-4 
       href: ./how-to/chatgpt.md
       displayName: ChatGPT, chatgpt
+    - name: GPT-4 Turbo with Vision
+      href: ./how-to/gpt-with-vision.md
     - name: Function calling
       href: ./how-to/function-calling.md
     - name: Completions

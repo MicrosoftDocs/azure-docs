@@ -38,7 +38,7 @@ For help with assistant setup, chat sessions, settings, and panels, refer to the
 In this chat session, you're instructing the assistant to aid in understanding images that you input. 
 1. To start, provide this System Message to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the System Message to the image or scenario that you're uploading. 
 1. Save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
-1. In the **Chat session** pane, enter the following question: "Describe this image," and upload an image. Then select **Send**. 
+1. In the **Chat session** pane, enter a text prompt like "Describe this image," and upload an image. You can use a different text prompt for your use case. Then select **Send**. 
 1. Analyze the output provided. Consider asking follow-up questions related to the analysis of your image to learn more.
 
 
@@ -51,7 +51,7 @@ In this chat session, you try out the capabilities of the enhanced Vision model.
 1. You're required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in one of the GPT-4 Turbo with Vision supported regions:  `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast`. Select your resource, and **Save**. 
 1. Provide this System Message to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you're uploading. 
 1. Save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
-1. In the **Chat session** pane, enter the following question: "Describe this image," and upload an image. Then select **Send**.  
+1. In the **Chat session** pane, enter a text prompt like "Describe this image," and upload an image. You can use a different text prompt for your use case.Then select **Send**.  
 1. You should receive a response with more detailed information about text in the image and the locations of objects. 
 
 
@@ -62,7 +62,7 @@ In this chat session, you're instructing the assistant to aid in understanding v
 1. To start, in the **Configurations** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancement** section.
 1. You're required to select a Computer Vision resource to try the enhanced Vision API. This resource must be in one of the GPT-4 Turbo with Vision supported regions: `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast`. Select your resource, and **Save**. 
 1. Provide this System Message to guide the assistant: "You are an AI assistant that summarizes video, paying attention to important events, people, and objects in the video." You can tailor the prompt the image or scenario that you're uploading. 
-1. In the chat session pane, enter a question about the video like: "Describe this video in detail. Focus on brands, technology and people." Upload a video using the **Add media** button and then select **Send**. 
+1. In the chat session pane, enter a question about the video like: "Describe this video in detail. Focus on brands, technology and people." You can use a different text prompt for your use case. Upload a video using the **Add media** button and then select **Send**. 
 
     > [!NOTE]
     > Currently the chat playground only supports videos that are less than 3 minutes long.

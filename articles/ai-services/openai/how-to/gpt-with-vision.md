@@ -14,7 +14,7 @@ keywords:
 
 # Use GPT-4 Turbo with Vision
 
-The GPT-4 Turbo with Vision model answers general questions about what's present in the images or video you show it. 
+The GPT-4 Turbo with Vision model answers general questions about what's present in the images. You can also show it video, if you use Vision enhancements. 
 
 While it does understand the relationship between objects in images, it isn't optimized to answer detailed questions about the locations of certain objects. For example, you can ask it what color a car is or what some ideas for dinner might be based on what's in your fridge, but if you show it an image of a room and ask it where the chair is, it might not answer correctly.
 
@@ -66,13 +66,6 @@ By controlling the _detail_ parameter, which has two options, `low` or `high`, y
 - `low` disables the "high res" mode. The model receives a low-res 512x512 version of the image and represents the image with a budget of 65 tokens. This allows the API to return faster responses and consume fewer input tokens for use cases that don't require high detail.
 - `high` enables "high res" mode, which first allows the model to see the low res image and then creates detailed crops of input images as 512x512 squares based on the input image size. Each of the detailed crops uses twice the token budget (65 tokens) for a total of 129 tokens.
 
-## Managing images
-
-The Chat Completions API, unlike the Assistants API, is not stateful. That means you have to manage the messages (including images or video) you pass to the model yourself. If you want to pass the same image to the model multiple times, you have to pass the image each time you make a request to the API.
-
-You can improve the latency of the model by downsizing your images ahead of time to be smaller than the maximum allowed size. For low res mode, the service expects a 512x512 pixel image. For high res mode, the short side of the image should be less than 768 px and the long side should be less than 2,000 px.
-
-After an image has been processed by the model, it's deleted from OpenAI servers and not retained. [OpenAI doesn't use data uploaded through their APIs to train their models](https://openai.com/enterprise-privacy).
 
 ## Next steps
 

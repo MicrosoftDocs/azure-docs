@@ -201,12 +201,6 @@ sections:
         answer: |
           No, we'll delete the image for you automatically after it has been processed by the model.
       - question: |
-          Where can I learn more about the considerations of GPT-4 Turbo with Vision?
-        answer: |
-          You can find details about our evaluations, preparation, and mitigation work in the [GPT-4 Turbo with Vision system card](https://cdn.openai.com/papers/gpt-4-system-card.pdf).
-
-          We have further implemented a system to block the submission of CAPTCHAs.
-      - question: |
           How do the rate limits for GPT-4 Turbo with Vision work?
         answer: |
           We process images at the token level, so each image we process counts towards your tokens per minute (TPM) limit. See the [Image tokens section](./overview.md#tokens) of the Overview for details on the formula used to determine token count per image.
@@ -222,27 +216,10 @@ sections:
           What are the known limitations of GPT-4 Turbo with Vision?
         answer: |
           While GPT-4 Turbo with Vision is powerful and can be used in many situations, it is important to understand the limitations of the model. Here are some of the limitations we are aware of:
-
-          Scenario limitations:
-          - Medical images: The model is not suitable for interpreting specialized medical images like CT scans and shouldn't be used for medical advice.
-          - Non-English: The model might not perform optimally when handling images with text of non-Latin alphabets, such as Japanese or Korean.
-          - Large text: Enlarge text within the image to improve readability, but avoid cropping important details.
-          - Rotation: The model might misinterpret rotated / upside-down text or images.
-          - Visual elements: The model might struggle to understand graphs or text where colors or styles like solid, dashed, or dotted lines vary.
-          - Spatial reasoning: The model struggles with tasks requiring precise spatial localization, such as identifying chess positions.
-          - Accuracy: The model might generate incorrect descriptions or captions in certain scenarios.
-          - Image shape: The model struggles with panoramic and fisheye images.
-          Metadata and resizing: The model doesn't process original file names or metadata, and images are resized before analysis, affecting their original dimensions.
-          - Counting: Might give approximate counts for objects in images.
-          - CAPTCHAS: For safety reasons, we have implemented a system to block the submission of CAPTCHAs.
-
-          Technical limitations:
-          - If multiple images are uploaded in one message, augmentation won't be available.
+          - If multiple images are uploaded in one message, Vision enhancement won't be available.
           - Image type `image_hr` is no longer allowed in request payload.
           - If you upload more than 9 high resolution or more than 20 low resolution images per chat, you may encounter errors.
           - Max allowed size of input images is 4 MB.
-          - Max token support is 16k (context+generated = 16,384).
-          - Images in CMYK color spaces aren't supported (JPEGs are supported, but JPEGs with CMYK color space aren't supported). We recommend you use PNG format with RGB color space.
           - Although images provided as input to chat API are treated as high resolution images by default, GPT-4 Turbo with Vision will down-sample it to (2048, 2048) resolution. The high resolution feature might not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
 
   - name: Web app
