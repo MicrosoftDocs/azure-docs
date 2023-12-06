@@ -6,15 +6,15 @@ author: kgaddam10
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 09/08/2023
+ms.date: 12/6/2023/2023
 ms.author: kavitagaddam 
 ms.custom: references_regions
 ---
 
 # Release notes: Azure Health Data Services
 
-> Azure Health Data Services is Generally Available. 
->For more information about Azure Health Data Services Service Level Agreements, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
+> Azure Health Data Services is generally available. 
+>For more information, see [SLA for Azure Health Data Services](https://azure.microsoft.com/support/legal/sla/health-data-services/v1_1/).
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
 
@@ -22,27 +22,40 @@ This article provides details about the features and enhancements made to Azure 
 
 ## November 2023
 
+### Azure Health Data Services
+
+**Unified Azure portal landing page**
+In the Azure portal, we launched a unified landing page that lets users access all Microsoft Healthcare Data and AI Services in one place. The landing page makes it easier to find and use all related Healthcare Data and AI Services and includes links to relevant documentation to help users get started.
+
+**Encryption with customer-managed keys is generally available for the FHIR and DICOM services**
+Data stored in Azure Health Data Services is automatically and seamlessly encrypted with service-managed keys managed by Microsoft. You can enable data encryption with customer-managed keys (CMK) for new and existing FHIR® and DICOM® services, providing your organization with improved flexibility to manage access controls.
+
+Learn more:
+
+- [Configure customer-managed keys for the FHIR service](fhir/configure-customer-managed-keys.md)
+- [Configure customer-managed keys for the DICOM service](dicom/configure-customer-managed-keys.md)
+
 ### FHIR service
 
 **Bulk delete capability now available**
-`$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md)
+`$bulk-delete' allows you to delete resources from the FHIR server asynchronously. The bulk delete operation can be executed at the system level or for individual resource types. For more information, see [bulk-delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md)
 
-Bulk delete operation is currently in public preview. Review disclaimer for details. [!INCLUDE public preview disclaimer]
+The bulk delete operation is currently in public preview. Review disclaimer for details. [!INCLUDE public preview disclaimer]
 
 **$import operation now supports importing soft deleted resources**
-The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. For more details, visit [Fix SQL Import for Soft Delete and History](https://github.com/microsoft/fhir-server/pull/3530).
+The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. For more information, see [Fix SQL Import for Soft Delete and History](https://github.com/microsoft/fhir-server/pull/3530).
 
 **Performance improvement**
-In this release we have improved performance of FHIR queries with _include parameter. For more information, visit [Change query generator to use INNER JOIN](https://github.com/microsoft/fhir-server/pull/3572).
+In this release we have improved performance of FHIR queries with _include parameter. For more information, see [Change query generator to use INNER JOIN](https://github.com/microsoft/fhir-server/pull/3572).
 
 **Bug fix: Searching with _include and wildcard resulted in query failure**
-The issue is fixed and permits only wild character  “*” to be present for _include and _revinclude searches. For more information, visit [Fix syntax check for : when wildcard is used](https://github.com/microsoft/fhir-server/pull/3541).
+The issue is fixed and permits only wild character  “*” to be present for _include and _revinclude searches. For more information, see [Fix syntax check for : when wildcard is used](https://github.com/microsoft/fhir-server/pull/3541).
 
 **Bug fix: Multiple export jobs created resulting in increase data storage volume**
-Due to a bug, Export job was creating multiple child jobs when used with typefilter parameter. The fix addresses the issue for more information, visit [Fix export](https://github.com/microsoft/fhir-server/pull/3567).
+Due to a bug, Export job was creating multiple child jobs when used with typefilter parameter. The fix addresses the issue. For more information, see [Fix export](https://github.com/microsoft/fhir-server/pull/3567).
 
 **Bug Fix: Retriable exception for import operation, when using duplicate files**
-In case of duplicate files during import, the exception would be thrown This exception was considered as a retriable exception. This bug fix addresses the issue and import operation with same file will no longer be considered retriable. For information, visit [Handles exception message for duplicate file in import operation](https://github.com/microsoft/fhir-server/pull/3557).
+In case of duplicate files during import, the exception would be thrown This exception was considered as a retriable exception. This bug fix addresses the issue and import operation with same file will no longer be considered retriable. For more information, see [Handles exception message for duplicate file in import operation](https://github.com/microsoft/fhir-server/pull/3557).
 
 
 ## October 2023
@@ -81,14 +94,14 @@ For details on Incremental Import, visit [Import Documentation](./../healthcare-
 
 **Batch-Bundle parallelization capability available in Public Preview**
 
-Batch bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we're enabling parallel processing of batch bundles.For details, visit [Batch Bundle Parellization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+Batch bundles are executed serially in FHIR service by default. To improve throughput with bundle calls, we're enabling parallel processing of batch bundles.For more information, see [Batch Bundle Parellization](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
 Batch-bundle parallelization capability is in public preview. Review disclaimer for more details. 
 [!INCLUDE [public preview disclaimer](./../healthcare-apis/includes/common-publicpreview-disclaimer.md)]
 
 **Decimal value precision in FHIR service is updated per FHIR specification**
 
-Prior to the fix, FHIR service allowed precision value of [18,6]. The service is updated to support decimal value precision of [36,18] per FHIR specification. For details, visit [FHIR specification Data Types](https://www.hl7.org/fhir/datatypes.html)
+Prior to the fix, FHIR service allowed precision value of [18,6]. The service is updated to support decimal value precision of [36,18] per FHIR specification. For more information, see [FHIR specification Data Types](https://www.hl7.org/fhir/datatypes.html)
 
 **Reindex on targeted search parameter sets the status correctly**
 
@@ -107,7 +120,7 @@ We observed an issue where $import kept on retrying when NDJSON file size is gre
 
 **Patient and Group level export job restart**
 
-Patient and Group level exports on interruption would restart from the beginning. Bug is fixed to restart the export jobs from the last successfully completed page of results. For more information, visit [3205](https://github.com/microsoft/fhir-server/pull/3205).
+Patient and Group level exports on interruption would restart from the beginning. Bug is fixed to restart the export jobs from the last successfully completed page of results. For more information, see [3205](https://github.com/microsoft/fhir-server/pull/3205).
 
 ### DICOM Service
 **API Version 2 is Generally Available (GA)**
@@ -135,7 +148,7 @@ Details per resource, on the number of completed reindexed resources can be obta
 
 **FHIR Search Query optimization of complex queries**
 
-We have seen issues where complex FHIR queries with Reference Search Parameters would time out. Issue is fixed by updating the SQL query generator to use an INNER JOIN for Reference Search Parameters. For details, visit [#3295](https://github.com/microsoft/fhir-server/pull/3295).
+We have seen issues where complex FHIR queries with Reference Search Parameters would time out. Issue is fixed by updating the SQL query generator to use an INNER JOIN for Reference Search Parameters. For more information, see [#3295](https://github.com/microsoft/fhir-server/pull/3295).
 
 **Metadata endpoint URL in capability statement is relative URL**
 
@@ -167,11 +180,11 @@ Customers can include encounter identifiers in the device message so that they c
 **SMART on FHIR : Fixed clinical scope mapping for applications**
 
 This bug fix addresses issue with clinical scope not interpreted correctly for backend applications. 
-For more information, visit [#3250](https://github.com/microsoft/fhir-server/pull/3250)
+For more information, see [#3250](https://github.com/microsoft/fhir-server/pull/3250)
 
 **Addresses duplicate key error when passed in request parameters and body**
 
-This bug fix handles the issue, when using the POST {resourcetype}/search endpoint to query FHIR resources, the server returns 415 Unsupported Media Type. This issue is due to repeating a query parameter in the URL query string and the request body. This fix considers all the query parameters from request and body as input. For more information, visit [#3232](https://github.com/microsoft/fhir-server/pull/3232)
+This bug fix handles the issue, when using the POST {resourcetype}/search endpoint to query FHIR resources, the server returns 415 Unsupported Media Type. This issue is due to repeating a query parameter in the URL query string and the request body. This fix considers all the query parameters from request and body as input. For more information, see [#3232](https://github.com/microsoft/fhir-server/pull/3232)
 
 ## April 2023
 ### Azure Health Data Services
@@ -185,12 +198,12 @@ General availability (GA) of Azure Health Data services in West Central US regio
 **Fixed performance for Search Queries with identifiers**
 
 This bug fix addresses timeout issues observed for search queries with identifiers, by using the OPTIMIZE clause.
-For more information, visit [#3207](https://github.com/microsoft/fhir-server/pull/3207)
+For more information, see [#3207](https://github.com/microsoft/fhir-server/pull/3207)
 
 **Fixed transient issues associated with loading custom search parameters**
 
 This bug fix addresses the issue where the FHIR service wouldn't load the latest SearchParameter status in a failure.
-For more information, visit [#3222](https://github.com/microsoft/fhir-server/pull/3222)
+For more information, see [#3222](https://github.com/microsoft/fhir-server/pull/3222)
 
 ## March 2023
 ### Azure Health Data Services
@@ -215,7 +228,7 @@ Also see [Export your FHIR data by invoking the $export command on the FHIR serv
 
 This bug fix addresses the issue and identified resources, per search criteria with :contains modifier are returned. 
 
-For more information, visit [#2990](https://github.com/microsoft/fhir-server/pull/2990) 
+For more information, see [#2990](https://github.com/microsoft/fhir-server/pull/2990) 
 
 
 
@@ -224,7 +237,7 @@ For more information, visit [#2990](https://github.com/microsoft/fhir-server/pul
 
 Previous to this change, during pagination Cosmos DB continuation token had a default limit of 3 Kb. With this change, customers can send Cosmos DB Continuation Token limit in the header. Valid range is set to 1-3 Kb. Header value that can be used to send this value is x-ms-documentdb-responsecontinuationtokenlimitinkb
 
-For more information, visit [#2971](https://github.com/microsoft/fhir-server/pull/2971/files) and [Overview of search in Azure API for FHIR | Microsoft Learn](./../healthcare-apis/azure-api-for-fhir/overview-of-search.md)
+For more information, see [#2971](https://github.com/microsoft/fhir-server/pull/2971/files) and [Overview of search in Azure API for FHIR | Microsoft Learn](./../healthcare-apis/azure-api-for-fhir/overview-of-search.md)
 
 
 **Fixed issue related to HTTP Status code 500 was encountered when :not modifier was used with chained searches**
@@ -245,7 +258,7 @@ Bug fix addresses the issue and versioned policy at resource level doesn't requi
 
 The MedTech service's new Mapping Debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service device and FHIR destination mappings. It enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. 
 
-For more information, visit [How to use the MedTech service Mapping debugger - Azure Health Data Services | Microsoft Learn](./../healthcare-apis/iot/how-to-use-mapping-debugger.md)
+For more information, see [How to use the MedTech service Mapping debugger - Azure Health Data Services | Microsoft Learn](./../healthcare-apis/iot/how-to-use-mapping-debugger.md)
 
 
 
