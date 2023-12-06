@@ -1,16 +1,16 @@
 ---
-title: Control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
-description: Learn how to control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
+title: Limit Network Traffic with Azure Firewall in Azure Kubernetes Service (AKS)
+description: Learn how to control egress traffic with Azure Firewall to set restrictions for outbound network connections in AKS clusters.
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: how-to
 ms.author: allensu
-ms.date: 03/10/2023
+ms.date: 12/05/2023
 author: asudbring
 #Customer intent: As a cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---
 
-# Control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
+# Limit Network Traffic with Azure Firewall in Azure Kubernetes Service (AKS) 
 
 This article provides a walkthrough of how to use the [Outbound network and FQDN rules for AKS clusters][outbound-fqdn-rules] to control egress traffic using Azure Firewall in AKS. To simplify this configuration, Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) FQDN that restricts outbound traffic from the AKS cluster. This article also provides an example of how to configure public inbound traffic via the firewall.
 
@@ -36,7 +36,7 @@ The following information provides an example architecture of the deployment:
 * **Internal traffic**
   * You can use an [internal load balancer](internal-lb.md) for internal traffic, which you could isolate on its own subnet, instead of or alongside a [public load balancer](load-balancer-standard.md)
 
-## Set configuration using environment variables
+## Configure environment variables
 
 Define a set of environment variables to be used in resource creations.
 
@@ -90,7 +90,7 @@ Provision a virtual network with two separate subnets: one for the cluster and o
         --address-prefix 10.42.2.0/24
     ```
 
-## Create and set up an Azure Firewall with a UDR
+## Create and set up an Azure Firewall
 
 You need to configure Azure Firewall inbound and outbound rules. The main purpose of the firewall is to enable organizations to configure granular ingress and egress traffic rules into and out of the AKS cluster.
 
@@ -212,7 +212,7 @@ To associate the cluster with the firewall, the dedicated subnet for the cluster
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
 ```
 
-## Deploy an AKS cluster with a UDR outbound type to the existing network
+## Deploy an AKS cluster that follows your outbound rules
 
 Now, you can deploy an AKS cluster into the existing virtual network. You will use the [`userDefinedRouting` outbound type](egress-outboundtype.md), which ensures that any outbound traffic is forced through the firewall and no other egress paths will exist. The [`loadBalancer` outbound type](egress-outboundtype.md#outbound-type-of-loadbalancer) can also be used.
 
@@ -346,7 +346,7 @@ If you used authorized IP ranges for your cluster in the previous step, you need
     az aks get-credentials -g $RG -n $AKSNAME
     ```
 
-## Deploy a public service
+## Deploy a public service on AKS
 
 You can now start exposing services and deploying applications to this cluster. In this example, we'll expose a public service, but you also might want to expose an internal service using an [internal load balancer](internal-lb.md).
 
@@ -360,7 +360,7 @@ You can now start exposing services and deploying applications to this cluster. 
    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-quickstart.yaml
    ```
 
-## Add a DNAT rule to Azure Firewall
+## Allow inbound traffic through Azure Firewall
 
 > [!IMPORTANT]
 >
