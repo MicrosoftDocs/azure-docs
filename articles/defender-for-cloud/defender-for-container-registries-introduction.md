@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for container registries - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for container registries.
-ms.date: 06/18/2023
+ms.date: 12/06/2023
 ms.topic: overview
 ms.custom: ignite-2022
 author: dcurwin
