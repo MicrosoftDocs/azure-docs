@@ -52,9 +52,9 @@ In addition to the built-in workbooks, you can also find other useful workbooks 
 
 Enabling Defender for Cloud across multiple subscriptions and environments (Azure, AWS, and GCP) can make it hard to keep track of which plans are active. This is especially true if you have multiple subscriptions and environments.
 
-The coverage workbook allows you to keep track of which Defender for Cloud plans are active on which parts of your environments. This workbook can help you to ensure that your environments and subscriptions are fully protected. By having access to detailed coverage information, you can also identify any areas that might need other protection and take action to address those areas.
+The Coverage workbook allows you to keep track of which Defender for Cloud plans are active on which parts of your environments. This workbook can help you to ensure that your environments and subscriptions are fully protected. By having access to detailed coverage information, you can also identify any areas that might need other protection and take action to address those areas.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/coverage.png" alt-text="Screenshot of the coverage workbook showing which plans and extensions are enabled over various subscriptions and environments." lightbox="media/custom-dashboards-azure-workbooks/coverage.png":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/coverage.png" alt-text="Screenshot of the Coverage workbook showing which plans and extensions are enabled over various subscriptions and environments." lightbox="media/custom-dashboards-azure-workbooks/coverage.png":::
 
 This workbook allows you to select a subscription (or all subscriptions) from the dropdown menu and view:
 
