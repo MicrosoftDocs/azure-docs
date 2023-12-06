@@ -218,7 +218,7 @@ The request body consists of a series of messages. The model will generate a res
 | `role`| string | Yes | N/A | Indicates who is giving the current message. Can be `system`,`user`,`assistant`,`tool`, or `function`.|
 | `content` | string or array | Yes | N/A | The content of the message. It must be a string, unless in a Vision-enabled scenario (in the `user` message, using the GPT-4 Turbo with Vision model, with the latest API version). In a Vision scenario, it can be an array of `contentPart` structures. |
 | `contentPart` | object | No | N/A | Part of a user's multi-modal message. It can be either text type or image type. If text, it will be a text string. If image, it will be a `contentPartImage` object. |
-| `contentPartImage` | object | No | N/A | Represents a user-uploaded image. It has a `url` property, which is either a URL of the image or the base64 encoded image data. It also has a `detail` property which can be `auto`, `low`, or `high`.|
+| `contentPartImage` | object | No | N/A | Represents a user-uploaded image. It has a `url` property, which is either a URL of the image or the base 64 encoded image data. It also has a `detail` property which can be `auto`, `low`, or `high`.|
 
 #### Example request
 
