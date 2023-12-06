@@ -7,7 +7,7 @@ ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 2/2/2023
-ms.author: amgowda
+ms.author: simranparkhe
 ---
 
 # Secure Key Release with Confidential VMs How To Guide
