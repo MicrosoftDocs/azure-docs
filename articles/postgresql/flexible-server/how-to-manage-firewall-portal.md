@@ -1,10 +1,12 @@
 ---
 title: Manage firewall rules - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using the Azure portal
-author: sunilagarwal 
+author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 11/30/2021
 ---
@@ -15,10 +17,10 @@ ms.date: 11/30/2021
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
-* Public access (allowed IP addresses)
+* Public access (allowed IP addresses). That method can be further secured by using [Private Link](./concepts-networking-private-link.md) based networking with Azure Database for PostgreSQL - Flexible Server in Preview. 
 * Private access (VNet Integration)
 
-In this article, we will focus on creation of PostgreSQL server with **Public access (allowed IP addresses)** using Azure portal and will provide an overview of managing firewall rules after creation of Flexible Server. With *Public access (allowed IP addresses)*, the connections to the PostgreSQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well. In this article, we will provide an overview on how to create and manage firewall rules using public access (allowed IP addresses).
+In this article, we'll focus on creation of PostgreSQL server with **Public access (allowed IP addresses)** using Azure portal and will provide an overview of managing firewall rules after creation of Flexible Server. With *Public access (allowed IP addresses)*, the connections to the PostgreSQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well. In this article, we'll provide an overview on how to create and manage firewall rules using public access (allowed IP addresses).
 
 ## Create a firewall rule when creating a server
 
@@ -40,7 +42,7 @@ In this article, we will focus on creation of PostgreSQL server with **Public ac
 
    <!--![Azure portal - click Connection Security](./media/howto-manage-firewall-portal/1-connection-security.png)-->
 
-3. Click **Add current client IP address** in the firewall rules. This automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
+3. Select **Add current client IP address** in the firewall rules. This automatically creates a firewall rule with the public IP address of your computer, as perceived by the Azure system.
 
    <!--![Azure portal - click Add My IP](./media/howto-manage-firewall-portal/2-add-my-ip.png)-->
 
@@ -54,7 +56,7 @@ In this article, we will focus on creation of PostgreSQL server with **Public ac
 
    <!--![Azure portal - firewall rules](./media/howto-manage-firewall-portal/4-specify-addresses.png)-->
 
-6. Click **Save** on the toolbar to save this firewall rule. Wait for the confirmation that the update to the firewall rules was successful.
+6. Select **Save** on the toolbar to save this firewall rule. Wait for the confirmation that the update to the firewall rules was successful.
 
    <!--![Azure portal - click Save](./media/howto-manage-firewall-portal/5-save-firewall-rule.png)-->
 
@@ -64,7 +66,7 @@ You may want to enable resources or applications deployed in Azure to connect to
 
 When an application within Azure attempts to connect to your server, the firewall verifies that Azure connections are allowed. You can enable this setting by selecting the **Allow public access from Azure services and resources within Azure to this server** option in the portal from the **Networking** tab and hit **Save**.
 
-The resources do not need to be in the same virtual network (VNet) or resource group for the firewall rule to enable those connections. If the connection attempt is not allowed, the request does not reach the Azure Database for PostgreSQL - Flexible Server.
+The resources don't need to be in the same virtual network (VNet) or resource group for the firewall rule to enable those connections. If the connection attempt isn't allowed, the request doesn't reach the Azure Database for PostgreSQL - Flexible Server.
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
@@ -75,7 +77,7 @@ The resources do not need to be in the same virtual network (VNet) or resource g
 
 Repeat the following steps to manage the firewall rules.
 
-- To add the current computer, click + **Add current client IP address** in the firewall rules. Click **Save** to save the changes.
+- To add the current computer, select + **Add current client IP address** in the firewall rules. Click **Save** to save the changes.
 - To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address. Click **Save** to save the changes.
 - To modify an existing rule, click any of the fields in the rule and modify. Click **Save** to save the changes.
 - To delete an existing rule, click the ellipsis […] and click **Delete** to remove the rule. Click **Save** to save the changes.

@@ -2,7 +2,7 @@
 title: Custom Text Analytics for health - Azure AI services
 titleSuffix: Azure AI services
 description: Customize an AI model to label and extract healthcare information from documents using Azure AI services.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

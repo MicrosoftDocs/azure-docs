@@ -40,7 +40,7 @@ ms.author: wchi
     }
    ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 
 1. Install the Spring Cloud Azure Starter JDBC PostgreSQL module by adding the following dependencies to your `pom.xml` file. Find the version of Spring Cloud Azure [here](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
     ```xml
@@ -187,3 +187,6 @@ ms.author: wchi
         connection.close if connection
     end
     ```
+
+### [Other](#tab/none)
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for PostgreSQL with Service Connector](../how-to-integrate-postgres.md).

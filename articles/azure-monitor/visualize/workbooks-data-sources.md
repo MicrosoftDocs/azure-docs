@@ -25,8 +25,8 @@ Workbooks can extract data from these data sources:
  - [Workload health](#workload-health)
  - [Azure resource health](#azure-resource-health)
  - [Azure RBAC](#azure-rbac)
- - [Change Analysis (preview)](#change-analysis-preview)
- - [Prometheus (preview)](#prometheus-preview)
+ - [Change Analysis](#change-analysis)
+ - [Prometheus](#prometheus)
 
 ## Logs
 
@@ -168,15 +168,15 @@ Simple JSON arrays or objects will automatically be converted into grid rows and
    ["Microsoft.Resources/deployments/read","Microsoft.Resources/deployments/write","Microsoft.Resources/deployments/validate/action","Microsoft.Resources/operations/read"]
    ```
 
-## Change Analysis (preview)
+## Change Analysis
 
-To make a query control that uses [Application Change Analysis](../app/change-analysis.md) as the data source, use the **Data source** dropdown and select **Change Analysis (preview)**. Then select a single resource. Changes for up to the last 14 days can be shown. Use the **Level** dropdown to filter between **Important**, **Normal**, and **Noisy** changes. This dropdown supports workbook parameters of the type [drop down](workbooks-dropdowns.md).
+To make a query control that uses [Application Change Analysis](../app/change-analysis.md) as the data source, use the **Data source** dropdown and select **Change Analysis**. Then select a single resource. Changes for up to the last 14 days can be shown. Use the **Level** dropdown to filter between **Important**, **Normal**, and **Noisy** changes. This dropdown supports workbook parameters of the type [drop down](workbooks-dropdowns.md).
 <!-- convertborder later -->
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/workbooks-data-sources/change-analysis-data-source.png" lightbox="./media/workbooks-data-sources/change-analysis-data-source.png" alt-text="A screenshot that shows a workbook with Change Analysis." border="false":::
 
 
-## Prometheus (preview)
+## Prometheus
 
 With [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), you can collect Prometheus metrics for your Kubernetes clusters. To query Prometheus metrics, select **Prometheus** from the data source dropdown, followed by where the metrics are stored in [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) and the [Prometheus query type](https://prometheus.io/docs/prometheus/latest/querying/api/) for the PromQL query.
 

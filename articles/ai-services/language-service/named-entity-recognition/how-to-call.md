@@ -2,7 +2,7 @@
 title: How to perform Named Entity Recognition (NER)
 titleSuffix: Azure AI services
 description: This article will show you how to extract named entities from text.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
@@ -13,7 +13,7 @@ ms.custom: language-service-ner, ignite-fall-2021
 ---
 
 
-# How to use Named Entity Recognition(NER)
+# How to use Named Entity Recognition (NER)
 
 The NER feature can evaluate unstructured text, and extract named entities from text in several predefined categories, for example: person, location, event, product, and organization.  
 
@@ -22,11 +22,6 @@ The NER feature can evaluate unstructured text, and extract named entities from 
 [!INCLUDE [development options](./includes/development-options.md)]
 
 ## Determine how to process the data (optional)
-
-### Specify the NER model
-
-By default, this feature uses the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../concepts/model-lifecycle.md).
-
 
 ### Input languages
 
@@ -92,7 +87,7 @@ The above examples would return entities falling under the `Location` entity typ
     
 ```
 
-This method returns all `Location` entities only falling under the `GPE` tag and ignore any other entity falling under the `Location` type that is tagged with any other entity tag such as `Structural` or `Geological` tagged `Location` entities. We could also further drill-down on our results by using the `excludeList` parameter. `GPE` tagged entities could be tagged with the following tags: `City`, `State`, `CountryRegion`, `Continent`. We could, for example, exclude `Continent` and `CountryRegion` tags for our example:
+This method returns all `Location` entities only falling under the `GPE` tag and ignore any other entity falling under the `Location` type that is tagged with any other entity tag such as `Structural` or `Geological` tagged `Location` entities. We could also further drill down on our results by using the `excludeList` parameter. `GPE` tagged entities could be tagged with the following tags: `City`, `State`, `CountryRegion`, `Continent`. We could, for example, exclude `Continent` and `CountryRegion` tags for our example:
 
 ```bash
 
@@ -112,6 +107,10 @@ This method returns all `Location` entities only falling under the `GPE` tag and
 ```
 
 Using these parameters we can successfully filter on only `Location` entity types, since the `GPE` entity tag included in the `includeList` parameter, falls under the `Location` type. We then filter on only Geopolitical entities and exclude any entities tagged with `Continent` or `CountryRegion` tags.
+
+## Specify the NER model
+
+By default, this feature uses the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../concepts/model-lifecycle.md).
 
 ## Service and data limits
 

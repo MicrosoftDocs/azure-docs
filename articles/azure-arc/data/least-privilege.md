@@ -190,12 +190,12 @@ kubectl logs <pod name> --namespace arc
 #kubectl logs control-2g7b1 --namespace arc
 ```
 
-## Next steps
+## Related content
 
 You have several additional options for creating the Azure Arc data controller:
 
 > **Just want to try things out?**
-> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on AKS, Amazon EKS, or GKE, or in an Azure VM.
+> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_data) on AKS, Amazon EKS, or GKE, or in an Azure VM.
 >
 
 - [Create a data controller in direct connectivity mode with the Azure portal](create-data-controller-direct-prerequisites.md)

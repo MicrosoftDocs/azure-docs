@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2023
+ms.date: 11/08/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -219,7 +219,7 @@ You can use the Download Advanced Report to get reports that cover specific date
 
 > [!NOTE]
 > - Inactive accounts for the selected time range aren't shown.
-> - You can redownload reports from the Report History since they were first created. For new reports, the selected time range must be within the last 90 days.
+> - The download start date must be within 90 days of the end date. You can’t select a range longer than 90 days.
 
 ### Download your Azure invoices (.pdf)
 

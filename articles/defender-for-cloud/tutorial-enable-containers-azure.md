@@ -7,7 +7,7 @@ ms.date: 06/29/2023
 
 # Protect your Azure containers with Defender for Containers
 
-Defender for Containers in Microsoft Defender for Cloud is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
+Microsoft Defender for Containers is a cloud-native solution to improve, monitor, and maintain the security of your containerized assets (Kubernetes clusters, Kubernetes nodes, Kubernetes workloads, container registries, container images and more), and their applications, across multicloud and on-premises environments.
 
 Learn more about [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
@@ -26,7 +26,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 ## Enable the Defender for Containers plan
 
-By default, when enabling the plan through the Azure portal, Microsoft Defender for Containers is configured to automatically install required components to provide the protections offered by plan, including the assignment of a default workspace.
+By default, when enabling the plan through the Azure portal, Microsoft Defender for Containers is configured to automatically enable all capabilities and install required components to provide the protections offered by plan, including the assignment of a default workspace.
 
 If you would prefer to [assign a custom workspace](/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-aks&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#assign-a-custom-workspace), one can be assigned through the Azure Policy.
 

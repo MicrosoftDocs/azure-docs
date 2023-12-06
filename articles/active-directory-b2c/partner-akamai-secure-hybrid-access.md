@@ -2,11 +2,11 @@
 title: Configure Azure Active Directory B2C with Akamai for secure hybrid access 
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Akamai for secure hybrid access 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 11/23/2022
 ms.author: gasinh

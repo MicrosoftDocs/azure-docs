@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 11/08/2023
 ms.author: danlep
 ---
 
@@ -105,23 +105,25 @@ There are different reasons for doing this. For example:
 
     Regardless of the authentication and authorization mechanisms on their API backends, organizations may choose to converge on OAuth 2.0 for a standardized authorization approach on the front end. API Management's gateway can enable consistent authorization configuration and a common experience for API consumers as the organization's backends evolve.
 
-### Scenario 3: API management authorizes to backend
+### Scenario 3: API Management authorizes to backend
 
-With [API authorizations](authorizations-overview.md), you configure API Management itself to authorize access to one or more backend or SaaS services, such as LinkedIn, GitHub, or other OAuth 2.0-compatible backends. In this scenario, a user or client app makes a request to the API Management gateway, with gateway access controlled using an identity provider or other [client side options](#client-side-options). Then, through [policy configuration](get-authorization-context-policy.md), the user or client app delegates backend authentication and authorization to API Management. 
+With managed [connections](credentials-overview.md) (formerly called *authorizations*), you use credential manager in API Management to authorize access to one or more backend or SaaS services, such as LinkedIn, GitHub, or other OAuth 2.0-compatible backends. In this scenario, a user or client app makes a request to the API Management gateway, with gateway access controlled using an identity provider or other [client side options](#client-side-options). Then, through [policy configuration](get-authorization-context-policy.md), the user or client app delegates backend authentication and authorization to API Management. 
 
-In the following example, a subscription key is used between the client and the gateway, and GitHub is the authorization provider for the backend API.
+In the following example, a subscription key is used between the client and the gateway, and GitHub is the credential provider for the backend API.
 
-:::image type="content" source="media/authentication-authorization-overview/oauth-token-authorization.svg" alt-text="Diagraming showing authorization to backend SaaS service using API authorization.":::
+:::image type="content" source="media/authentication-authorization-overview/oauth-token-authorization.svg" alt-text="Diagram showing authorization to backend SaaS service using a connection managed in credential manager.":::
 
-With an API authorization, API Management acquires and refreshes the tokens for API access in the OAuth 2.0 flow. Authorizations simplify token management in multiple scenarios, such as:
+With a connection to a credential provider, API Management acquires and refreshes the tokens for API access in the OAuth 2.0 flow. Connections simplify token management in multiple scenarios, such as:
 
 * A client app might need to authorize to multiple SaaS backends to resolve multiple fields using GraphQL resolvers.
-* Users authenticate to API Management by SSO from their identity provider, but authorize to a backend SaaS provider (such as LinkedIn) using a common organizational account
+* Users authenticate to API Management by SSO from their identity provider, but authorize to a backend SaaS provider (such as LinkedIn) using a common organizational account.
+* A client app (or bot) needs to access backend secured online resources on behalf of an authenticated user (for example, checking emails or placing an order).
 
 Examples:
 
-* [Create an authorization with the Microsoft Graph API](authorizations-how-to-azure-ad.md)
-* [Create an authorization with the GitHub API](authorizations-how-to-github.md)
+* [Configure credential manager - Microsoft Graph API](credentials-how-to-azure-ad.md)
+* [Configure credential manager - GitHub API](credentials-how-to-github.md)
+* [Configure credential manager - user delegated access to backend APIs](credentials-how-to-github.md)
 
 ## Other options to secure APIs
 

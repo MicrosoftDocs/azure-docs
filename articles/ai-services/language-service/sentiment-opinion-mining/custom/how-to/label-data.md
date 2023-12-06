@@ -2,7 +2,7 @@
 title: How to label your data for Custom sentiment analysis - Azure AI services
 titleSuffix: Azure AI services
 description: Learn about how to label your data for use with the custom Sentiment analysis.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
