@@ -22,7 +22,7 @@ Use the details shown on the **Alerts** page, or on an alert details page, to in
 
 ## Alert management options
 
-Defender for IoT alerts are available in the Azure portal, OT network sensor consoles, and the on-premises management console.
+Defender for IoT alerts are available in the Azure portal, OT network sensor consoles, and the on-premises management console. With Enterprise IoT security, alerts are also available for Enterprise IoT devices detected by Defender for Endpoint, in Microsoft 365 Defender.
 
 While you can view alert details, investigate alert context, and triage and manage alert statuses from any of these locations, each location also offers extra alert actions. The following table describes the alerts supported for each location and the extra actions available from that location only:
 

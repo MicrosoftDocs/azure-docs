@@ -89,8 +89,6 @@ The following Defender for Endpoint recommendations are relevant for Enterprise 
 
 For more information, see [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation).
 
-Other recommendations you may see in the **Recommendations** page are relevant for the  [Defender for IoT micro agent](../device-builders/index.yml).
-
 ## Next steps
 
 > [!div class="nextstepaction"]
