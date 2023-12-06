@@ -36,7 +36,7 @@ Azure service: [Azure Container Apps](../../../container-apps/index.yml)
 > | microsoft.app/containerapps/listcustomhostnameanalysis/action | List custom host name analysis result |
 > | microsoft.app/containerapps/stop/action | Stop a Container App |
 > | microsoft.app/containerapps/start/action | Start a Container App |
-> | microsoft.app/containerapps/authtoken/action | Get Auth Token for Container App Dev APIs to get log stream, exec or port forward from a container. This operation will be deprecated soon. |
+> | microsoft.app/containerapps/authtoken/action | Get Auth Token for Container App Dev APIs to get log stream, exec or port forward from a container. This operation will be deprecated. |
 > | microsoft.app/containerapps/getauthtoken/action | Get Auth Token for Container App Dev APIs to get log stream, exec or port forward from a container. |
 > | microsoft.app/containerapps/authconfigs/read | Get auth config of a container app |
 > | microsoft.app/containerapps/authconfigs/write | Create or update auth config of a container app |
