@@ -102,7 +102,7 @@ There are a multitude of CentOS based offers from various publishers available i
 
 Some of these offers do have a price tag associated, and can include services such as end customer support etc.
 
-If you convert a system with a price associated you will continue to pay the original price after conversion. Even if you have a separate subscription or license for the converted system, you my be double paying.
+If you convert a system with a price associated, you will continue to pay the original price after conversion.. Even if you have a separate subscription or license for the converted system, you my be double paying.
 
 Check with your image provider whether they recommend / support an in-place upgrade or have further guidance.
 
