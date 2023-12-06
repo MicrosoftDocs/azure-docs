@@ -23,7 +23,7 @@ See the [list of known issues](reference-known-issues.md) to learn about known b
 
 ## December 5, 2023
 
-DSVM offering for [Data Science VM – Windows 2022](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.dsvm-win-2022?tab=Overview) is now generally available in the marketplace.
+DSVM offering for [Data Science VM – Windows 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2022?tab=Overview) is now generally available in the marketplace.
 
 Version `23.11.23`
 
