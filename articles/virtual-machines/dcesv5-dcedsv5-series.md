@@ -20,7 +20,7 @@ ms.date: 11/14/2023
 > These virtual machines are in public preview and not recommended for production usage.
 > Currently these VMs are supported in the West Europe, Central US and East US 2 regions. North Europe will be available in January. 
 
-The DCesv5-series and DCedsv5-series are [Azure confidential VMs](../confidential-computing/confidential-vm-overview.md) which can be used to protect the confidentiality and integrity of your code and data while it's being processed in the public cloud. Organizations can use these VMs to seamlessly bring confidential workloads to the cloud without any code changes to the application. 
+The DCesv5-series and DCedsv5-series are [Azure confidential VMs](../confidential-computing/confidential-vm-overview.md) that can be used to protect the confidentiality and integrity of your code and data while it's being processed in the public cloud. Organizations can use these VMs to seamlessly bring confidential workloads to the cloud without any code changes to the application. 
 
 These machines are powered by Intel® 4th Generation Xeon® Scalable processors with All Core Frequency of 2.1 GHz, and use Intel® Turbo Boost Max Technology to reach 2.9 GHz.
 
@@ -41,20 +41,20 @@ These VMs have native support for [confidential disk encryption](disk-encryption
 - [Premium Storage](premium-storage-performance.md)
 - [Premium Storage caching](premium-storage-performance.md)
 - [VM Generation 2](generation-2.md)
+- [Ephemeral OS Disks](ephemeral-os-disks.md) - DCedsv5 only
 
 *Unsupported* features include:
 
 - [Live Migration](maintenance-and-updates.md)
 - [Memory Preserving Updates](maintenance-and-updates.md)
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)
-- [Ephemeral OS Disks](ephemeral-os-disks.md) - DCedsv5 only
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)
 
 ## DCesv5-series
 
-The DCesv5 offer a balance of memory to vCPU performance which will suit most production workloads. With up to 96 vCPUs, 384 GiB of RAM, and support for remote disk storage. If you require a local disk, please consider DCedsv5-series. These VMs work well for many general computing workloads, e-commerce systems, web front ends, desktop virtualization solutions, sensitive databases, other enterprise applications and more.
+The DCesv5 offer a balance of memory to vCPU performance that is suitable most production workloads. With up to 96 vCPUs, 384 GiB of RAM, and support for remote disk storage. If you require a local disk, please consider DCedsv5-series. These VMs work well for many general computing workloads, e-commerce systems, web front ends, desktop virtualization solutions, sensitive databases, other enterprise applications and more.
 
-This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/). This series currently supports the confidential tagged images Windows Server 2022, Windows 11, and Ubuntu 22.04 LTS. 
 
 ### DCesv5-series specifications
 
@@ -73,7 +73,7 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 
 ## DCedsv5-series
 
-The DCedsv5 offer a balance of memory to vCPU performance which will suit most production workloads. With up to 96 vCPUs, 384 GiB of RAM, and support for up to 2.8 TB of local disk storage. These VMs work well for many general computing workloads, e-commerce systems, web front ends, desktop virtualization solutions, sensitive databases, other enterprise applications and more.
+The DCedsv5 offer a balance of memory to vCPU performance that is suitable most production workloads. With up to 96 vCPUs, 384 GiB of RAM, and support for up to 2.8 TB of local disk storage. These VMs work well for many general computing workloads, e-commerce systems, web front ends, desktop virtualization solutions, sensitive databases, other enterprise applications and more.
 
 This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -89,9 +89,6 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 | Standard_DC48eds_v5  |48  |192  |1407  |32  |229700/3000  |76800/1320  |80000/3000  	|8  	|15000  	|
 | Standard_DC64eds_v5  |64  |256  |2823  |32  |306200/4000  |80000/1740  |80000/3000  	|8  	|20000  	|
 | Standard_DC96eds_v5  |96  |384  |2823  |32  |459200/4000  |80000/2600   	|120000/4000   	|8   	|30000    |
-
-> [!NOTE]
-> To achieve these IOPs, use [Gen2 VMs](generation-2.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

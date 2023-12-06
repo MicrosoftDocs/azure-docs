@@ -92,7 +92,7 @@ sections:
         answer: |
           Azure confidential VMs on Intel TDX have the option of including attestation as part of their boot phase. This process is opaque to the user and takes place in the cloud operating system in conjunction with the Microsoft Azure Attestation and Azure Key Vault services.
           Support for in-guest [attestation](guest-attestation-confidential-vms.md) will be available via the vTPM. You can use this to validate the entire stack from the hardware platform to the guest application layer. The functionality exists on AMD SEV-SNP today and will soon be released for Intel TDX. Today, only in-guest platform attestation is available for Intel TDX. This allows you to verify that your VM is running on Intel TDX hardware. To access this preview feature, visit our [preview branch](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/tdx-preview).
-          Additionally, we support Intel® Trust Authority](https://www.intel.com/content/www/us/en/security/trust-authority.html) for enterprises seeking operator independent attestation.
+          Additionally, we support [Intel® Trust Authority](https://www.intel.com/content/www/us/en/security/trust-authority.html) for enterprises seeking operator independent attestation.
 
       - question: |
           Do all OS images work with confidential VMs?
