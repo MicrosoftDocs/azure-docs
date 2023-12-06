@@ -64,6 +64,9 @@ The recognize action can be used for many reasons, here are a few examples of ho
 
 ![Recognize Action](./media/recognize-flow.png)
 
+## Known limitation
+- In-band DTMF is not supported, use RFC 2833 DTMF instead.
+
 ## Next steps
 - Check out our how-to guide to learn how you can [gather user input](../../how-tos/call-automation/recognize-action.md).
 - Learn about [usage and operational logs](../analytics/logs/call-automation-logs.md) published by call automation.

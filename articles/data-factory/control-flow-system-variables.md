@@ -85,7 +85,7 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 | @triggerBody().event.data._keyName_ | Data field in custom event is a free from JSON blob, which customer can use to send messages and data. Please use data._keyName_ to reference each field. For example, @triggerBody().event.data.callback returns the value for the _callback_ field stored under _data_. |
 | @trigger().startTime | Time at which the trigger fired to invoke the pipeline run. |
 
-## Next steps
+## Related content
 
 * For information about how these variables are used in expressions, see [Expression language & functions](control-flow-expression-language-functions.md).
 * To use trigger scope system variables in pipeline, see [Reference trigger metadata in pipeline](how-to-use-trigger-parameterization.md)

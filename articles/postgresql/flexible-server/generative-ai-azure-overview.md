@@ -31,7 +31,7 @@ CREATE EXTENSION azure_ai;
 ```
 
 > [!NOTE]
-> To remove the extension from the currently connected database use `DROP EXTENSION vector;`.
+> To remove the extension from the currently connected database use `DROP EXTENSION azure_ai;`.
 
 Installing the extension `azure_ai` creates the following three schemas:
 

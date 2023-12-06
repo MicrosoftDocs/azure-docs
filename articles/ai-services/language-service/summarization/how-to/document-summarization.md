@@ -87,8 +87,6 @@ You can also use the `sortby` parameter to specify in what order the extracted s
 
 ### Try document abstractive summarization
 
-<!-- [Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684) -->
-
 The following example gets you started with document abstractive summarization:
 
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.

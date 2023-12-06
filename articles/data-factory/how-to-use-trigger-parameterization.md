@@ -141,6 +141,6 @@ Under **pipelines** section, assign parameter values in **parameters** section. 
 
 To use the values in pipeline, utilize parameters _@pipeline().parameters.parameterName_, __not__ system variable, in pipeline definitions.
 
-## Next steps
+## Related content
 
 For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).

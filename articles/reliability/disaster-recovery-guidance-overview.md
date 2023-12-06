@@ -53,7 +53,7 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure Batch](reliability-batch.md#cross-region-disaster-recovery-and-business-continuity) |
 | [Azure Bastion](../bastion/bastion-faq.md?#dr) |
 | [Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-geo-replication.md) |
-| [Azure Cognitive Search](../search/search-reliability.md) |
+| [Azure AI Search](../search/search-reliability.md) |
 | [Azure Container Instances](reliability-containers.md#disaster-recovery) |
 | [Azure Database for MySQL](/azure/mysql/single-server/concepts-business-continuity?#recover-from-an-azure-regional-data-center-outage) |
 | [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-restore-server-portal?#geo-restore-to-latest-restore-point) |
@@ -72,7 +72,7 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates?preserve-view=true&view=sql-server-ver15#configure-regional-redundancy) |
 | [Azure Stream Analytics](../stream-analytics/geo-redundancy.md) |
 | [Azure Virtual WAN](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md) |
-| [Azure Web Application Firewall](../application-gateway/application-gateway-faq.yml?#how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway) |
+| [Azure Web Application Firewall](../application-gateway/application-gateway-faq.yml?#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway) |
   
 
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services 

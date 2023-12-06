@@ -5,7 +5,7 @@ ms.subservice: aks-networking
 ms.custom: devx-track-azurecli
 author: asudbring
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 11/21/2023
 ms.author: allensu
 ---
 
@@ -482,7 +482,7 @@ When the application routing add-on is disabled, some Kubernetes resources might
 
 ## Next steps
 
-* [Configure custom ingress configurations][custom-ingress-configurations] shows how to create Ingresses with a private load balancer, configure SSL certificate integration with Azure Key Vault, and DNS management with Azure DNS.
+* [Configure custom ingress configurations][custom-ingress-configurations] shows how to create an advanced Ingress configuration to encrypt the traffic and use Azure DNS to manage DNS zones.
 
 * Learn about monitoring the ingress-nginx controller metrics included with the application routing add-on with [with Prometheus in Grafana][prometheus-in-grafana] (preview) as part of analyzing the performance and usage of your application.
 
@@ -491,7 +491,6 @@ When the application routing add-on is disabled, some Kubernetes resources might
 [az-aks-approuting-enable]: /cli/azure/aks/approuting#az-aks-approuting-enable
 [az-aks-approuting-disable]: /cli/azure/aks/approuting#az-aks-approuting-disable
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-[az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [install-azure-cli]: /cli/azure/install-azure-cli

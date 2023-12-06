@@ -1,6 +1,6 @@
 ---
 title: Trial Matcher patient info 
-titleSuffix: Project Health Insights
+titleSuffix: Azure AI Health Insights
 description: This article describes how and which patient information can be sent to the Trial Matcher
 services: azure-health-insights
 author: iBoonZ
