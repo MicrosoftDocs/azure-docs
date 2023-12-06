@@ -80,7 +80,7 @@ Many CentOS compatible distributions have conversions utilities that assess the 
 
 If you move to a commercial distribution, you may need a valid subscription / license to perform the conversion.
 
-As you consider whether to convert your VM in place vs redeploying, the way you created your VM in Azure will become important. <br><br>
+As you consider whether to convert your VM in place vs redeploying, the way you created your VM in Azure becomes important.
 
 **Converting a custom VM**
 
