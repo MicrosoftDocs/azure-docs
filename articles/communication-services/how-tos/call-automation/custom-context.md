@@ -229,6 +229,9 @@ AcsIncomingCallCustomContext callCustomContext = incomingEvent.CustomContext;
 var voipHeaders = callCustomContext.VoipHeaders;
 var sipHeaders = callCustomContext.SipHeaders;
 
+// Get SIP UUI header value
+var userToUser = sipHeaders["user-To-User"]
+
 // Proceed to answer or reject call as usual
 ```
 
@@ -242,6 +245,9 @@ AcsIncomingCallCustomContext callCustomContext = incomingEvent.getCustomContext(
 Map<String, String> voipHeaders = callCustomContext.getVoipHeaders();
 Map<String, String> sipHeaders = callCustomContext.getSipHeaders();
 
+// Get SIP UUI header value
+String userToUser = sipHeaders.get("user-To-User");
+
 // Proceed to answer or reject call as usual
 ```
 
@@ -254,6 +260,9 @@ const callCustomContext = incomingEvent.customContext;
 const voipHeaders = callCustomContext.voipHeaders;
 const sipHeaders = callCustomContext.sipHeaders;
 
+// Get SIP UUI header value
+const userToUser = sipHeaders["user-To-User"];
+
 // Proceed to answer or reject call as usual
 ```
 
@@ -265,6 +274,11 @@ callCustomContext = incomingEvent.customContext
 # Inspect dictionary with key/value pairs
 voipHeaders = callCustomContext.voipHeaders
 sipHeaders = callCustomContext.sipHeaders
+
+# Get SIP UUI header value
+userToUser = sipHeaders.get("user-To-User")
+
+# Proceed to answer or reject call as usual
 ```
 
 -----

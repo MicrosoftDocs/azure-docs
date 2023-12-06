@@ -4,7 +4,7 @@ description: How to work with the old virtual network gateway SKUs; Basic, Stand
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 11/29/2023
+ms.date: 12/04/2023
 ms.author: cherylmc 
 ---
 # Working with VPN Gateway legacy SKUs
@@ -19,7 +19,7 @@ You can view legacy gateway pricing in the **Virtual Network Gateways** section,
 
 ## SKU deprecation
 
-The Standard and High Performance SKUs will be deprecated September 30, 2025. The product team will make a migration path available for these SKUs by November 30, 2024. **At this time, there's no action that you need to take**.
+The Standard and High Performance SKUs will be deprecated September 30, 2025. You can view the announcement [here](https://go.microsoft.com/fwlink/?linkid=2255127). The product team will make a migration path available for these SKUs by November 30, 2024. **At this time, there's no action that you need to take**. 
 
 When the migration path becomes available, you can migrate your legacy SKUs to the following SKUs:
 

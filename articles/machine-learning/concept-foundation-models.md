@@ -69,6 +69,6 @@ Support|Supported by Microsoft and covered by [Azure Machine Learning SLA](https
 ## Learn more
 
 Learn [how to use Foundation Models in Azure Machine Learning](./how-to-use-foundation-models.md) for fine-tuning, evaluation and deployment using Azure Machine Learning studio UI or code based methods.
-* Explore the [model catalog in Azure Machine Learning studio](https://ml.azure.com/model/catalog). You need a [Azure Machine Learning workspace](./quickstart-create-resources.md) to explore the catalog.
+* Explore the [model catalog in Azure Machine Learning studio](https://ml.azure.com/model/catalog). You need an [Azure Machine Learning workspace](./quickstart-create-resources.md) to explore the catalog.
 * [Evaluate, fine-tune and deploy models](./how-to-use-foundation-models.md) curated by Azure Machine Learning.
 

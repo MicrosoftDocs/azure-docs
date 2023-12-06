@@ -2,13 +2,13 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/30/2023
+ms.date: 12/04/2023
 ms.author: wchi
 ---
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies
+1. Install dependency.
     ```bash
     dotnet add package MongoDb.Driver
     ```
@@ -24,7 +24,7 @@ ms.author: wchi
 
 ### [Java](#tab/java)
 
-1. Add the following dependencies in your *pom.xml* file:
+1. Add the following dependency in your *pom.xml* file:
     ```xml
     <dependency>
 	    <groupId>org.mongodb</groupId>
@@ -58,9 +58,23 @@ ms.author: wchi
 ### [SpringBoot](#tab/springBoot)
 Refer to [Use Spring Data with Azure Cosmos DB for MongoDB API](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db) to set up your Spring application. The configuration properties `spring.data.mongodb.database` and `spring.data.mongodb.uri` are set to Spring Apps by Service Connector.
 
+### [Python](#tab/python)
+1. Install dependency.
+    ```bash
+    pip install pymongo
+    ```
+
+2. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
+    ```python
+    import os
+    import pymongo
+
+    conn_str = os.environ.get("AZURE_COSMOS_CONNECTIONSTRING")
+    client = pymongo.MongoClient(conn_str)
+    ```
 
 ### [Go](#tab/go)
-1. Install dependencies.
+1. Install dependency.
    ```bash
    go get go.mongodb.org/mongo-driver/mongo
    ```
@@ -94,8 +108,8 @@ Refer to [Use Spring Data with Azure Cosmos DB for MongoDB API](/azure/developer
     }
     ```
 
-### [NodeJS](#tab/node)
-1. Install dependencies
+### [NodeJS](#tab/nodejs)
+1. Install dependency.
     ```bash
     npm install mongodb
     ```
