@@ -4,7 +4,7 @@ description: Tutorial - Learn how to use the Apache Kafka Streams API with Kafka
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
-ms.date: 12/05/2023
+ms.date: 12/06/2023
 #Customer intent: As a developer, I need to create an application that uses the Kafka streams API with Kafka on HDInsight
 ---
 
@@ -158,7 +158,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     export PASSWORD='PASSWORD'
     ```
 
-4. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command obtains the actual casing, and then store it in a variable. Enter the following command:
+4. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command obtains the actual casing, and then stores it in a variable. Enter the following command:
 
     ```bash
     export CLUSTER_NAME=$(curl -u admin:$PASSWORD -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
