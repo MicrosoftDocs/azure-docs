@@ -95,7 +95,7 @@ Lockbox gives you the control to approve or reject Microsoft engineer request to
 
 Lockbox can be enabled for chaos experiment information, and permission to access data is granted by the customer at the subscription level if lockbox is enabled.
 
-Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md)
+Learn more about [Customer Lockbox for Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md)
 
 ## Next steps
 Now that you understand how to secure your chaos experiment, you're ready to:
