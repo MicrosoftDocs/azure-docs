@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.topic: concept-article
-ms.date: 12/04/2023
+ms.date: 12/06/2023
 ---
 
 # Passive-cold solution overview for Azure Kubernetes Service (AKS)
@@ -85,4 +85,7 @@ One example experiment you can use is taking down an entire Availability Zone fo
 
 ## Next steps
 
-TBD
+If you're considering a different solution, see the following articles:
+
+- [Active passive disaster recovery solution overview for Azure Kubernetes Service (AKS)](./active-passive-solution.md)
+- [Active active high availability solution overview for Azure Kubernetes Service (AKS)](./active-active-solution.md)

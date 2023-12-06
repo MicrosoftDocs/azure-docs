@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.topic: concept-article
-ms.date: 12/04/2023
+ms.date: 12/06/2023
 ---
 
 # Recommended active-active high availability solution overview for Azure Kubernetes Service (AKS)
@@ -24,7 +24,7 @@ This solution relies on two identical AKS clusters configured to actively serve 
 Availability zones are another way to ensure high availability and fault tolerance for your AKS cluster within the same region. Availability zones allow you to distribute your cluster nodes across multiple isolated locations within an Azure region. This way, if one zone goes down due to a power outage, hardware failure, or network issue, your cluster can continue to run and serve your applications. Availability zones also improve the performance and scalability of your cluster by reducing the latency and contention among nodes. To set up availability zones for your AKS cluster, you need to specify the zone numbers when creating or updating your node pools. For more information, see [What are Azure availability zones?](../reliability/availability-zones-overview.md)
 
 > [!NOTE]
-> Availability zones aren’t a replacement for region down resiliency and can be used simultaneously as an added step to ensure high availability.
+> Many regions support availability zones. Consider using regions with availability zones to provide more resiliency and availability for your workloads. For more information, see [Recover form a region-wide service disruption](/azure/architecture/resiliency/recovery-loss-azure-region).
 
 ## Scenarios and configurations
 
@@ -91,4 +91,7 @@ One example experiment you can use is taking down an entire Availability Zone fo
 
 ## Next steps
 
-TBD
+If you're considering a different solution, see the following articles:
+
+- [Active passive disaster recovery solution overview for Azure Kubernetes Service (AKS)](./active-passive-solution.md)
+- [Passive cold solution overview for Azure Kubernetes Service (AKS)](./passive-cold-solution.md)

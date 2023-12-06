@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.topic: concept-article
 ms.service: azure-kubernetes-service
-ms.date: 11/27/2023
+ms.date: 12/06/2023
 ---
 
 # High availability and disaster recovery overview for Azure Kubernetes Service (AKS)
@@ -32,10 +32,6 @@ The control plane and its resources reside only in the region where you created 
 To run your applications and supporting services, you need a Kubernetes *node*. An AKS cluster has at least one node, an Azure virtual machine (VM) that runs the Kubernetes node components and container runtime. The Azure VM size for your nodes defines CPUs, memory, size, and the storage type available (such as high-performance SSD or regular HDD). Plan the VM and storage size around whether your applications may require large amounts of CPU and memory or high-performance storage. In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux, [Azure Linux](./use-azure-linux.md), or Windows Server 2022. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs.
 
 For more information on cluster and workload components in AKS, see [Kubernetes core concepts for AKS](./concepts-clusters-workloads.md).
-
-## Reference architecture
-
-IMAGE
 
 ## Scope definition
 
@@ -160,7 +156,3 @@ For more information, see the following articles:
 
 - [About AKS backup using Azure Backup (preview)](../backup/azure-kubernetes-service-backup-overview.md)
 - [Back up AKS using Azure Backup (preview)](../backup/azure-kubernetes-service-cluster-backup.md)
-
-## References and documentation
-
-TBD
