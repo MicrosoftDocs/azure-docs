@@ -2,11 +2,11 @@
 title: Understand Azure Dedicated Hosts Reserved Instances discount
 description: Learn how Azure Reserved VM Instance discount is applied to Azure Dedicated Hosts.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 11/17/2023
 ms.author: banders
 ---
 

@@ -293,6 +293,10 @@
       href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/TROUBLESHOOTING.md
     - name: Resource Manager exceptions
       href: service-bus-resource-manager-exceptions.md
+    - name: Service Bus exceptions 
+      href: service-bus-messaging-exceptions-latest.md
+    - name: Service Bus exceptions (deprecated)
+      href: service-bus-messaging-exceptions.md
 - name: Reference
   items:
   - name: Monitor data reference
@@ -376,8 +380,6 @@
     href: https://azure.microsoft.com/pricing/details/service-bus/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Serverless360
-    href: https://www.serverless360.com/
   - name: Service Bus Explorer
     href: https://github.com/paolosalvatori/ServiceBusExplorer
   - name: Service updates

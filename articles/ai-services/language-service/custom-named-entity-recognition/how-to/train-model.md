@@ -2,7 +2,7 @@
 title: How to train your Custom Named Entity Recognition (NER) model
 titleSuffix: Azure AI services
 description: Learn about how to train your model for Custom Named Entity Recognition (NER).
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

@@ -4,7 +4,7 @@ description: This document provides details about the DICOM Conformance Statemen
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: reference
 ms.date: 10/13/2023
 ms.author: mmitrik
@@ -86,7 +86,7 @@ The following DICOM elements are required to be present in every DICOM file atte
 * `PatientID`
 
 > [!NOTE]
-> All UIDs must be between 1 and 64 characters long, and only contain alpha numeric characters or the following special characters: `.`, `-`. `PatientID` is validated based on its `LO` `VR` type.
+> All UIDs must be between 1 and 64 characters long, and only contain alpha numeric characters or the following special characters: `.`, `-`. `PatientID` continues to be a required tag and can have the value as null in the input. `PatientID` is validated based on its `LO` `VR` type.
 
 Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID`. The warning code `45070` is returned if a file with the same identifiers already exists.
 
@@ -461,6 +461,9 @@ We support searching the following attributes and search types.
 | `PerformedProcedureStepStartDate` |  | X | X | X | X |  |
 | `ManufacturerModelName` | | X | X | X | X |  |
 | `SOPInstanceUID` |  |  | X |  | X | X |
+
+> [!NOTE]
+> We do not support searching using empty string for any attributes.
 
 #### Search matching
 
@@ -892,6 +895,9 @@ We support searching on these attributes:
 |`ScheduledStationGeographicLocationCodeSequence.CodeValue`|
 |`ProcedureStepState`|
 |`StudyInstanceUID`|
+
+> [!NOTE]
+> We do not support searching using empty string for any attributes.
 
 ##### Search Matching
 

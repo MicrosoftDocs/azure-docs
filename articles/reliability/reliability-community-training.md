@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.prod: non-product-specific
-ms.date: 10/24/2023
+ms.date: 12/06/2023
 ---
 
 
@@ -34,18 +34,17 @@ Community Training uses Azure availability zones to provide high availability an
     - Standard (lower scale of users)
     - Premium (high scale of users)
 
-- The following table shows all regions that support availability zones for Community Training:
+- Community Training is only supported in [paired regions](./cross-region-replication-azure.md#azure-paired-regions).  Each secondary region is deployed with a zonal configuration. The following table shows all regions that support availability zones for Community Training, along with their paired region.
 
-    | Americas         | Europe               | Middle East   | Africa             | Asia Pacific   |
-    |------------------|----------------------|---------------|--------------------|----------------|
-    | West US 2        | UK South             |               |                    | Southeast Asia |
-    | South Central US | West Europe          |               |                    | Australia East |
-    | East US 2        | North Europe         |               |                    |                |
-    | East US          | Sweden Central       |               |                    |                |
-    | West US 3        |                      |               |                    |                |
-
-
-- Community Training is only supported in [paired regions](./cross-region-replication-azure.md#azure-paired-regions).  Each secondary region is deployed with a zonal configuration.
+| Primary Region | Paired Region  |
+|--------------------|--------------------|
+| UKSouth            | UKWest             |
+| AustraliaEast      | AustraliaSoutheast |
+| EastUS             | WestUS             |
+| EastUS2            | CentralUS          |
+| NorthEurope        | WestEurope         |
+| WestUS3            | EastUS             |
+| SwedenCentral      | SwedenSouth        |
 
 
 

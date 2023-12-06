@@ -22,6 +22,17 @@ See [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mo
 
 Azure NetApp Files supports NFSv3 and NFSv4.1. You can [create a volume](azure-netapp-files-create-volumes.md) using either NFS version. 
 
+## Does Azure NetApp Files officially support NFSv4.2?
+
+Currently, Azure NetApp Files does not officially support NFSv4.2 nor its ancillary features (including sparse file ops, extended attributes, and security labels). However, the functionality is turned on for the NFS server when NFSv4.1 is used, which means NFS clients are able to mount using the NFSv4.2 protocol in one of two ways:
+
+* Explicitly specifying `vers=4.2`, `nfsvers=4.2`, or `nfsvers=4,minorversion=2` in the mount options.
+* Not specifying an NFS version in the mount options and allowing the NFS client to negotiate to the highest supported NFS version allowed.
+
+In most cases, if a client mounts using NFSv4.2, no issues can be seen. However, some clients can experience problems if they don’t fully support NFSv4.2 or the NFSv4.2 extended attributes functionality. Further, since NFSv4.2 is currently unsupported with Azure NetApp Files, any issues with NFSv4.2 are out of scope.
+
+To avoid any issues with clients mounting NFSv4.2 and to comply with supportability, ensure the NFSv4.1 version is specified in mount options or the client’s NFS client configuration is set to cap the NFS version at NFSv4.1.
+
 ## How do I enable root squashing?
 
 You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.

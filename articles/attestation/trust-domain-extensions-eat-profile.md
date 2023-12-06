@@ -7,7 +7,7 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 10/18/2023
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Azure Attestation EAT profile for Intel® Trust Domain Extensions (TDX)

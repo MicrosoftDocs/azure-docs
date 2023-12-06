@@ -19,46 +19,12 @@ This article shows you how to install the Kubernetes Event-driven Autoscaling (K
 - You need an Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - You need the [Azure CLI installed](/cli/azure/install-azure-cli).
 - Ensure you have firewall rules configured to allow access to the Kubernetes API server. For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters][aks-firewall-requirements].
-- [Install the `aks-preview` Azure CLI extension](#install-the-aks-preview-azure-cli-extension).
-- [Register the `AKS-KedaPreview` feature flag](#register-the-aks-kedapreview-feature-flag).
 
-### Install the `aks-preview` Azure CLI extension
+[!INCLUDE [KEDA workload ID callout](./includes/keda/keda-workload-identity-callout.md)]
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+## Install the KEDA add-on with Azure CLI
 
-1. Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
-
-    ```azurecli-interactive
-    az extension add --name aks-preview
-    ```
-
-2. Update to the latest version of the `aks-preview` extension using the [`az extension update`][az-extension-update] command.
-
-    ```azurecli-interactive
-    az extension update --name aks-preview
-    ```
-
-### Register the `AKS-KedaPreview` feature flag
-
-1. Register the `AKS-KedaPreview` feature flag using the [`az feature register`][az-feature-register] command.
-
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "AKS-KedaPreview"
-    ```
-
-    It takes a few minutes for the status to show *Registered*.
-
-2. Verify the registration status using the [`az feature show`][az-feature-show] command.
-
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "AKS-KedaPreview"
-    ```
-
-3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
+To install the KEDA add-on, use `--enable-keda` when creating or updating a cluster.
 
 ## Enable the KEDA add-on on your AKS cluster
 
@@ -119,47 +85,68 @@ This article shows you how to install the Kubernetes Event-driven Autoscaling (K
 
 ## Verify KEDA is running on your cluster
 
-- Verify the KEDA add-on is running on your cluster using the [`kubectl get pods`][kubectl] command.
+- Verify the KEDA add-on is running on your cluster using the `kubectl get pods` command.
 
     ```azurecli-interactive
     kubectl get pods -n kube-system 
     ```
 
-    The following example output shows the KEDA operator and metrics API server are installed on the cluster:
+    The following example output shows the KEDA operator, admissions hook, and metrics API server are installed on the cluster:
 
     ```output
-    keda-operator-********-k5rfv                     1/1     Running   0          43m
-    keda-operator-metrics-apiserver-*******-sj857    1/1     Running   0          43m
+    keda-admission-webhooks-**********-2n9zl           1/1     Running   0            3d18h
+    keda-admission-webhooks-**********-69dkg           1/1     Running   0            3d18h
+    keda-operator-*********-4hb5n                      1/1     Running   0            3d18h
+    keda-operator-*********-pckpx                      1/1     Running   0            3d18h
+    keda-operator-metrics-apiserver-**********-gqg4s   1/1     Running   0            3d18h
+    keda-operator-metrics-apiserver-**********-trfcb   1/1     Running   0            3d18h
     ```
 
 ## Verify the KEDA version on your cluster
 
-- Verify the KEDA version using the `kubectl get crd/scaledobjects.keda.sh -o yaml` command.
+To verify the version of your KEDA, use `kubectl get crd/scaledobjects.keda.sh -o yaml `. For example:
 
-    ```azurecli-interactive
-    kubectl get crd/scaledobjects.keda.sh -o yaml 
-    ```
+```azurecli-interactive
+kubectl get crd/scaledobjects.keda.sh -o yaml 
+```
 
-    The following condensed example output shows the configuration of KEDA in the `app.kubernetes.io/version` label:
+The following example output shows the configuration of KEDA in the `app.kubernetes.io/version` label:
 
-    ```output
-    apiVersion: apiextensions.k8s.io/v1
-    kind: CustomResourceDefinition
-    metadata:
-      annotations:
-        controller-gen.kubebuilder.io/version: v0.9.0
-        meta.helm.sh/release-name: aks-managed-keda
-        meta.helm.sh/release-namespace: kube-system
-      creationTimestamp: "2023-09-26T10:31:06Z"
-      generation: 1
-      labels:
-        app.kubernetes.io/component: operator
-        app.kubernetes.io/managed-by: Helm
-        app.kubernetes.io/name: keda-operator
-        app.kubernetes.io/part-of: keda-operator
-        app.kubernetes.io/version: 2.10.1
-    ...
-    ```
+```yaml
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.9.0
+    meta.helm.sh/release-name: aks-managed-keda
+    meta.helm.sh/release-namespace: kube-system
+  creationTimestamp: "2023-08-09T15:58:56Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/component: operator
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: keda-operator
+    app.kubernetes.io/part-of: keda-operator
+    app.kubernetes.io/version: 2.10.1
+    helm.toolkit.fluxcd.io/name: keda-adapter-helmrelease
+    helm.toolkit.fluxcd.io/namespace: 64d3b6fd3365790001260647
+  name: scaledobjects.keda.sh
+  resourceVersion: "1421"
+  uid: 29109c8c-638a-4bf5-ac1b-c28ad9aa11fa
+spec:
+  conversion:
+    strategy: None
+  group: keda.sh
+  names:
+    kind: ScaledObject
+    listKind: ScaledObjectList
+    plural: scaledobjects
+    shortNames:
+    - so
+    singular: scaledobject
+  scope: Namespaced
+  # Redacted due to length
+```
 
 ## Disable the KEDA add-on on your AKS cluster
 
@@ -180,6 +167,8 @@ With the KEDA add-on installed on your cluster, you can [deploy a sample applica
 
 For information on KEDA troubleshooting, see [Troubleshoot the Kubernetes Event-driven Autoscaling (KEDA) add-on][keda-troubleshoot].
 
+To learn more, view the [upstream KEDA docs][keda].
+
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
@@ -197,3 +186,4 @@ For information on KEDA troubleshooting, see [Troubleshoot the Kubernetes Event-
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue
+[keda]: https://keda.sh/docs/2.12/

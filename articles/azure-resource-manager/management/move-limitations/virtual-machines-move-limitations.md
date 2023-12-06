@@ -2,13 +2,13 @@
 title: Special cases to move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 10/25/2023 
+ms.date: 10/30/2023 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Handling special cases when moving virtual machines to resource group or subscription
 
-This article describes special cases that require extra steps when moving a virtual machine to a new resource group or Azure subscription. If your virtual machine doesn't match any of these scenarios, you can move the virtual machine with the standard steps described in [Move resources to a new resource group or subscription](../move-resource-group-and-subscription.md). 
+This article describes special cases that require extra steps when moving a virtual machine to a new resource group or Azure subscription. If your virtual machine uses disk encryption, a Marketplace plan, or Azure Backup, you must use one of the workarounds described in this article. For all other scenarios, move the virtual machine with the standard operations for [Azure portal](../move-resource-group-and-subscription.md#use-the-portal), [Azure CLI](../move-resource-group-and-subscription.md#use-azure-cli), or [Azure PowerShell](../move-resource-group-and-subscription.md#use-azure-powershell). For Azure CLI, use the [az resource move](/cli/azure/resource#az-resource-move) command. For Azure PowerShell, use the [Move-AzResource](/powershell/module/az.resources/move-azresource) command.
 
 If you want to move a virtual machine to a new region, see [Tutorial: Move Azure VMs across regions](../../../resource-mover/tutorial-move-region-virtual-machines.md).
 

@@ -114,7 +114,7 @@ The Map Control API is a convenient client library. This API allows you to easil
 
 4. Save your changes to the file and open the HTML page in a browser. The map shown is the most basic map that you can make by calling `atlas.Map` using your account key.
 
-    :::image type="content" source="./media/tutorial-search-location/basic-map.png" alt-text="A screenshot showing the most basic map that you can make by calling atlas.Map using your Azure Maps account key.":::
+    :::image type="content" source="./media/tutorial-search-location/basic-map.png" lightbox="./media/tutorial-search-location/basic-map.png" alt-text="A screenshot showing the most basic map that you can make by calling `atlas.Map` using your Azure Maps account key.":::
 
 5. In the `GetMap` function, after initializing the map, add the following JavaScript code.
 
@@ -202,7 +202,7 @@ This section shows how to use the Maps [Search API] to find a point of interest 
 
 3. Save the **MapSearch.html** file and refresh your browser. You should see the map centered on Seattle with round-blue pins for locations of gas stations in the area.
 
-    :::image type="content" source="./media/tutorial-search-location/pins-map.png" alt-text="A screenshot showing the map resulting from the search, which is a map showing Seattle with round-blue pins at locations of gas stations.":::
+    :::image type="content" source="./media/tutorial-search-location/pins-map.png" lightbox="./media/tutorial-search-location/pins-map.png" alt-text="A screenshot showing the map resulting from the search, which is a map showing Seattle with round-blue pins at locations of gas stations.":::
 
 4. You can see the raw data that the map is rendering by entering the following HTTPRequest in your browser. Replace `<Your Azure Maps Subscription Key>` with your subscription key.
 
@@ -258,7 +258,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
 
 3. Save the file and refresh your browser. Now the map in the browser shows information popups when you hover over any of the search pins.
 
-    :::image type="content" source="./media/tutorial-search-location/popup-map.png" alt-text="A screenshot of a map with information popups that appear when you hover over a search pin.":::
+    :::image type="content" source="./media/tutorial-search-location/popup-map.png" lightbox="./media/tutorial-search-location/popup-map.png" alt-text="A screenshot of a map with information popups that appear when you hover over a search pin.":::
 
 * For the completed code used in this tutorial, see the [search tutorial] on GitHub.
 * To view this sample live, see [Search for points of interest] on the **Azure Maps Code Samples** site.

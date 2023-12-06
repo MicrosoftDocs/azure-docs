@@ -55,10 +55,10 @@ The following resources store metadata for your workspace:
 | Service | How it's used |
 | ----- | ----- |
 | Azure Cosmos DB | Stores job history data. |
-| Azure Cognitive Search | Stores indices that are used to help query your machine learning content. |
+| Azure AI Search | Stores indices that are used to help query your machine learning content. |
 | Azure Storage Account | Stores other metadata such as Azure Machine Learning pipelines data. |
 
-Your Azure Machine Learning workspace reads and writes data using its managed identity. This identity is granted access to the resources using a role assignment (Azure role-based access control) on the data resources. The encryption key you provide is used to encrypt data that is stored on Microsoft-managed resources. It's also used to create indices for Azure Cognitive Search, which are created at runtime.
+Your Azure Machine Learning workspace reads and writes data using its managed identity. This identity is granted access to the resources using a role assignment (Azure role-based access control) on the data resources. The encryption key you provide is used to encrypt data that is stored on Microsoft-managed resources. It's also used to create indices for Azure AI Search, which are created at runtime.
 
 ## Customer-managed keys
 

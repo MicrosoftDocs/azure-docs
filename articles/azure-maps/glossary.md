@@ -405,7 +405,7 @@ The following list describes common words used with the Azure Maps services.
 <a name="Zoom level"></a> **Zoom level**: Specifies the level of detail and how much of the map is visible. When zoomed all the way to level 0, the full world map is often visible. But, the map shows limited details such as country/region names, borders, and ocean names. When zoomed in closer to level 17, the map displays an area of a few city blocks with detailed road information. In Azure Maps, the highest zoom level is 22. For more information, see the [Zoom levels and tile grid] documentation.
 
 [Altitude]: #altitude
-[Azure Maps and Azure AD]: azure-maps-authentication.md
+[Azure Maps and Microsoft Entra ID]: azure-maps-authentication.md
 [Bearing]: #heading
 [Bounding box]: #bounding-box
 [consumption model documentation]: consumption-model.md

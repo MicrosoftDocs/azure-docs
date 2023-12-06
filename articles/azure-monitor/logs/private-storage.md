@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: noakuper
-ms.date: 04/04/2022
+ms.date: 11/26/2023
 ---
 
 # Use customer-managed storage accounts in Azure Monitor Logs
@@ -34,7 +34,7 @@ For the storage account to connect to your private link, it must:
 * Be located on the same region as the workspace it's linked to.
 * Allow Azure Monitor to access the storage account. To allow only specific networks to access your storage account, select the exception **Allow trusted Microsoft services to access this storage account**.
 
-  ![Screenshot that shows Storage account trust Microsoft services.](./media/private-storage/storage-trust.png)
+  :::image type="content" source="./media/private-storage/storage-trust.png" lightbox="./media/private-storage/storage-trust.png" alt-text="Screenshot that shows Storage account trust Microsoft services.":::
 
 If your workspace handles traffic from other networks, configure the storage account to allow incoming traffic coming from the relevant networks/internet.
 
@@ -63,21 +63,18 @@ To configure your Azure Storage account to use CMKs with Key Vault, use the [Azu
 ## Link storage accounts to your Log Analytics workspace
 
 > [!NOTE]
-> If you link a storage account for queries, or for log alerts, existing queries will be removed from the workspace. Copy saved searches and log alerts that you need before you undertake this configuration. For directions on moving saved queries and log alerts, see [Workspace move procedure](./move-workspace-region.md).
->
-> You can connect up to:
-> - Five storage accounts for the ingestion of custom logs and IIS logs.
-> - One storage account for saved queries.
-> - One storage account for saved log alert queries.
+> - When linking storage account for privacy and compliance typically, saved queries and log alerts are deleted from workspace permanently and can't be restored. To prevent lose of existing saved queries and log alerts, copy saved queries and log alerts using a template as described in [Workspace move procedure](./move-workspace-region.md). 
+> - A single storage account can be linked for custom log and IIS logs, query, and alert.
+> - When linking storage account for custom log and IIS logs ingestion, you might need to consider linking more storage accounts depending on the ingestion rate. You can link up to five storage accounts to a workspace.
 
 ### Use the Azure portal
 On the Azure portal, open your workspace menu and select **Linked storage accounts**. A pane shows the linked storage accounts by the use cases previously mentioned (ingestion over Private Link, applying CMKs to saved queries or to alerts).
 
-![Screenshot that shows the Linked storage accounts pane.](./media/private-storage/all-linked-storage-accounts.png)
+:::image type="content" source="./media/private-storage/all-linked-storage-accounts.png" lightbox="./media/private-storage/all-linked-storage-accounts.png" alt-text="Screenshot that shows the Linked storage accounts pane.":::
 
 Selecting an item on the table opens its storage account details, where you can set or update the linked storage account for this type.
 
-![Screenshot that shows the Link storage account pane.](./media/private-storage/link-a-storage-account-blade.png)
+:::image type="content" source="./media/private-storage/link-a-storage-account-blade.png" lightbox="./media/private-storage/link-a-storage-account-blade.png" alt-text="Screenshot that shows the Link storage account pane.":::
 You can use the same account for different use cases if you prefer.
 
 ### Use the Azure CLI or REST API

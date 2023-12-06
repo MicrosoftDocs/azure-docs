@@ -290,7 +290,9 @@ When blob soft delete is enabled, all soft-deleted entities are billed at full c
 
 ## Feature support
 
-[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)] 
+
+Versioning is not supported for blobs that are uploaded by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## See also
 
@@ -298,3 +300,4 @@ When blob soft delete is enabled, all soft-deleted entities are billed at full c
 - [Creating a snapshot of a blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Soft delete for blobs](./soft-delete-blob-overview.md)
 - [Soft delete for containers](soft-delete-container-overview.md)
+

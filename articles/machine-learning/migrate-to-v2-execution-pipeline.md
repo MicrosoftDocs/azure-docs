@@ -10,7 +10,9 @@ author: cloga
 ms.author: lochen
 ms.date: 09/16/2022
 ms.reviewer: sgilley
-ms.custom: migration
+ms.custom:
+  - migration
+  - ignite-2023
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
@@ -242,9 +244,9 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 
 ## Published pipelines
 
-Once you have a pipeline up and running, you can publish a pipeline so that it runs with different inputs. This was known as __Published Pipelines__. [Batch Endpoint](concept-endpoints-batch.md) proposes a similar yet more powerful way to handle multiple assets running under a durable API which is why the Published pipelines functionality has been moved to [Pipeline component deployments in batch endpoints (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview).
+Once you have a pipeline up and running, you can publish a pipeline so that it runs with different inputs. This was known as __Published Pipelines__. [Batch Endpoint](concept-endpoints-batch.md) proposes a similar yet more powerful way to handle multiple assets running under a durable API which is why the Published pipelines functionality has been moved to [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment).
 
-[Batch endpoints](concept-endpoints-batch.md) decouples the interface (endpoint) from the actual implementation (deployment) and allow the user to decide which deployment serves the default implementation of the endpoint. [Pipeline component deployments in batch endpoints (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview) allow users to deploy pipeline components instead of pipelines, which make a better use of reusable assets for those organizations looking to streamline their MLOps practice.
+[Batch endpoints](concept-endpoints-batch.md) decouples the interface (endpoint) from the actual implementation (deployment) and allow the user to decide which deployment serves the default implementation of the endpoint. [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment) allow users to deploy pipeline components instead of pipelines, which make a better use of reusable assets for those organizations looking to streamline their MLOps practice.
 
 The following table shows a comparison of each of the concepts:
 

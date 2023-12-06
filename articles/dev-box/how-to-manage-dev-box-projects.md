@@ -11,14 +11,17 @@ ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage dev box projects so that I can provide appropriate dev boxes to my users. -->
 ---
 
-# Manage a dev box project
+# Manage a Microsoft Dev Box project
+
+In this article, you learn how to manage a Microsoft Dev Box project by using the Azure portal.
+
 A project is the point of access to Microsoft Dev Box for the development team members. A project contains dev box pools, which specify the dev box definitions and network connections used when dev boxes are created. Dev managers can configure the project with dev box pools that specify dev box definitions appropriate for their team's workloads. Dev box users create dev boxes from the dev box pools they have access to through their project memberships.
 
-Each project is associated with a single dev center. When you associate a project with a dev center, all the settings at the dev center level will be applied to the project automatically. 
+Each project is associated with a single dev center. When you associate a project with a dev center, all the settings at the dev center level are applied to the project automatically. 
 
 ## Project admins
 
-Microsoft Dev Box makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their team, like creating and managing dev box pools. To provide users permissions to manage projects, add them to the DevCenter Project Admin role. The tasks in this quickstart can be performed by project admins. 
+Microsoft Dev Box makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their team, like creating and managing dev box pools. To provide users permissions to manage projects, add them to the DevCenter Project Admin role. The tasks in this article can be performed by project admins. 
 
 To learn how to add a user to the Project Admin role, refer to [Provide access to projects for project admins](how-to-project-admin.md).
 
@@ -35,9 +38,9 @@ To manage a dev box project, you need the following permissions:
 |Manage a dev box within the project|Owner, Contributor, or DevCenter Project Admin.|
 |Add a dev box user to the project|Owner permissions on the project.|
 
-## Create a dev box project
+## Create a Microsoft Dev Box project
 
-The following steps show you how to create and configure a project in dev box.
+The following steps show you how to create and configure a Microsoft Dev Box project.
 
 1. In the [Azure portal](https://portal.azure.com), in the search box, type *Projects* and then select **Projects** from the list. 
 
@@ -49,7 +52,7 @@ The following steps show you how to create and configure a project in dev box.
    |----|----|
    |**Subscription**|Select the subscription in which you want to create the project.|
    |**Resource group**|Select an existing resource group or select **Create new**, and enter a name for the resource group.|
-   |**Dev center**|Select the dev center to which you want to associate this project. All the dev center level settings will be applied to the project.|
+   |**Dev center**|Select the dev center to which you want to associate this project. All the dev center level settings are applied to the project.|
    |**Name**|Enter a name for your project. |
    |**Description**|Enter a brief description of the project. |
 
@@ -64,8 +67,10 @@ The following steps show you how to create and configure a project in dev box.
 1. Confirm that the project is created successfully by checking the notifications. Select **Go to resource**.
 
 1. Verify that you see the **Project** page.
-## Delete a dev box project
-You can delete a dev box project when you're no longer using it. Deleting a project is permanent and cannot be undone. You cannot delete a project that has dev box pools associated with it.
+
+## Delete a Microsoft Dev Box project
+
+You can delete a Microsoft Dev Box project when you're no longer using it. Deleting a project is permanent and can't be undone. You can't delete a project that has dev box pools associated with it.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -82,7 +87,8 @@ You can delete a dev box project when you're no longer using it. Deleting a proj
     :::image type="content" source="./media/how-to-manage-dev-box-projects/confirm-delete-project.png" alt-text="Screenshot of the Delete dev box pool confirmation message.":::
 
 
-## Provide access to a dev box project
+## Provide access to a Microsoft Dev Box project
+
 Before users can create dev boxes based on the dev box pools in a project, you must provide access for them through a role assignment. The Dev Box User role enables dev box users to create, manage and delete their own dev boxes. You must have sufficient permissions to a project before you can add users to it.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -107,9 +113,9 @@ Before users can create dev boxes based on the dev box pools in a project, you m
 
     :::image type="content" source="media/how-to-manage-dev-box-projects/add-role-assignment-user.png" alt-text="Screenshot that shows the Add role assignment pane.":::
 
-The user will now be able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
+The user is now able to view the project and all the pools within it. They can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
 
-To assign administrative access to a project, select the DevCenter Project Admin role. For more details on how to add a user to the Project Admin role, refer to [Provide access to projects for project admins](how-to-project-admin.md).
+To assign administrative access to a project, select the DevCenter Project Admin role. For more information on how to add a user to the Project Admin role, see [Provide access to projects for project admins](how-to-project-admin.md).
 
 ## Next steps
 

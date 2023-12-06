@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Route MQTT messages to Event Hubs using CLI'
-description: 'Tutorial: Use Azure Event Grid and Azure CLI to route MQTT messages to Azure Event Hubs.' 
+description: 'Tutorial: Use Azure Event Grid and Azure CLI to route MQTT messages to Azure Event Hubs.'
 ms.topic: tutorial
-ms.custom: build-2023, devx-track-azurecli
-ms.date: 05/23/2023
+ms.custom:
+  - build-2023
+  - devx-track-azurecli
+  - ignite-2023
+ms.date: 11/15/2023
 author: veyaddan
 ms.author: veyaddan
 ---
 
-
-# Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with Azure CLI (Preview)
+# Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with Azure CLI 
 
 Use message routing in Azure Event Grid to send data from your MQTT clients to Azure services such as storage queues, and Event Hubs.
-
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
 
 In this article, you perform the following tasks:
 - Create Event Subscription in your Event Grid topic
@@ -25,10 +25,6 @@ In this article, you perform the following tasks:
 - This tutorial uses Event Hubs, Event Grid Custom Topics, and Event Subscriptions.  You can find more information here:
 - Create an event hub that is used as an event handler for events sent to the custom topic - [Quickstart - Create an event hub using Azure CLI - Azure Event Hubs](/azure/event-hubs/event-hubs-quickstart-cli).
 - Process events sent to the event hub using Stream Analytics, which writes output to any destination that ASA supports - [Process data from Event Hubs Azure using Stream Analytics - Azure Event Hubs](/azure/event-hubs/process-data-azure-stream-analytics).
-
-
-> [!IMPORTANT]
-> The Azure [CLI Event Grid extension](/cli/azure/eventgrid) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
 
 ## Create Event Grid topic
 - Create Event Grid Custom Topic with your EG custom topic name, region name and resource group name.
@@ -62,26 +58,12 @@ az eventgrid event-subscription create --name contosoEventSubscription --source-
 > - You need to assign "EventGrid Data Sender" role to yourself on the Event Grid Topic.
 
 ## Configure routing in the Event Grid Namespace
-- We use the namespace created in the [Publish and subscribe on a MQTT topic](./mqtt-publish-and-subscribe-cli.md).  Update the Namespace object in namespace.json file to enable routing to the Event Grid topic in this step.
+We use the namespace created in the [Publish and subscribe on a MQTT topic](./mqtt-publish-and-subscribe-cli.md).
 
-```json
-{
-    "properties": {
-        "inputSchema": "CloudEventSchemaV1_0",
-        "topicSpacesConfiguration": {
-            "state": "Enabled",
-            "routeTopicResourceId": "/subscriptions/{Subscription ID}/resourceGroups/{Resource Group ID}/providers/Microsoft.EventGrid/topics/{EG Custom Topic Name}"
-        },
-        "isZoneRedundant": true
-    },
-    "location": "{region name}"
-}
-```
-
-Use the az resource command to create a namespace.  Update the command with your subscription ID, Resource group ID, and a Namespace name.
+Use the command to update the namespace to include routing configuration.  Update the command with your subscription ID, Resource group, Namespace name, and an Event Grid Topic Name.
 
 ```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.EventGrid/namespaces/{Namespace Name} --is-full-object --api-version 2023-06-01-preview --properties @./resources/namespace.json
+az eventgrid namespace create -g demoResGrp1 -n vy-namespace1 --topic-spaces-configuration "{state:Enabled,'routeTopicResourceId':'/subscriptions/{Subscription ID}/resourceGroups/{Resource Group}/providers/Microsoft.EventGrid/topics/{Event Grid Topic Name}'}"
 ```
 
 ## Viewing the routed MQTT messages in Azure Event Hubs using Azure Stream Analytics query

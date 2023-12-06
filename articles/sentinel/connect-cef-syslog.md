@@ -80,7 +80,10 @@ Create the DCR for your Syslog-based logs using the Azure Monitor [guidelines](.
     ```python
     sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python3 Forwarder_AMA_installer.py 
     ```
-    The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.  
+    The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon. The script opens port 514 to listen to incoming messages in both UDP and TCP protocols. To change this setting, refer to the     
+    Syslog daemon configuration file according to the daemon type running on the machine:
+        - Rsyslog: `/etc/rsyslog.conf`
+        - Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
 1. Create the request URL and header:  
 

@@ -5,9 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/10/2023
-ms.custom: ignite-fall-2021, engagement-fy23
-
+ms.date: 11/15/2023
+ms.custom: ignite-fall-2021, engagement-fy23, devx-track-dotnet
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
 
@@ -53,91 +52,183 @@ As you progress, you'll complete these high-level tasks:
 
 ### Access and connectivity
 
-* Access to the internet so that you can download the requirements, connect from Visual Studio Code to your Azure account, and publish from Visual Studio Code to Azure.
+* If you plan to locally build Standard logic app projects and run workflows using only the [built-in connectors](../connectors/built-in.md) that run natively on the Azure Logic Apps runtime, you don't need the following requirements. However, make sure that you have the following connectivity and Azure account credentials to publish or deploy your project from Visual Studio Code to Azure, use the [managed connectors](../connectors/managed.md) that run in global Azure, or access Standard logic app resources and workflows already deployed in Azure:
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  * Access to the internet so that you can download the requirements, connect from Visual Studio Code to your Azure account, and publish from Visual Studio Code to Azure.
+
+  * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * To create the same example workflow in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
 
   If you choose a [different email connector](/connectors/connector-reference/connector-reference-logicapps-connectors), such as Outlook.com, you can still follow the example, and the general overall steps are the same. However, your options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
 
-<a name="storage-requirements"></a>
-
-### Storage requirements
-
-For local development in Visual Studio Code, you need to set up a local data store for your logic app project and workflows to use for running in your local development environment. You can use and run the Azurite storage emulator as your local data store.
-
-1. Download and install [Azurite 3.12.0 or later](https://www.npmjs.com/package/azurite) for your Windows, macOS, or Linux operating system. You can install either [from inside Visual Studio Code](../storage/common/storage-use-azurite.md?tabs=visual-studio-code) or by [using npm](../storage/common/storage-use-azurite.md?tabs=npm).
-
-1. Before you run your logic app workflow, make sure to start the emulator.
-
-   1. In Visual Studio Code, from the **View** menu, select **Command Palette**.
-
-   1. After the command palette appears, enter **Azurite: Start**.
-
-For more information, review the [documentation for the Azurite extension in Visual Studio Code](https://github.com/Azure/Azurite#visual-studio-code-extension).
-
 ### Tools
 
-Install the following tools and versions for your specific operating system: Windows, macOS, or Linux.
+1. Download and install [Visual Studio Code](https://code.visualstudio.com/), which is free.
 
-* [Visual Studio Code](https://code.visualstudio.com/), which is free. Also, download and install these tools for Visual Studio Code, if you don't have them already:
+1. Download and install the [Azure Account extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) so that you have a single common experience for Azure sign-in and subscription filtering across all Azure extensions in Visual Studio Code. This how-to guide includes steps that use this experience.
 
-  * [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account), which provides a single common Azure sign-in and subscription filtering experience for all other Azure extensions in Visual Studio Code.
+1. Download and install the following Visual Studio Code dependencies for your specific operating system using either method:
 
-  * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app workflow.
+   - [Install all dependencies automatically (preview)](#dependency-installer).
+   - [Download and install each dependency separately](#install-dependencies-individually).
 
-  * [.NET SDK 6.x.x](https://dotnet.microsoft.com/download/dotnet/6.0), which includes the .NET Runtime 6.x.x, a prerequisite for the Azure Logic Apps (Standard) runtime.
+   <a name="dependency-installer"></a>
 
-  * Azure Functions Core Tools - 4.x version
+   **Install all dependencies automatically (preview)**
 
-    * [Windows](https://github.com/Azure/azure-functions-core-tools/releases/tag/4.0.4865): Use the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`.
-    * [macOS](../azure-functions/functions-run-local.md?tabs=macos#install-the-azure-functions-core-tools)
-    * [Linux](../azure-functions/functions-run-local.md?tabs=linux#install-the-azure-functions-core-tools)
+   > [!IMPORTANT]
+   > This capability is in preview and is subject to the 
+   > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-    These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
+   Starting with version **2.81.5**, the Azure Logic Apps (Standard) extension for Visual Studio Code includes a dependency installer that automatically installs all the required dependencies in a new binary folder and leaves any existing dependencies unchanged. For more information, see [Get started more easily with the Azure Logic Apps (Standard) extension for Visual Studio Code](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/making-it-easy-to-get-started-with-the-azure-logic-apps-standard/ba-p/3979643).
 
-    * If you have an installation that's earlier than these versions, uninstall that version first, or make sure that the PATH environment variable points at the version that you download and install.
+   This extension includes the following dependencies:
 
-    * Azure Functions v3 support in Azure Logic Apps ends on March 31, 2023. Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Since January 31, 2023, existing Standard workflows in the Azure portal were automatically migrated to Azure Functions v4.
-    
-      Unless you deployed your Standard logic apps as NuGet-based projects, pinned your logic apps to a specific bundle version, or Microsoft determined that you had to take action before the automatic migration, this upgrade is designed to require no action from you nor have a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v3 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072).
+   | Dependency | Description |
+   |------------|-------------|
+   | [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) | Enables F5 functionality to run your workflow. |
+   | [Azurite for Visual Studio Code](https://github.com/Azure/Azurite#visual-studio-code-extension) | Provides a local data store and emulator to use with Visual Studio Code so that you can work on your logic app project and run your workflows in your local development environment. If you don't want Azurite to automatically start, you can disable this option: <br><br>1. On the **File** menu, select **Preferences** > **Settings**. <br><br>2. On the **User** tab, select **Extensions** > **Azure Logic Apps (Standard)**. <br><br>3. Find the setting named **Azure Logic Apps Standard: Auto Start Azurite**, and clear the selected checkbox. |
+   | [.NET SDK 6.x.x](https://dotnet.microsoft.com/download/dotnet/6.0) | Includes the .NET Runtime 6.x.x, a prerequisite for the Azure Logic Apps (Standard) runtime. |
+   | Azure Functions Core Tools - 4.x version | Installs the version based on your operating system ([Windows](https://github.com/Azure/azure-functions-core-tools/releases), [macOS](../azure-functions/functions-run-local.md?tabs=macos#install-the-azure-functions-core-tools), or [Linux](../azure-functions/functions-run-local.md?tabs=linux#install-the-azure-functions-core-tools)). <br><br>These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code. |
+   | [Node.js version 16.x.x unless a newer version is already installed](https://nodejs.org/en/download/releases/) | Required to enable the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript. |
 
-  * [Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
+   The installer doesn't perform the following tasks:
 
-    > [!IMPORTANT]
-    > Projects created with earlier preview extensions no longer work. To continue, 
-    > uninstall any earlier versions, and recreate your logic app projects.
+   - Check whether the required dependencies already exist.
+   - Install only the missing dependencies.
+   - Update older versions of existing dependencies.
 
-    To install the **Azure Logic Apps (Standard)** extension, follow these steps:
+   1. [Download and install the Azure Logic Apps (Standard) extension for Visual Studio Code, starting with version 2.81.5)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps).
 
-    1. In Visual Studio Code, on the left toolbar, select **Extensions**.
+   1. In Visual Studio Code, on the Activity bar, select **Extensions**. (Keyboard: Press Ctrl+Shift+X)
 
-    1. In the extensions search box, enter **azure logic apps standard**. From the results list, select **Azure Logic Apps (Standard)** **>** **Install**.
+   1. On the **Extensions** pane, open the ellipses (**...**) menu, and select **Install from VSIX**.
 
-       After the installation completes, the extension appears in the **Extensions: Installed** list.
+   1. Find and select the downloaded VSIX file.
 
-       ![Screenshot shows Visual Studio Code with Azure Logic Apps (Standard) extension installed.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
+      After setup completes, the extension automatically activates and runs the **Validate and install dependency binaries** command. To view the process logs, open the **Output** window.
 
-       > [!TIP]
-       > If the extension doesn't appear in the installed list, try restarting Visual Studio Code.
+   1. When the following prompt appears, select **Yes (Recommended)** to confirm that you want to automatically install the required dependencies:
 
-    Currently, you can have both Consumption (multi-tenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. In Visual Studio Code, the Azure window shows all the Azure-deployed and hosted logic apps in your Azure subscription, but organizes your apps in the following ways:
+      :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/dependency-installer-prompt.png" alt-text="Screenshot shows prompt to automatically install dependencies." lightbox="media/create-single-tenant-workflows-visual-studio-code/dependency-installer-prompt.png":::
 
-    * **Logic Apps (Consumption)** section: All the Consumption logic apps in your subscription
-    * **Resources** section: All the Standard logic apps in your subscription. Previously, these logic apps appeared in the **Logic Apps (Standard)** section, which has now moved into the **Resources** section.
+   1. Reload Visual Studio Code, if necessary.
 
-* To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js version 16.x.x unless a newer version is already installed](https://nodejs.org/en/download/releases/).
+   1. Confirm that the dependencies correctly appear in the following folder:
 
-  > [!TIP]
-  > For Windows, download the MSI version. If you use the ZIP version instead, you have to 
-  > manually make Node.js available by using a PATH environment variable for your operating system.
+      **C:\Users\\<your-user-name\>\\.azurelogicapps\dependencies\\<dependency-name\>**
 
-* To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
+   1. Confirm the following extension settings in Visual Studio Code:
 
-* To test the example workflow in this article, you need a tool that can send calls to the endpoint created by the Request trigger. If you don't have such a tool, you can download, install, and use the [Postman](https://www.postman.com/downloads/) app.
+      1. On the **File** menu, select **Preferences** > **Settings**.
 
-* If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
+      1. On the **User** tab, select **Extensions** > **Azure Logic Apps (Standard)**.
+
+      1. Review the following settings:
+
+         | Extension setting | Value |
+         |-------------------|-------|
+         | **Dependencies Path** | C:\Users\\<your-user-name\>\\.azurelogicapps\dependencies |
+         | **Dependency Timeout** | 60 seconds |
+         | **Dotnet Binary Path** | C:\Users\\<your-user-name\>\\.azurelogicapps\dependencies\DotNetSDK\dotnet.exe |
+         | **Func Core Tools Binary Path** | C:\Users\\<your-user-name\>\\.azurelogicapps\dependencies\FuncCoreTools\func |
+         | **Node JS Binary Path** | C:\Users\\<your-user-name\>\\.azurelogicapps\dependencies\NodeJs\node |
+         | **Auto Start Azurite** | Enabled |
+         | **Auto Start Design Time** | Enabled |
+
+   1. If you have an existing logic app project with custom-defined tasks stored in the **.vscode/tasks.json** file, make sure that you save the **tasks.json** file elsewhere before you open your project.
+   
+      When you open your project, you're prompted to update **tasks.json** file to use the required dependencies. If you choose to continue, the extension overwrites the **tasks.json** file.
+
+   1. When you open your logic app project, the following notifications appear:
+
+      | Notification | Action |
+      |--------------|--------| 
+      | **Always start the background design-time process at launch?** | To open the workflow designer faster, select **Yes (Recommended)**. |
+      | **Configure Azurite to autostart on project launch?** | To have Azurite storage automatically start when the project opens, select **Enable AutoStart**. At the top of Visual Studio Code, in the command window that appears, press enter to accept the default path: <br><br>**C\Users\\<your-user-name\>\\.azurelogicapps\\.azurite** |
+
+   <a name="known-issues-preview"></a>
+
+   **Known issues with preview**
+
+   - If you opted in to automatically install all dependencies on a computer that doesn't have any version of the .NET Core SDK, the following message appears:
+
+     **"The .NET Core SDK cannot be located: Error running dotnet -- info: Error: Command failed: dotnet --info 'dotnet is not recognized as an internal or external command, operable program, or batch file. 'dotnet' is not recognized as an internal or external command, operable program, or batch file. . .NET Core debugging will not be enabled. Make sure the .NET Core SDK is installed and is on the path."**
+
+     You get this message because the .NET Core framework is still installing when the extension activates. You can safely choose to disable this message.
+
+     If you have trouble with opening an existing logic app project or starting the debugging task (tasks.json) for **func host start**, and this message appears, follow these steps to resolve the problem:
+
+     1. Add the dotnet binary path to your environment PATH variable.
+
+        1. On the Windows taskbar, in the search box, enter **environment variables**, and select **Edit the system environment variables**.
+
+        1. In the **System Properties** box, on the **Advanced** tab, select **Environment Variables**.
+
+        1. In the **Environment Variables** box, from the **User variables for \<your-user-name\>** list, select **PATH**, and then select **Edit**.
+
+        1. If the following value doesn't appear in the list, select **New** to add the following value:
+        
+           **C:\Users\\<your-user-name\>\\.azurelogicapps\dependencies\DotNetSDK**
+
+        1. When you're done, select **OK**.
+
+     1. Close all Visual Studio Code windows, and reopen your project.
+
+   - If you have problems installing and validating binary dependencies, for example:
+
+     - Linux permissions issues
+     - You get the following error: **\<File or path> does not exist**
+     - Validation gets stuck on **\<dependency-name>**.
+     
+     Follow these steps to run the **Validate and install binary dependencies** command again:
+
+     1. From the **View** menu, select **Command Palette**.
+
+     1. When the command window appears, enter and run the **Validate and install binary dependencies** command.
+
+   - If you don't have .NET Core 7 or a later version installed, and you open an Azure Logic Apps workspace that contains an Azure Functions project, you get the following message:
+
+     **There were problems loading project [function-name].csproj. See log for details.**
+
+     This missing component doesn't affect the Azure Functions project, so you can safely ignore this message.
+
+   <a name="install-dependencies-individually"></a>
+
+   **Install each dependency separately**
+
+   | Dependency | Description |
+   |------------|-------------|
+   | [.NET SDK 6.x.x](https://dotnet.microsoft.com/download/dotnet/6.0) | Includes the .NET Runtime 6.x.x, a prerequisite for the Azure Logic Apps (Standard) runtime. |
+   | Azure Functions Core Tools - 4.x version | - [Windows](https://github.com/Azure/azure-functions-core-tools/releases): Use the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. <br>- [macOS](../azure-functions/functions-run-local.md?tabs=macos#install-the-azure-functions-core-tools) <br>- [Linux](../azure-functions/functions-run-local.md?tabs=linux#install-the-azure-functions-core-tools) <br><br>These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code. <br><br>If you have an installation that's earlier than these versions, uninstall that version first, or make sure that the PATH environment variable points at the version that you download and install. |
+   | [Node.js version 16.x.x unless a newer version is already installed](https://nodejs.org/en/download/releases/) | Required to enable the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript. <br><br>**Note**: For Windows, download the MSI version. If you use the ZIP version instead, you have to manually make Node.js available by using a PATH environment variable for your operating system. |
+
+1. If you already installed the version of the Azure Logic Apps (Standard) extension that automatically installs all the dependencies (preview), skip this step. Otherwise, [download and install the Azure Logic Apps (Standard) extension for Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167).
+
+   1. In Visual Studio Code, on the left toolbar, select **Extensions**.
+
+   1. In the extensions search box, enter **azure logic apps standard**. From the results list, select **Azure Logic Apps (Standard)** **>** **Install**.
+
+      After the installation completes, the extension appears in the **Extensions: Installed** list.
+
+      ![Screenshot shows Visual Studio Code with Azure Logic Apps (Standard) extension installed.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
+
+      > [!TIP]
+      >
+      > If the extension doesn't appear in the installed list, try restarting Visual Studio Code.
+
+   Currently, you can have both Consumption (multitenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. In Visual Studio Code, the Azure window shows all the Azure-deployed and hosted logic apps in your Azure subscription, but organizes your apps in the following ways:
+
+   * **Logic Apps (Consumption)** section: All the Consumption logic apps in your subscription.
+
+   * **Resources** section: All the Standard logic apps in your subscription. Previously, these logic apps appeared in the **Logic Apps (Standard)** section, which has now moved into the **Resources** section.
+
+1. To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
+
+1. To test the example workflow in this article, you need a tool that can send calls to the endpoint created by the Request trigger. If you don't have such a tool, you can download, install, and use the [Postman](https://www.postman.com/downloads/) app.
+
+1. If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app resource. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
 <a name="set-up"></a>
 
@@ -479,11 +570,11 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 #### Set up call forwarding using **ngrok**
 
-1. [Sign up for an **ngrok** account](https://dashboard.ngrok.com/signup) if you don't have one. Otherwise, [sign in to your account](https://dashboard.ngrok.com/login).
+1. [Go to the **ngrok** website](https://dashboard.ngrok.com). Either sign up for a new account or sign in to your account, if you have one already.
 
 1. Get your personal authentication token, which your **ngrok** client needs to connect and authenticate access to your account.
 
-   1. To find your [authentication token page](https://dashboard.ngrok.com/auth/your-authtoken), on your account dashboard menu, expand **Authentication**, and select **Your Authtoken**.
+   1. To find your authentication token page, on your account dashboard menu, expand **Authentication**, and select **Your Authtoken**.
 
    1. From the **Your Authtoken** box, copy the token to a safe location.
 
@@ -586,17 +677,24 @@ For general information, see [Breakpoints - Visual Studio Code](https://code.vis
 
 ## Run, test, and debug locally
 
-To test your logic app, follow these steps to start a debugging session, and find the URL for the endpoint that's created by the Request trigger. You need this URL so that you can later send a request to that endpoint.
+To test your logic app workflow, follow these steps to start a debugging session, and find the URL for the endpoint that's created by the Request trigger. You need this URL so that you can later send a request to that endpoint.
 
 1. To debug a stateless workflow more easily, you can [enable the run history for that workflow](#enable-run-history-stateless).
 
-1. Make sure that your Azurite emulator is running. For more information, review [Storage requirements](#storage-requirements).
+1. If your Azurite emulator is already running, continue to the next step. Otherwise, make sure to start the emulator before you run your workflow:
+
+   1. In Visual Studio Code, from the **View** menu, select **Command Palette**.
+
+   1. After the command palette appears, enter **Azurite: Start**.
+
+   For more information about Azurite commands, see the [documentation for the Azurite extension in Visual Studio Code](https://github.com/Azure/Azurite#visual-studio-code-extension).
 
 1. On the Visual Studio Code Activity Bar, open the **Run** menu, and select **Start Debugging** (F5).
 
    The **Terminal** window opens so that you can review the debugging session.
 
    > [!NOTE]
+   >
    > If you get the error, **"Error exists after running preLaunchTask 'generateDebugSymbols'"**, 
    > see the troubleshooting section, [Debugging session fails to start](#debugging-fails-to-start).
 
@@ -895,7 +993,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
          >
          > 1. In the Azure portal, go to your Application Insights resource.
          >
-         > 2. On the resource resource menu, under **Investigate**, select **Application map**.
+         > 2. On the resource menu, under **Investigate**, select **Application map**.
          >
          > 3. Review the operation names that appear in the map.
          >
@@ -1052,11 +1150,17 @@ Stopping a logic app affects workflow instances in the following ways:
   To stop a trigger from firing on unprocessed items since the last run, clear the trigger state before you restart the logic app:
 
   1. On the Visual Studio Code Activity Bar, select the Azure icon to open the Azure window.
+
   1. In the **Resources** section, expand your subscription, which shows all the deployed logic apps for that subscription.
+
   1. Expand your logic app, and then expand the node that's named **Workflows**.
+
   1. Open a workflow, and edit any part of that workflow's trigger.
+
   1. Save your changes. This step resets the trigger's current state.
+
   1. Repeat for each workflow.
+
   1. When you're done, restart your logic app.
 
 <a name="considerations-delete-logic-apps"></a>
@@ -1135,7 +1239,7 @@ Through the Azure portal, you can add blank workflows to a Standard logic app re
 
 To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
 
-1. In your Visual Studio Code project, expand the folder that's named **workflow-designtime**, and open the **local.settings.json** file.
+1. In your Visual Studio Code project, expand the folder that's named **workflow-designtime**. Open the **local.settings.json** file.
 
 1. Add the `Workflows.{yourWorkflowName}.operationOptions` property and set the value to `WithStatelessRunHistory`, for example:
 

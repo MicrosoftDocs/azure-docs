@@ -2,7 +2,7 @@
 title: What is Azure Text Translation?
 titlesuffix: Azure AI services
 description: Integrate the Text Translation API into your applications, websites, tools, and other solutions to provide multi-language user experiences.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator

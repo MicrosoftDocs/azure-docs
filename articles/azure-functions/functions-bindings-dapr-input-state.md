@@ -4,7 +4,7 @@ description: Learn how to provide Dapr State input binding data during a functio
 ms.topic: reference
 ms.date: 10/11/2023
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -70,8 +70,35 @@ public String run(
 
 ::: zone pivot="programming-language-javascript"
 
-> [!NOTE]  
-> The [Node.js v4 model for Azure Functions](functions-reference-node.md?pivots=nodejs-model-v4) isn't currently available for use with the Dapr extension during the preview.  
+# [Node.js v4](#tab/v4)
+
+In the following example, the Dapr invoke input binding is added as an `extraInput` and paired with an HTTP trigger, which is registered by the `app` object:
+
+```javascript
+const { app, trigger } = require('@azure/functions');
+
+app.generic('StateInputBinding', {
+    trigger: trigger.generic({
+        type: 'httpTrigger',
+        authLevel: 'anonymous',
+        methods: ['GET'],
+        route: "state/{key}",
+        name: "req"
+    }),
+    extraInputs: [daprStateInput],
+    handler: async (request, context) => {
+        context.log("Node HTTP trigger function processed a request.");
+
+        const daprStateInputValue = context.extraInputs.get(daprStateInput);
+        // print the fetched state value
+        context.log(daprStateInputValue);
+
+        return daprStateInputValue;
+    }
+});
+```
+ 
+# [Node.js v3](#tab/v3)
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
@@ -100,6 +127,8 @@ module.exports = async function (context, req) {
     context.log('Current state of this function: ' + context.bindings.daprState);
 };
 ```
+
+---
 
 ::: zone-end
 
@@ -254,12 +283,25 @@ The `DaprStateInput` annotation allows you to read Dapr state into your function
 
 ::: zone pivot="programming-language-javascript"
 
+# [Node.js v4](#tab/v4)
+
+The following table explains the binding configuration properties that you set in the code.
+
+|Property | Description |
+|-----------------------|-------------|
+|**stateStore** | The name of the state store. |
+|**key** | The name of the key to retrieve from the specified state store. |
+ 
+# [Node.js v3](#tab/v3)
+
 The following table explains the binding configuration properties that you set in the function.json file.
 
 |function.json property | Description |
 |-----------------------|-------------|
 |**stateStore** | The name of the state store. |
 |**key** | The name of the key to retrieve from the specified state store. |
+
+---
 
 ::: zone-end
 

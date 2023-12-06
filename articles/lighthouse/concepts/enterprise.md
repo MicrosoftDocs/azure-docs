@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Azure Lighthouse in enterprise scenarios
 
-A common scenario for [Azure Lighthouse](../overview.md) involves a service provider that manages resources in in its customers' Microsoft Entra tenants. The capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise that uses multiple Microsoft Entra tenants.
+A common scenario for [Azure Lighthouse](../overview.md) involves a service provider that manages resources in its customers' Microsoft Entra tenants. The capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise that uses multiple Microsoft Entra tenants.
 
 ## Single vs. multiple tenants
 
@@ -21,7 +21,7 @@ In cases where a [multitenant architecture](/azure/architecture/guide/multitenan
 
 To use Azure Lighthouse in an enterprise, you'll need to determine which tenant will include the users who perform management operations on the other tenants. In other words, you will need to designate one tenant as the managing tenant for the other tenants.
 
-For example, say your organization has a single tenant that we’ll call *Tenant A*. Your organization then acquires *Tenant B* and *Tenant C*, and you you have business reasons that require you to maintain them as separate tenants. However, you'd like to use the same policy definitions, backup practices, and security processes for all of them, with management tasks performed by the same set of users.
+For example, say your organization has a single tenant that we’ll call *Tenant A*. Your organization then acquires *Tenant B* and *Tenant C*, and you have business reasons that require you to maintain them as separate tenants. However, you'd like to use the same policy definitions, backup practices, and security processes for all of them, with management tasks performed by the same set of users.
 
 Since Tenant A already includes users in your organization who have been performing those tasks for Tenant A, you can onboard subscriptions within Tenant B and Tenant C, which allows the same users in Tenant A to perform those tasks across all tenants.
 

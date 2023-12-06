@@ -1,12 +1,12 @@
 ---
-title: How to perform Change Data Capture of SQL Server with DataStream API and DataStream Source.
-description: Learn how to perform Change Data Capture of SQL Server with DataStream API and DataStream Source.
+title: How to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
+description: Learn how to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
 ms.service: hdinsight-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Change Data Capture of SQL Server with DataStream API and DataStream Source
+# Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
@@ -16,11 +16,10 @@ In this article, learn how to perform Change Data Capture of SQL Server using Da
 
 ## Prerequisites
 
-* [HDInsight on AKS Apache Flink 1.16.0](../flink/flink-create-cluster-portal.md)
-* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
-  * You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
+* [Apache Flink cluster on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
+* [Apache Kafka cluster on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
+  * You're required to ensure the network settings are taken care as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS and HDInsight clusters are in the same VNet 
 * Azure SQLServer 
-* HDInsight Kafka cluster and HDInsight on AKS Flink clusters are located in the same VNet
 * Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows) for development on an Azure VM, which locates in HDInsight VNet
 
 ### SQLServer CDC Connector
@@ -325,4 +324,5 @@ public class mssqlSinkToKafka {
 
 * [SQLServer CDC Connector](https://github.com/ververica/flink-cdc-connectors/blob/master/docs/content/connectors/sqlserver-cdc.md) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
 * [Apache Kafka in Azure HDInsight](../../hdinsight/kafka/apache-kafka-introduction.md)
-* [Flink Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka/#behind-the-scene)
+* [Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka/#behind-the-scene)
+* Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

@@ -14,6 +14,8 @@ Azure NetApp Files supports access control lists (ACLs) on NFSv4.1 volumes. ACLs
 
 ACLs contain access control entities (ACEs), which specify the permissions (read, write, etc.) of individual users or groups. When assigning user roles, provide the user email address if you're using a Linux VM joined to an Active Directory Domain. Otherwise, provide user IDs to set permissions. 
 
+To learn more about ACLs in Azure NetApp Files, see [Understand NFSv4.x ACLs](nfs-access-control-lists.md).
+
 ## Requirements
 
 - ACLs can only be configured on NFS4.1 volumes. You can [convert a volume from NFSv3 to NFSv4.1](convert-nfsv3-nfsv41.md).
@@ -59,3 +61,4 @@ ACLs contain access control entities (ACEs), which specify the permissions (read
 ## Next steps
 
 * [Configure NFS clients](configure-nfs-clients.md)
+* [Understand NFSv4.x ACLs](nfs-access-control-lists.md).
