@@ -143,10 +143,10 @@ Use the following steps to create the service instance:
 
    1. Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace: `Microsoft.SaaS`:
    
-   ```azurecli
-   az extension add --name spring --upgrade
-   az provider register --namespace Microsoft.SaaS
-   ```
+      ```azurecli
+      az extension add --name spring --upgrade
+      az provider register --namespace Microsoft.SaaS
+      ```
 
    1. Use the following command to accept the legal terms and privacy statements:
    
