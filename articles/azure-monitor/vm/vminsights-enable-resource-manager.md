@@ -37,7 +37,7 @@ First deploy the data collection rule, and then install agents to use that data 
 This step installs a data collection rule, named `MSVMI-{WorkspaceName}`, in the same resource group as your Log Analytics workspace:
 
 1. Download the [VM insights data collection rule templates](https://github.com/Azure/AzureMonitorForVMs-ArmTemplates/releases/download/vmi_ama_ga/DeployDcr.zip).
-1. Install one of these sets of template and parameter files based on on your requirements:
+1. Install one of these sets of template and parameter files based on your requirements:
 
    | Folder | File | Description |
    |:---|:---|
