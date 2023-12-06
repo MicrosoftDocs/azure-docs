@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the A
 titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 ms.topic: quickstart
-ms.date: 10/23/2023
+ms.date: 12/06/2023
 ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-ui, devx-track-linux
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
@@ -12,8 +12,8 @@ ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-ui, devx-track
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
 
-* Deploy an AKS cluster using the Azure portal.
-* Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
+- Deploy an AKS cluster using the Azure portal.
+- Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
@@ -22,55 +22,61 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 ## Before you begin
 
-* This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
-* You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* If you're unfamiliar with the Azure Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
-* To learn more about creating a Windows Server node pool, see [Create an AKS cluster that supports Windows Server containers](quick-windows-container-deploy-portal.md).
-* The identity you use to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+- You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- If you're unfamiliar with the Azure Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
+- To learn more about creating a Windows Server node pool, see [Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure portal](quick-windows-container-deploy-portal.md).
+- The identity you use to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 > [!NOTE]
 > The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
 
 ## Create an AKS cluster
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
+1. Sign in to the [Azure portal][azure-portal].
+1. On the Azure portal home page, select **Create a resource**.
 1. In the **Categories** section, select **Containers** > **Azure Kubernetes Service (AKS)**.
-1. On the **Basics** page, configure the following options:
+1. On the **Basics** tab, configure the following options:
+    - Under **Project details**:
+        - Select an Azure **Subscription**.
+        - Create an Azure **Resource group**, such as *myResourceGroup*. While you can select an existing resource group, for testing or evaluation purposes, we recommend creating a resource group to temporarily host these resources and avoid impacting your production or development workloads.
+    - Under **Cluster details**:
+      - Ensure the **Cluster preset configuration** is set to *Production Standard*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
 
-    - **Project details**:
-        * Select an Azure **Subscription**.
-        * Create an Azure **Resource group**, such as *myResourceGroup*. While you can select an existing resource group, for testing or evaluation purposes, we recommend creating a resource group to temporarily host these resources and avoid impacting your production or development workloads.
-    - **Cluster details**:
-        * Ensure that the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
-        * Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
-        * Select a **Region** for the AKS cluster, and leave the default value selected for **Kubernetes version**.
-    - **Primary node pool**:
-        * Leave the default values selected.
+        > [!NOTE]
+        > You can change the preset configuration when creating your cluster by selecting *Compare presets* and choosing a different option.
+        > :::image type="content" source="media/quick-kubernetes-deploy-portal/cluster-preset-options.png" alt-text="Screenshot of Create AKS cluster - portal preset options." lightbox="media/quick-kubernetes-deploy-portal/cluster-preset-options.png":::
 
-    :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot of Create AKS cluster - provide basic information." lightbox="media/quick-kubernetes-deploy-portal/create-cluster-basics.png":::
+      - Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
+      - Select a **Region** for the AKS cluster.
+        <!-- any reason to change AZ setting? -->
+      - Leave the **Availability zones** setting set to the default value.
+        <!-- standard vs dev/test vs std economy? -->
+      - Set the **AKS pricing tier** to *Standard*.
+      - Leave the default value selected for **Kubernetes version**.
+      - Leave the **Automatic upgrade** setting set to the recommended value, which is *Enabled with patch*.
+      - Leave the **Authentication and authorization** setting set to *Local accounts with Kubernetes RBAC*.
+1. Select **Next**. On the **Node pools** tab, add a new node pool:
+    - Select **Add node pool**.
+    - Enter a **Node pool name**, such as *nplinux*.
+    - For **Mode**, select **User**.
+    <!-- Any reason to use Azure Linux here? -->
+    - For **OS SKU**, select **Ubuntu Linux**.
+    - Leave the **Availability zones** setting set to the default value.
+    - Leave the **Enable Azure Spot instances** checkbox unchecked.
+    - For **Node size**, select **Choose a size**. On the **Select a VM size** page, select *D2s_v3*, then choose the **Select** button.
+    - Leave the **Scale method** setting set to *Autoscale*.
+    - Leave the **Minimum node count** and **Maximum node count** fields set to their default settings.
+<!-- CNI vs Kubenet? -->
+<!-- Do we want to have user change this, or is new default preferable? -->
+1. Select **Next** to move to the **Networking** tab.
+    - Under **Container networking**, change the **Network configuration** setting to use the *kubenet* networking plug-in.
+    - Leave other networking values set to their defaults.
+1. Select **Review + create** to run validation on the cluster configuration. After validation completes, select **Create** to create the AKS cluster.
 
-    > [!NOTE]
-    > You can change the preset configuration when creating your cluster by selecting *Learn more and compare presets* and choosing a different option.
-    > :::image type="content" source="media/quick-kubernetes-deploy-portal/cluster-preset-options.png" alt-text="Screenshot of Create AKS cluster - portal preset options." lightbox="media/quick-kubernetes-deploy-portal/cluster-preset-options.png":::
-
-1. Select **Next: Node pools** when complete.
-1. On the **Node pools** page, leave the default options and then select **Next: Access**.
-1. On the **Access** page, configure the following options:
-
-    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
-    - The Kubernetes role-based access control (RBAC) option is the default value to provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
-
-1. Select **Next: Networking** when complete.
-
-1. Keep the default **Networking** options, which uses the kubenet networking plug-in, and then select **Next: Integrations**.
-1. Keep the default **Integrations** options and then select **Next: Advanced**.
-1. Keep the default **Advanced** options and then select **Next: Tags**.
-1. On the tags page, leave the default option and then select **Next: Review + create**.
-1. When you navigate to the **Review + create** tab, Azure runs validation on the settings that you have chosen. If validation passes, you can proceed to create the AKS cluster by selecting **Create**. If validation fails, then it indicates which settings need to be modified.
-1. It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
-    * Selecting **Go to resource**, or
-    * Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*.
+It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
+    - Selecting **Go to resource**, or
+    - Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*.
 
 ## Connect to the cluster
 
@@ -84,19 +90,19 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     > To perform these operations in a local shell installation:
     >
     > 1. Verify Azure CLI or Azure PowerShell is installed.
-    > 2. Connect to Azure via the `az login` or `Connect-AzAccount` command.
+    > 1. Connect to Azure via the `az login` or `Connect-AzAccount` command.
 
 ### [Azure CLI](#tab/azure-cli)
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-2. Verify the connection to your cluster using `kubectl get` to return a list of the cluster nodes.
+1. Verify the connection to your cluster using `kubectl get` to return a list of the cluster nodes.
 
-    ```azurecli-interactive
+    ```azurecli
     kubectl get nodes
     ```
 
@@ -115,7 +121,7 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
     ```
 
-2. Verify the connection to your cluster using `kubectl get` to return a list of the cluster nodes.
+1. Verify the connection to your cluster using `kubectl get` to return a list of the cluster nodes.
 
     ```azurepowershell-interactive
     kubectl get nodes
@@ -136,16 +142,16 @@ To deploy the application, you use a manifest file to create all the objects req
 
 :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-architecture.png" alt-text="Screenshot of Azure Store sample architecture." lightbox="media/quick-kubernetes-deploy-portal/aks-store-architecture.png":::
 
-* **Store front**: Web application for customers to view products and place orders.
-* **Product service**: Shows product information.
-* **Order service**: Places orders.
-* **Rabbit MQ**: Message queue for an order queue.
+- **Store front**: Web application for customers to view products and place orders.
+- **Product service**: Shows product information.
+- **Order service**: Places orders.
+- **Rabbit MQ**: Message queue for an order queue.
 
 > [!NOTE]
 > We don't recommend running stateful containers, such as Rabbit MQ, without persistent storage for production. These are used here for simplicity, but we recommend using managed services, such as Azure CosmosDB or Azure Service Bus.
 
 1. In the Cloud Shell, open an editor and create a file named `aks-store-quickstart.yaml`.
-2. Paste the following manifest into the editor:
+1. Paste the following manifest into the editor:
 
     ```yaml
     apiVersion: apps/v1
@@ -378,7 +384,7 @@ To deploy the application, you use a manifest file to create all the objects req
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-3. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest:
+1. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest:
 
     ```console
     kubectl apply -f aks-store-quickstart.yaml
@@ -403,9 +409,9 @@ When the application runs, a Kubernetes service exposes the application front en
 
 1. Check the status of the deployed pods using the [`kubectl get pods`][kubectl-get] command. Make all pods are `Running` before proceeding.
 
-2. Check for a public IP address for the store-front application. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
+1. Check for a public IP address for the store-front application. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
-    ```azurecli-interactive
+    ```azurecli
     kubectl get service store-front --watch
     ```
 
@@ -416,7 +422,7 @@ When the application runs, a Kubernetes service exposes the application front en
     store-front   LoadBalancer   10.0.100.10   <pending>     80:30025/TCP   4h4m
     ```
 
-3. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+1. Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
     The following example output shows a valid public IP address assigned to the service:
 
@@ -425,7 +431,7 @@ When the application runs, a Kubernetes service exposes the application front en
     store-front   LoadBalancer   10.0.100.10   20.62.159.19   80:30025/TCP   4h5m
     ```
 
-4. Open a web browser to the external IP address of your service to see the Azure Store app in action.
+1. Open a web browser to the external IP address of your service to see the Azure Store app in action.
 
     :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-portal/aks-store-application.png":::
 
@@ -434,8 +440,8 @@ When the application runs, a Kubernetes service exposes the application front en
 If you don't plan on going through the following tutorials, clean up unnecessary resources to avoid Azure charges.
 
 1. In the Azure portal, navigate to your AKS cluster resource group.
-2. Select **Delete resource group**.
-3. Enter the name of the resource group to delete, and then select **Delete** > **Delete**.
+1. Select **Delete resource group**.
+1. Enter the name of the resource group to delete, and then select **Delete** > **Delete**.
 
     > [!NOTE]
     > The AKS cluster was created with a system-assigned managed identity. This identity is managed by the platform and doesn't require removal.

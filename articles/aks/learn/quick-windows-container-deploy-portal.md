@@ -17,6 +17,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 - If you're unfamiliar with the Azure Cloud Shell, review [Overview of Azure Cloud Shell](/azure/cloud-shell/overview).
+- To learn more about creating a Linux node pool, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure portal](quick-kubernetes-deploy-portal.md).
 - The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 ### Limitations
@@ -63,8 +64,12 @@ The following limitations apply to *Windows Server node pools*:
     - Leave the **Minimum node count** and **Maximum node count** fields set to their default settings.
 <!-- Do we want to have user change this, or is new default preferable? -->
 <!-- CNI vs Kubenet? -->
-1. Select **Next** to move to the **Networking** tab. Leave all values set to their defaults, except for the **Network policy** setting. Change this setting to **Azure**.
+1. Select **Next** to move to the **Networking** tab. Leave all values set to their defaults.
 1. Select **Review + create** to run validation on the cluster configuration. After validation completes, select **Create** to create the AKS cluster.
+
+It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
+    - Selecting **Go to resource**, or
+    - Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*.
 
 ## Connect to the cluster
 
@@ -122,7 +127,7 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 
 A Kubernetes manifest file defines a desired state for the cluster, such as which container images to run. In this quickstart, you use a manifest file to create all objects needed to run the ASP.NET sample application in a Windows Server container. This manifest file includes a [Kubernetes deployment][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] to access the application from the internet.
 
-The ASP.NET sample application is provided as part of the [.NET Framework Samples][dotnet-samples] and runs in a Windows Server container. AKS requires Windows Server containers to be based on images of *Windows Server 2019* or greater. The Kubernetes manifest file must also define a [node selector][node-selector] to tell your AKS cluster to run your ASP.NET sample application's pod on a node that can run Windows Server containers.
+The ASP.NET sample application is provided as part of the [.NET Framework Samples](https://hub.docker.com/_/microsoft-dotnet-framework-samples/) and runs in a Windows Server container. AKS requires Windows Server containers to be based on images of *Windows Server 2019* or greater. The Kubernetes manifest file must also define a [node selector][node-selector] to tell your AKS cluster to run your ASP.NET sample application's pod on a node that can run Windows Server containers.
 
 1. Create a file named `sample.yaml` and paste in the following YAML definition.
 
