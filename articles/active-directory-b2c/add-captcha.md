@@ -57,7 +57,7 @@ Use the steps in [Test the user flow](tutorial-create-user-flows.md?pivots=b2c-u
 
 ::: zone pivot="b2c-custom-policy"
 
-To enable CAPTCHA in your custom policy, you need to update your existing custom policy files. If you don't have any existing custom policy files, [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository from `https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack`, and then update the XML files in */Display Controls Starterpack/LocalAccounts/* folder.
+To enable CAPTCHA in your custom policy, you need to update your existing custom policy files. If you don't have any existing custom policy files, [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository from `https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack`. In this article, we update the XML files in */Display Controls Starterpack/LocalAccounts/* folder.
 
 ### Declare claims
 
@@ -133,15 +133,15 @@ In the *TrustFrameworkBase.XML* file, locate the `DisplayControls` element, then
 ...    
 <DisplayControl Id="captchaControlChallengeCode" UserInterfaceControlType="CaptchaControl" DisplayName="Help us beat the bots">    
     <InputClaims>
-    <InputClaim ClaimTypeReferenceId="challengeType" />
-    <InputClaim ClaimTypeReferenceId="challengeId" />
+        <InputClaim ClaimTypeReferenceId="challengeType" />
+        <InputClaim ClaimTypeReferenceId="challengeId" />
     </InputClaims>
 
     <DisplayClaims>
-    <DisplayClaim ClaimTypeReferenceId="challengeType" ControlClaimType="ChallengeType" />
-    <DisplayClaim ClaimTypeReferenceId="challengeId" ControlClaimType="ChallengeId" />
-    <DisplayClaim ClaimTypeReferenceId="challengeString" ControlClaimType="ChallengeString" />
-    <DisplayClaim ClaimTypeReferenceId="captchaEntered" ControlClaimType="CaptchaEntered" />
+        <DisplayClaim ClaimTypeReferenceId="challengeType" ControlClaimType="ChallengeType" />
+        <DisplayClaim ClaimTypeReferenceId="challengeId" ControlClaimType="ChallengeId" />
+        <DisplayClaim ClaimTypeReferenceId="challengeString" ControlClaimType="ChallengeString" />
+        <DisplayClaim ClaimTypeReferenceId="captchaEntered" ControlClaimType="CaptchaEntered" />
     </DisplayClaims>
 
     <Actions>
@@ -183,19 +183,19 @@ In the *TrustFrameworkBase.XML* file, locate the `ClaimsProviders` element and a
         <DisplayName>GetChallenge</DisplayName>
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.CaptchaProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
         <Metadata>
-        <Item Key="Operation">GetChallenge</Item>
-        <Item Key="Brand">HIP</Item>
+            <Item Key="Operation">GetChallenge</Item>
+            <Item Key="Brand">HIP</Item>
         </Metadata>
         <InputClaims>
-        <InputClaim ClaimTypeReferenceId="challengeType" />
+            <InputClaim ClaimTypeReferenceId="challengeType" />
         </InputClaims>
         <DisplayClaims>
-        <DisplayClaim ClaimTypeReferenceId="challengeString" />
+            <DisplayClaim ClaimTypeReferenceId="challengeString" />
         </DisplayClaims>
         <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="challengeId" />
-        <OutputClaim ClaimTypeReferenceId="challengeString" PartnerClaimType="ChallengeString" />
-        <OutputClaim ClaimTypeReferenceId="azureregion" />
+            <OutputClaim ClaimTypeReferenceId="challengeId" />
+            <OutputClaim ClaimTypeReferenceId="challengeString" PartnerClaimType="ChallengeString" />
+            <OutputClaim ClaimTypeReferenceId="azureregion" />
         </OutputClaims>
     </TechnicalProfile>
     <TechnicalProfile Id="HIP-VerifyChallenge">
@@ -203,21 +203,21 @@ In the *TrustFrameworkBase.XML* file, locate the `ClaimsProviders` element and a
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.CaptchaProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
         <Metadata>
         <Item Key="Brand">HIP</Item>
-        <Item Key="Operation">VerifyChallenge</Item>
+            <Item Key="Operation">VerifyChallenge</Item>
         </Metadata>
         <InputClaims>
-        <InputClaim ClaimTypeReferenceId="challengeType" DefaultValue="Visual" />
-        <InputClaim ClaimTypeReferenceId="challengeId" />
-        <InputClaim ClaimTypeReferenceId="captchaEntered" PartnerClaimType="inputSolution" Required="true" />
-        <InputClaim ClaimTypeReferenceId="azureregion" />
+            <InputClaim ClaimTypeReferenceId="challengeType" DefaultValue="Visual" />
+            <InputClaim ClaimTypeReferenceId="challengeId" />
+            <InputClaim ClaimTypeReferenceId="captchaEntered" PartnerClaimType="inputSolution" Required="true" />
+            <InputClaim ClaimTypeReferenceId="azureregion" />
         </InputClaims>
         <DisplayClaims>
-        <DisplayClaim ClaimTypeReferenceId="captchaEntered" />
+            <DisplayClaim ClaimTypeReferenceId="captchaEntered" />
         </DisplayClaims>
         <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="challengeId" />
-        <OutputClaim ClaimTypeReferenceId="isCaptchaSolved" PartnerClaimType="solved" />
-        <OutputClaim ClaimTypeReferenceId="reason" PartnerClaimType="reason" />
+            <OutputClaim ClaimTypeReferenceId="challengeId" />
+            <OutputClaim ClaimTypeReferenceId="isCaptchaSolved" PartnerClaimType="solved" />
+            <OutputClaim ClaimTypeReferenceId="reason" PartnerClaimType="reason" />
         </OutputClaims>
     </TechnicalProfile>
     </TechnicalProfiles>
@@ -312,6 +312,9 @@ To enable CAPTCHA in MFA flow, you need to make an update in two technical profi
     ...
 </TechnicalProfile>
 ```
+## Upload the custom policy files
+
+Use the steps in [Upload the policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy&branch=pr-en-us-260336#upload-the-policies) to upload your custom policy files.
 
 ## Test the custom policy
 
