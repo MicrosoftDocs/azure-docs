@@ -349,15 +349,7 @@ You can now deploy the app to Azure Spring Apps.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-For enterprise tier, user doesn't need to deploy jar, can directory deploy source code.
-
-1. Use the following command to clean package:
-
-   ```azurecli
-   ./mvnw clean
-   ```
-
-1. Use the following command to deploy the app based on source code:
+Use the following command to deploy the app based on source code:
 
    ```azurecli
    az spring app deploy \
