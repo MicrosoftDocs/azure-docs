@@ -29,7 +29,7 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 **Date available:** December 4, 2023
 
-Previously, packet capture could only be performed from edge sites, requiring local access to your Azure Stack Edge device. Now, you can initiate packet capture from the Azure portal and seamlessly transmit the captured data from edge sites to an Azure storage container. You can then download the data to inspect with a tool of your choice.  For more information, see [Data Plane Packet Capture](https://learn.microsoft.com/azure/private-5g-core/data-plane-packet-capture).
+Previously, packet capture could only be performed from edge sites, requiring local access to your Azure Stack Edge device. Now, you can initiate packet capture from the Azure portal and seamlessly transmit the captured data from edge sites to an Azure storage container. You can then download the data to inspect with a tool of your choice.  For more information, see [Data Plane Packet Capture](data-plane-packet-capture).
 
 
 ## October 2023
