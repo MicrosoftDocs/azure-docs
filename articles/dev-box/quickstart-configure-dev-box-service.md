@@ -162,7 +162,7 @@ To create and configure a dev box definition for your dev center:
 
 Now that you've defined a dev box definition in your dev center, you can create a dev box pool in the project. A dev box pool is the collection of dev boxes that have the same settings, such as the dev box definition and network connection. Developers that have access to the project in the dev center, can then choose to create a dev box from a dev box pool.
 
-Dev box pools define the location of the dev boxes through the network connection. You can choose to deploy dev boxes to a Microsoft-hosted network or to a network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). Organizations that support developers in multiple geographical locations can create dev box pools for each location by specifying a nearby region.
+Dev box pools define the location of the dev boxes through the specified network connection. You can choose to deploy dev boxes to a Microsoft-hosted network or to a network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). Organizations that support developers in multiple geographical locations can create dev box pools for each location by specifying a nearby region.
 
 You must associate at least one dev box pool with your project before users can create a dev box.
 
@@ -243,7 +243,7 @@ To assign roles:
 
 Microsoft Dev Box  makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their teams. They can create and manage [dev box pools](./how-to-manage-dev-box-pools.md), set [dev box limits](./tutorial-dev-box-limits.md), and configure [auto-stop schedules](./how-to-configure-stop-schedule.md). To give users permissions to manage projects, assign the DevCenter Project Admin role to them.
 
-You can assign the DevCenter Project Admin role by using the steps described earlier in [5. Provide access to a dev box project](#5-provide-access-to-a-dev-box-project) and select the Project Admin role instead of the Dev Box User role. For more information, see [Provide access to projects for project admins](how-to-project-admin.md).
+You can assign the DevCenter Project Admin role by using the steps described earlier in [4. Provide access to a dev box project](#4-provide-access-to-a-dev-box-project) and select the Project Admin role instead of the Dev Box User role. For more information, see [Provide access to projects for project admins](how-to-project-admin.md).
 
 [!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 
