@@ -1,7 +1,7 @@
 ---
 title:  Deliver ESUs for VMware VMs through Arc
 description: Deliver ESUs for VMware VMs through Azure Arc. 
-ms.date: 12/05/2023
+ms.date: 12/06/2023
 ms.topic: how-to
 ms.services: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
@@ -13,7 +13,7 @@ keywords: "VMware, Arc, Azure"
 
 # Deliver ESUs for VMware VMs through Arc
 
-Azure Arc-enabled VMware vSphere allows you to enroll all the Windows Server 2012/2012 R2 VMs managed by your vCenter server in [Extended Security Updates](https://learn.microsoft.com/windows-server/get-started/extended-security-updates-overview) (ESUs) at scale. 
+Azure Arc-enabled VMware vSphere allows you to enroll all the Windows Server 2012/2012 R2 VMs managed by your vCenter in [Extended Security Updates](https://learn.microsoft.com/windows-server/get-started/extended-security-updates-overview) (ESUs) at scale. 
 
 ESUs allow you to leverage cost flexibility in the form of pay-as-you-go Azure billing and enhanced delivery experience in the form of built-in inventory and keyless delivery. In addition, ESUs enabled by Azure Arc give you access to Azure management services such as [Azure Update Manager](https://learn.microsoft.com/azure/update-manager/overview?tabs=azure-vms), [Azure Automation Change Tracking and Inventory](https://learn.microsoft.com/azure/automation/change-tracking/overview?tabs=python-2), and [Azure Policy Guest Configuration](https://learn.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management/guest-configuration-policy) at no additional cost. 
 
@@ -25,7 +25,7 @@ This article provides the steps to procure and deliver ESUs to WS 2012 and 2012 
 ## Prerequisites
 
 - The user account must have an Owner/Contributor role in a Resource Group in Azure to create and assign ESUs to VMware VMs. 
-- The vCenter server managing the WS 2012 and 2012 R2 VMs, for which the ESUs are to be applied, should be [onboarded to Azure Arc](./quick-start-connect-vcenter-to-arc-using-script.md). After onboarding, the WS 2012 and 2012 R2 VMs, for which the ESUs are to be applied, should be [Azure-enabled](./browse-and-enable-vcenter-resources-in-azure.md) and [guest management enabled](./enable-guest-management-at-scale.md). 
+- The vCenter managing the WS 2012 and 2012 R2 VMs, for which the ESUs are to be applied, should be [onboarded to Azure Arc](./quick-start-connect-vcenter-to-arc-using-script.md). After onboarding, the WS 2012 and 2012 R2 VMs, for which the ESUs are to be applied, should be [Azure-enabled](./browse-and-enable-vcenter-resources-in-azure.md) and [guest management enabled](./enable-guest-management-at-scale.md). 
 
 ## Create Azure Arc ESUs 
 
