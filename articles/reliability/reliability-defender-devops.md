@@ -49,7 +49,7 @@ To request recovery of a connector created in a downed region:
         1.  Issue type: `Technical`
         1.  Service type: `Microsoft Defender for Cloud`
         1.  Summary: "Region outage - DevOps Connector recovery"
-        1.  Problem type: `Onboarding and Settings`
+        1.  Problem type: `Defender CSPM plan`
         1.  Problem subtype: `DevOps security`
 
 1. Copy the Resource ID of the new and old DevOps connectors. This information is available in Azure Resource Graph.  Resource ID format: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{connectorName}`
