@@ -110,10 +110,9 @@ You can use any of the following methods for creating alert rules at-scale. Each
 ### Metric alerts
 You can use [one metric alert rule to monitor multiple resources](alerts-metric-multiple-time-series-single-rule.md) of the same type that exist in the same Azure region. Individual notifications are sent for each monitored resource. For a list of Azure services that are currently supported for this feature, see [Supported resources for metric alerts in Azure Monitor](alerts-metric-near-real-time.md).
 
-For metric alert rules for Azure services that don't support multiple resources, use automation tools such as the Azure CLI and PowerShell or Azure Resource Manager templates to create the same alert rule for multiple resources. For samples, see [Resource Manager template samples for metric alert rules in Azure Monitor](resource-manager-alerts-metric.md).
+For metric alert rules for Azure services that don't support multiple resources, use automation tools such as the Azure CLI, PowerShell, or Azure Resource Manager templates to create the same alert rule for multiple resources. For sample ARM templates, see [Resource Manager template samples for metric alert rules in Azure Monitor](resource-manager-alerts-metric.md).
 
-Disadvantages:
-- Each metric alert rule is charged based on the number of time series that are monitored.
+Each metric alert rule is charged based on the number of time series that are monitored.
 
 ### Log alerts
 
@@ -125,15 +124,11 @@ Log alert rules that use splitting by dimensions are charged based on the number
 
 If you use metric data at scale in the Log Analytics workspace, pricing will change based on the data ingestion.
 
-Disadvantages:
-- You may have to pay to collect metric data to the Log Analytics workspace.
-
 ### Using Azure policies for alerting at scale
 
 You can use [Azure policies](/azure/governance/policy/overview) to set up alerts at-scale. This has the advantage of easily implementing alerts at-scale. You can see how this is implementated with [Azure Monitor baseline alerts](https://aka.ms/amba).
 
-Disadvantages:
-- you will have the overhead of maintaining a large alert rule set.
+Keep in mind that if you use policies to create alert rules, you may have the increased overhead of maintaining a large alert rule set.
 
 ## Azure role-based access control for alerts
 
