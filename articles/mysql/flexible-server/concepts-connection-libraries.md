@@ -1,6 +1,6 @@
 ---
-title: Connection libraries - Azure Database for MySQL
-description: This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL.
+title: Connection libraries - Azure Database for MySQL - Flexible Server
+description: This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL flexible server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -9,13 +9,13 @@ ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
-# Connection libraries for Azure Database for MySQL
+# Connection libraries for Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-server.md)]
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL.
+This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL flexible server.
 
 ## Client interfaces
 MySQL offers standard database driver connectivity for using MySQL with applications and tools that are compatible with industry standards ODBC and JDBC. Any system that works with ODBC or JDBC can use MySQL.
@@ -34,7 +34,7 @@ MySQL offers standard database driver connectivity for using MySQL with applicat
 
 
 ## Next steps
-Read these quickstarts on how to connect to and query Azure Database for MySQL by using your language of choice:
+Read these quickstarts on how to connect to and query Azure Database for MySQL flexible server by using your language of choice:
 
 - [PHP](./connect-php.md)
 - [Java](./connect-java.md)
