@@ -34,7 +34,7 @@ If you aren't familiar with how to deploy a Resource Manager template, see [Depl
 
 ###  Deploy data collection rule
 
-This step installs the data collection rule in the same resource group as the Log Analytics workspace with a name in the format "MSVMI-{WorkspaceName}":
+This step installs a data collection rule with a name in the format `MSVMI-{WorkspaceName}` in the same resource group as the Log Analytics workspace you provide in the template:
 
 1. Download the [VM insights data collection rule templates](https://github.com/Azure/AzureMonitorForVMs-ArmTemplates/releases/download/vmi_ama_ga/DeployDcr.zip).
 1. Install one of these sets of template and parameter files based on on your requirements:
