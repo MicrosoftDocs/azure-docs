@@ -21,7 +21,7 @@ Faiss Index Lookup is a tool tailored for querying within a user-provided Faiss-
 ## Prerequisites
 
 - Prepare an accessible path on Azure Blob Storage. If a new storage account needs to be created, see [Azure Storage account](../../../storage/common/storage-account-create.md).
-- Create related Faiss-based index files on Blob Storage. We support the LangChain format (index.faiss + index.pkl) for the index files. You can prepare it either by employing the promptflow-vectordb SDK or following the quick guide from [LangChain documentation](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/faiss). For steps on building an index by using the promptflow-vectordb SDK, see the [sample notebook for creating a Faiss index](https://aka.ms/pf-sample-build-faiss-index).
+- Create related Faiss-based index files on Blob Storage. We support the LangChain format (index.faiss + index.pkl) for the index files. You can prepare it by either employing the promptflow-vectordb SDK or following the quick guide from [LangChain documentation](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/faiss). For steps on building an index by using the promptflow-vectordb SDK, see the [sample notebook for creating a Faiss index](https://aka.ms/pf-sample-build-faiss-index).
 - Based on where you put your own index files, the identity used by the promptflow runtime should be granted with certain roles. For more information, see [Steps to assign an Azure role](../../../role-based-access-control/role-assignments-steps.md).
 
     | Location | Role |
@@ -38,7 +38,7 @@ The tool accepts the following inputs:
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| path | string | URL or path for the vector store.<br><br>Blob URL format:<br>https://`<account_name>`.blob.core.windows.net/`<container_name>`/`<path_and_folder_name>`<br><br>AML datastore URL format:<br>azureml://subscriptions/`<your_subscription>`/resourcegroups/`<your_resource_group>`/workspaces/`<your_workspace>`/data/`<data_path>`<br><br>Relative path to workspace datastore `workspaceblobstore`:<br>`<path_and_folder_name>`<br><br> Public http/https URL (for public demonstration):<br>http(s)://`<path_and_folder_name>` | Yes |
+| path | string | URL or path for the vector store.<br><br>Blob URL format:<br>https://`<account_name>`.blob.core.windows.net/`<container_name>`/`<path_and_folder_name>`<br><br>Azure Machine Learning datastore URL format:<br>azureml://subscriptions/`<your_subscription>`/resourcegroups/`<your_resource_group>`/workspaces/`<your_workspace>`/data/`<data_path>`<br><br>Relative path to workspace datastore `workspaceblobstore`:<br>`<path_and_folder_name>`<br><br> Public http/https URL (for public demonstration):<br>http(s)://`<path_and_folder_name>` | Yes |
 | vector | list[float] | The target vector to be queried, which the LLM tool can generate. | Yes |
 | top_k | integer | The count of the top-scored entities to return. Default value is 3. | No |
 
