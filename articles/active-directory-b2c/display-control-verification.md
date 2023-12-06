@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 12/11/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---

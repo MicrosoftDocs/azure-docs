@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 11/07/2022
+ms.date: 12/11/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -63,13 +63,15 @@ In the display claims collection, you can include a reference to a [DisplayContr
 The following example `TechnicalProfile` illustrates the use of display claims with display controls.
 
 * The first display claim makes a reference to the `emailVerificationControl` display control, which collects and verifies the email address.
-* The fifth display claim makes a reference to the `phoneVerificationControl` display control, which collects and verifies a phone number.
+* The second display claim makes a reference to the `captchaChallengeControl` display control, which generates and verifies CAPTCHA code.
+* The sixth display claim makes a reference to the `phoneVerificationControl` display control, which collects and verifies a phone number.
 * The other display claims are ClaimTypes to be collected from the user.
 
 ```xml
 <TechnicalProfile Id="Id">
   <DisplayClaims>
     <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim DisplayControlReferenceId="captchaChallengeControl" />
     <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
@@ -211,6 +213,7 @@ You can also call a REST API technical profile with your business logic, overwri
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Improves user experience, by waiting for the user to stop typing, and then validate the value. Default value 2000 milliseconds. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/self-asserted#input-verification-delay-time-in-milliseconds) of this metadata. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 |setting.forgotPasswordLinkOverride <sup>4</sup>| No | A password reset claims exchange to be executed. For more information, see [Self-service password reset](add-password-reset-policy.md). |
+| setting.enableCaptchaChallenge | No | Specifies whether CAPTCHA challenge code should be displayed. Possible values: `true` , or `false` (default). For this setting to work, the [CAPTCHA display control]() must be referenced in the [display claims](#display-claims) of the self-asserted technical profile. CAPTCHA feature is in **public preview**.|
 
 Notes:
 
