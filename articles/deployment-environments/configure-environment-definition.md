@@ -27,7 +27,7 @@ An environment definition is composed of least two files:
 
 Your development teams use the environment definitions that you provide in the catalog to deploy environments in Azure.
 
-Microsoft offers a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
+Microsoft offers a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You can also use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
 After you [add a catalog](how-to-configure-catalog.md) to your dev center, the service scans the specified folder path to identify folders that contain an ARM template and an associated environment file. The specified folder path should be a folder that contains subfolders that hold the environment definition files.
 
@@ -64,7 +64,7 @@ To add an environment definition:
 
       The *environment.yaml* file contains metadata related to the ARM template.
 
-       The following script is an example of the contents of a *environment.yaml* file:
+       The following script is an example of the contents of an *environment.yaml* file:
 
        ```yaml
            name: WebApp
@@ -94,7 +94,7 @@ You can specify parameters for your environment definitions to allow developers 
 
 Parameters are defined in the *environment.yaml* file. 
 
-The following script is an example of a *environment.yaml* file that includes two parameters; `location` and `name`: 
+The following script is an example of an *environment.yaml* file that includes two parameters; `location` and `name`: 
 
 ```YAML
 name: WebApp
@@ -117,7 +117,7 @@ parameters:
   required: false
 ```
 
-To learn more about the parameters and their data types you can use in *environment.yaml*, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#parameters-in-environmentyaml).
+To learn more about the parameters and their data types that you can use in *environment.yaml*, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#parameters-in-environmentyaml).
 
 Developers can supply values for specific parameters for their environments through the [developer portal](https://devportal.microsoft.com).
 
@@ -150,9 +150,9 @@ To update any metadata related to the ARM template, modify *environment.yaml*, a
 
 ## Delete an environment definition
 
-To delete an existing environment definition, in the repository, delete the subfolder that contains the ARM template JSON file and the associated environment YAML file. Then, [update the catalog](how-to-configure-catalog.md#update-a-catalog) in Azure Deployment Environments.
+To delete an existing environment definition, in the repository, delete the subfolder that contains the ARM template JSON file and the associated environment YAML file. Then, [update the catalog](how-to-configure-catalog.md#update-a-catalog).
 
-After you delete an environment definition, development teams can no longer use the specific environment definition to deploy a new environment. Update the environment definition reference for any existing environments that were created by using the deleted environment definition. If the reference isn't updated and the environment is redeployed, the deployment fails.
+After you delete an environment definition, development teams can no longer use the specific environment definition to deploy a new environment. Update the environment definition reference for any existing environments that use the deleted environment definition. If the reference isn't updated and the environment is redeployed, the deployment fails.
 
 ## Next steps
 

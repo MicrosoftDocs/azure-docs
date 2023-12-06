@@ -32,9 +32,9 @@ When you assign a role to specific environment types, the user can perform the a
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 
-1. Select **Projects**, then choose the project that you want your developers to be able to access.
+1. Select **Projects** from the left pane, then choose the project that you want your developers to be able to access.
 
-1. In the left menu, select **Access control (IAM)**.
+1. Select **Access control (IAM)** from the left pane.
 
 1. Select **Add** > **Add role assignment**.
 
@@ -54,9 +54,9 @@ The users can now view the project and all the environment types enabled within 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 
-1. Select **Projects**, then choose the project that you want your developers to be able to access.
+1. Select **Projects** from the left pane, then choose the project that you want your developers to be able to access.
 
-1. Select **Environment types**, and then select the ellipsis (**...**) beside the specific environment type.
+1. Select **Environment types** from the left pane, and then select the ellipsis (**...**) beside the specific environment type.
 
    :::image type="content" source="media\configure-deployment-environments-user\project-environment-types.png" alt-text="Screenshot that shows the environment types associated with a project." lightbox="media\configure-deployment-environments-user\project-environment-types.png":::
 
@@ -80,5 +80,5 @@ The users can now view the project and the specific environment type that you gr
 
 ## Next steps
 
-* [Create and configure projects](./quickstart-create-and-configure-projects.md)
-* [Provide access to dev managers](./how-to-configure-project-admin.md)
+* [Create and configure an Azure Deployment Environments project](./quickstart-create-and-configure-projects.md)
+* [Provide access for dev team leads to Deployment Environments projects](./how-to-configure-project-admin.md)
