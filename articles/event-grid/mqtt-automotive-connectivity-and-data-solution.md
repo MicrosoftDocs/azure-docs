@@ -7,6 +7,7 @@ ms.custom:
 ms.date: 11/15/2023
 author: msmarioo
 ms.author: marioo
+ms.subservice: mqtt
 ---
 
 # Automotive messaging, data & analytics reference architecture
