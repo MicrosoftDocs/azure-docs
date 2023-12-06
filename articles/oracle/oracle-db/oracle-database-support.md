@@ -6,7 +6,8 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 11/26/2023
+ms.date: 12/6/2023
+ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 ---
 
@@ -50,6 +51,8 @@ If you contact Oracle Support, be sure to tell your Oracle Support agent that yo
 You can also submit a question to the Oracle Database@Azure forum in Oracle's [Cloud Customer Connect](https://community.oracle.com/customerconnect/categories/oracle-cloud-infrastructure-and-platform) community. This option is available to all customers.
 
 ## Next steps
+
 - [Overview - Oracle Database@Azure](database-overview.md)
 - [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
+- [Solution design for Oracle Database@Azure](oracle-database-solution-design.md)

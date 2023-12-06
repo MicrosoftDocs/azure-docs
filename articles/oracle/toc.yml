@@ -17,14 +17,10 @@ items:
     href: oracle-db/provision-oracle-database.md
   - name: Support for Oracle Database@Azure
     href: oracle-db/oracle-database-support.md
-- name: Solution architecture
+- name: Solution design
   items:
-  - name: Oracle Database@Azure solution architecture
-    href: oracle-db/oracle-db-architecture.md
-- name: Reference
-  items:
-  - name: Oracle Database@Azure reference
-    href: oracle-db/oracle-db-reference.md  
+  - name: Solution design for Oracle Database@Azure
+    href: oracle-db/oracle-database-solution-design.md
 - name: FAQs
   items:
   - name: Oracle Database@Azure FAQs

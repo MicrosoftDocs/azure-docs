@@ -6,7 +6,8 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 04/16/2023
+ms.date: 12/6/2023
+ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 
 ---
@@ -164,3 +165,4 @@ Use the information in this section to resolve common errors and provisioning is
 - [Overview - Oracle Database@Azure](database-overview.md)
 - [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-database-support.md)
+- [Solution design for Oracle Database@Azure](oracle-database-solution-design.md)

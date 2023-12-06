@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: oracle
 ms.topic: article
-ms.date: 06/12/2023
+ms.date: 12/06/2023
 ---
 
 # Oracle on Azure
@@ -28,7 +28,9 @@ Oracle Database@Azure is an Oracle Cloud Database service that runs Oracle Datab
 
 Oracle Database@Azure offers [Oracle Exadata Database Service on Dedicated Infrastructure](https://docs.oracle.com/en/engineered-systems/exadata-cloud-service/ecscm/index.html). 
 
-## Next steps 
+## Next steps
+ 
 - [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-database-support.md)
+- [Solution design for Oracle Database@Azure](oracle-database-solution-design.md)

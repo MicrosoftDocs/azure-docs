@@ -6,7 +6,8 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 04/11/2023
+ms.date: 12/6/2023
+ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 ---
 
@@ -45,7 +46,9 @@ Oracle Database@Azure is available in the locations listed on this page. Oracle 
 |------------|
 |East US (Virginia)|
 
-## Next steps 
+## Next steps
+ 
 - [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-database-support.md)
+- [Solution design for Oracle Database@Azure](oracle-database-solution-design.md)
