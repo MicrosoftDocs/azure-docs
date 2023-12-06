@@ -1,7 +1,7 @@
 ---
 title: "Content Moderator Java client library quickstart"
 titleSuffix: Azure AI services
-description: In this quickstart, learn how to get started with the Azure AI Content Moderator client library for Java. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
+description: In this quickstart, learn how to get started with the Azure Content Moderator client library for Java. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,7 +12,7 @@ ms.custom: "devx-track-java, cog-serv-seo-aug-2020"
 ms.author: pafarley
 ---
 
-Get started with the Azure AI Content Moderator client library for Java. Follow these steps to install the Maven package and try out the example code for basic tasks. 
+Get started with the Azure Content Moderator client library for Java. Follow these steps to install the Maven package and try out the example code for basic tasks. 
 
 Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. Use the AI-powered content moderation service to scan text, image, and videos and apply content flags automatically. Build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 

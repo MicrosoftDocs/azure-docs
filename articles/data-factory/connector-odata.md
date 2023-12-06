@@ -396,6 +396,6 @@ Project Online requires user-based OAuth, which is not supported by Azure Data F
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -31,7 +31,7 @@ In Azure, there are two main licensing pricing options: 'pay-as-you-go' (PAYG) a
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-compare.png" alt-text="Diagram that shows the use of Azure Hybrid Benefit to switch Linux virtual machines between pay-as-you-go and bring-your-own-subscription.":::
 
 > [!NOTE]
-> Virtual machines deployed from PAYG images or VMs converted from BYOS models incur *both* an infrastructure fee and a software fee. If you have your own license, use Azure Hybrid Benefit to convers from a PAYG to BYOS model.
+> Virtual machines deployed from PAYG images or VMs converted from BYOS models incur *both* an infrastructure fee and a software fee. If you have your own license, use Azure Hybrid Benefit to convert from a PAYG to BYOS model.
 
 You can use Azure Hybrid Benefit to switch back to pay-as-you-go billing at any time.
 
@@ -266,10 +266,10 @@ The following examples show two methods of getting a list of resource IDs: one a
 
 ```azurecli
 # To get a list of all the resource IDs in a resource group:
-$(az vm list -g MyResourceGroup --query "[].id" -o tsv)
+az vm list -g MyResourceGroup --query "[].id" -o tsv
 
 # To get a list of all the resource IDs of virtual machines in a subscription:
-az vm list -o json | jq '.[] | {Virtual MachineName: .name, ResourceID: .id}'
+az vm list -o json | jq '.[] | {VirtualMachineName: .name, ResourceID: .id}'
 ```
 ---
 
