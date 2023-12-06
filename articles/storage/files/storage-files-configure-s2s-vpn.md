@@ -4,7 +4,7 @@ description: How to configure a Site-to-Site (S2S) VPN for use with Azure Files
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 12/06/2023
 ms.author: kendownie
 ---
 
@@ -36,33 +36,39 @@ If you don't have an existing network appliance, Windows Server contains a built
 
 ## Add virtual network to storage account
 
-In the Azure portal, navigate to the storage account containing the Azure file share you would like to mount on-premises. In the table of contents for the storage account, select **Security + networking > Networking**. Unless you added a virtual network to your storage account when you created it, the resulting pane should have the radio button for **Enabled from all networks** selected under **Public network access**.
+To add a new or existing virtual network to your storage account, follow these steps.
 
-To add a virtual network, select the **Enabled from selected virtual networks and IP addresses** radio button. Under the **Virtual networks** subheading, click either **+ Add existing virtual network** or **+ Add new virtual network**. Creating a new virtual network will result in a new Azure resource being created. The new or existing virtual network resource must be in the same region as the storage account, but it doesn't need to be in the same resource group or subscription. However, keep in mind that the resource group, region, and subscription you deploy your virtual network into must match where you deploy your virtual network gateway in the next step.
+1. Sign in to the Azure portal and navigate to the storage account containing the Azure file share you would like to mount on-premises.
 
-:::image type="content" source="media/storage-files-configure-s2s-vpn/add-virtual-network.png" alt-text="Screenshot of the Azure portal giving the option to add an existing or new virtual network to the storage account.":::
+1. In the table of contents for the storage account, select **Security + networking > Networking**. Unless you added a virtual network to your storage account when you created it, the resulting pane should have the radio button for **Enabled from all networks** selected under **Public network access**.
 
-If you add an existing virtual network, you'll be asked to select one or more subnets of that virtual network which the storage account should be added to. If you create a new virtual network, you'll create a subnet as part of the creation of the virtual network. You can add more subnets later through the resulting Azure resource for the virtual network.
-
-If you haven't added a storage account to your subscription before, the Microsoft.Storage service endpoint will need to be added to the virtual network. This might take some time, and until this operation has completed, you won't be able to access the Azure file shares within that storage account, including via the VPN connection.
+1. To add a virtual network, select the **Enabled from selected virtual networks and IP addresses** radio button. Under the **Virtual networks** subheading, select either **+ Add existing virtual network** or **+ Add new virtual network**. Creating a new virtual network will result in a new Azure resource being created. The new or existing virtual network resource must be in the same region as the storage account, but it doesn't need to be in the same resource group or subscription. However, keep in mind that the resource group, region, and subscription you deploy your virtual network into must match where you deploy your virtual network gateway in the next step.
+   
+   :::image type="content" source="media/storage-files-configure-s2s-vpn/add-virtual-network.png" alt-text="Screenshot of the Azure portal giving the option to add an existing or new virtual network to the storage account.":::
+   
+   If you add an existing virtual network, you'll be asked to select one or more subnets of that virtual network which the storage account should be added to. If you create a new virtual network, you'll create a subnet as part of the creation of the virtual network. You can add more subnets later through the resulting Azure resource for the virtual network.
+   
+   If you haven't added a storage account to your subscription before, the Microsoft.Storage service endpoint will need to be added to the virtual network. This might take some time, and until this operation has completed, you won't be able to access the Azure file shares within that storage account, including via the VPN connection.
 
 ## Deploy a virtual network gateway
 
-In the table of contents for the Azure portal, select **Create a new resource** and search for *Virtual network gateway*. Your virtual network gateway must be in the same subscription, Azure region, and resource group as the virtual network you deployed in the previous step (note that resource group is automatically selected when the virtual network is picked).
+To deploy a virtual network gateway, follow these steps.
 
-To deploy an Azure virtual network gateway, you must populate the following fields:
+1. In the search box at the top of the Azure portal, search for and then select *Virtual network gateways*. The **Virtual network gateways** page should appear. At the top of the page, select **+ Create**.
 
-- **Name**: The name of the Azure resource for the virtual network gateway. This name may be any name you find useful for your management.
-- **Region**: The region into which the virtual network gateway will be deployed.
-- **Gateway type**: For the purpose of deploying a Site-to-Site VPN, you must select **VPN**.
-- **VPN type**: You may choose either **Route-based** or **Policy-based** depending on your VPN device. Route-based VPNs support IKEv2, while policy-based VPNs only support IKEv1. To learn more about the two types of VPN gateways, see [About policy-based and route-based VPN gateways](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
-- **SKU**: The SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. To select the appropriate SKU for your use case, consult the [Gateway SKU](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) listing. You can change the SKU of the virtual network gateway later if necessary.
-- **Virtual network**: The virtual network you added to your storage account in the previous step.
-- **Public IP address**: The IP address of virtual network gateway that will be exposed to the internet. Likely, you'll need to create a new IP address, however you may also use an existing unused IP address if that is appropriate. If you select **Create new**, a new IP address Azure resource will be created in the same resource group as the virtual network gateway and the **Public IP address name** will be the name of the newly created IP address. If you select **Use existing**, you must select the existing unused IP address.
-- **Enable active-active mode**: Only select **Enabled** if you're creating an active-active gateway configuration, otherwise leave **Disabled** selected. To learn more about active-active mode, see [Highly available cross-premises and VNet-to-VNet connectivity](../../vpn-gateway/vpn-gateway-highlyavailable.md).
-- **Configure BGP ASN**: Only select **Enabled** if your configuration specifically requires this setting. To learn more about this setting, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+1. To deploy an Azure virtual network gateway, you must populate the following fields. Your virtual network gateway must be in the same subscription, Azure region, and resource group as the virtual network you deployed in the previous step (note that resource group is automatically selected when the virtual network is picked).
 
-Select **Review + create** to create the virtual network gateway. Deployment can take up to 45 minutes.
+   * **Name**: The name of the Azure resource for the virtual network gateway. This name may be any name you find useful for your management.
+   * **Region**: The region into which the virtual network gateway will be deployed.
+   * **Gateway type**: For the purpose of deploying a Site-to-Site VPN, you must select **VPN**.
+   * **VPN type**: You may choose either **Route-based** or **Policy-based** depending on your VPN device. Route-based VPNs support IKEv2, while policy-based VPNs only support IKEv1. To learn more about the two types of VPN gateways, see [About policy-based and route-based VPN gateways](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
+   * **SKU**: The SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. To select the appropriate SKU for your use case, consult the [Gateway SKU](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) listing. You can change the SKU of the virtual network gateway later if necessary.
+   * **Virtual network**: The virtual network you added to your storage account in the previous step.
+   * **Public IP address**: The IP address of the virtual network gateway that will be exposed to the internet. Likely, you'll need to create a new IP address, however you may also use an existing unused IP address. If you select **Create new**, a new IP address Azure resource will be created in the same resource group as the virtual network gateway, and the **Public IP address name** will be the name of the newly created IP address. If you select **Use existing**, you must select the existing unused IP address.
+   * **Enable active-active mode**: Only select **Enabled** if you're creating an active-active gateway configuration, otherwise leave **Disabled** selected. To learn more about active-active mode, see [Highly available cross-premises and VNet-to-VNet connectivity](../../vpn-gateway/vpn-gateway-highlyavailable.md).
+   * **Configure BGP ASN**: Only select **Enabled** if your configuration specifically requires this setting. To learn more about this setting, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+
+1. Select **Review + create** to create the virtual network gateway. Deployment can take up to 45 minutes.
 
 ### Create a local network gateway for your on-premises gateway
 
@@ -72,9 +78,9 @@ To deploy the local network gateway resource, you must populate the following fi
 
 - **Name**: The name of the Azure resource for the local network gateway. This name may be any name you find useful for your management.
 - **IP address**: The public IP address of your local gateway on-premises.
-- **Address space**: The address ranges for the network this local network gateway represents. You can add multiple address space ranges, but make sure that the ranges you specify here don't overlap with ranges of other networks that you want to connect to. 
+- **Address space**: The address ranges for the network this local network gateway represents. You can add multiple address space ranges, but make sure that the ranges you specify here don't overlap with ranges of other networks that you want to connect to.
 - **Configure BGP settings**: Only configure BGP settings if your configuration requires this setting. To learn more about this setting, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
-- **Subscription**: The desired subscription. This doesn't need to match the subscription used for the virtual network gateway or the storage account.
+- **Subscription**: The desired Azure subscription. This doesn't need to match the subscription used for the virtual network gateway or the storage account.
 - **Resource group**: The desired resource group. This doesn't need to match the resource group used for the virtual network gateway or the storage account.
 - **Location**: The Azure region the local network gateway resource should be created in. This should match the region you selected for the virtual network gateway and the storage account.
 
@@ -82,23 +88,23 @@ Select **Create** to create the local network gateway resource.
 
 ## Configure on-premises network appliance
 
-The specific steps to configure your on-premises network appliance depend based on the network appliance your organization has selected. Depending on the device your organization has chosen, the [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) might have a link to your device vendor's instructions for configuring with Azure virtual network gateway.
+The specific steps to configure your on-premises network appliance depend on the network appliance your organization has selected. Depending on the device your organization has chosen, the [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) might have a link to your device vendor's instructions for configuring with Azure virtual network gateway.
 
 ## Create the Site-to-Site connection
 
-To complete the deployment of a S2S VPN, you must create a connection between your on-premises network appliance (represented by the local network gateway resource) and the Azure virtual network gateway. To do this, navigate to the VPN Gateway you created above. In the table of contents for the virtual network gateway, select **Connections**, and click **Add**. The resulting **Add connection** pane requires the following fields:
+To complete the deployment of a S2S VPN, you must create a connection between your on-premises network appliance (represented by the local network gateway resource) and the Azure virtual network gateway. To do this, navigate to the virtual network gateway you created. In the table of contents for the virtual network gateway, select **Connections**, and then select **Add**. The resulting **Add connection** pane requires the following fields:
 
-- **Name**: The name of the connection. A virtual network gateway can host multiple connections, so pick a name helpful for your management that will distinguish this particular connection.
-- **Connection type**: Since this a S2S connection, select **Site-to-site (IPSec)** in the drop-down list.
+- **Name**: The name of the connection. A virtual network gateway can host multiple connections, so choose a name that's helpful for your management and that will distinguish this particular connection.
+- **Connection type**: Since this a S2S connection, select **Site-to-site (IPSec)** from the drop-down list.
 - **Virtual network gateway**: This field is auto-selected to the virtual network gateway you're making the connection to and can't be changed.
-- **Local network gateway**: This is the local network gateway you want to connect to your virtual network gateway. The resulting selection pane should have the name of the local network gateway you created above.
-- **Shared key (PSK)**: A mixture of letters and numbers, used to establish encryption for the connection. The same shared key must be used in both the virtual network and local network gateways. If your gateway device doesn't provide one, you can make one up here and provide it to your device.
+- **Local network gateway**: This is the local network gateway you want to connect to your virtual network gateway. The resulting selection pane should have the name of the local network gateway you created.
+- **Shared key (PSK)**: A mixture of letters and numbers used to establish encryption for the connection. The same shared key must be used in both the virtual network and local network gateways. If your gateway device doesn't provide one, you can make one up here and provide it to your device.
 
 Select **OK** to create the connection. You can verify the connection has been made successfully through the **Connections** page.
 
 ## Mount Azure file share
 
-The final step in configuring a S2S VPN is verifying that it works for Azure Files. You can do this by mounting your Azure file share on-premises with your preferred OS. See the instructions to mount by OS here:
+The final step in configuring a S2S VPN is verifying that it works for Azure Files. You can do this by mounting your Azure file share on-premises. See the instructions to mount by OS here:
 
 - [Windows](storage-how-to-use-files-windows.md)
 - [macOS](storage-how-to-use-files-mac.md)
