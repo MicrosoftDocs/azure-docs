@@ -112,7 +112,7 @@ If a disaster occurs and impacts your existing Azure-SSIS IR but not Azure SQL D
 
 1. Using [Azure portal/ADF UI](./create-azure-ssis-integration-runtime-portal.md) or [Azure PowerShell](./create-azure-ssis-integration-runtime-powershell.md), create your new ADF/Azure-SSIS IR named *YourNewADF*/*YourNewAzureSSISIR*, respectively, in another region. If you use Azure portal/ADF UI, you can ignore the test connection error on **Deployment settings** page of **Integration runtime setup** pane.
 
-## Next steps
+## Related content
 
 You can consider these other configuration options for your Azure-SSIS IR:
 

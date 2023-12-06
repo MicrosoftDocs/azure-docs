@@ -11,6 +11,9 @@ With Windows Server 2012 and Windows Server 2012 R2 having reached end of suppor
 
 The purpose of this article is to help you understand the benefits and how to prepare to use Arc-enabled servers to enable delivery of ESUs.
 
+> [!NOTE]
+> Azure VMware Solutions (AVS) machines are eligible for free ESUs and should not enroll in ESUs enabled through Azure Arc.
+> 
 ## Key benefits
 
 Delivering ESUs to your Windows Server 2012/2012 R2 machines provides the following key benefits:
