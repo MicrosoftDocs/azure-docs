@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/01/2022
+ms.date: 12/01/2023
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 #Customer intent: As an IT admin, I want to create custom and/or roles using Bicep so that I can start automating custom role processes.
@@ -23,7 +23,7 @@ To create a custom role, you specify a role name, role permissions, and where th
 
 ## Prerequisites
 
-To create a custom role, you must have permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+To create a custom role, you must have permissions to create custom roles, such as [User Access Administrator](built-in-roles.md#user-access-administrator).
 
 You also must have an active Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

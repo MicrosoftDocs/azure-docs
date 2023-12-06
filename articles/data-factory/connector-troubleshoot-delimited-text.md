@@ -38,7 +38,7 @@ This article provides suggestions to troubleshoot common problems with the delim
   | If the expected column count is "1" in an error message, you might have specified wrong compression or format settings, which caused the files to be parsed incorrectly. | Check the format settings to make sure they match your source files. |
   | If your source is a folder, the files under the specified folder might have a different schema. | Make sure that the files in the specified folder have an identical schema. |
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

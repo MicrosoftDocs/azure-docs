@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 11/28/2023
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -129,4 +129,4 @@ If you're logged on to a domain-joined Windows client, you can use Windows File 
 
 ## Next steps
 
-Now that the feature is enabled and configured, you can [mount a file share from a domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md).
+Now that you've enabled and configured identity-based authentication with AD DS, you can [mount a file share](storage-files-identity-ad-ds-mount-file-share.md).

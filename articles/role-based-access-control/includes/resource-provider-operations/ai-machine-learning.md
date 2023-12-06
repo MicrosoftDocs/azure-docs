@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 10/30/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -26,6 +26,7 @@ Azure service: [Azure Bot Service](/azure/bot-service/)
 > | Microsoft.BotService/botServices/write | Write a Bot Service |
 > | Microsoft.BotService/botServices/delete | Delete a Bot Service |
 > | Microsoft.BotService/botServices/createemailsigninurl/action | Create a sign in url for email channel modern auth |
+> | Microsoft.BotService/botServices/privateEndpointConnectionsApproval/action | Approval for creating a Private Endpoint |
 > | Microsoft.BotService/botServices/joinPerimeter/action | Description for action of Join Perimeter |
 > | Microsoft.BotService/botServices/channels/read | Read a Bot Service Channel |
 > | Microsoft.BotService/botServices/channels/write | Write a Bot Service Channel |
@@ -139,6 +140,9 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/attestationdefinitions/read | Reads all subscription level attestation definitions |
 > | Microsoft.CognitiveServices/attestations/read | Reads Attestations |
 > | Microsoft.CognitiveServices/attestations/write | Writes Attestation |
+> | Microsoft.CognitiveServices/capacityReservations/read | Reads API accounts. |
+> | Microsoft.CognitiveServices/capacityReservations/write | Writes API Accounts. |
+> | Microsoft.CognitiveServices/capacityReservations/delete | Deletes API accounts |
 > | Microsoft.CognitiveServices/deletedAccounts/read | List deleted accounts. |
 > | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for a subscription. |
 > | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Notification from Microsoft.Network of deleting VirtualNetworks or Subnets. |
@@ -246,6 +250,17 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ComputerVision/deployments/write | Deploy an operation to be run on the target device. Update the properties of an existing deployment. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/deployments/delete | Delete a deployment, removing the operation from the target device. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/deployments/read | Get information about a specific deployment. Get a list of deployments that have been created. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/face/correction/images/delete | Face User Correction - Delete Batch Images |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/face/correction/users/delete | Face User Correction - Delete User |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/face/correction/users/groups/merge/action | Face User Correction - Merge Groups |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/face/correction/users/groups/faces/write | Face User Correction - Add Faces to Group |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/face/correction/users/groups/faces/delete | Face User Correction - Remove Faces from Group |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/face/correction/users/images/delete | Face User Correction - Delete Images |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/face/correction/users/operations/read | Face User Correction - Get Operation State |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/face/users/uncertainfaces/action | Face Grouping - Get Uncertain Faces |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/face/users/resetgroups/action | Face Grouping - Reset Groups |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/face/users/groupondemand/action | Face Grouping - Group on Demand |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/face/users/retrievegroups/action | Face Grouping - Retrieve Groups |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/read | This operation returns the list of domain-specific models that are supported by the Computer Vision API.  Currently, the API supports following domain-specific models: celebrity recognizer, landmark recognizer. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/analyze/action | This operation recognizes content within an image by applying a domain-specific model.<br> The list of domain-specific models that are supported by the Computer Vision API can be retrieved using the /models GET request.<br> Currently, the API provides following domain-specific models: celebrities, landmarks. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/:cancel/action | Cancel model training. |
@@ -270,6 +285,7 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:query/action | Search indexes using the specified search query and parameters. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:querybyimage/action | Performs a image-based search on the specified index. The request accepts either image Url or base64 encoded image string. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:querybytext/action | Performs a text-based search on the specified index. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:sample/action | Performs a sampling technique on the doucment within an index. The request contains index name and document id . |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/documents/read | Get a list of all documents. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/facegroups/read | Get the list of available face groups for a user. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/facegroups/write | Update the properties of a face group. |
@@ -336,27 +352,36 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ContentSafety/image:analyze/action | A sync API for harmful content analysis for image. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text:analyze/action | A sync API for harmful content analysis for text. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/imagewithtext:analyze/action | A sync API for harmful content analysis for image with text |
-> | Microsoft.CognitiveServices/accounts/ContentSafety/projects:deploy/action | A sync API to deploy policy for a project. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectprotectedmaterial/action | A synchronous API for the analysis of protected material. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectjailbreak/action | A synchronous API for the analysis of text jailbreak. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text:adaptiveannotate/action | A remote procedure call (RPC) operation. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisthitcalls/read | Show blocklist hit request count at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisttopterms/read | List top terms hit in blocklist at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/categories/severities/requestcounts/read | List API request count number of a specific category and a specific severity given a time range. Default maxpagesize is 1000. |
-> | Microsoft.CognitiveServices/accounts/ContentSafety/features/read | Get allowlist features. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/image/incidents/read | Get or List Image Incidents |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/image/incidents/write | Updates a image incident. If the image incident does not exist, a new image incident will be created. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/image/incidents/delete | Deletes a image incident. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/image/incidents/incidentsamples/read | Get incidentSamples By incidentName from a image incident. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/blocklistHitCalls/read | Show blocklist hit request count at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/blocklistTopTerms/read | List top terms hit in blocklist at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/categories/requestCounts/read | List API request count at different timestamps of a specific category given a time range. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/rejectCounts/read | List API reject counts at different timestamps given a time range. Default maxpagesize is 1000. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/requestCounts/read | List API request counts at different timestamps given a time range. Default maxpagesize is 1000. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/metrics/requestLatencies/read | List API request latencies at different timestamps given a time range. Default maxpagesize is 1000. |
-> | Microsoft.CognitiveServices/accounts/ContentSafety/projects/write | Update a project if project does exist, create a new project if not. Note that modality cannot be updated. |
-> | Microsoft.CognitiveServices/accounts/ContentSafety/projects/delete | Delete a project by name. |
-> | Microsoft.CognitiveServices/accounts/ContentSafety/projects/read | Returns project details. List projects.* |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/requestcounts/read | List API request counts at different timestamps given a time range. Default maxpagesize is 1000. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/requestlatencies/read | List API request latencies at different timestamps given a time range. Default maxpagesize is 1000. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text/blocklists/read | Get or List Text Blocklist |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text/blocklists/write | Updates a text blocklist, if blocklistName does not exist, create a new blocklist. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text/blocklists/delete | Deletes a text blocklist. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text/blocklists/blockitems/read | Get blockItem By blockItemId from a text blocklist. |
-> | Microsoft.CognitiveServices/accounts/ContentSafety/whitelist/features/read | Get allowlist features. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text/categories/read | Get or List Text Categories |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text/categories/write | Create or replace operation template. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text/categories/delete | Resource delete operation template. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text/incidents/read | Get or List Text Incidents |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text/incidents/write | Updates a text incident. If the text incident does not exist, a new text incident will be created. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text/incidents/delete | Deletes a text incident. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text/incidents/incidentsamples/read | Get incidentSamples By incidentName from a text incident. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/whitelist/features/read | Get whitelist features. |
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/write | Creates a new project or replaces metadata of an existing project. |
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/delete | Deletes a project. |
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/export/action | Triggers a job to export project data in JSON format. |
@@ -560,7 +585,15 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Face/compare/action | Compare two faces from source image and target image based on a their similarity. |
 > | Microsoft.CognitiveServices/accounts/Face/detectliveness/multimodal/action | <p>Performs liveness detection on a target face in a sequence of infrared, color and/or depth images, and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
 > | Microsoft.CognitiveServices/accounts/Face/detectliveness/singlemodal/action | <p>Performs liveness detection on a target face in a sequence of images of the same modality (e.g. color or infrared), and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectLiveness/singleModal/sessions/action | <p>Creates a session for a client to perform liveness detection.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectLiveness/singleModal/sessions/delete | <p>Deletes a liveness detection session.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectLiveness/singleModal/sessions/read | <p>Reads the state of detectLiveness/singleModal session.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectLiveness/singleModal/sessions/audit/read | <p>List audit entries for detectLiveness/singleModal.</p> |
 > | Microsoft.CognitiveServices/accounts/Face/detectlivenesswithverify/singlemodal/action | Detects liveness of a target face in a sequence of images of the same stream type (e.g. color) and then compares with VerifyImage to return confidence score for identity scenarios. |
+> | Microsoft.CognitiveServices/accounts/Face/detectlivenessWithVerify/singleModal/sessions/action | <p>Creates a session for a client to perform liveness detection with verify.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectLivenessWithVerify/singleModal/sessions/delete | <p>Deletes a liveness detection with verify session.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectLivenessWithVerify/singleModal/sessions/read | <p>Reads the state of detectLivenessWithVerify/singleModal session.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectLivenessWithVerify/singleModal/sessions/audit/read | <p>List audit entries for detectLivenessWithVerify/singleModal.</p> |
 > | Microsoft.CognitiveServices/accounts/Face/dynamicpersongroups/write | Creates a new dynamic person group with specified dynamicPersonGroupId, name, and user-provided userData.<br>Update an existing dynamic person group name, userData, add, or remove persons.<br>The properties keep unchanged if they are not in request body.* |
 > | Microsoft.CognitiveServices/accounts/Face/dynamicpersongroups/delete | Deletes an existing dynamic person group with specified dynamicPersonGroupId. Deleting this dynamic person group only delete the references to persons data. To delete actual person see PersonDirectory Person - Delete. |
 > | Microsoft.CognitiveServices/accounts/Face/dynamicpersongroups/read | Retrieve the information of a dynamic person group, including its name and userData. This API returns dynamic person group information List all existing dynamic person groups by dynamicPersonGroupId along with name and userData.* |
@@ -603,18 +636,13 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/delete | Delete a face from a person in a person group by specified personGroupId, personId and persistedFaceId. |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/read | Retrieve person face information. The persisted person face is specified by its personGroupId, personId and persistedFaceId. |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | To check person group training status completed or still ongoing. PersonGroup Training is an asynchronous operation triggered |
-> | Microsoft.CognitiveServices/accounts/Face/persons/delete | Delete an existing person from person directory. The persistedFaceId(s), userData, person name and face feature(s) in the person entry will all be deleted. Delete an existing person from biometric storage The persistedFaceId(s), userData, person name and face feature(s) in the person entry will all be deleted.* |
-> | Microsoft.CognitiveServices/accounts/Face/persons/read | Retrieve a person's name and userData from person directory. List all persons' information in person directory, including personId, name, and userData.* Retrieve a person's name and userData from biometric storage.* List all persons' information in biometric storage, including personId, name, and userData.* |
+> | Microsoft.CognitiveServices/accounts/Face/persons/delete | Delete an existing person from person directory. The persistedFaceId(s), userData, person name and face feature(s) in the person entry will all be deleted. Delete an existing person from person directory The persistedFaceId(s), userData, person name and face feature(s) in the person entry will all be deleted.* |
+> | Microsoft.CognitiveServices/accounts/Face/persons/read | Retrieve a person's name and userData from person directory. List all persons' information in person directory, including personId, name, and userData.* Retrieve a person's name and userData from person directory.* List all persons' information in person directory, including personId, name, and userData.* |
 > | Microsoft.CognitiveServices/accounts/Face/persons/write | Update name or userData of a person. Update name or userData of a person.* |
 > | Microsoft.CognitiveServices/accounts/Face/persons/dynamicpersongroupreferences/read | List all dynamic person groups a person has been referenced by in person directory. |
-> | Microsoft.CognitiveServices/accounts/Face/persons/recognitionmodels/persistedfaces/write | Add a face to a person (see PersonDirectory Person - Create) for face identification or verification.<br>To deal with an image containing Update a person persisted face's userData field.* Add a face to a person (see BiometricStorage Person - Create) for face identification or verification.<br>To deal with an image containing* Update a person persisted face's userData field.* |
-> | Microsoft.CognitiveServices/accounts/Face/persons/recognitionmodels/persistedfaces/delete | Delete a face from a person in person directory by specified personId and persistedFaceId. Delete a face from a person in biometric storage by specified personId and persistedFaceId.* |
+> | Microsoft.CognitiveServices/accounts/Face/persons/recognitionmodels/persistedfaces/write | Add a face to a person (see PersonDirectory Person - Create) for face identification or verification.<br>To deal with an image containing Update a person persisted face's userData field.* Add a face to a person (see PersonDirectory Person - Create) for face identification or verification.<br>To deal with an image containing* Update a person persisted face's userData field.* |
+> | Microsoft.CognitiveServices/accounts/Face/persons/recognitionmodels/persistedfaces/delete | Delete a face from a person in person directory by specified personId and persistedFaceId. Delete a face from a person in person directory by specified personId and persistedFaceId.* |
 > | Microsoft.CognitiveServices/accounts/Face/persons/recognitionmodels/persistedfaces/read | Retrieve person face information.<br>The persisted person face is specified by its personId.<br>recognitionModel, and persistedFaceId.<br>Retrieve a person's persistedFaceIds representing the registered person face feature(s).<br>* Retrieve person face information.<br>The persisted person face is specified by its personId.<br>recognitionModel, and persistedFaceId.* Retrieve a person's persistedFaceIds representing the registered person face feature(s).<br>* |
-> | Microsoft.CognitiveServices/accounts/Face/persons/searchscopereferences/read | List all searchscopes a person has been referenced by in biometric storage. |
-> | Microsoft.CognitiveServices/accounts/Face/searchscopes/write | Creates a new search scope with specified searchScopeId, name, and user-provided userData. Update an existing search scope name, userData, add, or remove persons. The properties keep unchanged if they are not in request body.* |
-> | Microsoft.CognitiveServices/accounts/Face/searchscopes/delete | Deletes an existing search scope with specified searchScopeId. Deleting this search scope only delete the references to persons data. To delete actual person see BiometricStorage Person - Delete. |
-> | Microsoft.CognitiveServices/accounts/Face/searchscopes/read | Retrieve the information of a search scope, including its name and userData. This API returns search scope information List all existing search scopes by searchScopeId along with name and userData.* |
-> | Microsoft.CognitiveServices/accounts/Face/searchscopes/persons/read | List all persons in the specified search scope. |
 > | Microsoft.CognitiveServices/accounts/Face/snapshots/apply/action | Apply a snapshot, providing a user-specified object id. |
 > | Microsoft.CognitiveServices/accounts/Face/snapshots/delete | Delete a snapshot. |
 > | Microsoft.CognitiveServices/accounts/Face/snapshots/read | Get information of a snapshot. List all of the user's accessible snapshots with information.* |
@@ -1156,6 +1184,9 @@ Azure service: [Cognitive Services](../../../ai-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/write | Creates or cancels adaptation of a model. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/delete | Delete the adaptation of a model. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/read | Gets information about fine-tuned models. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/gptv-registrations/read | Gets a registered Azure Resource corresponding to a deployment. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/gptv-registrations/delete | Unregisters a registered Azure Resource corresponding to a deployment. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/gptv-registrations/write | Registers or updates an existing Azure Resource corresponding to a deployment. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action | Create image generations. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/management/modelscaleset/deployment/read | Get Modelscale set deployment status and info. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/management/modelscaleset/deployment/write | Modify Modelscale set deployment status and info. |
@@ -1451,10 +1482,6 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.MachineLearningServices/register/action | Registers the subscription for the Machine Learning Services Resource Provider |
-> | Microsoft.MachineLearningServices/featurestores/read | Gets the Machine Learning Services FeatureStore(s) |
-> | Microsoft.MachineLearningServices/featurestores/write | Creates or Updates the Machine Learning Services FeatureStore(s) |
-> | Microsoft.MachineLearningServices/featurestores/delete | Deletes the Machine Learning Services FeatureStore(s) |
-> | Microsoft.MachineLearningServices/featurestores/checkNameAvailability/read | Checks the Machine Learning Services FeatureStore name availability |
 > | Microsoft.MachineLearningServices/locations/deleteVirtualNetworkOrSubnets/action | Deleted the references to virtual networks/subnets associated with Machine Learning Service Workspaces. |
 > | Microsoft.MachineLearningServices/locations/updateQuotas/action | Update quota for each VM family at a subscription or a workspace level. |
 > | Microsoft.MachineLearningServices/locations/computeoperationsstatus/read | Gets the status of a particular compute operation |
@@ -1474,6 +1501,9 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/registries/assets/delete | Deletes assets in Machine Learning Services registry(ies) |
 > | Microsoft.MachineLearningServices/registries/assets/stage/write | Updates the stage on a Machine Learning Services registry asset |
 > | Microsoft.MachineLearningServices/registries/checkNameAvailability/read | Checks name for Machine Learning Services registry(ies) |
+> | Microsoft.MachineLearningServices/registries/connections/read | Gets the Machine Learning Services registry(ies) connection(s) |
+> | Microsoft.MachineLearningServices/registries/connections/write | Creates or updates the Machine Learning Services registry(ies) connection(s) |
+> | Microsoft.MachineLearningServices/registries/connections/delete | Deletes the Machine Learning Services registry(ies) registry(ies) connection(s) |
 > | Microsoft.MachineLearningServices/registries/privateEndpointConnectionProxies/read | View the state of a connection proxy to a Private Endpoint resource of Microsoft.Network provider |
 > | Microsoft.MachineLearningServices/registries/privateEndpointConnectionProxies/write | Change the state of a connection proxy to a Private Endpoint resource of Microsoft.Network provider |
 > | Microsoft.MachineLearningServices/registries/privateEndpointConnectionProxies/delete | Delete a connection proxy to a Private Endpoint resource of Microsoft.Network provider |
@@ -1482,7 +1512,6 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/registries/privateEndpointConnections/write | Change the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | Microsoft.MachineLearningServices/registries/privateEndpointConnections/delete | Delete a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | Microsoft.MachineLearningServices/registries/privateLinkResources/read | Gets the available private link resources for the specified instance of the Machine Learning Services registry(ies) |
-> | Microsoft.MachineLearningServices/registries/regions/delete | Deletes the Machine Learning Services registry(ies) regions(s) |
 > | Microsoft.MachineLearningServices/virtualclusters/read | Gets the Machine Learning Services Virtual Cluster(s) |
 > | Microsoft.MachineLearningServices/virtualclusters/write | Creates or updates a Machine Learning Services Virtual Cluster(s) |
 > | Microsoft.MachineLearningServices/virtualclusters/delete | Deletes the Machine Learning Services Virtual Cluster(s) |
@@ -1494,6 +1523,7 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/listKeys/action | List secrets for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/resynckeys/action | Resync secrets for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/listStorageAccountKeys/action | List Storage Account keys for a Machine Learning Services Workspace |
+> | Microsoft.MachineLearningServices/workspaces/provisionManagedNetwork/action | Provision the managed network of Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | Microsoft.MachineLearningServices/workspaces/featuresets/action | Allows action on the Machine Learning Services FeatureSet(s) |
 > | Microsoft.MachineLearningServices/workspaces/featurestoreentities/action | Allows action on the Machine Learning Services FeatureEntity(s) |
@@ -1542,6 +1572,7 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/connections/read | Gets the Machine Learning Services Workspace connection(s) |
 > | Microsoft.MachineLearningServices/workspaces/connections/write | Creates or updates a Machine Learning Services connection(s) |
 > | Microsoft.MachineLearningServices/workspaces/connections/delete | Deletes the Machine Learning Services connection(s) |
+> | Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action | Gets the Machine Learning Services connection with secret values |
 > | Microsoft.MachineLearningServices/workspaces/data/read | Reads Data container in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/data/write | Writes Data container in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/data/delete | Deletes Data container in Machine Learning Services Workspace(s) |
@@ -1576,9 +1607,17 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/datastores/delete | Deletes datastores in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/datastores/listsecrets/action | Lists datastore secrets in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/diagnose/read | Diagnose setup problems of Machine Learning Services Workspace |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/read | Gets the Machine Learning Services endpoint |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/write | Creates or Updates the Machine Learning Services endpoint |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/delete | Deletes the Machine Learning Services endpoint |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/listkeys/action | Lists keys for the Machine Learning Services endpoint |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/read | Gets the Machine Learning Services Endpoint deployment |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/write | Creates or Updates the Machine Learning Services Endpoint deployment |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/delete | Deletes the Machine Learning Services Endpoint deployment |
 > | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/modelmonitorings/read | Gets model monitor for specific deployment on an online enpoint in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/modelmonitorings/write | Creates or updates model monitor detectors for specific deployment on an online enpoint in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/endpoints/deployments/modelmonitorings/delete | Deletes data model monitor for specific deployment on an online enpoint in Machine Learning Services Workspace(s) |
+> | Microsoft.MachineLearningServices/workspaces/endpoints/models/read | Gets the Machine Learning Services Endpoint model |
 > | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read | Gets published pipelines and pipeline endpoints  in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write | Creates or updates published pipelines and pipeline endpoints in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/environments/read | Gets environments in Machine Learning Services Workspace(s) |
@@ -1605,6 +1644,16 @@ Azure service: [Machine Learning](../../../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/featurestoreentities/read | Gets the Machine Learning Services FeatureEntity(s) |
 > | Microsoft.MachineLearningServices/workspaces/featurestoreentities/write | Creates or Updates the Machine Learning Services FeatureEntity(s) |
 > | Microsoft.MachineLearningServices/workspaces/featurestoreentities/delete | Delete the Machine Learning Services FeatureEntity(s) |
+> | Microsoft.MachineLearningServices/workspaces/featurestores/read | Gets the Machine Learning Services FeatureStore(s) |
+> | Microsoft.MachineLearningServices/workspaces/featurestores/write | Creates or Updates the Machine Learning Services FeatureStore(s) |
+> | Microsoft.MachineLearningServices/workspaces/featurestores/delete | Deletes the Machine Learning Services FeatureStore(s) |
+> | Microsoft.MachineLearningServices/workspaces/hubs/read | Gets the Machine Learning Services Hub Workspace(s) |
+> | Microsoft.MachineLearningServices/workspaces/hubs/write | Creates or updates a Machine Learning Services Hub Workspace(s) |
+> | Microsoft.MachineLearningServices/workspaces/hubs/delete | Deletes the Machine Learning Services Hub Workspace(s) |
+> | Microsoft.MachineLearningServices/workspaces/hubs/join/action | Join the Machine Learning Services Hub Workspace(s) |
+> | Microsoft.MachineLearningServices/workspaces/hubs/policies/read | Gets the Machine Learning Services Hub policies |
+> | Microsoft.MachineLearningServices/workspaces/hubs/policies/delete | Deletes the Machine Learning Services Hub policies |
+> | Microsoft.MachineLearningServices/workspaces/hubs/policies/write | Creates or Updates the Machine Learning Services Hub policies |
 > | Microsoft.MachineLearningServices/workspaces/jobs/read | Reads Jobs in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/jobs/write | Create or Update Jobs in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/jobs/delete | Deletes Jobs in Machine Learning Services Workspace(s) |

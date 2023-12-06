@@ -13,15 +13,16 @@ Microsoft Sentinel's [Microsoft 365 Defender](/microsoft-365/security/mtp/micros
 
 This integration gives Microsoft 365 security incidents the visibility to be managed from within Microsoft Sentinel, as part of the primary incident queue across the entire organization, so you can see – and correlate – Microsoft 365 incidents together with those from all of your other cloud and on-premises systems. At the same time, it allows you to take advantage of the unique strengths and capabilities of Microsoft 365 Defender for in-depth investigations and a Microsoft 365-specific experience across the Microsoft 365 ecosystem. Microsoft 365 Defender enriches and groups alerts from multiple Microsoft 365 products, both reducing the size of the SOC’s incident queue and shortening the time to resolve. The component services that are part of the Microsoft 365 Defender stack are:
 
-- **Microsoft Defender for Endpoint (MDE)**
-- **Microsoft Defender for Identity (MDI)**
-- **Microsoft Defender for Office 365 (MDO)**
-- **Microsoft Defender for Cloud Apps (MDA)**
+- **Microsoft Defender for Endpoint**
+- **Microsoft Defender for Identity**
+- **Microsoft Defender for Office 365**
+- **Microsoft Defender for Cloud Apps**
+- **Microsoft Defender for Cloud** (Preview)
 
 Other services whose alerts are collected by Microsoft 365 Defender include:
 
-- **Microsoft Purview Data Loss Prevention (DLP)** ([Learn more](/microsoft-365/security/defender/investigate-dlp))
-- **Microsoft Entra ID Protection (AADIP)** ([Learn more](/defender-cloud-apps/aadip-integration))
+- **Microsoft Purview Data Loss Prevention** ([Learn more](/microsoft-365/security/defender/investigate-dlp))
+- **Microsoft Entra ID Protection** ([Learn more](/defender-cloud-apps/aadip-integration))
 
 In addition to collecting alerts from these components and other services, Microsoft 365 Defender generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
 
