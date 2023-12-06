@@ -103,7 +103,7 @@ This tab is relevant if you've set up Azure Firewall to function as a DNS proxy,
 - **DNS Proxy Request over time by Client IP**: Displays DNS proxy requests over time, categorized by client IP.
 - **DNS Proxy Information**: Provides log information related to your DNS proxy setup.
 
-:::image type="content" source="media/firewall-workbook/dns-proxy-tab.png" alt-text="Screenshot showing the DNS proxy tab." lightbox="media/firewall-workbook/dns-proxy-tab.png" lightbox="media/firewall-workbook/dns-proxy-tab.png" :::
+:::image type="content" source="media/firewall-workbook/dns-proxy-tab.png" alt-text="Screenshot showing the DNS proxy tab." lightbox="media/firewall-workbook/dns-proxy-tab.png" :::
 
 ## Intrusion Detection and Prevention System (IDPS)
 
