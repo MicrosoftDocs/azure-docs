@@ -16,4 +16,4 @@ ms.author: tomfitz
 | Keys and values | 10 KB  | For a single key-value item, including all metadata. |
 | Snapshots storage for Free tier | 10 MB | Snapshots storage is extra and in addition to "Storage for Free Tier". Storage for both archived and active snapshots is counted towards this limit. |
 | Snapshots storage for Standard tier | 1 GB | Snapshots storage is extra and in addition to "Storage for Standard Tier". Storage for both archived and active snapshots is counted towards this limit. |
-| Snapshots size | 1 MB | |
+| Snapshot size | 1 MB | |
