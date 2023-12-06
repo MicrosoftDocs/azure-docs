@@ -77,6 +77,9 @@ To connect to a dev box by using the browser:
 
 A new tab opens with a Remote Desktop session through which you can use your dev box. Use a work or school account to sign in to your dev box, not a personal Microsoft account.
 
+> [!TIP]
+> A Remote Desktop client provides best performance and advanced features like multiple monitor support. For more information, see [Connect to a dev box by using a Remote Desktop app](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).
+
 ## Clean up resources
 
 When you no longer need your dev box, you can delete it:
