@@ -39,7 +39,7 @@ This prompt flow supports two different large language model (LLM) API types:
 1. Pick the model that matched your scenario from the [Azure Machine Learning model catalog](https://ml.azure.com/model/catalog).
 1. Use the **Deploy** button to deploy the model to an Azure Machine Learning online inference endpoint.
 
-To learn more, see [Deploy foundation models to endpoints for inferencing.](../../how-to-use-foundation-models.md#deploying-foundation-models-to-endpoints-for-inferencing).
+To learn more, see [Deploy foundation models to endpoints for inferencing](../../how-to-use-foundation-models.md#deploying-foundation-models-to-endpoints-for-inferencing).
 
 ## Prerequisites: Prompt flow connections
 
