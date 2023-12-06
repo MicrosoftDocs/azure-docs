@@ -315,7 +315,7 @@ You can easily execute Synapse Spark Notebooks with the system assigned managed 
 ![synapse-run-as-msi-3](https://user-images.githubusercontent.com/81656932/179053008-0f495b93-4948-48c8-9496-345c58187502.png)
 
 >[!NOTE]
->  Synapse notebooks and Spark job definitions only support the use of system assigned managed identity through linked services and the [mssparkutils APIs](spark/apache-spark-secure-credentials-with-tokenlibrary). MSAL and other authentication libraries cannot use the system assigned managed identity. You can instead generate a service principal and store the credentials in Key Vault.
+>  Synapse notebooks and Spark job definitions only support the use of system-assigned managed identity through linked services and the [mssparkutils APIs](./spark/apache-spark-secure-credentials-with-tokenlibrary.md). MSAL and other authentication libraries can't use the system-assigned managed identity. You can instead generate a service principal and store the credentials in Key Vault.
 
 ## User-assigned managed identity
 
