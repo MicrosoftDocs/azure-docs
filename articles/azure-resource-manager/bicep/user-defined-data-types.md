@@ -20,7 +20,8 @@ You can use the `type` statement to define user-defined data types. In addition,
 type <user-defined-data-type-name> = <type-expression>
 ```
 
-> [!NOTE] The [`@allowed` decorator](./parameters.md#decorators) is only permitted on [`param` statements](./parameters.md). To declare that a property must be one of a set of predefined values in a `type` or `output` statement, use union type syntax. Union type syntax may also be used in `param` statements.
+> [!NOTE]
+> The [`@allowed` decorator](./parameters.md#decorators) is only permitted on [`param` statements](./parameters.md). To declare that a property must be one of a set of predefined values in a `type` or [`output`](./outputs.md) statement, use union type syntax. Union type syntax may also be used in `param` statements.
 
 The valid type expressions include:
 
