@@ -110,21 +110,30 @@ You can use any of the following methods for creating alert rules at-scale. Each
 ### Metric alerts
 You can use [one metric alert rule to monitor multiple resources](alerts-metric-multiple-time-series-single-rule.md) of the same type that exist in the same Azure region. Individual notifications are sent for each monitored resource. For a list of Azure services that are currently supported for this feature, see [Supported resources for metric alerts in Azure Monitor](alerts-metric-near-real-time.md).
 
-For metric alert rules for Azure services that don't support multiple resources, use automation tools such as the Azure CLI and PowerShell with Resource Manager templates to create the same alert rule for multiple resources. For samples, see [Resource Manager template samples for metric alert rules in Azure Monitor](resource-manager-alerts-metric.md).
+For metric alert rules for Azure services that don't support multiple resources, use automation tools such as the Azure CLI and PowerShell or Azure Resource Manager templates to create the same alert rule for multiple resources. For samples, see [Resource Manager template samples for metric alert rules in Azure Monitor](resource-manager-alerts-metric.md).
 
-Each metric alert rule is charged based on the number of time series that are monitored.
+Disadvantages:
+- Each metric alert rule is charged based on the number of time series that are monitored.
 
 ### Log alerts
 
-Use [log alert rules](alerts-create-log-alert-rule.md) to query multiple resources. When you use **Splitting by dimensions**, you use grouping to split into separate alerts by grouping combinations. Using one alert rule, you can:
--  create separate alerts for each resource of a subscription or resource group. Splitting on an Azure resource ID column makes the specified resource into the alert target.
--  monitor resources across many subscriptions and regions if they are all part of the Log Analytics workspace. When using this method, you need to set up data collection rules to collect the required telemetry to an LA workspace.
- 
-Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to an LA workspace, there is no additional cost. If you want to use metric data at scale, you'll now need to pay for its ingestion.
+Use [log alert rules](alerts-create-log-alert-rule.md) to monitor all resources that send data to the Log Analytics workspace. These resources can be from any subscription or region. Use data collection rules when setting up your Log Analytics workspace to collect the required data for your log alerts rule. 
+
+You can also create resource-centric alerts instead of workspace-centric alerts by using **Split by dimensions**. When you split on the resourceId column, you will get one alert per resource that meets the condition.
+
+Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to an Log Analytics workspace, there is no additional cost. 
+
+If you use metric data at scale in the Log Analytics workspace, pricing will change based on the data ingestion.
+
+Disadvantages:
+- You may have to pay to collect metric data to the Log Analytics workspace.
 
 ### Using Azure policies for alerting at scale
 
-You can use [Azure policies](/azure/governance/policy/overview) to set up alerts alerts at scale. This has the advantage of easily implementing alerts at-scale. The disadvantage is that you will have to maintain a large alert rule set. One implementation of this is using policies to [Azure Monitor baseline alerts](https://aka.ms/amba).  
+You can use [Azure policies](/azure/governance/policy/overview) to set up alerts at-scale. This has the advantage of easily implementing alerts at-scale. You can see how this is implementated with [Azure Monitor baseline alerts](https://aka.ms/amba).
+
+Disadvantages:
+- you will have the overhead of maintaining a large alert rule set.
 
 ## Azure role-based access control for alerts
 
