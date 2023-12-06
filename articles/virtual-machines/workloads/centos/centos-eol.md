@@ -14,7 +14,7 @@ ms.author: ClausWieser
 
 ## Impact for CentOS users
 
-In September 2019 Red Hat announced its intent to sunset CentOS and replace it with CentOS Stream, a new / upstream platform for the CentOS community. For more information, see  [Transforming the development experience within CentOS](https://www.redhat.com/en/blog/transforming-development-experience-within-centos)
+In September 2019, Red Hat announced its intent to sunset CentOS and replace it with CentOS Stream. For more information, see  [Transforming the development experience within CentOS](https://www.redhat.com/en/blog/transforming-development-experience-within-centos)
 
 CentOS 7 and 8 are the final releases of CentOS Linux. The end-of-life dates for CentOS 7 and 8 are:
 
