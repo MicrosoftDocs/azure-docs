@@ -29,7 +29,7 @@ For pricing, check out the [pricing page](https://azure.microsoft.com/pricing/de
 
 With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud makes it straightforward to build your own custom, interactive workbooks. Defender for Cloud also includes a gallery with the following workbooks ready for your customization:
 
-- [`Coverage`]() - Track the coverage of Defender for Cloud plans and extensions across your environments and subscriptions.
+- ['Coverage' workbook](#use-the-coverage-workbook) - Track the coverage of Defender for Cloud plans and extensions across your environments and subscriptions.
 - ['Secure Score Over Time' workbook](#use-the-secure-score-over-time-workbook) - Track your subscriptions' scores and changes to recommendations for your resources
 - ['System Updates' workbook](#use-the-system-updates-workbook) - View missing system updates by resources, OS, severity, and more
 - ['Vulnerability Assessment Findings' workbook](#use-the-vulnerability-assessment-findings-workbook) - View the findings of vulnerability scans of your Azure resources
