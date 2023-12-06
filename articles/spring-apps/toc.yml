@@ -9,6 +9,8 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
+  - name: Plan comparison
+    href: plan-comparison.md
   - name: Cost management
     href: cost-management.md
   - name: Compare Java application hosting options on Azure
