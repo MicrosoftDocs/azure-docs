@@ -7,9 +7,9 @@ ms.custom:
 ms.topic: include
 ms.date: 11/1/2023
 ---
-/*
+<!--
 At this time, a test or preview build is not available for the next release.
- */
+ -->
  
 Dec 2023 preview release is now available.
 
