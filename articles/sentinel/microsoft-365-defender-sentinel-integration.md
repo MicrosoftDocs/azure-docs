@@ -65,7 +65,7 @@ Microsoft Defender XDR incidents will appear in the Microsoft Sentinel incidents
 
 As the incident evolves in Microsoft Defender XDR, and more alerts or entities are added to it, the Microsoft Sentinel incident will update accordingly.
 
-Changes made to the status, closing reason, or assignment of a Microsoft 365 incident, in either Microsoft Defender XDR or Microsoft Sentinel, will likewise update accordingly in the other's incidents queue. The synchronization will take place in both portals immediately after the change to the incident is applied, with no delay. A refresh might be required to see the latest changes.
+Changes made to the status, closing reason, or assignment of a Microsoft Defender XDR incident, in either Microsoft Defender XDR or Microsoft Sentinel, will likewise update accordingly in the other's incidents queue. The synchronization will take place in both portals immediately after the change to the incident is applied, with no delay. A refresh might be required to see the latest changes.
 
 In Microsoft Defender XDR, all alerts from one incident can be transferred to another, resulting in the incidents being merged. When this merge happens, the Microsoft Sentinel incidents will reflect the changes. One incident will contain all the alerts from both original incidents, and the other incident will be automatically closed, with a tag of "redirected" added.
 
