@@ -10,14 +10,15 @@ ms.date: 11/30/2023
 ---
 
 # Using Application Health extension with Azure Virtual Machines
-Monitoring your application health is an important signal for managing your VMs. Azure Virtual Machines provide support for Automatic VM Guest Patching, which rely on health monitoring of the individual instances to safely update your VMs. 
+Monitoring your application health is an important signal for managing your VMs. Azure Virtual Machines provide support for [Automatic VM Guest Patching](../automatic-vm-guest-patching.md), which rely on health monitoring of the individual instances to safely update your VMs. 
 
 This article describes how you can use the two types of Application Health extension, **Binary Health States** or **Rich Health States**, to monitor the health of your applications deployed on Azure virtual machines.
 
+Application health monitoring is also available on virtual machine scale sets and helps enable additional functionalities such as [Rolling Upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md), [Automatic OS-Image Upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), and [Automatic Instance Repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md). To experience these capabilities with the additional benefits of scale, availability, and flexibility on scale sets, you can [attach your VM to an existing scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm.md) or [create a new scale set](../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-portal.md).
+
 ## Prerequisites
 
-This article assumes that you're familiar with:
--	Azure virtual machine [extensions](overview.md)
+This article assumes that you're familiar with [Azure virtual machine extensions](overview.md).
 
 > [!CAUTION]
 > Application Health Extension expects to receive a consistent probe response at the configured port `tcp` or request path `http/https` in order to label a VM as *Healthy*. If no application is running on the VM, or you're unable to configure a probe response, your VM is going to show up as *Unhealthy* (Binary Health States) or *Unknown* (Rich Health States).
