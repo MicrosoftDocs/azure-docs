@@ -2,7 +2,7 @@
 title: Data Security Dashboard | Defender for Cloud in the Field 
 description: Learn about Defender for Cloud's data security dashboard.
 ms.topic: reference
-ms.date: 12/04/2023
+ms.date: 12/06/2023
 ---
 
 # Data security dashboard in Defender for Cloud
@@ -11,12 +11,12 @@ ms.date: 12/04/2023
 
 > [!VIDEO https://aka.ms/docs/player?id=6b97cb8a-4ae4-41bc-8318-8947f64575fd]
 
-- [01:50](/shows/mdc-in-the-field/data-security#time=01m50s) - The purpose of the new data security dashboard.
+- [01:50](/shows/mdc-in-the-field/data-security#time=01m50s) - The purpose of the data security dashboard
 - [02:35](/shows/mdc-in-the-field/data-security#time=02m35s) - How the dashboard helps customers manage data across cloud providers.
 - [03:50](/shows/mdc-in-the-field/data-security#time=03m50s) - Resource types that are discovered by this dashboard.
 - [04:50](/shows/mdc-in-the-field/data-security#time=04m50s) - Real world scenarios of using the dashboard.
 - [06:18](/shows/mdc-in-the-field/data-security#time=06m18s) - Requirements for using this dashboard.
-- [09:55](/shows/mdc-in-the-field/data-security#time=09m55s) - Demonstration.
+- [09:55](/shows/mdc-in-the-field/data-security#time=09m55s) - Demonstration
 
 ## Recommended resources
 
