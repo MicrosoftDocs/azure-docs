@@ -418,6 +418,8 @@
         href: reliability-spring-apps.md
       - name: Azure Storage Mover
         href: reliability-azure-storage-mover.md
+      - name: Microsoft Defender for Cloud DevOps security
+        href: reliability-defender-devops.md
   - name: Test reliability
     items: 
     - name: Chaos engineering
