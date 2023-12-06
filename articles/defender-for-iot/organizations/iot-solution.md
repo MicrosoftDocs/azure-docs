@@ -151,14 +151,13 @@ SecurityAlert
 | sort by TimeGenerated desc
 ```
 
-The following types of updates generate new records in the **SecurityAlert** table:
+Updates for alert status or severity generate new records in the **SecurityAlert** table immediately. 
 
-- Updates for alert status or severity
+For the following types of updates, events are aggregated across 8-12 hours, depending on the alert type, and new records in the **SecurityAlert** table reflect only the latest change.
+
 - Updates in the last detection time, such as when the same alert is detected multiple times
 - A new device is added to an existing alert
 - The device properties for an alert are updated
-
-
 
 ## Next steps
 
