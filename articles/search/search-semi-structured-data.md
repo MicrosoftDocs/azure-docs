@@ -37,6 +37,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!Note]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
+## Download files
+
+[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/tree/master) contains the data used in this tutorial. Download and unzip this file to its own folder. Data originates from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converted to JSON for this tutorial.
+
 ## 1 - Create services
 
 This tutorial uses Azure AI Search for indexing and queries, and Azure Blob Storage to provide the data. 
