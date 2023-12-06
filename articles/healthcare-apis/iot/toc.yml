@@ -39,7 +39,7 @@ items:
   - name: Map
     expanded: false
     items:
-    - name: Use the Mapping debugger
+    - name: Use the Mapping debugger (Preview)
       href: how-to-use-mapping-debugger.md
     - name: Device
       expanded: false
@@ -89,3 +89,4 @@ items:
     href: frequently-asked-questions.md
   - name: Open-source projects
     href: git-projects.md
+    

@@ -15,12 +15,12 @@ keywords:
 
 # Quickstart: Detect protected material (preview)
 
-The protected material text describes language that matches known text content (for example, song lyrics, articles, recipes, selected web content). This feature can use used to identify and block known text content from being displayed in language model output (English content only).
+The protected material text describes language that matches known text content (for example, song lyrics, articles, recipes, selected web content). This feature can be used to identify and block known text content from being displayed in language model output (English content only).
 
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, and select a resource group, supported region, and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, and select a resource group, supported region (East US or West Europe), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) installed
 

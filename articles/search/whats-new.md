@@ -112,9 +112,11 @@ ms.custom:
 
 ## Service rebrand
 
-In October 2019, Azure Search was renamed to Azure Cognitive Search to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations. 
+This service has had multiple names over the years. Here they are in reverse chronological order:
 
-In October 2023, Azure Cognitive Search was renamed to **Azure AI Search** to align with Azure AI services branding.
++ **Azure AI Search** (November 2023) Renamed to align with Azure AI services and customer expectations.
++ **Azure Cognitive Search** (October 2019) Renamed to reflect the expanded (yet optional) use of cognitive skills and AI processing in service operations.
++ **Azure Search** (March 2015) The original name.
 
 ## Service updates
 

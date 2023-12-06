@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -236,19 +236,20 @@ Azure service: [Microsoft Defender for Cloud](../../../defender-for-cloud/index.
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/write | write azureDevOpsConnectors |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/delete | delete azureDevOpsConnectors |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/write | write azureDevOpsConnectors |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/configure/action | action configure |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/read | read azureDevOpsConnectors |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/read | read orgs |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/write | write orgs |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/write | write orgs |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/read | read orgs |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/write | write orgs |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/write | write orgs |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/read | read projects |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/read | read projects |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/write | write projects |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/write | write projects |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/read | read repos |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/read | read projects |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/read | read repos |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/write | write repos |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/write | write repos |
+> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/read | read repos |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/repos/read | read repos |
 > | Microsoft.SecurityDevOps/azureDevOpsConnectors/stats/read | read stats |
 > | Microsoft.SecurityDevOps/gitHubConnectors/read | read gitHubConnectors |
@@ -256,9 +257,12 @@ Azure service: [Microsoft Defender for Cloud](../../../defender-for-cloud/index.
 > | Microsoft.SecurityDevOps/gitHubConnectors/write | write gitHubConnectors |
 > | Microsoft.SecurityDevOps/gitHubConnectors/delete | delete gitHubConnectors |
 > | Microsoft.SecurityDevOps/gitHubConnectors/write | write gitHubConnectors |
+> | Microsoft.SecurityDevOps/gitHubConnectors/configure/action | action configure |
 > | Microsoft.SecurityDevOps/gitHubConnectors/read | read gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubRepos/read | Returns a list of monitored GitHub repositories. |
-> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubRepos/read | Returns a monitored GitHub repository resource for a given ID. |
+> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/read | read gitHubInstallations |
+> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/read | read gitHubInstallations |
+> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/gitHubRepositories/read | read gitHubRepositories |
+> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/gitHubRepositories/read | read gitHubRepositories |
 > | Microsoft.SecurityDevOps/gitHubConnectors/owners/read | read owners |
 > | Microsoft.SecurityDevOps/gitHubConnectors/owners/read | read owners |
 > | Microsoft.SecurityDevOps/gitHubConnectors/owners/write | write owners |
@@ -269,6 +273,26 @@ Azure service: [Microsoft Defender for Cloud](../../../defender-for-cloud/index.
 > | Microsoft.SecurityDevOps/gitHubConnectors/owners/repos/write | write repos |
 > | Microsoft.SecurityDevOps/gitHubConnectors/repos/read | read repos |
 > | Microsoft.SecurityDevOps/gitHubConnectors/stats/read | read stats |
+> | Microsoft.SecurityDevOps/gitLabConnectors/read | read gitLabConnectors |
+> | Microsoft.SecurityDevOps/gitLabConnectors/read | read gitLabConnectors |
+> | Microsoft.SecurityDevOps/gitLabConnectors/write | write gitLabConnectors |
+> | Microsoft.SecurityDevOps/gitLabConnectors/delete | delete gitLabConnectors |
+> | Microsoft.SecurityDevOps/gitLabConnectors/write | write gitLabConnectors |
+> | Microsoft.SecurityDevOps/gitLabConnectors/configure/action | action configure |
+> | Microsoft.SecurityDevOps/gitLabConnectors/read | read gitLabConnectors |
+> | Microsoft.SecurityDevOps/gitLabConnectors/groups/read | read groups |
+> | Microsoft.SecurityDevOps/gitLabConnectors/groups/read | read groups |
+> | Microsoft.SecurityDevOps/gitLabConnectors/groups/write | write groups |
+> | Microsoft.SecurityDevOps/gitLabConnectors/groups/delete | delete groups |
+> | Microsoft.SecurityDevOps/gitLabConnectors/groups/write | write groups |
+> | Microsoft.SecurityDevOps/gitLabConnectors/groups/listSubgroups/action | action listSubgroups |
+> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/read | read projects |
+> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/read | read projects |
+> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/write | write projects |
+> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/delete | delete projects |
+> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/write | write projects |
+> | Microsoft.SecurityDevOps/gitLabConnectors/projects/read | read projects |
+> | Microsoft.SecurityDevOps/gitLabConnectors/stats/read | read stats |
 > | Microsoft.SecurityDevOps/Locations/OperationStatuses/read | read OperationStatuses |
 > | Microsoft.SecurityDevOps/Locations/OperationStatuses/write | write OperationStatuses |
 > | Microsoft.SecurityDevOps/Operations/read | read Operations |
