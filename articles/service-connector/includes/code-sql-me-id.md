@@ -181,6 +181,10 @@ Update your application following the tutorial [Migrate a Java application to us
     this.poolconnection = await sql.connect(config);
     ```
 
+### [Other](#tab/sql-me-id-none)
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure SQL Database with Service Connector](../how-to-integrate-sql-database.md).
+
+
 ---
 
 For more information, see [Homepage for client programming to Microsoft SQL Server](/sql/connect/homepage-sql-connection-programming).

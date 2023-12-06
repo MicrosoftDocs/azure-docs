@@ -285,7 +285,7 @@ data factory from the resources list.
 
 Go to the backend server VM, confirm telnet the SQL Server works: **telnet **<**FQDN**>** 1433**.
 
-## Next steps
+## Related content
 
 Advance to the following tutorial to learn about accessing Microsoft Azure SQL Managed Instance from Data Factory Managed VNet using Private Endpoint：
 
