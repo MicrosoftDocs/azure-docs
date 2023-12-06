@@ -66,7 +66,7 @@ Notes:
 | **CentOS Stream** | Official replacement for CentOS, upstream vs. downstream of RHEL. [CentOS Stream](https://www.centos.org/centos-stream/) | Community Gallery | Community |
 | **Fedora** | Upstream project for CentOS stream and RHEL. [Fedora Linux &#124; The Fedora Project](https://www.fedoraproject.org/) | Community Gallery | Community |
 | **SUSE / OpenSUSE** | SUSE Enterprise Linux (SLES) is SUSE’s commercial Linux distribution. | YesPAYG, BYOS, ARM64 | Community (OpenSUSE) and commercial (SLES) |
-| **Ubuntu (Server / Pro)** | Both free (Server) and paid (Pro) versions available. In place conversion from Server to Pro possible: [In-place upgrade to Ubuntu Pro Linux images on Azure - Azure Virtual Machines &#124; Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/workloads/canonical/ubuntu-pro-in-place-upgrade) | YesPAYG, BYOS, ARM64 | Community (server)Enterprise (Pro) |
+| **Ubuntu (Server / Pro)** | Both free (Server) and paid (Pro) versions available. In place conversion from Server to Pro possible: [In-place upgrade to Ubuntu Pro Linux images on Azure - Azure Virtual Machines &#124; Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/workloads/canonical/ubuntu-pro-in-place-upgrade) | YesPAYG, BYOS, ARM64 | Community (server) Enterprise (Pro) |
 | **Debian** | Community  Linux Distribution. | Yes (multiple publishers) | Community |
 | **Flatcar** | Community Container Linux | Yes | Community |
 
