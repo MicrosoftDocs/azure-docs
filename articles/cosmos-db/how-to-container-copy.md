@@ -57,8 +57,8 @@ Create a job to copy a container within an Azure Cosmos DB API for NoSQL account
 az cosmosdb copy create `
     --resource-group $destinationRG `
     --job-name $jobName `
-    --dest-account $destAccount `
-    --src-account $srcAccount `
+    --dest-account $destinationAccount `
+    --src-account $sourceAccount `
     --dest-nosql database=$destinationDatabase container=$destinationContainer `
     --src-nosql database=$sourceDatabase container=$sourceContainer
 ```
@@ -71,8 +71,8 @@ Create a job to copy a container within an Azure Cosmos DB API for Cassandra acc
 az cosmosdb copy create `
     --resource-group $destinationRG `
     --job-name $jobName `
-    --dest-account $destAccount `
-    --src-account $srcAccount `
+    --dest-account $destinationAccount `
+    --src-account $sourceAccount `
     --dest-cassandra keyspace=$destinationKeySpace table=$destinationTable `
     --src-cassandra keyspace=$sourceKeySpace table=$sourceTable 
 ```
@@ -85,8 +85,8 @@ Create a job to copy a container within an Azure Cosmos DB API for MongoDB accou
 az cosmosdb copy create `
     --resource-group $destinationRG `
     --job-name $jobName `
-    --dest-account $destAccount `
-    --src-account $srcAccount `
+    --dest-account $destinationAccount `
+    --src-account $sourceAccount `
     --dest-mongo database=$destinationDatabase collection=$destinationCollection `
     --src-mongo database=$sourceDatabase collection=$sourceCollection 
 ```
@@ -189,8 +189,8 @@ While copying data from one account's container to another account's container. 
 az cosmosdb copy create `
     --resource-group $destinationAccountRG `
     --job-name $jobName `
-    --dest-account $destAccount `
-    --src-account $srcAccount `
+    --dest-account $destinationAccount `
+    --src-account $sourceAccount `
     --dest-nosql database=$destinationDatabase container=$destinationContainer `
     --src-nosql database=$sourceDatabase container=$sourceContainer
 ```
@@ -204,7 +204,7 @@ View the progress and status of a copy job:
 ```azurecli-interactive
 az cosmosdb copy show `
     --resource-group $destinationAccountRG `
-    --account-name $destAccount `
+    --account-name $destinationAccount `
     --job-name $jobName
 ```
 
@@ -215,7 +215,7 @@ To list all the container copy jobs created in an account:
 ```azurecli-interactive
 az cosmosdb copy list `
     --resource-group $destinationAccountRG `
-    --account-name $destAccount
+    --account-name $destinationAccount
 ```
 
 ### Pause a container copy job
@@ -225,7 +225,7 @@ In order to pause an ongoing container copy job, you can use the command:
 ```azurecli-interactive
 az cosmosdb copy pause `
     --resource-group $destinationAccountRG `
-    --account-name $destAccount `
+    --account-name $destinationAccount `
     --job-name $jobName
 ```
 
@@ -236,7 +236,7 @@ In order to resume an ongoing container copy job, you can use the command:
 ```azurecli-interactive
 az cosmosdb copy resume `
     --resource-group $destinationAccountRG `
-    --account-name $destAccount `
+    --account-name $destinationAccount `
     --job-name $jobName
 ```
 
@@ -247,7 +247,7 @@ In order to cancel an ongoing container copy job, you can use the command:
 ```azurecli-interactive
 az cosmosdb copy cancel `
     --resource-group $destinationAccountRG `
-    --account-name $destAccount `
+    --account-name $destinationAccount `
     --job-name $jobName
 ```
 

@@ -31,7 +31,7 @@ To manage a dev box pool, you need the following permissions:
 
 In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manage together. You must have at least one dev box pool before users can create a dev box. 
 
-The following steps show you how to create a dev box pool that's associated with a project. You use an existing dev box definition and network connection in the dev center to configure the pool.
+The following steps show you how to create a dev box pool associated with a project. You use an existing dev box definition and network connection in the dev center to configure the pool.
 
 If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure Microsoft Dev Box ](quickstart-configure-dev-box-service.md) to create them.
 
@@ -71,6 +71,30 @@ If you don't have an available dev center with an existing dev box definition an
 The Azure portal deploys the dev box pool and runs health checks to ensure that the image and network pass the validation criteria for dev boxes. The following screenshot shows four dev box pools, each with a different status.
 
 :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-grid-populated.png" alt-text="Screenshot that shows a list of dev box pools and status information.":::
+
+## Manage dev boxes in a pool
+
+You can manage existing dev boxes in a dev box pool through the Azure portal. You can start, stop, or delete dev boxes. You must be a member of the Project Admin role at the project level to manage dev boxes in pools.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box, enter **projects**, in the list of results, select **Projects**.
+ 
+1. Select the project that contains the dev box pool that you want to manage.
+
+1. Select **Dev box pools**.
+ 
+1. Select the pool that contains the dev box that you want to manage.
+
+   :::image type="content" source="media/how-to-manage-dev-box-pools/manage-dev-box-pool.png" alt-text="Screenshot showing a list of dev box pools in Azure portal."  lightbox="media/how-to-manage-dev-box-pools/manage-dev-box-pool.png":::
+ 
+1. Scroll to the far right, and select the Dev box operations menu (**...**) for the dev box that you want to manage. 
+ 
+   :::image type="content" source="media/how-to-manage-dev-box-pools/manage-dev-box-in-azure-portal.png" alt-text="Screenshot of the Azure portal, showing dev boxes in a dev box pool."  lightbox="media/how-to-manage-dev-box-pools/manage-dev-box-in-azure-portal.png":::
+
+1. Depending on the current state of the dev box, you can select **Start**, **Stop**, or **Delete**.
+
+   :::image type="content" source="media/how-to-manage-dev-box-pools/dev-box-operations-menu.png" alt-text="Screenshot of the Azure portal, showing the menu for managing a dev box."  lightbox="media/how-to-manage-dev-box-pools/dev-box-operations-menu.png":::
 
 ## Delete a dev box pool
 

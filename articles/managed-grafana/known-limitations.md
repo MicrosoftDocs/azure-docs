@@ -1,6 +1,7 @@
 ---
-title: Azure Managed Grafana limitations
-description: Learn about current limitations in Azure Managed Grafana.
+title: Azure Managed Grafana service limitations
+titlesuffix: Azure Managed Grafana
+description: Learn about current technical or feature limitations you may encounter in the Azure Managed Grafana service.
 ms.service: managed-grafana
 ms.topic: troubleshooting
 ms.date: 10/18/2023
@@ -17,7 +18,7 @@ Azure Managed Grafana delivers the native Grafana functionality in the highest p
 
 Azure Managed Grafana has the following known limitations:
 
-* All users must have accounts in Microsoft Entra ID. Microsoft (also known as MSA) and 3rd-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
+* All users must have accounts in Microsoft Entra ID. Third-party accounts aren't supported. As a workaround, use the default tenant of your Azure subscription with your Grafana instance and add other users as guests.
 
 * Installing, uninstalling and upgrading plugins from the Grafana Catalog isn't possible.
 
@@ -39,8 +40,6 @@ Azure Managed Grafana has the following known limitations:
   | Managed private endpoint | &#x274C; | &#x274C; |
   | Team sync with Microsoft Entra ID | &#x274C; | &#x274C; |
   | Enterprise plugins | &#x274C; | &#x274C; |
-
-* The *Current User* authentication option for Azure Data Explorer triggers the following limitation. Grafana offers some automated features such as alerts and reporting, that are expected to run in the background periodically. The Current User authentication method relies on a user being logged in, in an interactive session, to connect Azure Data Explorer to the database. Therefore, when this authentication method is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks for Azure Data Explorer, we recommend setting up another Azure Data Explorer data source using another authentication method. Rollout of this feature is in progress and will be complete in all regions by the end of 2023.
 
 ## Quotas
 

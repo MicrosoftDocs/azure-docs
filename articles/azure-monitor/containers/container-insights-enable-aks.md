@@ -3,7 +3,7 @@ title: Enable Container insights for Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
 ms.date: 11/14/2023
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: ignite-2022
 ms.reviewer: aul
 ---
 
@@ -124,12 +124,12 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
 1.	Download Bicep templates and parameter files depending on whether you want to enable Syslog collection.
 
     **Syslog**
-    - Template file: [Template without Syslog](https://aka.ms/enable-monitoring-msi-bicep-template)
-    - Parameter file: [Parameter without Syslog](https://aka.ms/enable-monitoring-msi-bicep-parameters)
-
-    **No Syslog**
     - Template file: [Template with Syslog](https://aka.ms/enable-monitoring-msi-syslog-bicep-template)
     - Parameter file: [Parameter with Syslog](https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters)
+
+    **No Syslog**
+    - Template file: [Template without Syslog](https://aka.ms/enable-monitoring-msi-bicep-template)
+    - Parameter file: [Parameter without Syslog](https://aka.ms/enable-monitoring-msi-bicep-parameters)
 
 2.	Edit the following values in the parameter file:
  
@@ -302,4 +302,3 @@ The command will return JSON-formatted information about the solution. The `addo
 
 * If you experience issues while you attempt to onboard the solution, review the [Troubleshooting guide](container-insights-troubleshoot.md).
 * With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
-

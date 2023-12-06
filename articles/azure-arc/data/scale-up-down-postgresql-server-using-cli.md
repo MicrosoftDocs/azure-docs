@@ -165,7 +165,7 @@ or
 az postgres server-arc edit -n postgres01 --cores-request '' --cores-limit '' --k8s-namespace arc --use-k8s
 ```
 
-## Next steps
+## Related content
 
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)

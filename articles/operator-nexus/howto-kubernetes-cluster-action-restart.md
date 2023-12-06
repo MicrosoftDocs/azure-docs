@@ -6,7 +6,7 @@ ms.author: syzehra
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 10/22/2023 
-ms.custom: template-how-to-pattern, devx-track-azurecli
+ms.custom: template-how-to-pattern
 ---
 
 # Restart Azure Operator Nexus Kubernetes cluster node
@@ -56,5 +56,3 @@ Here's a sample of what the `restart-node` command generates,
 }
 ```
  
-
-

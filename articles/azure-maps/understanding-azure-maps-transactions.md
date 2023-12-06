@@ -24,6 +24,10 @@ When you use [Azure Maps Services], the API requests you make generate transac
 
 The following table summarizes the Azure Maps services that generate transactions, billable and nonbillable, along with any notable aspects that are helpful to understand in how the number of transactions are calculated.
 
+> [!NOTE]
+>
+> For Azure Maps pricing information and free offering details, see [Azure Maps Pricing].
+
 | Azure Maps Service | Billable | Transaction Calculation | Meter |
 |--------------------|----------|-------------------------|-------|
 | Data service (Deprecated<sup>1</sup>) | Yes, except for `MapDataStorageService.GetDataStatus` and `MapDataStorageService.GetUserData`, which are nonbillable| One request = 1 transaction| <ul><li>Location Insights Data (Gen2 pricing)</li></ul>|

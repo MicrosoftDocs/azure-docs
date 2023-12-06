@@ -28,29 +28,29 @@ Embedded speech is included with the Speech SDK (version 1.24.1 and higher) for 
 
 # [Android](#tab/android-target)
 
-Requires Android 7.0 (API level 24) or higher on ARM64 (`arm64-v8a`) or ARM32 (`armeabi-v7a`) hardware.
+Requires Android 7.0 (API level 24) or higher on Arm64 (`arm64-v8a`) or Arm32 (`armeabi-v7a`) hardware.
 
-Embedded TTS with neural voices is only supported on ARM64.
+Embedded TTS with neural voices is only supported on Arm64.
 
 # [Linux](#tab/linux-target)
 
-Requires Linux on x64, ARM64, or ARM32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
+Requires Linux on x64, Arm64, or Arm32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
 
 Embedded speech isn't supported on RHEL/CentOS 7.
 
-Embedded TTS with neural voices isn't supported on ARM32.
+Embedded TTS with neural voices isn't supported on Arm32.
 
 # [macOS](#tab/macos-target)
 
-Requires 10.14 or newer on x64 or ARM64 hardware.
+Requires 10.14 or newer on x64 or Arm64 hardware.
 
 # [Windows](#tab/windows-target)
 
-Requires Windows 10 or newer on x64 or ARM64 hardware.
+Requires Windows 10 or newer on x64 or Arm64 hardware.
 
 The latest [Microsoft Visual C++ Redistributable for Visual Studio 2015-2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) must be installed regardless of the programming language used with the Speech SDK.
 
-The Speech SDK for Java doesn't support Windows on ARM64.
+The Speech SDK for Java doesn't support Windows on Arm64.
 
 ---
 

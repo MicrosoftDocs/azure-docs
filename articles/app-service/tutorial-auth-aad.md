@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 3/08/2023
+ms.date: 12/31/2023
 ms.custom: seodec18, devx-track-azurecli, engagement-fy23, AppServiceIdentity
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure Microsoft Entra apps
@@ -76,7 +76,7 @@ Create the resource group, web app plan, the web app and deploy in a single step
 1. Change into the frontend web app directory.
 
     ```azurecli-interactive
-    cd frontend
+    cd js-e2e-web-app-easy-auth-app-to-app/frontend
     ```
 
 1. Create and deploy the frontend web app with [az webapp up](/cli/azure/webapp#az-webapp-up). Because web app name has to be globally unique, replace `<front-end-app-name>` with a unique name. 
@@ -122,7 +122,7 @@ Create the resource group, web app plan, the web app and deploy in a single step
 1. Deploy the backend web app to same resource group and app plan. Because web app name has to be globally unique, replace `<back-end-app-name>` with a unique set of initials or numbers. 
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --runtime "NODE:16-lts"
+    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --sku FREE --location "West Europe" --runtime "NODE:16-lts"
     ```
 
 ::: zone-end
@@ -186,22 +186,15 @@ If you stop here, you have a self-contained app that's already secured by the Ap
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from any page.
 
-1. In **Resource groups**, find and select your resource group. In **Overview**, select your backend app's management page.
+1. In **Resource groups**, find and select your resource group. In **Overview**, select your frontend app's management page.
 
-    :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Screenshot of the Resource groups window, showing the Overview for an example resource group and a backend app's management page selected.":::
-
-1. In your backend app's left menu, select **Authentication**, and then select **Add identity provider**.
+1. In your frontend app's left menu, select **Authentication**, and then select **Add identity provider**.
 
 1. In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Microsoft Entra identities.
 
 1. Accept the default settings and select **Add**.
 
-    :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the backend app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
-
 1. The **Authentication** page opens. Copy the **Client ID** of the Microsoft Entra application to a notepad. You need this value later.
-
-    :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Microsoft Entra Settings window showing the Microsoft Entra App, and the Microsoft Entra Applications window showing the Client ID to copy.":::
-
 
 ### Grant frontend app access to backend
 
@@ -231,6 +224,7 @@ The frontend app now has the required permissions to access the backend app as t
 In the Cloud Shell, run the following commands on the frontend app to add the `scope` parameter to the authentication setting `identityProviders.azureActiveDirectory.login.loginParameters`. Replace *\<front-end-app-name>* and *\<back-end-client-id>*.
 
 ```azurecli-interactive
+az extension add --name authV2
 authSettings=$(az webapp auth show -g myAuthResourceGroup -n <front-end-app-name>)
 authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.login += {"loginParameters":["scope=openid offline_access api://<back-end-client-id>/user_impersonation"]}')
 az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body "$authSettings"
