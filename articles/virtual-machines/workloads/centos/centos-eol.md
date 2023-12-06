@@ -43,7 +43,7 @@ There are also several companies offering extended support for CentOS 7, which m
 - OpenLogic: [Enterprise Linux Support](https://www.openlogic.com/solutions/enterprise-linux-support/centos)
 - TuxCare: [Extended Lifecycle Support](https://docs.tuxcare.com/extended-lifecycle-support/)
 
-See the [Endorsed Distribution](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros) page for details on Azure endorsed distributions and images.
+See the [Endorsed Distribution](../..//linux/endorsed-distros) page for details on Azure endorsed distributions and images.
 
 ## CentOS compatible distributions
 
