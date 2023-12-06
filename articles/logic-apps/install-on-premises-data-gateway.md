@@ -66,7 +66,7 @@ You can use the same gateway installation with other cloud services, such as Pow
 
   > [!IMPORTANT]
   > During gateway setup, the **Change Region** command is unavailable if you signed in with your 
-  > Azure Government account, which is associated with an Microsoft Entra tenant in the 
+  > Azure Government account, which is associated with a Microsoft Entra tenant in the 
   > [Azure Government cloud](../azure-government/compare-azure-government-global-azure.md). 
   > The gateway automatically uses the same region as your user account's Microsoft Entra tenant.
   >
