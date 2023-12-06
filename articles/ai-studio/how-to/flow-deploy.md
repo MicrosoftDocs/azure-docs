@@ -129,7 +129,11 @@ For more information, see the sections below.
 
 ### Requirements text file
 
-Optionally you can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder. When you deploy prompt flow to managed online endpoint in UI, by default the deployment uses the environment created based on the latest prompt flow image and dependencies specified in the `requirements.txt` of the flow. 
+Optionally you can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder. When you deploy prompt flow to managed online endpoint in UI, by default the deployment uses the environment created based on the base image specified in the `flow.dag.yaml` and dependencies specified in the `requirements.txt` of the flow. 
+
+Note that the base image speicifed in the `flow.dag.yaml` must be created based on prompt flow base image `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>` and you can find the latest version [here](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list). If you don't speicify the base image in the `flow.dag.yaml`, the deployment will use the default base image `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:latest`.
+
+:::image type="content" source="../media/prompt-flow/how-to-deploy-for-real-time-inference/flow-environment-image.png" alt-text="Screenshot of specifying base image in raw yaml file of the flow. " lightbox = "../media/prompt-flow/how-to-deploy-for-real-time-inference/flow-environment-image.png":::
 
 :::image type="content" source="../media/prompt-flow/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of a flow's requirements text file." lightbox = "../media/prompt-flow/how-to-deploy-for-real-time-inference/requirements-text.png":::
 
