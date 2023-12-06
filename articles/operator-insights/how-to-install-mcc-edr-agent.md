@@ -81,11 +81,11 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
 1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
-    `openssl pkcs12 -nodes -export -in $certificate\_pem\_filename -inkey $key\_pem\_filename -out $pkcs12\_filename`
+    `openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-certificate-filename>`
 
 5. Ensure the certificate(s) are base64 encoded. On Linux, you can based64 encode a pkcs12-formatted certificate by using the command:
 
-    `base64 -w 0 $pkcs12\_filename &gt; $base64filename`
+    `base64 -w 0 <pkcs12-certificate-filename> > <base64-encoded-pkcs12-certificate-filename>`
 
 ### Grant permissions for the Data Product Key Vault
 
@@ -105,7 +105,7 @@ Repeat these steps for each VM onto which you want to install the agent:
     These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
 1. Install systemd, logrotate and zip on the VM, if not already present. For example, `sudo dnf install systemd logrotate zip`.
 1. Obtain the ingestion agent RPM and copy it to the VM.
-1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to an accessible location on the VM (such as /etc/az-mcc-edr-uploader).
+1. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to the VM, in a location accessible to the ingestion agent.
 
 ## VMs without public DNS: Map Azure host names to IP addresses
 
@@ -148,7 +148,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
             2. **identity\_name** as the application ID of the service principle that you created in [Create a service principle](#create-a-service-principal).
 
-            3. **cert\_path** as the path on disk to the location of the base64-encoded certificate and private key for the service principal to authenticate with.
+            3. **cert\_path** as the file path of the base64-encoded pkcs12 certificate for the service principal to authenticate with.
 
     1. **sink.container\_name** *must be left as "edr".*
 

@@ -103,11 +103,11 @@ It's up to you whether you use the same certificate and key for each VM, or use 
 
 1. Ensure the certificate(s) are available in pkcs12 format, with no passphrase protecting them. On Linux, you can convert a certificate and key from PEM format using openssl:
 
-    `openssl pkcs12 -nodes -export -in $certificate\_pem\_filename -inkey $key\_pem\_filename -out $pkcs12\_filename`
+    `openssl pkcs12 -nodes -export -in <pem-certificate-filename> -inkey <pem-key-filename> -out <pkcs12-certificate-filename>`
 
 5. Ensure the certificate(s) are base64 encoded. On Linux, you can based64 encode a pkcs12-formatted certificate by using the command:
 
-    `base64 -w 0 $pkcs12\_filename &gt; $base64filename`
+    `base64 -w 0 <pkcs12-certificate-filename> > <base64-encoded-pkcs12-certificate-filename>`
 
 ### Grant permissions for the Data Product Key Vault
 
@@ -128,11 +128,11 @@ Repeat these steps for each VM onto which you want to install the agent:
     These ports must be open both in cloud network security groups and in any firewall running on the VM itself (such as firewalld or iptables).
 4. Install systemd, logrotate and zip on the VM, if not already present. For example, `sudo dnf install systemd logrotate zip`.
 5. Obtain the ingestion agent RPM and copy it to the VM.
-6. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to an accessible location on the VM (such as /etc/az-sftp-uploader).
-7. Ensure the SFTP server's public SSH key is listed on the VM's `known_hosts` file.
+6. Copy the pkcs12-formatted base64-encoded certificate (created in the [Prepare certificates](#prepare-certificates) step) to the VM, in a location accessible to the ingestion agent. 
+7. Ensure the SFTP server's public SSH key is listed on the VM's global known_hosts file located at `/etc/ssh/ssh_known_hosts`.
 
 > [!TIP]
-> Use the Linux command `ssh-keygen` to add a server's SSH key to a VM's `known_hosts` file manually. For example, `ssh-keygen -192.0.2.0 ~/.ssh/known_hosts`.
+> Use the Linux command `ssh-keyscan` to add a server's SSH key to a VM's `known_hosts` file manually. For example, `sudo sh -c 'ssh-keyscan -H 10.213.0.6 >> /etc/ssh/ssh_known_hosts'`.
 
 ## Configure the connection between the SFTP server and VM
 
@@ -143,10 +143,10 @@ Follow these steps on the SFTP server:
 3. Determine the authentication method that the ingestion agent will use to connect to the SFTP server. The agent supports two methods:
     - Password authentication
     - SSH key authentication
-4. Create a file to store the secret value in the secrets directory on the agent VM, which you created in the [Prepare the VMs](#prepare-the-vms) step.
+4. Create a file to store the secret value (password or SSH key) in the secrets directory on the agent VM, which you created in the [Prepare the VMs](#prepare-the-vms) step.
    - The file must not have a file extension.
    - Choose an appropriate name for the secret file, and note it for later.  This name is referenced in the agent configuration.
-   - The secret file must contain only the secret value, with no extra whitespace.
+   - The secret file must contain only the secret value (password or SSH key), with no extra whitespace.
 5. If you're using an SSH key that has a passphrase to authenticate, use the same method to create a separate secret file that contains the passphrase.
 
 ## VMs without public DNS: Map Azure host names to IP addresses
@@ -192,7 +192,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
             2. **identity\_name** as the application ID of the service principal that you created in [Create a service principal](#create-a-service-principal).
 
-            3. **cert\_path** as the path on disk to the location of the base64-encoded certificate and private key for the service principal to authenticate with.
+            3. **cert\_path** as the file path of the base64-encoded pcks12 certificate in the secrets directory folder, for the service principal to authenticate with.
     1. For the secret provider with name `local_file_system`, set the following fields:
 
         1. **provider.auth.secrets_directory** the absolute path to the secrets directory on the agent VM, which was created in the [Prepare the VMs](#prepare-the-vms) step.
@@ -208,7 +208,7 @@ Repeat these steps for each VM onto which you want to install the agent:
 
             1. **base\_path** the path to a folder on the SFTP server that files will be uploaded to Azure Operator Insights from.
 
-            1. **known\_hosts\_file** the path on the VM to the 'known_hosts' file for the SFTP server.  This file must be in SSH format and contain details of any public SSH keys used by the SFTP server.
+            1. **known\_hosts\_file** the path on the VM to the global known_hosts file, located at `/etc/ssh/ssh_known_hosts`. This file should contain the public SSH keys of the SFTP host server as outlined in [Prepare the VMs](#prepare-the-vms). 
 
             1. **user** the name of the user on the SFTP server that the agent should use to connect.
 
@@ -226,14 +226,14 @@ Repeat these steps for each VM onto which you want to install the agent:
 
                     1. **key\_secret** is the name of the file containing the SSH key in the `secrets_directory` folder.
 
-                    1. **passphrase\_secret\_name** is the name of the file containing the passphrase for the SSH key in the secrets_directory folder. If the SSH key doesn't have a passphrase, don't include this field.
+                    1. **passphrase\_secret\_name** is the name of the file containing the passphrase for the SSH key in the `secrets_directory` folder. If the SSH key doesn't have a passphrase, don't include this field.
 
    
 2. Continue to edit *config.yaml* to set the parameters that depend on the type of Data Product that you're using.
 For the **Monitoring - Affirmed MCC** Data Product, set the following parameters in each file source block in **file_sources**:
 
     1. **source.settling_time_secs** set to `60`
-    2. **source.schedule** set to  `* /5 * * * * *` so that the agent checks for new files in the file source every 5 minutes
+    2. **source.schedule** set to  `0 */5 * * * * *` so that the agent checks for new files in the file source every 5 minutes
     3. **sink.container\_name** set to `pmstats`
 
 > [!TIP]
