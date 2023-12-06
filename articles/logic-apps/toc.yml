@@ -184,7 +184,7 @@ items:
     - name: Handle content types
       href: logic-apps-content-type.md
     - name: Handle errors and exceptions
-      href: errors-exception-handling.md
+      href: error-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
     - name: Handle long-running stored procedures for SQL connector

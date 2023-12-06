@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-exception-handling.md",
-            "redirect_url": "/azure/logic-apps/errors-exception-handling",
+            "redirect_url": "/azure/logic-apps/error-exception-handling",
             "redirect_document_id": true
         },
         {
