@@ -6,7 +6,7 @@
       "redirect_document_id": false
     },    
     {
-      "source_path": "mqtt-configure-private-endpoints.md",
+      "source_path": "configure-private-endpoints-mqtt.md",
       "redirect_url": "/azure/event-grid/mqtt-configure-private-endpoints",
       "redirect_document_id": false
     },    
