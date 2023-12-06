@@ -56,7 +56,7 @@ See the [Endorsed Distribution](../..//linux/endorsed-distros) page for details 
 
 Notes:
 - “Binary compatible” means based on the same upstream distribution (Fedora). There is no guarantee of bug for bug compatibility.
-- For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
+- For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](../../linux/endorsed-distros)
 - For details on Red Hat & Microsoft Integrated Support see: Microsoft and Red Hat Partner and Deliver Integrated Support, a Unique Offering in the IT World | Microsoft Learn
 
 ## Alternate distributions
