@@ -21,6 +21,8 @@ The following table shows the latest available version of the MSIXMGR tool.
 
 ## Version 1.2.0.0
 
+*Date published: April 18, 2023*
+
 In this release, we've made the following changes:
 
 - MSIXMGR now supports the expansion of MSIX bundles.
