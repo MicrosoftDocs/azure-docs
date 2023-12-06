@@ -105,13 +105,13 @@ For steps to update the Azure AD B2C app, see [Switch redirect URIs to the singl
 1. Select **Azure Active Directory B2C** from the list.
 1. In the **Client library** dropdown, select **MSAL**.
 1. Select **Update**.
-1. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+1. [Republish your developer portal](developer-portal-overview.md#publish-the-portal).
 
 
 ## Developer portal - add Azure Active Directory B2C account authentication
 
 > [!IMPORTANT]
-> You need to [republish the developer portal](api-management-howto-developer-portal-customize.md#publish) when you create or update Azure Active Directory B2C configuration settings for the changes to take effect.
+> You need to [republish the developer portal](developer-portal-overview.md#publish-the-portal) when you create or update Azure Active Directory B2C configuration settings for the changes to take effect.
 
 In the developer portal, sign-in with Azure Active Directory B2C is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
 

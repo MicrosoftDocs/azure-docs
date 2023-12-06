@@ -15,11 +15,13 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 
 # API Management developer portal - frequently asked questions
 
+This articles provides answers to frequently asked questions about the [developer portal](developer-portal-overview.md) in Azure API Management.
+
 ## What if I need functionality that isn't supported in the portal?
 
 You have the following options:
 
-* For small customizations,  use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget) .
+* For small customizations, use a built-in widget to [add custom HTML](developer-portal-extend-custom-functionality.md#use-custom-html-code-widget) .
 
 * For larger customizations, [create and upload](developer-portal-extend-custom-functionality.md#create-and-upload-custom-widget) a custom widget to the managed developer portal.
 
@@ -52,52 +54,24 @@ If your API Management service is in an internal VNet and you're accessing it th
 
 ## I assigned a custom API Management domain and the published portal doesn't work
 
-After you update the domain, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+After you update the domain, you need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect.
 
 ## I added an identity provider and I can't see it in the portal
 
-After you configure an identity provider (for example, Microsoft Entra ID, Azure AD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
+After you configure an identity provider (for example, Azure AD, Azure AD B2C), you need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
 
 ## I set up delegation and the portal doesn't use it
 
-After you set up delegation, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+After you set up delegation, you need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect.
 
 ## My other API Management configuration changes haven't been propagated in the developer portal
 
-Most configuration changes (for example, VNet, sign-in, product terms) require [republishing the portal](api-management-howto-developer-portal-customize.md#publish).
+Most configuration changes (for example, VNet, sign-in, product terms) require [republishing the portal](developer-portal-overview.md#publish-the-portal).
 
 ## <a name="cors"></a> I'm getting a CORS error when using the interactive console
 
-The interactive console makes a client-side API request from the browser. Resolve the CORS problem by adding [a CORS policy](cors-policy.md) on your API(s).
+The interactive console makes a client-side API request from the browser. Resolve the CORS problem by adding a CORS policy on your API(s), or configure the portal to use a CORS proxy. For more information, see [Enable CORS for interactive console in the API Management developer portal](enable-cors-developer-portal.md).
 
-You can check the status of the CORS policy in the **Portal overview** section of your API Management service in the Azure portal. A warning box indicates an absent or misconfigured policy.
-
-> [!NOTE]
-> 
-> Only one CORS policy is executed. If you specified multiple CORS policies (for example, on the API level and on the all-APIs level), your interactive console may not work as expected.
-
-![Screenshot that shows where you can check the status of your CORS policy.](media/developer-portal-faq/cors-azure-portal.png)
-
-Automatically apply the CORS policy by clicking the **Enable CORS** button.
-
-You can also enable CORS manually.
-
-1. Select the **Manually apply it on the global level** link to see the generated policy code.
-2. Navigate to **All APIs** in the **APIs** section of your API Management service in the Azure portal.
-3. Select the **</>** icon in the **Inbound processing** section.
-4. Insert the policy in the **\<inbound\>** section of the XML file. Make sure the **\<origin\>** value matches your developer portal's domain.
-
-> [!NOTE]
-> 
-> If you apply the CORS policy in the Product scope, instead of the API(s) scope, and your API uses subscription key authentication through a header, your console won't work.
->
-> The browser automatically issues an `OPTIONS` HTTP request, which doesn't contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the `OPTIONS` call with a Product, so it can't apply the CORS policy.
->
-> As a workaround you can pass the subscription key in a query parameter.
-
-## What is the CORS proxy feature and when should I use it?
-
-Select the **Use CORS proxy** option in the configuration of the API operation details widget to route the interactive console's API calls through the portal's backend in your API Management service. In this configuration, you no longer need to apply a CORS policy for your APIs, and connectivity to the gateway endpoint from the local machine isn't required. If the APIs are exposed through a self-hosted gateway or your service is in a virtual network, the connectivity from the API Management's backend service to the gateway is required. If you use the self-hosted portal, specify the portal's backend endpoint using the `backendUrl` option in the configuration files. Otherwise, the self-hosted portal won't be aware of the location of the backend service.
 
 ## What permissions do I need to edit the developer portal?
 
@@ -174,7 +148,7 @@ If you don't need the sign-up functionality enabled by default in the developer 
    
    Optionally, delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/current-ga/content-item) REST APIs to list and delete this page.
  
-1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
+1. Save your changes, and [republish the portal](developer-portal-overview.md#publish-the-portal).
 
 ## How can I remove the developer portal content provisioned to my API Management service?
 
