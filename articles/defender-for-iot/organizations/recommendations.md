@@ -85,7 +85,7 @@ The following Defender for Endpoint recommendations are relevant for Enterprise 
 - **Remove insecure administration protocols SNMP V1 and SNMP V2**
 - **Require authentication for VNC management interface**
 
-For more information, see [Security recommendations](https://learn.microsoft.com/en-us/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation?view=o365-worldwide).
+For more information, see [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation).
 
 Other recommendations you may see in the **Recommendations** page are relevant for the  [Defender for IoT micro agent](../device-builders/index.yml).
 
