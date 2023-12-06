@@ -1,15 +1,15 @@
 ---
-title: Monitor logs using Azure Firewall Workbook
+title: Using Azure Firewall Workbooks
 description: Azure Firewall Workbooks provide a flexible canvas for Azure Firewall data analysis and the creation of rich visual reports within the Azure portal.
 services: firewall
 author: gopimsft
 ms.service: firewall
 ms.topic: how-to
-ms.date: 12/04/2023
+ms.date: 12/06/2023
 ms.author: victorh
 ---
 
-# Monitor logs using Azure Firewall Workbook
+# Using Azure Firewall Workbooks
 
 Azure Firewall Workbook provides a flexible canvas for Azure Firewall data analysis. You can use it to create rich visual reports within the Azure portal. You can tap into multiple Firewalls deployed across Azure, and combine them into unified interactive experiences.
 
@@ -17,11 +17,20 @@ You can gain insights into Azure Firewall events, learn about your application a
 
 ## Prerequisites
 
-Before starting, you should [enable diagnostic logging](firewall-diagnostics.md#enable-diagnostic-logging-through-the-azure-portal) through the Azure portal. Also, read [Azure Firewall logs and metrics](logs-and-metrics.md) for an overview of the diagnostics logs and metrics available for Azure Firewall.
+Before you start, enable [Azure Structured Firewall Logs](firewall-structured-logs.md) through the Azure portal.
+
+> [!IMPORTANT]
+> All the following sections are valid for Firewall structured logs only.
+> 
+
+If you want to use legacy logs, you can enable [diagnostic logging](firewall-diagnostics.md#enable-diagnostic-logging-through-the-azure-portal) using the Azure portal. Then go to [GitHub Workbook for Azure Firewall](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook) and follow the instructions on the page. 
+
+
+ Also, read [Azure Firewall logs and metrics](logs-and-metrics.md) for an overview of the diagnostics logs and metrics available for Azure Firewall.
 
 ## Get started
 
-Once you've set up Firewall logging, you're all set to use the Azure Firewall embedded workbooks using the following steps:
+Once you've set up Firewall structured logs, you're all set to use the Azure Firewall embedded workbooks using the following steps:
 
 1. In the portal, navigate to your Azure Firewall resource.
 2. Under **Monitoring**, select **Workbooks**.
@@ -111,6 +120,8 @@ The IDPS log statistics tab offers a summary of malicious traffic events and the
 - **Azure Firewall IDPS count over time**: Shows Azure Firewall IDPS count over time.
 - **Azure Firewall IDPS logs with GeoLocation**: Provides Azure Firewall IDPS logs, categorized by geographical location.
 
+:::image type="content" source="media/firewall-workbook/idps-tab.png" alt-text="Screenshot showing the IDPS tab.":::
+
 ## Threat Intelligence (TI)
 
 This tab offers a thorough perspective on threat intelligence activities, spotlighting the most prevalent threats, actions, and protocols. It delineates the top five Fully Qualified Domain Names (FQDNs) and IP addresses associated with these threats, showcasing threat intelligence detections over time. Additionally, detailed logs from Azure Firewall’s Threat Intelligence are furnished for comprehensive analysis. Within the Threat Intelligence tab, you'll find various widgets that you can use:
@@ -135,9 +146,6 @@ The investigation section enables exploration and troubleshooting, offering addi
 - **Azure Firewall Premium with Geo Location – IDPS**: Displays Azure Firewall's Intrusion Detection and Prevention System - (IDPS) - detections, categorized by geographical location.
 
 :::image type="content" source="media/firewall-workbook/investigation-tab.png" alt-text="Screenshot showing the investigation tab." lightbox="media/firewall-workbook/investigation-tab.png":::
-
-
-
 
 
 ## Next steps
