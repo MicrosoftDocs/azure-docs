@@ -573,6 +573,6 @@ sink(allowSchemaDrift: true,
 
 ```
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
