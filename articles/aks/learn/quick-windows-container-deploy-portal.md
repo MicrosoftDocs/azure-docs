@@ -11,6 +11,11 @@ ms.date: 12/06/2023
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster that runs Windows Server containers using the Azure portal. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
 
+> [!NOTE]
+> This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
+
+## Before you begin
+
 This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../concepts-clusters-workloads.md).
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -41,6 +46,11 @@ The following limitations apply to *Windows Server node pools*:
         - Create an Azure **Resource group**, such as *myResourceGroup*. While you can select an existing resource group, for testing or evaluation purposes, we recommend creating a resource group to temporarily host these resources and avoid impacting your production or development workloads.
     - Under **Cluster details**:
       - Ensure the **Cluster preset configuration** is set to *Production Standard*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
+
+        > [!NOTE]
+        > You can change the preset configuration when creating your cluster by selecting *Compare presets* and choosing a different option.
+        > :::image type="content" source="media/quick-windows-container-deploy-portal/cluster-preset-options.png" alt-text="Screenshot of Create AKS cluster - portal preset options." lightbox="media/quick-windows-container-deploy-portal/cluster-preset-options.png":::
+
       - Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
       - Select a **Region** for the AKS cluster.
         <!-- any reason to change this one? -->
@@ -50,6 +60,9 @@ The following limitations apply to *Windows Server node pools*:
       - Leave the default value selected for **Kubernetes version**.
       - Leave the **Automatic upgrade** setting set to the recommended value, which is *Enabled with patch*.
       - Leave the **Authentication and authorization** setting set to *Local accounts with Kubernetes RBAC*.
+
+    :::image type="content" source="media/quick-windows-container-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal" lightbox="media/quick-windows-container-deploy-portal/create-cluster-basics.png":::
+
 1. Select **Next**. On the **Node pools** tab, add a new node pool:
     - Select **Add node pool**.
     - Enter a **Node pool name**, such as *npwin*. For a Windows node pool, the name must be six characters or fewer.
@@ -213,7 +226,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 2. See the sample app in action by opening a web browser to the external IP address of your service.
 
-    :::image type="content" source="media/quick-windows-container-deploy-cli/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application.":::
+    :::image type="content" source="media/quick-windows-container-deploy-portal/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application." lightbox="media/quick-windows-container-deploy-portal/asp-net-sample-app.png":::
 
     > [!NOTE]
     > If you receive a connection timeout when trying to load the page, you should verify the sample app is ready using the `kubectl get pods --watch` command. Sometimes, the Windows container isn't started by the time your external IP address is available.

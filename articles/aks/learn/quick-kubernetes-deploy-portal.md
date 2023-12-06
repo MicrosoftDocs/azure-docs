@@ -20,8 +20,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 ## Before you begin
 
-- This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
-- You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+
+- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 - If you're unfamiliar with the Azure Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 - To learn more about creating a Windows Server node pool, see [Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure portal](quick-windows-container-deploy-portal.md).
 - The identity you use to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
@@ -54,6 +55,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
       - Leave the default value selected for **Kubernetes version**.
       - Leave the **Automatic upgrade** setting set to the recommended value, which is *Enabled with patch*.
       - Leave the **Authentication and authorization** setting set to *Local accounts with Kubernetes RBAC*.
+
+    :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal" lightbox="media/quick-kubernetes-deploy-portal/create-cluster-basics.png":::
+
 1. Select **Next**. On the **Node pools** tab, add a new node pool:
     - Select **Add node pool**.
     - Enter a **Node pool name**, such as *nplinux*.
@@ -460,6 +464,7 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
 
 <!-- LINKS - internal -->
+[azure-portal]: https://portal.azure.com
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
