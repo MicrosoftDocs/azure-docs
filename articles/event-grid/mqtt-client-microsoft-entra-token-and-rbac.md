@@ -61,7 +61,7 @@ You can use these roles to provide permissions at subscription, resource group, 
 1. Go to the Access control (IAM) page of the topicspace
 1. Select the **Role assignments** tab to view the role assignments at this scope.
 1. Select **+ Add** and Add role assignment.
-1. On the Role tab, select the "EventGrid TopicSpaces Publisher" role.
+1. On the Role tab, select the "Event Grid TopicSpaces Publisher" role.
 1. On the Members tab, for **Assign access to**, select User, group, or service principal option to assign the selected role to one or more service principals (applications).
 1. Select **+ Select members**.
 1. Find and select the service principals.
