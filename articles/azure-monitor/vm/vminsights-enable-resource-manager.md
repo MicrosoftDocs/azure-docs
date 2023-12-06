@@ -78,19 +78,6 @@ Once the workspace has been configured, deploy the agents using one of the templ
 | ExistingVmssOnboarding | ExistingVmssOnboarding.json<br>ExistingVmssOnboarding.json | Enables VM insights on existing Virtual Machine Scale Set. |
 | ExistingArcVmOnboarding | ExistingArcVmOnboarding.json<br>ExistingArcVmOnboarding.json | Enables VM insights on existing Arc-enabled server. |
 
-
-## Deploy templates
-The templates can be deployed using [any deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md) including the following examples using PowerShell and CLI.
-
-```powershell
-New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile <Template.json> -TemplateParameterFile <Parameters.json>
-```
-
-
-```azurecli
-az deployment group create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
-```
-
 ## To deploy a Resource Manager template
 Each folder in the download has a template and a parameters file. Modify the parameters file with required details such as Virtual Machine Resource ID, Workspace resource ID, data collection rule resource ID, Location, and OS Type. Don't modify the template file unless you need to customize it for your particular scenario.
 
@@ -112,9 +99,6 @@ az login
 az account set --subscription "Subscription Name"
 az deployment group create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
 ```
-
-
-
 
 ## Next steps
 
