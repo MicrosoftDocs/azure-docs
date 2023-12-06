@@ -342,10 +342,10 @@ If you're using the simulated Raspberry Pi device, and it's running, the device 
 
     ```output
     Receive message: Turn On
-    ```
+
 
     Resend the JSON document, but change the value of the `"message"` entry. The new value is logged by the device.
-
+     ```
 For more information on using the sink connector, see [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 ## Next steps
