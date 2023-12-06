@@ -99,7 +99,7 @@ az spring show \
 
 ## Troubleshooting
 ### Some resources provision failed during start
-When starting the service, you may sometimes find that the service’s ProvisioningState is marked as 'Succeeded', but the following error message is returned:
+When starting the service, you may sometimes find that the service’s ProvisioningState is marked as `Succeeded`, but the following error message is returned:
 
 ```
 Failed to start some resources or enable some settings, including [<failed resource list>]. Please check and update those resources or settings.
@@ -107,7 +107,7 @@ Failed to start some resources or enable some settings, including [<failed resou
 
 This error message means some resources failed to provision, here’s what to do:
 - Identify the failed resources: Refer to the `<failed resource list>` in the error message to identify the resources that failed to start.
-- Investigate and mitigate: Examine each listed resource, check failure logs if available, and make necessary mitigations. This mitigation could involve re-applying some settings or updating some resources.
+- Investigate and mitigate: Examine each listed resource, check failure logs if available, and make necessary mitigations. This mitigation could involve reapplying some settings or updating some resources.
 
 ---
 
