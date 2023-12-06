@@ -43,20 +43,20 @@ There are also several companies offering extended support for CentOS 7, which m
 - OpenLogic: [Enterprise Linux Support](https://www.openlogic.com/solutions/enterprise-linux-support/centos)
 - TuxCare: [Extended Lifecycle Support](https://docs.tuxcare.com/extended-lifecycle-support/)
 
-See the [Endorsed Distribution](../..//linux/endorsed-distros) page for details on Azure endorsed distributions and images.
+See the [Endorsed Distribution](../..//linux/endorsed-distros.md) page for details on Azure endorsed distributions and images.
 
 ## CentOS compatible distributions
 
 | **Distribution** | **Description** | **Azure Images** | **Support Model** |
 |---|---|---|---|
-| **Red Hat Enterprise Linux** | Best binary compatible OS w/ support and EUS available. <br/> [Migration offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rh-rhel-3p-migration?tab=Overview) available in the Azure marketplace.<br/> [Conversion tool](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux) available from Red Hat.<br/> [Multiple offers and images](../redhat/overview#red-hat-enterprise-linux-images) | Yes PAYG, BYOS, ARM64 | Commercial, integrated support |
+| **Red Hat Enterprise Linux** | Best binary compatible OS w/ support and EUS available. <br/> [Migration offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rh-rhel-3p-migration?tab=Overview) available in the Azure marketplace.<br/> [Conversion tool](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux) available from Red Hat.<br/> [Multiple offers and images](../redhat/overview#red-hat-enterprise-linux-images.md) | Yes PAYG, BYOS, ARM64 | Commercial, integrated support |
 | **AlmaLinux** | Official community images: <br/> [AlmaLinux OS (x86_64/AMD64)](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-x86_64?tab=Overview)<br/> [AlmaLinux OS (AArch64/Arm64)](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-arm?tab=Overview)<br/> [AlmaLinux HPC](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-hpc?tab=Overview)<br/> [Conversion tool](https://wiki.almalinux.org/documentation/migration-guide.html#how-to-migrate) available from AlmaLinux. | Yes (multiple publishers) | Community, Commercial support by 3<sup>rd</sup> parties |
 | **Oracle Linux** | [Migration tooling and guidance](https://docs.oracle.com/en/learn/switch_centos7_ol7/index.html#introduction) available from Oracle. | YesPAYG, BYOS, ARM64 | Community and commercial |
 | **Rocky Linux** | Official community images:<br/>[Rocky Linux for x86_64 (AMD64) - Official](https://azuremarketplace.microsoft.com/marketplace/apps/resf.rockylinux-x86_64?tab=PlansAndPrice)<br/> [Conversion tool](https://docs.rockylinux.org/guides/migrate2rocky/) available from Rocky.| Yes (multiple publishers) | Community and commercial |
 
 Notes:
 - “Binary compatible” means based on the same upstream distribution (Fedora). There is no guarantee of bug for bug compatibility.
-- For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](../../linux/endorsed-distros)
+- For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](../../linux/endorsed-distros.md)
 - For details on Red Hat & Microsoft Integrated Support see: Microsoft and Red Hat Partner and Deliver Integrated Support, a Unique Offering in the IT World | Microsoft Learn
 
 ## Alternate distributions
@@ -116,4 +116,4 @@ The end-of-life moment for CentOS may also be an opportunity for you to consider
 
 [What is Application Modernization? | Microsoft Azure](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-application-modernization/)
 
-[Modernize in the cloud - Cloud Adoption Framework | Microsoft Learn](https://learn.microsoft.com/azure/cloud-adoption-framework/modernize/)
+[Modernize in the cloud - Cloud Adoption Framework | Microsoft Learn](../../../cloud-adoption-framework/modernize.md)
