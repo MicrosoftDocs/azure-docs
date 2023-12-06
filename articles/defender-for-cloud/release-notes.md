@@ -29,7 +29,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 ### Deny effect - replacing deprecated policies
 
-The [Deny effect](manage-mcsb.md#deny-and-enforce-recommendations) is used to prevent deployment of resources that don't comply with the [Microsoft Cloud Security Benchmark (MCSB) standard](concept-regulatory-compliance.md). A change in the policy's effects requires the deprecation of the current versions of the policy, which has been replaced with a new version to maintain the Deny effect.
+The [Deny effect](manage-mcsb.md#deny-and-enforce-recommendations) is used to prevent deployment of resources that don't comply with the [Microsoft Cloud Security Benchmark (MCSB) standard](concept-regulatory-compliance.md). A change in the policy's effects requires the deprecation of the current versions of the policy, which is replaced with the new version to maintain the Deny effect.
 
 To make sure you can still use the Deny effect, you must delete the old policies and assign the new policies in their place.
 
