@@ -13,7 +13,7 @@ ms.date: 12/06/2023
 
 # Migrate to Connection monitor from Network performance monitor
 
-In this article, you learn about the benefits of migrating from Network performance monitor to the new Connection monitor and how to migrate your existing tests from Network performance monitor to the new Connection monitor with zero downtime. To learn more about the benefits of the new Connection monitor, see [Connection monitor overview](connection-monitor-overview.md).
+In this article, you learn how to migrate your existing tests from Network performance monitor to the new Connection monitor with zero downtime. For more information, see [Connection monitor overview](connection-monitor-overview.md).
 
 > [!IMPORTANT]
 > Starting July 1, 2021, you won't be able to add new tests in an existing workspace or enable a new workspace with Network performance monitor. You can continue to use the tests created prior to July 1, 2021. To minimize service disruption to your current workloads, migrate your tests from Network performance monitor to the new Connection monitor in Azure Network Watcher before February 29, 2024.
@@ -106,8 +106,8 @@ To migrate the tests from Network performance monitor to Connection monitor, fol
 1. In the drop-down lists, select your subscription and workspace, and then select the Network performance monitor feature you want to migrate. 
 1. Select **Import** to migrate the tests.
    - If Network performance monitor isn't enabled on the workspace, you see an error stating "No valid NPM config found". 
-   - If no tests exist in the feature you chose in step 2, you'll see an error stating "Workspace selected doesn't have \<feature\> config".
-   - If there are no valid tests, you'll see an error stating "Workspace selected does not have valid tests"
+   - If no tests exist in the feature you chose in step 2, you see an error stating "Workspace selected doesn't have \<feature\> config".
+   - If there are no valid tests, you see an error stating "Workspace selected does not have valid tests"
    - Your tests might contain agents that are no longer active, but have been active in the past. You'll see an error stating "Few tests contain agents that are no longer active. These agents might be running in the past but are shut down/not running anymore. Enable agents and migrate to Connection monitor. Select continue to migrate the tests that do not contain agents that are not active."
 
 After the migration begins, the following changes take place: 
@@ -122,7 +122,7 @@ After the migration begins, the following changes take place:
 - The newly created connection monitor is visible in Connection monitor.
 
 After the migration, be sure to:
-- Manually disable the tests in Network performance monitor. Until you do so, you'll continue to be charged for them. 
+- Manually disable the tests in Network performance monitor. Until you do so, you continue to be charged for them. 
 - While you're disabling Network performance monitor, re-create your alerts on the NWConnectionMonitorTestResult and NWConnectionMonitorPathResult tables or use metrics. 
 - Migrate any external integrations to the NWConnectionMonitorTestResult and NWConnectionMonitorPathResult tables. Examples of external integrations are dashboards in Power BI and Grafana, and integrations with Security Information and Event Management (SIEM) systems.
 
