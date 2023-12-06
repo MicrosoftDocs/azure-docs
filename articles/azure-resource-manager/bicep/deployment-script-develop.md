@@ -511,77 +511,14 @@ resource ds2 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 
 ## Environment variables
 
-Deployment script uses these environment variables:
-
-|Environment variable|Default value (CLI)|Default value (PowerShell)|System reserved|
-|--------------------|-------------|---------------|
-|AZ_SCRIPTS_AZURE_ENVIRONMENT|AzureCloud|AzureCloud|N|
-|AZ_SCRIPTS_CLEANUP_PREFERENCE|Always|Always|N|
-|AZ_SCRIPTS_OUTPUT_PATH|/mnt/azscripts/azscriptoutput/scriptoutputs.json|N/A|Y|
-|AZ_SCRIPTS_PATH_INPUT_DIRECTORY|/mnt/azscripts/azscriptinput|/mnt/azscripts/azscriptinput|Y|
-|AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY|/mnt/azscripts/azscriptoutput|/mnt/azscripts/azscriptoutput|Y|
-|AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME|userscript.sh|userscript.ps1|Y|
-|AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME|primaryscripturi.config|primaryscripturi.config|Y|
-|AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME|supportingscripturi.config|supportingscripturi.config|Y|
-|AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME|scriptoutputs.json|scriptoutputs.json|Y|
-|AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME|executionresult.json|executionresult.json|Y|
-|AZ_SCRIPTS_USER_ASSIGNED_IDENTITY|||N|
-
-For a sample of using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with outputs from CLI script](#work-with-outputs-from-cli-scripts).
-
-To access the environment variables by using Azure CLI:
-
-```bicep
-param location string = resourceGroup().location
-
-resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'runBashWithOutputs'
-  location: location
-  kind: 'AzureCLI'
-  properties: {
-    azCliVersion: '2.52.0'
-    scriptContent: 'echo "AZ_SCRIPTS_AZURE_ENVIRONMENT is : $AZ_SCRIPTS_AZURE_ENVIRONMENT",echo "AZ_SCRIPTS_CLEANUP_PREFERENCE	is : $AZ_SCRIPTS_CLEANUP_PREFERENCE",echo "AZ_SCRIPTS_OUTPUT_PATH	is : $AZ_SCRIPTS_OUTPUT_PATH",echo "AZ_SCRIPTS_PATH_INPUT_DIRECTORY is : $AZ_SCRIPTS_PATH_INPUT_DIRECTORY",echo "AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY is : $AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY",echo "AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME is : $AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME",echo "AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME	is : $AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME",echo "AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME	is : $AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME",echo "AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME	is : $AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME",echo "AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME	is : $AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME",echo "AZ_SCRIPTS_USER_ASSIGNED_IDENTITY	is : $AZ_SCRIPTS_USER_ASSIGNED_IDENTITY"'
-    retentionInterval: 'P1D'
-  }
-}
-```
-
-To access the environment variables by using Azure PowerShell:
-
-```bicep
-param location string = resourceGroup().location
-
-resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'runBashWithOutputs'
-  location: location
-  kind: 'AzurePowerShell'
-  properties: {
-    azPowerShellVersion: '10.0'
-    scriptContent: '''
-      Write-Output "AZ_SCRIPTS_AZURE_ENVIRONMENT is : ${Env:AZ_SCRIPTS_AZURE_ENVIRONMENT}"
-      Write-Output "AZ_SCRIPTS_CLEANUP_PREFERENCE	is : ${Env:AZ_SCRIPTS_CLEANUP_PREFERENCE}"
-      Write-Output "AZ_SCRIPTS_OUTPUT_PATH	is : ${Env:AZ_SCRIPTS_OUTPUT_PATH}"
-      Write-Output "AZ_SCRIPTS_PATH_INPUT_DIRECTORY is : ${Env:AZ_SCRIPTS_PATH_INPUT_DIRECTORY}"
-      Write-Output "AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY is : ${Env:AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY}"
-      Write-Output "AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME is : ${Env:AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME}"
-      Write-Output "AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME}"
-      Write-Output "AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME}"
-      Write-Output "AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME}"
-      Write-Output "AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME}"
-      Write-Output "AZ_SCRIPTS_USER_ASSIGNED_IDENTITY	is : ${Env:AZ_SCRIPTS_USER_ASSIGNED_IDENTITY}"
-    '''
-    retentionInterval: 'P1D'
-  }
-}
-```
-
-## Pass secured strings to deployment script
+### Pass secured strings to deployment script
 
 Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 The max allowed size for environment variables is 64 KB.
 
-An Azure CLI script sample:
+
+# [CLI](#tab/CLI)
 
 ```bicep
 param location string = resourceGroup().location
@@ -608,7 +545,7 @@ resource ds 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 }
 ```
 
-An Azure PowerShell script sample:
+# [PowerShell](#tab/PowerShell)
 
 ```bicep
 param location string = resourceGroup().location
@@ -637,9 +574,82 @@ resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' 
   }
 }
 ```
+
+---
+
+### System-defined environment variables
+
+The following table list the system-defined environment variables:
+
+|Environment variable|Default value (CLI)|Default value (PowerShell)|System reserved|
+|--------------------|-------------|---------------|
+|AZ_SCRIPTS_AZURE_ENVIRONMENT|AzureCloud|AzureCloud|N|
+|AZ_SCRIPTS_CLEANUP_PREFERENCE|Always|Always|N|
+|AZ_SCRIPTS_OUTPUT_PATH|/mnt/azscripts/azscriptoutput/scriptoutputs.json|N/A|Y|
+|AZ_SCRIPTS_PATH_INPUT_DIRECTORY|/mnt/azscripts/azscriptinput|/mnt/azscripts/azscriptinput|Y|
+|AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY|/mnt/azscripts/azscriptoutput|/mnt/azscripts/azscriptoutput|Y|
+|AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME|userscript.sh|userscript.ps1|Y|
+|AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME|primaryscripturi.config|primaryscripturi.config|Y|
+|AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME|supportingscripturi.config|supportingscripturi.config|Y|
+|AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME|scriptoutputs.json|scriptoutputs.json|Y|
+|AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME|executionresult.json|executionresult.json|Y|
+|AZ_SCRIPTS_USER_ASSIGNED_IDENTITY|||N|
+
+For a sample of using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with outputs from CLI script](#work-with-outputs-from-cli-scripts).
+
+To access the environment variables:
+
+# [CLI](#tab/CLI)
+
+```bicep
+param location string = resourceGroup().location
+
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'listEnvironmentVariablesCLI'
+  location: location
+  kind: 'AzureCLI'
+  properties: {
+    azCliVersion: '2.52.0'
+    scriptContent: 'echo "AZ_SCRIPTS_AZURE_ENVIRONMENT is : $AZ_SCRIPTS_AZURE_ENVIRONMENT",echo "AZ_SCRIPTS_CLEANUP_PREFERENCE	is : $AZ_SCRIPTS_CLEANUP_PREFERENCE",echo "AZ_SCRIPTS_OUTPUT_PATH	is : $AZ_SCRIPTS_OUTPUT_PATH",echo "AZ_SCRIPTS_PATH_INPUT_DIRECTORY is : $AZ_SCRIPTS_PATH_INPUT_DIRECTORY",echo "AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY is : $AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY",echo "AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME is : $AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME",echo "AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME	is : $AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME",echo "AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME	is : $AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME",echo "AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME	is : $AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME",echo "AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME	is : $AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME",echo "AZ_SCRIPTS_USER_ASSIGNED_IDENTITY	is : $AZ_SCRIPTS_USER_ASSIGNED_IDENTITY"'
+    retentionInterval: 'P1D'
+  }
+}
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```bicep
+param location string = resourceGroup().location
+
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'listEnvironmentVariablesPowerShell'
+  location: location
+  kind: 'AzurePowerShell'
+  properties: {
+    azPowerShellVersion: '10.0'
+    scriptContent: '''
+      Write-Output "AZ_SCRIPTS_AZURE_ENVIRONMENT is : ${Env:AZ_SCRIPTS_AZURE_ENVIRONMENT}"
+      Write-Output "AZ_SCRIPTS_CLEANUP_PREFERENCE	is : ${Env:AZ_SCRIPTS_CLEANUP_PREFERENCE}"
+      Write-Output "AZ_SCRIPTS_OUTPUT_PATH	is : ${Env:AZ_SCRIPTS_OUTPUT_PATH}"
+      Write-Output "AZ_SCRIPTS_PATH_INPUT_DIRECTORY is : ${Env:AZ_SCRIPTS_PATH_INPUT_DIRECTORY}"
+      Write-Output "AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY is : ${Env:AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY}"
+      Write-Output "AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME is : ${Env:AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME}"
+      Write-Output "AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME}"
+      Write-Output "AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME}"
+      Write-Output "AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME}"
+      Write-Output "AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME	is : ${Env:AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME}"
+      Write-Output "AZ_SCRIPTS_USER_ASSIGNED_IDENTITY	is : ${Env:AZ_SCRIPTS_USER_ASSIGNED_IDENTITY}"
+    '''
+    retentionInterval: 'P1D'
+  }
+}
+```
+
+---
+
 ## Handle non-terminating errors
 
-You can control how PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7.4#erroractionpreference) variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
+You can control how Azure PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7.4#erroractionpreference) variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
 
 The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`. For more information, see [Troubleshoot deployment script](./deployment-script-troubleshoot.md).
 
