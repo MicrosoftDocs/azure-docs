@@ -16,7 +16,7 @@ ms.date: 12/04/2023
 - [03:50](/shows/mdc-in-the-field/data-security#time=03m50s) - Resource types that are discovered by this dashboard.
 - [04:50](/shows/mdc-in-the-field/data-security#time=04m50s) - Real world scenarios of using the dashboard.
 - [06:18](/shows/mdc-in-the-field/data-security#time=06m18s) - Requirements for using this dashboard.
-- [09:55](/shows/mdc-in-the-field/data-security#time=09m55s) - Demonstration
+- [09:55](/shows/mdc-in-the-field/data-security#time=09m55s) - Demonstration.
 
 ## Recommended resources
 
