@@ -580,7 +580,7 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
     ```python
     cosmosDatabaseName = "AADsampleDB"
     cosmosContainerName = "sampleContainer"
-    authType = "ServicePrincipal"
+    authType = "ServicePrinciple"
     cosmosEndpoint = "<replace with URI of your Cosmos DB account>"
     subscriptionId = "<replace with subscriptionId>"
     tenantId = "<replace with Directory (tenant) ID from the portal>"
@@ -631,7 +631,7 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
     ```scala
     val cosmosDatabaseName = "AADsampleDB"
     val cosmosContainerName = "sampleContainer"
-    val authType = "ServicePrincipal"
+    val authType = "ServicePrinciple"
     val cosmosEndpoint = "<replace with URI of your Cosmos DB account>"
     val subscriptionId = "<replace with subscriptionId>"
     val tenantId = "<replace with Directory (tenant) ID from the portal>"
