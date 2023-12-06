@@ -11,10 +11,12 @@ ms.date: 12/05/2023
 
 # Initialize Dapr components in a container app environment using the Azure CLI
 
-You can initialize Dapr components directly in your Azure Container Apps environment with a single command. When you use `az containerapp env dapr-component init`, you bring the simplicity of the open-source `dapr init` command to your Azure Container Apps solution. Seamlessly transition from code to cloud, by creating your solution with the Dapr dependencies (pub/sub and state store) backed by development-grade services. 
+Easily initialize Dapr components in the same environment as your container app using a single Azure CLI command. Run `az containerapp env dapr-component init` to [create and connect](./connect-services.md) Dapr pub/sub and state store components for your Azure Container Apps solution. 
+
+This tutorial demonstrates how to connect your solution with the Dapr dependencies you typically get in the open-source experience, backed by development-grade services.
 
 > [!NOTE]
-> The init command should only be used in a development environment, not production.
+> The `dapr-component init` command creates and connects to [dev services](./services.md), and is not production-ready.
 
 ## Supported Dapr components
 

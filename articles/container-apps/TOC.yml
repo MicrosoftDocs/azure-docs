@@ -213,7 +213,7 @@
       items:
       - name: Overview
         href: dapr-overview.md
-      - name: Get started
+      - name: Connect services
         items:
         - name: Initialize Dapr components
           href: dapr-init.md
