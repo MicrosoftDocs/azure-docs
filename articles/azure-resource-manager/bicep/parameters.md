@@ -14,7 +14,7 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
-You are limited to 256 parameters in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+You're limited to 256 parameters in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
@@ -195,7 +195,7 @@ When you hover your cursor over **storageAccountName** in VS Code, you see the f
 
 :::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VSCode":::
 
-Make sure the text is well-formatted Markdown. Otherwise the text won't be rendered correctly.
+Make sure the text follows proper Markdown formatting; otherwise, it may not display correctly when rendered
 
 ### Metadata
 
@@ -212,7 +212,7 @@ You might use this decorator to track information about the parameter that doesn
 param settings object
 ```
 
-When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. Consequently, the conflicting property within the @metadata() value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the @metadata() value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
 
 ## Use parameter
 

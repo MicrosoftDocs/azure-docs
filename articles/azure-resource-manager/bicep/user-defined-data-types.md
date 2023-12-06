@@ -21,7 +21,7 @@ type <user-defined-data-type-name> = <type-expression>
 ```
 
 > [!NOTE]
-> The [`@allowed` decorator](./parameters.md#decorators) is only permitted on [`param` statements](./parameters.md). To declare that a property must be one of a set of predefined values in a `type` or [`output`](./outputs.md) statement, use union type syntax. Union type syntax may also be used in `param` statements.
+> The [`@allowed` decorator](./parameters.md#decorators) is only permitted on [`param` statements](./parameters.md). To declare that a property must be one of a set of predefined values in a `type` or [`output`](./outputs.md) statement, use union type syntax. Union type syntax may also be used in [`param` statements](./parameters.md).
 
 The valid type expressions include:
 
@@ -71,7 +71,7 @@ The valid type expressions include:
     }
     ```
 
-    Each property in an object consists of key and value. The key and value are separated by a colon `:`. The key may be any string (values that would not be a valid identifier must be enclosed in quotes), and the value may be any type syntax expression.
+    Each property in an object consists of key and value. The key and value are separated by a colon `:`. The key may be any string (values that wouldn't be a valid identifier must be enclosed in quotes), and the value may be any type syntax expression.
 
     Properties are required unless they have an optionality marker `?` after the property value. For example, the `sku` property in the following example is optional:
 
@@ -113,7 +113,7 @@ The valid type expressions include:
     }
     ```
 
-    But the following would not be valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional.
+    But the following type definition wouldn't be valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional.
 
     ```bicep
     type invalidRecursiveObjectType = {
