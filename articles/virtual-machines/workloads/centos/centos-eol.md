@@ -98,7 +98,7 @@ These are the official / endorsed CentOS image in Azure, and don't have software
 
 **Other Azure marketplace offers**
 
-There are a multitude of CentOS based offers from a variety of publishers available in the Azure marketplace. They range from simple OS only offers to a variety of bundled offers with more software, desktop versions and configurations for specific cases (for example CIS hardened images).
+There are a multitude of CentOS based offers from various publishers available in the Azure marketplace. They range from simple OS only offers to a variety of bundled offers with more software, desktop versions and configurations for specific cases (for example CIS hardened images).
 
 Some of these offers do have a price tag associated, and can include services such as end customer support etc.
 
