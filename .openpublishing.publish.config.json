@@ -521,7 +521,7 @@
     {
       "path_to_root": "azureml-examples-temp-fix",
       "url": "https://github.com/Azure/azureml-examples",
-      "branch": "temp-fix-doc-error",
+      "branch": "temp-fix",
       "branch_mapping": {}
     },
     {
