@@ -163,7 +163,7 @@ properties:
 
 ### `secrets` configuration
 
-You can store secret values in Azure Key Vault and reference them in your test plan. Learn more about [using secrets with Azure Load Testing](./how-to-parameterize-load-tests.md#configure-load-tests-with-secrets).
+You can store secret values in Azure Key Vault and reference them in your test plan. Learn more about [using secrets with Azure Load Testing](./how-to-parameterize-load-tests.md).
 
 | Key | Type | Default value | Description | 
 | ----- | ----- | ----- | ---- |
@@ -189,7 +189,7 @@ secrets:
 
 ### `env` configuration
 
-You can specify environment variables and reference them in your test plan. Learn more about [using environment variables with Azure Load Testing](./how-to-parameterize-load-tests.md#configure-load-tests-with-environment-variables).
+You can specify environment variables and reference them in your test plan. Learn more about [using environment variables with Azure Load Testing](./how-to-parameterize-load-tests.md).
 
 | Key | Type | Default value | Description | 
 | ----- | ----- | ----- | ---- |
