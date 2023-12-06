@@ -1,17 +1,17 @@
 ---
-title: Create an AMD-based confidential VM with the Azure CLI for Azure confidential computing
-description: Learn how to use the Azure CLI to create an AMD-based confidential virtual machine for use with Azure confidential computing.
+title: Create a confidential VM with the Azure CLI for Azure confidential computing
+description: Learn how to use the Azure CLI to create a confidential virtual machine for use with Azure confidential computing.
 author: simranparkhe
 ms.service: virtual-machines
 mms.subservice: confidential-computing
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 11/29/2022
+ms.date: 12/01/2023
 ms.author: simranparkhe
 ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
-# Quickstart: Create an AMD-based confidential VM with the Azure CLI
+# Quickstart: Create a confidential VM with the Azure CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
@@ -31,11 +31,11 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 ### Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *northeurope* location:
 > [!NOTE]
 > Confidential VMs are not available in all locations. For currently supported locations, see which [VM products are available by Azure region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 ```azurecli - interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location northeurope
 ```
 ## Create Confidential virtual machine using a platform-managed key
 
@@ -51,11 +51,11 @@ az vm create \
   --resource-group myResourceGroup \
   --name myVM \
   --generate-ssh-keys \
-  --size Standard_DC4as_v5 \
+  --size Standard_DC4es_v5 \
   --admin-username <azure-username> \
   --admin-password <azure-password> \
   --enable-vtpm true \
-  --image "Canonical:0001-com-ubuntu-confidential-vm-focal:20_04-lts-cvm:latest" \
+  --image "Canonical:0001-com-ubuntu-confidential-vm-jammy:22_04-lts-cvm:latest" \
   --public-ip-sku Standard \
   --security-type ConfidentialVM \
   --os-disk-security-encryption-type VMGuestStateOnly \
@@ -154,7 +154,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
 ```
 Make a note of the `publicIpAddress` to use later.
   
-## Connect and attest the CVM through Microsoft Azure Attestation Sample App
+## Connect and attest the AMD-based CVM through Microsoft Azure Attestation Sample App
 
 To use a sample application in C++ for use with the guest attestation APIs, use the following steps. This example uses a Linux confidential virtual machine. For Windows, see [build instructions for Windows](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/main/cvm-attestation-sample-app).
 
@@ -198,4 +198,4 @@ echo -n $JWT | cut -d "." -f 2 | base64 -d 2>/dev/null | jq .
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a confidential VM on AMD with an ARM template](quick-create-confidential-vm-arm-amd.md)
+> [Create a confidential VM with an ARM template](quick-create-confidential-vm-arm.md)
