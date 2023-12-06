@@ -15,11 +15,17 @@ You can find more detailed information about the Windows Desktop client at [Conn
 > [!NOTE]
 > What's new information used to be combined for the Remote Desktop Web client for Azure Virtual Desktop and Remote Desktop Services. You can find information for versions earlier than 2.0.0.4 at [What's new in the web client](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew).
 
+## Latest available version
+
+| Release     | Latest version   | Setup instructions |
+|-------------|------------------|----------|
+| Preview | 2.0.0.4 | [Connect to Azure Virtual Desktop with the Remote Desktop Web client](users/connect-web.md) |
+
 ## Updates for version 2.0.0.4 (preview)
 
 *Date published: January 26th 2023*
 
-A new user interface is available in preview, which has the following new functionality:
+In this preview release, we've made the following changes:
 
 - An updated design.
 - [Switch between grid view and list view](users/client-features-web.md#grid-view-and-list-view).

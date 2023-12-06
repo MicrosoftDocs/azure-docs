@@ -10,7 +10,15 @@ manager: femila
 
 # What's new in multimedia redirection?
 
-This article has the latest updates for multimedia redirection (MMR) for Azure Virtual Desktop. 
+This article has the latest updates for multimedia redirection (MMR) for Azure Virtual Desktop.
+
+## Latest available version
+
+The following table shows the latest available version of the MMR extension for Azure Virtual Desktop.
+
+| Release | Latest version | Setup instructions |
+|---------|----------------|----------|
+| Public | 1.0.2309.7002 | [Use multimedia redirection on Azure Virtual Desktop](multimedia=redirection.md) |
 
 ## Updates for version 1.0.2309.7002
 

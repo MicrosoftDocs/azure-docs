@@ -24,7 +24,9 @@ The following table lists the current versions available for the public and Insi
 
 *Date published: November 20, 2023*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)   
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+In this release, we've made the following change:
 
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
@@ -33,6 +35,8 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 *Date published: November 7, 2023*
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+In this release, we've made the following changes:
 
 - Added a link to the troubleshooting documentation to error messages to help users resolve minor issues without needing to contact Microsoft Support. 
 - Improved the connection bar user interface (UI). 
@@ -47,6 +51,8 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 
 Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1d1KN), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1d1KO), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1cRm0)
 
+In this release, we've made the following changes:
+
 - Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
 - Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
 - Fixed a bug that caused a crash when using Teams Media Optimization. 
@@ -58,6 +64,8 @@ Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/bi
 ## Updates for version 1.2.4583
 
 *Date published: October 6, 2023*
+
+In this release, we've made the following change:
 
 - Fixed the [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217) security vulnerability.
 

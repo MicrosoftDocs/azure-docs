@@ -13,6 +13,14 @@ ms.custom: references_regions
 
 This article provides information about the latest updates to the Remote Desktop WebRTC Redirector Service for Teams for Azure Virtual Desktop, which you can download at [Remote Desktop WebRTC Redirector Service](https://aka.ms/msrdcwebrtcsvc/msi).
 
+## Latest available version
+
+The following table shows the latest available version of the Remote Desktop WebRTC Redirector Service.
+
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public | 1.45.2310.13001 | [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1eNhm) |
+
 ## Updates for version 1.45.2310.13001
 
 *Date published: November 15, 2023*

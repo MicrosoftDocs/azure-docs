@@ -14,6 +14,14 @@ This article describes the changes we make to each new version of Azure Virtual 
 
 If you're not sure which version of Azure Virtual Desktop Insights you're currently using, you can find it in the bottom-right corner of your Insights page or configuration workbook. To access your workbook, go to [https://aka.ms/azmonwvdi](https://aka.ms/azmonwvdi).
 
+## Latest available version
+
+The following table shows the latest available version of Azure Virtual Desktop Insights.
+
+| Release | Latest version | Setup instructions |
+|---------|----------------|----------|
+| Public | 2.0.0 | [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md) |
+
 ## How to read version numbers
 
 There are three numbers in each version of Azure Virtual Desktop Insights. Here's what each number means:

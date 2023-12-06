@@ -19,7 +19,7 @@ The Azure Virtual Desktop Agent updates regularly. This article is where you'll 
 
 Make sure to check back here often to keep up with new updates.
 
-## Latest agent versions
+## Latest available versions
 
 New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
 
