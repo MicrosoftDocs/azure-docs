@@ -155,7 +155,7 @@ Cloud Shell comes with the following languages preinstalled:
 | Go         | 1.19.11       | `go version`       |
 | Java       | 17.0.8        | `java --version`   |
 | Node.js    | 16.20.1       | `node --version`   |
-| PowerShell | [7.3.6][16]   | `pwsh -Version`    |
+| PowerShell | [7.4.0][16]   | `pwsh -Version`    |
 | Python     | 3.9.14        | `python --version` |
 | Ruby       | 3.1.4p223     | `ruby --version`   |
 
@@ -181,7 +181,7 @@ You can verify the version of the language using the command listed in the table
 [13]: /cli/azure/
 [14]: /powershell/azure
 [15]: /powershell/exchange/exchange-online-powershell
-[16]: /powershell/scripting/whats-new/what-s-new-in-powershell-73
+[16]: /powershell/scripting/whats-new/what-s-new-in-powershell-74
 [17]: /sql/tools/sqlcmd-utility
 [18]: https://batch-shipyard.readthedocs.io/en/latest/
 [19]: https://blobxfer.readthedocs.io/en/latest/
