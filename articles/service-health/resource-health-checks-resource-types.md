@@ -264,7 +264,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.SQL/servers/databases
 |Executed Checks|
 |---|
-| - Have login attempts to the database failed because the database was unavailable?|
+| - When there are many logins, have more than a quarter of the login attempts failed for system reasons?<br> - Have more that one login attempt failed for system reasons (in two of the last three minutes)?|
 
 ## Microsoft.Storage/storageAccounts
 |Executed Checks|

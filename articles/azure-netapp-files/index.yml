@@ -70,7 +70,7 @@ landingContent:
             url: azure-netapp-files-create-volumes-smb.md
           - text: Create a dual-protocol volume
             url: create-volumes-dual-protocol.md
-      - linkListType: how-to-guide
+      - linkListType: reference
         links:
           - text: REST API
             url: azure-netapp-files-develop-with-rest-api.md

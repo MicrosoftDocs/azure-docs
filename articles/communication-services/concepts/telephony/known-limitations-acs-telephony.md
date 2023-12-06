@@ -5,7 +5,7 @@ author: boris-bazilevskiy
 manager: rcole
 services: azure-communication-services
 ms.author: bobazile
-ms.date: 11/08/2023
+ms.date: 12/05/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
@@ -29,6 +29,7 @@ This article provides information about limitations and known issues related to 
 - No quality dashboard is available for customers.
 - Enhanced 911 isn't supported.
 - In-band DTMF is not supported, use RFC 2833 DTMF instead.
+- Multiple IP addresses mapped with the same FQDN on the SBC side are not supported.
 
 ## Next steps
 

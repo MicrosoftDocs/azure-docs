@@ -69,9 +69,6 @@ Get started by creating an Azure Managed Grafana workspace using the Azure porta
 
     :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of a Managed Grafana instance.":::
 
-> [!NOTE]
-> Azure Managed Grafana doesn't currently support connecting with personal Microsoft accounts.
-
 You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](../azure-monitor/visualize/grafana-plugin.md).
 
 ## Clean up resources

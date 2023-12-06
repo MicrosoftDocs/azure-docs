@@ -67,9 +67,6 @@ ms.date: 10/11/2023
 1. Create an Azure load testing resource with the `azure load create` command:
 
     ```azurecli
-    loadTestResource="<load-testing-resource-name>"
-    resourceGroup="<resource-group-name>"
-    location="East US"
     az load create --name $loadTestResource --resource-group $resourceGroup --location $location
     ```
 
