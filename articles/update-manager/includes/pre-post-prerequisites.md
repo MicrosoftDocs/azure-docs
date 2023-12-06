@@ -43,13 +43,3 @@ ms.date: 08/02/2023
     ```
   ---
 3. Import the `Az.ResourceGraph` module, ensure the module is updated to ThreadJob with the module version 2.0.3.
-
-
-## Register your subscription for public preview
-
-To self-register your subscription for public preview in Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
-1. On the **All services** page, search for **Preview features**.
-1. On the **Preview Features** page, search and select **Pre and Post maintenance activity support for InGuest Patch**.
-1. Select the feature and then select **Register** to register the subscription.
