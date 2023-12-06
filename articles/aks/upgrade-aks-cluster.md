@@ -253,7 +253,7 @@ To stagger a node upgrade in a controlled manner and minimize application downti
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 > [!NOTE] 
-> To use node soak duration (preview), you must have the aks-preview Azure CLI extension version 0.5.169 or later installed.
+> To use node soak duration (preview), you must have the aks-preview Azure CLI extension version 0.5.173 or later installed.
 
 * Enable the aks-preview Azure CLI.
 

@@ -52,7 +52,7 @@ The combination of [Planned Maintenance Window][planned-maintenance], [Max Surge
 * [Node soak time][soak-time] (preview) helps stagger node upgrades in a controlled manner and can minimize application downtime during an upgrade. You can specify a wait time, preferably as reasonably close to 0 minutes as possible, to check application readiness between node upgrades. If not specified, the default value is 0 minutes. Node soak time works together with the max surge and node drain timeout properties available in the node pool to deliver the right outcomes in terms of upgrade speed and application availability.
 
     > [!NOTE] 
-    > To use node soak duration (preview), you must have the aks-preview Azure CLI extension version 0.5.169 or later installed.
+    > To use node soak duration (preview), you must have the aks-preview Azure CLI extension version 0.5.173 or later installed.
 
 
 ## Next steps
