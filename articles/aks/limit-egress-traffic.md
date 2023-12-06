@@ -12,7 +12,7 @@ author: asudbring
 
 # Limit Network Traffic with Azure Firewall in Azure Kubernetes Service (AKS) 
 
-This article provides a walkthrough of how to use the [Outbound network and FQDN rules for AKS clusters][outbound-fqdn-rules] to control egress traffic using Azure Firewall in AKS. To simplify this configuration, Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) FQDN that restricts outbound traffic from the AKS cluster. This article also provides an example of how to configure public inbound traffic via the firewall.
+Learn how to use the [Outbound network and FQDN rules for AKS clusters][outbound-fqdn-rules] to control egress traffic using the Azure Firewall in AKS. To simplify this configuration, Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) Fully Qualified Domain Name (FQDN) tag that restricts outbound traffic from the AKS cluster. This article shows how you can configure your AKS Cluster traffic rules through Azure firewall.
 
 > [!NOTE]
 >
@@ -108,7 +108,7 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
     az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
     ```
 
-2. Register the [Azure Firewall preview CLI extension](https://github.com/Azure/azure-cli-extensions/tree/main/src/azure-firewall) to create an Azure Firewall using the [`az extension add`][az-extension-add] command.
+2. Register the [Azure Firewall CLI extension](https://github.com/Azure/azure-cli-extensions/tree/main/src/azure-firewall) to create an Azure Firewall using the [`az extension add`][az-extension-add] command.
 
     ```azurecli-interactive
     az extension add --name azure-firewall
