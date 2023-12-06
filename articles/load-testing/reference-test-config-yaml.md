@@ -7,7 +7,7 @@ ms.service: load-testing
 ms.topic: reference
 ms.author: nicktrog
 author: ntrogh
-ms.date: 05/08/2023
+ms.date: 12/06/2023
 adobe-target: true
 ---
 
@@ -19,17 +19,27 @@ Learn how to configure your load test in Azure Load Testing by using [YAML](http
 
 A load test configuration uses the following keys:
 
-| Key | Type | Default value | Description | 
-| ----- | ----- | ----- | ---- |
-| `version` | string |  | Version of the YAML configuration file that the service uses. Currently, the only valid value is `v0.1`. |
-| `testId` | string |  | *Required*. ID of the test to run. testId must be between 2 to 50 characters. For a new test, enter an ID with characters [a-z0-9_-]. For an existing test, you can get the test ID from the test details page in Azure portal. This field was called `testName` earlier, which has been deprecated. You can still run existing tests with `testName`field. |
-| `displayName` | string |  | Display name of the test. This is shown in the list of tests in Azure portal. If not provided, testId is used as the display name. |
-| `testKind` | string | | *URL* or *JMETER* to indicate a URL-based load test or JMeter-based load test. |
-| `testPlan` | string |  | *Required*. If `testKind: JMETER`: relative path to the Apache JMeter test script to run.<br/>If `testKind: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md). |
-| `engineInstances` | integer |  | *Required*. Number of parallel instances of the test engine to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
-| `configurationFiles` | array |  | List of relevant configuration files or other files that you reference in the Apache JMeter script. For example, a CSV data set file, images, or any other data file. These files are uploaded to the Azure Load Testing resource alongside the test script. If the files are in a subfolder on your local machine, use file paths that are relative to the location of the test script. <BR><BR>Azure Load Testing currently doesn't support the use of file paths in the JMX file. When you reference an external file in the test script, make sure to only specify the file name. |
-| `description` | string |  | Short description of the test. description must have a maximum length of 100 characters |
-| `subnetId` | string |  | Resource ID of the subnet for testing privately hosted endpoints (virtual network injection). This subnet hosts the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
+| Key | Type | Required | Default value | Description | 
+| ----- | ----- | ----- | ----- | ---- |
+| `version` | string | Y |  | Load test specification version. The only supported value is `v0.1`. |
+| `testId` | string | Y |  | Unique identifier of the load test. The value must be between 2 and 50 characters ([a-z0-9_-]). For an existing test, you can get the `testId` from the test details page in the Azure portal. |
+| `testName` | string | N |  | **Deprecated**. Unique identifier of the load test. This setting is replaced by `testId`. You can still run existing tests with the `testName` field. |
+| `displayName` | string | N |  | Display name of the test. This value is shown in the list of tests in the Azure portal. If not provided, `testId` is used as the display name. |
+| `description` | string | N |  | Short description of the test. The value has a maximum length of 100 characters. |
+| `testType` | string | Y | | Test type. Possible values:<br/><ul><li>`URL`: URL-based load test</li><li>`JMETER`: JMeter-based load test</li></ul> |
+| `testPlan` | string | Y |  | Reference to the test plan file.<br/><ul><li>If `testType: JMETER`: relative path to the JMeter test script.</li><li>If `testType: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md).</li></ul> |
+| `engineInstances` | integer | Y |  | Number of parallel test engine instances for running the test plan. Learn more about [configuring high-scale load](./how-to-high-scale-load.md). |
+| `configurationFiles` | array of string | N |  | List of external files, required by the test script. For example, CSV data files, images, or any other data file.<br/>Azure Load Testing uploads all files in the same folder as the test script. In the JMeter script, only refer to external files using the file name, and remove any file path information. |
+| `failureCriteria` | object | N |  | List of load test fail criteria. See [failureCriteria](#failurecriteria-configuration) for more details. |
+| `autoStop` | string or object | N |  | Automatically stop the load test when the error percentage exceeds a value.<br/>Possible values:<br/>- `disable`: don't stop a load test automatically.<br/>- *object*: see [autostop](#autostop-configuration) configuration for more details. |
+| `properties` | object | N |  | JMeter user property file references. See [properties](#properties-configuration) for more details. |
+| `zipArtifacts` | array of string| N |  | List of zip artifact files. For files other than JMeter scripts and user properties, if the file size exceeds 50MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. |
+| `splitAllCSVs` | boolean | N | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
+| `secrets` | object | N |  | List of secrets that the Apache JMeter script references. See [secrets](#secrets-configuration) for more details. |
+| `env` | object | N |  | List of environment variables that the Apache JMeter script references. See [environment variables](#env-configuration) for more details. |
+| `certificates` | object | N |  | List of client certificates for authenticating with application endpoints in the JMeter script. See [certificates](#certificates-configuration) for more details.|
+| `keyVaultReferenceIdentity` | string | N |  | Resource ID of the user-assigned managed identity for accessing the secrets from your Azure Key Vault. If you use a system-managed identity, this information isn't needed. Make sure to grant this user-assigned identity access to your Azure key vault. Learn more about [managed identities in Azure Load Testing](./how-to-use-a-managed-identity.md). |
+| `subnetId` | string | N |  | Resource ID of the virtual network subnet for testing privately hosted endpoints. This subnet hosts the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 
 ### `failureCriteria` configuration
 
