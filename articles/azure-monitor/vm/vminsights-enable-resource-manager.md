@@ -49,7 +49,7 @@ This step installs a data collection rule with a name in the format `MSVMI-{Work
 
 After you create the data collection rule, deploy:
 
-- [Azure Monitor Agent for Linux or Windows](../../agents/resource-manager-agent.md#azure-monitor-agent).
+- [Azure Monitor Agent for Linux or Windows](../agents/resource-manager-agent.md#azure-monitor-agent).
 - [Dependency agent for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) or [Dependency agent or Windows](../../virtual-machines/extensions/agent-dependency-windows.md) if you want to enable the Map feature. 
   
 > [!NOTE]
