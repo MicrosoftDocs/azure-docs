@@ -10,20 +10,16 @@ title: Azure Cloud Shell features
 
 Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
 
-Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure
+Cloud Shell offers a browser-accessible, preconfigured shell experience for managing Azure
 resources without the overhead of installing, versioning, and maintaining a machine yourself.
 
 Cloud Shell allocates machines on a per-request basis and as a result machine state doesn't
 persist across sessions. Since Cloud Shell is built for interactive sessions, shells automatically
 terminate after 20 minutes of shell inactivity.
 
-Azure Cloud Shell runs on **Azure Linux**, Microsoft's Linux distribution for
-cloud-infrastructure-edge products and services.
-
-Microsoft internally compiles all the packages included in the **Azure Linux** repository to help
-guard against supply chain attacks. Tooling has been updated to reflect the new base image for Azure
-Linux. If these changes affected your Cloud Shell environment, contact Azure Support or create an
-issue in the [Cloud Shell repository][26].
+Azure Cloud Shell runs on **Azure Linux**, Microsoft's Linux distribution for cloud infrastructure
+edge products and services. Microsoft internally compiles all the packages included in the **Azure
+Linux** repository to help guard against supply chain attacks.
 
 ## Features
 
@@ -38,10 +34,10 @@ To persist files across sessions, Cloud Shell walks you through attaching an Azu
 first launch. Once completed, Cloud Shell will automatically attach your storage (mounted as
 `$HOME\clouddrive`) for all future sessions. Additionally, your `$HOME` directory is persisted as an
 .img in your Azure File share. Files outside of `$HOME` and machine state aren't persisted across
-sessions. Use best practices when storing secrets such as SSH keys. Services, like
-Azure Key Vault, have [tutorials for setup][02].
+sessions. Learn more about [Persisting files in Cloud Shell][09].
 
-Learn more about [Persisting files in Cloud Shell][09].
+Use best practices when storing secrets such as SSH keys. You can use Azure Key Vault to securely
+store and retrieve your keys. For more information, see [Manage Key Vault using the Azure CLI][02].
 
 ### Azure drive (Azure:)
 
@@ -69,14 +65,14 @@ For more information about using the ExchangeOnlineManagement module, see
 
 ### Deep integration with open source tooling
 
-Cloud Shell includes pre-configured authentication for open source tools such as Terraform, Ansible,
+Cloud Shell includes preconfigured authentication for open source tools such as Terraform, Ansible,
 and Chef InSpec. For more information, see the following articles:
 
 - [Run Ansible playbook][11]
 - [Manage your Azure dynamic inventories][10]
 - [Install and configure Terraform][12]
 
-### Pre-installed tools
+### Preinstalled tools
 
 The most commonly used tools are preinstalled in Cloud Shell.
 
