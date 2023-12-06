@@ -82,9 +82,9 @@ On the **Device inventory** page, select **Go hunt** to query devices using tabl
 
 ## Sample advanced hunting queries for Enterprise IoT
 
-This section lists 2 sample advanced hunting queries that you can use in Microsoft 365 Defender to help you monitor and secure your IoT devices with Enterprise for IoT security. 
+This section lists sample advanced hunting queries that you can use in Microsoft 365 Defender to help you monitor and secure your IoT devices with Enterprise for IoT security. 
 
-### To find devices by specific type or subtype:
+### Find devices by specific type or subtype
 
 Use the following query to identify devices that exist in your corporate network by type of device, such as routers:  
 
@@ -94,7 +94,7 @@ Use the following query to identify devices that exist in your corporate network
 | where DeviceType == "NetworkDevice" and DeviceSubtype  == "Router"  
 ```
 
-## To find and export vulnerabilities for your IoT devices
+### Find and export vulnerabilities for your IoT devices
 
 Use the following query to list all vulnerabilities on your IoT devices:
 
