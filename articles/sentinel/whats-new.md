@@ -37,7 +37,7 @@ To support this integration, Microsoft has added a new **Tenant-based Microsoft 
 
 This connector can be used to ingest Defender for Cloud alerts, regardless of whether you have Defender XDR incident integration enabled.
 
-- Learn more about [Microsoft Defender for Cloud integration with Microsoft Defender XDR](../defender-for-cloud/release-notes.md#defender-for-cloud-is-now-integrated-with-microsoft-defender-xdr-preview).
+- Learn more about [Microsoft Defender for Cloud integration with Microsoft Defender XDR](../defender-for-cloud/release-notes.md#defender-for-cloud-is-now-integrated-with-microsoft-365-defender-preview).
 - Learn more about [ingesting Defender for Cloud incidents into Microsoft Sentinel](ingest-defender-for-cloud-incidents.md).
 <!--
 - Learn how to [connect the tenant-based Defender for Cloud data connector](connect-defender-for-cloud-tenant.md) (in Preview).
