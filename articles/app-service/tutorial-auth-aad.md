@@ -122,7 +122,7 @@ Create the resource group, web app plan, the web app and deploy in a single step
 1. Deploy the backend web app to same resource group and app plan. Because web app name has to be globally unique, replace `<back-end-app-name>` with a unique set of initials or numbers. 
 
     ```azurecli-interactive
-    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --runtime "NODE:16-lts"
+    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --sku FREE --location "West Europe" --runtime "NODE:16-lts"
     ```
 
 ::: zone-end
