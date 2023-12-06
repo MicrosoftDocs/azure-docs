@@ -244,7 +244,7 @@ sections:
           - Max allowed size of input images is 4 MB.
           - Max token support is 16k (context+generated = 16,384).
           - Images in CMYK color spaces aren't supported (JPEGs are supported, but JPEGs with CMYK color space aren't supported). We recommend you use PNG format with RGB color space.
-          - Although images provided as input to chat API are treated as high resolution images by default, GPT-4 with Vision will down-sample it to (2048, 2048) resolution. The high resolution feature might not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
+          - Although images provided as input to chat API are treated as high resolution images by default, GPT-4 Turbo with Vision will down-sample it to (2048, 2048) resolution. The high resolution feature might not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
 
   - name: Web app
     questions:

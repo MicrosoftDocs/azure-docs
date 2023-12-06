@@ -29,7 +29,7 @@ To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Visi
 
 The following REST command shows the most basic way to use the GPT-4 Turbo with Vision model with code. If this is your first time using these models programmatically, we recommend starting with our [GPT-4 Turbo with Vision quickstart](../gpt-v-quickstart.md).
 
-Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-08-01-preview` where 
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-12-01-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
 - DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 
