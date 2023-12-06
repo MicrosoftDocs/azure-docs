@@ -462,14 +462,8 @@ items:
       items:
       - name: Overview
         href: containers/container-insights-onboard.md
-      - name: AKS cluster
-        href: containers/enable-monitoring-aks.md
-      - name: Arc-enabled Kubernetes cluster
-        items:
-        - name: Prometheus
-          href: containers/prometheus-metrics-from-arc-enabled-cluster.md 
-        - name: Container insights
-          href: containers/container-insights-enable-arc-enabled-clusters.md
+      - name: Onboard process
+        href: containers/enable-kubernetes-monitoring.md
       - name: Agent management
         href: containers/container-insights-manage-agent.md
       - name: Disable monitoring

@@ -41,15 +41,22 @@ Container insights sends data to [Logs](../logs/data-platform-logs.md) and [Metr
 
 
 ## Supported configurations
-Container insights supports the following configurations:
+Container insights supports the following environments:
 
-- [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md).
-- [Azure Container Instances](../../container-instances/container-instances-overview.md).
-- Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises.
-- [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md).
-- AKS for ARM64 nodes.
+- [Azure Kubernetes Service (AKS)](../../aks/index.yml)
+- Following [Azure Arc-enabled Kubernetes cluster distributions](../../azure-arc/kubernetes/validation-program.md):
+  - AKS on Azure Stack HCI
+  - AKS Edge Essentials
+  - Canonical
+  - Cluster API Provider on Azure
+  - K8s on Azure Stack Edge
+  - Red Hat OpenShift version 4.x
+  - SUSE Rancher (Rancher Kubernetes engine)
+  - SUSE Rancher K3s
+  - VMware (ie. TKG)
 
-Container insights supports clusters running the Linux and Windows Server 2019 operating system. The container runtimes it supports are Moby and any CRI-compatible runtime such as CRI-O and ContainerD. Docker is no longer supported as a container runtime as of September 2022. For more information about this deprecation, see the [AKS release notes][aks-release-notes].
+> [!NOTE]
+> Container insights supports ARM64 nodes on AKS. See [Cluster requirements](../../azure-arc/kubernetes/system-requirements.md#cluster-requirements) for the details of Azure Arc-enabled clusters that support ARM64 nodes.
 
 >[!NOTE]
 > Container insights support for Windows Server 2022 operating system is in public preview.

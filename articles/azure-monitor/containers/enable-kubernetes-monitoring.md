@@ -7,7 +7,7 @@ ms.custom: ignite-2022
 ms.reviewer: aul
 ---
 
-# Enable monitoring for Azure Kubernetes Service (AKS) cluster
+# Enable monitoring for Kubernetes clusters
 
 Complete monitoring for a managed Kubernetes cluster hosted on [Azure Kubernetes Service (AKS)](../../aks/index.yml) includes enabling the following features of Azure Monitor. This article describes how to enable these features on for complete monitoring of an AKS cluster.
 
@@ -17,13 +17,24 @@ Complete monitoring for a managed Kubernetes cluster hosted on [Azure Kubernetes
 
 Using the Azure portal, you can enable all of the features at the same time. You can also enable them individually by using the Azure portal, Azure CLI, Azure Resource Manager template, Bicep, Terraform, or Azure Policy. Each of these methods is described in this article.
 
-
 > [!IMPORTANT]
 > This article describes default configuration settings. See [Configure agent data collection for Container insights](container-insights-agent-config.md) and [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](prometheus-metrics-scrape-configuration.md) to customize your configuration to ensure that you aren't collecting more data than you require.
 
+## Supported configurations
+This article applies to the following clusters:
+
+- [Azure Kubernetes Service (AKS)](../../aks/index.yml)
+- [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/validation-program.md)
+
 ## Prerequisites
 
+- Verify the [firewall requirements for Container insights](./container-insights-onboard.md#network-firewall-requirements) in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
+- If you are using an Arc enabled cluster on AKS, and previously installed [monitoring for AKS](./container-insights-enable-existing-clusters.md), please ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install.
+- If you had previously deployed Azure Monitor Container Insights on this cluster using script without cluster extensions, follow the instructions at [here](container-insights-optout-hybrid.md) to delete this Helm chart. You can then continue to creating a cluster extension instance for Azure Monitor Container Insights.
+
+
 **Prometheus requirements**
+
 - The cluster must use [managed identity authentication](../../aks/use-managed-identity.md).
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor workspace:
   - Microsoft.ContainerService
@@ -31,11 +42,12 @@ Using the Azure portal, you can enable all of the features at the same time. You
   - Microsoft.AlertsManagement
 
 **Workspaces**
+
 Each of the features requires a workspace. You can create each workspace as part of the onboarding process or use an existing workspace. 
 
 | Feature | Workspace | Notes |
 |:---|:---|:---|
-| Container insights | [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) | You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Microsoft Entra tenant, but you must use the Azure CLI or an Azure Resource Manager template. You can't currently perform this configuration with the Azure portal.<br><br>If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the *Microsoft.ContainerService* resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider). |
+| Container insights | [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) | You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Microsoft Entra tenant, but you must use the Azure CLI or an Azure Resource Manager template. You can't currently perform this configuration with the Azure portal.<br><br>If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the *Microsoft.ContainerService* resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).<br><br> |
 | Prometheus | [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) | `Contributor` permission is enough for enabling the addon to send data to the Azure Monitor workspace. You will need `Owner` level permission in case you're trying to link your Azure Monitor Workspace to view metrics in Azure Managed Grafana. This is required because the user executing the onboarding step, needs to be able to give the Azure Managed Grafana System Identity `Monitoring Reader` role on the Azure Monitor Workspace to query the metrics. |
 | Grafana | [Grafana workspace]() | |
 
@@ -46,7 +58,7 @@ Using the Azure portal, you can enable both Container insights and Managed Prome
 > [!NOTE]
 > If you want to enabled Managed Prometheus without Container insights, then [enable it from the Azure Monitor workspace](./prometheus-metrics-enable.md) as described below.
 
-### New cluster
+### New AKS cluster
 
 When you create a new AKS cluster in the Azure portal, you can enable Prometheus, Container insights, and Grafana from the **Integrations** tab. In the Azure Monitor section, select either **Default configuration** or **Custom configuration** if you want to specify which workspaces to use. You can perform additional configuration once the cluster is created.
 
@@ -92,11 +104,12 @@ Use the following options to enable Container insights on your AKS cluster.
 
 ### [CLI](#tab/cli)
 
+Use one of the following commands to enable monitoring of your AKS and Arc-enabled clusters. If you don't specify an existing Log Analytics workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format `DefaultWorkspace-<GUID>-<Region>`.
+
 > [!NOTE]
-> Managed identity authentication will be default in CLI version 2.49.0 or higher. If you need to use legacy/non-managed identity authentication, use CLI version < 2.49.0. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](container-insights-logging-v2.md) via the ConfigMap
+> Managed identity authentication will be default in CLI version 2.49.0 or higher. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](container-insights-logging-v2.md) via the ConfigMap.
 
-#### Use a default Log Analytics workspace
-
+#### AKS cluster
 Use one of the following commands to enable monitoring of your AKS cluster. If you don't specify an existing Log Analytics workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format `DefaultWorkspace-<GUID>-<Region>`.
 
 ```azurecli
@@ -114,6 +127,36 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
 ```
 
 
+#### Arc-enabled cluster
+
+>[!NOTE]
+> Managed identity authentication is the default in k8s-extension version 1.43.0 or higher.
+> 
+> Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with **ARO**.
+
+```azurecli
+### Use default Log Analytics workspace
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
+
+### Use existing Log Analytics workspace
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=<armResourceIdOfExistingWorkspace>
+
+### Use advanced configuration settings
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  amalogs.resources.daemonset.limits.cpu=150m amalogs.resources.daemonset.limits.memory=600Mi amalogs.resources.deployment.limits.cpu=1 amalogs.resources.deployment.limits.memory=750Mi
+
+### On Azure Stack Edge
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.logsettings.custommountpath=/home/data/docker
+
+```
+
+**Example**
+
+```azurecli
+az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
+```
+
+
+
 ### [Azure Resource Manager](#tab/arm)
 
 #### Prerequisites
@@ -123,49 +166,41 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
 #### Download and install template
 
 1. Download the template and parameter file.
+
+    **AKS ARM**
    - Template file: [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file)
    - Parameter file: [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file)
 
-2. Edit the following values in the parameter file:
+    **AKS Bicep**
+    - Template file (Syslog): [https://aka.ms/enable-monitoring-msi-syslog-bicep-template](https://aka.ms/enable-monitoring-msi-syslog-bicep-template)
+    - Parameter file (No Syslog): [https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters](https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters)
+    - Template file (No Syslog): [https://aka.ms/enable-monitoring-msi-bicep-template](https://aka.ms/enable-monitoring-msi-bicep-template)
+    - Parameter file (No Syslog): [https://aka.ms/enable-monitoring-msi-bicep-parameters](https://aka.ms/enable-monitoring-msi-bicep-parameters)
+
+    **Arc-Enabled ARM**
+    - Template file: [https://aka.ms/arc-k8s-azmon-extension-arm-template](https://aka.ms/arc-k8s-azmon-extension-arm-template)
+    - Parameter file: [https://aka.ms/arc-k8s-azmon-extension-arm-template-params](https://aka.ms/arc-k8s-azmon-extension-arm-template-params)
+
+2. Edit the following values in the parameter file. Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
+
+    **AKS**
 
     | Parameter | Description |
     |:---|:---|
-    | `aksResourceId` | Use the values on the **AKS Overview** page for the AKS cluster. |
-    | `aksResourceLocation` | Use the values on the **AKS Overview** page for the AKS cluster. |
-    | `workspaceResourceId` | Use the resource ID of your Log Analytics workspace. |
-    | `resourceTagValues` | Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be *MSCI-\<clusterName\>-\<clusterRegion\>* and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values. |
+    | `aksResourceId` | Resource ID of the cluster. |
+    | `aksResourceLocation` | Location of the cluster. |
+    | `workspaceResourceId` | Resource ID of the Log Analytics workspace. |
+    | `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be `MSCI-<clusterName>-<clusterRegion>` and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
 
-3. Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
+    **Arc-enabled**
 
-### [Bicep](#tab/bicep)
-
-#### Prerequisites
- 
-- The template must be deployed in the same resource group as the cluster.
-
-#### Download and install template
-
-1.	Download the Bicep templates and parameter files depending on whether you want to enable Syslog collection.
-
-    **Syslog**
-    - Template file: [Template without Syslog](https://aka.ms/enable-monitoring-msi-bicep-template)
-    - Parameter file: [Parameter without Syslog](https://aka.ms/enable-monitoring-msi-bicep-parameters)
-
-    **No Syslog**
-    - Template file: [Template with Syslog](https://aka.ms/enable-monitoring-msi-syslog-bicep-template)
-    - Parameter file: [Parameter with Syslog](https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters)
-
-2.	Edit the following values in the parameter file:
- 
     | Parameter | Description |
     |:---|:---|
-    | `aksResourceId` | Use the values on the AKS Overview page for the AKS cluster. |
-    | `aksResourceLocation` | Use the values on the AKS Overview page for the AKS cluster. |
-    | `workspaceResourceId` | Use the resource ID of your Log Analytics workspace. |
-    | `workspaceRegion` | Use the location of your Log Analytics workspace. |
-    | `resourceTagValues` | Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will match `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values. |
-    | `enabledContainerLogV2` | Set this parameter value to be true to use the default recommended ContainerLogV2 schema
-    | Cost optimization parameters | Refer to [Data collection parameters](container-insights-cost-config.md#data-collection-parameters) |
+    | `clusterResourceId` | Resource ID of the cluster. |
+    | `clusterRegion` | Location of the cluster. |
+    | `workspaceResourceId` | Resource ID of the Log Analytics workspace. |
+    | `workspaceRegion` | Region of the Log Analytics workspace. |
+    | `workspaceDomain` | Domain of the Log Analytics workspace. `opinsights.azure.com` for Azure public cloud and `opinsights.azure.us for AzureUSGovernment.` 
 
 3. Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
 
@@ -250,23 +285,28 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
 ## Enable Prometheus and Grafana
 
 
-#### [CLI](#tab/cli)
+### [CLI](#tab/cli)
 
-##### Prerequisites
+ If you don't specify an existing Azure Monitor workspace in the following commands, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one with a name in the format `DefaultAzureMonitorWorkspace-<mapped_region>` will be created in a resource group with the name `DefaultRG-<cluster_region>`.
+
+Any of the commands can use the following optional parameters:
+
+| Parameter (AKS) | Parameter (Arc) | Description |
+|:---|:---|
+| `--ksm-metric-annotations-allow-list` | `AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList` | Comma-separated list of Kubernetes annotations keys used in the resource's kube_resource_annotations metric. For example, kube_pod_annotations is the annotations metric for the pods resource. By default, this metric contains only name and namespace labels. To include more annotations, provide a list of resource names in their plural form and Kubernetes annotation keys that you want to allow for them. A single `*` can be provided for each resource to allow any annotations, but this has severe performance implications. For example, `pods=[kubernetes.io/team,...],namespaces=[kubernetes.io/team],...`. |
+| `--ksm-metric-labels-allow-list` | `AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist` | Comma-separated list of more Kubernetes label keys that is used in the resource's kube_resource_labels metric kube_resource_labels metric. For example, kube_pod_labels is the labels metric for the pods resource. By default this metric contains only name and namespace labels. To include more labels, provide a list of resource names in their plural form and Kubernetes label keys that you want to allow for them A single `*` can be provided for each resource to allow any labels, but i this has severe performance implications. For example, `pods=[app],namespaces=[k8s-label-1,k8s-label-n,...],...`. |
+| `--enable-windows-recording-rules` | lets you enable the recording rule groups required for proper functioning of the Windows dashboards. |
+
+
+#### AKS cluster
+Use the `-enable-azure-monitor-metrics` option `az aks create` or `az aks update` (depending whether you're creating a new cluster or updating an existing cluster) to install the metrics add-on that scrapes Prometheus metrics.
+
+**Prerequisites**
 
 - The aks-preview extension must be uninstalled by using the command `az extension remove --name aks-preview`. For more information on how to uninstall a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 - Az CLI version of 2.49.0 or higher is required. Check the aks-preview version by using the `az version` command.
 
-##### Install the metrics add-on
-Use the `-enable-azure-monitor-metrics` option `az aks create` or `az aks update` (depending whether you're creating a new cluster or updating an existing cluster) to install the metrics add-on that scrapes Prometheus metrics. If you don't specify an existing Azure Monitor workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one with a name in the format `DefaultAzureMonitorWorkspace-<mapped_region>` will be created in a resource group with the name `DefaultRG-<cluster_region>`.
-
-Any of the commands can use the following optional parameters:
-
-| Parameter | Description |
-|:---|:---|
-| `--ksm-metric-annotations-allow-list` | Comma-separated list of Kubernetes annotations keys used in the resource's kube_resource_annotations metric. For example, kube_pod_annotations is the annotations metric for the pods resource. By default, this metric contains only name and namespace labels. To include more annotations, provide a list of resource names in their plural form and Kubernetes annotation keys that you want to allow for them. A single `*` can be provided for each resource to allow any annotations, but this has severe performance implications. For example, `pods=[kubernetes.io/team,...],namespaces=[kubernetes.io/team],...`. |
-| `--ksm-metric-labels-allow-list` | Comma-separated list of more Kubernetes label keys that is used in the resource's kube_resource_labels metric kube_resource_labels metric. For example, kube_pod_labels is the labels metric for the pods resource. By default this metric contains only name and namespace labels. To include more labels, provide a list of resource names in their plural form and Kubernetes label keys that you want to allow for them A single `*` can be provided for each resource to allow any labels, but i this has severe performance implications. For example, `pods=[app],namespaces=[k8s-label-1,k8s-label-n,...],...`. |
-| `--enable-windows-recording-rules` | lets you enable the recording rule groups required for proper functioning of the Windows dashboards. |
+**Sample commands**
 
 ```azurecli
 ### Use default Azure Monitor workspace
@@ -282,19 +322,32 @@ az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluste
 az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluster-resource-group> --ksm-metric-labels-allow-list "namespaces=[k8s-label-1,k8s-label-n]" --ksm-metric-annotations-allow-list "pods=[k8s-annotation-1,k8s-annotation-n]"
 ```
 
-The output is similar to the following:
+#### Arc-enabled cluster
 
-```json
-    "azureMonitorProfile": {
-        "metrics": {
-          "enabled": true,
-          "kubeStateMetrics": {
-            "metricAnnotationsAllowList": "pods=[k8s-annotation-1,k8s-annotation-n]",
-            "metricLabelsAllowlist": "namespaces=[k8s-label-1,k8s-label-n]"
-          }
-        }
-      }
+**Prerequisites**
+
+- The k8s-extension extension must be installed. Install the extension using the command az extension add --name k8s-extension.
+- The k8s-extension version 1.4.1 or higher is required. Check the k8s-extension version by using the az version command.
+
+
+**Sample commands**
+
+```azurecli
+### Use default Azure Monitor workspace
+az k8s-extension create --name azuremonitor-metrics --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers.Metrics
+
+## Use existing Azure Monitor workspace
+az k8s-extension create --name azuremonitor-metrics --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers.Metrics --configuration-settings azure-monitor-workspace-resource-id=<workspace-name-resource-id>
+
+### Use an existing Azure Monitor workspace and link with an existing Grafana workspace
+az k8s-extension create --name azuremonitor-metrics --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers.Metrics --configuration-settings azure-monitor-workspace-resource-id=<workspace-name-resource-id> grafana-resource-id=<grafana-workspace-name-resource-id>
+
+### Use optional parameters
+az k8s-extension create --name azuremonitor-metrics --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers.Metrics --configuration-settings azure-monitor-workspace-resource-id=<workspace-name-resource-id> grafana-resource-id=<grafana-workspace-name-resource-id> AzureMonitorMetrics.KubeStateMetrics.MetricAnnotationsAllowList="pods=[k8s-annotation-1,k8s-annotation-n]" AzureMonitorMetrics.KubeStateMetrics.MetricsLabelsAllowlist "namespaces=[k8s-label-1,k8s-label-n]"
 ```
+
+
+
 
 ### [Azure Resource Manager](#tab/arm)
 
@@ -304,6 +357,12 @@ The output is similar to the following:
 - The template must be deployed in the same resource group as the Azure Managed Grafana instance.
 - If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor workspace subscription, register the Azure Monitor workspace subscription with the `Microsoft.Dashboard` resource provider using the guidance at [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Users with the `User Access Administrator` role in the subscription of the AKS cluster can enable the `Monitoring Reader` role directly by deploying the template.
+
+> [!NOTE]
+> Currently in Bicep, there's no way to explicitly scope the `Monitoring Reader` role assignment on a string parameter "resource ID" for an Azure Monitor workspace like in an ARM template. Bicep expects a value of type `resource | tenant`. There is also no REST API [spec](https://github.com/Azure/azure-rest-api-specs) for an Azure Monitor workspace.
+> 
+> Therefore, the default scoping for the `Monitoring Reader` role is on the resource group. The role is applied on the same Azure Monitor workspace by inheritance, which is the expected behavior. After you deploy this Bicep template, the Grafana instance is given `Monitoring Reader` permissions for all the Azure Monitor workspaces in that resource group.
+
 
 #### Retrieve required values for Grafana resource
 If the Azure Managed Grafana instance is already linked to an Azure Monitor workspace, then you must include this list in the template. On the **Overview** page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**, and copy the value of `azureMonitorWorkspaceIntegrations` which will look similar to the sample below. If it doesn't exist, then the instance hasn't been linked with any Azure Monitor workspace.
@@ -326,8 +385,25 @@ If the Azure Managed Grafana instance is already linked to an Azure Monitor work
 #### Download and edit template and parameter file
 
 1. Download the template and parameter file:
+
+    **AKS ARM**
+
     - Template file: [https://aka.ms/azureprometheus-enable-arm-template](https://aka.ms/azureprometheus-enable-arm-template)
-    - Parameter file: [https://aka.ms/azureprometheus-enable-arm-template-parameterss](https://aka.ms/azureprometheus-enable-arm-template-parameters)
+    - Parameter file: [https://aka.ms/azureprometheus-enable-arm-template-parameters](https://aka.ms/azureprometheus-enable-arm-template-parameters)
+
+    **AKS Bicep**
+
+    - Template file: [https://aka.ms/azureprometheus-enable-bicep-template](https://aka.ms/azureprometheus-enable-bicep-template)
+    - Parameter file: [https://aka.ms/azureprometheus-enable-bicep-template-parameters](https://aka.ms/azureprometheus-enable-arm-template-parameters)
+    - DCRA module: [https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId](https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId)
+    - Profile module: [https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId](https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId)
+
+    **Arc-Enabled ARM**
+
+    - Template file: [https://aka.ms/azureprometheus-arc-arm-template](https://aka.ms/azureprometheus-arc-arm-template)
+    - Parameter file: [https://aka.ms/azureprometheus-arc-arm-template-parameters](https://aka.ms/azureprometheus-arc-arm-template-parameters)
+
+
 
 2. Edit the following values in the parameter file.
 
@@ -343,7 +419,11 @@ If the Azure Managed Grafana instance is already linked to an Azure Monitor work
     | `grafanaLocation`   | Location for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
     | `grafanaSku`        | SKU for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. Use the **sku.name**. |
 
-4. Open the template file and update the `grafanaIntegrations` property at the end of the file with the values that you retrieved from the Grafana instance. This will look similar to the following sample. In this sample, `full_resource_id_1` and `full_resource_id_2` were already in the Azure Managed Grafana resource JSON. The final `azureMonitorWorkspaceResourceId` entry is already in the template and is used to link to the Azure Monitor workspace resource ID provided in the parameters file.
+
+
+3. Open the template file and update the `grafanaIntegrations` property at the end of the file with the values that you retrieved from the Grafana instance. This will look similar to the following sample. In this sample, `full_resource_id_1` and `full_resource_id_2` were already in the Azure Managed Grafana resource JSON. The final `azureMonitorWorkspaceResourceId` entry is already in the template and is used to link to the Azure Monitor workspace resource ID provided in the parameters file.
+
+    **ARM**
 
     ```json
     {
@@ -372,84 +452,29 @@ If the Azure Managed Grafana instance is already linked to an Azure Monitor work
     }
     ```
 
-
-### [Bicep](#tab/bicep)
-
-#### Prerequisites
-
-- The Azure Monitor workspace and Azure Managed Grafana instance must already be created.
-- The template must be deployed in the same resource group as the Azure Managed Grafana instance.
-- If the Azure Managed Grafana instance is in a subscription other than the Azure Monitor workspace subscription, register the Azure Monitor workspace subscription with the `Microsoft.Dashboard` resource provider using the guidance at [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
-- Users with the `User Access Administrator` role in the subscription of the AKS cluster can enable the `Monitoring Reader` role directly by deploying the template.
-
-> [!NOTE]
-> Currently in Bicep, there's no way to explicitly scope the `Monitoring Reader` role assignment on a string parameter "resource ID" for an Azure Monitor workspace like in an ARM template. Bicep expects a value of type `resource | tenant`. There is also no REST API [spec](https://github.com/Azure/azure-rest-api-specs) for an Azure Monitor workspace.
-> 
-> Therefore, the default scoping for the `Monitoring Reader` role is on the resource group. The role is applied on the same Azure Monitor workspace by inheritance, which is the expected behavior. After you deploy this Bicep template, the Grafana instance is given `Monitoring Reader` permissions for all the Azure Monitor workspaces in that resource group.
-
-
-#### Retrieve required values for a Grafana resource
-
-On the **Overview** page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**.
-
-If you're using an existing Azure Managed Grafana instance that's already linked to an Azure Monitor workspace, the list of already existing Grafana integrations is needed. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it doesn't exist, then the instance hasn't been linked with any Azure Monitor workspace.
-
-```json
-"properties": {
-    "grafanaIntegrations": {
-        "azureMonitorWorkspaceIntegrations": [
-            {
-                "azureMonitorWorkspaceResourceId": "full_resource_id_1"
-            },
-            {
-                "azureMonitorWorkspaceResourceId": "full_resource_id_2"
-            }
-        ]
-    }
-}
-```
-
-#### Download and edit templates and the parameter file
-
-1. Download the [main Bicep template](https://aka.ms/azureprometheus-enable-bicep-template). Save it as **FullAzureMonitorMetricsProfile.bicep**.
-2. Download the [parameter file](https://aka.ms/azureprometheus-enable-bicep-template-parameters) and save it as **FullAzureMonitorMetricsProfileParameters.json** in the same directory as the main Bicep template.
-3. Download the [nested_azuremonitormetrics_dcra_clusterResourceId.bicep](https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId) and [nested_azuremonitormetrics_profile_clusterResourceId.bicep](https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId) files into the same directory as the main Bicep template.
-4. Edit the values in the parameter file.
-5. The main Bicep template creates all the required resources. It uses two modules for creating the Data Collection Rule Associations (DCRA) and Azure Monitor metrics profile resources from the other two Bicep files.
-
-    | Parameter | Value |
-    |:---|:---|
-    | `azureMonitorWorkspaceResourceId` | Resource ID for the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
-    | `azureMonitorWorkspaceLocation` | Location of the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
-    | `clusterResourceId` | Resource ID for the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
-    | `clusterLocation` | Location of the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
-    | `metricLabelsAllowlist` | Comma-separated list of Kubernetes labels keys used in the resource's labels metric. |
-    | `metricAnnotationsAllowList` | Comma-separated list of more Kubernetes label keys used in the resource's annotations metric. |
-    | `grafanaResourceId` | Resource ID for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
-    | `grafanaLocation`   | Location for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
-    | `grafanaSku`        | SKU for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. Use the **sku.name**. |
-
-4. Open the template file and update the `grafanaIntegrations` property at the end of the file with the values that you retrieved from the Grafana instance. This will look similar to the following sample. In this sample, `full_resource_id_1` and `full_resource_id_2` were already in the Azure Managed Grafana resource JSON. The final `azureMonitorWorkspaceResourceId` entry is already in the template and is used to link to the Azure Monitor workspace resource ID provided in the parameters file.
+    **Bicep**
 
     ```json
-    resource grafanaResourceId_8 'Microsoft.Dashboard/grafana@2022-08-01' = {
-        name: split(grafanaResourceId, '/')[8]
-      sku: {
-        name: grafanaSku
-      }
-      identity: {
-        type: 'SystemAssigned'
-      }
-      location: grafanaLocation
-      properties: {
-        grafanaIntegrations: {
-          azureMonitorWorkspaceIntegrations: [
-            {
-              azureMonitorWorkspaceResourceId: azureMonitorWorkspaceResourceId
+    {
+        resource grafanaResourceId_8 'Microsoft.Dashboard/grafana@2022-08-01' = {
+          name: split(grafanaResourceId, '/')[8]
+          sku: {
+            name: grafanaSku
+          }
+          identity: {
+            type: 'SystemAssigned'
+          }
+          location: grafanaLocation
+          properties: {
+            grafanaIntegrations: {
+              azureMonitorWorkspaceIntegrations: [
+                {
+                  azureMonitorWorkspaceResourceId: azureMonitorWorkspaceResourceId
+                }
+              ]
             }
-          ]
+          }
         }
-      }
     }
     ```
 
