@@ -9,10 +9,9 @@ author: mksuni
 ms.date: 9/21/2020
 ---
 
-[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
 # Manage Azure Database for MySQL - Flexible Server using the Azure portal
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 This article shows you how to manage your Azure Database for MySQL - Flexible Servers. Management tasks include compute and storage scaling, rest server administrator password and delete your server.
 
 ## Sign in

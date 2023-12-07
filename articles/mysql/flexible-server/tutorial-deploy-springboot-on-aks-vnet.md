@@ -274,7 +274,7 @@ In this section, we'll code the demo application. If you want to go faster, you 
 	</properties>
     ```
 
-1. Update the ```<plugins>``` collection in the *pom.xml* file so that there is a ```<plugin>``` element containing an entry for the ```jib-maven-plugin```, as shown below. Note that we are using a base image from the Microsoft Container Registry (MCR): ```mcr.microsoft.com/java/jdk:8-zulu-alpine```, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre), [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless), and [Java SE JDK and Maven](https://hub.docker.com/_/microsoft-java-maven).
+1. Update the `<plugins>` collection in the *pom.xml* file so that there is a `<plugin>` element containing an entry for the `jib-maven-plugin`, as shown below. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see the [docker hub](https://hub.docker.com/).
     
     ```xml
     <plugin>
