@@ -82,13 +82,12 @@ To add a data source to Azure Managed Grafana, follow the steps below using the 
 
 ### Grafana core data sources
 
-To add a [Grafana core data source](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) with the Azure portal:
+To add a [Grafana core data source](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) using the Grafana user interface:
 
-1. Open your Azure Managed Grafana instance in the Azure portal.
-1. Select **Overview** from the left menu, then open the **Endpoint** URL.
-1. In the Grafana portal, deploy the menu on the left and select **Connections** > **Connect data**.
-1. Select a data source from the list, and add it to your instance by selecting **Create** or **Add** in the top right hand corner.
-1. Fill out the form and select **Save and test** to test and update the data source configuration.
+1. Open your Azure Managed Grafana instance in the Azure portal and go to **Overview** > **Endpoint** to open the Grafana UI.
+1. In the Grafana portal, deploy the menu on the left and select **Connections** > "Your connections** > **Add data**.
+1. Core data sources have a **Core** tag. Select a core data source from the list. The data source is automatically added to your instance.
+1. Fill out the required fields and select **Save & test** to update the data source configuration and make sure it works.
 
    :::image type="content" source="media/data-sources/add-data-source.png" alt-text="Screenshot of the Add data source page in Grafana.":::
 
