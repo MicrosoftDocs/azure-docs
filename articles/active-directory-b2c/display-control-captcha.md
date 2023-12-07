@@ -35,7 +35,7 @@ This table summarizes the elements that a CAPTCHA display control contains:
 |    OutputClaim    |  No  | Any claim to be returned to the self-asserted page after the user completes captcha code verification process.   |
 |  Actions  |  Yes  |  CAPTCHA display control contains two actions, *GetChallenge* and *VerifyChallenge*. <br> *GetChallenge* action generate, then displays the captcha challenge code on the interface. This action contains a validation technical profile, which is usually the GetChallenge[CAPTCHA technical profile](captcha-technical-profile.md), to generate and display the CAPTCHA challenge string. <br> *VerifyChallenge* action verifies the CAPTCHA challenge code that the user inputs. This action contains a validation technical profile, which is usually the VerifyChallenge [CAPTCHA technical profile](captcha-technical-profile.md), to validate the CAPTCHA code that the user inputs.  |
 
-The following XML snippet code shows an examples of CaptchaProvider display control
+The following XML snippet code shows an examples of CaptchaProvider display control:
 
 ```xml
 <DisplayControls>
