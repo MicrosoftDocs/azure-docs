@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 04/06/2023
 ---
-# Data Encryption with Customer Managed Keys Preview
+# Data Encryption with Customer Managed Keys
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

@@ -1,7 +1,9 @@
 ---
-title: Azure Functions Core Tools reference 
+title: Azure Functions Core Tools reference
 description: Reference documentation that supports the Azure Functions Core Tools (func.exe).
 ms.topic: reference
+ms.custom:
+  - ignite-2023
 ms.date: 08/20/2023
 ---
 
@@ -47,7 +49,7 @@ When you supply `<PROJECT_FOLDER>`, the project is created in a new folder with 
 | **`--model`** | Sets the desired programming model for a target language when more than one model is available. Supported options are `V1` and `V2` for Python and `V3` and `V4` for Node.js. For more information, see the [Python developer guide](functions-reference-python.md#programming-model) and the [Node.js developer guide](functions-reference-node.md), respectively. |
 | **`--source-control`** | Controls whether a git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
 | **`--worker-runtime`** | Sets the language runtime for the project. Supported values are: `csharp`, `dotnet`, `dotnet-isolated`, `javascript`,`node` (JavaScript), `powershell`, `python`, and `typescript`. For Java, use [Maven](functions-reference-java.md#create-java-functions). To generate a language-agnostic project with just the project files, use `custom`. When not set, you're prompted to choose your runtime during initialization. |
-| **`--target-framework`** | Sets the target framework for the function app project. Valid only with `--worker-runtime dotnet-isolated`. Supported values are: `net6.0` (default), `net7.0`, and `net48`. |
+| **`--target-framework`** | Sets the target framework for the function app project. Valid only with `--worker-runtime dotnet-isolated`. Supported values are: `net6.0` (default), `net7.0`, `net8.0`, and `net48` (.NET Framework 4.8). |
 |
 
 > [!NOTE]
@@ -96,7 +98,7 @@ To learn more, see [Create a function](functions-run-local.md#create-func).
 
 *Version 1.x only.*
 
-Enables you to invoke a function directly, which is similar to running a function using the **Test** tab in the Azure portal. This action is only supported in version 1.x. For later versions, use `func start` and [call the function endpoint directly](functions-run-local.md#pass-data-to-local-functions).
+Enables you to invoke a function directly, which is similar to running a function using the **Test** tab in the Azure portal. This action is only supported in version 1.x. For later versions, use `func start` and [call the function endpoint directly](functions-run-local.md#run-a-local-function).
 
 ```command
 func run
@@ -141,14 +143,14 @@ func start
 | **`--enable-json-output`** | Emits console logs as JSON, when possible. |
 | **`--enableAuth`** | Enable full authentication handling pipeline, with authorization requirements. |
 | **`--functions`** | A space-separated list of functions to load. |
-| **`--language-worker`** | Arguments to configure the language worker. For example, you may enable debugging for language worker by providing [debug port and other required arguments](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). |
+| **`--language-worker`** | Arguments to configure the language worker. For example, you can enable debugging for language worker by providing [debug port and other required arguments](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). |
 | **`--no-build`** | Don't build the current project before running. For .NET class projects only. The default is `false`.  |
 | **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. |
 | **`--port`** | The local port to listen on. Default value: 7071. |
 | **`--timeout`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
 
-With the project running, you can [verify individual function endpoints](functions-run-local.md#pass-data-to-local-functions).
+With the project running, you can [verify individual function endpoints](functions-run-local.md#run-a-local-function).
 
 # [v1.x](#tab/v1)
 

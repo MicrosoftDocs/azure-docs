@@ -4,6 +4,7 @@ description: How to configure your Azure Arc-enabled Kubernetes cluster (preview
 author: EdB-MSFT
 ms.author: edbaynash 
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 05/07/2023
 ---
 
@@ -288,4 +289,4 @@ For issues with the extension, see the [Troubleshooting Guide](./prometheus-metr
 + [Default Prometheus metrics configuration in Azure Monitor ](prometheus-metrics-scrape-default.md)
 + [Customize scraping of Prometheus metrics in Azure Monitor](prometheus-metrics-scrape-configuration.md)
 + [Use Azure Monitor managed service for Prometheus as data source for Grafana using managed system identity](../essentials/prometheus-grafana.md)
-+ [Configure self-managed Grafana to use Azure Monitor managed service for Prometheus with Azure Active Directory](../essentials/prometheus-self-managed-grafana-azure-active-directory.md)
++ [Configure self-managed Grafana to use Azure Monitor managed service for Prometheus with Microsoft Entra ID](../essentials/prometheus-self-managed-grafana-azure-active-directory.md)

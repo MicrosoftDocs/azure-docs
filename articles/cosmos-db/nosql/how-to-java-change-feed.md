@@ -23,7 +23,7 @@ Azure Cosmos DB is a fully managed NoSQL database service provided by Microsoft.
 
 ## Prerequisites
 
-* Azure Cosmos DB Account: you can create it from the [Azure portal](https://portal.azure.com/) or you can use [Azure Cosmos DB Emulator](../local-emulator.md) as well.
+* Azure Cosmos DB Account: you can create it from the [Azure portal](https://portal.azure.com/) or you can use [Azure Cosmos DB Emulator](../emulator.md) as well.
 
 * Java Development Environment: Ensure you have Java Development Kit (JDK) installed on your machine with at least 8 version.
 
@@ -51,7 +51,7 @@ cd azure-cosmos-java-sql-api-sample/src/main/java/com/azure/cosmos/examples/chan
 1. Configure the [`ChangeFeedProcessorOptions`](/java/api/com.azure.cosmos.models.changefeedprocessoroptions) in a Java application using Azure Cosmos DB and Azure Cosmos DB Java SDK V4. The [`ChangeFeedProcessorOptions`](/java/api/com.azure.cosmos.models.changefeedprocessoroptions) provides essential settings to control the behavior of the Change Feed Processor during data processing.
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=ChangeFeedProcessorOptions)]
 
-2. Initialize [`ChangeFeedProcessor`](/java/api/com.azure.cosmos.changefeedprocessor) with relevant configurations, including the host name, feed container, lease container, and data handling logic. The [`start()`](/java/api/com.azure.cosmos.changefeedprocessor#com-azure-cosmos-changefeedprocessor-start()) method initiates the data processing, enabling concurrent and real-time processing of incoming data changes from the feed container.
+2. Initialize [ChangeFeedProcessor](/java/api/com.azure.cosmos.changefeedprocessor) with relevant configurations, including the host name, feed container, lease container, and data handling logic. The [start()](/java/api/com.azure.cosmos.changefeedprocessor#com-azure-cosmos-changefeedprocessor-start()) method initiates the data processing, enabling concurrent and real-time processing of incoming data changes from the feed container.
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedProcessor.java?name=StartChangeFeedProcessor)]
 
 3. Specify the delegate handles incoming data changes using the `handleChanges()` method. The method processes the received JsonNode documents from the Change Feed. As a developer you have two options for handling the JsonNode document provided to you by Change Feed. One option is to operate on the document in the form of a JsonNode. This is great especially if you don't have a single uniform data model for all documents. The second option - transform the JsonNode to a POJO having the same structure as the JsonNode. Then you can operate on the POJO.

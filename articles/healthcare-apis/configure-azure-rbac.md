@@ -1,16 +1,16 @@
 ---
 title: Configure Azure RBAC role for FHIR service - Azure Health Data Services
 description: This article describes how to configure Azure RBAC role for FHIR.
-author: mikaelweave
+author: chachachachami
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 06/06/2022
-ms.author: mikaelw
+ms.author: chrupa
 ---
 
 # Configure Azure RBAC role for Azure Health Data Services
 
-In this article, you'll learn how to use [Azure role-based access control (Azure RBAC role)](../role-based-access-control/index.yml) to assign access to the Azure Health Data Services data plane. Azure RBAC role is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription.
+In this article, you'll learn how to use [Azure role-based access control (Azure RBAC role)](../role-based-access-control/index.yml) to assign access to the Azure Health Data Services data plane. Azure RBAC role is the preferred methods for assigning data plane access when data plane users are managed in the Microsoft Entra tenant associated with your Azure subscription.
 
 You can complete role assignments through the Azure portal. Note that the FHIR service and DICOM service have defined different application roles. Add or remove one or more roles to manage user access controls.
 

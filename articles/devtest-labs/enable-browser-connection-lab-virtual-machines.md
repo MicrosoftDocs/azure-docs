@@ -4,7 +4,7 @@ description: Integrate Azure Bastion with DevTest Labs to enable accessing lab v
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/20/2022
+ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 

@@ -7,8 +7,8 @@ ms.topic: conceptual
 # Design Azure Policy as Code workflows
 
 As you progress on your journey with Cloud Governance, you'll want to shift from manually managing
-each policy definition in the Azure portal or through the various SDKs to something more manageable
-and repeatable at enterprise scale. Two of the predominant approaches to managing systems at scale
+each policy assignment in the Azure portal or through the various SDKs to something more manageable
+and repeatable at an enterprise scale. Two of the predominant approaches to managing systems at scale
 in the cloud are:
 
 - Infrastructure as Code: The practice of treating the content that defines your environments,
@@ -27,12 +27,13 @@ before it's too late and they're attempting to deploy in production.
 
 ## Definitions and foundational information
 
-Before getting into the details of Azure Policy as Code workflow, it's important to understand how to author policy definitions and initiative definitions:
+Before getting into the details of Azure Policy as Code workflow, it's important to understand some fundamental concepts, like how to author policy definitions and initiative definitions, and how to leverage exemptions on assignments of those definitions:
 
 - [Policy definition](./definition-structure.md)
 - [Initiative definition](./initiative-definition-structure.md)
+- [Policy exemption](./exemption-structure.md)
 
-The file names correspond with certain portions of policy or initiative definitions:
+The file names correspond with certain portions of policy or initiative definitions and other policy resources:
 
 | File format                   | File contents                       |
 | :--                           | :--                                 |
@@ -42,12 +43,11 @@ The file names correspond with certain portions of policy or initiative definiti
 | `policyset.parameters.json`   | The `properties.parameters` portion of the initiative definition           |
 | `policy.rules.json`           | The `properties.policyRule` portion of the policy definition               |
 | `policyset.definitions.json`  | The `properties.policyDefinitions` portion of the initiative definition    |
+| `exemptionName.json`          | The policy exemption that targets a particular resource or scope  | 
 
 Examples of these file formats are available in the
-[Azure Policy GitHub Repo](https://github.com/Azure/azure-policy/):
+[Azure Policy GitHub Repo](https://github.com/Azure/azure-policy/)
 
-- Policy definition: [Add a tag to resources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
-- Initiative definition: [Billing Tags](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
 ## Workflow overview
 
@@ -59,12 +59,12 @@ The recommended general workflow of Azure Policy as Code looks like this diagram
 
 ### Source control
 
-Existing policy and initiative definitions can be exported through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops). 
+Existing [policy and initiative definitions can be exported](../how-to/export-resources.md) different ways such as through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops). 
 
 ### Create and update policy definitions
 
 The policy definitions are created using JSON, and stored in source control. Each policy has its
-own set of files, such as the parameters, rules, and environment parameters, that should be stored
+own set of files, such as the parameters, rules, and environment parameters that should be stored
 in the same folder. The following structure is a recommended way of keeping your policy definitions
 in source control.
 
@@ -78,12 +78,18 @@ in source control.
 |     |- policy.rules.json ___________ # Policy rule
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
 |     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
+|     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
+        | - exemptionName.json________ # Exemption for this particular assignment
+      |- exemptions.<name2>/__________ # Subfolder for exemptions on assignment 2
+        | - exemptionName.json________ # Exemption for this particular assignment
+|
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
-|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
+|     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
+        | - exemptionName.json________ # Exemption for this particular assignment
 |
 ```
 
@@ -107,13 +113,18 @@ definitions in source control:
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
 |     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
+|     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
+        | - exemptionName.json________ # Exemption for this particular assignment
+      |- exemptions.<name2>/__________ # Subfolder for exemptions on assignment 2
+        | - exemptionName.json________ # Exemption for this particular assignment
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
-|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
+|     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
+        | - exemptionName.json________ # Exemption for this particular assignment
 |
 ```
 
@@ -124,7 +135,7 @@ definition comes in a later step.
 > [!NOTE]
 > It's recommended to use a centralized deployment mechanism like GitHub workflows or Azure
 > Pipelines to deploy policies. This helps to ensure only reviewed policy resources are deployed
-> to your environment and that a central deployment mechanism is used. _Write_ permissions
+> to your environment and that a gradual and central deployment mechanism is used. _Write_ permissions
 > to policy resources can be restricted to the identity used in the deployment.
 
 ### Test and validate the updated definition
@@ -133,6 +144,9 @@ Once automation has taken your newly created or updated policy or initiative def
 the update to the object in Azure, it's time to test the changes that were made. Either the policy
 or the initiative(s) it's part of should then be assigned to resources in the environment farthest
 from production. This environment is typically _Dev_.
+
+>[!NOTE] 
+> In this step, we are conducting integration testing of the policy definition within your Azure environment, this is seperate from [verfying the functionality of the policy definition](./evaluate-impact.md#test-your-policys-effectiveness) which should occur during the definition creation process.
 
 The assignment should use [enforcementMode](./assignment-structure.md#enforcement-mode) of
 _disabled_ so that resource creation and updates aren't blocked, but that existing resources are
@@ -180,7 +194,7 @@ compliance change as expected.
 
 After all validation gates have completed, update the assignment to use **enforcementMode** of
 _enabled_. It's recommended to make this change initially in the same environment far from
-production. Once that environment is validated as working as expected, the change should then be
+production. Validate that the desired effects are applied during resource creation and resource update. Once that environment is validated as working as expected, the change should then be
 scoped to include the next environment, and so on, until the policy is deployed to production
 resources.
 
@@ -211,6 +225,5 @@ supports scripted steps and automation based on triggers.
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with
-  [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Under how to [follow policy safe deployment practices](../how-to/policy-safe-deployment-practices.md)
   

@@ -124,11 +124,6 @@ sections:
           Yes. You're charged for all machines that are protected by Defender for Servers in Azure subscriptions, connected AWS accounts, or connected GCP projects. The term *machines* includes Azure virtual machines, instances of Azure Virtual Machine Scale Sets, and Azure Arc-enabled servers. Machines that don't have Log Analytics installed are covered by protections that don't depend on the Log Analytics agent.
 
       - question: |
-          If an agent reports to multiple workspaces, am I charged twice?
-        answer: |
-          If a machine reports to multiple workspaces and all of them have Defender for Servers enabled, the machines are billed for each attached workspace.
-
-      - question: |
           What's this "MDE.Windows" / "MDE.Linux" extension running on my machine?
         answer: |
           In the past, Microsoft Defender for Endpoint was provisioned by the Log Analytics agent. When [we expanded support to include Windows Server 2019](release-notes-archive.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-on-windows-virtual-desktop-released-for-general-availability-ga) and Linux, we also added an extension to perform the automatic onboarding.
@@ -162,21 +157,12 @@ sections:
       - question: |
           Do I need to buy a separate anti-malware solution to protect my machines?
         answer: |
-          No. With MDE integration in Defender for Servers, you'll also get malware protection on your machines.
+          No. With Defender for Endpoint integration in Defender for Servers, you'll also get malware protection on your machines.
 
-          - On Windows Server 2012 R2 with MDE unified solution integration enabled, Defender for Servers deploys [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
+          - On Windows Server 2012 R2 with Defender for Endpoint unified solution integration enabled, Defender for Servers deploys [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) in *active mode*.
           - On newer Windows Server operating systems, Microsoft Defender Antivirus is part of the operating system and will be enabled in *active mode*.
-          - On Linux, Defender for Servers deploy MDE including the anti-malware component, and set the component in *passive mode*.
-                    
-      - question: |
-          If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for Servers?
-        answer: |
-          If you already have a license for **Microsoft Defender for Endpoint for Servers**, you won't pay for that part of your [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) license. Learn more about [the Microsoft 365 license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
-
-          To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
-
-          The discount is effective starting from the approval date, and won't take place retroactively.
-          
+          - On Linux, Defender for Servers deploy Defender for Endpoint including the anti-malware component, and set the component in *passive mode*.
+                      
       - question: |
           How do I switch from a third-party EDR tool?
         answer: |
@@ -370,7 +356,7 @@ sections:
       - question: |
           How can I manage my costs?
         answer: |
-          You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. Use [solution targeting](/previous-versions/azure/azure-monitor/insights/solution-targeting) to apply a scope to the solution and target a subset of computers in the workspace. If you're using solution targeting, Defender for Cloud lists the workspace as not having a solution.
+          You might want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. Use [solution targeting](/previous-versions/azure/azure-monitor/insights/solution-targeting) to apply a scope to the solution and target a subset of computers in the workspace. If you're using solution targeting, Defender for Cloud lists the workspace as not having a solution.
           
           > [!IMPORTANT]
           > Solution targeting has been deprecated because the Log Analytics agent is being replaced with the Azure Monitor agent and solutions in Azure Monitor are being replaced with insights. You can continue to use solution targeting if you already have it configured, but it isn't available in new regions.

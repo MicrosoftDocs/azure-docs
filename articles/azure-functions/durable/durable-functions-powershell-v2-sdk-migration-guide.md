@@ -30,9 +30,9 @@ By creating a standalone DF PowerShell SDK package, we're able to overcome these
 
 ## Deprecation plan for the built-in DF PowerShell SDK
 
-The built-in DF SDK in the PowerShell worker will remain available for PowerShell 7.2 and prior releases. This means that existing apps will be able to continue using the built-in SDK as long as they continue using PowerShell 7.2 or an older release.
+The built-in DF SDK in the PowerShell worker will remain available for PowerShell 7.4, 7.2, and prior releases.
 
-Starting from PowerShell 7.4 onwards, the PowerShell worker will not contain a built-in DF SDK. Therefore, users will need to install the SDK separately using this standalone package; the installation steps are described below. 
+We plan to eventually release a new **major** version of the PowerShell worker without the built-in SDK. At that point, users would need to install the SDK separately using this standalone package; the installation steps are described below.
 
 ## Install and enable the SDK
 
@@ -49,9 +49,11 @@ The standalone PowerShell SDK requires the following minimum versions:
 
 ### Opt in to the standalone DF SDK
 
-The following application setting is required to run the standalone PowerShell SDK while it is in preview: 
+The following application setting is required to run the standalone PowerShell SDK: 
 - Name: `ExternalDurablePowerShellSDK`
 - Value: `"true"`
+
+This application setting will disable the built-in Durable SDK for PowerShell versions 7.2 and above, forcing the worker to use the external SDK. 
 
 If you're running locally using [Azure Functions Core Tools](../functions-run-local.md), you should add this setting to your `local.settings.json` file. If you're running in Azure, follow these steps with the tool of your choice:
 

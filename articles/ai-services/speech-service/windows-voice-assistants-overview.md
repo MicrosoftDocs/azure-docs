@@ -2,11 +2,10 @@
 title: Voice Assistants on Windows overview - Speech service
 titleSuffix: Azure AI services
 description: An overview of the voice assistants on Windows, including capabilities and development resources available.
-services: cognitive-services
+#services: cognitive-services
 author: cfogg6
 manager: trrwilson
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 02/19/2022
 ms.author: travisw

@@ -1,6 +1,6 @@
 ---
 title: Python - Service-to-service authentication - Data Lake Storage Gen1
-description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory using Python
+description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 using Microsoft Entra ID using Python
 
 author: normesta
 ms.service: data-lake-store
@@ -27,7 +27,7 @@ In this article, you learn about how to use the Python SDK to do service-to-serv
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Create an Azure Active Directory "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Create a Microsoft Entra ID "Web" Application**. You must have completed the steps in [Service-to-service authentication with Data Lake Storage Gen1 using Microsoft Entra ID](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## Install the modules
 
@@ -75,7 +75,7 @@ pip install azure-datalake-store
 
 ## Service-to-service authentication with client secret for account management
 
-Use this snippet to authenticate with Azure AD for account management operations on Data Lake Storage Gen1 such as create a Data Lake Storage Gen1 account, delete a Data Lake Storage Gen1 account, etc. The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal of an existing Azure AD "Web App" application.
+Use this snippet to authenticate with Microsoft Entra ID for account management operations on Data Lake Storage Gen1 such as create a Data Lake Storage Gen1 account, delete a Data Lake Storage Gen1 account, etc. The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal of an existing Microsoft Entra ID "Web App" application.
 
 ```python
 authority_host_uri = 'https://login.microsoftonline.com'
@@ -92,7 +92,7 @@ armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
 
 ## Service-to-service authentication with client secret for filesystem operations
 
-Use the following snippet to authenticate with Azure AD for filesystem operations on Data Lake Storage Gen1 such as create folder, upload file, etc. The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal. Use this with an existing Azure AD "Web App" application.
+Use the following snippet to authenticate with Microsoft Entra ID for filesystem operations on Data Lake Storage Gen1 such as create folder, upload file, etc. The following snippet can be used to authenticate your application non-interactively, using the client secret for an application / service principal. Use this with an existing Microsoft Entra ID "Web App" application.
 
 ```python
 tenant = '<TENANT>'

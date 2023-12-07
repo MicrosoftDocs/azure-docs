@@ -1,10 +1,10 @@
 ---
 title: MVAD input parameters
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: quying
 manager: tonyxin
-ms.service: cognitive-services
+ms.service: azure-ai-anomaly-detector
 ms.topic: include
 ms.date: 7/1/2021
 ms.author: yingqunpku

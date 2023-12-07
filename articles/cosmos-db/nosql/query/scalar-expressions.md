@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -102,7 +102,7 @@ SELECT
 - Any property that is assigned undefined value is skipped and not included in the created object when creating an object.  
 - Any element value that is assigned **undefined** value is skipped and not included in the created object when creating an array. This skip causes the next defined element to take its place in such a way that the created array doesn't skip indexes.  
 
-## Next steps
+## Related content
 
 - [Subqueries](subquery.md)
 - [Logical operators](logical-operators.md)

@@ -2,13 +2,12 @@
 title: How to train and evaluate models in Conversational Language Understanding
 titleSuffix: Azure AI services
 description: Use this article to train a model and view its evaluation details to make improvements.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 05/12/2022
+ms.date: 08/25/2023
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -29,6 +28,10 @@ Model evaluation is triggered automatically after training is completed successf
 * [Labeled utterances](tag-utterances.md)
 
 <!--See the [project development lifecycle](../overview.md#project-development-lifecycle) for more information.-->
+
+[!INCLUDE [Balance training data](../includes/balance-training-data.md)]
+
+
 
 ## Data splitting
 

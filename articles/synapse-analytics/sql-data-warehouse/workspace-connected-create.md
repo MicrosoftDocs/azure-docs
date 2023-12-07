@@ -22,7 +22,7 @@ Before you enable the Synapse workspace features on your data warehouse, you mus
 - Rights to create and manage the SQL resources that are hosted on the SQL logical server.
 - Write permissions on the host SQL Server. 
 - Rights to create Azure Synapse resources.
-- An Azure Active Directory admin identified on the logical server.
+- A Microsoft Entra admin identified on the logical server.
 
 ## Enable Synapse workspace features for an existing dedicated SQL pool (formerly SQL DW)
 
@@ -41,13 +41,13 @@ Follow these steps to create a Synapse workspace for your existing data warehous
 
     > [!NOTE]
     > All dedicated SQL pool (formerly SQL DW) instances hosted on the logical server are available via the new workspace.
-    > Allowing authentication via Azure Active Directory (Azure AD) only is not supported for dedicated SQL pools with Azure Synapse features enabled. Policies that enable Azure AD-only only authentication will not apply to new or existing dedicated SQL pools with Azure Synapse features enabled. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
+    > Allowing authentication via Microsoft Entra-only is not supported for dedicated SQL pools with Azure Synapse features enabled. Policies that enable Microsoft Entra-only only authentication will not apply to new or existing dedicated SQL pools with Azure Synapse features enabled. For more information on Microsoft Entra-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
 
 ## Post provisioning steps
 The following steps must be completed to ensure that your existing dedicated SQL pool (formerly SQL DW) instances can be accessed via the Synapse Studio.
 1. In the Synapse workspace overview page, select **Connected server**. The **Connected server** takes you to the connected SQL Logical server that hosts your data warehouses. In the essential menu, select **Connected server**.
 2. Open **Firewalls and virtual networks** and ensure that your client IP or a predetermined IP range has access to the logical server.
-3. Open **Active Directory admin** and ensure that an Azure AD admin has been set on the logical server.
+3. Open **Active Directory admin** and ensure that a Microsoft Entra admin has been set on the logical server.
 4. Select one of the dedicated SQL pool (formerly SQL DW) instances hosted on the logical server. In the overview page, select **Launch Synapse Studio** or go to the [Sign in to the Synapse Studio](https://web.azuresynapse.net) and sign in to your workspace.
 5. Open the **Data hub** and expand the dedicated SQL pool in the Object explorer to ensure that you've access and can query your data warehouse.
 

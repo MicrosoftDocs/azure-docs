@@ -5,8 +5,7 @@ description: This tutorial simulates a Personalizer loop _system in an Azure Not
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom:
@@ -14,6 +13,8 @@ ms.custom:
 ---
 
 # Tutorial: Use Personalizer in Azure Notebook
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 This tutorial runs a Personalizer loop in an Azure Notebook, demonstrating the end to end life cycle of a Personalizer loop.
 

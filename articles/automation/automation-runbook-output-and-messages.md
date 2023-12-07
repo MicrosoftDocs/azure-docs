@@ -3,9 +3,9 @@ title: Configure runbook output and message streams
 description: This article tells how to implement error handling logic and describes output and message streams in Azure Automation runbooks.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/23/2023
+ms.date: 08/28/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Configure runbook output and message streams
@@ -298,6 +298,7 @@ For more information about configuring integration with Azure Monitor Logs to co
 
 ## Next steps
 
+*  For sample queries, see [Sample queries for job logs and job streams](automation-manage-send-joblogs-log-analytics.md#job-streams)
 * To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
 * If you're unfamiliar with PowerShell scripting, see [PowerShell](/powershell/scripting/overview) documentation.
 * For the Azure Automation PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

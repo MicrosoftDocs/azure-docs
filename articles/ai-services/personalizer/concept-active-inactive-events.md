@@ -4,13 +4,14 @@ description: This article discusses the use of active and inactive events within
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
 ---
 
 # Defer event activation
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Deferred activation of events allows you to create personalized websites or mailing campaigns, considering that the user may never actually see the page or open the email. 
 In these scenarios, the application might need to call Rank before it even knows if the result will be used or displayed to the user at all. If the content is never shown to the user, no default Reward (typically zero) should be assumed for it to learn from.

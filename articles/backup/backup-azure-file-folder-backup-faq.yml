@@ -4,7 +4,7 @@ metadata:
   description: Addresses common questions about backing up files and folders with Azure Backup.
   ms.topic: faq
   ms.service: backup
-  ms.date: 02/25/2022
+  ms.date: 08/14/2023
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 title: Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
@@ -23,9 +23,18 @@ sections:
       - question: |
           Where can I download the vault credentials file?
         answer: |
-          In the Azure portal, navigate to **Properties** for your vault. Under **Backup Credentials**, select the checkbox for **Already using the latest Recovery Services Agent**. Select **Download**.
+          In the Azure portal, go to **Properties** for your vault. Under **Backup Credentials**, select **Download**.
+
+          - If you want to register your MARS agent or restore data from the primary region, select **Primary Region**, *confirm* that you're using the latest Recovery Services Agent, and then select **Download**.
+          - If you're doing an alternate server restore from the backup data in the secondary region using Cross Region Restore, then select **Secondary Region** to download the vault credentials.
           
-          ![Download credentials](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
+          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credentials.png" alt-text="Screenshot shows how to initiate downloading vault credential file.":::
+
+          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credential-file.png" alt-text="Screenshot shows the Download option for vault credential files in secondary region.":::
+            >[!Note]
+            >You can't use this secondary region vault credential for registration of the MARS agent.
+          
+          
           
       - question: |
           How long are vault credentials valid?
@@ -76,7 +85,12 @@ sections:
           How do I register a server to another region?
         answer: |
           Backup data is sent to the datacenter of the vault in which the server is registered. The easiest way to change the datacenter is to uninstall and reinstall the agent, and then register the machine to a new vault in the region you need.
-
+      
+      - question: |
+          How can I cancel an ongoing backup job for the MARS agent?
+        answer: |
+          Though you can view ongoing MARS backup jobs through the portal, you can only cancel them through the MARS console.
+      
       - question: |
           Does the MARS agent support Windows Server 2012 deduplication?
         answer: |
@@ -93,9 +107,9 @@ sections:
           To know about tenant details, open the vault credential file downloaded from Recovery Services vault and refer to the value of the `<AadTenantId>` attribute.
 
       - question: |
-          What is the impact on MARS Agent backups of transferring the vault subscription to a different Azure AD directory?
+          What is the impact on MARS Agent backups of transferring the vault subscription to a different Microsoft Entra directory?
         answer: |
-          The change of Azure AD directory will have no impact on MARS Agent backups. 
+          The change of Microsoft Entra directory will have no impact on MARS Agent backups. 
 
       - question: |
           What happens if the expected Weekly, Monthly, or Yearly backup fails?

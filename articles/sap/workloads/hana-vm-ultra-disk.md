@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 07/13/2023
+ms.date: 1/17/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -25,7 +25,7 @@ This document is about HANA storage configurations for Azure Ultra Disk storage 
 Another Azure storage type is called [Azure Ultra disk](../../virtual-machines/disks-types.md#ultra-disks). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities aren't bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
-- IOPS range from 100 IOPS to 160K IOPS (maximum depends on VM types as well)
+- IOPS range from 100 IOPS to 160,000 IOPS (maximum depends on VM types as well)
 - Storage throughput from 300 MB/sec to 2,000 MB/sec
 
 Ultra disk gives you the possibility to define a single disk that fulfills your size, IOPS, and disk throughput range. Instead of using logical volume managers like LVM or MDADM on top of Azure premium storage to construct volumes that fulfill IOPS and storage throughput requirements. You can run a configuration mix between Ultra disk and premium storage. As a result, you can limit the usage of Ultra disk to the performance critical **/hana/data** and **/hana/log** volumes and cover the other volumes with Azure premium storage
@@ -49,25 +49,37 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data volume | /hana/data I/O throughput | /hana/data IOPS | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| E20ds_v4 | 160 GiB | 480 MB/s | 200 GB | 400 MBps | 2,500 | 80 GB | 250 MB | 1,800 |
-| E32ds_v4 | 256 GiB | 768 MB/s | 300 GB | 400 MBps | 2,500 | 128 GB | 250 MBps | 1,800 |
-| E48ds_v4 | 384 GiB | 1152 MB/s | 460 GB | 400 MBps | 3,000 | 192 GB | 250 MBps | 1,800 |
-| E64ds_v4 | 504 GiB | 1200 MB/s | 610 GB | 400 MBps | 3,500 |  256 GB | 250 MBps | 1,800 |
-| E64s_v3 | 432 GiB | 1,200 MB/s | 610 GB | 400 MBps | 3,500 | 220 GB | 250 MB | 1,800 |
-| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 2,500 | 96 GB | 250 MBps  | 1,800 |
-| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 2,500 | 256 GB | 250 MBps  | 1,800 |
-| M64ls | 512 GiB | 1,000 MB/s | 620 GB | 400 MBps | 3,500 | 256 GB | 250 MBps  | 1,800 |
-| M32dms_v2, M32ms_v2 | 875 GiB | 500 MB/s |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MB/s |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MB/s | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
-| M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MB/s |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 |
-| M192ids_v2, M192is_v2 | 2,048 GiB | 2,000 MB/s |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
-| M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MB/s | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
-| M192idms_v2, M192ims_v2 | 4,096 GiB | 2,000 MB/s | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
-| M208s_v2 | 2,850 GiB | 1,000 MB/s | 3,500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
-| M208ms_v2 | 5,700 GiB | 1,000 MB/s | 7,200 GB | 750 MBps | 14,400 | 512 GB | 250 MBps  | 2,500 | 
-| M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 | 
-| M416ms_v2 | 11,400 GiB | 2,000 MB/s | 14,400 GB | 1,500 MBps | 28,800 | 512 GB | 400 MBps  | 4,000 |   
+| E20ds_v4 | 160 GiB | 480 MBps | 200 GB | 400 MBps | 2,500 | 80 GB | 250 MB | 1,800 |
+| E32ds_v4 | 256 GiB | 768 MBps | 300 GB | 400 MBps | 2,500 | 128 GB | 250 MBps | 1,800 |
+| E48ds_v4 | 384 GiB | 1152 MBps | 460 GB | 400 MBps | 3,000 | 192 GB | 250 MBps | 1,800 |
+| E64ds_v4 | 504 GiB | 1200 MBps | 610 GB | 400 MBps | 3,500 |  256 GB | 250 MBps | 1,800 |
+| E64s_v3 | 432 GiB | 1,200 MBps | 610 GB | 400 MBps | 3,500 | 220 GB | 250 MB | 1,800 |
+| M32ts | 192 GiB | 500 MBps | 250 GB | 400 MBps | 2,500 | 96 GB | 250 MBps  | 1,800 |
+| M32ls | 256 GiB | 500 MBps | 300 GB | 400 MBps | 2,500 | 256 GB | 250 MBps  | 1,800 |
+| M64ls | 512 GiB | 1,000 MBps | 620 GB | 400 MBps | 3,500 | 256 GB | 250 MBps  | 1,800 |
+| M32(d)ms_v2, | 875 GiB | 500 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M48(d)s_1_v3, M96(d)s_1_v3 | 974 GiB | 1,560 MBps | 1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M64s, M64(d)s_v2 | 1,024 GiB | 1,000 MBps |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M64ms, M64(d)ms_v2| 1,792 GiB | 1,000 MBps | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M96(d)s_2_v3 | 1,946 GiB | 3,120 MBps | 2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 |
+| M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 |
+| M192i(d)s_v2 | 2,048 GiB | 2,000 MBps |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 4,800 GB | 750 MBps |9,600 | 512 GB | 250 MBps  | 2,500 | 
+| M208s_v2 | 2,850 GiB | 1,000 MBps | 3,500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M208ms_v2 | 5,700 GiB | 1,000 MBps | 7,200 GB | 750 MBps | 14,400 | 512 GB | 250 MBps  | 2,500 | 
+| M416s_v2 | 5,700 GiB | 2,000 MBps | 7,200 GB | 1,000 MBps | 14,400 | 512 GB | 400 MBps  | 4,000 |
+| M416s_8_v2 | 7,600 | 2,000 MBps | 9,500 GB | 1,250 MBps | 20,000 | 512 GB | 400 MBps  | 4,000 |
+| M416ms_v2 | 11,400 GiB | 2,000 MBps | 14,400 GB | 1,500 MBps | 28,800 | 512 GB | 400 MBps  | 4,000 |   
+| M832isx<sup>1</sup> | 14902 GiB | larger than 2,000 Mbps | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 512 GB | 600 MBps | 9,000 |
+| M832isx_v2<sup>1</sup> | 23088 GiB | larger than 2,000 Mbps | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 512 GB | 600 MBps | 9,000 |
+
+<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+
+<sup>2</sup> Maximum throughput provided by the VM and throughput requirement by SAP HANA workload, especially savepoint activity,  can force you to deploy significant more throughput and IOPS
+
 
 **The values listed are intended to be a starting point and need to be evaluated against the real demands.** The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 

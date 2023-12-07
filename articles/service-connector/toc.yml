@@ -17,6 +17,13 @@ items:
           href: quickstart-portal-app-service-connection.md
         - name: Azure CLI
           href: quickstart-cli-app-service-connection.md
+    - name: Azure Functions
+      expanded: false
+      items:
+        - name: Azure portal
+          href: quickstart-portal-functions-connection.md
+        - name: Azure CLI
+          href: quickstart-cli-functions-connection.md
     - name: Azure Spring Apps
       expanded: false
       items: 
@@ -49,6 +56,15 @@ items:
         href: tutorial-java-jboss-connect-managed-identity-mysql-database.md
       - name: Python app to PostgreSQL
         href: tutorial-django-webapp-postgres-cli.md
+    - name: Azure Functions
+      expanded: true
+      items:
+      - name: Python function with Azure Queue Storage as trigger
+        href: tutorial-python-functions-storage-queue-as-trigger.md
+      - name: Python function with Azure Blob Storage as input
+        href: tutorial-python-functions-storage-blob-as-input.md
+      - name: Python function with Azure Table Storage as output
+        href: tutorial-python-functions-storage-table-as-output.md
     - name: Azure Container Apps
       expanded: true
       items:
@@ -74,11 +90,15 @@ items:
       href: concept-availability.md
     - name: Region support
       href: concept-region-support.md
+    - name: Permission requirements
+      href: concept-permission.md
 - name: How-to guides
   expanded: true
   items: 
     - name: Manage authentication
       href: how-to-manage-authentication.md
+    - name: Provide correct parameters
+      href: how-to-provide-correct-parameters.md
     - name: Store secrets in Key Vault
       href: tutorial-portal-key-vault.md
     - name: Connect a container app to Blob Storage
@@ -87,6 +107,12 @@ items:
       href: tutorial-passwordless.md
     - name: Get connection configurations
       href: how-to-get-configurations.md
+    - name: Use Service Connector in Azure Functions
+      href: how-to-use-service-connector-in-function.md
+    - name: Build connections with IaC tools
+      href: how-to-build-connections-with-iac-tools.md
+    - name: Provide correct parameters
+      href: how-to-provide-correct-parameters.md
     - name: Troubleshoot
       href: how-to-troubleshoot-front-end-error.md
     - name: Integrate

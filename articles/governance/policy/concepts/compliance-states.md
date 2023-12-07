@@ -59,9 +59,9 @@ An applicable resource has a compliance state of exempt for a policy assignment 
 
  Unknown is the default compliance state for definitions with `manual` effect, unless the default has been explicitly set to compliant or non-compliant. This state indicates that an [attestation](./attestation-structure.md) of compliance is warranted. This compliance state only occurs for policy assignments with `manual` effect.
 
- ### Protected (preview)
+ ### Protected
 
- Protected state signfies that the resource is covered under an assignment with a [denyAction](./effects.md#denyaction-preview) effect.
+ Protected state signifies that the resource is covered under an assignment with a [denyAction](./effects.md#denyaction) effect.
 
 ### Not registered
 
@@ -132,7 +132,7 @@ The compliance percentage is determined by dividing **Compliant**, **Exempt**, a
 **Exempt**, **Conflicting**, and **Error** states. 
 
 ```text
-overall compliance % = (compliant + exempt + unknown)  / (compliant + exempt + unknown + non-compliant + conflicting + error)
+overall compliance % = (compliant + exempt + unknown + protected)  / (compliant + exempt + unknown + non-compliant + conflicting + error + protected)
 ```
 
 In the image shown, there are 20 distinct resources that are applicable and only one is **Non-compliant**.

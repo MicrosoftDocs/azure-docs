@@ -33,7 +33,7 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
  
 ## Msv2 Medium Memory Diskless 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth (Mbps) | 
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network egress bandwidth (Mbps) | 
 |---|---|---|---|---|---|---|---|---|
 | Standard_M32ms_v2   | 32  | 875  | 0 | 32 | 20000/500  | 40000/1000 | 8 | 8000  | 
 | Standard_M64s_v2    | 64  | 1024 | 0 | 64 | 40000/1000 | 80000/2000 | 8 | 16000 | 
@@ -52,7 +52,7 @@ The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280
 
 ## Mdsv2 Medium Memory with Disk  
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disk | Max cached and temp storage throughput: IOPS / MBps | Burst cached and temp storage throughput: IOPS/MBps<sup>1</sup> | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth (Mbps) | 
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disk | Max cached and temp storage throughput: IOPS / MBps | Burst cached and temp storage throughput: IOPS/MBps<sup>1</sup> | Max uncached disk throughput: IOPS/MBps | Burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network egress bandwidth (Mbps) | 
 |---|---|---|---|---|---|---|---|---|---|---|
 | Standard_M32dms_v2   | 32  | 875  | 1024 | 32 | 40000/400   | 40000/1000 | 20000/500  | 40000/1000 | 8 | 8000  | 
 | Standard_M64ds_v2    | 64  | 1024 | 2048 | 64 | 80000/800   | 80000/2000 | 40000/1000 | 80000/2000 | 8 | 16000 | 

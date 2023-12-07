@@ -31,7 +31,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 To get started, open [this page](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) and find the latest version of the Java library. Then, open the *pom.xml* file in your text editor. Add a dependency element that references that version.
 
-If you plan to authenticate your client application by using Azure Active Directory (Azure AD), then add a dependency to the Azure Identity library. For more information, see [Azure Identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
+If you plan to authenticate your client application by using Microsoft Entra ID, then add a dependency to the Azure Identity library. For more information, see [Azure Identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
 
 Next, add these imports statements to your code file.
 
@@ -47,11 +47,13 @@ import com.azure.storage.file.datalake.options.*;
 
 ## Authorize access and connect to data resources
 
-To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/java/api/com.azure.storage.file.datalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` object using Azure Active Directory (Azure AD), an account access key, or a shared access signature (SAS).
+To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/java/api/com.azure.storage.file.datalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` object using Microsoft Entra ID, an account access key, or a shared access signature (SAS).
 
-### [Azure AD](#tab/azure-ad)
+<a name='azure-ad'></a>
 
-You can use the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) to authenticate your application with Azure AD.
+### [Microsoft Entra ID](#tab/azure-ad)
+
+You can use the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) to authenticate your application with Microsoft Entra ID.
 
 Create a [DataLakeServiceClient](/java/api/com.azure.storage.file.datalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) class.
 

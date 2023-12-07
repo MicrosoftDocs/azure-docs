@@ -20,7 +20,7 @@ For information on defining Common Data Model documents by using Common Data Mod
 
 At a high level, the connector supports:
 
-* Spark 2.4, 3.1, and 3.2.
+* 3.1, and 3.2., and 3.3.
 * Reading data from an entity in a Common Data Model folder into a Spark DataFrame.
 * Writing from a Spark DataFrame to an entity in a Common Data Model folder based on a Common Data Model entity definition.
 * Writing from a Spark DataFrame to an entity in a Common Data Model folder based on the DataFrame schema.
@@ -238,7 +238,7 @@ SAS token credentials are an extra option for authentication to storage accounts
 
 ### Options for credential-based access control
 
-As an alternative to using a managed identity or a user identity, you can provide explicit credentials to enable the Spark CDM connector to access data. In Azure Active Directory, [create an app registration](../../../active-directory/develop/quickstart-register-app.md). Then grant this app registration access to the storage account by using either of the following roles:
+As an alternative to using a managed identity or a user identity, you can provide explicit credentials to enable the Spark CDM connector to access data. In Microsoft Entra ID, [create an app registration](../../../active-directory/develop/quickstart-register-app.md). Then grant this app registration access to the storage account by using either of the following roles:
 
 * Storage Blob Data Contributor to allow the library to write to Common Data Model folders
 * Storage Blob Data Reader to allow only read permissions
@@ -249,7 +249,7 @@ After you create permissions, you can pass the app ID, app key, and tenant ID to
 |----------|---------|:---------:|
 | `appId` | The app registration ID for authentication to the storage account | `<guid>` |
 | `appKey` | The registered app key or secret | `<encrypted secret>` |
-| `tenantId` | The Azure Active Directory tenant ID under which the app is registered | `<guid>` |
+| `tenantId` | The Microsoft Entra tenant ID under which the app is registered | `<guid>` |
 
 ## Examples
 

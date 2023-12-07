@@ -18,30 +18,7 @@ Azure Virtual Network encryption is a feature of Azure Virtual Network. Virtual 
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-## Create a virtual network
-
-In this section, you create a virtual network and enable virtual network encryption.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. In the search box at the top of the portal, begin typing **Virtual networks**. When **Virtual networks** appears in the search results, select it.
-
-1. In **Virtual networks**, select **+ Create**.
-
-1. Enter or select the following information in the **Basics** tab of **Create virtual network**:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |  |
-    | **Subscription** | Select your subscription. |
-    | **Resource group** | Select **Create new**, then enter **test-rg** in **Name**. Select **OK**. |
-    | **Instance details** |  |
-    | Virtual network name | Enter **vnet-1**. |
-    | Region | Select **(US) East US 2**. |
-
-1. Select **Review + create**.
-
-1. Select **Create**.
+[!INCLUDE [virtual-network-create.md](../../includes/virtual-network-create.md)]
 
 > [!IMPORTANT]
 > Azure Virtual Network encryption requires supported virtual machine SKUs in the virtual network for traffic to be encrypted. The setting **dropUnencrypted** will drop traffic between unsupported virtual machine SKUs if they are deployed in the virtual network. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).

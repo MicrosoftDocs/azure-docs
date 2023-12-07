@@ -19,9 +19,9 @@ This topic demonstrates creating a sample application that uses Java and [JDBC](
 
 JDBC is the standard Java API to connect to traditional relational databases.
 
-In this article, we'll include two authentication methods: Azure Active Directory (Azure AD) authentication and MySQL authentication. The **Passwordless** tab shows the Azure AD authentication and the **Password** tab shows the MySQL authentication.
+In this article, we'll include two authentication methods: Microsoft Entra authentication and MySQL authentication. The **Passwordless** tab shows the Microsoft Entra authentication and the **Password** tab shows the MySQL authentication.
 
-Azure AD authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Azure AD. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
+Microsoft Entra authentication is a mechanism for connecting to Azure Database for MySQL using identities defined in Microsoft Entra ID. With Microsoft Entra authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
 
 MySQL authentication uses accounts stored in MySQL. If you choose to use passwords as credentials for the accounts, these credentials will be stored in the `user` table. Because these passwords are stored in MySQL, you'll need to manage the rotation of the passwords by yourself.
 
@@ -123,7 +123,7 @@ az identity create \
 > [!IMPORTANT]
 > After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](./concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](./concepts-azure-ad-authentication.md).
 
-Run the following command to assign the identity to MySQL server for creating Azure AD admin:
+Run the following command to assign the identity to MySQL server for creating Microsoft Entra admin:
 
 ```azurecli-interactive
 az mysql flexible-server identity assign \
@@ -132,7 +132,7 @@ az mysql flexible-server identity assign \
     --identity $AZ_USER_IDENTITY_NAME
 ```
 
-Run the following command to set the Azure AD admin user:
+Run the following command to set the Microsoft Entra admin user:
 
 ```azurecli-interactive
 az mysql flexible-server ad-admin create \
@@ -144,7 +144,7 @@ az mysql flexible-server ad-admin create \
 ```
 
 > [!IMPORTANT]
-> When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions. Only one Azure AD admin can be created per MySQL server and selection of another one will overwrite the existing Azure AD admin configured for the server.
+> When setting the administrator, a new user is added to the Azure Database for MySQL server with full administrator permissions. Only one Microsoft Entra admin can be created per MySQL server and selection of another one will overwrite the existing Microsoft Entra admin configured for the server.
 
 This command creates a small MySQL server and sets the Active Directory admin to the signed-in user.
 
@@ -237,7 +237,7 @@ FLUSH privileges;
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $CURRENT_USERNAME --enable-cleartext-plugin --password=$(az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken) < create_ad_user.sql
@@ -265,7 +265,7 @@ FLUSH PRIVILEGES;
 EOF
 ```
 
-Then, use the following command to run the SQL script to create the Azure AD non-admin user:
+Then, use the following command to run the SQL script to create the Microsoft Entra non-admin user:
 
 ```bash
 mysql -h $AZ_DATABASE_NAME.mysql.database.azure.com --user $AZ_MYSQL_ADMIN_USERNAME --enable-cleartext-plugin --password=$AZ_MYSQL_ADMIN_PASSWORD < create_user.sql

@@ -1,12 +1,12 @@
 ---
 title: Create an incremental snapshot
-description: Learn about incremental snapshots for managed disks, including how to create them using the Azure portal, Azure PowerShell module, and Azure Resource Manager.
+description: Learn about incremental snapshots for managed disks, including how to create them and the performance impact when restoring snapshots.
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 11/17/2023
 ms.author: rogarana
-ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions, devx-track-arm-template
+ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions
 ms.devlang: azurecli
 ---
 
@@ -19,6 +19,8 @@ ms.devlang: azurecli
 ## Restrictions
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](../../includes/virtual-machines-disks-incremental-snapshots-restrictions.md)]
+
+## Create incremental snapshots
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -141,12 +143,16 @@ You can also use Azure Resource Manager templates to create an incremental snaps
   ]
 }
 ```
+---
 
 ## Check snapshot status
 
-Incremental snapshots of Premium SSD v2 or Ultra Disks can't be used to create new disks until the background process copying the data into the snapshot has completed.
+Incremental snapshots of Premium SSD v2 or Ultra Disks can't be used to create new disks until the background process copying the data into the snapshot has completed.	
 
 You can use either the [CLI](#cli) or [PowerShell](#powershell) sections to check the status of the background copy from a disk to a snapshot.
+
+> [!IMPORTANT]
+> You can't use the following sections to get the status of the background copy process for disk types other than Ultra Disk or Premium SSD v2. Snapshots of other disk types always report 100%.
 
 ### CLI
 
@@ -215,8 +221,6 @@ $targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotNa
 $targetSnapshot.CompletionPercent
 ```
 
----
-
 ## Check sector size
 
 Snapshots with a 4096 logical sector size can only be used to create Premium SSD v2 or Ultra Disks. They can't be used to create other disk types. Snapshots of disks with 4096 logical sector size are stored as VHDX, whereas snapshots of disks with 512 logical sector size are stored as VHD. Snapshots inherit the logical sector size from the parent disk.
@@ -230,6 +234,8 @@ az snapshot show -g resourcegroupname -n snapshotname --query [creationData.logi
 ```
 
 ## Next steps
+
+See the following articles to create disks from your snapshots using the [Azure CLI](scripts/create-managed-disk-from-snapshot.md) or [Azure PowerShell module](scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md).
 
 See [Copy an incremental snapshot to a new region](disks-copy-incremental-snapshot-across-regions.md) to learn how to copy an incremental snapshot across regions.
 

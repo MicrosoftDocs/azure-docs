@@ -20,6 +20,8 @@ SNAT is enabled for an internal backend pool via another public load balancer, n
 
 The NAT gateway integration replaces the need for the deployment of a public load balancer, network routing, or a public IP defined on a virtual machine in the backend pool.
 
+:::image type="content" source="./media/tutorial-nat-gateway-load-balancer-internal-portal/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-nat-gateway-load-balancer-internal-portal/resources-diagram.png":::
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

@@ -7,7 +7,7 @@ ms.subservice: nosql
 ms.custom: ignite-2022, devx-track-terraform
 ms.topic: conceptual
 ms.date: 09/16/2022
-ms.author: gicheng
+ms.author: mjbrown
 ms.reviewer: mjbrown
 ---
 
@@ -25,7 +25,7 @@ This article shows Terraform samples for NoSQL accounts.
 | [Create an Azure Cosmos account, database, container with analytical store](manage-with-terraform.md#create-analytical-store) | Create an API for NoSQL account in one region with a container configured with Analytical TTL enabled and option to use manual or autoscale throughput. |
 | [Create an Azure Cosmos account, database, container with standard (manual) throughput](manage-with-terraform.md#create-manual) | Create an API for NoSQL account in two regions, a database and container with standard throughput. |
 | [Create an Azure Cosmos account, database and container with a stored procedure, trigger and UDF](manage-with-terraform.md#create-sproc) | Create an API for NoSQL account in two regions with a stored procedure, trigger and UDF for a container. |
-| [Create an Azure Cosmos account with Azure AD identity, Role Definitions and Role Assignment](manage-with-terraform.md#create-rbac) | Create an API for NoSQL account with Azure AD identity, Role Definitions and Role Assignment on a Service Principal. |
+| [Create an Azure Cosmos account with Microsoft Entra identity, Role Definitions and Role Assignment](manage-with-terraform.md#create-rbac) | Create an API for NoSQL account with Microsoft Entra identity, Role Definitions and Role Assignment on a Service Principal. |
 | [Create a free-tier Azure Cosmos account](manage-with-terraform.md#free-tier) |  Create an Azure Cosmos DB API for NoSQL account on free-tier. |
 
 ## Next steps

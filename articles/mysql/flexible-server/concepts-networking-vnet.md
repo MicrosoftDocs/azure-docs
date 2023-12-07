@@ -109,14 +109,14 @@ To configure correctly, you need the following resources:
 You can then use the flexible servername (FQDN) to connect from the client application in peered virtual network or on-premises network to flexible server.
 
 > [!NOTE]  
-> We recommend you use the fully qualified domain name (FQDN) '<servername>.mysql.database.azure.com' in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
+> We recommend you use the fully qualified domain name (FQDN) `<servername>.mysql.database.azure.com` in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
 
 ## Unsupported virtual network scenarios
 
 - Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network can't have a public endpoint
 - After the flexible server is deployed to a virtual network and subnet, you can't move it to another virtual network or subnet. You can't move the virtual network into another resource group or subscription.
 - Subnet size (address spaces) can't be increased once resources exist in the subnet
-- Flexible server doesn't support Private Link. Instead, it uses VNet injection to make a flexible server available within a VNet.
+
 
 ## Next steps
 

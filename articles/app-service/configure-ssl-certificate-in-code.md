@@ -5,6 +5,8 @@ ms.topic: article
 ms.date: 02/15/2023
 ms.reviewer: yutlin
 ms.custom: seodec18
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 
@@ -27,7 +29,7 @@ To follow this how-to guide:
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from the left menu, select **App Services** > **\<app-name>**.
 
-From the left navigation of your app, select **TLS/SSL settings**, then select **Private Key Certificates (.pfx)** or **Public Key Certificates (.cer)**.
+From the left navigation of your app, select **Certificates**, then select **Bring your own certificates (.pfx)** or **Public key certificates (.cer)**.
 
 Find the certificate you want to use and copy the thumbprint.
 

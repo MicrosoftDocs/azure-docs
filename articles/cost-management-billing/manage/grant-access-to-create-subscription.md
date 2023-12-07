@@ -115,7 +115,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
 1. <a id="userObjectId"></a>Get object ID of the user or group you want to give the Azure RBAC Owner role to
 
-    1. In the Azure portal, search on **Azure Active Directory**.
+    1. In the Azure portal, search on **Microsoft Entra ID**.
     1. If you want to grant a user access, select **Users** in the menu on the left. To give access to a group, select **Groups**.
     1. Select the User or Group you want to give the Azure RBAC Owner role to.
     1. If you selected a User, you'll find the object ID in the Profile page. If you selected a Group, the object ID will be in the Overview page. Copy the **ObjectID** by selecting the icon to the right of the text box. Paste it somewhere so that you can use it in the next step as `userObjectId`.
@@ -182,7 +182,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
 To track the subscriptions created via this API, use the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs). It's currently not possible to use PowerShell, CLI, or Azure portal to track subscription creation.
 
-1. As a tenant admin of the Azure AD tenant, [elevate access](../../role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`. This access is available in the [Reader](../../role-based-access-control/built-in-roles.md#reader) role, the [Monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role, or a [custom role](../../role-based-access-control/custom-roles.md).
+1. As a tenant admin of the Microsoft Entra tenant, [elevate access](../../role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`. This access is available in the [Reader](../../role-based-access-control/built-in-roles.md#reader) role, the [Monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role, or a [custom role](../../role-based-access-control/custom-roles.md).
 1. As the auditing user, call the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs) to see subscription creation activities. Example:
 
     ```

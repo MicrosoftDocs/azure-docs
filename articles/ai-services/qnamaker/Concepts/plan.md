@@ -1,11 +1,11 @@
 ---
 title: Plan your app - QnA Maker
 description: Learn how to plan your QnA Maker app. Understand how QnA Maker works and interacts with other Azure services and some knowledge base concepts.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021

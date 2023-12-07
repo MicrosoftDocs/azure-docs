@@ -96,7 +96,7 @@ Use the following steps to view metrics trends across test runs:
 
     You can select a test run that you want to analyze and open the results dashboard for that test run.
 
-### Use a baseline test run
+## Use a baseline test run
 
 You can mark a test run as baseline to compare the client-side metrics of the recent test runs with those of the baseline. 
 
@@ -120,5 +120,5 @@ Use the following steps to mark a test run as baseline:
 ## Next steps
 
 - Learn more about [exporting the load test results for reporting](./how-to-export-test-results.md).
-- Learn more about [troubleshooting load test execution errors](./how-to-troubleshoot-failing-test.md).
-- Learn more about [configuring automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn more about [diagnosing failing load tests](./how-to-diagnose-failing-load-test.md).
+- Learn more about [configuring automated performance testing with CI/CD](./quickstart-add-load-test-cicd.md).

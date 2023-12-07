@@ -2,15 +2,17 @@
 title: Private link for Azure API for FHIR
 description: This article describes how to set up a private endpoint for Azure API for FHIR services
 services: healthcare-apis
-author: expekesheth
+author: outinyman 
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/03/2022
-ms.author: kesheth
+ms.date: 09/27/2023
+ms.author: ounyman
 ---
 
 # Configure private link
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Private link enables you to access Azure API for FHIR over a private endpoint, which is a network interface that connects you privately and securely using a private IP address from your virtual network. With private link, you can access our services securely from your VNet as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your private endpoint for Azure API for FHIR.
 

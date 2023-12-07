@@ -2,12 +2,11 @@
 title: Investigate risk with Azure Active Directory B2C Identity Protection
 description: Learn how to investigate risky users, and detections in Azure AD B2C Identity Protection
 
-services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 09/16/2021
-ms.custom: project-no-code
+ms.custom: 
 ms.author: godonnell
 author: garrodonnell
 manager: CelesteDG
@@ -30,7 +29,7 @@ When using Identity Protection, consider the following:
 
 - Identity Protection is on by default.
 - Identity Protection is available for both local and social identities, such as Google or Facebook. For social identities, Conditional Access must be activated. Detection is limited because the social account credentials are managed by the external identity provider.
-- In Azure AD B2C tenants, only a subset of the [Azure AD Identity Protection risk detections](../active-directory/identity-protection/overview-identity-protection.md) is available. The following risk detections are supported by Azure AD B2C:  
+- In Azure AD B2C tenants, only a subset of the [Microsoft Entra ID Protection risk detections](../active-directory/identity-protection/overview-identity-protection.md) is available. The following risk detections are supported by Azure AD B2C:  
 
 |Risk detection type  |Description  |
 |---------|---------|
@@ -40,7 +39,7 @@ When using Identity Protection, consider the following:
 |Unfamiliar sign-in properties     | Sign-in with properties we've not seen recently for the given user.        |
 |Admin confirmed user compromised    | An admin has indicated that a user was compromised.             |
 |Password spray     | Sign-in through a password spray attack.      |
-|Azure AD threat intelligence     | Microsoft's internal and external threat intelligence sources have identified a known attack pattern.        |
+|Microsoft Entra threat intelligence     | Microsoft's internal and external threat intelligence sources have identified a known attack pattern.        |
 
 ## Pricing tier
 
@@ -82,8 +81,7 @@ An administrator can choose to dismiss a user's risk in the Azure portal or prog
 ### Navigating the risky users report
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Security**, select **Risky users**.
 

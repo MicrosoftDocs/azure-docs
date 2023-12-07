@@ -34,7 +34,7 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 
 ## Creating containerized function apps
 
-Functions makes it easy to deploy and run your function apps as Linux containers, which you create and maintain. Functions maintains a set of [lanuage-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use when creating containerized function apps.
+Functions makes it easy to deploy and run your function apps as Linux containers, which you create and maintain. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use when creating containerized function apps.
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 

@@ -1,10 +1,10 @@
 ---
 title: REST API include file
 description: include file
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.date: 03/07/2022
 ms.topic: include
 ---

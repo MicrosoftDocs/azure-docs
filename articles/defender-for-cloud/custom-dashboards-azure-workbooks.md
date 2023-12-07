@@ -37,7 +37,7 @@ With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud 
 - ['Active Alerts' workbook](#use-the-active-alerts-workbook) - View active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
 - Price Estimation workbook - View monthly consolidated price estimations for Microsoft Defender for Cloud plans based on the resource telemetry in your own environment. These numbers are estimates based on retail prices and don't provide actual billing data.
 - Governance workbook -  The governance report in the governance rules settings lets you track progress of the rules effective in the organization.
-- ['DevOps Security (Preview)' workbook](#use-the-devops-security-preview-workbook) - View a customizable foundation that helps you visualize the state of your DevOps posture for the connectors you've configured.
+- ['DevOps Security (Preview)' workbook](#use-the-devops-security-workbook) - View a customizable foundation that helps you visualize the state of your DevOps posture for the connectors you've configured.
 
 In addition to the built-in workbooks, you can also find other useful workbooks found under the “Community" category, which is provided as is with no SLA or support. Choose one of the supplied workbooks or create your own.
 
@@ -170,14 +170,14 @@ Select a location on the map to view all of the alerts for that location.
 
 You can see the details for that alert with the Open Alert View button.
 
-### Use the 'DevOps Security (Preview)' workbook
+### Use the 'DevOps Security' workbook
 
-This workbook provides a customizable data analysis and gives you the ability to create visual reports. You can use this workbook to view insights into your DevOps security posture in coordination with Defender for DevOps. This workbook allows you to visualize the state of your DevOps posture for the connectors you've configured in Defender for Cloud, code, dependencies, and hardening. You can then investigate credential exposure, including types of credentials and repository locations.
+This workbook provides a customizable visual report of your DevOps security posture. You can use this workbook to view insights into your repositories with the highest number of CVEs and weaknesses, active repositories that have Advanced Security disabled, security posture assessments of your DevOps environment configurations, and much more. Customize and add your own visual reports using the rich set of data in Azure Resource Graph to fit the business needs of your security team.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/devops-workbook.png" alt-text="A screenshot that shows a sample results page once you've selected the DevOps workbook." lightbox="media/custom-dashboards-azure-workbooks/devops-workbook.png":::
 
 > [!NOTE]
-> You must have a [GitHub connector](quickstart-onboard-github.md) or a [DevOps connector](quickstart-onboard-devops.md), connected to your environment in order to utilize this workbook
+> You must have a [GitHub connector](quickstart-onboard-github.md), [GitLab connector](quickstart-onboard-gitlab.md), or an [Azure DevOps connector](quickstart-onboard-devops.md), connected to your environment in order to utilize this workbook
 
 **To deploy the workbook**:
 

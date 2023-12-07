@@ -128,7 +128,7 @@ This article compares several ISV solutions that provide files services in Azure
 
 |                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | XenData               |
 |-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|
-| **Azure AD support**                                | Yes (via AD DS)      | Yes (via AD DS)                | Yes (via AD DS)           | Yes                   | Yes (via AD DS)       | Yes (via AD DS)       |
+| **Microsoft Entra ID support**                                | Yes (via AD DS)      | Yes (via AD DS)                | Yes (via AD DS)           | Yes                   | Yes (via AD DS)       | Yes (via AD DS)       |
 | **Active directory support**                        | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
 | **LDAP support**                                    | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   |
 

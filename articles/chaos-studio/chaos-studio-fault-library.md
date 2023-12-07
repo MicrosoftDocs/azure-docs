@@ -1,18 +1,18 @@
 ---
-title: Azure Chaos Studio Preview fault and action library
-description: Understand the available actions you can use with Azure Chaos Studio Preview, including any prerequisites and parameters.
+title: Azure Chaos Studio  fault and action library
+description: Understand the available actions you can use with Azure Chaos Studio, including any prerequisites and parameters.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: article
 ms.date: 06/16/2022
 ms.author: prashabora
 ms.service: chaos-studio
-ms.custom: ignite-fall-2021, ignite-2022, devx-track-arm-template
+ms.custom: ignite-fall-2021, ignite-2022
 ---
 
-# Azure Chaos Studio Preview fault and action library
+# Azure Chaos Studio fault and action library
 
-The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio Preview](./chaos-studio-fault-providers.md).
+The faults listed in this article are currently available for use. To understand which resource types are supported, see [Supported resource types and role assignments for Azure Chaos Studio](./chaos-studio-fault-providers.md).
 
 ## Time delay
 
@@ -48,7 +48,7 @@ The faults listed in this article are currently available for use. To understand
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
 | Description | Adds CPU pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial CPU pressure is removed at the end of the duration or if the experiment is canceled. On Windows, the **% Processor Utility** performance counter is used at fault start to determine current CPU percentage, which is subtracted from the `pressureLevel` defined in the fault so that **% Processor Utility** hits approximately the `pressureLevel` defined in the fault parameters. |
-| Prerequisites | **Linux**: Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng`  |
+| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:cpuPressure/1.0 |
 | Parameters (key, value)  |
@@ -93,7 +93,7 @@ Known issues on Linux:
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
 | Description | Adds physical memory pressure, up to the specified value, on the VM where this fault is injected during the fault action. The artificial physical memory pressure is removed at the end of the duration or if the experiment is canceled. |
-| Prerequisites | **Linux**: Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng`  |
+| Prerequisites | **Linux**: The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | | **Windows**: None. |
 | Urn | urn:csci:microsoft:agent:physicalMemoryPressure/1.0 |
 | Parameters (key, value) |  |
@@ -173,14 +173,15 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability name | DiskIOPressure-1.0 |
+| Capability name | DiskIOPressure-1.1 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows |
-| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to the primary storage of the VM where it's injected during the fault action. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
+| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to a Virtual Machine. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
-| Urn | urn:csci:microsoft:agent:diskIOPressure/1.0 |
+| Urn | urn:csci:microsoft:agent:diskIOPressure/1.1 |
 | Parameters (key, value) |  |
 | pressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the `PressureModes` in the following table. |
+| targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, "D:/Temp". If the parameter is not included, pressure is added to the primary disk. |
 | virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Pressure modes
@@ -201,11 +202,15 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:diskIOPressure/1.0",
+      "name": "urn:csci:microsoft:agent:diskIOPressure/1.1",
       "parameters": [
         {
           "key": "pressureMode",
           "value": "PremiumStorageP10IOPS"
+        },
+        {
+          "key": "targetTempDirectory",
+          "value": "C:/temp/"
         },
         {
           "key": "virtualMachineScaleSetInstances",
@@ -223,16 +228,17 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability name | LinuxDiskIOPressure-1.0 |
+| Capability name | LinuxDiskIOPressure-1.1 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Linux |
-| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. For information on how pressure is applied, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
-| Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng` |
-| Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.0 |
+| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. Pressure is added to the primary disk by default, or the disk specified with the targetTempDirectory parameter. For information on how pressure is applied, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
+| Prerequisites | The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
+| Urn | urn:csci:microsoft:agent:linuxDiskIOPressure/1.1 |
 | Parameters (key, value) |  |
 | workerCount | Number of worker processes to run. Setting `workerCount` to 0 generated as many worker processes as there are number of processors. |
 | fileSizePerWorker | Size of the temporary file that a worker performs I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4 m for 4 megabytes and 256 g for 256 gigabytes). |
 | blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes, kilobytes, or megabytes (for example, 512 k for 512 kilobytes). |
+| targetTempDirectory | (Optional) The directory to use for applying disk pressure. For example, "/tmp/". If the parameter is not included, pressure is added to the primary disk. |
 | virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
@@ -243,7 +249,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:linuxDiskIOPressure/1.0",
+      "name": "urn:csci:microsoft:agent:linuxDiskIOPressure/1.1",
       "parameters": [
         {
           "key": "workerCount",
@@ -256,6 +262,10 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
         {
           "key": "blockSize",
           "value": "256k"
+        },
+        {
+          "key": "targetTempDirectory",
+          "value": "/tmp/"
         },
         {
           "key": "virtualMachineScaleSetInstances",
@@ -277,7 +287,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 | Target type | Microsoft-Agent |
 | Supported OS types | Linux |
 | Description | Runs any stress-ng command by passing arguments directly to stress-ng. Useful when one of the predefined faults for stress-ng doesn't meet your needs. |
-| Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. To install it, use the package manager for your Linux distro:<ul><li>APT command to install stress-ng: `sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng`</li><li>YUM command to install stress-ng: `sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng` |
+| Prerequisites | The **stress-ng** utility needs to be installed. This happens automatically as part of agent installation, using the default package manager, on Debian-based systems (including Ubuntu), Red Hat Enterprise Linux, CentOS, and OpenSUSE. For other distributions, you must install **stress-ng** manually. |
 | Urn | urn:csci:microsoft:agent:stressNg/1.0 |
 | Parameters (key, value) |  |
 | stressNgArguments | One or more arguments to pass to the stress-ng process. For information on possible stress-ng arguments, see the [stress-ng](https://wiki.ubuntu.com/Kernel/Reference/stress-ng) article. |
@@ -491,20 +501,26 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 | Property | Value |
 |-|-|
-| Capability name | NetworkLatency-1.0 |
+| Capability name | NetworkLatency-1.1 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux. |
-| Description | Increases network latency for a specified port range and network block. |
+| Supported OS types | Windows, Linux (outbound traffic only) |
+| Description | Increases network latency for a specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
-| Urn | urn:csci:microsoft:agent:networkLatency/1.0 |
+| Urn | urn:csci:microsoft:agent:networkLatency/1.1 |
 | Parameters (key, value) |  |
 | latencyInMilliseconds | Amount of latency to be applied in milliseconds. |
-| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 16. |
+| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
+| inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
+
+The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
+
+| Property | Value |
+|-|-|
 | address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -514,10 +530,14 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:networkLatency/1.0",
+      "name": "urn:csci:microsoft:agent:networkLatency/1.1",
       "parameters": [
         {
           "key": "destinationFilters",
+          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "inboundDestinationFilters",
           "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
         },
         {
@@ -539,25 +559,32 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 ### Limitations
 
 * The agent-based network faults currently only support IPv4 addresses.
+* When running in a Linux environment, the agent-based network latency fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
 
 
 ## Network disconnect
 
 | Property | Value |
 |-|-|
-| Capability name | NetworkDisconnect-1.0 |
+| Capability name | NetworkDisconnect-1.1 |
 | Target type | Microsoft-Agent |
 | Supported OS types | Windows, Linux. |
-| Description | Blocks outbound network traffic for specified port range and network block. |
+| Description | Blocks outbound network traffic for specified port range and network block. At least one destinationFilter or inboundDestinationFilter array must be provided. |
 | Prerequisites | Agent (for Windows) must run as administrator. If the agent is installed as a VM extension, it runs as administrator by default. |
-| Urn | urn:csci:microsoft:agent:networkDisconnect/1.0 |
+| Urn | urn:csci:microsoft:agent:networkDisconnect/1.1 |
 | Parameters (key, value) |  |
-| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 16. |
+| destinationFilters | Delimited JSON array of packet filters defining which outbound packets to target. Maximum of 16.|
+| inboundDestinationFilters | Delimited JSON array of packet filters defining which inbound packets to target. Maximum of 16. |
+| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
+
+The parameters **destinationFilters** and **inboundDestinationFilters** use the following array of packet filters.
+
+| Property | Value |
+|-|-|
 | address | IP address that indicates the start of the IP range. |
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when this fault is applied to a virtual machine scale set. Required for virtual machine scale sets. |
 
 ### Sample JSON
 
@@ -567,10 +594,14 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
   "actions": [
     {
       "type": "continuous",
-      "name": "urn:csci:microsoft:agent:networkDisconnect/1.0",
+      "name": "urn:csci:microsoft:agent:networkDisconnect/1.1",
       "parameters": [
         {
           "key": "destinationFilters",
+          "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "inboundDestinationFilters",
           "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
         },
         {
@@ -692,7 +723,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 
 * The agent-based network faults currently only support IPv4 addresses.
 
-## Azure Resource Manager virtual machine shutdown
+## Virtual Machine shutdown
 | Property | Value |
 |-|-|
 | Capability name | Shutdown-1.0 |
@@ -726,7 +757,7 @@ Currently, the Windows agent doesn't reduce memory pressure when other applicati
 }
 ```
 
-## Azure Resource Manager virtual machine scale set instance shutdown
+## Virtual Machine Scale Set instance shutdown
 
 This fault has two available versions that you can use, Version 1.0 and Version 2.0. The main difference is that Version 2.0 allows you to filter by availability zones, only shutting down instances within a specified zone or zones.
 
@@ -836,6 +867,39 @@ Configure the shutdown fault:
 ### Limitations
 Currently, only virtual machine scale sets configured with the **Uniform** orchestration mode are supported. If your virtual machine scale set uses **Flexible** orchestration, you can use the Azure Resource Manager virtual machine shutdown fault to shut down selected instances.
 
+## Virtual Machine redeploy
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Redeploy-1.0 |
+| Target type | Microsoft-VirtualMachine |
+| Description | Redeploys a VM by shutting it down, moving it to a new node in the Azure infrastructure, and powering it back on. This helps validate your workload's resilience to maintenance events. |
+| Prerequisites | None. |
+| Urn | urn:csci:microsoft:virtualMachine:redeploy/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) | None. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:virtualMachine:redeploy/1.0",
+      "parameters":[],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+### Limitations
+
+* The Virtual Machine Redeploy operation is throttled within an interval of 10 hours. If your experiment fails with a "Too many redeploy requests" error, please wait for 10 hours to retry the experiment.
+
+
 ## Azure Cosmos DB failover
 
 | Property | Value |
@@ -881,7 +945,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [NetworkChaos kind](https://chaos-mesh.org/docs/simulate-network-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [NetworkChaos kind](https://chaos-mesh.org/docs/simulate-network-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -895,7 +959,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"delay\",\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"],\"labelSelectors\":{\"app\":\"web-show\"}},\"delay\":{\"latency\":\"10ms\",\"correlation\":\"100\",\"jitter\":\"0ms\"}}"
+            "value": "{\"action\":\"delay\",\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"delay\":{\"latency\":\"200ms\",\"correlation\":\"100\",\"jitter\":\"0ms\"}}}"
         }
     ],
       "selectorid": "myResources"
@@ -915,7 +979,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [PodChaos kind](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/#create-experiments-using-yaml-configuration-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [PodChaos kind](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/#create-experiments-using-yaml-configuration-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -929,7 +993,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"pod-failure\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app.kubernetes.io\/component\":\"tikv\"}}}"
+            "value": "{\"action\":\"pod-failure\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]}}"
         }
     ],
       "selectorid": "myResources"
@@ -949,7 +1013,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:stressChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [StressChaos kind](https://chaos-mesh.org/docs/simulate-heavy-stress-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [StressChaos kind](https://chaos-mesh.org/docs/simulate-heavy-stress-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -963,7 +1027,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"app1\"}},\"stressors\":{\"memory\":{\"workers\":4,\"size\":\"256MB\"}}}"
+            "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"stressors\":{\"cpu\":{\"workers\":1,\"load\":50},\"memory\":{\"workers\":4,\"size\":\"256MB\"}}"
         }
     ],
       "selectorid": "myResources"
@@ -983,7 +1047,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:IOChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [IOChaos kind](https://chaos-mesh.org/docs/simulate-io-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [IOChaos kind](https://chaos-mesh.org/docs/simulate-io-chaos-on-kubernetes/#create-experiments-using-the-yaml-files). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -997,7 +1061,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"etcd\"}},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50}"
+            "value": "{\"action\":\"latency\",\"mode\":\"one\",\"selector\":{\"app\":\"etcd\"},\"volumePath\":\"\/var\/run\/etcd\",\"path\":\"\/var\/run\/etcd\/**\/*\",\"delay\":\"100ms\",\"percent\":50}"
         }
     ],
       "selectorid": "myResources"
@@ -1017,7 +1081,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:timeChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [TimeChaos kind](https://chaos-mesh.org/docs/simulate-time-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [TimeChaos kind](https://chaos-mesh.org/docs/simulate-time-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -1031,7 +1095,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"mode\":\"one\",\"selector\":{\"labelSelectors\":{\"app\":\"app1\"}},\"timeOffset\":\"-10m100ns\"}"
+            "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"timeOffset\":\"-10m100ns\"}"
         }
     ],
       "selectorid": "myResources"
@@ -1051,7 +1115,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:kernelChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [KernelChaos kind](https://chaos-mesh.org/docs/simulate-kernel-chaos-on-kubernetes/#configuration-file).You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [KernelChaos kind](https://chaos-mesh.org/docs/simulate-kernel-chaos-on-kubernetes/#configuration-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -1065,7 +1129,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"chaos-mount\"]},\"failKernRequest\":{\"callchain\":[{\"funcname\":\"__x64_sys_mount\"}],\"failtype\":0}}"
+            "value": "{\"mode\":\"one\",\"selector\":{\"namespaces\":[\"default\"]},\"failKernRequest\":{\"callchain\":[{\"funcname\":\"__x64_sys_mount\"}],\"failtype\":0}}"
         }
     ],
       "selectorid": "myResources"
@@ -1085,7 +1149,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:httpChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [HTTPChaos kind](https://chaos-mesh.org/docs/simulate-http-chaos-on-kubernetes/#create-experiments). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [HTTPChaos kind](https://chaos-mesh.org/docs/simulate-http-chaos-on-kubernetes/#create-experiments). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -1099,7 +1163,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"mode\":\"all\",\"selector\":{\"labelSelectors\":{\"app\":\"nginx\"}},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"\/api\",\"abort\":true,\"scheduler\":{\"cron\":\"@every 10m\"}}"
+            "value": "{\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]},\"target\":\"Request\",\"port\":80,\"method\":\"GET\",\"path\":\"/api\",\"abort\":true}"
         }
     ],
       "selectorid": "myResources"
@@ -1119,7 +1183,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Prerequisites | The AKS cluster must [have Chaos Mesh deployed](chaos-studio-tutorial-aks-portal.md) and the [DNS service must be installed](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/#deploy-chaos-dns-service). |
 | Urn | urn:csci:microsoft:azureKubernetesServiceChaosMesh:dnsChaos/2.1 |
 | Parameters (key, value) |  |
-| jsonSpec | A JSON-formatted and, if created via an Azure Resource Manager template, REST API, or the Azure CLI, JSON-escaped Chaos Mesh spec that uses the [DNSChaos kind](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Then use a JSON string escape tool like [JSON Escape / Unescape](https://www.freeformatter.com/json-escape.html) to escape the JSON spec. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. |
+| jsonSpec | A JSON-formatted Chaos Mesh spec that uses the [DNSChaos kind](https://chaos-mesh.org/docs/simulate-dns-chaos-on-kubernetes/#create-experiments-using-the-yaml-file). You can use a YAML-to-JSON converter like [Convert YAML To JSON](https://www.convertjson.com/yaml-to-json.htm) to convert the Chaos Mesh YAML to JSON and minify it. Use single-quotes within the JSON or escape the quotes with a backslash character. Only include the YAML under the `jsonSpec` property. Don't include information like metadata and kind. Specifying duration within the `jsonSpec` isn't necessary, but will be used if available. |
 
 ### Sample JSON
 
@@ -1133,7 +1197,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
       "parameters": [
         {
             "key": "jsonSpec",
-            "value": "{\"action\":\"random\",\"mode\":\"all\",\"patterns\":[\"google.com\",\"chaos-mesh.*\",\"github.?om\"],\"selector\":{\"namespaces\":[\"busybox\"]}}"
+            "value": "{\"action\":\"random\",\"mode\":\"all\",\"patterns\":[\"google.com\",\"chaos-mesh.*\",\"github.?om\"],\"selector\":{\"namespaces\":[\"default\"]}}"
         }
     ],
       "selectorid": "myResources"
@@ -1367,12 +1431,12 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | DisableCertificate-1.0 |
 | Target type | Microsoft-KeyVault |
 | Description | By using certificate properties, the fault disables the certificate for a specific duration (provided by the user). It enables the certificate after this fault duration. |
-| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault. |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:disableCertificate/1.0 |
 | Fault type | Continuous. |
 | Parameters (key, value) | |
 | certificateName | Name of Azure Key Vault certificate on which the fault is executed. |
-| version | Certificate version that should be updated. If not specified, the latest version is updated. |
+| version | Certificate version that should be disabled. If not specified, the latest version is disabled. |
 
 ### Sample JSON
 
@@ -1408,7 +1472,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | IncrementCertificateVersion-1.0 |
 | Target type | Microsoft-KeyVault |
 | Description | Generates a new certificate version and thumbprint by using the Key Vault Certificate client library. Current working certificate is upgraded to this version. |
-| Prerequisites | For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault. |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:incrementCertificateVersion/1.0 |
 | Fault type | Discrete. |
 | Parameters (key, value) | |
@@ -1443,7 +1507,7 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
 | Capability name | UpdateCertificatePolicy-1.0        |
 | Target type | Microsoft-KeyVault        |
 | Description | Certificate policies (for example, certificate validity period, certificate type, key size, or key type) are updated based on user input and reverted after the fault duration.        |
-| Prerequisites |  For OneCert certificates, the domain must be registered with OneCert before you attempt to run the fault.       |
+| Prerequisites | None. |
 | Urn | urn:csci:microsoft:keyvault:updateCertificatePolicy/1.0        |
 | Fault type | Continuous.        |
 | Parameters (key, value) |     |    
@@ -1550,3 +1614,72 @@ Currently, only virtual machine scale sets configured with the **Uniform** orche
   ]
 }
 ```
+
+## Start load test (Azure load testing)
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Start-1.0 |
+| Target type | Microsoft-AzureLoadTest |
+| Description | Starts a load test (from Azure load testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the Azure load testing service. |
+| Urn | urn:csci:microsoft:azureLoadTest:start/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) |     |    
+| testID | The ID of a specific load test created in the Azure load testing service. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:azureLoadTest:start/1.0",
+      "parameters": [
+        {
+            "key": "testID",
+            "value": "0"
+        }
+    ],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+## Stop load test (Azure load testing)
+	
+| Property  | Value |
+| ---- | --- |
+| Capability name | Stop-1.0 |
+| Target type | Microsoft-AzureLoadTest |
+| Description | Stops a load test (from Azure load testing) based on the provided load test ID. |
+| Prerequisites | A load test with a valid load test ID must be created in the Azure load testing service. |
+| Urn | urn:csci:microsoft:azureLoadTest:stop/1.0 |
+| Fault type | Discrete. |
+| Parameters (key, value) |     |    
+| testID | The ID of a specific load test created in the Azure load testing service. |
+
+### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "discrete",
+      "name": "urn:csci:microsoft:azureLoadTest:stop/1.0",
+      "parameters": [
+        {
+            "key": "testID",
+            "value": "0"
+        }
+    ],
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+

@@ -63,7 +63,7 @@ If you have questions or need help, [create a support request](https://go.micros
 
 To learn more about Azure reservations, see the following articles:
 
-* [Prepay for Azure Data Explorer compute resources with Azure Azure Data Explorer reserved capacity](/azure/data-explorer/pricing-reserved-capacity)  
+* [Prepay for Azure Data Explorer compute resources with Azure Data Explorer reserved capacity](/azure/data-explorer/pricing-reserved-capacity)  
 * [What are reservations for Azure?](save-compute-costs-reservations.md)  
 * [Manage Azure reservations](manage-reserved-vm-instance.md)  
 * [Understand reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md)

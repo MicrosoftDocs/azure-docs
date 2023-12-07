@@ -33,7 +33,7 @@ For details on when billing is enabled for custom metrics and metrics queries, c
 Custom metrics are retained for the [same amount of time as platform metrics](../essentials/data-platform-metrics.md#retention-of-metrics).
 
 > [!NOTE]
-> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database by using the custom metrics API to allow the more complex alerting. Learn more about the [Application Insights pricing model](../usage-estimated-costs.md) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
+> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database by using the custom metrics API to allow the more complex alerting. Learn more about the [Application Insights pricing model](../cost-usage.md) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## How to send custom metrics
 
@@ -41,15 +41,15 @@ When you send custom metrics to Azure Monitor, each data point, or value, report
 
 ### Authentication
 
-To submit custom metrics to Azure Monitor, the entity that submits the metric needs a valid Azure Active Directory (Azure AD) token in the **Bearer** header of the request. Supported ways to acquire a valid bearer token include:
+To submit custom metrics to Azure Monitor, the entity that submits the metric needs a valid Microsoft Entra token in the **Bearer** header of the request. Supported ways to acquire a valid bearer token include:
 
 - [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). You can use a managed identity to give resources permissions to carry out certain operations. An example is allowing a resource to emit metrics about itself. A resource, or its managed identity, can be granted **Monitoring Metrics Publisher** permissions on another resource. With this permission, the managed identity can also emit metrics for other resources.
-- [Azure AD service principal](../../active-directory/develop/app-objects-and-service-principals.md). In this scenario, an Azure AD application, or service, can be assigned permissions to emit metrics about an Azure resource. To authenticate the request, Azure Monitor validates the application token by using Azure AD public keys. The existing **Monitoring Metrics Publisher** role already has this permission. It's available in the Azure portal.
+- [Microsoft Entra service principal](../../active-directory/develop/app-objects-and-service-principals.md). In this scenario, a Microsoft Entra application, or service, can be assigned permissions to emit metrics about an Azure resource. To authenticate the request, Azure Monitor validates the application token by using Microsoft Entra public keys. The existing **Monitoring Metrics Publisher** role already has this permission. It's available in the Azure portal.
 
   The service principal, depending on what resources it emits custom metrics for, can be given the **Monitoring Metrics Publisher** role at the scope required. Examples are a subscription, resource group, or specific resource.
 
 > [!TIP]
-> When you request an Azure AD token to emit custom metrics, ensure that the audience or resource that the token is requested for is `https://monitoring.azure.com/`. Be sure to include the trailing slash.
+> When you request a Microsoft Entra token to emit custom metrics, ensure that the audience or resource that the token is requested for is `https://monitoring.azure.com/`. Be sure to include the trailing slash.
 
 ### Subject
 
@@ -197,7 +197,7 @@ After custom metrics are submitted to Azure Monitor, you can browse through them
 1. Select the metrics namespace for your custom metric.
 1. Select the custom metric.
 
-For more information on viewing metrics in the Azure portal, see [Getting started with Azure Metrics Explorer](./metrics-getting-started.md).
+For more information on viewing metrics in the Azure portal, see [Analyze metrics with Azure Monitor metrics explorer](./analyze-metrics.md).
 
 ## Supported regions
 

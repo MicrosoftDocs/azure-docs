@@ -22,7 +22,8 @@ Azure Digital Twins [3D Scenes Studio (preview)](https://explorer.digitaltwins.a
 
 ## Prerequisites
 
-To use 3D Scenes Studio, you'll need the following resources:
+To use 3D Scenes Studio, you'll need the following resources.
+
 * An Azure Digital Twins instance. For instructions, see [Set up an instance and authentication](how-to-set-up-instance-cli.md).
     * Obtain *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance. For instructions, see [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
     * Take note of the *host name* of your instance to use later.
@@ -30,7 +31,11 @@ To use 3D Scenes Studio, you'll need the following resources:
     * Take note of the *URL* of your storage account to use later.
 * A private container in the storage account. For instructions, see [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
     * Take note of the *name* of your storage container to use later.
-* *Storage Blob Data Owner* or *Storage Blob Data Contributor* access to your storage resources. You can grant required roles at either the storage account level or the container level. For instructions and more information about permissions to Azure storage, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
+* Permissions for your storage resources, including:
+    * At least *Reader* control plane access
+    * A data access role of *Storage Blob Data Owner* or *Storage Blob Data Contributor*
+
+    You can grant required roles at either the storage account level or the container level. For instructions and more information about permissions to Azure storage, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role). 
 * Configure CORS for your storage account (see details in the following sub-section).
 
 ### Configure CORS

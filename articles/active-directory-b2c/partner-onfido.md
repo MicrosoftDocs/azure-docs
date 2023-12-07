@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with Onfido
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Onfido for document ID and facial biometrics verification 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 12/8/2022
 ms.author: gasinh
@@ -24,7 +24,8 @@ In this tutorial, you'll enable the Onfido service to verify identity in the sig
 
 To get started, you'll need:
 
-- An Azure AD subscription
+* An Azure subscription
+
   - If you don't have on, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - An Onfido trial account
@@ -77,7 +78,7 @@ For more Onfido documentation, see:
 3. Add **Allowed Origin** as `https://{your_tenant_name}.b2clogin.com`.
 
 >[!NOTE]
->You'll need the deployed service URL to configure Azure AD.
+>You'll need the deployed service URL to configure Microsoft Entra ID.
 
 #### Adding sensitive configuration settings
 

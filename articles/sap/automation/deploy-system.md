@@ -47,7 +47,7 @@ You can set the size of database VMs with the parameter `size` for this tier. Fo
 
 By default, the automation framework deploys the correct disk configuration for HANA database deployments. For HANA database deployments, the framework calculates default disk configuration based on VM size. However, for AnyDB database deployments, the framework calculates default disk configuration based on database size. You can set a disk size as needed by creating a custom JSON file in your deployment. For an example, [see the following JSON code sample and replace values as necessary for your configuration](configure-extra-disks.md#custom-sizing-file). Then, define the parameter `db_disk_sizes_filename` in the parameter file for the database tier. An example is `db_disk_sizes_filename = "path/to/JSON/file"`.
 
-You can also [add extra disks to a new system](configure-extra-disks.md#custom-sizing-file) or [add extra disks to an existing system](configure-extra-disks.md#add-extra-disks-to-existing-system).
+You can also [add extra disks to a new system](configure-extra-disks.md#custom-sizing-file) or [add extra disks to an existing system](configure-extra-disks.md#add-extra-disks-to-an-existing-system).
 
 ## Core configuration
 

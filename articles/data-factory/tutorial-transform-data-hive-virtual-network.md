@@ -387,7 +387,7 @@ Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName
    246 en-US SCH-i500 District Of Columbia
    ```
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]

@@ -89,8 +89,10 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md?toc=%2fazure%2fdns%2ftoc.json
   - name: Private DNS
     items:
-    - name: Private DNS zone
+    - name: What is an Azure Private DNS zone?
       href: private-dns-privatednszone.md
+    - name: Private DNS records
+      href: dns-private-records.md
     - name: Virtual network links
       href: private-dns-virtual-network-links.md
     - name: Autoregistration
@@ -141,7 +143,11 @@
       - name: Manage reverse DNS records for Azure services
         href: dns-reverse-dns-for-azure-services.md
     - name: Import and export a DNS zone file
-      href: dns-import-export.md
+      items:
+      - name: Azure portal
+        href: dns-import-export-portal.md
+      - name: Azure CLI
+        href: dns-import-export.md
     - name: Delegate a subdomain
       items:
       - name: Azure portal
@@ -242,7 +248,7 @@
   - name: Feature requests
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c429912-8326-ec11-b6e6-000d3a4f0789
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-virtual-network.html
+    href: /answers/tags/143/azure-virtual-network
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Pricing

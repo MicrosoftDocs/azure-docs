@@ -63,7 +63,7 @@ For example, the following command adds an email notification and a webhook noti
 > You can add mote than one email or webhook notification by using the `--add-action` parameter multiple times. While multiple webhook notifications are supported and can be seen in the JSON, the portal only shows the first webhook.
 
 
-For more information, see [az monitor autoscale](https://learn.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest).
+For more information, see [az monitor autoscale](/cli/azure/monitor/autoscale).
 
 
 
@@ -105,7 +105,7 @@ New-AzAutoscaleSetting -Name autoscalesetting2 `
 
 ### Use Resource Manager templates to configure notifications.
 
-When you use the Resource Manager templates or REST API, include the `notifications` element in your [autoscale settings](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings?pivots=deployment-language-arm-template#resource-format-1), for example:
+When you use the Resource Manager templates or REST API, include the `notifications` element in your [autoscale settings](/azure/templates/microsoft.insights/autoscalesettings?pivots=deployment-language-arm-template#resource-format-1), for example:
 
 ```JSON
 "notifications": [

@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Build your app in LUIS portal"
 description: This quickstart shows how to create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.author: aahi
 author: aahill
 ms.manager: nitinme

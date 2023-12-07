@@ -72,6 +72,16 @@
     items:
     - name: Choose reservation to purchase
       href: determine-reservation-purchase.md
+  - name: Limited-time offers
+    items:
+    - name: US West Dv3 VMs
+      href: limited-time-us-west.md
+    - name: Sweden Central select Linux VMs
+      href: limited-time-central-sweden.md
+    - name: Poland Central VMs
+      href: limited-time-central-poland.md
+    - name: Poland Central SQL services
+      href: poland-limited-time-sql-services-reservations.md
   - name: Buy reservations
     items:
     - name: Buy an Azure reservation
@@ -110,6 +120,8 @@
       href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md
     - name: Disk Storage
       href: ../../virtual-machines/disks-reserved-capacity.md
+    - name: Microsoft Fabric
+      href: fabric-capacity.md
     - name: SAP HANA Large Instances
       href: prepay-hana-large-instances-reserved-capacity.md
     - name: Software plans

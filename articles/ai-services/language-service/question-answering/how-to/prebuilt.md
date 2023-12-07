@@ -2,8 +2,7 @@
 title: Prebuilt API - question answering
 titleSuffix: Azure AI services
 description: Use the question answering Prebuilt API to ask and receive answers to questions without having to create a project. 
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: how-to
@@ -190,12 +189,12 @@ ne|Nepali
 nl|Dutch, Flemish
 nn|Norwegian Nynorsk
 no|Norwegian
-or|Oriya
+or|Odia
 pa|Punjabi, Panjabi
 pl|Polish
 ps|Pashto, Pushto
 pt|Portuguese
-ro|Romanian, Moldavian, Moldovan
+ro|Romanian
 ru|Russian
 sa|Sanskrit
 sd|Sindhi

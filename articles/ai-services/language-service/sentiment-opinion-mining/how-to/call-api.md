@@ -2,11 +2,10 @@
 title: How to perform sentiment analysis and opinion mining
 titleSuffix: Azure AI services
 description: This article will show you how to detect sentiment, and mine for opinions in text.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 07/19/2023
 ms.author: aahi

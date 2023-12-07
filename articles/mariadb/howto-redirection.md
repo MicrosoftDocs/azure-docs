@@ -11,6 +11,8 @@ ms.date: 04/19/2023
 
 # Connect to Azure Database for MariaDB with redirection
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This topic explains how to connect an application your Azure Database for MariaDB server with redirection mode. Redirection aims to reduce network latency between client applications and MariaDB servers by allowing applications to connect directly to backend server nodes.
 
 ## Before you begin
@@ -159,7 +161,7 @@ $db_name = 'testdb';
      die ('Connect error (' . mysqli_connect_errno() . '): ' . mysqli_connect_error() . "\n");
   }
   else {
-    echo $db->host_info, "\n"; //if redirection succeeds, the host_info differs from the hostname you used used to connect
+    echo $db->host_info, "\n"; //if redirection succeeds, the host_info differs from the hostname you used to connect
     $res = $db->query('SHOW TABLES;'); //test query with the connection
     print_r ($res);
     $db->close();

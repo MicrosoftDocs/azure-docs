@@ -28,7 +28,7 @@ ms.author: rahulva
 1. Open your terminal or command window create a new directory for your app, and navigate to it.
 
    ```console
-   mkdir access-tokens-quickstart && cd relay-tokens-quickstart
+   mkdir access-tokens-quickstart && cd access-tokens-quickstart
    ```
 
 2. Use a text editor to create a file called **issue-relay-tokens.py** in the project root directory and add the structure for the program, including basic exception handling. You'll add all the source code for this quickstart to this file in the following sections.

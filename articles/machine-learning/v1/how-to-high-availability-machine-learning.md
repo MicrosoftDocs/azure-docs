@@ -92,7 +92,7 @@ Azure Machine Learning builds on top of other services. Some services can be con
 | Key Vault | Microsoft | Use the same Key Vault instance with the Azure Machine Learning workspace and resources in both regions. Key Vault automatically fails over to a secondary region. For more information, see [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md).|
 | Container Registry | Microsoft | Configure the Container Registry instance to geo-replicate registries to the paired region for Azure Machine Learning. Use the same instance for both workspace instances. For more information, see [Geo-replication in Azure Container Registry](../../container-registry/container-registry-geo-replication.md). |
 | Storage Account | You | Azure Machine Learning does not support __default storage-account__ failover using geo-redundant storage (GRS), geo-zone-redundant storage (GZRS), read-access geo-redundant storage (RA-GRS), or read-access geo-zone-redundant storage (RA-GZRS). Create a separate storage account for the default storage of each workspace. </br>Create separate storage accounts or services for other data storage. For more information, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md). |
-| Application Insights | You | Create Application Insights for the workspace in both regions. To adjust the data-retention period and details, see [Data collection, retention, and storage in Application Insights](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept). |
+| Application Insights | You | Create Application Insights for the workspace in both regions. To adjust the data-retention period and details, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy#how-long-is-the-data-kept). |
 
 To enable fast recovery and restart in the secondary region, we recommend the following development practices:
 
@@ -194,7 +194,7 @@ The following artifacts can be exported and imported between workspaces by using
 
 ### Workspace deletion
 
-If you accidentally deleted your workspace, you might able to recover it. For recovery steps, see [Recover workspace data after accidental deletion with soft delete (Preview)](../concept-soft-delete.md). 
+If you accidentally deleted your workspace, you might able to recover it. For recovery steps, see [Recover workspace data after accidental deletion with soft delete](../concept-soft-delete.md). 
 
 Even if your workspace cannot be recovered, you may still be able to retrieve your notebooks from the workspace-associated Azure storage resource by following these steps:
 * In the [Azure portal](https://portal.azure.com) navigate to the storage account that was linked to the deleted Azure Machine Learning workspace.
@@ -206,3 +206,4 @@ Even if your workspace cannot be recovered, you may still be able to retrieve yo
 ## Next steps
 
 To learn about repeatable infrastructure deployments with Azure Machine Learning, use an [Azure Resource Manager template](../tutorial-create-secure-workspace-template.md).
+

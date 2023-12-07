@@ -13,24 +13,30 @@ ms.custom: engagement-fy23
 
 If you've added an [ISV tool](migrate-services-overview.md#isv-integration) or Movere to an Azure Migrate project, there are a few steps to follow before you link the tool and send data to Azure Migrate. 
 
-## Check Azure AD permissions
+<a name='check-azure-ad-permissions'></a>
+
+## Check Microsoft Entra permissions
 
 Your Azure user account needs these permissions:
 
-- Permission to register an Azure Active Directory (Azure AD) app with your Azure tenant
-- Permission to allocate a role to the Azure AD app at the subscription level
+- Permission to register a Microsoft Entra app with your Azure tenant
+- Permission to allocate a role to the Microsoft Entra app at the subscription level
 
 
-### Set permissions to register an Azure AD app
+<a name='set-permissions-to-register-an-azure-ad-app'></a>
 
-1. In Azure AD, check the role for your account.
-2. If you have the user role, select **User settings** on the left and verify whether users can register applications. If it's set to **Yes**, any users in the Azure AD tenant can register an app. If it's set to **No**, then only admin users can register apps.   
+### Set permissions to register a Microsoft Entra app
+
+1. In Microsoft Entra ID, check the role for your account.
+2. If you have the user role, select **User settings** on the left and verify whether users can register applications. If it's set to **Yes**, any users in the Microsoft Entra tenant can register an app. If it's set to **No**, then only admin users can register apps.   
 3. If you don't have permissions, an admin user can provide your user account with the [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) role, so that you can register the app.
 4. After the tool is linked to Azure Migrate, the admin can remove the role from your account.
 
-### Set permissions to assign a role to an Azure AD app
+<a name='set-permissions-to-assign-a-role-to-an-azure-ad-app'></a>
+
+### Set permissions to assign a role to a Microsoft Entra app
  
-In your Azure subscription, your account needs **Microsoft.Authorization/*/Write** access to assign a role to an Azure AD app. 
+In your Azure subscription, your account needs **Microsoft.Authorization/*/Write** access to assign a role to a Microsoft Entra app. 
 
 1. In the Azure portal, open **Subscriptions**.
 2. Select the relevant subscription. If you don't see it, select the **global subscriptions filter**. 
@@ -45,7 +51,7 @@ For ISV tools and Azure Database Migration Assistant, allow access to the public
 --- | ---
 *.portal.azure.com 	| Navigate to the Azure portal. 
 *.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *.live.com 	| Sign in to your Azure subscription. 
-*.microsoftonline.com<br/> *.microsoftonline-p.com | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate. 
+*.microsoftonline.com<br/> *.microsoftonline-p.com | Create Microsoft Entra apps for the appliance to communicate with Azure Migrate. 
 management.azure.com | Make Azure Resource Manager calls to the Azure Migrate Project.
 *.servicebus.windows.net | Communication between the appliance and EventHub for sending the messages.
 

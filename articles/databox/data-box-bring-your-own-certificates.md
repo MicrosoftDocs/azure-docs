@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: article
 ms.date: 08/31/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Use your own certificates with Data Box and Data Box Heavy devices

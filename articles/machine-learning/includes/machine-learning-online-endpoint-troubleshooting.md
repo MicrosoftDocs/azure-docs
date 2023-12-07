@@ -39,6 +39,9 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
 
 ### Online deployments fail with an image download error
 
+> [!NOTE]
+> This issue applies when you use the [legacy network isolation method for managed online endpoints](../concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method), in which Azure Machine Learning creates a managed virtual network for each deployment under an endpoint.
+
 1. Check if the `egress-public-network-access` flag is __disabled__ for the deployment. If this flag is enabled, and the visibility of the container registry is private, then this failure is expected.
 1. Use the following command to check the status of the private endpoint connection. Replace `<registry-name>` with the name of the Azure Container Registry for your workspace:
 

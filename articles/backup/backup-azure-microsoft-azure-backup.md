@@ -332,7 +332,7 @@ If your machine has limited internet access, ensure that firewall settings on th
 
 If you're using ExpressRoute Microsoft peering, select the following services/regions:
 
-* Azure Active Directory (12076:5060)
+* Microsoft Entra ID (12076:5060)
 * Microsoft Azure Region (according to the location of your Recovery Services vault)
 * Azure Storage (according to the location of your Recovery Services vault)
 

@@ -3,12 +3,12 @@ title: Configure cross-tenant customer-managed keys for an existing storage acco
 titleSuffix: Azure Storage
 description: Learn how to configure Azure Storage encryption with customer-managed keys in an Azure key vault that resides in a different tenant than the tenant where the storage account resides. Customer-managed keys allow a service provider to encrypt the customer's data using an encryption key that is managed by the service provider's customer and that isn't accessible to the service provider.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/31/2022
-ms.author: tamram
+ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli

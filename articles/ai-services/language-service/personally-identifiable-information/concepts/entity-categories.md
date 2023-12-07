@@ -2,11 +2,10 @@
 title: Entity categories recognized by Personally Identifiable Information (detection) in Azure AI Language
 titleSuffix: Azure AI services
 description: Learn about the entities the PII feature can recognize from unstructured text.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 11/15/2021
 ms.author: jboback
@@ -384,7 +383,7 @@ The entity in this category can have the following subcategories.
 :::row-end:::
 
 
-## Category: Age
+## Category: Quantity
 
 This category contains the following entities:
 
@@ -392,21 +391,44 @@ This category contains the following entities:
     :::column span="":::
         **Entity**
 
-           Age
+        Quantity
 
     :::column-end:::
     :::column span="2":::
         **Details**
 
-        Ages. 
+        Numbers and numeric quantities.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
 
-        To get this entity category, add `Age` to the `piiCategories` parameter. `Age` will be returned in the API response if detected.
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Subcategories
+
+The entity in this category can have the following subcategories.
+
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
+
+        Age
 
     :::column-end:::
     :::column span="2":::
-        **Supported document languages**
+        **Details**
 
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
+        Ages.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
       
    :::column-end:::
 :::row-end:::

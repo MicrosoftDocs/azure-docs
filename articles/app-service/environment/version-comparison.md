@@ -12,7 +12,12 @@ ms.topic: article
 App Service Environment has three versions. App Service Environment v3 is the latest version and provides advantages and feature differences over earlier versions.
 
 > [!IMPORTANT]
-> App Service Environment v1 and v2 [will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024/). After that date, those versions will no longer be supported and any remaining App Service Environment v1 and v2s and the applications running on them will be deleted.
+> App Service Environment v1 and v2 [will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-2/). After that date, those versions will no longer be supported and any remaining App Service Environment v1 and v2s and the applications running on them will be deleted. 
+
+There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1 or v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+
+As of 15 January 2024, you can no longer create new App Service Environment v1 or v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
+>
 
 ## Comparison between versions
 
@@ -27,6 +32,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 |Dedicated host group     |No         |No         |[Yes](creation.md#deployment-considerations) (not compatible with zone redundancy)         |
 |Upgrade preference for planned maintenance    |No         |No         |[Yes](how-to-upgrade-preference.md)         |
 |FTPS     |Yes         |Yes         |Yes, [must be explicitly enabled](configure-network-settings.md#ftp-access). Access to FTPS endpoint using custom domain suffix isn't supported.         |
+|FTPS endpoint structure     |ftps://APP-NAME.ASE-NAME.appserviceenvironment.net        |ftps://APP-NAME.ASE-NAME.appserviceenvironment.net - Custom domain suffix is supported if you have one configured by replacing the App Service Environment name and the default domain suffix with your custom domain suffix.        |ftps://ASE-NAME.ftp.appserviceenvironment.net/site/wwwroot - Custom domain suffix isn't supported. Each app on the same App Service Environment v3 uses the same FTPS endpoint but has its own unique application scope credentials for authentication.        |
 |Remote debugging     |Yes         |Yes         |Yes, [must be explicitly enabled](configure-network-settings.md#remote-debugging-access)         |
 |[Azure virtual network (classic)](../../virtual-network/create-virtual-network-classic.md) support    |Yes         |No         |No         |
 
@@ -180,5 +186,3 @@ Due to hardware changes between the versions, there are some regions where App S
 
 > [!div class="nextstepaction"]
 > [Using an App Service Environment v3](using.md)
-
-

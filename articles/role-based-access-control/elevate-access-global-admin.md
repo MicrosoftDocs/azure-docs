@@ -1,6 +1,6 @@
 ---
 title: Elevate access to manage all Azure subscriptions and management groups
-description: Describes how to elevate access for a Global Administrator to manage all subscriptions and management groups in Azure Active Directory using the Azure portal or REST API.
+description: Describes how to elevate access for a Global Administrator to manage all subscriptions and management groups in Microsoft Entra ID using the Azure portal or REST API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Elevate access to manage all Azure subscriptions and management groups
 
-As a Global Administrator in Azure Active Directory (Azure AD), you might not have access to all subscriptions and management groups in your directory. This article describes the ways that you can elevate your access to all subscriptions and management groups.
+As a Global Administrator in Microsoft Entra ID, you might not have access to all subscriptions and management groups in your directory. This article describes the ways that you can elevate your access to all subscriptions and management groups.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -28,7 +28,7 @@ If you are a Global Administrator, there might be times when you want to do the 
 
 ## How does elevated access work?
 
-Azure AD and Azure resources are secured independently from one another. That is, Azure AD role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Azure AD. However, if you are a [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) in Azure AD, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
+Microsoft Entra ID and Azure resources are secured independently from one another. That is, Microsoft Entra role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Microsoft Entra ID. However, if you are a [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) in Microsoft Entra ID, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
 
 When you elevate your access, you will be assigned the [User Access Administrator](built-in-roles.md#user-access-administrator) role in Azure at root scope (`/`). This allows you to view all resources and assign access in any subscription or management group in the directory. User Access Administrator role assignments can be removed using Azure PowerShell, Azure CLI, or the REST API.
 
@@ -42,23 +42,23 @@ You should remove this elevated access once you have made the changes you need t
 
 Follow these steps to elevate access for a Global Administrator using the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com) as a Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
-    If you are using Azure AD Privileged Identity Management, [activate your Global Administrator role assignment](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
+    If you are using Microsoft Entra Privileged Identity Management, [activate your Global Administrator role assignment](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
 
-1. Open **Azure Active Directory**.
+1. Open **Microsoft Entra ID**.
 
 1. Under **Manage**, select **Properties**.
 
-   ![Select Properties for Azure Active Directory properties - screenshot](./media/elevate-access-global-admin/azure-active-directory-properties.png)
+   ![Select Properties for Microsoft Entra properties - screenshot](./media/elevate-access-global-admin/azure-active-directory-properties.png)
 
 1. Under **Access management for Azure resources**, set the toggle to **Yes**.
 
    ![Access management for Azure resources - screenshot](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   When you set the toggle to **Yes**, you are assigned the User Access Administrator role in Azure RBAC at root scope (/). This grants you permission to assign roles in all Azure subscriptions and management groups associated with this Azure AD directory. This toggle is only available to users who are assigned the Global Administrator role in Azure AD.
+   When you set the toggle to **Yes**, you are assigned the User Access Administrator role in Azure RBAC at root scope (/). This grants you permission to assign roles in all Azure subscriptions and management groups associated with this Microsoft Entra directory. This toggle is only available to users who are assigned the Global Administrator role in Microsoft Entra ID.
 
-   When you set the toggle to **No**, the User Access Administrator role in Azure RBAC is removed from your user account. You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Azure AD directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
+   When you set the toggle to **No**, the User Access Administrator role in Azure RBAC is removed from your user account. You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Microsoft Entra directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
 
     > [!NOTE]
     > If you're using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), deactivating your role assignment does not change the **Access management for Azure resources** toggle to **No**. To maintain least privileged access, we recommend that you set this toggle to **No** before you deactivate your role assignment.
@@ -85,7 +85,7 @@ To remove the User Access Administrator role assignment at root scope (`/`), fol
 
 1. Sign in as the same user that was used to elevate access.
 
-1. In the navigation list, click **Azure Active Directory** and then click **Properties**.
+1. In the navigation list, click **Microsoft Entra ID** and then click **Properties**.
 
 1. Set the **Access management for Azure resources** toggle back to **No**. Since this is a per-user setting, you must be signed in as the same user as was used to elevate access.
 
@@ -335,7 +335,7 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ## View elevate access log entries in the Directory Activity logs
 
-When access is elevated, an entry is added to the logs. As a Global Administrator in Azure AD, you might want to check when access was elevated and who did it. Elevate access log entries do not appear in the standard activity logs, but instead appear in the Directory Activity logs. This section describes different ways that you can view the elevate access log entries.
+When access is elevated, an entry is added to the logs. As a Global Administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it. Elevate access log entries do not appear in the standard activity logs, but instead appear in the Directory Activity logs. This section describes different ways that you can view the elevate access log entries.
 
 ### View elevate access log entries using the Azure portal
 
@@ -388,7 +388,7 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
 If you want to be able to periodically get the elevate access log entries, you can delegate access to a group and then use Azure CLI.
 
-1. Open **Azure Active Directory** > **Groups**.
+1. Open **Microsoft Entra ID** > **Groups**.
 
 1. Create a new security group and note the group object ID.
 

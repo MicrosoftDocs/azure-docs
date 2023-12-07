@@ -34,7 +34,7 @@ To complete this tutorial, you need to have an existing Azure Database for MySQL
 |---|---|
 | [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal) | If you need to create a database, follow the steps in the [create an Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/quickstart-create-server-portal) guide. If you plan to use a connection string authentication for your web app, ensure that you create your database with MySQL authentication. You can change this setting later if you want to use managed identity later on. |
 | [Existing static web app](getting-started.md) | If you don't already have one, follow the steps in the [getting started](getting-started.md) guide to create a *No Framework* static web app.  |
-| [Azure Data Studio, with the MySQL extension](/sql/azure-data-studio/quickstart-mysql) | If you don't already have Azure Data Studio installed, follow the guide to install [Azure Data Studio, with the MySQL extension](/sql/azure-data-studio/quickstart-mysql). Alternatively, you may use any other tool to query your MySQL database, such as MySQL Workbench. |
+| [Azure Data Studio, with the MySQL extension](/azure-data-studio/quickstart-mysql) | If you don't already have Azure Data Studio installed, follow the guide to install [Azure Data Studio, with the MySQL extension](/azure-data-studio/quickstart-mysql). Alternatively, you may use any other tool to query your MySQL database, such as MySQL Workbench. |
 
 Begin by configuring your database to work with the Azure Static Web Apps database connection feature.
 
@@ -70,9 +70,9 @@ To use your Azure database for local development, you need to retrieve the conne
 
 ## Create sample data
 
-Create a sample table and seed it with sample data to match the tutorial. Here, you can use [Azure Data Studio](/sql/azure-data-studio/quickstart-mysql), but you may use MySQL Workbench or any other tool. 
+Create a sample table and seed it with sample data to match the tutorial. Here, you can use [Azure Data Studio](/azure-data-studio/quickstart-mysql), but you may use MySQL Workbench or any other tool. 
 
-1. In Azure Data Studio, [create a connection to your Azure MySQL Flexible Server](/sql/azure-data-studio/quickstart-mysql#connect-to-mysql).
+1. In Azure Data Studio, [create a connection to your Azure MySQL Flexible Server](/azure-data-studio/quickstart-mysql#connect-to-mysql).
 
 1. Right-click your server, and create a new database. Enter `MyTestPersonDatabase` as the database name, and select the charset to be `utf8mb4` and the collation of `utf8mb4_0900_ai_ci`.
 

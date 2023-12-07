@@ -1,13 +1,33 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/confidential-computing/virtual-machine-solutions.md",
-            "redirect_url": "/azure/confidential-computing/virtual-machine-solutions-sgx",
+            "source_path_from_root": "/articles/confidential-computing/virtual-machine-solutions-amd.md",
+            "redirect_url": "/azure/confidential-computing/virtual-machine-solutions",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/confidential-computing/faq.md",
             "redirect_url": "/azure/confidential-computing/faq-application-enclaves",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/confidential-vm-faq-amd.md",
+            "redirect_url": "/azure/confidential-computing/confidential-vm-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/quick-create-confidential-vm-arm-amd.md",
+            "redirect_url": "/azure/confidential-computing/quick-create-confidential-vm-arm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/quick-create-confidential-vm-portal-amd.md",
+            "redirect_url": "/azure/confidential-computing/quick-create-confidential-vm-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/quick-create-confidential-vm-azure-cli-amd.md",
+            "redirect_url": "/azure/confidential-computing/quick-create-confidential-vm-azure-cli",
             "redirect_document_id": true
         }
     ]

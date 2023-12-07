@@ -2,11 +2,10 @@
 title: Get facial position with viseme
 titleSuffix: Azure AI services
 description: Speech SDK supports viseme events during speech synthesis, which represent key poses in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme.
-services: cognitive-services
+#services: cognitive-services
 author: yulin-li
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 10/23/2022
 ms.author: yulili

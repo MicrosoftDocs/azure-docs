@@ -4,12 +4,12 @@ titleSuffix: Azure AI services
 description: Use the Docker containers for Document Intelligence on-premises to identify and extract key-value pairs, selection marks, tables, and structure from forms and documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
@@ -18,15 +18,23 @@ monikerRange: '<=doc-intel-3.1.0'
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD051 -->
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [applies to v4.0](../includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
 ::: moniker-end
 
-Azure AI Document Intelligence is an Azure AI service that lets you build automated data processing software using machine-learning technology. Document Intelligence enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your documents. The results are delivered as structured data that includes the relationships in the original file.
+Azure AI Document Intelligence is an Azure AI service that lets you build automated data processing software using machine-learning technology. Document Intelligence enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your documents. The results are delivered as structured data that ../includes the relationships in the original file.
 
 ::: moniker range=">=doc-intel-3.0.0"
 In this article you learn how to download, install, and run Document Intelligence containers. Containers enable you to run the Document Intelligence service in your own environment. Containers are great for specific security and data governance requirements.
@@ -50,10 +58,6 @@ In this article you learn how to download, install, and run Document Intelligenc
 * For Receipt, Business Card and ID Document containers you also need the **Read** OCR container.
 
 ::: moniker-end
-
-> [!IMPORTANT]
->
-> * To use Document Intelligence containers, you must submit an online request, and have it approved. For more information, _see_ [Request approval to run container](#request-approval-to-run-container).
 
 ## Prerequisites
 
@@ -87,12 +91,6 @@ You also need an **Azure AI Vision API resource to process business cards, ID do
   * **{COMPUTER_VISION_KEY}**: one of the two available resource keys.
   * **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.
 :::moniker-end
-
-## Request approval to run container
-
-Complete and submit the [**Azure AI services application for Gated Services**](https://aka.ms/csgate) to request access to the container.
-
-[!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 
 ## Host computer requirements
 
@@ -572,7 +570,7 @@ http {
 
 2. The following code sample is a self-contained `docker compose` example to run Document Intelligence Layout, Studio and Custom template containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
 
- ```yml
+```yml
 version: '3.3'
 services:
   nginx:
@@ -1050,7 +1048,7 @@ http {
 
 2. The following code sample is a self-contained `docker compose` example to run Document Intelligence Layout, Label Tool, Custom API, and Custom Supervised containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
 
- ```yml
+```yml
 version: '3.3'
 services:
  nginx:

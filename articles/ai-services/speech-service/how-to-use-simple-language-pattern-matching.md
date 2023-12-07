@@ -2,11 +2,10 @@
 title: How to recognize intents with simple language pattern matching
 titleSuffix: Azure AI services
 description: In this guide, you learn how to recognize intents and entities from simple patterns.
-services: cognitive-services
+#services: cognitive-services
 author: chschrae
 manager: travisw
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 04/19/2022
 ms.author: chschrae

@@ -223,7 +223,7 @@ You can permanently delete an NSG flow log. Deleting a flow log deletes all its 
 > [!NOTE]
 > Deleting a flow log does not delete the flow log data from the storage account. Flow logs data stored in the storage account follows the configured retention policy or stays stored in the storage account until manually deleted (in case no retention policy is configured).
 
-## Next Steps
+## Next steps
 
 - To learn how to use Azure built-in policies to audit or deploy NSG flow logs, see [Manage NSG flow logs using Azure Policy](nsg-flow-logs-policy-portal.md).
 - To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).

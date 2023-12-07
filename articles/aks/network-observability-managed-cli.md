@@ -14,6 +14,10 @@ ms.custom: template-how-to-pattern, devx-track-azurecli
 
 AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both Cilium and non-Cilium data plane are supported. In this article, learn how to enable the Network Observability add-on and use Azure managed Prometheus and Grafana to visualize the scraped metrics.
 
+> [!IMPORTANT]
+> AKS Network Observability is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
 ## Prerequisites
@@ -22,6 +26,7 @@ For more information about AKS Network Observability, see [What is Azure Kuberne
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
+- Minimum version of **Azure CLI** required for the steps in this article is **2.44.0**. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 ### Install the `aks-preview` Azure CLI extension
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
@@ -218,14 +223,17 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
     ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
     ```
 
-1. Use the ID [18814]( https://grafana.com/grafana/dashboards/18814/) to import the dashboard from Grafana's public dashboard repo.
+1. Select **Dashboards** from the left navigation menu, open **Kubernetes / Networking** dashboard under **Managed Prometheus** folder.
 
-1. Verify the Grafana dashboard is visible.
+1. Check if the Metrics in **Kubernetes / Networking** Grafana dashboard are visible. If metrics aren't shown, change time range to last 15 minutes in top right dropdown box.
 
 # [**Cilium**](#tab/cilium)
 
 > [!NOTE]
 > The following section requires deployments of Azure managed Prometheus and Grafana.
+
+>[!WARNING]
+> File should only be named as **`prometheus-config`**. Do not add any extensions like .yaml or .txt.
 
 1. Use the following example to create a file named **`prometheus-config`**. Copy the code in the example into the file created.
 
@@ -271,7 +279,8 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
         --namespace kube-system
     ```
 
-1. Azure Monitor pods should restart themselves, if they do not please rollout restart with following command:
+1. Azure Monitor pods should restart themselves, if they don't, rollout restart with following command:
+    
     ```azurecli-interactive
     kubectl rollout restart deploy -n kube-system ama-metrics
     ```
@@ -282,9 +291,9 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
     kubectl port-forward -n kube-system $(kubectl get po -n kube-system -l rsName=ama-metrics -oname | head -n 1) 9090:9090
     ```
 
-1. In **Targets** of prometheus, verify the **cilium-pods** are present.
+1. Open `http://localhost:9090` in your browser and navigate to **Status** > **Targets**, verify if **cilium-pods** are present and state says up.
 
-1. Sign in to Grafana and import dashboards with the following ID [16611-cilium-metrics](https://grafana.com/grafana/dashboards/16611-cilium-metrics/).
+1. Sign in to Azure Managed Grafana and import dashboard with the ID: [16611](https://grafana.com/grafana/dashboards/16611-cilium-metrics/). Also, select **Dashboards** from the left navigation menu, open **Kubernetes / Networking** dashboard under **Managed Prometheus** folder. Metrics should be visible in both these dashboards.
 
 ---
 

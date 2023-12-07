@@ -20,9 +20,9 @@ Use the below tables to find all the relevant information on number availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Toll-Free   |-  | - | Public Preview | Public Preview\* |
-| Local       | -                    | -                    | Public Preview | Public Preview\* |
-|Alphanumeric Sender ID\**|Public Preview|-|-|-|
+| Toll-Free   |-  | - | General Availability | General Availability\* |
+| Local       | -                    | -                    | General Availability | General Availability\* |
+|Alphanumeric Sender ID\**|General Availability  |-|-|-|
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -45,16 +45,35 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Sweden phone numbers are available
 | Country/Region |
 | :---------- |
-|Canada|
+|Sweden|
 |Denmark|
 |Ireland|
 |Italy|
 |Puerto Rico|
+|United States|
+|United Kingdom|
+|Canada|
+|Japan|
+|Australia|
+
+
+## Azure subscription billing locations where Sweden alphanumeric sender IDs are available
+| Country/Region |
+| :---------- |
+|Australia|
+|Canada|
+|Denmark|
+|France|
+|Germany|
+|Ireland|
+|Italy|
+|Japan|
+|Netherlands|
+|Puerto Rico|
+|Spain|
 |Sweden|
 |United Kingdom|
 |United States|
-
-
 
 ## Find information about other countries/regions
 

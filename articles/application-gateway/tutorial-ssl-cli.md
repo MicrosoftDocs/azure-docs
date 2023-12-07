@@ -125,7 +125,7 @@ In this example, you create a Virtual Machine Scale Set that provides servers fo
 az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --admin-password Azure123456! \
   --instance-count 2 \

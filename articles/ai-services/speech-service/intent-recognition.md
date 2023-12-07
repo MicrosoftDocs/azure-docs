@@ -2,12 +2,11 @@
 title: Intent recognition overview - Speech service
 titleSuffix: Azure AI services
 description: Intent recognition allows you to recognize user objectives you have pre-defined. This article is an overview of the benefits and capabilities of the intent recognition service.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 ms.author: eur
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 02/22/2023
 keywords: intent recognition

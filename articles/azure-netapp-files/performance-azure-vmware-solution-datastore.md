@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.date: 11/12/2023
 ms.author: anfdocs
 ---
 # Azure VMware Solution datastore performance considerations for Azure NetApp Files 
@@ -68,7 +68,7 @@ Testing both small and large block operations and iterating through sequential a
 The results in this article were achieved using the following environment configuration:   
 
 * AVS hosts:
-    * Size: [AV36](../azure-vmware/introduction.md#av36p-and-av52-node-sizes-available-in-azure-vmware-solution) 
+    * Size: [AV36](../azure-vmware/introduction.md) 
     * Host count: 4
     * VMware ESXi version 7u3
 * AVS private cloud connectivity: UltraPerformance gateway with FastPath
@@ -82,7 +82,7 @@ The results in this article were achieved using the following environment config
         * One volume group per physical volume
         * One logical partition per volume group
         * One XFS file system per logical partition
-* AVS to Azure NetApp Files protocol: [NFS version 3](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md?tabs=azure-portal#faqs ) 
+* AVS to Azure NetApp Files protocol: [NFS version 3](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md?tabs=azure-portal#faqs) 
 * Workload generator: `fio` version 3.16
 * Fio scripts: [`fio-parser`](https://github.com/mchad1/fio-parser)
  
@@ -106,7 +106,7 @@ To understand how well a single AVS VM scales as more virtual disks are added, t
 
 ### Single-host scaling – Single datastore 
 
-It scales poorly to increase the number of VMs driving IO to a single datastore from a single host. This fact is due to the single network flow. When maximum performance is reached for a given workload, it's often the result of a single queue used along the way to the host’s single NFS datastore over a single TCP connection. Using an 8-KB block size, total IOPS increased between 3% and 16% when scaling from one VM with a single VMDK to four VMs with 16 total VMDKs (four per VM, all on a single datastore). 
+It scales poorly to increase the number of VMs driving IO to a single datastore from a single host. This fact is due to the single network flow. When maximum performance is reached for a given workload, it's often the result of a single queue used along the way to the host's single NFS datastore over a single TCP connection. Using an 8-KB block size, total IOPS increased between 3% and 16% when scaling from one VM with a single VMDK to four VMs with 16 total VMDKs (four per VM, all on a single datastore). 
 
 Increasing the block size (to 64 KB) for large block workloads had comparable results, reaching a peak of 2148 MiB/s (single VM, single VMDK) and 2138 MiB/s (4 VMs, 16 VMDKs). 
 
@@ -160,13 +160,13 @@ Four Azure NetApp Files datastores provide up of 10 GBps of usable bandwidth for
 
 For granular performance tuning, both Windows and Linux guest operating systems allow for striping across multiple disks. As such, you should stripe file systems across multiple VMDKs spread across multiple datastores.  However, if application snapshot consistency is an issue and can't be overcome with LVM or storage spaces, consider mounting Azure NetApp Files from the guest operating system or investigate application-level scaling, of which Azure has many great options. 
 
-If you stripe volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously.  As individual writes are striped across multiple disks, the file system needs to ensure disks are “frozen” during the snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation such as xfs (xfs_freeze) and NTFS (volume shadow copies), which backup software can take advantage of. 
+If you stripe volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously.  As individual writes are striped across multiple disks, the file system needs to ensure disks are "frozen" during the snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation such as xfs (xfs_freeze) and NTFS (volume shadow copies), which backup software can take advantage of. 
 
 Because Azure NetApp Files bills for provisioned capacity at the capacity pool rather than allocated capacity (datastores), you will, for example, pay the same for 4x20TB datastores or 20x4TB datastores. If you need to, you can tweak capacity and performance of datastores on-demand, [dynamically via the Azure API/console](dynamic-change-volume-service-level.md). 
 
-For example, as you approach the end of a fiscal year you find that you need more storage performance on Standard datastore. You can increase the datastores’ service level for a month to enable all VMs on those datastores to have more performance available to them, while maintaining other datastores at a lower service level. You not only save cost but gain more performance by having workloads spread among more TCP connections between each datastore to each AVS host. 
+For example, as you approach the end of a fiscal year you find that you need more storage performance on Standard datastore. You can increase the datastores' service level for a month to enable all VMs on those datastores to have more performance available to them, while maintaining other datastores at a lower service level. You not only save cost but gain more performance by having workloads spread among more TCP connections between each datastore to each AVS host. 
 
-You can monitor your datastore metrics through vCenter or through the Azure API/Console. From vCenter, you can monitor a datastore’s aggregate average IOPS in the [Performance/Advanced Charts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-B3D99B36-E856-41A5-84DB-9B7C8FABCF83.html) , as long as you enable Storage IO Control Metrics collection on the datastore. The Azure [API](monitor-volume-capacity.md#using-rest-api) and [console](monitor-azure-netapp-files.md)  present metrics for `WriteIops`, `ReadIops`, `ReadThroughput`, and `WriteThroughput`, among others, to measure your workloads at the datastore level. With Azure metrics, you can set alert rules with actions to automatically resize a datastore via an Azure function, a webhook, or other actions. 
+You can monitor your datastore metrics through vCenter or through the Azure API/Console. From vCenter, you can monitor a datastore's aggregate average IOPS in the [Performance/Advanced Charts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-B3D99B36-E856-41A5-84DB-9B7C8FABCF83.html) , as long as you enable Storage IO Control Metrics collection on the datastore. The Azure [API](monitor-volume-capacity.md#using-rest-api) and [console](monitor-azure-netapp-files.md)  present metrics for `WriteIops`, `ReadIops`, `ReadThroughput`, and `WriteThroughput`, among others, to measure your workloads at the datastore level. With Azure metrics, you can set alert rules with actions to automatically resize a datastore via an Azure function, a webhook, or other actions. 
 
 ## Next steps  
 

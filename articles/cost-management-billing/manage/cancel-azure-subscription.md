@@ -132,9 +132,9 @@ You may not have the permissions required to cancel a subscription. See [Who can
 
 *I need to remove my account including all my personal information. I already canceled my active (Free Trial) subscriptions. I don't have any active subscriptions, and would like to totally delete my account*.
 
-* If you have an Azure Active Directory account via your organization, the Azure AD administrator could delete the account. After that, your services are disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage is read-only. In summary, once you cancel, billing is stopped immediately.
+* If you have a Microsoft Entra account via your organization, the Microsoft Entra administrator could delete the account. After that, your services are disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage is read-only. In summary, once you cancel, billing is stopped immediately.
 
-* If you don't have an Azure AD account via your organization, you can cancel then delete your Azure subscriptions, and then remove your credit card from the account. While the action doesn't delete the account, it renders it inoperable. You can go a step further and also delete the associated Microsoft account if it's not being used for any other purpose.
+* If you don't have a Microsoft Entra account via your organization, you can cancel then delete your Azure subscriptions, and then remove your credit card from the account. While the action doesn't delete the account, it renders it inoperable. You can go a step further and also delete the associated Microsoft account if it's not being used for any other purpose.
 
 ## How do I cancel a Visual Studio Professional account?
 

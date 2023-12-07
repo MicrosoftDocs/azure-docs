@@ -82,7 +82,7 @@ namespace KeyVaultDemo
 ```
 
 ### [Java](#tab/java)
-In this Java code, we use the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java) to interact with Azure Key Vault. We first define the Key Vault URL and the name of the secret (connection string) we want to retrieve. Then, we create a SecretClient object using the SecretClientBuilder class. We set the Key Vault URL and provide the DefaultAzureCredential to authenticate with Azure AD. The DefaultAzureCredential automatically authenticates using the available credentials, such as environment variables, managed identities, or Visual Studio Code authentication.
+In this Java code, we use the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java) to interact with Azure Key Vault. We first define the Key Vault URL and the name of the secret (connection string) we want to retrieve. Then, we create a SecretClient object using the SecretClientBuilder class. We set the Key Vault URL and provide the DefaultAzureCredential to authenticate with Microsoft Entra ID. The DefaultAzureCredential automatically authenticates using the available credentials, such as environment variables, managed identities, or Visual Studio Code authentication.
 
 Next, we use the _getSecret_ method on the **SecretClient** to retrieve the secret. The method returns a **KeyVaultSecret** object, from which we can obtain the secret value using the _getValue_ method. Finally, we print the retrieved connection string to the console. Make sure to replace the _keyVaultUrl_ and _secretName_ variables with your own Key Vault URL and secret name. Next, we create a new **SecretClient** object and pass in the Key Vault URI and the credential object. We can then call the GetSecretAsync method on the client object, passing in the name of the secret we want to retrieve.
 
@@ -112,7 +112,7 @@ public class KeyVaultDemo {
 ```
 
 ### [PHP](#tab/php)
-In this PHP code, we first require the necessary autoload file and import the required classes from the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php). We define the _$keyVaultUrl_ variable with the URL of your Azure Key Vault and _$secretName_ variable with the name of the secret (connection string) you want to retrieve. Next, we create a **DefaultAzureCredential** object to authenticate with Azure AD, which automatically picks up the available credentials from your environment. 
+In this PHP code, we first require the necessary autoload file and import the required classes from the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php). We define the _$keyVaultUrl_ variable with the URL of your Azure Key Vault and _$secretName_ variable with the name of the secret (connection string) you want to retrieve. Next, we create a **DefaultAzureCredential** object to authenticate with Microsoft Entra ID, which automatically picks up the available credentials from your environment. 
 
 We then create a **SecretClient** object, passing the Key Vault URL and the credential object to authenticate with the Key Vault. The _getSecret_ method on the **SecretClient** can retrieve the secret by passing the _$secretName_. The method returns a KeyVaultSecret object, from which we can obtain the secret value using the getValue method. Finally, we print the retrieved connection string to the console. Make sure to have the necessary Azure SDK packages installed and the autoload file included properly in your PHP project.
 
@@ -135,7 +135,7 @@ echo 'Connection string retrieved: ' . $connString;
 ```
 
 ### [Python](#tab/python)
-In this Python code, we first import the necessary modules from the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python). We define the _key_vault_url_ variable with the URL of your Azure Key Vault and _secret_name_ variable with the name of the secret (connection string) you want to retrieve. Next, we create a **DefaultAzureCredential** object to authenticate with Azure AD. The **DefaultAzureCredential** automatically authenticates using the available credentials, such as environment variables, managed identities, or Visual Studio Code authentication.
+In this Python code, we first import the necessary modules from the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python). We define the _key_vault_url_ variable with the URL of your Azure Key Vault and _secret_name_ variable with the name of the secret (connection string) you want to retrieve. Next, we create a **DefaultAzureCredential** object to authenticate with Microsoft Entra ID. The **DefaultAzureCredential** automatically authenticates using the available credentials, such as environment variables, managed identities, or Visual Studio Code authentication.
 
 Then, we create a **SecretClient** object, passing the Key Vault URL and the credential object to authenticate with the Key Vault. The _get_secret_ method on the **SecretClient** can retrieve the secret by passing the secret_name. The method returns a **KeyVaultSecret** object, from which we can obtain the secret value using the value property. Finally, we print the retrieved connection string to the console. Make sure to replace the _key_vault_url_ and _secret_name_ variables with your own Key Vault URL and secret name.
 

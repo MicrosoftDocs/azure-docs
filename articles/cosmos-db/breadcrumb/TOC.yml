@@ -39,7 +39,7 @@
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/index
       items:
-        - name: MongoDB API
+        - name: MongoDB
           tocHref: /azure/cosmos-db/mongodb/
           topicHref: /azure/cosmos-db/mongodb/index
 - name: Azure
@@ -50,7 +50,7 @@
       tocHref: /azure/developer/java/
       topicHref: /azure/cosmos-db/index
       items:
-        - name: MongoDB API
+        - name: MongoDB
           tocHref: /azure/developer/java/spring-framework/
           topicHref: /azure/cosmos-db/mongodb/index
 - name: Azure
@@ -61,6 +61,17 @@
       tocHref: /security/benchmark/azure/
       topicHref: /azure/cosmos-db/index
       items:
-        - name: MongoDB API
+        - name: MongoDB
           tocHref: /security/benchmark/azure/baselines/
           topicHref: /azure/cosmos-db/mongodb/index
+- name: Azure
+  tocHref: /security/
+  topicHref: /azure/index
+  items:
+    - name: Cosmos DB
+      tocHref: /security/benchmark/azure/
+      topicHref: /azure/cosmos-db/index
+      items:
+        - name: Apache Cassandra
+          tocHref: /azure/managed-instance-apache-cassandra/
+          topicHref: /azure/cosmos-db/cassandra/index

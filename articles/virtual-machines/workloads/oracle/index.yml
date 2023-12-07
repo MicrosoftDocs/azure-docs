@@ -26,7 +26,7 @@ landingContent:
             url: oracle-overview.md         
           
   #card 2  
-  - title: Getting started
+  - title: Get started
     linkLists: 
       - linkListType: how-to-guide
         links:
@@ -42,11 +42,13 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Oracle application architecture
+          - text: Architectures for Oracle applications with database on Azure Virtual Machines
+            url: deploy-application-oracle-database-azure.md
+          - text: Architectures for Oracle applications with Azure Virtual Machines and database on OCI
             url: oracle-oci-applications.md
-          - text: Oracle database architecture
+          - text: Architectures for Oracle database on Azure Virtual Machines
             url: oracle-reference-architecture.md
-          - text: Design an Oracle Database
+          - text: Architectures for Oracle Database Enterprise Edition on Azure
             url: oracle-design.md
 
   #card 4  
@@ -54,6 +56,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Architectures to deploy Oracle applications with Oracle database on Azure IaaS
+            url: deploy-application-oracle-database-azure.md
           - text: Configure Oracle ASM
             url: configure-oracle-asm.md
           - text: Configure Oracle Data Guard
@@ -91,7 +95,9 @@ landingContent:
   - title: Reference
     linkLists:
       - linkListType: reference
-        links:          
+        links:
+          - text: Oracle on Azure VMs landing zone accelerator
+            url: /azure/cloud-adoption-framework/scenarios/oracle-iaas/introduction-oracle-landing-zone
           - text: Cloud Adoption Framework for Azure
             url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
           - text: Azure Architecture Center

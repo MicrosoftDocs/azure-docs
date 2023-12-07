@@ -2,11 +2,10 @@
 title: Spatial Analysis operations
 titleSuffix: Azure AI services
 description: The Spatial Analysis operations.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 02/02/2022
 ms.author: pafarley

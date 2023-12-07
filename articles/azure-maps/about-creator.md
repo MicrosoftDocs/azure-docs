@@ -24,7 +24,7 @@ Creator is a platform for building indoor mapping solutions for all your needs. 
 
 An [onboarding tool] is provided to prepare your facility's DWGs by identifying the data to use and to positioning your facility on the map. The conversion service then converts the geometry and data from your DWG files into a digital indoor map.
 
-The first step in creating your indoor map is to upload a drawing package into your Azure Maps account. A drawing package contains one or more CAD (computer-aided design) drawings of your facility along with a manifest describing the drawings. The drawings define the elements of the facility while the manifest tells the Azure Maps [Conversion service] how to read the facility drawing files and metadata. For more
+The first step in creating your indoor map is to upload a drawing package into your Azure Maps account. A drawing package contains one or more CAD (computer-aided design) drawings of your facility along with a manifest describing the drawings. The drawings define the elements of the facility while the manifest tells the Azure Maps [Conversion] service how to read the facility drawing files and metadata. For more
 information about manifest properties, see [Manifest file requirements] and for more information on creating and uploading a drawing package, see the [Drawing package guide].
 
 ### Dataset
@@ -56,11 +56,12 @@ This section provides a high-level overview of the indoor map creation workflow.
     describing the drawings. You can use the [Azure Maps Creator onboarding tool] to
     create new and edit existing [manifest files].
 
-1. **Upload**. Upload your drawing packages into your Azure Maps
-    account. Upload drawing packages using the [Data Upload API].
+1. **Upload**. Upload your drawing packages into your Azure Storage
+    account. For more information, see [How to create data registry].
 
-1. **Convert**. Once the drawing package is uploaded into your Azure Maps account,
-    use the [Conversion service] to validate the data in the uploaded drawing
+1. **Convert**. Once the drawing package is uploaded into your Azure Storage account,
+1. **Convert**. Once the drawing package is uploaded into your Azure Storage account,
+    use the [Conversion] service to validate the data in the uploaded drawing
     package and convert it into map data.
 
 1. **Dataset**. Create a [dataset] from the map data. A dataset is collection
@@ -110,13 +111,12 @@ This section provides a high-level overview of the indoor map creation workflow.
 
 [Azure Maps Creator onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
 [Azure Maps Creator REST API]: /rest/api/maps-creator
-[Conversion service]: /rest/api/maps/v2/conversion
+[Conversion]: /rest/api/maps/v2/conversion
 [Create a feature stateset]: how-to-creator-feature-stateset.md
 [Create custom styles for indoor maps]: how-to-create-custom-styles.md
 [Create dataset using GeoJson package]: how-to-dataset-geojson.md
 [Custom styling for indoor maps]: how-to-create-custom-styles.md
 [custom styling]: creator-indoor-maps.md#custom-styling-preview
-[Data Upload API]: /rest/api/maps/data-v2/upload
 [dataset]: creator-indoor-maps.md#datasets
 [Drawing error visualizer]: drawing-error-visualizer.md
 [Drawing package guide]: drawing-package-guide.md?pivots=drawing-package-v2
@@ -126,6 +126,7 @@ This section provides a high-level overview of the indoor map creation workflow.
 [Facility Ontology]: creator-facility-ontology.md
 [Features API]: /rest/api/maps/2023-03-01-preview/features
 [features]: glossary.md#feature
+[How to create data registry]: how-to-create-data-registries.md
 [Implement Dynamic styling for indoor maps]: indoor-map-dynamic-styling.md
 [Indoor map concepts]: creator-indoor-maps.md
 [Indoor maps wayfinding service]: how-to-creator-wayfinding.md

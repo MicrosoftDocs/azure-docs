@@ -73,7 +73,7 @@ You can add as many single-level subdomains of the wildcard domain in front-end 
 
 - Defining a different route for a subdomain than the rest of the domains (from the wildcard domain).
 
-- Having a different WAF policy for a specific subdomain. For example, `*.contoso.com` allows adding `foo.contoso.com` without having to again prove domain ownership. But it doesn't allow `foo.bar.contoso.com` because it isn't a single level subdomain of `*.contoso.com`. To add `foo.bar.contoso.com` without extra domain ownership validation, `*.bar.contosonews.com` needs to be added.
+- Having a different WAF policy for a specific subdomain. For example, `*.contoso.com` allows adding `foo.contoso.com` without having to again prove domain ownership. But it doesn't allow `foo.bar.contoso.com` because it isn't a single level subdomain of `*.contoso.com`. To add `foo.bar.contoso.com` without extra domain ownership validation, `*.bar.contoso.com` needs to be added.
 
 You can add wildcard domains and their subdomains with certain limitations:
 

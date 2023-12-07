@@ -5,13 +5,13 @@ description: Learn how to transition to OpenVPN protocol or IKEv2 from SSTP to o
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 09/26/2023
 ms.author: cherylmc
 
 ---
 # Transition to OpenVPN protocol or IKEv2 from SSTP
 
-A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This article applies to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and talks about ways to overcome the 128 concurrent connection limit of SSTP by transitioning to OpenVPN protocol or IKEv2.
+A point-to-site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This article applies to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and talks about ways to overcome the 128 concurrent connection limit of SSTP by transitioning to OpenVPN protocol or IKEv2.
 
 ## <a name="protocol"></a>What protocol does P2S use?
 
@@ -24,7 +24,7 @@ Point-to-site VPN can use one of the following protocols:
 * IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
 
 >[!NOTE]
->IKEv2 and OpenVPN for P2S are available for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not available for the classic deployment model. Basic gateway SKU does not support IKEv2 or OpenVPN protocols. If you are using the basic SKU, you will have to delete and recreate a production SKU Virtual Network Gateway.
+>IKEv2 and OpenVPN for P2S are available for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not available for the classic deployment model. The Basic gateway SKU does not support IKEv2 or OpenVPN protocols. If you are using the Basic SKU, you will have to delete and recreate a production SKU virtual network gateway.
 >
 
 ## <a name="migrate"></a>Migrating from SSTP to IKEv2 or OpenVPN
@@ -44,7 +44,7 @@ To add IKEv2 to an existing gateway, go to the "point-to-site configuration" tab
 :::image type="content" source="./media/ikev2-openvpn-from-sstp/add-tunnel-type.png" alt-text="Screenshot that shows the Point-to-site configuration page with the Tunnel type drop-down open, and IKEv2 and SSTP(SSL) selected." lightbox="./media/ikev2-openvpn-from-sstp/add-tunnel-type.png":::
 
 >[!NOTE]
-> When you have both SSTP and IKEv2 enabled on the Gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols will be assigned IP addresses from either sub-range. Note that the maximum amount of SSTP clients is always 128 even if the address range is larger than /24 resulting in a bigger amount of addresses available for IKEv2 clients. For smaller ranges, the pool will be equally halved. Traffic Selectors used by the gateway may not include the Point to Site address range CIDR, but the two sub-range CIDRs.
+> When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols will be assigned IP addresses from either sub-range. Note that the maximum amount of SSTP clients is always 128, even if the address range is larger than /24 resulting in a bigger amount of addresses available for IKEv2 clients. For smaller ranges, the pool will be equally halved. Traffic Selectors used by the gateway may not include the point-to-site address range CIDR, but the two sub-range CIDRs.
 >
 
 ### Option 2 - Remove SSTP and enable OpenVPN on the Gateway
@@ -80,12 +80,12 @@ The zip file also provides the values of some of the important settings on the A
 
 ### <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
+The following table shows gateway SKUs by tunnel, connection, and throughput. For additional tables and more information regarding this table, see the Gateway SKUs section of the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
+
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* For Gateway SKU recommendations, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-
->[!NOTE]
->The Basic SKU does not support IKEv2 or RADIUS authentication.
+> [!NOTE]
+> The Basic SKU has limitations and does not support IKEv2, or RADIUS authentication. See the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article for more information.
 >
 
 ### <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?

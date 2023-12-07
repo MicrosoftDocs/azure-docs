@@ -2,12 +2,11 @@
 title: Locate audio files for batch transcription - Speech service
 titleSuffix: Azure AI services
 description: Batch transcription is used to transcribe a large amount of audio in storage. You should provide multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: eric-urban
 ms.author: eur
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 10/21/2022
 ms.devlang: csharp
@@ -26,17 +25,26 @@ Audio files that are stored in Azure Blob storage can be accessed via one of two
 
 You can specify one or multiple audio files when creating a transcription. We recommend that you provide multiple files per request or point to an Azure Blob storage container with the audio files to transcribe. The batch transcription service can handle a large number of submitted transcriptions. The service transcribes the files concurrently, which reduces the turnaround time. 
 
-## Supported audio formats
+## Supported audio formats and codecs
 
-The batch transcription API supports the following formats:
+The batch transcription API supports a number of different formats and codecs, such as:
 
-| Format | Codec | Bits per sample | Sample rate             |
-|--------|-------|---------|---------------------------------|
-| WAV    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
-| MP3    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
-| OGG    | OPUS  | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
+- WAV
+- MP3
+- OPUS/OGG
+- AAC
+- FLAC
+- WMA
+- ALAW in WAV container
+- MULAW in WAV container
+- AMR
+- WebM
+- M4A
+- SPEEX
 
-For stereo audio streams, the left and right channels are split during the transcription. A JSON result file is created for each input audio file. To create an ordered final transcript, use the timestamps that are generated per utterance.
+
+> [!NOTE]
+> Batch transcription service integrates GStreamer and may accept more formats and codecs without returning errors, while we suggest to use lossless formats such as WAV (PCM encoding) and FLAC to ensure best transcription quality.
 
 ## Azure Blob Storage upload
 

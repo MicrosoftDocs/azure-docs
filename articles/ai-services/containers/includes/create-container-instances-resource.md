@@ -2,10 +2,10 @@
 title: Container support
 titleSuffix: Azure AI services
 description: Learn how to create an Azure container instance resource.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi

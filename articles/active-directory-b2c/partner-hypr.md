@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with HYPR
 titleSuffix: Azure AD B2C
 description: Tutorial to configure Azure Active Directory B2C with Hypr for true passwordless strong customer authentication
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 12/7/2022
 ms.author: gasinh
@@ -16,19 +16,20 @@ ms.subservice: B2C
 
 # Tutorial for configuring HYPR with Azure Active Directory B2C
 
-In this tutorial, learn to configure Azure Active Directory B2C (Azure AD B2C) with [HYPR](https://get.hypr.com). When Azure AD B2C is the identity provider (IdP), you can integrate HYPR with customer applications for passwordless authentication. HYPR replaces passwords with public key encryptions that help prevent fraud, phishing, and credential reuse.
+In this tutorial, learn to configure Azure Active Directory B2C (Azure AD B2C) with [HYPR](https://www.hypr.com/). When Azure AD B2C is the identity provider (IdP), you can integrate HYPR with customer applications for passwordless authentication. HYPR replaces passwords with public key encryptions that help prevent fraud, phishing, and credential reuse.
 
 ## Prerequisites
 
 To get started, you'll need:
 
-- An Azure AD subscription
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - A HYPR cloud tenant
-  - Request a HYPR [custom demo](https://get.hypr.com/free-trial)
+  - Request a HYPR [custom demo](https://get.hypr.com/get-a-demo)
 - A user mobile device registered using the HYPR REST APIs, or the HYPR Device Manager in your HYPR tenant
-  - For example, see [HYPR SDK for Java Web](https://docs.hypr.com/integratinghypr/docs/hypr-java-web-sdk) 
+  - For example, see [HYPR SDK for Java Web](https://docs.hypr.com/integratinghypr/docs/sdk-java-web) 
 
 ## Scenario description
 
@@ -53,7 +54,8 @@ The following architecture diagram shows the implementation.
 
 ## Configure the Azure AD B2C policy
 
-1. Go to [Azure-AD-B2C-HYPR-Sample/policy/](https://github.com/HYPR-Corp-Public/Azure-AD-B2C-HYPR-Sample/tree/master/policy).
+1. Go to [`Azure-AD-B2C-HYPR-Sample/policy/`](https://github.com/HYPR-Corp-Public/Azure-AD-B2C-HYPR-Sample/tree/master/policy).
+
 2. Follow the instructions in [Custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) to download [Active-directory-b2c-custom-policy-starterpack/LocalAccounts/](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 3. Configure the policy for the Azure AD B2C tenant.
 

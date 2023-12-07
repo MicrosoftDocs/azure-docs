@@ -13,7 +13,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 
-Service principals are identities that you can create in Azure Active Directory to assign roles and permissions for a specific purpose. In Azure Virtual Desktop, you can create a service principal to:
+Service principals are identities that you can create in Microsoft Entra ID to assign roles and permissions for a specific purpose. In Azure Virtual Desktop, you can create a service principal to:
 
 - Automate specific Azure Virtual Desktop management tasks.
 - Use as credentials in place of MFA-required users when running any Azure Resource Manager template for Azure Virtual Desktop.
@@ -21,7 +21,7 @@ Service principals are identities that you can create in Azure Active Directory 
 In this tutorial, learn how to:
 
 > [!div class="checklist"]
-> * Create a service principal in Azure Active Directory.
+> * Create a service principal in Microsoft Entra ID.
 > * Create a role assignment in Azure Virtual Desktop.
 > * Sign in to Azure Virtual Desktop by using the service principal.
 
@@ -36,7 +36,9 @@ Before you can create service principals and role assignments, you need to do th
 > [!IMPORTANT]
 > Follow all instructions in this article in the same PowerShell session. The process might not work if you interrupt your PowerShell session by closing the window and reopening it later.
 
-## Create a service principal in Azure Active Directory
+<a name='create-a-service-principal-in-azure-active-directory'></a>
+
+## Create a service principal in Microsoft Entra ID
 
 After you've fulfilled the prerequisites in your PowerShell session, run the following PowerShell cmdlets to create a multitenant service principal in Azure.
 

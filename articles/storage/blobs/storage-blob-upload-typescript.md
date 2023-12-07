@@ -14,6 +14,8 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 # Upload a blob with TypeScript
 
+[!INCLUDE [storage-dev-guide-selector-upload](../../../includes/storage-dev-guides/storage-dev-guide-selector-upload.md)]
+
 This article shows how to upload a blob using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme). You can upload data to a block blob from a file path, a stream, a buffer, or a text string. You can also upload blobs with index tags.
 
 ## Prerequisites

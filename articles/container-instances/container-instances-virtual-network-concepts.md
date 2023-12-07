@@ -78,8 +78,7 @@ In the following diagram, several container groups have been deployed to a subne
 ## Next steps
 
 * For deployment examples with the Azure CLI, see [Deploy container instances into an Azure virtual network](container-instances-vnet.md).
-* To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
-).
+* To deploy a new virtual network, subnet, network profile, and container group using a Resource Manager template, see [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet).
 * When using the [Azure portal](container-instances-quickstart-portal.md) to create a container instance, you can also provide settings for a new or exsting virtual network on the **Networking** tab.
 
 

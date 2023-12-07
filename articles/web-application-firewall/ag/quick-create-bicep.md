@@ -6,7 +6,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 06/22/2022
+ms.date: 10/16/2023
 ms.author: victorh
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-bicep
 ---

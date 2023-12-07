@@ -102,7 +102,23 @@ This behavior means that the maximum retry count is a best effort. In some rare 
 
 ::: zone pivot="programming-language-csharp"
 
-# [In-process](#tab/in-process/fixed-delay)
+# [Isolated worker model](#tab/isolated-process/fixed-delay)
+
+Function-level retries are supported with the following NuGet packages:
+
+- [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) >= 1.9.0
+- [Microsoft.Azure.Functions.Worker.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs) >= 5.2.0
+- [Microsoft.Azure.Functions.Worker.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka) >= 3.8.0
+- [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) >= 4.2.0
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" id="docsnippet_fixed_delay_retry_example" :::
+
+|Property  | Description |
+|---------|-------------|
+|MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|DelayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
+
+# [In-process model](#tab/in-process/fixed-delay)
 
 Retries require NuGet package [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
@@ -120,7 +136,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 |MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
 |DelayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
 
-# [Isolated process](#tab/isolated-process/fixed-delay)
+# [Isolated worker model](#tab/isolated-process/exponential-backoff)
 
 Function-level retries are supported with the following NuGet packages:
 
@@ -129,41 +145,9 @@ Function-level retries are supported with the following NuGet packages:
 - [Microsoft.Azure.Functions.Worker.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka) >= 3.8.0
 - [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) >= 4.2.0
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" id="docsnippet_fixed_delay_retry_example" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" id="docsnippet_exponential_backoff_retry_example" :::
 
-|Property  | Description |
-|---------|-------------|
-|MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
-|DelayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
-
-
-# [C# script](#tab/csharp-script/fixed-delay)
-
-Here's the retry policy in the *function.json* file:
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            ....
-        }
-    ],
-    "retry": {
-        "strategy": "fixedDelay",
-        "maxRetryCount": 4,
-        "delayInterval": "00:00:10"
-    }
-}
-```
-
-|*function.json*&nbsp;property  | Description |
-|---------|-------------|
-|strategy|Use `fixedDelay`.|
-|maxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
-|delayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
-
-# [In-process](#tab/in-process/exponential-backoff)
+# [In-process model](#tab/in-process/exponential-backoff)
 
 Retries require NuGet package [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
@@ -181,45 +165,6 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 |MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
 |MinimumInterval|The minimum retry delay. Specify it as a string with the format `HH:mm:ss`.|
 |MaximumInterval|The maximum retry delay. Specify it as a string with the format `HH:mm:ss`.|
-
-# [Isolated process](#tab/isolated-process/exponential-backoff)
-
-Function-level retries are supported with the following NuGet packages:
-
-- [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) >= 1.9.0
-- [Microsoft.Azure.Functions.Worker.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs) >= 5.2.0
-- [Microsoft.Azure.Functions.Worker.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka) >= 3.8.0
-- [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) >= 4.2.0
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" id="docsnippet_exponential_backoff_retry_example" :::
-
-# [C# script](#tab/csharp-script/exponential-backoff)
-
-Here's the retry policy in the *function.json* file:
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            ....
-        }
-    ],
-    "retry": {
-        "strategy": "exponentialBackoff",
-        "maxRetryCount": 5,
-        "minimumInterval": "00:00:10",
-        "maximumInterval": "00:15:00"
-    }
-}
-```
-
-|*function.json*&nbsp;property  | Description |
-|---------|-------------|
-|strategy|Use `exponentialBackoff`.|
-|maxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
-|minimumInterval|The minimum retry delay. Specify it as a string with the format `HH:mm:ss`.|
-|maximumInterval|The maximum retry delay. Specify it as a string with the format `HH:mm:ss`.|
 
 ---
 ::: zone-end

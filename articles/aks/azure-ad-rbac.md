@@ -1,30 +1,30 @@
 ---
-title: Use Azure AD and Kubernetes RBAC for clusters
+title: Use Microsoft Entra ID and Kubernetes RBAC for clusters
 titleSuffix: Azure Kubernetes Service
-description: Learn how to use Azure Active Directory group membership to restrict access to cluster resources using Kubernetes role-based access control (Kubernetes RBAC) in Azure Kubernetes Service (AKS)
+description: Learn how to use Microsoft Entra group membership to restrict access to cluster resources using Kubernetes role-based access control (Kubernetes RBAC) in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 02/13/2023
 ---
 
-# Use Kubernetes role-based access control with Azure Active Directory in Azure Kubernetes Service
+# Use Kubernetes role-based access control with Microsoft Entra ID in Azure Kubernetes Service
 
-Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (Azure AD) for user authentication. In this configuration, you sign in to an AKS cluster using an Azure AD authentication token. Once authenticated, you can use the built-in Kubernetes role-based access control (Kubernetes RBAC) to manage access to namespaces and cluster resources based on a user's identity or group membership.
+Azure Kubernetes Service (AKS) can be configured to use Microsoft Entra ID for user authentication. In this configuration, you sign in to an AKS cluster using a Microsoft Entra authentication token. Once authenticated, you can use the built-in Kubernetes role-based access control (Kubernetes RBAC) to manage access to namespaces and cluster resources based on a user's identity or group membership.
 
 This article shows you how to:
 
-* Control access using Kubernetes RBAC in an AKS cluster based on Azure AD group membership.
-* Create example groups and users in Azure AD.
+* Control access using Kubernetes RBAC in an AKS cluster based on Microsoft Entra group membership.
+* Create example groups and users in Microsoft Entra ID.
 * Create Roles and RoleBindings in an AKS cluster to grant the appropriate permissions to create and view resources.
 
 ## Before you begin
 
-* You have an existing AKS cluster with Azure AD integration enabled. If you need an AKS cluster with this configuration, see [Integrate Azure AD with AKS][azure-ad-aks-cli].
-* Kubernetes RBAC is enabled by default during AKS cluster creation. To upgrade your cluster with Azure AD integration and Kubernetes RBAC, [Enable Azure AD integration on your existing AKS cluster][enable-azure-ad-integration-existing-cluster].
+* You have an existing AKS cluster with Microsoft Entra integration enabled. If you need an AKS cluster with this configuration, see [Integrate Microsoft Entra ID with AKS][azure-ad-aks-cli].
+* Kubernetes RBAC is enabled by default during AKS cluster creation. To upgrade your cluster with Microsoft Entra integration and Kubernetes RBAC, [Enable Microsoft Entra integration on your existing AKS cluster][enable-azure-ad-integration-existing-cluster].
 * Make sure that Azure CLI version 2.0.61 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * If using Terraform, install [Terraform][terraform-on-azure] version 2.99.0 or later.
 
-Use the Azure portal or Azure CLI to verify Azure AD integration with Kubernetes RBAC is enabled.
+Use the Azure portal or Azure CLI to verify Microsoft Entra integration with Kubernetes RBAC is enabled.
 
 #### [Azure portal](#tab/portal)
 
@@ -32,7 +32,7 @@ To verify using the Azure portal:
 
 * From your browser, sign in to the [Azure portal](https://portal.azure.com).
 * Navigate to **Kubernetes services**, and from the left-hand pane select **Cluster configuration**.
-* Under the **Authentication and Authorization** section, verify the **Azure AD authentication with Kubernetes RBAC** option is selected.
+* Under the **Authentication and Authorization** section, verify the **Microsoft Entra authentication with Kubernetes RBAC** option is selected.
 
 :::image type="content" source="./media/azure-ad-rbac/rbac-portal.png" alt-text="Example of AKS Authentication and Authorization page in Azure portal." lightbox="./media/azure-ad-rbac/rbac-portal.png":::
 
@@ -48,16 +48,18 @@ If it's enabled, the output shows the value for `enableAzureRbac` is `false`.
 
 ---
 
-## Create demo groups in Azure AD
+<a name='create-demo-groups-in-azure-ad'></a>
 
-In this article, we'll create two user roles to show how Kubernetes RBAC and Azure AD control access to cluster resources. The following two example roles are used:
+## Create demo groups in Microsoft Entra ID
+
+In this article, we'll create two user roles to show how Kubernetes RBAC and Microsoft Entra ID control access to cluster resources. The following two example roles are used:
 
 * **Application developer**
   * A user named *aksdev* that's part of the *appdev* group.
 * **Site reliability engineer**
   * A user named *akssre* that's part of the *opssre* group.
 
-In production environments, you can use existing users and groups within an Azure AD tenant.
+In production environments, you can use existing users and groups within a Microsoft Entra tenant.
 
 1. First, get the resource ID of your AKS cluster using the [`az aks show`][az-aks-show] command. Then, assign the resource ID to a variable named *AKS_ID* so it can be referenced in other commands.
 
@@ -68,7 +70,7 @@ In production environments, you can use existing users and groups within an Azur
         --query id -o tsv)
     ```
 
-2. Create the first example group in Azure AD for the application developers using the [`az ad group create`][az-ad-group-create] command. The following example creates a group named *appdev*:
+2. Create the first example group in Microsoft Entra ID for the application developers using the [`az ad group create`][az-ad-group-create] command. The following example creates a group named *appdev*:
 
     ```azurecli-interactive
     APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query Id -o tsv)
@@ -84,7 +86,7 @@ In production environments, you can use existing users and groups within an Azur
     ```
 
 > [!TIP]
-> If you receive an error such as `Principal 35bfec9328bd4d8d9b54dea6dac57b82 doesn't exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.`, wait a few seconds for the Azure AD group object ID to propagate through the directory then try the `az role assignment create` command again.
+> If you receive an error such as `Principal 35bfec9328bd4d8d9b54dea6dac57b82 doesn't exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.`, wait a few seconds for the Microsoft Entra group object ID to propagate through the directory then try the `az role assignment create` command again.
 
 4. Create a second example group for SREs named *opssre*.
 
@@ -101,9 +103,11 @@ In production environments, you can use existing users and groups within an Azur
       --scope $AKS_ID
     ```
 
-## Create demo users in Azure AD
+<a name='create-demo-users-in-azure-ad'></a>
 
-Now that we have two example groups created in Azure AD for our application developers and SREs, we'll create two example users. To test the Kubernetes RBAC integration at the end of the article, you'll sign in to the AKS cluster with these accounts.
+## Create demo users in Microsoft Entra ID
+
+Now that we have two example groups created in Microsoft Entra ID for our application developers and SREs, we'll create two example users. To test the Kubernetes RBAC integration at the end of the article, you'll sign in to the AKS cluster with these accounts.
 
 ### Set the user principal name and password for application developers
 
@@ -123,7 +127,7 @@ echo "Please enter the secure password for application developers: " && read AAD
 
 ### Create the user accounts
 
-1. Create the first user account in Azure AD using the [`az ad user create`][az-ad-user-create] command. The following example creates a user with the display name *AKS Dev* and the UPN and secure password using the values in *AAD_DEV_UPN* and *AAD_DEV_PW*:
+1. Create the first user account in Microsoft Entra ID using the [`az ad user create`][az-ad-user-create] command. The following example creates a user with the display name *AKS Dev* and the UPN and secure password using the values in *AAD_DEV_UPN* and *AAD_DEV_PW*:
 
 ```azurecli-interactive
 AKSDEV_ID=$(az ad user create \
@@ -167,9 +171,9 @@ az ad group member add --group opssre --member-id $AKSSRE_ID
 
 ## Create AKS cluster resources for app devs
 
-We have our Azure AD groups, users, and Azure role assignments created. Now, we'll configure the AKS cluster to allow these different groups access to specific resources.
+We have our Microsoft Entra groups, users, and Azure role assignments created. Now, we'll configure the AKS cluster to allow these different groups access to specific resources.
 
-1. Get the cluster admin credentials using the [`az aks get-credentials`][az-aks-get-credentials] command. In one of the following sections, you get the regular *user* cluster credentials to see the Azure AD authentication flow in action.
+1. Get the cluster admin credentials using the [`az aks get-credentials`][az-aks-get-credentials] command. In one of the following sections, you get the regular *user* cluster credentials to see the Microsoft Entra authentication flow in action.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -184,7 +188,7 @@ kubectl create namespace dev
 > [!NOTE]
 > In Kubernetes, *Roles* define the permissions to grant, and *RoleBindings* apply them to desired users or groups. These assignments can be applied to a given namespace, or across the entire cluster. For more information, see [Using Kubernetes RBAC authorization][rbac-authorization].
 >
-> If the user you grant the Kubernetes RBAC binding for is in the same Azure AD tenant, assign permissions based on the *userPrincipalName (UPN)*. If the user is in a different Azure AD tenant, query for and use the *objectId* property instead.
+> If the user you grant the Kubernetes RBAC binding for is in the same Microsoft Entra tenant, assign permissions based on the *userPrincipalName (UPN)*. If the user is in a different Microsoft Entra tenant, query for and use the *objectId* property instead.
 
 3. Create a Role for the *dev* namespace, which grants full permissions to the namespace. In production environments, you can specify more granular permissions for different users or groups. Create a file named `role-dev-namespace.yaml` and paste the following YAML manifest:
 
@@ -309,11 +313,13 @@ subjects:
 kubectl apply -f rolebinding-sre-namespace.yaml
 ```
 
-## Interact with cluster resources using Azure AD identities
+<a name='interact-with-cluster-resources-using-azure-ad-identities'></a>
+
+## Interact with cluster resources using Microsoft Entra identities
 
 Now, we'll test that the expected permissions work when you create and manage resources in an AKS cluster. In these examples, we'll schedule and view pods in the user's assigned namespace, and try to schedule and view pods outside of the assigned namespace.
 
-1. Reset the *kubeconfig* context using the [`az aks get-credentials`][az-aks-get-credentials] command. In a previous section, you set the context using the cluster admin credentials. The admin user bypasses Azure AD sign-in prompts. Without the `--admin` parameter, the user context is applied that requires all requests to be authenticated using Azure AD.
+1. Reset the *kubeconfig* context using the [`az aks get-credentials`][az-aks-get-credentials] command. In a previous section, you set the context using the cluster admin credentials. The admin user bypasses Microsoft Entra sign-in prompts. Without the `--admin` parameter, the user context is applied that requires all requests to be authenticated using Microsoft Entra ID.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
@@ -374,7 +380,7 @@ Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cann
 
 ### Test the SRE access to the AKS cluster resources
 
-To confirm that our Azure AD group membership and Kubernetes RBAC work correctly between different users and groups, try the previous commands when signed in as the *opssre* user.
+To confirm that our Microsoft Entra group membership and Kubernetes RBAC work correctly between different users and groups, try the previous commands when signed in as the *opssre* user.
 
 1. Reset the *kubeconfig* context using the [`az aks get-credentials`][az-aks-get-credentials] command that clears the previously cached authentication token for the *aksdev* user.
 
@@ -423,7 +429,7 @@ Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cann
 
 ## Clean up resources
 
-In this article, you created resources in the AKS cluster and users and groups in Azure AD. To clean up all of the resources, run the following commands:
+In this article, you created resources in the AKS cluster and users and groups in Microsoft Entra ID. To clean up all of the resources, run the following commands:
 
 ```azurecli-interactive
 # Get the admin kubeconfig context to delete the necessary cluster resources.

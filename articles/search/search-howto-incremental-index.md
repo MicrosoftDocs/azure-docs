@@ -1,15 +1,17 @@
 ---
-title: Enable caching for incremental enrichment (preview) 
-titleSuffix: Azure Cognitive Search
-description: Enable caching of enriched content for potential reuse when modifying downstream skills and projections in an AI enrichment pipeline. 
+title: Enable caching for incremental enrichment (preview)
+titleSuffix: Azure AI Search
+description: Enable caching of enriched content for potential reuse when modifying downstream skills and projections in an AI enrichment pipeline.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 01/31/2023
 ---
 
-# Enable caching for incremental enrichment in Azure Cognitive Search
+# Enable caching for incremental enrichment in Azure AI Search
 
 > [!IMPORTANT] 
 > This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature
@@ -153,7 +155,7 @@ To verify whether the cache is operational, modify a skillset and run the indexe
 
 Skillsets that include image analysis and Optical Character Recognition (OCR) of scanned documents make good test cases. If you modify a downstream text skill or any skill that is not image-related, the indexer can retrieve all of the previously processed image and OCR content from cache, updating and processing only the text-related changes indicated by your edits.  You can expect to see fewer documents in the indexer execution document count, shorter execution times, and fewer charges on your bill. 
 
-The [file set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) used in [cog-search-demo tutorials](cognitive-search-tutorial-blob.md) is a useful test case because it contains 14 files of various formats JPG, PNG, HTML, DOCX, PPTX, and other types. Change `en` to `es` or another language in the text translation skill for proof-of-concept testing of incremental enrichment.
+The [file set](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/ai-enrichment-mixed-media) used in [cog-search-demo tutorials](cognitive-search-tutorial-blob.md) is a useful test case because it contains 14 files of various formats JPG, PNG, HTML, DOCX, PPTX, and other types. Change `en` to `es` or another language in the text translation skill for proof-of-concept testing of incremental enrichment.
 
 ## Common errors
 

@@ -2,11 +2,10 @@
 title: 'Quickstart: Create a custom voice assistant, Java (Android) - Speech service'
 titleSuffix: Azure AI services
 description: Learn how to create a custom voice assistant in Java on Android by using the Speech SDK.
-services: cognitive-services
+#services: cognitive-services
 author: trrwilson
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw

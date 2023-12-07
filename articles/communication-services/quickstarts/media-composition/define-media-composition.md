@@ -25,9 +25,9 @@ Azure Communication Services Media Composition is made up of three parts: inputs
 To retrieve the media sources that will be used in the layout composition, you'll need to define inputs. Inputs can be either multi-source or single source.
 
 ### Multi-source inputs
-ACS Group Calls and ACS Rooms are typically made up of multiple participants. We define these as multi-source inputs. They can be used in layouts as a single input or destructured to reference a single participant.
+Azure Communication Services Group Calls and Azure Communication Services Rooms are typically made up of multiple participants. We define these as multi-source inputs. They can be used in layouts as a single input or destructured to reference a single participant.
 
-ACS Group Call json:
+Azure Communication Services Group Call json:
 ```json
 {
   "inputs": {
@@ -39,7 +39,7 @@ ACS Group Call json:
 }
 ```
 
-ACS Rooms Input json:
+Azure Communication Services Rooms Input json:
 ```json
 {
   "inputs": {
@@ -52,7 +52,7 @@ ACS Rooms Input json:
 ```
 
 ### Single source inputs
-Unlike multi-source inputs, single source inputs reference a single media source. If the single source input is from a multi-source input such as an ACS group call or rooms, it will reference the multi-source input's ID in the `call` property. The following are examples of single source inputs:
+Unlike multi-source inputs, single source inputs reference a single media source. If the single source input is from a multi-source input such as an Azure Communication Services group call or rooms, it will reference the multi-source input's ID in the `call` property. The following are examples of single source inputs:
 
 Participant json:
 ```json
@@ -352,7 +352,7 @@ The custom layout example above will result in the following composition:
 ## Outputs
 After media has been composed according to a layout, they can be outputted to your audience in various ways. Currently, you can either send the composed stream to a call or to an RTMP server.
 
-ACS Group Call json:
+Azure Communication Services Group Call json:
 ```json
 {
   "outputs": {
@@ -364,7 +364,7 @@ ACS Group Call json:
 }
 ```
 
-ACS Rooms Output json:
+Azure Communication Services Rooms Output json:
 ```json
 {
   "outputs": {

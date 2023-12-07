@@ -93,7 +93,8 @@ to unprotect the web-methods in the SAP Windows virtual machine.
 RFC metrics are only supported for **AS ABAP applications** and do not apply to SAP JAVA systems. This step is **mandatory** when the connection type selected is **SOAP+RFC**. 
 Below steps need to be performed as a pre-requisite to enable RFC
 
-1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses the least privileged access. Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/hsridharan/azure-docs-pr/files/12114525/Z_AMS_NETWEAVER_MONITORING.zip)
+1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses the least privileged access. Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/MicrosoftDocs/azure-docs-pr/files/12528831/Z_AMS_NETWEAVER_MONITORING.zip)
+
 
     1. Sign in to your SAP system.
     1. Use the transaction code **PFCG** &gt; select on **Role Upload** in the menu.
@@ -118,7 +119,7 @@ It's also recommended to check that you enabled the ICF ports.
 4. **SMON** - Enable **SMON** to monitor the system performance.Make sure the version of **ST-PI** is **SAPK-74005INSTPI**.   
    You'll see empty visualization as part of the workbook when it isn't configured.
 
-    1. Enable the **SDF/SMON** snapshot service for your system. Turn on daily monitoring. For instructions, see [SAP Note 2651881](https://userapps.support.sap.com/sap/support/knowledge/en/2651881).
+    1. Enable the **SDF/SMON** snapshot service for your system. Turn on daily monitoring. For instructions, see [SAP Note 2651881](https://userapps.support.sap.com/sap/support/knowledge/2651881).
     2. Configure **SDF/SMON** metrics to be aggregated every minute.
     3. Recommended scheduling **SDF/SMON** as a background job in your target SAP client each minute.
     4. If you notice empty visualization as part of the workbook tab "System Performance - CPU and Memory (/SDF/SMON)", please apply the below SAP note:     
@@ -189,7 +190,7 @@ Ensure all the prerequisites are successfully completed. To add the NetWeaver pr
     3. Ensure the NSG/firewall is not blocking the port – 5XX13 or 5XX14. (XX - SAP Instance Number)
     4. Check if AMS and SAP VMs are in the same vNet or are attached using vNet peering.
 
-       If not attached, see the following [link](https://learn.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal) to connect vNets:  
+       If not attached, see the following [link](/azure/virtual-network/tutorial-connect-virtual-networks-portal) to connect vNets:  
    
 2. **Check for unprotected updated rules. ErrorCode: SOAPWebMethodsValidationFailed**
 

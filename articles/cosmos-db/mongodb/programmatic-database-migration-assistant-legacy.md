@@ -16,7 +16,7 @@ ms.date: 04/20/2023
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 > [!IMPORTANT]  
-> Database Migration Assistant is a preliminary legacy utility meant to assist you with the pre-migration steps. Microsoft recommends you to use the [Azure Cosmos DB Migration for MongoDB extension](/sql/azure-data-studio/extensions/database-migration-for-mongo-extension) for all pre-migration steps.
+> Database Migration Assistant is a preliminary legacy utility meant to assist you with the pre-migration steps. Microsoft recommends you to use the [Azure Cosmos DB Migration for MongoDB extension](/azure-data-studio/extensions/database-migration-for-mongo-extension) for all pre-migration steps.
 
 ### Programmatic discovery using the Database Migration Assistant
 

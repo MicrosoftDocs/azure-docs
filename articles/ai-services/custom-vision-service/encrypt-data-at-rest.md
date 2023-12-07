@@ -5,8 +5,7 @@ description: Microsoft offers Microsoft-managed encryption keys, and also lets y
 author: erindormier
 manager: venkyv
 
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
@@ -29,4 +28,4 @@ Azure AI Custom Vision automatically encrypts your data when persisted it to the
 
 * For a full list of services that support CMK, see [Customer-Managed Keys for Azure AI services](../encryption/cognitive-services-encryption-keys-portal.md)
 * [What is Azure Key Vault](../../key-vault/general/overview.md)?
-* [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
+

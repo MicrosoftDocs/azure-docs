@@ -14,7 +14,7 @@ ms.author: banders
 
 # Elevate access to manage billing accounts
 
-As a Global Administrator in Azure Active Directory (Azure AD), you might not have access to all billing accounts in your directory. This article describes the ways that you can elevate your access to all billing accounts.
+As a Global Administrator in Microsoft Entra ID, you might not have access to all billing accounts in your directory. This article describes the ways that you can elevate your access to all billing accounts.
 
 Elevating your access to manage all billing accounts gives you the ability to view and manage cost and billing for your accounts. You can view invoices, charges, products that are purchased, and the users that have access to the billing accounts. If you want to elevate your access to manage subscriptions, management groups, and resources, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md#elevate-access-to-manage-all-azure-subscriptions-and-management-groups).
 
@@ -32,7 +32,7 @@ If you’re a Global Administrator, there might be times when you want to do the
 
 ## How does elevated access work?
 
-All Global Administrators in Azure Active Directory (Azure AD) get read-only access to all Microsoft Customer Agreement (MCA) and Microsoft Partner Agreement (MPA) billing accounts in their Azure Active Directory. They can view all billing accounts and the corresponding cost and billing information. Along with a read-only view, they get permission to manage role assignments on the billing accounts. They can add themselves as owners of the billing accounts to elevate themselves.
+All Global Administrators in Microsoft Entra ID get read-only access to all Microsoft Customer Agreement (MCA) and Microsoft Partner Agreement (MPA) billing accounts in their Microsoft Entra ID. They can view all billing accounts and the corresponding cost and billing information. Along with a read-only view, they get permission to manage role assignments on the billing accounts. They can add themselves as owners of the billing accounts to elevate themselves.
 
 ## Elevate access to manage billing accounts
 
@@ -203,7 +203,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<b
 
 #### Request body
 
-To add yourself as an owner, you need to get your object ID. You can find the object ID either in the Users page of the Azure Active Directory section in the Azure portal or your can use the [Microsoft Graph API](/graph/api/resources/users?view=graph-rest-1.0&preserve-view=true) to get the object ID.
+To add yourself as an owner, you need to get your object ID. You can find the object ID either in the Users page of the Microsoft Entra ID section in the Azure portal or your can use the [Microsoft Graph API](/graph/api/resources/users?view=graph-rest-1.0&preserve-view=true) to get the object ID.
 
 
 In the request body, replace `<roleDefinitionName>` with the `name` copied from Step 2. Replace `<principalId>` with the object ID that you got either from the Azure portal or through the Microsoft Graph API.

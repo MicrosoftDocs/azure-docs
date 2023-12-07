@@ -1,8 +1,8 @@
 ---
 title: Add a line layer to Android maps | Microsoft Azure Maps
 description: Learn how to add lines to maps. See examples that use the Azure Maps Android SDK to add line layers to maps and to customize lines with symbols and color gradients.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps

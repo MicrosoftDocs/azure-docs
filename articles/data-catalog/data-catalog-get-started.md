@@ -26,13 +26,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 To get started, you need to have:
 
 * A [Microsoft Azure](https://azure.microsoft.com/) subscription.
-* You need to have your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+* You need to have your own [Microsoft Entra tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 To set up Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
 ## Create a data catalog
 
-You can create only one data catalog per organization (Azure Active Directory domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Azure Active Directory domain has already created a catalog, then you can't create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Azure Active Directory domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.
+You can create only one data catalog per organization (Microsoft Entra domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Microsoft Entra domain has already created a catalog, then you can't create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Microsoft Entra domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.
 
 1. Go to the [Azure portal](https://portal.azure.com) > **Create a resource** and select **Data Catalog**.
 

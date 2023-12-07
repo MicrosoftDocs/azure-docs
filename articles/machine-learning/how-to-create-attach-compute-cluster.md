@@ -44,7 +44,7 @@ In this article, learn how to:
 
 Azure Machine Learning compute cluster is a managed-compute infrastructure that allows you to easily create a single or multi-node compute. The compute cluster is a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. Compute cluster supports **no public IP** deployment as well in virtual network. The compute executes in a containerized environment and packages your model dependencies in a [Docker container](https://www.docker.com/why-docker).
 
-Compute clusters can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
+Compute clusters can run jobs securely in either a [managed virtual network](how-to-managed-network.md) or an [Azure virtual network](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
 
 ## Limitations
 
@@ -55,7 +55,7 @@ Compute clusters can run jobs securely in a [virtual network environment](how-to
 
 * Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
 
-* Azure allows you to place _locks_ on resources, so that they can't be deleted or are read only. __Do not apply resource locks to the resource group that contains your workspace__. Applying a lock to the resource group that contains your workspace will prevent scaling operations for Azure Machine Learning compute clusters. For more information on locking resources, see [Lock resources to prevent unexpected changes](../azure-resource-manager/management/lock-resources.md).
+* Azure allows you to place _locks_ on resources, so that they can't be deleted or are read only. __Do not apply resource locks to the resource group that contains your workspace__. Applying a lock to the resource group that contains your workspace prevents scaling operations for Azure Machine Learning compute clusters. For more information on locking resources, see [Lock resources to prevent unexpected changes](../azure-resource-manager/management/lock-resources.md).
 
 ## Create
 
@@ -129,7 +129,7 @@ Create a single- or multi- node compute cluster for your training, batch inferen
 
     |Field  |Description  |
     |---------|---------|
-    | Location | The Azure region where the compute cluster will be created. By default, this is the same location as the workspace. If you don't have sufficient quota in the default region, switch to a different region for more options.</br>When using a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it. |
+    | Location | The Azure region where the compute cluster is created. By default, this is the same location as the workspace. If you don't have sufficient quota in the default region, switch to a different region for more options. </br>When using a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it. |
     |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation     |
     |Virtual machine priority | Choose **Dedicated** or **Low priority**.  Low priority virtual machines are cheaper but don't guarantee the compute nodes. Your job may be preempted.
     |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
@@ -138,12 +138,12 @@ Create a single- or multi- node compute cluster for your training, batch inferen
 
     |Field  |Description  |
     |---------|---------|
-    |Compute name     | * Name is required and must be between 3 to 24 characters long.<br><br> * Valid characters are upper and lower case letters, digits, and the  **-** character.<br><br> * Name must start with a letter<br><br> * Name needs to be unique across all existing computes within an Azure region. You'll see an alert if the name you choose isn't unique<br><br> * If **-**  character is used, then it needs to be followed by at least one letter later in the name    |
-    |Minimum number of nodes | Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. Save money by setting the minimum to 0, so you won't pay for any nodes when the cluster is idle. |
-    |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
+    |Compute name     | * Name is required and must be between 3 to 24 characters long.<br><br> * Valid characters are upper and lower case letters, digits, and the  **-** character.<br><br> * Name must start with a letter<br><br> * Name needs to be unique across all existing computes within an Azure region. You see an alert if the name you choose isn't unique<br><br> * If **-**  character is used, then it needs to be followed by at least one letter later in the name    |
+    |Minimum number of nodes | Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. Save money by setting the minimum to 0, so you don't pay for any nodes when the cluster is idle. |
+    |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute automatically scales to a maximum of this node count when a job is submitted. |
     | Idle seconds before scale down | Idle time before scaling the cluster down to the minimum node count. |
     | Enable SSH access | Use the same instructions as [Enable SSH access](#enable-ssh-access) for a compute instance (above). |
-    |Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.   Also attach [managed identities](#set-up-managed-identity) to grant access to resources.
+    |Advanced settings     |  Optional. Configure network settings.<br><br> * If an *Azure Virtual Network*, Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside the network). For more information, see [network requirements](./how-to-secure-training-vnet.md).<br><br> * If an *Azure Machine Learning managed network*, the compute cluster is automatically in the managed network. For more information, see [managed computes with a managed network](how-to-managed-network-compute.md).<br><br> * No public IP configures whether the compute cluster has a public IP address when in a network.<br><br> * Assign a [managed identity](#set-up-managed-identity) to grant access to resources.
 
 1. Select __Create__.
 
@@ -162,9 +162,9 @@ SSH access is disabled by default.  SSH access can't be changed after creation. 
 
  ## Lower your compute cluster cost with low priority VMs
 
-You may also choose to use [low-priority VMs](how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. These VMs don't have guaranteed availability and may be preempted while in use. You'll have to restart a preempted job. 
+You may also choose to use [low-priority VMs](how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. These VMs don't have guaranteed availability and may be preempted while in use. You have to restart a preempted job. 
 
-Using Azure Low Priority Virtual Machines allows you to take advantage of Azure's unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Low Priority Virtual Machines. Therefore, Azure Low Priority Virtual Machines are great for workloads that can handle interruptions. The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Low Priority Virtual Machines, Azure will allocate the VMs if there's capacity available, but there's no SLA for these VMs. An Azure Low Priority Virtual Machine offers no high availability guarantees. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Low Priority Virtual Machines 
+Using Azure Low Priority Virtual Machines allows you to take advantage of Azure's unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure evicts Azure Low Priority Virtual Machines. Therefore, Azure Low Priority Virtual Machine is great for workloads that can handle interruptions. The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Low Priority Virtual Machines, Azure allocates the VMs if there's capacity available, but there's no SLA for these VMs. An Azure Low Priority Virtual Machine offers no high availability guarantees. At any point in time when Azure needs the capacity back, the Azure infrastructure evicts Azure Low Priority Virtual Machines 
 
 Use any of these ways to specify a low-priority VM:
     
@@ -210,7 +210,7 @@ There's a chance that some users who created their Azure Machine Learning worksp
 
 ### Stuck at resizing
 
-If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0) for the node state, this may be caused by Azure resource locks.
+If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0) for the node state, Azure resource locks may be the cause.
 
 [!INCLUDE [resource locks](includes/machine-learning-resource-lock.md)]
 

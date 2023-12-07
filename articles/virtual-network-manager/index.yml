@@ -33,7 +33,7 @@ landingContent:
             url: faq.md
           - text: Use cases
             url: concept-use-cases.md
-      - linkListType: training
+      - linkListType: learn
         links:
           - text: Create a hub-spoke network topology with Azure Virtual Network Manager
             url: /training/modules/hub-and-spoke-network-architecture/4a-create-hub-spoke-virtual-network-manager

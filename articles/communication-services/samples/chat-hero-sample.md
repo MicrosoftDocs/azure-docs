@@ -80,7 +80,7 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 ## Publish the sample to Azure
 
-1. Under the root director, run these commands:
+1. Under the root directory, run these commands:
 ```
 npm run setup
 npm run build

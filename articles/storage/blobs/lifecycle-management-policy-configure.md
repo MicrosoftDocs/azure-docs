@@ -5,9 +5,8 @@ description: Configure a lifecycle management policy to automatically move data 
 author: normesta
 
 ms.author: normesta
-ms.date: 05/02/2023
-ms.service: azure-storage
-ms.subservice: storage-common-concepts
+ms.date: 08/30/2023
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli" 
@@ -216,22 +215,8 @@ To define a lifecycle management policy with an Azure Resource Manager template,
 
 ---
 
-A lifecycle management policy must be read or written in full. Partial updates are not supported.
-
-
-> [!NOTE]
-> Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
-
-> [!NOTE]
-> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
-
-> [!NOTE]
-> A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
-
-> [!NOTE]
-> The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
-
 ## See also
 
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
+- [Known issues and limitations for lifecycle management policies](lifecycle-management-overview.md#known-issues-and-limitations)
 - [Access tiers for blob data](access-tiers-overview.md)

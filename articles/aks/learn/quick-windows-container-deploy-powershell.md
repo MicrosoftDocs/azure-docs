@@ -2,7 +2,7 @@
 title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using PowerShell
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 ms.topic: article
-ms.date: 07/11/2023
+ms.date: 11/30/2023
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
@@ -86,7 +86,9 @@ In this section, we create an AKS cluster with the following configuration:
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally, the cluster can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
 
-## Add a Windows node pool
+## Add a node pool
+
+### [Add a Windows node pool](#tab/add-windows-node-pool)
 
 By default, an AKS cluster is created with a node pool that can run Linux containers. You have to add another node pool that can run Windows Server containers alongside the Linux node pool.
 
@@ -96,24 +98,43 @@ By default, an AKS cluster is created with a node pool that can run Linux contai
     New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin
     ```
 
-## Add a Windows Server 2019 or Windows Server 2022 node pool
+### [Add a Windows Server 2019 node pool](#tab/add-windows-server-2019-node-pool)
 
-AKS supports Windows Server 2019 and 2022 node pools. Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2019 or Windows Server 2022, you need to specify the following parameters:
+Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2019, you need to specify the following parameters:
 
 * `OsType` set to `Windows`
-* `OsSKU` set to `Windows2019` *or* `Windows2022`
+* `OsSKU` set to `Windows2019`
+
+> [!NOTE]
+>
+> * `OsSKU` requires PowerShell Az module version 9.2.0 or higher.
+> * Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
+
+* Add a Windows Server 2019 node pool using the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet.
+
+    ```azurepowershell-interactive
+    New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2019 -Name npwin
+    ```
+
+### [Add a Windows Server 2022 node pool](#tab/add-windows-server-2022-node-pool)
+
+Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2022, you need to specify the following parameters:
+
+* `OsType` set to `Windows`
+* `OsSKU` set to `Windows2022`
 
 > [!NOTE]
 >
 > * `OsSKU` requires PowerShell Az module version 9.2.0 or higher.
 > * Windows Server 2022 requires Kubernetes version 1.23.0 or higher.
-> * Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 * Add a Windows Server 2022 node pool using the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet.
 
     ```azurepowershell-interactive
-    New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2019 Windows -Name npwin
+    New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2022 -Name npwin
     ```
+
+---
 
 ## Connect to the cluster
 
@@ -184,7 +205,7 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
     spec:
       type: LoadBalancer
       ports:
-     - protocol: TCP
+      - protocol: TCP
         port: 80
       selector:
         app: sample

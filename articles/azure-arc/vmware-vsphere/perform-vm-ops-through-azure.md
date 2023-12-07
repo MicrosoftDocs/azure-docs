@@ -2,12 +2,14 @@
 title: Perform VM operations on VMware VMs through Azure
 description: Learn how to view the operations that you can do on VMware virtual machines and install the Log Analytics agent.
 ms.topic: how-to 
-ms.date: 08/18/2023
+ms.date: 11/06/2023
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 ---
 
 # Manage VMware VMs in Azure through Arc-enabled VMware vSphere
 
-In this article, you will learn how to perform various operations on the Azure Arc-enabled VMware vSphere (preview) VMs such as:
+In this article, you learn how to perform various operations on the Azure Arc-enabled VMware vSphere VMs such as:
 
 - Start, stop, and restart a VM
 
@@ -19,30 +21,11 @@ In this article, you will learn how to perform various operations on the Azure A
 
 - Enable guest management
 
-- Install extensions (enabling guest management is required)
+- Install extensions (enabling guest management is required). All the [extensions](../servers/manage-vm-extensions.md#extensions) that are available with Arc-enabled Servers are supported.
 
-:::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the VMware virtual machine operations." lightbox="media/manage-virtual-machines.png":::
+:::image type="content" source="media/perform-vm-ops-through-azure/manage-virtual-machines.png" alt-text="Screenshot showing the VMware virtual machine operations." lightbox="media/perform-vm-ops-through-azure/manage-virtual-machines.png":::
 
 To perform guest OS operations on Arc-enabled VMs, you must enable guest management on the VMs. When you enable guest management, the Arc Connected Machine Agent is installed on the VM.
-
-## Supported extensions and management services
-
-### Windows extensions
-
-|Extension |Publisher |Type |
-|----------|----------|-----|
-|Custom Script extension |Microsoft.Compute | CustomScriptExtension |
-|Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |
-|Azure Automation Hybrid Runbook Worker extension (preview) |Microsoft.Compute | HybridWorkerForWindows| 
-
-
-### Linux extensions
-
-|Extension |Publisher |Type |
-|----------|----------|-----|
-|Custom Script extension |Microsoft.Azure.Extensions |CustomScript |
-|Log Analytics agent |Microsoft.EnterpriseCloud.Monitoring |OmsAgentForLinux |
-|Azure Automation Hybrid Runbook Worker extension (preview) | Microsoft.Compute | HybridWorkerForLinux|
 
 ## Enable guest management
 
@@ -52,7 +35,7 @@ Before you can install an extension, you must enable guest management on the VMw
 
    - is running a [supported operating system](../servers/prerequisites.md#supported-operating-systems).
 
-   - is able to connect through the firewall to communicate over the internet and these [URLs](../servers/network-requirements.md#urls) are not blocked.
+   - is able to connect through the firewall to communicate over the internet and these [URLs](../servers/network-requirements.md#urls) aren't blocked.
 
    - has VMware tools installed and running.
 
@@ -71,18 +54,6 @@ Before you can install an extension, you must enable guest management on the VMw
 
    For Linux, use the root account, and for Windows, use an account that is a member of the Local Administrators group.
 
-## Install the LogAnalytics extension
-
-1. From your browser, go to the [Azure portal](https://portal.azure.com).
-
-1. Search for and select the VMware VM that you want to install extension.
-
-1. Navigate to **Extensions** and select **Add**.
-
-1. Select the extension you want to install. Based on the extension, you'll need to provide configuration details, such as the workspace ID and primary key for Log Analytics extension. Then select **Review + create**.
-
-The deployment starts the installation of the extension on the selected VM.
-
 ## Delete a VM
 
 If you no longer need the VM, you can delete it.
@@ -100,4 +71,4 @@ If you no longer need the VM, you can delete it.
 
 ## Next steps
 
-[Create a VM using Azure Arc-enabled vSphere](quick-start-create-a-vm.md)
+[Tutorial - Create a VM using Azure Arc-enabled vSphere](quick-start-create-a-vm.md).

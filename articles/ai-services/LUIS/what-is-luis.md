@@ -2,8 +2,8 @@
 title: Language Understanding (LUIS) Overview
 description: Language Understanding (LUIS) - a cloud-based API service using machine-learning to conversational, natural language to predict meaning and extract information.
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, natural language understanding, nlu, LUIS, conversational AI, ai chatbot, nlp ai, azure luis
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: overview
 ms.date: 07/19/2022
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021

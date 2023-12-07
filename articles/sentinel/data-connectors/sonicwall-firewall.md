@@ -3,7 +3,7 @@ title: "SonicWall Firewall connector for Microsoft Sentinel"
 description: "Learn how to install the connector SonicWall Firewall to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 05/22/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -28,7 +28,7 @@ CommonSecurityLog
 
    | where DeviceVendor == "SonicWall"
 
-   | sort by TimeGenerated
+   | sort by TimeGenerated desc
    ```
 
 **Summarize by destination IP and port**
@@ -39,7 +39,7 @@ CommonSecurityLog
 
    | summarize count() by DestinationIP, DestinationPort, TimeGenerated
 
-   | sort by TimeGenerated
+   | sort by TimeGenerated desc
    ```
 
 **Show all dropped traffic from the SonicWall Firewall**
@@ -75,7 +75,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    Run the following command to install and apply the CEF collector:
 
-   `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
+  `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
 
 2. Forward SonicWall Firewall Common Event Format (CEF) logs to Syslog agent
 

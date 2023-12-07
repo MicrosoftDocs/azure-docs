@@ -34,6 +34,14 @@ This article shows you how to create an Azure CLI session in which you:
 
 * Make sure that port 8883 is open in your firewall. The samples in this article use MQTT protocol, which communicates over port 8883. This port can be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
+## Module authentication
+
+You can use symmetric keys or X.509 certificates to authenticate module identities. For X.509 certificate authentication, the module's certificate *must* have its common name (CN) formatted like `CN=<deviceid>/<moduleid>`. For example:
+
+```bash
+openssl req -new -key d1m1.key.pem -out d1m1.csr -subj "/CN=device01\/module01"
+```
+
 ## Prepare the Cloud Shell
 
 If you want to use the Azure Cloud Shell, you must first launch and configure it. If you use the CLI locally, skip to the [Prepare a CLI session](#prepare-a-cli-session) section.

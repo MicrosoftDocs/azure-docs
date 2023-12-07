@@ -1,11 +1,10 @@
 ---
 title: "Quickstart: Image Analysis client library for Node.js"
 description: Get started with the Image Analysis client library for Node.js with this quickstart
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
