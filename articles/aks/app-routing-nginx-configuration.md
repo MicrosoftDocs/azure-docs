@@ -31,7 +31,7 @@ az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
 
 The application routing add-on uses a Kubernetes [custom resource definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called [`NginxIngressController`](https://github.com/Azure/aks-app-routing-operator/blob/main/config/crd/bases/approuting.kubernetes.azure.com_nginxingresscontrollers.yaml) to configure NGINX ingress controllers. You can create more ingress controllers or modify existing configuration.
 
-`NginxIngressController` CRD has a `loadBalancerAnnotations` field to control the behavior of the NGINX ingress controller's service by setting [load balancer annotations](load-balancer-standard). 
+`NginxIngressController` CRD has a `loadBalancerAnnotations` field to control the behavior of the NGINX ingress controller's service by setting [load balancer annotations][load-balancer-standard]. 
 
 
 ### The default NGINX ingress controller
@@ -289,6 +289,35 @@ For NGINX, a 413 error is returned to the client when the size in a request exce
 nginx.ingress.kubernetes.io/proxy-body-size: 4m
 ```
 
+Here's an example ingress configuration using this annotation:
+
+> [!NOTE]
+> Update *`<Hostname>`* with your DNS host name.
+> The *`<IngressClassName>`* is the one you defined when creating the `NginxIngressController`.
+
+```yml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aks-helloworld
+  namespace: hello-web-app-routing
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 4m
+spec:
+  ingressClassName: <IngressClassName>
+  rules:
+  - host: <Hostname>
+    http:
+      paths:
+      - backend:
+          service:
+            name: aks-helloworld
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+```
+
 ### Custom connection timeout
 
 You can change the timeout that the NGINX ingress controller waits to close a connection with your workload. All timeout values are unitless and in seconds. To override the default timeout, use the following annotation to set a valid 120-seconds proxy read timeout:
@@ -299,19 +328,77 @@ nginx.ingress.kubernetes.io/proxy-read-timeout: "120"
 
 Review [custom timeouts](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#custom-timeouts) for other configuration options.
 
+Here's an example ingress configuration using this annotation:
+
+> [!NOTE]
+> Update *`<Hostname>`* with your DNS host name.
+> The *`<IngressClassName>`* is the one you defined when creating the `NginxIngressController`.
+
+```yml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aks-helloworld
+  namespace: hello-web-app-routing
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "120"
+spec:
+  ingressClassName: <IngressClassName>
+  rules:
+  - host: <Hostname>
+    http:
+      paths:
+      - backend:
+          service:
+            name: aks-helloworld
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+```
+
 ### Backend protocol
 
 By default the NGINX ingress controller uses `HTTP` to reach the services. To configure alternative backend protocols such as `HTTPS` or `GRPC`, use the annotation:
 
 ```yml
-ingress.kubernetes.io/backend-protocol: "HTTPS"
+nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 ``` 
 or
 ```yml
-ingress.kubernetes.io/backend-protocol: "GRPC"
+nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
 ```
 
 Review [backend protocols](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#backend-protocol) for other configuration options.
+
+Here's an example ingress configuration using this annotation:
+
+> [!NOTE]
+> Update *`<Hostname>`* with your DNS host name.
+> The *`<IngressClassName>`* is the one you defined when creating the `NginxIngressController`.
+
+```yml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aks-helloworld
+  namespace: hello-web-app-routing
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  ingressClassName: <IngressClassName>
+  rules:
+  - host: <Hostname>
+    http:
+      paths:
+      - backend:
+          service:
+            name: aks-helloworld
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+```
 
 ### Cross-Origin Resource Sharing (CORS)
 
@@ -323,6 +410,35 @@ nginx.ingress.kubernetes.io/enable-cors: "true"
 
 Review [enable CORS](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#enable-cors) for other configuration options.
 
+Here's an example ingress configuration using this annotation:
+
+> [!NOTE]
+> Update *`<Hostname>`* with your DNS host name.
+> The *`<IngressClassName>`* is the one you defined when creating the `NginxIngressController`.
+
+```yml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aks-helloworld
+  namespace: hello-web-app-routing
+  annotations:
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+spec:
+  ingressClassName: <IngressClassName>
+  rules:
+  - host: <Hostname>
+    http:
+      paths:
+      - backend:
+          service:
+            name: aks-helloworld
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+```
+
 ### Disable SSL redirect
 
 By default the controller redirects (308) to HTTPS if TLS is enabled for an ingress. To disable this feature for specific ingress resources, use the annotation:
@@ -333,12 +449,70 @@ nginx.ingress.kubernetes.io/ssl-redirect: "false"
 
 Review [server-side HTTPS enforcement through redirect](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#server-side-https-enforcement-through-redirect) for other configuration options.
 
+Here's an example ingress configuration using this annotation:
+
+> [!NOTE]
+> Update *`<Hostname>`* with your DNS host name.
+> The *`<IngressClassName>`* is the one you defined when creating the `NginxIngressController`.
+
+```yml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aks-helloworld
+  namespace: hello-web-app-routing
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: <IngressClassName>
+  rules:
+  - host: <Hostname>
+    http:
+      paths:
+      - backend:
+          service:
+            name: aks-helloworld
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+```
+
 ### URL rewriting
 
 In some scenarios, the exposed URL in the backend service differs from the specified path in the Ingress rule. Without a rewrite any request returns 404. This is particularly useful with [path based routing](https://kubernetes.github.io/ingress-nginx/user-guide/ingress-path-matching/). You can set path expected by the service using the annotation:
 
 ```yml
 nginx.ingress.kubernetes.io/rewrite-target": /
+```
+
+Here's an example ingress configuration using this annotation:
+
+> [!NOTE]
+> Update *`<Hostname>`* with your DNS host name.
+> The *`<IngressClassName>`* is the one you defined when creating the `NginxIngressController`.
+
+```yml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aks-helloworld
+  namespace: hello-web-app-routing
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target": /
+spec:
+  ingressClassName: <IngressClassName>
+  rules:
+  - host: <Hostname>
+    http:
+      paths:
+      - backend:
+          service:
+            name: aks-helloworld
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
 ```
 
 ## Next steps
@@ -351,6 +525,7 @@ Learn about monitoring the ingress-nginx controller metrics included with the ap
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 
 <!-- LINKS - internal -->
+[load-balancer-standard]: load-balancer-standard
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
 [az-group-create]: /cli/azure/group#az-group-create
