@@ -36,14 +36,50 @@ The following table shows the differences between standard and neural phrase fix
 |Can be reliably used for copying. | Can't be used reliably for copying.|
 |Works most effectively with nouns. |Works good with nouns, verbs, adjectives, and nouns phrases.|
 
+## Supported languages
+
+Listed here are the current supported **neural dictionary** language pairs:
+
+|Source|Target|
+|:----|:----|
+|Chinese Simplified (`zh-cn`)|English (`en-us`)|
+|English (`en-us`)|Chinese Simplified (`zh-cn`)|
+|English (`en-us`)|French (`fr-fr`)|
+|English (`en-us`)|German (`de-de`)|
+|English (`en-us`)|Italian (`it-it`)|
+|English (`en-us`)|Japanese (`ja-jp`)|
+|English (`en-us`)|Korean (`ko-kr`)|
+|English (`en-us`)|Polish (`pl-pl`)|
+|English (`en-us`)|Russian (`ru-ru`)|
+|English (`en-us`)|Spanish (`es-es`)|
+|English (`en-us`)|Swedish (`sv-se`)|
+|French (`fr-fr`)|English (`en-us`)|
+|German (`de-de`)|English (`en-us`)|
+|Italian (`it-it`)|English (`en-us`)|
+|Japanese (`ja-jp`)|English (`en-us`)|
+|Korean (`ko-kr`)|English (`en-us`)|
+|Polish (`pl-pl`)|English (`en-us`)|
+|Russian (`ru-ru`)|English (`en-us`)|
+|Spanish (`es-es`)|English (`en-us`)|
+|Swedish (`sv-se`)|English (`en-us`)|
+
+## Enable neural dictionary
+
+Neural dictionary is available using Custom Translator platform with phrase dictionaries for all supported languages. Full (or dictionary only) custom model retraining is required to enable neural dictionary.
+
 ## Limitations and recommendation
 
 1. An entry from the phrase dictionary is applied only if the source part is found in the source sentence via an exact case-sensitive match. This action applies to both hard and neural phrase fixing.
-a. When working with neural phrase fix dictionary, to ensure that the phrase dictionary entry is applied more often, consider adding phrase entries with the source in various forms. For example, next to `solution _ alternative`, you can add the following entries as well: `Solution _ alternative`, `solutions _ alternative`, `Solutions _ alternative`.
-1. Neural phrase dictionary doesn't guarantee copying "as is" because it can inflect words or change casing. However, it should be able to copy named entities and acronyms well.
-a. When using a phrase dictionary, if your goal is to ensure that a specific word or phrase is copied verbatim from the input text to the output translation, consider enforcing standard phrase fixing.
-1. Neural phrase fixing isn't applied for a sentence containing at least one of the following elements:  Emoji, emoticon, URL, social media identifier, code identifier, math symbols, long number sequences like Hex.
-a.    Emoji, emoticon, URL, social media identifier, code identifier, math symbols, long number sequences like Hex.
-1. It's infrequent (but technically possible—less than 0.1%) that a neural phrase fix doesn't respect the dynamic dictionary annotation or phrase dictionary entry and the requested translation doesn't appear in the output translation.
+a. When working with neural phrase fix dictionary, to ensure that the phrase dictionary entry is applied more often, consider adding phrase entries with the source in various forms. For example, If you want to make sure that "solution" is translated as "alternatywa" (Polish translation of "alternative" in English) next to `solution _ alternatywa`, you can add the following entries as well: `Solution _ alternatywa`, `ssolutions _ alternatywy`, `Solutions _ alternatywy`.
 
+1. If you're using a phrase dictionary to ensure that a specific word or phrase is copied "as is" from the input text to the output translation, consider enforcing a verbatim dictionary for greater consistency. Neural phrase dictionary doesn't guarantee copying "as is" because it can inflect words or change casing. However, it can copy named entities and acronyms.
 
+1. Neural phrase fixing isn't applied for a sentence containing at least one of the following elements:  Emoji, emoticon, URL, social media identifier, code identifier, math symbols, long number sequences like hex.
+
+1. Infrequently (but technically possible—less than 0.1%) a neural phrase fix doesn't respect the dynamic dictionary annotation or phrase dictionary entry and the requested translation doesn't appear in the output translation.
+
+1. Avoid adding translations of common or frequent words or phrases to the phrase dictionary.
+
+## Next steps
+
+To learn more, start with the [Custom Translator beginner's guide](custom-translator/beginners-guide.md).

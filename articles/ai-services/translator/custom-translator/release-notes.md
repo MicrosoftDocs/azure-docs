@@ -19,32 +19,32 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 
 ### December 2023 model updates
 
-* Added [neural dictionary]() support for improved translation quality when phrase dictionary is used.
+* Added [neural dictionary](../neural-dictionary.md) support for improved translation quality when phrase dictionary is used.
 
 * Current supported **neural dictionary** language pairs are listed in the following table:
 
 |Source|Target|
 |:----|:----|
-|Chinese Simplified (zh-cn)|English (en-us)|
-|English (en-us)|Chinese Simplified (zh-cn)|
-|English (en-us)|French (fr-fr)|
-|English (en-us)|German (de-de)|
-|English (en-us)|Italian (it-it)|
-|English (en-us)|Japanese (ja-jp)|
-|English (en-us)|Korean (ko-kr)|
-|English (en-us)|Polish (pl-pl)|
-|English (en-us)|Russian (ru-ru)|
-|English (en-us)|Spanish (es-es)|
-|English (en-us)|Swedish (sv-se)|
-|French (fr-fr)|English (en-us)|
-|German (de-de)|English (en-us)|
-|Italian (it-it)|English (en-us)|
-|Japanese (ja-jp)|English (en-us)|
-|Korean (ko-kr)|English (en-us)|
-|Polish (pl-pl)|English (en-us)|
-|Russian (ru-ru)|English (en-us)|
-|Spanish (es-es)|English (en-us)|
-|Swedish (sv-se)|English (en-us)|
+|Chinese Simplified (`zh-cn`)|English (`en-us`)|
+|English (`en-us`)|Chinese Simplified (`zh-cn`)|
+|English (`en-us`)|French (`fr-fr`)|
+|English (`en-us`)|German (`de-de`)|
+|English (`en-us`)|Italian (`it-it`)|
+|English (`en-us`)|Japanese (`ja-jp`)|
+|English (`en-us`)|Korean (`ko-kr`)|
+|English (`en-us`)|Polish (`pl-pl`)|
+|English (`en-us`)|Russian (`ru-ru`)|
+|English (`en-us`)|Spanish (`es-es`)|
+|English (`en-us`)|Swedish (`sv-se`)|
+|French (`fr-fr`)|English (`en-us`)|
+|German (`de-de`)|English (`en-us`)|
+|Italian (`it-it`)|English (`en-us`)|
+|Japanese (`ja-jp`)|English (`en-us`)|
+|Korean (`ko-kr`)|English (`en-us`)|
+|Polish (`pl-pl`)|English (`en-us`)|
+|Russian (`ru-ru`)|English (`en-us`)|
+|Spanish (`es-es`)|English (`en-us`)|
+|Swedish (`sv-se`)|English (`en-us`)|
 
 ## 2023-November release
 

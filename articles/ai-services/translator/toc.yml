@@ -84,15 +84,13 @@ items:
     - name: Prevent translation of content
       displayName: textType,text type,noTranslate,no translate,dynamic dictionary,custom,tag
       href: prevent-translation.md
+    - name: Use the dynamic dictionary feature
+      href: dynamic-dictionary.md
+    - name: Use the neural dictionary feature
+      href: neural-dictionary.md  
     - name: Translate behind firewalls
       displayName: domain,IP,filtering,tag,endpoints,CognitiveServicesManagement
       href: firewalls.md
-  - name: Concepts
-    items:
-    - name: Dynamic dictionary
-      href: dynamic-dictionary.md
-    - name: Neural dictionary
-      href: neural-dictionary.md
   - name: Reference
     items:
     - name: v3 Translator reference
