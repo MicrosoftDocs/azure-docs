@@ -47,13 +47,13 @@ You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilit
 
 ## Connector technical reference
 
-The SAP connector has different versions, based on [logic app type and host environment](../../logic-apps/logic-apps-overview.md#resource-environment-differences).
+The SAP connector has different versions, based on [logic app type and host environment](../logic-apps-overview.md#resource-environment-differences).
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Enterprise** label. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
-| **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Enterprise** label, and the ISE-native version, which appears in the designer with the **ISE** label and has different message limits than the managed connector. <br><br>**Note**: Make sure to use the ISE-native version, not the managed version. <br><br>For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../../connectors/built-in.md) |
+| **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Enterprise** label, and the ISE-native version, which appears in the designer with the **ISE** label and has different message limits than the managed connector. <br><br>**Note**: Make sure to use the ISE-native version, not the managed version. <br><br>For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [ISE message limits](../logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../../connectors/built-in.md) |
 
 ## Connector differences
 
@@ -1172,7 +1172,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
 1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.dll** file has the same version number as the **Microsoft.ApplicationInsights.EventSourceListener.dll** file that you added. The gateway currently uses version 2.14.0.
 
-1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](../azure-monitor/app/sdk-connection-string.md) by uncommenting the line with the `<InstrumentationKey></InstrumentationKey>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
+1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](../../azure-monitor/app/sdk-connection-string.md) by uncommenting the line with the `<InstrumentationKey></InstrumentationKey>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
 
       ```xml
       <?xml version="1.0" encoding="utf-8"?>

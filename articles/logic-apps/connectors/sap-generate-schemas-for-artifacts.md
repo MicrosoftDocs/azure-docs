@@ -57,7 +57,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the [Azure portal](https://portal.azure.com), create a Standard logic app resource and a blank workflow, which opens in the designer.
 
-1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
    ![Screenshot shows the Request trigger for a Standard workflow.](./media/sap-generate-schemas-for-artifacts/add-request-trigger-standard.png)
 
@@ -77,7 +77,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the workflow designer, under the Request trigger, select **New step**.
 
-1. In the designer, [follow these general steps to find and add the SAP managed action named **Generate schemas**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. In the designer, [follow these general steps to find and add the SAP managed action named **Generate schemas**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    For more information about this SAP managed action, see [Generate schemas](/connectors/sap/#generate-schemas).
 
@@ -130,7 +130,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the workflow designer, under the Request trigger, select the plus sign (**+**) > **Add an action**.
 
-1. In the designer, [follow these general steps to find and add the SAP built-in action named **Generate Schema**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. In the designer, [follow these general steps to find and add the SAP built-in action named **Generate Schema**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    For more information about this SAP built-in action, see [Generate Schema](/azure/logic-apps/connectors/built-in/reference/sap/#generate-schema-(preview)).
 

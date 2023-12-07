@@ -40,7 +40,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and blank workflow in the designer.
 
-1. In the designer, [follow these general steps to add the SAP managed connector trigger named **When a message is received**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
+1. In the designer, [follow these general steps to add the SAP managed connector trigger named **When a message is received**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
 1. If prompted, provide the following [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
 
@@ -168,7 +168,7 @@ The following example workflow shows how to extract individual IDocs from a pack
 
 1. To immediately reply to your SAP server with the SAP request status, add the following response action, based on whether you use an SAP managed trigger or SAP built-in trigger:
 
-   - SAP managed trigger: For this trigger, [add a Response action to your workflow](../connectors/connectors-native-reqres.md#add-a-response-action).
+   - SAP managed trigger: For this trigger, [add a Response action to your workflow](../../connectors/connectors-native-reqres.md#add-a-response-action).
 
      In the Response action, use one of the following status codes (`statusCode`):
 
@@ -414,7 +414,7 @@ Next, create an action to send your IDoc to SAP when the workflow's request trig
 
 1. In the workflow designer, under the Request trigger, select the plus sign (**+**) > **Add an action**.
 
-1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    Rather than have a generic action to send messages with different types, the preview SAP built-in connector provides individual actions for BAPI, IDoc, RFC, and so on. For example, these actions include **[BAPI] Call method in SAP** and **[RFC] Call function in SAP**.
 
