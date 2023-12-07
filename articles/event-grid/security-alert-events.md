@@ -10,7 +10,7 @@ ms.date: 12/6/2023
 This article provides the properties and schema for Microsoft Security Alert events, which are published by Microsoft Graph API. For an introduction to event schemas, see [CloudEvents schema](cloud-event-schema.md). 
 
 ## Available event types
-These events are triggered when a Security [alert](https://learn.microsoft.com/en-us/graph/api/resources/alert?view=graph-rest-1.0) is created by operating over those resources using Microsoft Graph API. 
+These events are triggered when a Security [alert](/graph/api/resources/alert) is created by operating over those resources using Microsoft Graph API. 
 
  | Event name | Description |
  | ---------- | ----------- |

@@ -10,7 +10,7 @@ ms.date: 12/6/2023
 This article provides the properties and schema for Microsoft 365 Group Conversation events, which are published by Microsoft Graph API. For an introduction to event schemas, see [CloudEvents schema](cloud-event-schema.md). 
 
 ## Available event types
-These events are triggered when a [conversation](https://learn.microsoft.com/en-us/graph/api/resources/conversation) is created, updated, or deleted by operating over those resources using Microsoft Graph API. Note that you can only subscribe to changes from a specific group.
+These events are triggered when a [conversation](/graph/api/resources/conversation) is created, updated, or deleted by operating over those resources using Microsoft Graph API. Note that you can only subscribe to changes from a specific group.
 
  | Event name | Description |
  | ---------- | ----------- |

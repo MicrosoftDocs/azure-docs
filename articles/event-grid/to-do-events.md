@@ -10,7 +10,7 @@ ms.date: 12/6/2023
 This article provides the properties and schema for Microsoft ToDo Task events, which are published by Microsoft Graph API. For an introduction to event schemas, see [CloudEvents schema](cloud-event-schema.md). 
 
 ## Available event types
-These events are triggered when a [todoTask](https://learn.microsoft.com/en-us/graph/api/resources/todotask?view=graph-rest-1.0) is created, updated, or deleted by operating over those resources using Microsoft Graph API. Note that you can only subscribe to changes from a specific task list.
+These events are triggered when a [todoTask](/graph/api/resources/todotask) is created, updated, or deleted by operating over those resources using Microsoft Graph API. Note that you can only subscribe to changes from a specific task list.
 
  | Event name | Description |
  | ---------- | ----------- |

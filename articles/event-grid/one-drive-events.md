@@ -10,7 +10,7 @@ ms.date: 12/6/2023
 This article provides the properties and schema for Microsoft OneDrive events, which are published by Microsoft Graph API. For an introduction to event schemas, see [CloudEvents schema](cloud-event-schema.md). 
 
 ## Available event types
-These events are triggered when a [driveItem](https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0) is updated by operating over those resources using Microsoft Graph API. 
+These events are triggered when a [driveItem](/graph/api/resources/driveitem) is updated by operating over those resources using Microsoft Graph API. 
 
  | Event name | Description |
  | ---------- | ----------- |
