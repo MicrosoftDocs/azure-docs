@@ -14,7 +14,7 @@ These events are triggered when a [driveItem](https://learn.microsoft.com/en-us/
 
  | Event name | Description |
  | ---------- | ----------- |
- | **Microsoft.Graph.DriveItemUpdated** | Triggered when content in the hierarchy of a root folder driveItem in OneDrive for Business, or of a root folder or subfolder driveItem in a user's personal OneDrive is updated. |
+ | **Microsoft.Graph.DriveItemUpdated** | This event is triggered when content in the hierarchy of a root folder driveItem in OneDrive for Business, or of a root folder or subfolder driveItem in a user's personal OneDrive is updated. |
 
 ## Example event
 When an event is triggered, the Event Grid service sends data about that event to subscribing destinations. This section contains an example of what that data would look like for each Microsoft OneDrive event.
@@ -84,4 +84,4 @@ The data object has the following properties:
 * For information on how to subscribe to Microsoft Graph API to receive events, see [subscribe to Microsoft Graph API events](subscribe-to-graph-api-events.md).
 * For information about Azure Event Grid event handlers, see [event handlers](event-handlers.md).
 * For more information about creating an Azure Event Grid subscription, see [create event subscription](subscribe-through-portal.md#create-event-subscriptions) and [Event Grid subscription schema](subscription-creation-schema.md).
-* For information about how to configure an event subscription to select specific events to be delivered, see [event filtering](event-filtering.md). You may also want to refer to [filter events](how-to-filter-events.md).
+* For information about how to configure an event subscription to select specific events to be delivered, see [event filtering](event-filtering.md). You might also want to refer to [filter events](how-to-filter-events.md).
