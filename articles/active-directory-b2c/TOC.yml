@@ -547,6 +547,9 @@
             href: partner-whoiam.md
           - name: xID
             href: partner-xid.md
+      - name: Enable CAPTCHA
+        href: add-captcha.md
+        displayName: Completely Automated Public Turing Tests to Tell Computer and Human Apart, HIP, Human Interactive Proofs 
       - name: Web Application Firewall partners
         items:
         - name: Akamai
