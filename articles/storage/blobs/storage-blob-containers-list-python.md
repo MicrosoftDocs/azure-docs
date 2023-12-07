@@ -55,15 +55,15 @@ To include soft-deleted containers with the results, set the `include_deleted` k
 
 The following example lists all containers and metadata. You can include container metadata by setting `include_metadata` to `True`:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-containers.py" id="Snippet_list_containers":::
 
 The following example lists only containers that begin with a prefix specified in the `name_starts_with` parameter:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers_prefix":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-containers.py" id="Snippet_list_containers_prefix":::
 
 You can also specify a limit for the number of results per page. This example passes in `results_per_page` and paginates the results:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_list_containers_pages":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-containers.py" id="Snippet_list_containers_pages":::
 
 ## Resources
 
@@ -77,7 +77,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-list-containers.py)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 

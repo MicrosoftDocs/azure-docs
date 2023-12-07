@@ -41,7 +41,7 @@ Containers are created immediately beneath the storage account. It's not possibl
 
 The following example creates a container from a `BlobServiceClient` object:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_create_container":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-container.py" id="Snippet_create_container":::
 
 ## Create the root container
 
@@ -53,7 +53,7 @@ You can reference a blob stored in the root container without including the root
 
 The following example creates a new `ContainerClient` object with the container name $root, then creates the container if it doesn't already exist in the storage account:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_create_root_container":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-container" id="Snippet_create_root_container":::
 
 ## Resources
 
@@ -67,6 +67,6 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-create-container.py)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
