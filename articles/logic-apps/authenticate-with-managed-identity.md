@@ -14,9 +14,9 @@ ms.custom: subject-rbac-steps, ignite-fall-2021, devx-track-arm-template
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When you use a managed identity to authenticate access or connections to Microsoft Entra protected resources from your logic app workflow, you don't have to provide credentials, secrets, or Microsoft Entra tokens. In Azure Logic Apps, some connector operations support using a managed identity when you have to authenticate access to resources protected by Microsoft Entra ID. Azure manages this identity and helps keep authentication information secure because you don't have to manage this sensitive information. For more information, see [What are managed identities for Azure resources?](/entra/managed-identities-azure-resources/overview).
+When you use a managed identity to authenticate access or connections to Microsoft Entra protected resources from your logic app workflow, you don't have to provide credentials, secrets, or Microsoft Entra tokens. In Azure Logic Apps, some connector operations support using a managed identity when you have to authenticate access to resources protected by Microsoft Entra ID. Azure manages this identity and helps keep authentication information secure because you don't have to manage this sensitive information. For more information, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
-Azure Logic Apps supports the [*system-assigned* managed identity](/entra/managed-identities-azure-resources/overview##managed-identity-types) and the [*user-assigned* managed identity](/entra/managed-identities-azure-resources/overview##managed-identity-types). The following list describes some differences between these managed identity types:
+Azure Logic Apps supports the [*system-assigned* managed identity](/entra/identity/managed-identities-azure-resources/overview##managed-identity-types) and the [*user-assigned* managed identity](/entra/identity/managed-identities-azure-resources/overview##managed-identity-types). The following list describes some differences between these managed identity types:
 
 * A logic app resource can enable and use only one unique system-assigned identity.
 
