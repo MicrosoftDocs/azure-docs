@@ -201,10 +201,9 @@ To register an existing SAP system and manage that system with Azure Center for 
 | ---------------------------------------------------------- |
 | `Microsoft.Compute/virtualMachines/read` |
 | `Microsoft.Compute/disks/read` |
-| `Microsoft.Compute/disks/write` |
-| `Microsoft.Compute/virtualMachines/write` |
 | `Microsoft.Compute/virtualMachines/extensions/read` |
 | `Microsoft.Compute/virtualMachines/extensions/write` |
+| `Microsoft.Compute/virtualMachines/extensions/delete` |
 | `Microsoft.Compute/virtualMachines/instanceView/read` |
 | `Microsoft.Network/loadBalancers/read` |
 | `Microsoft.Network/loadBalancers/backendAddressPools/read` |

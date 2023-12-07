@@ -35,6 +35,7 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - When implementing Azure Event Grid and Kafka, you may encounter timeout errors in the logs. Despite this, the connector will continue to function and forward messages
 
+
 ## Layered Network Management (preview)
 
 - If the Layered Network Management service isn't getting an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.

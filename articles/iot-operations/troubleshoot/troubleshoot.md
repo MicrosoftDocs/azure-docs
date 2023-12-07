@@ -77,9 +77,12 @@ kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
 
+## Data Processor pipeline processing pauses unexpectedly
+
 It's possible a momentary loss of communication with IoT MQ broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
 
 ```bash
 kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
 kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
 ```
+

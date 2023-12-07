@@ -44,12 +44,17 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Austria phone numbers are available
 | Country/Region |
 | :---------- |
-|Austria|
-|United States|
-|United Kingdom|
-|Canada|
-|Japan|
 |Australia|
+|Austria|
+|Canada|
+|France|
+|Germany|
+|Italy|
+|Japan|
+|Netherlands|
+|Spain|
+|United Kingdom|
+|United States|
 
 
 ## Azure subscription billing locations where Austria alphanumeric sender IDs are available
