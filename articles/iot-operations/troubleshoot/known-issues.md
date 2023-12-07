@@ -52,25 +52,6 @@ This article contains known issues for Azure IoT Operations Preview.
     - aio_mq_frontend_replicas
     - aio_mq_frontend_replicas_current
 
-## Azure IoT Data Processor (preview)
-
-If edits you make to a pipeline aren't applied to messages, run the following commands to propagate the changes:
-
-```bash
-kubectl rollout restart deployment aio-dp-operator -n azure-iot-operations 
-
-kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations 
-
-kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
-```
-
-It's possible a momentary loss of communication with IoT MQ broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
-
-```bash
-kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
-kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
-```
-
 ## Layered Network Management (preview)
 
 - If the Layered Network Management service isn't getting an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
