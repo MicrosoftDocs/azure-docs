@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 10/03/2023
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
-ROBOTS: NOINDEX
 ---
 
 # Upgrade a basic load balancer with PowerShell
