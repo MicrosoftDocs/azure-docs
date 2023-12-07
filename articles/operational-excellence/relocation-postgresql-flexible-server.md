@@ -17,32 +17,28 @@ ms.custom:
 
 # Relocation guidance for Azure Database for PostgreSQL
 
-This article covers the scenario of relocation for PostgreSQL across geographies, where read replicas and geo-restore aren't available. For an overview of the region pairs supported by native replication,  see
+This article covers relocation for PostgreSQL across geographies, where read replicas and geo-restore aren't available. For an overview of the region pairs supported by native replication,  see
 [cross-region replication](../postgresql/concepts-read-replicas#cross-region-replication).
 
-The relocation [architectural pattern](relocation-overview.md#relocation-architectural-patterns) covered in this document is based on logical backup and restore, performed using native tools. Backup and restore times may introduce noticeable downtime.
+The relocation process is based on the [relocation architectural patterns](relocation-overview.md#relocation-architectural-patterns). 
 
 ## Prerequisites
 
-- The relocation pattern requires an existing compute resource to execute backup and
-  restore tools. The examples in this document are based on an Azure VM running
-  Ubuntu 20.04 LTS.
+To perform relocation, you must have a compute resource that runs the backup and restore tools. The examples in this guide use an Azure VM running Ubuntu 20.04 LTS. 
 
-- The compute resource must have network access to both the source and the
-  target server, either on a private network or by inclusion in the firewall
-  rules. Make sure the compute resource is located in either the source or the
-  target region, and uses Accelerated Networking (if available).
+The compute resources must:
+
+  - Have network access to both the source and the target server, either on a private network or by inclusion in the firewall rules.
+  - Be located in either the source or target region, and use Accelerated Networking (if available).
+
 
 ## Downtime
 
-This relocation pattern is based on logical backup and restore, performed using native
-tools. Backup and restore times may introduce noticeable downtime.
+Relocation for Azure Database for PostgreSQL is based on logical backup and restore, performed using native tools. Backup and restore times may introduce noticeable downtime.
 
 ## Dependencies
 
-Depending on your Azure Database for PostgreSQL instance design, the following
-dependent resources may need to be created in the target region prior to
-re-location:
+Depending on your Azure Database for PostgreSQL instance design, the following dependent resources may need to be created in the target region prior to re-location:
 
 - [Public IP address]()
 - [Azure Private Endpoint]()
@@ -51,7 +47,7 @@ re-location:
 - Network Peering
 - Azure Private DNS
 
-## Architectural patterns
+## Workload architectures types
 
 Workload architectures can be classified broadly into three types: Cold Standby,
 Warm Standby, and Multi-Site Active/Active. Ref -
