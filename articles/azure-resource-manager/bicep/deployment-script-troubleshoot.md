@@ -1,15 +1,17 @@
 ---
-title: Use deployment scripts in Bicep | Microsoft Docs
-description: use deployment scripts in Bicep.
+title: Troubleshoot Bicep deployment script| Microsoft Docs
+description: Troubleshoot Bicep deployment script.
 ms.custom: devx-track-bicep
 ms.topic: conceptual
 ms.date: 11/02/2023
 ---
 
-# Use deployment scripts in Bicep
+# Troubleshoot Bicep deployment script
 
 
 *** jgao - for the inline script sample, checking write-output, check output, check deployment status and so on.
+
+*** jgao - add the following information - "In the preceding Bicep sample, a storage account is created and configured to be used by the deployment script. This is necessary for storing the script output. An alternative solution, without specifying your own storage account, involves setting `cleanupPreference` to `OnExpiration`and configuring `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed."
 
 ## Monitor and troubleshoot deployment scripts
 

@@ -1,17 +1,21 @@
 ---
-title: Create deployment script | Microsoft Docs
-description: Create deployment script.
+title: Develop deployment script | Microsoft Docs
+description: Develop deployment script.
 ms.custom: devx-track-bicep
 ms.topic: conceptual
-ms.date: 11/28/2023
+ms.date: 12/07/2023
 ---
 
-# Create deployment script
+# Develop deployment script
 
+Learn how to develop [deployment script](./deployment-script-bicep.md). Note that deployment script resources might have a deployment duration. For efficient development and testing of these scripts, consider establishing a dedicated development environment, such as an Azure container instance or a Docker instance. For more information, see [Create development environment](./deployment-script-bicep-configure-dev.md).
 
-*** jgao: talk about create ds dev environment.
 
 *** jgao: add a new section talking about configuring permissions to allow accessing Azure resources.
+
+*** jgao: reduce the length of retentionInterval?
+
+*** jgao: review the deployment script resource symbolic name and resource name.
 
 ## Syntax
 
@@ -103,23 +107,31 @@ Property value details:
 
 - `tags`: Deployment script tags. If the deployment script service creates the two supporting resources - a storage account and a container instance, the tags are passed to both resources, which can be used to identify them. Another way to identify these supporting resources is through their suffixes, which contain `azscripts`. For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-troubleshoot.md).
 - <a id='identity'></a>`identity`: For deployment script API version *2020-10-01* or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script or running deployment script in private network. For more information, see [Access private virtual network](#access-private-virtual-network). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identityin deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [configure the minimum permissions](./deployments-script-bicep.md#configure-the-mininum-permissions).
-- `kind`: Specify the type of script, either **AzurePowerShell** or **AzureCLI**. You will also need to specify Azure Powershell version or Azure CLI version. See `azPowerShellVersion` or `azCliVersion`.
+- `kind`: Specify the type of script, either **AzurePowerShell** or **AzureCLI**. You will also need to specify the `azPowerShellVersion` or `azCliVersion` property.
 - `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. For more information, see [Use an existing storage account](#use-existing-storage-account).
 - `containerSettings`: Customize the name of Azure Container Instance. For configuring the container group name, see [Configure container instance](#configure-container-instance). For configuring `subnetIds` to run deployment script in a private network, see [Access private virtual network](./deployment-script-vnet.md).
-- `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
-- `azPowerShellVersion`/`azCliVersion`: Specify the module version to be used. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). The version determines which container image to use:
+- `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Environment variables](#environment-variables).
+- `azPowerShellVersion`/`azCliVersion`: Specify the module version to be used.
 
-  - **Az version greater than or equal to 9** uses Ubuntu 22.04.
-  - **Az version greater than or equal to 6 but less than 9** uses Ubuntu 20.04.
-  - **Az version less than 6** uses Ubuntu 18.04.
+    # [CLI](#tab/CLI)
 
-  > [!IMPORTANT]
-  > It is advisable to upgrade to the latest version of Ubuntu, as Ubuntu 18.04 is nearing its end of life and will no longer receive security updates beyond [May 31st, 2023](https://ubuntu.com/18-04).
+    See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
-  See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+    > [!IMPORTANT]
+    > Deployment script uses the available CLI images from Microsoft Container Registry (MCR). It typically takes approximatedly one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If an unsupported version is used, the error message lists the supported versions.
 
-  > [!IMPORTANT]
-  > Deployment script uses the available CLI images from Microsoft Container Registry (MCR). It typically takes approximatedly one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If an unsupported version is used, the error message lists the supported versions.
+    # [PowerShell](#tab/PowerShell)
+
+    See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). The version determines which container image to use:
+
+    - **Az version greater than or equal to 9** uses Ubuntu 22.04.
+    - **Az version greater than or equal to 6 but less than 9** uses Ubuntu 20.04.
+    - **Az version less than 6** uses Ubuntu 18.04.
+
+    > [!IMPORTANT]
+    > It is advisable to upgrade to the latest version of Ubuntu, as Ubuntu 18.04 is nearing its end of life and will no longer receive security updates beyond [May 31st, 2023](https://ubuntu.com/18-04).
+
+    ---
 
 - `arguments`: Specify the parameter values. The values are separated by spaces.
 
@@ -128,7 +140,7 @@ Property value details:
 
   If the arguments contain escaped characters, double escaped the characters. For example, in the previous sample Bicep, The argument is `-name \"John Dole\"`. The escaped string is `-name \\"John Dole\\"`.
 
-  To pass a Bicep parameter of type object as an argument, convert the object to a string by using the [string()](./bicep-functions-string.md#string) function, and then use the [replace()](./bicep-functions-string.md#replace) function to replace any `"` into `\\"`. For example:
+  To pass a Bicep parameter of type object as an argument, convert the object to a string by using the [`string()`](./bicep-functions-string.md#string) function, and then use the [replace()](./bicep-functions-string.md#replace) function to replace any `"` into `\\"`. For example:
 
   ```json
   replace(string(parameters('tables')), '"', '\\"')
@@ -136,9 +148,9 @@ Property value details:
 
   For more information, see the [sample Bicep file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/deploymentscript-jsonEscape.bicep).
 
-- `scriptContent`: Specify the script content. It can be an inline script or an external script file imported by using the [`loadTextContent`](./bicep-functions-files.md#loadtextcontent) function. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](./deployment-script-external-file#use-external-scripts). To run an external script, use `primaryScriptUri` instead.
+- `scriptContent`: Specify the script content. It can be an inline script or an external script file imported by using the [`loadTextContent`](./bicep-functions-files.md#loadtextcontent) function. For more information, see [Inline vs external file](#inline-vs-external-file). To run an external script, use `primaryScriptUri` instead.
 - `primaryScriptUri`: Specify a publicly accessible URL to the primary deployment script with supported file extensions. For more information, see [Use external scripts](#use-external-scripts).
-- `supportingScriptUris`: Specify an array of publicly accessible URLs to supporting files that are called in either `scriptContent` or `primaryScriptUri`. For more information, see [Use external scripts](#use-external-scripts).
+- `supportingScriptUris`: Specify an array of publicly accessible URLs to supporting files that are called in either `scriptContent` or `primaryScriptUri`. see [Inline vs external file](#inline-vs-external-file).
 - `timeout`: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
 - `forceUpdateTag`: Changing this value between Bicep file deployments forces the deployment script to re-execute. If you use the `newGuid()` or the `utcNow()` functions, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
 - `cleanupPreference`. Specify the preference of cleaning up the two supporting deployment resources, the storage account and the container instance, when the script execution gets in a terminal state. Default setting is **Always**, which means deleting the supporting resources despite the terminal state (Succeeded, Failed, Canceled). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
@@ -269,6 +281,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
+      $ErrorActionPreference = 'Continue'
       $output = "Hello {0}" -f $name
       Write-Output "Output is: '$output'."
     '''
@@ -277,6 +290,9 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 }
 ```
 
+You can control how Azure PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7.4#erroractionpreference) variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
+
+The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`. For more information, see [Troubleshoot deployment script](./deployment-script-troubleshoot.md).
 ---
 
 
@@ -457,12 +473,26 @@ The approach to handling outputs varies based on the type of script you're using
 
 Azure CLI deployment script utilizes an environment variable named `AZ_SCRIPTS_OUTPUT_PATH` to indicate the location of the script outputs file. When executing a deployment script within a Bicep file, the Bash shell automatically configures this environment variable for you. Its predefined value is set as */mnt/azscripts/azscriptoutput/scriptoutputs.json*. The outputs are required to conform to a valid JSON string object structure. The file's contents should be formatted as a key-value pair. For instance, an array of strings should be saved as { "MyResult": [ "foo", "bar"] }. Storing only the array results, such as [ "foo", "bar" ], is considered invalid.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValue-cli.bicep" range="1-51" highlight="45":::
+```bicep
+param name string = 'John Dole'
+param location string = resourceGroup().location
 
-[jq](https://stedolan.github.io/jq/) is used in the previous sample. It comes with the container images. See [Configure development environment](#configure-development-environment).
+resource ds1 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'cliOutputDemo1'
+  location: location
+  kind: 'AzureCLI'
+  properties: {
+    azCliVersion: '2.52.0'
+    arguments: name
+    scriptContent: 'jq -n -c --arg st "Hello ${name}" \'{"text": $st}\' > $AZ_SCRIPTS_OUTPUT_PATH'
+    retentionInterval: 'P1D'
+  }
+}
 
-In the preceding Bicep sample, a storage account is created and configured to be used by the deployment script. This is necessary for storing the script output. An alternative solution, without specifying your own storage account, involves setting `cleanupPreference` to `OnExpiration`and configuring `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed.
+output text string = ds1.properties.outputs.text
+```
 
+[jq](https://stedolan.github.io/jq/) is used in the preceding sample for constructing outputs. jq comes with the container images. See [Configure development environment](#configure-development-environment).
 
 # [PowerShell](#tab/PowerShell)
 
@@ -647,27 +677,19 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 
 ---
 
-## Handle non-terminating errors
-
-You can control how Azure PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7.4#erroractionpreference) variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
-
-The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`. For more information, see [Troubleshoot deployment script](./deployment-script-troubleshoot.md).
-
-
-
 ## Run script more than once
 
-Deployment script execution is an idempotent operation. If none of the `deploymentScripts` resource properties (including the inline script) are changed, the script doesn't execute when you redeploy the Bicep file. The deployment script service compares the resource names in the Bicep file with the existing resources in the same resource group. There are two options if you want to execute the same deployment script multiple times:
+Deployment script execution is an idempotent operation. If there are no changes to any of the `deploymentScripts` resource properties, including the inline script, the script doesn't execute when you redeploy the Bicep file. The deployment script service compares the resource names in the Bicep file with the existing resources in the same resource group. There are two options if you want to execute the same deployment script multiple times:
 
-- Change the name of your `deploymentScripts` resource. For example, use the [utcNow](./bicep-functions-date.md#utcnow) Bicep function as the resource name or as a part of the resource name. Changing the resource name creates a new `deploymentScripts` resource. It's good for keeping a history of script execution.
+- Change the name of your `deploymentScripts` resource. For example, use the [`utcNow` function](./bicep-functions-date.md#utcnow) as the resource name or as a part of the resource name. Changing the resource name creates a new `deploymentScripts` resource. It's good for keeping a history of script execution.
 
     > [!NOTE]
     > The `utcNow` function can only be used in the default value for a parameter.
 
 - Specify a different value in the `forceUpdateTag` property. For example, use `utcNow` as the value.
 
-> [!NOTE]
-> Write the deployment scripts that are idempotent. This ensures that if they run again accidentally, it will not cause system changes. For example, if the deployment script is used to create an Azure resource, verify the resource doesn't exist before creating it, so the script will succeed or you don't create the resource again.
+> [!IMPORTANT]
+> Write deployment scripts to ensure idempotence, guaranteeing that accidental reruns won't result in system alterations. For example, when creating an Azure resource through the deployment script, validate its absence before creation to ensure the script either succeeds or avoids redundant resource creation.
 
 ## Clean up deployment script resources
 

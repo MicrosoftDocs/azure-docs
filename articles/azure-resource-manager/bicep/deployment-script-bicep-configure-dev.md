@@ -42,7 +42,7 @@ $DeploymentScriptOutputs['kv'] = $kv.resourceId
 Write-Output $DeploymentScriptOutputs
 ```
 
-In an Azure PowerShell deployment script, the variable `$DeploymentScriptOutputs` is used to store the output values. For more information about working with Azure PowerShell outputs, see [Work with outputs from PowerShell scripts](./deployment-script-bicep.md#work-with-outputs-from-powershell-scripts).
+In an Azure PowerShell deployment script, the variable `$DeploymentScriptOutputs` is used to store the output values. For more information about working with Azure PowerShell outputs, see [Work with outputs](./deployment-script-develop.md#work-with-outputs).
 
 ### Azure CLI container
 
