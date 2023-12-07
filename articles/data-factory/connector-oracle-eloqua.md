@@ -176,5 +176,5 @@ To copy data from Oracle Eloqua, set the source type in the copy activity to **E
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
-## Next steps
+## Related content
 For a list of supported data stores in the service, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
