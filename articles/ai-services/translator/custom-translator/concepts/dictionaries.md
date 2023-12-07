@@ -28,7 +28,7 @@ The [dynamic dictionary](../../dynamic-dictionary.md) feature allows you to cust
 
 ## Neural dictionary
 
-The neural dictionary extends our [dynamic dictionary](#dynamic-dictionary) and [phrase dictionary](#phrase-dictionary) features. Both allow you to customize the translation output by providing your own translations for specific terms or phrases. Our previous method used a verbatim dictionary, which was an exact find-and-replace operation. The neural dictionary improves translation quality for sentences that include one or more term translations by letting the machine translation model adjust both the term and the context. This adjustment produces more fluent translations. At the same time, it preserves high-term translation accuracy.
+The neural dictionary extends our [dynamic dictionary](#dynamic-dictionary) and [phrase dictionary](#phrase-dictionary) features. Dynamic and phrase dictionaries allow you to customize the translation output by providing your own translations for specific terms or phrases. The neural dictionary improves translation quality for sentences that include one or more term translations by letting the machine translation model adjust both the term and the context. This adjustment produces more fluent translations. At the same time, it preserves high-term translation accuracy.
 
 ## Sentence dictionary
 

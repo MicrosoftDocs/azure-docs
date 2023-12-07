@@ -13,7 +13,7 @@ ms.author: lajanuar
 
 # Dynamic dictionary
 
-If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is safe only for compound nouns like proper names and product names.
+The dynamic dictionary feature allows you to customize translations for specific terms or phrases. You define custom translations for your unique context, language, or specific needs. If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is safe only for compound nouns like proper names and product names.
 
 **Syntax:**
 

@@ -19,9 +19,9 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 
 ### December 2023 model updates
 
-* Added [neural dictionary](../neural-dictionary.md) support for improved translation quality when phrase dictionary is used.
+* There is added [neural dictionary](../neural-dictionary.md) support for improved translation quality when a phrase dictionary is used.
 
-* Current supported **neural dictionary** language pairs are listed in the following table:
+* The current supported **neural dictionary** language pairs are listed in the following table:
 
 |Source|Target|
 |:----|:----|
@@ -107,7 +107,6 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 |Slovak (`sk-sk`)|English (`en-us`)|
 |Slovenian (`sl-si`)|English (`en-us`)|
 |Ukrainian (`uk-ua`)|English (`en-us`)|
-
 
 ## 2023-June release
 
