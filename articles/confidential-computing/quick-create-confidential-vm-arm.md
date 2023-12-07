@@ -1,12 +1,12 @@
 ---
-title: Create an Azure AMD-based confidential VM with ARM template
-description: Learn how to quickly create and deploy an AMD-based DCasv5 or ECasv5 series Azure confidential virtual machine (confidential VM) using an ARM template.
+title: Create an Azure confidential VM with ARM template
+description: Learn how to quickly create and deploy an Azure confidential virtual machine (confidential VM) using an ARM template.
 author: RunCai
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 04/12/2023
+ms.date: 12/01/2023
 ms.author: RunCai
 ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, devx-track-linux, has-azure-ad-ps-ref
 ms.devlang: azurecli
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 
 # Quickstart: Deploy confidential VM with ARM template
 
-You can use an Azure Resource Manager template (ARM template) to create an Azure [confidential VM](confidential-vm-overview.md) quickly. Confidential VMs run on AMD processors backed by AMD SEV-SNP to achieve VM memory encryption and isolation. For more information, see [Confidential VM Overview](confidential-vm-overview.md).
+You can use an Azure Resource Manager template (ARM template) to create an Azure [confidential VM](confidential-vm-overview.md) quickly. Confidential VMs run on both AMD processors backed by AMD SEV-SNP and Intel processors backed by Intel TDX to achieve VM memory encryption and isolation. For more information, see [Confidential VM Overview](confidential-vm-overview.md).
 
 This tutorial covers deployment of a confidential VM with a custom configuration. 
 
@@ -59,7 +59,7 @@ To create and deploy your confidential VM using an ARM template through the Azur
     az group create -n $resourceGroup -l $region
     ```
 
-1. Deploy your VM to Azure using an ARM template with a custom parameter file
+1. Deploy your VM to Azure using an ARM template with a custom parameter file. For TDX deployments here is an example template: https://aka.ms/TDXtemplate. 
 
     ```azurecli-interactive
     az deployment group create `
@@ -83,7 +83,7 @@ When you create a confidential VM through the Azure Command-Line Interface (Azur
 
 1. Edit the JSON code in the parameter file as needed. For example,  update the OS image name (`osImageName`) or the administrator username (`adminUsername`). 
 
-1. Configure your security type setting (`securityType`). Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key.
+1. Configure your security type setting (`securityType`). Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. For Intel TDX SKUs and Linux-based images only, customers may choose the `NonPersistedTPM` security type to deploy with an ephemeral vTPM. For the `NonPersistedTPM` security type use the minimum "apiVersion": "2023-09-01" in the template file.
 
 1. Save your parameter file.
 
@@ -357,4 +357,4 @@ This is an example parameter file for a Windows Server 2022 Gen 2 confidential V
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a confidential VM on AMD in the Azure portal](quick-create-confidential-vm-portal-amd.md)
+> [Quickstart: Create a confidential VM in the Azure portal](quick-create-confidential-vm-portal.md)

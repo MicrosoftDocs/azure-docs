@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "configure-firewall-mqtt.md",
+      "redirect_url": "/azure/event-grid/mqtt-configure-firewall",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "configure-private-endpoints-mqtt.md",
+      "redirect_url": "/azure/event-grid/mqtt-configure-private-endpoints",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "configure-firewall-namespace-topics.md",
       "redirect_url": "/azure/event-grid/configure-firewall-namespaces",
       "redirect_document_id": false

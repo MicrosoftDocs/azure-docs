@@ -319,6 +319,8 @@ Have in mind that if you are reading number of files at once, the schema will be
 
 Parquet and Delta Lake files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
 
+<!-- If updating, see also sql-docs docs/relational-databases/polybase/polybase-type-mapping.md -->
+
 | Parquet type | Parquet logical type (annotation) | SQL data type |
 | --- | --- | --- |
 | BOOLEAN | | bit |
