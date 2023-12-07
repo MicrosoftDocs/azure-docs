@@ -12,9 +12,9 @@ ms.date: 12/08/2023
 
 ## What is Negotiate?
 
-The first request between client and server is the negotiate request. When use self-host SignalR, the request is used to establish a connection between the client and the server. The response to the `POST [endpoint-base]/negotiate` request contains one of three types of responses:
+The first request between client and server is the negotiation request. When use self-host SignalR, the request is used to establish a connection between the client and the server. The response to the `POST [endpoint-base]/negotiate` request contains one of three types of responses:
 
-1. A response that contains the `connectionId` which will be used to identify the connection on the server and the list of the transports supported by the server.
+1. A response that contains the `connectionId`, which is used to identify the connection on the server and the list of the transports supported by the server.
 
    ```json
    {
@@ -39,14 +39,14 @@ The first request between client and server is the negotiate request. When use s
 
    The payload returned from this endpoint provides the following data:
 
-   * The `connectionId` which is **required** by the Long Polling and Server-Sent Events transports (in order to correlate sends and receives).
-   * The `negotiateVersion` which is the negotiation protocol version being used between the server and client.
-   * The `availableTransports` list which describes the transports the server supports. For each transport, the name of the transport (`transport`) is listed, as is a list of "transfer  formats" supported by the transport (`transferFormats`)
+   * The `connectionId` is **required** by the Long Polling and Server-Sent Events transports (in order to correlate sends and receives).
+   * The `negotiateVersion` is the negotiation protocol version being used between the server and client.
+   * The `availableTransports` list describes the transports the server supports. For each transport, the name of the transport (`transport`) is listed, as is a list of "transfer  formats" supported by the transport (`transferFormats`)
 
    > [!NOTE]
    > Now Azure SignalR service supports negotiate `Version 0` only. And client with the `negotiateVersion` greater than zero will get a response with `negotiateVersion=0` by design. Please check [TransportProtocols](https://github.com/dotnet/aspnetcore/blob/main/src/SignalR/docs/specs/TransportProtocols.md) protocol details. 
 
-1. A redirect response which tells the client which URL and optionally access token to use as a result.
+1. A redirect response tells the client the URL and optionally access token to use as a result.
 
    ```json
    {
@@ -57,10 +57,10 @@ The first request between client and server is the negotiate request. When use s
 
    The payload returned from this endpoint provides the following data:
  
-   * The `url` which is the URL the client should connect to.
-   * The `accessToken` which is an optional bearer token for accessing the specified url.
+   * The `url` is the URL the client should connect to.
+   * The `accessToken` is an optional bearer token for accessing the specified url.
 
-1. A response that contains an `error` which should stop the connection attempt.
+1. A response that contains an `error` that should stop the connection attempt.
 
    ```json
    {
@@ -70,7 +70,7 @@ The first request between client and server is the negotiate request. When use s
 
    The payload returned from this endpoint provides the following data:
 
-   * The `error` that gives details about why the negotiate failed.
+   * The `error` that gives details about why the negotiation failed.
 
 When use the Azure SignalR service, clients connect to the service instead of the application server. There are three steps to establish persistent connections between the client and the SignalR Service.
 
@@ -92,7 +92,7 @@ When use the Azure SignalR service, clients connect to the service instead of th
 > [!IMPORTANT]
 > In self-host SignalR, some user would choose to skip client negotiation when clients only support WebSocket and save the roundtrip for negotiation. However, when working with Azure SignalR service, clients should always ask a trusted server or a trusted authntication center to build the access token. So __DO NOT__ set `SkipNegotiation` to `true` in client side. `SkipNegotiation` means clients need to build the accessToken themselves. This brings security risks that client could do anything to the service endpoint. 
 
-## What can be done during negotation?
+## What can be done during negotiation?
 
 ### Custom settings for client connections
 
@@ -117,7 +117,7 @@ services.AddSignalR().AddAzureSignalR(options =>
 
 ### Server Stickiness
 
-When you have multiple app servers, by default there's no guarantee that two servers (the one who does negotiation and the one who gets the hub invocation) will be the same one. In some cases, customers may want to have client state information maintained locally on the app server. For example, when using server-side Blazor, UI state is maintained at server side so you want all client requests go to the same server including the SignalR connection. Then you would need to enable server sticky mode to `Required` during negotiation.
+When you have multiple app servers, by default there's no guarantee that two servers (the one who does negotiation and the one who gets the hub invocation) are the same one. In some cases, customers may want to have client state information maintained locally on the app server. For example, when using server-side Blazor, UI state is maintained at server side so you want all client requests go to the same server including the SignalR connection. Then you would need to enable server sticky mode to `Required` during negotiation.
 
 ```cs
 services.AddSignalR().AddAzureSignalR(options => {
@@ -127,7 +127,7 @@ services.AddSignalR().AddAzureSignalR(options => {
 
 ### Custom routing in multiple endpoints
 
-Another case customer would customize negotiation is in multiple endpoints cases. As we've shared before, app server will provide the service URL as the negotiate response. App server can determine which endpoint to return clients for load balancing and communication efficiency, that is let client connect to the neareast service endpoint to save traffic cost.
+Another case customer would customize negotiation is in multiple endpoints cases. As mentioned above, app server provides the service URL as the negotiation response. App server can determine which endpoint to return clients for load balancing and communication efficiency, that is let client connect to the nearest service endpoint to save traffic cost.
 
 ```cs
 // Sample of custom router
@@ -195,7 +195,7 @@ A full sample on how to use Management SDK to redirect SignalR clients to Azure 
 
 ### Azure SignalR service for Function Extension
 
-When use Azure Function App, typically, you can work with the Function Extension. Here's a sample using `SignalRConnectionInfo` to help you build the negotiate response.
+When use Azure Function App, typically, you can work with the Function Extension. Here's a sample using `SignalRConnectionInfo` to help you build the negotiation response.
 
 ```cs
 [FunctionName("negotiate")]
