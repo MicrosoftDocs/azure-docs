@@ -1,13 +1,13 @@
 ---
 title: Overview of the developer portal in Azure API Management
 titleSuffix: Azure API Management
-description: Learn about the developer portal in API Management - a customizable website, where API consumers can explore your APIs.
+description: Learn about the developer portal in API Management - a customizable website where API consumers can explore your APIs.
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 11/27/2023
 ms.author: danlep 
 ---
 
@@ -15,7 +15,7 @@ ms.author: danlep
 
 The API Management *developer portal* is an automatically generated, fully customizable website with the documentation of your APIs. It's where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
-This article introduces features of the developer portal, the types of content the portal presents, and ways to customize and extend the developer portal for your specific users and scenarios.
+This article introduces features of the developer portal, the types of content the portal presents, and ways to manage and extend the developer portal for your specific users and scenarios.
 
 [!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
 
@@ -38,19 +38,19 @@ Code is maintained in the API Management developer portal [GitHub repository](ht
 
 ### Content
 
-Content is divided into two subcategories: *portal content* and *API Management content*.
+Content is divided into two subcategories: *portal content* and *API Management data*.
 
-*Portal content* is specific to the portal and includes:
+*Portal content* is specific to the portal website and includes:
 
 - **Pages** - for example, landing page, API tutorials, blog posts
 - **Media** - images, animations, and other file-based content
-- **Layouts** - templates, which are matched against a URL and define how pages are displayed
+- **Layouts** - templates that are matched against a URL and define how pages are displayed
 - **Styles** - values for styling definitions, such as fonts, colors, borders
 - **Settings** - configurations such as favicon, website metadata
 
     Portal content, except for media, is expressed as JSON documents.
 
-*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
+*API Management data* includes entities such as APIs, Operations, Products, and Subscriptions that are managed in your API Management instances.
 
 ## Customize and style the portal
 
@@ -62,7 +62,7 @@ For a step-by-step walkthrough of customizing the developer portal, see [Tutoria
 
 ### Visual editor
 
-The developer portal's administrative interface provides a visual editor for customizing the portal's content and styling. You can add, remove, and rearrange pages, sections, and widgets. You can also change the styling of the portal's elements, such as fonts, colors, and spacing.
+The developer portal's administrative interface provides a visual editor for publishers to customize the portal's content and styling. Using the visual editor, you can add, remove, and rearrange pages, sections, and widgets. You can also change the styling of the portal's elements, such as fonts, colors, and spacing.
 
 [!INCLUDE [api-management-developer-portal-editor](../../includes/api-management-developer-portal-editor.md)]
 
@@ -88,10 +88,21 @@ The preprovisioned content in the developer portal showcases pages with commonly
 
 :::image type="content" source="media/developer-portal-overview/styling-guide.png" alt-text="Screenshot of the styling guide in the developer portal.":::
 
-The Styles panel is created with designers in mind. Use styles to manage and customize all the visual elements in your portal, such as fonts used in headings and menus and button colors. The styling is hierarchical - many elements inherit properties from other elements. For example, button elements use colors for text and background. To change a button's color, you need to change the original color variant.
+The **Styles** panel is created with designers in mind. Use styles to manage and customize all the visual elements in your portal, such as fonts used in headings and menus and button colors. The styling is hierarchical - many elements inherit properties from other elements. For example, button elements use colors for text and background. To change a button's color, you need to change the original color variant.
 
 To edit a variant, select it and select **Edit style** in the options that appear on top of it. After you make the changes in the pop-up window, close it.
 
+### Content security policy
+
+You can enable a content security policy to add a layer of security to your developer portal and help mitigate certain types of attacks including cross-site scripting and data injection. With a content security policy, the developer portal on the browser will only load resources from trusted locations that you specify, such as your corporate website or other trusted domains.
+
+To enable a content security policy: 
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, under **Developer portal**, select **Portal settings**.
+1. On the **Content security policy** tab, select **Enabled**.
+1. Under **Allowed sources**, add one or more hostnames that specify trusted locations that the developer portal can load resources from. You can also specify a wildcard character to allow all subdomains of a domain. For example, `*.contoso.com` allows all subdomains of `contoso.com`.
+1. Select **Save**. 
 
 ## Extend portal functionality
 
@@ -104,29 +115,30 @@ In some cases you might need functionality beyond the customization and styling 
 > Because the API Management developer portal codebase is maintained on [GitHub](https://github.com/Azure/api-management-developer-portal), you can open issues and make pull requests for the API Management team to merge new functionality at any time.
 >
 
-
-## API Management content
+## Control access to portal content
 
 The developer portal synchronizes with your API Management instance to display content such as the APIs, operations, products, subscriptions, and user profiles. APIs and products must be in a *published* state to be visible in the developer portal.
 
 ### Content visibility and access
 
-In API Management, [groups of users](api-management-howto-create-groups.md) are used to manage the visibility of products and their associated APIs to developers. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups.
+In API Management, [groups of users](api-management-howto-create-groups.md) are used to manage the visibility of products and their associated APIs to developers. In addition to using built-in groups, you can create custom groups to suit your needs. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups.
 
 You can also control how other portal content (such as pages and sections) appears to different users, based on their identity. For example, you might want to display certain pages only to users who have access to a specific product or API. Or, make a section of a page appear only for certain [groups of users](api-management-howto-create-groups.md). The developer portal has built-in controls for these needs.
 
 > [!NOTE]
 > Visibility and access controls are supported only in the managed developer portal. They aren't supported in the [self-hosted portal](developer-portal-self-host.md).
 
-<!-- I don't see this Access tab or know where to find it -->
 
-* When you add or edit a page, select the **Access** tab to control the users or groups that can access the page
+* When you add a page or edit the settings of an existing page, make a selection under **Access** to control the users or groups that can see the page
     
     :::image type="content" source="media/developer-portal-overview/page-access-control.png" alt-text="Screenshot of the page access control settings in the developer portal.":::
 
-* When you customize page content such as a page section, menu, or button, select the **Change access** icon to control the users or groups that can see the element on the page
+    > [!TIP]
+    > To edit the settings of an existing page, select the gear icon next to the page name on the **Pages** tab.
 
-    :::image type="content" source="media/developer-portal-overview/change-visibility-button.png" alt-text="Screenshot of the change visibility button in the developer portal.":::
+* When you select page content such as a page section, menu, or button for editing, select the **Change access** icon to control the users or groups that can see the element on the page
+
+    :::image type="content" source="media/developer-portal-overview/change-visibility-button.png" alt-text="Screenshot of the change access button in the developer portal.":::
 
     * You can change the visibility of the following page content: sections, menus, buttons, and sign-in for OAuth authorization.    
 
@@ -136,75 +148,103 @@ When a user visits the developer portal with visibility and access controls appl
 
 * The developer portal automatically hides buttons or navigation items that point to pages that a user doesn't have access to.
 
-* An attempt by a user to access a page they aren't authorized to will result in a 404 Not Found error.
+* An attempt by a user to access a page they aren't authorized to access results in a 404 Not Found error.
 
 > [!TIP]
 > Using the administrative interface, you can preview pages as a user associated with any built-in or custom group by selecting **View as** in the menu at the top. 
 > 
 
 ### Interactive test console
-<!-- I don't find a way to disable -->
-By default, the developer portal also provides a "Try it" capability on the API reference pages so that portal visitors can test your APIs directly through an interactive console. You can disable this feature in the portal's settings.
+
+The developer portal provides a "Try it" capability on the API reference pages so that portal visitors can test your APIs directly through an interactive console.
 
 :::image type="content" source="media/developer-portal-overview/try-it.png" alt-text="Screenshot of the test console in the API Management developer portal.":::
 
 The test console supports APIs with different authorization models - for example, APIs that require no authorization, or that require a subscription key or OAuth 2.0 authorization. In the latter case, you can configure the test console to generate a valid OAuth token on behalf of the test console user. For more information, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md).
 
 > [!IMPORTANT]
-> To let the visitors of your portal test the APIs through the built-in interactive console, enable CORS (cross-origin resource sharing) on your APIs. For details, see [Enable CORS for interactive console in the API Management developer portal](enable-cors-developer-portal.md).
+> To let the visitors of your portal test the APIs through the built-in interactive console, enable a CORS (cross-origin resource sharing) policy on your APIs. For details, see [Enable CORS for interactive console in the API Management developer portal](enable-cors-developer-portal.md).
 
-## Manage portal access
+## Manage user sign-up and sign-in
 
-By default, the developer portal enables anonymous access. This means that anyone can view the portal and its content without signing in, although functionality such as using the test console may be restricted. You can enable a developer setting to require users to sign-in to access the portal. 
+By default, the developer portal enables anonymous access. This means that anyone can view the portal and its content without signing in, although access to certain content and functionality such as using the test console may be restricted. You can enable a developer portal website setting to require users to sign in to access the portal. 
 
 The portal supports several options for user sign-up and sign-in:
 
-*  The portal provides a basic authentication mechanism for developers to sign-in with credentials for API Management [user accounts](api-management-howto-create-or-invite-developers.md). Developers can sign-up for an account directly through the portal, or you can create accounts for them.
+*  Basic authentication for developers to sign in with credentials for API Management [user accounts](api-management-howto-create-or-invite-developers.md).  Developers can sign up for an account directly through the portal, or you can create accounts for them.
 
-* Depending on your scenarios, you can also restrict access to the portal by requiring users to sign-up or sign-in with an [Azure Active Directory](api-management-howto-aad.md) (Azure AD) or [Azure AD B2C](api-management-howto-aad-b2c.md) account.
+* Depending on your scenarios, restrict access to the portal by requiring users to sign up or sign in with a [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md) account.
 
-* If you already manage developer sign-up and sign-in through an existing website, you can [delegate authentication](api-management-howto-setup-delegation.md) instead of using the developer portal's built-in authentication.
+* If you already manage developer sign-up and sign-in through an existing website, [delegate authentication](api-management-howto-setup-delegation.md) instead of using the developer portal's built-in authentication.
 
 [Learn more](secure-developer-portal-access.md) about options to secure user sign-up and sign-in to the developer portal.
 
-## Manage portal content
+### Reports for users
+
+The developer portal generates reports for authenticated users to view their individual API usage, data transfer, and response times, including aggregated use by specific products and subscriptions. Users can view the reports by selecting **Reports** in the default navigation menu for authenticated users. Users can filter reports by time interval, up to the most recent 90 days.
+
+> [!NOTE]
+> Reports in the developer portal only show data for the authenticated user. API publishers and administrators can access usage data for all users in the [Azure portal](https://portal.azure.com) by selecting **Analytics** in the left menu of the API Management instance. API publishers can also use monitoring features such as Azure Log Analytics.
+
+## Save and publish website content
 
 After you update the developer portal content or configuration, you need to save and publish your changes to make them available to portal visitors. The developer portal maintains a record of the content you've published, and you can revert to a previous portal *revision* when you need to.
 
-### Save the portal
+### Save changes
+
 :::image type="content" source="media/developer-portal-overview/save-button.png" alt-text="Screenshot of the Save button in the developer portal." :::
 
 Whenever you make a change in the portal, you need to save it manually by selecting the **Save** button in the menu at the top, or press [Ctrl]+[S]. If you need to, you can **Undo** your last saved changes. Saved changes are visible only to you and aren't visible to portal visitors until you publish them.
 
 > [!NOTE]
-> The managed developer portal receives and applies updates automatically. Changes that you've saved but not published to the developer portal remain in that state during an update.
+> The managed developer portal receives and applies software updates automatically. Changes that you've saved but not published to the developer portal remain in that state during an update.
 
-## Publish the portal
+### Publish the portal
 
 To make your portal and its latest changes available to visitors, you need to *publish* it. You publish the portal within the portal's administrative interface or from the Azure portal.
 
 > [!IMPORTANT]
-> You need to publish the portal any time you make changes to the portal's content or styling. The portal also needs to be republished after API Management service configuration changes. For example, republish the portal after assigning a custom domain, updating the identity providers, setting delegation, or specifying sign-in and product terms.
+> You need to publish the portal any time you want to expose changes to the portal's content or styling. The portal also needs to be republished after API Management service configuration changes that affect the developer portal. For example, republish the portal after assigning a custom domain, updating the identity providers, setting delegation, or specifying sign-in and product terms.
 
 
-### Publish from the administrative interface
+#### Publish from the administrative interface
 
 [!INCLUDE [api-management-developer-portal-publish](../../includes/api-management-developer-portal-publish.md)]
 
-### Publish from the Azure portal
+#### Publish from the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **Developer portal**, select **Portal overview**.
 1. In the **Portal overview** window, select **Publish**.
 
-    :::image type="content" source="media/developer-portal-overview/pubish-portal-azure-portal.png" alt-text="Screenshot of publishing the developer portal from the Azure portal":::
+    :::image type="content" source="media/developer-portal-overview/publish-portal-azure-portal.png" alt-text="Screenshot of publishing the developer portal from the Azure portal":::
 
-## Migrate from the legacy portal
 
-An earlier version of the developer portal ("legacy portal") is also provided with your API Management service. If you've previously customized the legacy portal, you should plan to migrate to the new developer portal. For more information, see the [migration guide](developer-portal-deprecated-migration.md).
+### Restore a previous portal revision
 
-> [!IMPORTANT]
-> The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services.
+Each time you publish the developer portal, a corresponding portal revision is saved. You can republish a previous portal revision at any time. For example, you might want to roll back a change you introduced when you last published the portal.
+
+> [!NOTE]
+> Developer portal software updates are applied automatically when you restore a revision. Changes saved but not published in the administrative interface remain in that state when you publish a revision. 
+
+To restore a previous portal revision:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, under **Developer portal**, select **Portal overview**.
+1. On the **Revisions** tab, select the context menu (**...**) for a revision that you want to restore, and then select **Make current and publish**.
+
+### Reset the portal
+
+If you want to discard all changes you've made to the developer portal, you can reset the website to its starting state. Resetting the portal deletes any changes you've made to the developer portal pages, layouts, customizations, and uploaded media.
+
+> [!NOTE]
+> Resetting the developer portal doesn't delete the published version of the developer portal.
+
+To reset the developer portal:
+
+1. In the administrative interface, in the menu at the left of the visual editor, select **Settings**.
+1. On the **Advanced** tab, select **Yes, reset the website to default state**.
+1. Select **Save**.
 
 ## Next steps
 
