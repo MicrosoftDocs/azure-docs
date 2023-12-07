@@ -55,7 +55,7 @@ You can reference a blob stored in the root container without including the root
 
 The following example creates a new `ContainerClient` object with the container name $root, then creates the container if it doesn't already exist in the storage account:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-container" id="Snippet_create_root_container":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-container.py" id="Snippet_create_root_container":::
 
 ## Create a container asynchronously
 
