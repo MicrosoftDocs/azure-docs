@@ -1,0 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: machine-learning
+author: msakande
+ms.service: machine-learning
+ms.author: mopeakande
+ms.custom: "include file"
+ms.topic: "include"
+ms.date: 12/07/2023
+---
+
+For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades on some VM SKUs. If you request a given number of instances in a deployment, you must have a quota for `ceil(1.2 * number of instances requested for deployment) * number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM (that comes with 4 cores) in a deployment, you should have a quota for 48 cores (`12 instances * 4 cores`) available. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](../how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
+
+There are certain VM SKUs that are exempted from extra quota reservation. To view the full list, see [Managed online endpoints SKU list](../reference-managed-online-endpoints-vm-sku-list.md).
