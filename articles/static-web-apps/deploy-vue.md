@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: devops-or-github
 ---
 
-# Build a Vue app in Azure Static Web Apps
+# Deploy a Vue app in Azure Static Web Apps
 
 In this article, you learn to deploy a Vue application to Azure Static Web Apps using the Azure portal.
 
