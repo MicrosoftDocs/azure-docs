@@ -15,7 +15,7 @@ ms.author: pafarley
 
 Use the Image Analysis client SDK for C++ to analyze an image to read text and generate an image caption. This quickstart calls a function `AnalyzeImage()`, which uses the client object to analyze a remote image and print the results to the console.
 
-[Reference documentation](/cpp/cognitive-services/vision) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
+[Reference documentation](/cpp/cognitive-services/vision) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk/tree/main/samples/cpp/image-analysis)
 
 > [!IMPORTANT]
 > The current Image Analysis 4.0 client SDKs are still in private preview. We recommend you use the REST API, which is generally available (GA), until the SDKs are updated to GA.
