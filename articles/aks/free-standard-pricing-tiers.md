@@ -43,7 +43,7 @@ In the Standard tier, the Uptime SLA feature is enabled by default per cluster. 
 
 ## Before you begin
 
-[Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+Make sure you have installed [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Create a new cluster in the Free tier or Paid tier
 
@@ -95,7 +95,7 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --tier free
 az aks update --resource-group myResourceGroup --name myAKSCluster --tier standard
 ```
 
-This process takes several minutes to complete. When finished, the following example JSON snippet shows updating the existing cluster to the Standard tier in the Base SKU.
+This process takes several minutes to complete. You shouldn't experience any downtime while your cluster tier is being updated. When finished, the following example JSON snippet shows updating the existing cluster to the Standard tier in the Base SKU.
 
 ```output
   },

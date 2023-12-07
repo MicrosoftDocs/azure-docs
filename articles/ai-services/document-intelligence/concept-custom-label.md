@@ -6,16 +6,18 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/21/2023
 ms.author: vikurpad
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023
 monikerRange: '>=doc-intel-3.0.0'
 ---
 
 
 # Best practices: generating labeled datasets
 
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+[!INCLUDE [applies to v4.0 v3.1 v3.0](includes/applies-to-v40-v31-v30.md)]
 
 Custom models (template and neural) require a labeled dataset of at least five documents to train a model. The quality of the labeled dataset affects the accuracy of the trained model. This guide helps you learn more about generating a model with high accuracy by assembling a diverse dataset and provides best practices for labeling your documents.
 
@@ -37,9 +39,9 @@ A labeled dataset consists of several files:
 
 * The following video is the first of two presentations intended to help you build custom models with higher accuracy (The second presentation examines [Best practices for labeling documents](concept-custom-label-tips.md#video-custom-labels-best-practices)).
 
-* Here, we explore how to create a balanced data set and select the right documents to label. This process sets you on the path to higher quality models.</br></br>
+* Here, we explore how to create a balanced data set and select the right documents to label. This process sets you on the path to higher quality models.
 
-  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWWHru]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWWHru]
 
 ## Create a balanced dataset
 
@@ -122,7 +124,10 @@ Tabular fields are also useful when extracting repeating information within a do
   > [!div class="nextstepaction"]
   > [Custom neural models](concept-custom-neural.md)
 
-* View the REST API:
+* View the REST APIs:
 
     > [!div class="nextstepaction"]
-    > [Document Intelligence API v3.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)
+    > [Document Intelligence API v4.0:2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)
+
+    > [!div class="nextstepaction"]
+    > [Document Intelligence API v3.1:2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)

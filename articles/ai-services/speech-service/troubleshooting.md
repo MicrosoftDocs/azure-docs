@@ -2,7 +2,7 @@
 title: Troubleshoot the Speech SDK - Speech service
 titleSuffix: Azure AI services
 description: This article provides information to help you solve issues you might encounter when you use the Speech SDK.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

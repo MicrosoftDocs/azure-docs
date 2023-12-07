@@ -2,8 +2,8 @@
 title: "Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate on-premises SQL Server TDE-enabled databases (preview) to Azure SQL by using Azure Data Studio and Azure Database Migration Service.
-author: croblesm
-ms.author: roblescarlos
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 10/10/2023
 ms.service: dms

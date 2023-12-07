@@ -1,6 +1,6 @@
 ---
-title: "Load an index (Python tutorial)" 
-titleSuffix: Azure Cognitive Search
+title: "Load an index (Python tutorial)"
+titleSuffix: Azure AI Search
 description: Create index and import CSV data into Search index with Python using the PYPI package SDK azure-search-documents.
 manager: nitinme
 author: diberry
@@ -8,7 +8,10 @@ ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/18/2023
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom:
+  - devx-track-python
+  - devx-track-azurecli
+  - ignite-2023
 ms.devlang: python
 ---
 
@@ -19,13 +22,13 @@ Continue to build your search-enabled website by following these steps:
 * Create a new index
 * Import data with Python using the [sample script](https://github.com/Azure-Samples/azure-search-python-samples/blob/main/search-website-functions-v4/bulk-upload/bulk-upload.py) and Azure SDK [azure-search-documents](https://pypi.org/project/azure-search-documents/).
 
-## Create an Azure Cognitive Search resource
+## Create an Azure AI Search resource
 
 [!INCLUDE [tutorial-create-search-resource](includes/tutorial-add-search-website-create-search-resource.md)]
 
 ## Prepare the bulk import script for Search
 
-The script uses the Azure SDK for Cognitive Search:
+The script uses the Azure SDK for Azure AI Search:
 
 * [PYPI package azure-search-documents](https://pypi.org/project/azure-search-documents/)
 * [Reference Documentation](/python/api/azure-search-documents)

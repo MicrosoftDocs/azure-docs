@@ -139,6 +139,7 @@ The primary wire protocol for Service Bus is [Advanced Messaging Queueing Protoc
 Fully supported Service Bus client libraries are available via the Azure SDK.
 
 - [Azure Service Bus for .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true)
+  - Third-party frameworks providing higher-level abstractions built on top of the SDK include [NServiceBus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus) and [MassTransit](https://masstransit.io/documentation/transports/azure-service-bus).
 - [Azure Service Bus libraries for Java](/java/api/overview/azure/servicebus?preserve-view=true)
 - [Azure Service Bus provider for Java JMS 2.0](how-to-use-java-message-service-20.md)
 - [Azure Service Bus modules for JavaScript and TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
@@ -164,6 +165,6 @@ Service Bus fully integrates with many Microsoft and Azure services, for instanc
 To get started using Service Bus messaging, see the following articles:
 
 - [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-- Quickstarts: [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), or [JMS](service-bus-java-how-to-use-jms-api-amqp.md).
+- Quickstarts: [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [JMS](service-bus-java-how-to-use-jms-api-amqp.md), or [NServiceBus](/azure/service-bus-messaging/build-message-driven-apps-nservicebus)
 - [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/). 
 - [Premium Messaging](service-bus-premium-messaging.md).

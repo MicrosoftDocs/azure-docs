@@ -100,7 +100,7 @@ sections:
       - question: |
           How can I track who in my organization enabled a Microsoft Defender plan in Defender for Cloud?
         answer: |
-          Azure Subscriptions may have multiple administrators with permissions to change the pricing settings. To find out which user made a change, use the Azure Activity Log.
+          Azure Subscriptions might have multiple administrators with permissions to change the pricing settings. To find out which user made a change, use the Azure Activity Log.
 
           :::image type="content" source="media/faq-general/logged-change-to-pricing.png" alt-text="Screenshot of Azure Activity log showing a pricing change event.":::
 

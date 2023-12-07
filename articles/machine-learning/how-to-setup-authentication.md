@@ -35,7 +35,7 @@ Microsoft Entra Conditional Access can be used to further control or restrict ac
 ## Prerequisites
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md).
-* [Configure your development environment](how-to-configure-environment.md) or use a [Azure Machine Learning compute instance](how-to-create-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
+* [Configure your development environment](how-to-configure-environment.md) or use an [Azure Machine Learning compute instance](how-to-create-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
 
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -133,8 +133,10 @@ The easiest way to create an SP and grant access to your workspace is by using t
 1. Create the service principal. In the following example, an SP named **ml-auth** is created:
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --sdk-auth --name ml-auth --role Contributor --scopes /subscriptions/<subscription id>
+    az ad sp create-for-rbac --json-auth --name ml-auth --role Contributor --scopes /subscriptions/<subscription id>
     ```
+
+    The parameter `--json-auth` is available in Azure CLI versions >= 2.51.0. Versions prior to this use `--sdk-auth`.
 
     The output will be a JSON similar to the following. Take note of the `clientId`, `clientSecret`, and `tenantId` fields, as you'll need them for other steps in this article.
 

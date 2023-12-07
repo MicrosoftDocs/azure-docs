@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.date: 10/06/2023
 ---
 
-# Manage your deployment environment
+# Manage environments in Azure Deployment Environments
 
-In Azure Deployment Environments, a platform engineer gives developers access to projects and the environment types that are associated with them. After a developer has access, they can create deployment environments based on the preconfigured environment types. The permissions that the creator of the environment and the rest of team have to access the environment's resources are defined in the specific environment type.
+In this article, you learn how to manage environments in Azure Deployment Environments. As a developer, you can create and manage your environments from the developer portal or by using the Azure CLI.
 
-As a developer, you can create and manage your environments from the developer portal or by using the Azure CLI.  
+In Azure Deployment Environments, a platform engineer gives developers access to projects and the environment types that are associated with them. After a developer has access, they can create deployment environments based on the preconfigured environment types. The permissions that the creator of the environment and the rest of team have to access the environment's resources are defined in the specific environment type.  
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ As a developer, you can create and manage your environments from the developer p
 
 ## Manage an environment by using the developer portal
 
-The developer portal provides a graphical interface for development teams to create new environments and manage existing environments. You can create, redeploy, and delete your environments as needed in the developer portal.
+The developer portal provides a graphical interface for development teams to create new environments and manage existing environments in Azure Deployment Environments. You can create, redeploy, and delete your environments as needed in the developer portal.
 
 ### Create an environment by using the developer portal
 
@@ -65,7 +65,7 @@ When you need to update your environment, you can redeploy it. The redeployment 
 
 1. On the environment you want to redeploy, on the options menu, select **Redeploy**.
 
-   :::image type="content" source="media/how-to-manage-environments/option-redeploy.png" alt-text="Screenshot showing an environment tile with the options menu expanded and the redeploy option selected.":::
+   :::image type="content" source="media/how-to-manage-environments/option-redeploy.png" alt-text="Screenshot showing an environment tile with the options menu expanded and the Redeploy option selected.":::
 
 1. If parameters are defined on the environment definition, you're prompted to make any changes you want to make. When you've made your changes, select **Redeploy**.
 
@@ -99,7 +99,7 @@ You can delete your environment completely when you don't need it anymore.
 
 ## Manage an environment by using the Azure CLI
 
-The Azure CLI provides a command-line interface for speed and efficiency when you create multiple similar environments, or for platforms where resources like memory are limited. You can use the `devcenter` Azure CLI extension to create, list, deploy, or delete an environment.
+The Azure CLI provides a command-line interface for speed and efficiency when you create multiple similar environments, or for platforms where resources like memory are limited. You can use the `devcenter` Azure CLI extension to create, list, deploy, or delete an environment in Azure Deployment Environments.
 
 To learn how to manage your environments by using the CLI, see [Create and access an environment by using the Azure CLI](how-to-create-access-environments.md).
 

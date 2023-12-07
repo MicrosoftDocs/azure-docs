@@ -60,7 +60,7 @@ When you integrate Defender for Endpoint with Defender for Cloud, you gain acces
 
 A Defender for Endpoint tenant is automatically created, when you use Defender for Cloud to monitor your machines.
 
-- **Location:** Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - may also be stored in the central storage and processing systems in the United States. After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to reset the tenant.
+- **Location:** Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - might also be stored in the central storage and processing systems in the United States. After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to reset the tenant.
 
 - **Moving subscriptions:** If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
@@ -162,7 +162,7 @@ You'll deploy Defender for Endpoint to your Linux machines in one of these ways,
 - Enable for multiple subscriptions with a PowerShell script
 
 > [!NOTE]
-> When you enable automatic deployment, Defender for Endpoint for Linux installation will abort on machines with pre-existing running services using [fanotify](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements) and other services that can also cause Defender for Endpoint to malfunction or may be affected by Defender for Endpoint, such as security services.
+> When you enable automatic deployment, Defender for Endpoint for Linux installation will abort on machines with pre-existing running services using [fanotify](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements) and other services that can also cause Defender for Endpoint to malfunction or might be affected by Defender for Endpoint, such as security services.
 > After you validate potential compatibility issues, we recommend that you manually install Defender for Endpoint on these servers.
 
 ##### Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows
@@ -273,11 +273,11 @@ You can also enable the Defender for Endpoint unified solution at scale through 
 
 Here's an example request body for the PUT request to enable the Defender for Endpoint unified solution:
 
-URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Security/settings/WDATP_UNIFIED_SOLUTION?api-version=2022-05-01`
+URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Security/settings/WDATP?api-version=2022-05-01`
 
 ```json
 {
-    "name": "WDATP_UNIFIED_SOLUTION",
+    "name": "WDATP",
     "type": "Microsoft.Security/settings",
     "kind": "DataExportSettings",
     "properties": {

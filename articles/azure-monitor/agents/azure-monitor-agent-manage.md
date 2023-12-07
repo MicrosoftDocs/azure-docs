@@ -430,6 +430,14 @@ When you create the assignment by using the Azure portal, you have the option of
 <!-- convertborder later -->
 :::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" alt-text="Screenshot that shows initiative remediation for Azure Monitor Agent." border="false":::
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What impact does installing the Azure Arc Connected Machine agent have on my non-Azure machine?
+
+There's no impact to the machine after the Azure Arc Connected Machine agent is installed. It hardly uses system or network resources and is designed to have a low footprint on the host where it's run.    
+
 ## Next steps
 
 [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.

@@ -63,7 +63,7 @@ Use the following steps to prepare your project.
 
 All the connection strings and credentials are injected as environment variables, which you can reference in your application code.
 
-For the default environment variable names, see [Integrate Azure Database for PostgreSQL with Service Connector](../service-connector/how-to-integrate-postgres.md#default-environment-variable-names-or-application-properties-and-sample-codes).
+For the default environment variable names, see [Integrate Azure Database for PostgreSQL with Service Connector](../service-connector/how-to-integrate-postgres.md#default-environment-variable-names-or-application-properties-and-sample-code).
 
 ---
 
@@ -73,7 +73,7 @@ For the default environment variable names, see [Integrate Azure Database for Po
 > Be sure to select only one of the following approaches to create a connection. If you've already created tables with one connection, other users can't access or modify the tables. When you try the other approach, the application will throw errors such as "Permission denied". To fix this issue, connect to a new database or delete and recreate an existing one.
 
 > [!NOTE]
-> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
+> By default, Service Connectors are created at the application level. To override the connections, you can create other connections again in the deployments.
 
 ### [Passwordless (Recommended)](#tab/Passwordlessflex)
 
@@ -158,7 +158,7 @@ Use the following steps to prepare your project.
 
 All the connection strings and credentials will be injected as the environment variables, which can be referenced in your application codes.
 
-You can find the default environment variable names in this doc: [Integrate Azure Database for PostgreSQL with Service Connector](../service-connector/how-to-integrate-postgres.md#default-environment-variable-names-or-application-properties-and-sample-codes)
+You can find the default environment variable names in this doc: [Integrate Azure Database for PostgreSQL with Service Connector](../service-connector/how-to-integrate-postgres.md#default-environment-variable-names-or-application-properties-and-sample-code)
 
 ---
 

@@ -155,6 +155,6 @@ CDMSource sink(allowSchemaDrift: true,
 
 ```
 
-## Next steps
+## Related content
 
 Create a [source transformation](data-flow-source.md) in mapping data flow.

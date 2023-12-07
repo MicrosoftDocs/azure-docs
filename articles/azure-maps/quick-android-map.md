@@ -60,7 +60,7 @@ Once your Azure Maps account is successfully created, retrieve the subscription 
 >[!NOTE]
 > For security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing].
 
-:::image type="content" source="./media/quick-android-map/get-key.png" alt-text="A screenshot showing the Azure Maps Primary key in the Azure portal.":::
+:::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 ## Create a project in Android Studio
 

@@ -2,14 +2,16 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.date: 08/17/2023
-ms.custom: references_regions
+ms.date: 11/20/2023
+ms.custom:
+  - references_regions
+  - ignite-2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Azure Kubernetes Service backup support matrix (preview)
+# Azure Kubernetes Service backup support matrix
 
 You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernetes Service (AKS). This article summarizes region availability, supported scenarios, and limitations.
 
@@ -31,7 +33,9 @@ AKS backup is available in all the Azure public cloud regions: East US, North Eu
 
 - Any unsupported persistent volume type is skipped while a backup is being created for the AKS cluster.
 
-- The backup extension uses the AKS cluster's system identity to do the backup operations. Currently, AKS clusters using a User Identity, or a Service Principal aren't supported. If your AKS cluster uses a Service Principal, you can [update your AKS cluster to use a System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
+- Currently, AKS clusters using a Service Principal aren't supported. If your AKS cluster uses a Service Principal, you can [update your AKS cluster to use a System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
+
+- You can deploy the Backup Extension in the Ubuntu-based cluster nodes. AKS Clusters with the Windows-based nodes aren't supported by Azure Backup for AKS.
 
 - You must install the backup extension in the AKS cluster. If you're using Azure CLI to install the backup extension, ensure that the version is 2.41 or later. Use `az upgrade` command to upgrade the Azure CLI.
 
@@ -58,6 +62,6 @@ AKS backup is available in all the Azure public cloud regions: East US, North Eu
 
 ## Next steps
 
-- [About Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-concept.md)
-- [Back up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup.md)
-- [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
+- [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)
+- [Back up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup.md)
+- [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)

@@ -454,7 +454,7 @@ Create a directory called "schemacompare" under "/tmp" directory.
 
 Put the "schemacompare_final.py" and "test.csv" into the folder "/tmp/schemacompare". Do "ls -ltrh /tmp/schemacompare/" and verify whether the files are present.
 
-To execute the Python script, use the command "python schemacompare_final.py". This script starts executing the script and it takes less than five minutes to complete. The above script automatically connects to your backend DB and fetches the details from each and every table, which Hive uses and update the details in the new csv file called "return.csv". After after creating the file return.csv, it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
+To execute the Python script, use the command "python schemacompare_final.py". This script starts executing the script and it takes less than five minutes to complete. The above script automatically connects to your backend DB and fetches the details from each and every table, which Hive uses and update the details in the new csv file called "return.csv". After creating the file return.csv, it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
 
 Once after executing the script you can see the following lines, which indicate that the details are fetched for the tables and the script is in progressing
 

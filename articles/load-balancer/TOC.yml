@@ -72,6 +72,8 @@
       href: tutorial-gateway-cli.md
     - name: Deploy a dual-stack gateway load balancer
       href: gateway-deploy-dual-stack-load-balancer.md
+    - name: Configure outbound connectivity with a gateway load balancer
+      href: tutorial-gateway-outbound-connectivity.md
   - name: NAT gateway
     items:
     - name: Integrate NAT gateway public load balancer

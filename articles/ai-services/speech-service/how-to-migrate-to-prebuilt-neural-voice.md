@@ -2,7 +2,7 @@
 title: Migrate from prebuilt standard voice to prebuilt neural voice - Speech service
 titleSuffix: Azure AI services
 description: This document helps users migrate from prebuilt standard voice to prebuilt neural voice.
-services: cognitive-services
+#services: cognitive-services
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
@@ -14,7 +14,7 @@ ms.author: v-baolianzou
 # Migrate from prebuilt standard voice to prebuilt neural voice
 
 > [!IMPORTANT]
-> We are retiring the standard voices from September 1, 2021 through August 31, 2024. If you used a standard voice with your Speech resource that was created prior to September 1, 2021 then you can continue to do so until August 31, 2024. All other Speech resources can only use prebuilt neural voices. You can choose from the supported [neural voice names](language-support.md?tabs=tts). After August 31, 2024 the standard voices won't be supported with any Speech resource.
+> We are retiring the standard voices from September 1, 2021 through August 31, 2024. If you used a standard voice with your Speech resource that was created prior to September 1, 2021 then you can continue to do so until August 31, 2024. To use neural voices, choose voice names that include 'Neural' in their name, for example: en-US-JennyMultilingualNeural. All other Speech resources can only use prebuilt neural voices. You can choose from the supported [neural voice names](language-support.md?tabs=tts). After August 31, 2024 the standard voices won't be supported with any Speech resource.
 > 
 > The pricing for prebuilt standard voice is different from prebuilt neural voice. Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and check the pricing details in the collapsable "Deprecated" section. Prebuilt standard voice (retired) is referred as **Standard**. 
 

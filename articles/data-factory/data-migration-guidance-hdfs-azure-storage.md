@@ -145,6 +145,6 @@ Here's the estimated price based on our assumptions:
 - [Copy new and changed files based on LastModifiedDate](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [Data Factory pricing page](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
-## Next steps
+## Related content
 
 - [Copy files from multiple containers by using Azure Data Factory](solution-template-copy-files-multiple-containers.md)

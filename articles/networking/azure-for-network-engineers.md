@@ -64,15 +64,15 @@ When you have competing entries in a routing table, Azure selects the next hop b
 
 You can filter network traffic to and from resources in a virtual network using network security groups. You can also use network virtual appliances (NVA) such as Azure Firewall or firewalls from other vendors. You can control how Azure routes traffic from subnets. You can also limit who in your organization can work with resources in virtual networks.
 
-A network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. In addition, traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.
+A network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. In addition, traffic to an individual NIC can be restricted by associating an NSG directly with a NIC.
 
 NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. Each rule has properties of protocol, source and destination port ranges, address prefixes, direction of traffic, priority, and access type. All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create.
 
 ## Verification
 ### Routes in virtual network
-The combination of routes you create, Azure's default routes, and any routes propagated from your on-premises network through an Azure VPN gateway (if your virtual network is connected to your on-premises network) via the border gateway protocol (BGP), are the effective routes for all network interfaces in a subnet. You can see these effective routes by navigating to NIC either via Portal, PowerShell, or CLI.
+The combination of routes you create, Azure's default routes, and any routes propagated from your on-premises network through an Azure VPN gateway (if your virtual network is connected to your on-premises network) via the border gateway protocol (BGP), are the effective routes for all network interfaces in a subnet. You can see these effective routes by navigating to NIC either via Portal, PowerShell, or CLI. For more information on effective routes on a NIC, please see [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable).
 ### Network Security Groups
-The effective security rules applied to a network interface are an aggregation of the rules that exist in the NSG associated to a network interface, and the subnet the network interface is in. You can view all the effective security rules from NSGs that are applied on your VM's network interfaces by navigating to the NIC via Portal, PowerShell, or CLI.
+The effective security rules applied to a network interface are an aggregation of the rules that exist in the NSG associated with a network interface, and the subnet the network interface is in. You can view all the effective security rules from NSGs that are applied to your VM's network interfaces by navigating to the NIC via Portal, PowerShell, or CLI.
 
 ## Next steps
 

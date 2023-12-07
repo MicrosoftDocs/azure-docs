@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 03/20/2022
+ms.date: 12/05/2023
 ms.author: duau
 ---
 
@@ -18,7 +18,7 @@ This article helps you troubleshoot Azure Front Door file compression issues.
 Compression for your route is enabled, but files are being returned uncompressed.
 
 > [!TIP]
-> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, or **deflate**, your content is compressed.
+> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's [developer tools](/microsoft-edge/devtools-guide-chromium/overview).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, or **deflate**, your content is compressed.
 > 
 > ![Content-Encoding header](../media/troubleshoot-compression/content-header.png)
 > 
@@ -40,7 +40,7 @@ There are several possible causes, including:
 
 ### Verify the request
 
-First, we should double check on the request. You can use your browser's **[developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)** to view the requests being made.
+First, we should double check on the request. You can use your browser's **[developer tools](/microsoft-edge/devtools-guide-chromium/overview)** to view the requests being made.
 
 * Verify the request is being sent to your endpoint URL,`<endpointname>.z01.azurefd.net`, and not your origin.
 * Verify the request contains an **Accept-Encoding** header, and the value for that header contains **gzip**, **deflate**, or **bzip2**.
@@ -55,9 +55,9 @@ Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and se
 
 ### Check the request at the origin server for a **Via** header
 
-The **Via** HTTP header indicates to the web server that the request is being passed by a proxy server.  Microsoft IIS web servers by default don't compress responses when the request contains a **Via** header.  To override this behavior, do the following:
+The **Via** HTTP header indicates to the web server that the request is being passed by a proxy server.  Microsoft IIS web servers by default don't compress responses when the request contains a **Via** header.  To override this behavior, do the following steps for the respective IIS versions:
 
-* **IIS 6**: Set HcNoCompressionForProxies="FALSE" in the IIS Metabase properties. For for information, see [IIS 6 Compression](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90)).
+* **IIS 6**: Set HcNoCompressionForProxies="FALSE" in the IIS Metabase properties. For more information, see [IIS 6 Compression](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90)).
 * **IIS 7 and up**: Set both **noCompressionForHttp10** and **noCompressionForProxies** to *False* in the server configuration. For more information, see, [HTTP Compression](https://www.iis.net/configreference/system.webserver/httpcompression).
 
 ## Next steps

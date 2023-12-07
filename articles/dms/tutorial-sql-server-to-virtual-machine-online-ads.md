@@ -2,8 +2,8 @@
 title: "Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machine online using Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate on-premises SQL Server to SQL Server on Azure Virtual Machines online by using Azure Data Studio and Azure Database Migration Service.
-author: croblesm
-ms.author: roblescarlos
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: cawrites
 ms.date: 06/07/2023
 ms.service: dms

@@ -1,6 +1,6 @@
 ---
 title: Create managed disk from snapshot (Linux) - CLI sample
-description: Azure CLI Script Sample - Create a managed disk from a snapshot
+description: Azure CLI Script Sample - restore a disk from a snapshot and learn about the performance impact of restoring managed disk snapshots
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/22/2023
+ms.date: 11/17/2023
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurecli
 ---
@@ -80,6 +80,21 @@ diskEncryptionSetId=$(az disk-encryption-set show --name $diskEncryptionSetName 
 #To change the location, add the --location parameter
 #If you're creating a Premium SSD v2 or an Ultra Disk, add "--zone $zone" to the end of the command
 az disk create -g $resourceGroupName -n $diskName --source $snapshotId --disk-encryption-set $diskEncryptionSetID --location eastus2euap
+```
+
+## Check disk status
+
+When you create a managed disk from a snapshot, it starts a background copy process. You can attach a disk to a VM while this process is running but you will experience performance impact (4k disks experience read impact, 512e experience both read and write impact). For Ultra Disks and Premium SSD v2, you can check the status of the background copy process with the following commands:
+
+> [!IMPORTANT]
+> You can't use the following sections to get the status of the background copy process for disk types other than Ultra Disk or Premium SSD v2. Other disk types will always report 100%.
+
+```azurecli
+subscriptionId=yourSubscriptionID
+resourceGroupName=yourResourceGroupName
+diskName=yourDiskName
+az account set --subscription $subscriptionId
+az disk show -n $diskName -g $resourceGroupName --query [completionPercent] -o tsv
 ```
 
 ## Clean up resources

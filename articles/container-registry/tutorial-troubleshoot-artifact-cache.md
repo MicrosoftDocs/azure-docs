@@ -25,6 +25,9 @@ May include one or more of the following issues:
 - Unable to create a cache rule
   - [Cache rule Limit](tutorial-troubleshoot-artifact-cache.md#cache-rule-limit)
 
+- Unable to create cache rule using a wildcard
+  - [Unable to create cache rule using a wildcard](tutorial-troubleshoot-artifact-cache.md#unable-to-create-cache-rule-using-a-wildcard)
+
 ## Potential Solutions
 
 ## Cached images don't appear in a live repository 
@@ -63,6 +66,22 @@ We recommend deleting any unwanted cache rules to avoid hitting the limit.
 
 Learn more about the [Cache Terminology](tutorial-artifact-cache.md#terminology)
 
+
+
+## Unable to create cache rule using a wildcard
+
+If you're trying to create a cache rule, but there's a conflict with an existing rule. The error message suggests that there's already a cache rule with a wildcard for the specified target repository.
+
+To resolve this issue, you need to follow these steps:
+
+1. Identify Existing cache rule causing the conflict. Look for an existing rule that uses a wildcard (*) for the target repository.
+
+1. Delete the conflicting cache rule that is overlapping source repository and wildcard. 
+
+1. Create a new cache rule with the desired wildcard and target repository.
+
+1. Double-check your cache configuration to ensure that the new rule is correctly applied and there are no other conflicting rules.
+
 ## Upstream support 
 
 Artifact Cache currently supports the following upstream registries:
@@ -76,8 +95,11 @@ Artifact Cache currently supports the following upstream registries:
 | Nvidia                      | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
 | Quay                        | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI, Azure portal |
 | registry.k8s.io             | Supports both authenticated pulls and unauthenticated pulls. | Azure CLI               |
+|Google Container Registry|Supports both authenticated pulls and unauthenticated pulls.|Azure CLI|
 
 
 <!-- LINKS - External -->
 [create-and-store-keyvault-credentials]:../key-vault/secrets/quick-create-portal.md
+
 [az-keyvault-set-policy]: ../key-vault/general/assign-access-policy.md#assign-an-access-policy
+

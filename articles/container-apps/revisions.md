@@ -50,11 +50,15 @@ After a container app is successfully provisioned, a revision enters its operati
 
 | Status | Description |
 |---|---|
+| Provisioning | The revision is in the verification process. | 
 | Scale to 0 | Zero running replicas, and not provisioning any new replicas. The container app can create new replicas if scale rules are triggered. |
 | Activating | Zero running replicas, one replica being provisioned.  |
-| Processing | Scaling in or out is occurring. One or more running replicas, while other replicas are being provisioned. |
-| Running | One or more replicas running. There are no issues to report. |
-| Degraded | At least one replica in the revision is failed. View running state details for specific issues. |
+| Activation failed | The first replica failed to provision. |
+| Scaling / Processing | Scaling in or out is occurring. One or more replicas are running, while other replicas are being provisioned. |
+| Running | One or more replicas are running. There are no issues to report. |
+| Running (at max) | The maximum number of replicas (according to the scale rules of the revision) are running. There are no issues to report. |
+| Deprovisioning | The revision is transitioning from active to inactive, and is removing any resources it has created. |
+| Degraded | At least one replica in the revision is in a failed state. View running state details for specific issues. |
 | Failed | Critical errors caused revisions to fail. The *running state* provides details. Common causes include:<br>• Termination<br>• Exit code `137` |
 
 ### Inactive status

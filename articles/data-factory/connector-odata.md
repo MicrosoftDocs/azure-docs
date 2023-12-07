@@ -13,9 +13,6 @@ ms.author: jianleishen
 # Copy data from an OData source by using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-odata-connector.md)
-> * [Current version](connector-odata.md)
 
 This article outlines how to use Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from an OData source. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
@@ -28,13 +25,13 @@ This OData connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks, see [Supported data stores](connector-overview.md#supported-data-stores).
 
 Specifically, this OData connector supports:
 
-- OData version 3.0 and 4.0.
+- OData version 2.0, 3.0, and 4.0.
 - Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, and **Microsoft Entra service principal**.
 
 ## Prerequisites
@@ -399,6 +396,6 @@ Project Online requires user-based OAuth, which is not supported by Azure Data F
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
