@@ -116,6 +116,6 @@ You can delete a specific project environment type only if no deployed environme
 
 1. Select **Delete** from the command bar and then confirm.
 
-## Next steps
+## Related content
 
 * [Create and access an environment in Azure Deployment Environments](quickstart-create-access-environments.md)

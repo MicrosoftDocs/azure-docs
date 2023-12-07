@@ -20,7 +20,7 @@ In Azure Deployment Environments, you can use a [catalog](concept-environments-k
 An environment definition is composed of least two files:
 
 - An [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) in JSON file format. For example, *azuredeploy.json*.
-- An environment YAML file that provides metadata about the template. For example, *environment.yaml*.
+- A configuration file that provides metadata about the template. This file should be named *environment.yaml*.
 
 >[!NOTE]
 > Azure Deployment Environments currently supports only ARM templates.
@@ -154,7 +154,7 @@ To delete an existing environment definition, in the repository, delete the subf
 
 After you delete an environment definition, development teams can no longer use the specific environment definition to deploy a new environment. Update the environment definition reference for any existing environments that use the deleted environment definition. If the reference isn't updated and the environment is redeployed, the deployment fails.
 
-## Next steps
+## Related content
 
 - [Create and configure a project](./quickstart-create-and-configure-projects.md)
 - [Create and configure an environment type](quickstart-create-access-environments.md)
