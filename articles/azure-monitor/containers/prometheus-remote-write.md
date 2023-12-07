@@ -38,7 +38,7 @@ Use the following command to view your container log. Remote write data is flowi
 
 ```azurecli
 kubectl logs <Prometheus-Pod-Name> <Azure-Monitor-Side-Car-Container-Name>
-# example: kubectl logs prometheus-prometheus-kube-prometheus-prometheus-0 prom-remotewrite
+# example: kubectl logs prometheus-prometheus-kube-prometheus-prometheus-0 prom-remotewrite --namespace <namespace>
 ```
 
 The output from this command should look similar to the following:

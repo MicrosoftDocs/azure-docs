@@ -2,18 +2,18 @@
 title: Embedded Speech - Speech service
 titleSuffix: Azure AI services
 description: Embedded Speech is designed for on-device scenarios where cloud connectivity is intermittent or unavailable.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 11/15/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-set-thirteen
 ---
 
-# Embedded Speech (preview)
+# Embedded Speech
 
 Embedded Speech is designed for on-device [speech to text](speech-to-text.md) and [text to speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in industrial equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](../containers/disconnected-containers.md). 
 
@@ -28,29 +28,29 @@ Embedded speech is included with the Speech SDK (version 1.24.1 and higher) for 
 
 # [Android](#tab/android-target)
 
-Requires Android 7.0 (API level 24) or higher on ARM64 (`arm64-v8a`) or ARM32 (`armeabi-v7a`) hardware.
+Requires Android 7.0 (API level 24) or higher on Arm64 (`arm64-v8a`) or Arm32 (`armeabi-v7a`) hardware.
 
-Embedded TTS with neural voices is only supported on ARM64.
+Embedded TTS with neural voices is only supported on Arm64.
 
 # [Linux](#tab/linux-target)
 
-Requires Linux on x64, ARM64, or ARM32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
+Requires Linux on x64, Arm64, or Arm32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
 
 Embedded speech isn't supported on RHEL/CentOS 7.
 
-Embedded TTS with neural voices isn't supported on ARM32.
+Embedded TTS with neural voices isn't supported on Arm32.
 
 # [macOS](#tab/macos-target)
 
-Requires 10.14 or newer on x64 or ARM64 hardware.
+Requires 10.14 or newer on x64 or Arm64 hardware.
 
 # [Windows](#tab/windows-target)
 
-Requires Windows 10 or newer on x64 or ARM64 hardware.
+Requires Windows 10 or newer on x64 or Arm64 hardware.
 
 The latest [Microsoft Visual C++ Redistributable for Visual Studio 2015-2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) must be installed regardless of the programming language used with the Speech SDK.
 
-The Speech SDK for Java doesn't support Windows on ARM64.
+The Speech SDK for Java doesn't support Windows on Arm64.
 
 ---
 
@@ -163,7 +163,7 @@ dependencies {
 
 For embedded speech, you need to download the speech recognition models for [speech to text](speech-to-text.md) and voices for [text to speech](text-to-speech.md). Instructions are provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
 
-The following [speech to text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
+The following [speech to text](speech-to-text.md) models are available: da-DK, de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, pt-PT, zh-CN, zh-HK, and zh-TW.
 
 All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for more languages and voices. 
 

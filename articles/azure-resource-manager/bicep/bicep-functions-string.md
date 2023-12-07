@@ -167,7 +167,7 @@ The following example shows a comparison between using interpolation and using t
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = concat(prefix, uniqueString(resourceGroup().id))
+output concatOutput string = concat(prefix, 'And', uniqueString(resourceGroup().id))
 output interpolationOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
 ```
 

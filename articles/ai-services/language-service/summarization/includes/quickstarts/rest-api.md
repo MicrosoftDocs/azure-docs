@@ -1,5 +1,5 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
@@ -9,15 +9,7 @@ ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
-# [Document summarization](#tab/document-summarization)
-
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684)
-
 # [Conversation summarization](#tab/conversation-summarization)
-
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
-
----
 
 Use this quickstart to send text summarization requests using the REST API. In the following example, you will use cURL to summarize documents or text-based customer service conversations.
 
@@ -53,8 +45,6 @@ Choose the type of summarization you would like to perform, and select one of th
 |Conversation summarization     | Use abstractive text summarization to produce a summary of issues and resolutions in transcripts between customer-service agents, and customers.         |
 
 # [Document summarization](#tab/document-summarization)
-
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684)
 
 |parameter  |Description  |
 |---------|---------|
@@ -198,8 +188,6 @@ curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-versio
     }
 }
 ```
-
-# [Conversation summarization](#tab/conversation-summarization)
 
 ## Conversation issue and resolution summarization
 

@@ -1,19 +1,21 @@
 ---
 title: Security filters for trimming results
-titleSuffix: Azure Cognitive Search
-description: Learn how to implement security privileges at the document level for Azure Cognitive Search search results, using security filters and user identities.
+titleSuffix: Azure AI Search
+description: Learn how to implement security privileges at the document level for Azure AI Search search results, using security filters and user identities.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 03/24/2023
 ---
 
-# Security filters for trimming results in Azure Cognitive Search
+# Security filters for trimming results in Azure AI Search
 
-Cognitive Search doesn't provide document-level permissions and can't vary search results from within the same index by user permissions. As a workaround, you can create a filter that trims search results based on a string containing a group or user identity.
+Azure AI Search doesn't provide document-level permissions and can't vary search results from within the same index by user permissions. As a workaround, you can create a filter that trims search results based on a string containing a group or user identity.
 
 This article describes a pattern for security filtering that includes following steps:
 
@@ -25,9 +27,9 @@ This article describes a pattern for security filtering that includes following 
 
 ## About the security filter pattern
 
-Although Cognitive Search doesn't integrate with security subsystems for access to content within an index, many customers who have document-level security requirements have found that filters can meet their needs.
+Although Azure AI Search doesn't integrate with security subsystems for access to content within an index, many customers who have document-level security requirements have found that filters can meet their needs.
 
-In Cognitive Search, a security filter is a regular OData filter that includes or excludes a search result based on a matching value, except that in a security filter, the criteria is a string consisting of a security principal. There's no authentication or authorization through the security principal. The principal is just a string, used in a filter expression, to include or exclude a document from the search results.
+In Azure AI Search, a security filter is a regular OData filter that includes or excludes a search result based on a matching value, except that in a security filter, the criteria is a string consisting of a security principal. There's no authentication or authorization through the security principal. The principal is just a string, used in a filter expression, to include or exclude a document from the search results.
 
 There are several ways to achieve security filtering. One way is through a complicated disjunction of equality expressions: for example, `Id eq 'id1' or Id eq 'id2'`, and so forth. This approach is error-prone, difficult to maintain, and in cases where the list contains hundreds or thousands of values, slows down query response time by many seconds. 
 
@@ -59,7 +61,7 @@ A better solution is using the `search.in` function for security filters, as des
     ```
 
    >[!NOTE]
-   > The process of retrieving the principal identifiers and injecting those strings into source documents that can be indexed by Cognitive Search isn't covered in this article. Refer to the documentation of your identity service provider for help with obtaining identifiers.
+   > The process of retrieving the principal identifiers and injecting those strings into source documents that can be indexed by Azure AI Search isn't covered in this article. Refer to the documentation of your identity service provider for help with obtaining identifiers.
 
 ## Create security field
 
@@ -143,7 +145,7 @@ For more information on uploading documents, see [Add, Update, or Delete Documen
 In order to trim documents based on `group_ids` access, you should issue a search query with a `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, where 'group_id1, group_id2,...' are the groups to which the search request issuer belongs.
 
 This filter matches all documents for which the `group_ids` field contains one of the given identifiers.
-For full details on searching documents using Azure Cognitive Search, you can read [Search Documents](/rest/api/searchservice/search-documents).
+For full details on searching documents using Azure AI Search, you can read [Search Documents](/rest/api/searchservice/search-documents).
 
 This sample shows how to set up query using a POST request.
 
@@ -189,4 +191,4 @@ This article described a pattern for filtering results based on user identity an
 For an alternative pattern based on Microsoft Entra ID, or to revisit other security features, see the following links.
 
 * [Security filters for trimming results using Active Directory identities](search-security-trimming-for-azure-search-with-aad.md)
-* [Security in Azure Cognitive Search](search-security-overview.md)
+* [Security in Azure AI Search](search-security-overview.md)

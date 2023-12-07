@@ -49,7 +49,7 @@ Scheduled Events provides events in the following use cases:
 
 ## The Basics  
 
-  Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP so that it's not exposed outside the VM.
+Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP and is not exposed outside the VM.
 
 ### Scope
 Scheduled events are delivered to and can be acknowledged by:
@@ -60,7 +60,7 @@ Scheduled events are delivered to and can be acknowledged by:
 - All the VMs in a scale set placement group. 
 
 > [!NOTE]
-> Scheduled Events for all virtual machines (VMs) in a Fabric Controller (FC) tenant are delivered to all VMs in a FC tenant. FC tenant equates to a standalone VM, an entire Cloud Service, an entire Availability Set, and a Placement Group for a Virtual Machine Scale Set regardless of Availability Zone usage. 
+> Scheduled Events for all virtual machines (VMs) in an entire Availability Set or a Placement Group for a Virtual Machine Scale Set are delivered to all other VMs in the same group or set regardless of Availability Zone usage.
 
 As a result, check the `Resources` field in the event to identify which VMs are affected.
 
@@ -103,11 +103,11 @@ Scheduled events for [VMSS Guest OS upgrades or reimages](../../virtual-machine-
 
 ### High level overview
 
-There are two major components to handling Scheduled Events, preparation and recovery. All current events impacting the customer will be available via the IMDS Scheduled Events endpoint. When the event has reached a terminal state, it is removed from the list of events. The following diagram shows the various state transitions that a single scheduled event can experience: 
+There are two major components to handling Scheduled Events, preparation and recovery. All current scheduled events impacting a VM are available to read via the IMDS Scheduled Events endpoint. When the event has reached a terminal state, it is removed from the list of events. The following diagram shows the various state transitions that a single scheduled event can experience: 
 
 ![State diagram showing the various transitions a scheduled event can take.](media/scheduled-events/scheduled-events-states.png)
 
-For events in the EventStatus:"Scheduled" state, you'll need to take steps to prepare your workload. Once the preparation is complete, you should then approve the event using the scheduled event API. Otherwise, the event will be automatically approved when the NotBefore time is reached. If the VM is on shared infrastructure, the system will then wait for all other tenants on the same hardware to also approve the job or timeout. Once approvals are gathered from all impacted VMs or the NotBefore time is reached then Azure generates a new scheduled event payload with EventStatus:"Started" and triggers the start of the maintenance event. When the event has reached a terminal state, it is removed from the list of events which serves as the signal for the tenant to recover their VM(s)”
+For events in the EventStatus:"Scheduled" state, you'll need to take steps to prepare your workload. Once the preparation is complete, you should then approve the event using the scheduled event API. Otherwise, the event is automatically approved when the NotBefore time is reached. If the VM is on shared infrastructure, the system will then wait for all other tenants on the same hardware to also approve the job or timeout. Once approvals are gathered from all impacted VMs or the NotBefore time is reached then Azure generates a new scheduled event payload with EventStatus:"Started" and triggers the start of the maintenance event. When the event has reached a terminal state, it is removed from the list of events. That serves as the signal for the customer to recover their VMs.
 
 Below is psudeo code demonstrating a process for how to read and manage scheduled events in your application: 
 ```
@@ -125,10 +125,10 @@ previous_list_of_scheduled_events = current_list_of_scheduled_events
 ```
 As scheduled events are often used for applications with high availability requirements, there are a few exceptional cases that should be considered:
 
-1. Once a scheduled event is completed and removed from the array there will be no further impacts without a new event including another EventStatus:"Scheduled" event
-2. Azure  monitors maintenance operations across the entire fleet and in rare circumstances determines that a maintenance operation too high risk to apply. In that case the scheduled event will go directly from “Scheduled” to being removed from the events array
-3. In the case of hardware failure, Azure will bypass the “Scheduled” state and immediately move to the EventStatus:"Started" state. 
-4. While the event is still in EventStatus:"Started" state, there may be additional impacts of a shorter duration than what was advertised in the scheduled event.
+1. Once a scheduled event is completed and removed from the array, there will be no further impacts without a new event including another EventStatus:"Scheduled" event
+2. Azure  monitors maintenance operations across the entire fleet and in rare circumstances determines that a maintenance operation too high risk to apply. In that case the scheduled event goes directly from “Scheduled” to being removed from the events array
+3. In the case of hardware failure, Azure bypasses the “Scheduled” state and immediately move to the EventStatus:"Started" state. 
+4. While the event is still in EventStatus:"Started" state, there may be another impact of a shorter duration than what was advertised in the scheduled event.
 
 As part of Azure’s availability guarantee, VMs in different fault domains won't be impacted by routine maintenance operations at the same time. However, they may have operations serialized one after another. VMs in one fault domain can receive scheduled events with EventStatus:"Scheduled" shortly after another fault domain’s maintenance is completed. Regardless of what architecture you chose, always keep checking for new events pending against your VMs.
 
@@ -198,7 +198,7 @@ In the case where there are scheduled events, the response contains an array of 
 | - | - |
 | Document Incarnation | Integer that increases when the events array changes. Documents with the same incarnation contain the same event information, and the incarnation will be incremented when an event changes. |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there's no impact on memory or open files.<li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). <li>`Preempt`: The Spot Virtual Machine is being deleted (ephemeral disks are lost). This event is made available on a best effort basis <li> `Terminate`: The virtual machine is scheduled to be deleted. |
+| EventType | Expected impact this event will cause.  <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there's no impact on memory or open files.<li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). In rare cases a VM scheduled for EventType:"Reboot" may experience a freeze event instead of a reboot. Follow the instructions above for how to know if the event is complete and it is safe to restore your workload. <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). <li>`Preempt`: The Spot Virtual Machine is being deleted (ephemeral disks are lost). This event is made available on a best effort basis <li> `Terminate`: The virtual machine is scheduled to be deleted. |
 | ResourceType | Type of resource this event affects. <br><br> Values: <ul><li>`VirtualMachine`|
 | Resources| List of resources this event affects. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided. The event is no longer returned when the event is finished.
@@ -231,7 +231,7 @@ You can poll the endpoint for updates as frequently or infrequently as you like.
 
 ### Start an event 
 
-After you learn of an upcoming event and finish your logic for graceful shutdown, you can approve the outstanding event by making a `POST` call to Metadata Service with `EventId`. This call indicates to Azure that it can shorten the minimum notification time (when possible). The event may not start immediately upon approval, in some cases Azure will require the approval of all the VMs hosted on the node before proceeding with the event. 
+After you learn of an upcoming event and finish your logic for graceful shutdown, you can approve the outstanding event by making a `POST` call to Metadata Service with `EventId`. This call indicates to Azure that it can shorten the minimum notification time (when possible). The event may not start immediately upon approval, in some cases Azure requires the approval of all the VMs hosted on the node before proceeding with the event. 
 
 The following JSON sample is expected in the `POST` request body. The request should contain a list of `StartRequests`. Each `StartRequest` contains `EventId` for the event you want to expedite:
 
@@ -245,7 +245,7 @@ The following JSON sample is expected in the `POST` request body. The request sh
 }
 ```
 
-The service will always return a 200 success code if it is passed a valid event ID, even if the event was already approved by a different VM. A 400 error code indicates that the request header or payload was malformed. 
+The service always returns a 200 success code if it is passed a valid event ID, even if another VM already approved the event. A 400 error code indicates that the request header or payload was malformed. 
 
 > [!Note] 
 > Events will not proceed unless they are  either approved via a POST message or the NotBefore time elapses. This includes user triggered events such as VM restarts from the Azure portal. 
@@ -404,7 +404,7 @@ def advanced_sample(last_document_incarnation):
             int(event["DurationInSeconds"]) < 9):
             confirm_scheduled_event(event["EventId"])
             
-        # Events that may be impactful (eg. Reboot or redeploy) may need custom 
+        # Events that may be impactful (for example reboot or redeploy) may need custom 
         # handling for your application
         else: 
             #TODO Custom handling for impactful events

@@ -1,63 +1,57 @@
 ---
-title: SerpAPI tool in Azure Machine Learning prompt flow (preview)
+title: SerpAPI tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
-description: The SerpAPI API is a Python tool that provides a wrapper to the SerpAPI Google Search Engine Results API and SerpApi Bing Search Engine Results API.
+description: SerpAPI is a Python tool that provides a wrapper to the SerpAPI Google Search Engine Results API and the SerpAPI Bing Search Engine Results API.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.custom: devx-track-python
+ms.subservice: prompt-flow
+ms.custom:
+  - devx-track-python
+  - ignite-2023
 ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 11/02/2023
 ---
 
-# SerpAPI tool (preview)
+# SerpAPI tool
 
-The SerpAPI API is a Python tool that provides a wrapper to the [SerpAPI Google Search Engine Results API](https://serpapi.com/search-api) and [SerpApi Bing Search Engine Results API](https://serpapi.com/bing-search-api).
+SerpAPI is a Python tool that provides a wrapper to the [SerpAPI Google Search Engine Results API](https://serpapi.com/search-api) and the [SerpAPI Bing Search Engine Results API](https://serpapi.com/bing-search-api).
 
-We could use the tool to retrieve search results from many different search engines, including Google and Bing, and you can specify a range of search parameters, such as the search query, location, device type, and more.
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+You can use the tool to retrieve search results from many different search engines, including Google and Bing. You can also specify a range of search parameters, such as the search query, location, and device type.
 
 ## Prerequisite
 
-Sign up at [SERP API homepage](https://serpapi.com/)
-
+Sign up at the [SerpAPI website](https://serpapi.com/).
 
 ## Connection
 
-Connection is the model used to establish connections with Serp API.
+Connection is the model used to establish connections with SerpAPI.
 
-| Type        | Name     | API KEY  |
+| Type        | Name     | API key  |
 |-------------|----------|----------|
 | Serp        | Required | Required |
 
-_**API Key** is on SerpAPI account dashboard_
-
+The API key is on the SerpAPI account dashboard.
 
 ## Inputs
 
-The **serp api** tool supports following parameters:
-
+The SerpAPI tool supports the following parameters:
 
 | Name     | Type    | Description                                                   | Required |
 |----------|---------|---------------------------------------------------------------|----------|
-| query    | string  | The search query to be executed.                              | Yes      |
-| engine   | string  | The search engine to use for the search. Default is 'google'. | Yes      |
+| query    | string  | The search query to be run.                              | Yes      |
+| engine   | string  | The search engine to use for the search. Default is `google`. | Yes      |
 | num      | integer | The number of search results to return. Default is 10.         | No      |
-| location | string  | The geographic location to execute the search from.           | No       |
-| safe     | string  | The safe search mode to use for the search. Default is 'off'. | No       |
-
+| location | string  | The geographic location from which to run the search.           | No       |
+| safe     | string  | The safe search mode to use for the search. Default is `off`. | No       |
 
 ## Outputs
 
-The json representation from serpapi query.
+The JSON representation from a SerpAPI query.
 
-| Engine   | Return Type | Output                                                |
+| Engine   | Return type | Output                                                |
 |----------|-------------|-------------------------------------------------------|
-| Google   | json        | [Sample](https://serpapi.com/search-api#api-examples) |
-| Bing     | json        | [Sample](https://serpapi.com/bing-search-api)         |
+| Google   | JSON        | [Sample](https://serpapi.com/search-api#api-examples) |
+| Bing     | JSON        | [Sample](https://serpapi.com/bing-search-api)         |

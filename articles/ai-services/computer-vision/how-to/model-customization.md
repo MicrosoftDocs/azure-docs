@@ -2,7 +2,7 @@
 title: Create a custom Image Analysis model
 titleSuffix: Azure AI services
 description: Learn how to create and train a custom model to do image classification and object detection that's specific to your use case.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision

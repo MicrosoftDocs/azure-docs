@@ -2,7 +2,7 @@
 title: How to specify a detection model - Face
 titleSuffix: Azure AI services
 description: This article will show you how to choose which face detection model to use with your Azure AI Face application.
-services: cognitive-services
+#services: cognitive-services
 author: yluiu
 manager: nitinme
 

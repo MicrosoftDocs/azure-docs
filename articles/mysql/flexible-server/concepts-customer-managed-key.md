@@ -68,7 +68,7 @@ Before you attempt to configure Key Vault, be sure to address the following requ
 
 Before you attempt to configure the CMK, be sure to address the following requirements.
 
-- The customer-managed key to encrypt the DEK can be only asymmetric, RSA 2048.
+- The customer-managed key to encrypt the DEK can be only asymmetric, RSA\RSA-HSM(Vaults with Premium SKU) 2048,3072 or 4096.
 - The key activation date (if set) must be a date and time in the past. The expiration date not set.
 - The key must be in the **Enabled** state.
 - The key must have [soft delete](../../key-vault/general/soft-delete-overview.md) with retention period set to 90 days. This implicitly sets the required key attribute recoveryLevel: “Recoverable.”
@@ -87,8 +87,9 @@ As you configure Key Vault to use data encryption using a customer-managed key, 
 - Keep a copy of the customer-managed key in a secure place or escrow it to the escrow service.
 - If Key Vault generates the key, create a key backup before using the key for the first time. You can only restore the backup to Key Vault. For more information about the backup command, see [Backup-AzKeyVaultKey](/powershell/module/az.keyVault/backup-azkeyVaultkey).
 
-> [!NOTE]  
-> It is advised to use a key vault from the same region, but if necessary, you can use a key vault from another region by specifying the "enter key identifier" information.
+> [!NOTE]
+> * It is advised to use a key vault from the same region, but if necessary, you can use a key vault from another region by specifying the "enter key identifier" information.
+> * RSA key stored in **Azure Key Vault Managed HSM**, is currently not supported.
 
 ## Inaccessible customer-managed key condition
 

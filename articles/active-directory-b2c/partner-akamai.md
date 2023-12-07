@@ -2,12 +2,12 @@
 title: Configure Azure Active Directory B2C with Akamai Web Application Protector
 titleSuffix: Azure AD B2C
 description: Configure Akamai Web Application Protector with Azure AD B2C
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 05/04/2023
 ms.author: gasinh

@@ -11,6 +11,8 @@
       href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
+    - name: What's new
+      href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -130,7 +132,7 @@
           href: howto-troubleshoot-common-issues.md
     - name: Move across regions
       href: howto-move-across-regions.md
-- name: Socket.IO (preview)
+- name: Socket.IO
   expanded: false
   items: 
     - name: Overview
