@@ -59,6 +59,8 @@
           href: queues-auth-abac.md
         - name: Actions and attributes for conditions
           href: queues-auth-abac-attributes.md
+        - name: Example conditions
+          href: queues-auth-abac-examples.md
     - name: Authenticate and authorize with Microsoft Entra ID
       href: authorize-access-azure-active-directory.md
     - name: Authorize with Shared Key
