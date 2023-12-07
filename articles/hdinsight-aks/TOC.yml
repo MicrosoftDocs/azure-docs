@@ -62,11 +62,11 @@ items:
       href: ./secure-traffic-by-nsg.md
   - name: Tutorials
     items: 
-    - name: Manage HDInsight clusters - .NET SDK
+    - name: Manage HDInsight on AKS clusters - .NET SDK
       href: ./sdk-cluster-creation.md
-    - name: Manage HDInsight clusters - PowerShell
+    - name: Manage HDInsight on AKS clusters - PowerShell
       href: ./powershell-cluster-create.md
-    - name: Manage HDInsight clusters - REST API
+    - name: Manage HDInsight on AKS clusters - REST API
       href: ./rest-api-cluster-creation.md     
 - name: Manage
   items: 
