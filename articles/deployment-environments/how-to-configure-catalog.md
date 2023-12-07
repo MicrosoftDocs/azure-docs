@@ -19,7 +19,7 @@ You can use a catalog to provide your development teams with a curated set of in
 Deployment Environments supports catalogs hosted in Azure Repos (the repository service in Azure, commonly referred to as Azure DevOps) and catalogs hosted in GitHub. Azure DevOps supports authentication by assigning permissions to a managed identity. Azure DevOps and GitHub both support the use of a personal access token (PAT) for authentication. To further secure your templates, the catalog is encrypted; Azure Deployment Environments supports encryption at rest with platform-managed encryption keys, which Microsoft for Azure Services manages.
 
 - To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
-- To learn how to host a Git repository in an Azure DevOps project, see [Azure Repos](https://azure.microsoft.com/services/devops/repos/).
+- To learn how to host a Git repository in an Azure DevOps project, see [Azure Repos](https://azure.microsoft.com/products/devops/repos/).
 
 Microsoft offers a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You also can use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
@@ -32,9 +32,17 @@ In this article, you learn how to:
 > - Update a catalog.
 > - Delete a catalog.
 
+## Configure a managed identity for the dev center
+
+After you create a dev center, before you can attach a catalog, you must configure a [managed identity](concept-environments-key-concepts.md#identities), also called an MSI, for the dev center. You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center to create environment types in your subscription and read the Azure DevOps project that contains the catalog repo.
+
+If your dev center doesn't have an MSI attached, follow the steps in [Configure a managed identity](how-to-configure-managed-identity.md) to create one and to assign roles for the dev center managed identity.
+
+To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
+
 ## Add a catalog
 
-You can add a catalog from an Azure DevOps repository or a GitHub repository. You can choose to authenticate by assigning permissions to an MSI, also called a managed identity, or by using a PAT, which you store in a key vault.
+You can add a catalog from an Azure DevOps repository or a GitHub repository. You can choose to authenticate by assigning permissions to an MSI or by using a PAT, which you store in a key vault.
 
 Select the tab for the type of repository and authentication you want to use.
 
@@ -42,17 +50,8 @@ Select the tab for the type of repository and authentication you want to use.
 
 To add a catalog, complete the following tasks:
 
-- Configure a managed identity for the dev center.
 - Assign permissions in Azure DevOps for the dev center managed identity.
 - Add your repository as a catalog.
-
-### Configure a managed identity for the dev center
-
-After you create a dev center, before you can attach a catalog, you must configure a [managed identity](concept-environments-key-concepts.md#identities) to the dev center. You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center to create environment types in your subscription and read the Azure DevOps project that contains the catalog repo.
-
-If your dev center doesn't have an MSI attached, follow the steps in [Configure a managed identity](how-to-configure-managed-identity.md) to create one and to assign roles for the dev center managed identity.
-
-To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
 ### Assign permissions in Azure DevOps for the dev center managed identity
 
@@ -79,7 +78,7 @@ You must give the dev center managed identity permissions to the repository in A
 
     |Name     |Value     |
     |---------|----------|
-    |**Users or Service Principals**|Enter the name of your dev center. <br> When you use a system-assigned managed account, specify the name of the dev center, not the object ID of the managed account. When you use a user-assigned managed account, use the name of the managed account. |
+    |**Users or Service Principals**|Enter the name of your dev center. <br> When you use a system-assigned MSI, specify the name of the dev center, not the object ID of the managed account. When you use a user-assigned MSI, use the name of the managed account. |
     |**Access level**|Select **Basic**.|
     |**Add to projects**|Select the project that contains your repository.|
     |**Azure DevOps Groups**|Select **Project Readers**.|
@@ -122,8 +121,8 @@ The following steps let you attach an Azure DevOps repository.
 To add a catalog, complete the following tasks:
 
 - Get the clone URL for your Azure DevOps repository.
-- Create a personal access token.
-- Store the personal access token (PAT) as a key vault secret in Azure Key Vault.
+- Create a personal access token (PAT).
+- Store the PAT as a key vault secret in Azure Key Vault.
 - Add your repository as a catalog.
 
 ### Get the clone URL for your Azure DevOps repository
@@ -140,7 +139,7 @@ To add a catalog, complete the following tasks:
 
 1. Create a [PAT](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat).
 
-1. Save the generated token.
+1. Copy and save the generated token to use later.
 
 ### Create a Key Vault
 
@@ -402,7 +401,7 @@ An invalid environment definition error might occur for various reasons:
   
 - **Reference errors**. Ensure that the template path that the environment file references is a valid relative path to a file in the repository.
 
-## Next steps
+## Related content
 
 - [Configure environment types for a dev center](how-to-configure-devcenter-environment-types.md)
 - [Create and configure a project by using the Azure CLI](how-to-create-configure-projects.md)
