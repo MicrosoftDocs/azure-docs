@@ -34,7 +34,7 @@ To choose a pricing tier, use the following table as a starting point:
 | General Purpose | Most business workloads that require balanced compute and memory with scalable I/O throughput. Examples include servers for hosting web and mobile apps and other enterprise applications. |
 | Memory Optimized | High-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency. Examples include servers for processing real-time data and high-performance transactional or analytical apps. |
 
-After you create a server for the compute tier, you can change the number of vCores (up or down) and the storage size (up) in seconds. You also can independently adjust the backup retention period up or down. For more information, see the [Scaling resources](#scale-resources) section.
+After you create a server for the compute tier, you can change the number of vCores (up or down) and the storage size (up) in seconds. You also can independently adjust the backup retention period up or down. For more information, see the [Scaling resources](./concepts-scaling-resources.md) page.
 
 ## Compute tiers, vCores, and server types
 
@@ -201,7 +201,7 @@ We recommend that you actively monitor the disk space that's in use and increase
 
 ### Storage autogrow
 
-Storage autogrow can help ensure that your server always has enough storage capacity and doesn't become read-only. When you turn on storage autogrow, the storage will automatically expand without affecting the workload. This feature is currently in preview.
+Storage autogrow can help ensure that your server always has enough storage capacity and doesn't become read-only. When you turn on storage autogrow, the storage will automatically expand without affecting the workload.
 
 For servers with more than 1 TiB of provisioned storage, the storage autogrow mechanism activates when the available space falls to less than 10% of the total capacity or 64 GiB of free space, whichever of the two values are smaller. Conversely, for servers with storage under 1 TB, this threshold is adjusted to 20% of the available free space or 64 GiB, depending on which of these values is smaller.
 
@@ -281,44 +281,6 @@ The minimum and maximum IOPS are determined by the selected compute size. To lea
 > Minimum and maximum IOPS are determined by the selected compute size.
 
 Learn how to [scale up or down IOPS](how-to-scale-compute-storage-portal.md).
-
-
-## Scale resources
-
-After you create your server, you can independently change the vCores, the compute tier, the amount of storage, and the backup retention period. You can scale the number of vCores up or down. You can scale the backup retention period up or down from 7 to 35 days. The storage size can only be increased. You can scale the resources through the Azure portal or the Azure CLI.
-
-> [!NOTE]  
-> After you increase the storage size, you can't go back to a smaller storage size.
-
-When you change the number of vCores or the compute tier, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back.
-
-
-The time it takes to restart your server depends on the crash recovery process and database activity at the time of the restart. Restart typically takes a minute or less but it can be higher and can take several minutes, depending on transactional activity at the time of the restart. Scaling the storage does not require a server restart in most cases.
-
-To improve the restart time, we recommend that you perform scale operations during off-peak hours. That approach reduces the time needed to restart the database server.
-
-Changing the backup retention period is an online operation.
-
-## Near-zero downtime scaling 
-
-Near Zero Downtime Scaling is a feature designed to minimize downtime when modifying storage and compute tiers. If you modify the number of vCores or change the compute tier, the server undergoes a restart to apply the new configuration. During this transition to the new server, no new connections can be established. This process with regular scaling could take anywhere from 2 to 10 minutes. However, with the new Near Zero Downtime Scaling feature this duration has been reduced to less than 30 seconds. This significant decrease in downtime greatly improves the overall availability of your flexible server workloads.
-
-Near Zero Downtime Feature is enabled across all public regions and **no customer action is required** to use this capability. This feature works by deploying a new virtual machine (VM) with the updated configuration. Once the new VM is ready, it seamlessly transitions, shutting down the old server and replacing it with the updated VM, ensuring minimal downtime. Importantly, this feature doesn't add any additional cost and you won't be charged for the new server. Instead you're billed for the new updated server once the scaling process is complete. This scaling process is triggered when changes are made to the storage and compute tiers, and the experience remains consistent for both (HA) and non-HA servers.
-
-> [!NOTE]
->  Near Zero Downtime Scaling process is the default operation. However, in cases where the following limitations are encountered, the system switches to regular scaling, which involves more downtime compared to the near zero downtime scaling.
-
-#### Pre-requisites
-- You should allow all inbound/outbound connections between the IPs in the delegated subnet. If this is not enabled near downtime scaling process will not work and scaling will occur through the standard scaling process which results in more downtime.
-  
-#### Limitations 
-
-- Near Zero Downtime Scaling will not work if there are regional capacity constraints or quota limits on customer subscriptions.
-
-- Near Zero Downtime Scaling doesn't work for replica server but supports the source server. For replica server it will automatically go through regular scaling process.
-
-- Near Zero Downtime Scaling will not work if a VNET injected Server with delegated subnet does not have sufficient usable IP addresses. If you have a standalone server, one additional IP address is necessary, and for a HA-enabled server, two extra IP addresses are required.
-
 
 ## Price
 

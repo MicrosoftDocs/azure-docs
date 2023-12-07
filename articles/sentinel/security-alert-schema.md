@@ -17,7 +17,7 @@ Microsoft Sentinel [analytics rules](detect-threats-built-in.md) create incident
 
 - **Scheduled** analytics rules generate alerts as the result of their regular queries of data in logs ingested from external sources, and those same rules create incidents from those alerts. (For the purposes of this document, "scheduled" rule alerts include **NRT rule alerts**.)
 
-- **Microsoft Security** analytics rules create incidents from alerts that are ingested as-is from other Microsoft security products, for example, Microsoft 365 Defender and Microsoft Defender for Cloud.
+- **Microsoft Security** analytics rules create incidents from alerts that are ingested as-is from other Microsoft security products, for example, Microsoft Defender XDR and Microsoft Defender for Cloud.
 
 Regardless of the source, these alerts are all stored together in the *SecurityAlert* table in your Log Analytics workspace. This article describes the schema of this table.
 

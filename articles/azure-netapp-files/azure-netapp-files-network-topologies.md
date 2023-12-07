@@ -92,7 +92,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Central India
 * Central US
 * East Asia
-* East US 
+* East US* 
 * East US 2 
 * France Central 
 * Germany North
@@ -106,7 +106,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Norway West 
 * Qatar Central 
 * South Africa North
-* South Central US 
+* South Central US* 
 * South India
 * Southeast Asia 
 * Sweden Central
@@ -117,9 +117,10 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * UK South
 * West Europe 
 * West US 
-* West US 2  
+* West US 2*  
 * West US 3 
 
+\* Not all volume in this region are available for conversion. All volumes will be available for conversion in the future. 
 
 ## Considerations
 

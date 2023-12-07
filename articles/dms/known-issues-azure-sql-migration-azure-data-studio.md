@@ -321,13 +321,9 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Cause**: All function references in the computed column must have the same owner as the table.
 
-- **Recommendation**: See [Ownership Requirements](/sql/relational-databases/indexes/indexes-on-computed-columns?view=sql-server-ver16#ownership-requirements).
-
-  [BULK INSERT](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules#BulkInsert)
+- **Recommendation**: See [Ownership Requirements](/sql/relational-databases/indexes/indexes-on-computed-columns#ownership-requirements).
 
 ## Error code: Ext_RestoreSettingsError
-
-[COMPUTE clause](/azure/azure-sql/migration-guides/database/sql-server-to-sql-database-assessment-rules#ComputeClause)
 
 - **Message**: `Unable to read blobs in storage container, exception: The remote server returned an error: (403) Forbidden.; The remote server returned an error: (403) Forbidden`
 
