@@ -102,7 +102,7 @@ az spring show \
 When starting the service, you may sometimes find that the service’s ProvisioningState is marked as `Succeeded`, but the following error message is returned:
 
 ```
-Failed to start some resources or enable some settings, including [<failed resource list>]. Please check and update those resources or settings.
+Failed to start the following resource(s) or apply setting(s): [<failed resource list>]. Please check and update them accordingly.
 ```
 
 This error message means some resources failed to provision, here’s what to do:
