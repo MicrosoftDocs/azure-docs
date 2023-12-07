@@ -639,6 +639,10 @@ This example shows localized messages for local account password reset.
 </LocalizedResources>
 ```
 
+## CAPTCHA display control user interface elements
+
+TODO  
+
 ## Next steps
 
 See the following articles for localization examples:
