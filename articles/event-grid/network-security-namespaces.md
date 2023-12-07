@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2023
 ms.date: 11/15/2023
-author: veyaddan
-ms.author: veyaddan
+author: george-guirguis
+ms.author: geguirgu
 ---
 
 # Network security for Azure Event Grid namespaces
@@ -31,7 +31,7 @@ You can use service tags to define network access controls on network security g
 ## IP firewall 
 By default, Event Grid namespaces and entities are accessible from internet as long as the request comes with valid authentication (access key) and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation. Clients originating from any other IP address are rejected and receive a 403 (Forbidden) response. 
 
-For Message Queueing Telemetry Transport (MQTT) scenarios, only the clients that fall into the allowed IP range can connect to publish and subscribe for events. For more information, see [Configure IP firewall for Event Grid namespaces in MQTT scenarios](configure-firewall-mqtt.md).
+For Message Queueing Telemetry Transport (MQTT) scenarios, only the clients that fall into the allowed IP range can connect to publish and subscribe for events. For more information, see [Configure IP firewall for Event Grid namespaces in MQTT scenarios](mqtt-configure-firewall.md).
 
 For non-MQTT scenarios, only the clients that fall into the allowed IP range can connect to Azure Event Grid to publish events or pull events. For more information, see [Configure IP firewall for Event Grid namespaces in non-MQTT scenarios](configure-firewall-namespaces.md). 
 
@@ -45,7 +45,7 @@ A private endpoint is a special network interface for an Azure service in your V
 
 When you create a private endpoint for a namespace in your virtual network, a consent request is sent for approval to the resource owner. If the user requesting the creation of the private endpoint is also an owner of the resource, this consent request is automatically approved. Otherwise, the connection is in **pending** state until approved. Applications in the virtual network can connect to the Event Grid service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. Resource owners can manage consent requests and the private endpoints, through the **Private endpoints** tab for the resource in the Azure portal.
 
-When an MQTT client in a private network connects to the MQTT broker on a private link, the client can publish and subscribe to MQTT messages. For more information, see [Configure private endpoints for namespaces in MQTT scenarios](configure-private-endpoints-mqtt.md). 
+When an MQTT client in a private network connects to the MQTT broker on a private link, the client can publish and subscribe to MQTT messages. For more information, see [Configure private endpoints for namespaces in MQTT scenarios](mqtt-configure-private-endpoints.md). 
 
 In non-MQTT scenarios, a client in a private network can connect to the Event Grid namespace and publish events or pull events. For more information, see [Configure private endpoints for namespaces in non-MQTT scenarios](configure-private-endpoints-pull.md). 
 
@@ -101,8 +101,8 @@ There's a limit on the number of IP firewall rules and private endpoint connecti
 ## Related articles
 If you're using MQTT, see the following articles:
 
-- [Configure IP firewall for Event Grid namespaces in MQTT scenarios](configure-firewall-mqtt.md)
-- [Configure private endpoints for Event Grid namespaces in MQTT scenarios](configure-private-endpoints-mqtt.md)
+- [Configure IP firewall for Event Grid namespaces in MQTT scenarios](mqtt-configure-firewall.md)
+- [Configure private endpoints for Event Grid namespaces in MQTT scenarios](mqtt-configure-private-endpoints.md)
 
 For pull-based event delivery, see the following articles:
 

@@ -7,6 +7,7 @@ ms.service: data-manager-for-agri
 ms.topic: conceptual
 ms.date: 11/17/2023
 ms.custom: template-concept
+show_latex: true
 ---
 
 # Using satellite imagery in Azure Data Manager for Agriculture 
