@@ -63,7 +63,7 @@ Some services in Azure have a special focused pre-built monitoring dashboard in 
 
 Azure Operator Insights collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/essentials/monitor-azure-resource#monitoring-data-from-Azure-resources). 
 
-See [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md) for detailed information on the metrics and logs metrics created by Azure Operator Insights.
+See [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md) for detailed information on the monitoring data created by Azure Operator Insights.
 
 > > [!WARNING]
 > INTERNAL INSTRUCTIONS: remove this note before publishing
@@ -93,27 +93,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-> [!WARNING]
-> INTERNAL INSTRUCTIONS: remove this note before publishing
-> REQUIRED. Please keep headings in this order 
-> If you don't support metrics, say so. Some services may be only onboarded to logs
-
-You can analyze metrics for Azure Operator Insights with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started) for details on using this tool. 
-
-For a list of the platform metrics collected for Azure Operator Insights, see [Monitoring Azure Operator Insights data reference metrics](monitor-operator-insights-data-reference.md#metrics)  
-
-> [!WARNING]
-> INTERNAL INSTRUCTIONS: remove this note before publishing
-> REQUIRED for services that use a Guest OS. That includes agent based services like Virtual Machines, Service Fabric, Cloud Services, and perhaps others. Delete the section otherwise.
-> Add additional information as appropriate.
-
-Guest OS metrics must be collected by agents running on the virtual machines hosting your service.  For more information, see [Overview of Azure Monitor agents](/azure/azure-monitor/platform/agents-overview)  
-
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
-
-> [!WARNING]
-> INTERNAL INSTRUCTIONS: remove this note before publishing
-> Optional: Call out additional information to help your customers. For example, you can include additional information here about how to use metrics explorer specifically for your service. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
+Azure Operator Insights doesn't provide metrics in Azure Monitor.
 
 ## Analyzing logs
 
@@ -226,5 +206,5 @@ The following table lists common and recommended alert rules for Azure Operator 
 
 ## Next steps
 
-- See [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md) for a reference of the metrics, logs, and other important values created by Azure Operator Insights.
+- See [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md) for a reference of the monitoring data created by Azure Operator Insights.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
