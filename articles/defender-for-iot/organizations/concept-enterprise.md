@@ -39,7 +39,7 @@ For more information, see [Alerts queue in Microsoft 365 Defender](/microsoft-36
 
 ### Recommendations
 
-The following security recommendations are supported for Enterprise IoT devices:
+The following Defender for Endpoint security recommendations are supported for Enterprise IoT devices:
 - **Require authentication for Telnet management interface**
 - **Disable insecure administration protocol – Telnet**
 - **Remove insecure administration protocols SNMP V1 and SNMP V2**
@@ -65,7 +65,7 @@ Enterprise IoT security encompasses a broad spectrum of devices, identified by D
 
 The supported devices include an extensive range of hardware models and vendors, spanning corporate IoT devices such as printers, cameras, and VoIP phones, among others.
 
-For more information, see [Defender for IoT devices](billing.md#defender-for-iot-devices)
+For more information, see [Defender for IoT devices](billing.md#defender-for-iot-devices).
 
 ### How can I start using Enterprise IoT?
 
