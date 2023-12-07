@@ -142,6 +142,56 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 > INTERNAL INSTRUCTIONS: remove this note before publishing
 > REQUIRED if you support logs. Please keep headings in this order
 > Add sample Log Analytics Kusto queries for your service.
+Following are queries that you can use to help you monitor your Azure Operator Insights resources:
+
++ All logs about rows which have failed to be digested:
+
+    ```kusto
+    AOIDigestion
+    | where Message startswith_cs "Failed to decode row"
+    | take 100
+    ```
+
++ Breakdown of files that could not be digested by the top-level directory that they were uploaded to (typically the SiteId):
+
+    ```kusto
+    AOIDigestion
+    | where Message startswith_cs "Failed to digest file"
+    | parse FilePath with Source:string "/" *
+    | summarize count() by Source
+    ```
+
++ List all the queries run on a dataproduct by a particular user:
+
+    ```kusto
+    AOIDatabaseQuery
+    | where DatabaseName has_cs "edrdp" and User has_cs "username@domain.com"
+    | take 100
+    ```
+
++ List all the ingestion operation performed on input storage of a dataproduct:
+
+    ```kusto
+    AOIStorage
+    | where Category has_cs "Ingestion"
+    | take 100
+    ```
+
++ List all delete operation performed on input storage of a dataproduct:
+
+    ```kusto
+    AOIStorage
+    | where Category has_cs "IngestionDelete"
+    | take 100
+    ```
+
++ List all Read operation performed on storage of a dataproduct:
+
+    ```kusto
+    AOIStorage
+    | where Category has_cs "ReadStorage"
+    | take 100
+    ```
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Operator Insights menu, Log Analytics is opened with the query scope set to the current Data Product. This means that log queries will only include data from that resource. If you want to run a query that includes data from other Data Products or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
