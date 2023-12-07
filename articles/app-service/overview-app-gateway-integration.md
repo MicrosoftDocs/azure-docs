@@ -93,7 +93,7 @@ An external App Service Environment has a public-facing load balancer like multi
 
 ## Considerations for a Kudu/SCM site
 
-The SCM site, also known as Kudu, is an admin site that exists for every web app. It isn't possible to reverse proxy the SCM site. You most likely also want to lock it down to individual IP addresses or a specific subnet.
+The SCM site, also known as Kudu, is an admin site that exists for every web app. It isn't possible to use reverse proxy for the SCM site. You most likely also want to lock it down to individual IP addresses or a specific subnet.
 
 If you want to use the same access restrictions as the main site, you can inherit the settings by using the following command:
 

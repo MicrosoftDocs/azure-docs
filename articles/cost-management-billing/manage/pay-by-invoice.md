@@ -157,6 +157,10 @@ Occasionally Microsoft needs legal documentation if the information you provided
 * Name difference between Account name and Company name
 * Change in name
 
+## Need help? Contact us.
+
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## Next steps
 
 * If needed, update your billing contact information at the [Azure portal](https://portal.azure.com).

@@ -31,6 +31,7 @@ The PowerShell module performs the following functions:
 - Migrates Virtual Machine Scale Set and Virtual Machine backend pool members from the Basic Load Balancer to the Standard Load Balancer.
 - Creates and associates a network security group with the Virtual Machine Scale Set or Virtual Machine to ensure load balanced traffic reaches backend pool members, following Standard Load Balancer's move to a default-deny network policy.
 - Upgrades instance-level Public IP addresses associated with Virtual Machine Scale Set or Virtual Machine instances
+- Upgrades [Inbound NAT Pools to Inbound NAT Rules](load-balancer-nat-pool-migration.md#why-migrate-to-nat-rules) for Virtual Machine Scale Set backends. Specify `-skipUpgradeNATPoolsToNATRules` to skip this upgrade.
 - Logs the upgrade operation for easy audit and failure recovery.
 
 >[!WARNING]
@@ -44,24 +45,47 @@ The PowerShell module performs the following functions:
 
 ### Unsupported Scenarios
 
-- Basic Load Balancers with IPV6 frontend IP configurations
+- Basic Load Balancers with IPv6 frontend IP configurations
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
 
+## Install the 'AzureBasicLoadBalancerUpgrade' module
+
 ### Prerequisites
 
-- **PowerShell**: A supported version of PowerShell version 7 or higher is the recommended version of PowerShell for use with the AzureBasicLoadBalancerUpgrade module on all platforms including Windows, Linux, and macOS. However, Windows PowerShell 5.1 is supported. 
+- **PowerShell**: A supported version of PowerShell version 7 or higher is recommended for use with the AzureBasicLoadBalancerUpgrade module on all platforms including Windows, Linux, and macOS. However, PowerShell 5.1 on Windows is supported. 
 - **Az PowerShell Module**: Determine whether you have the latest Az PowerShell module installed
   - Install the latest [Az PowerShell module](/powershell/azure/install-azure-powershell)
 - **Az.ResourceGraph PowerShell Module**: The Az.ResourceGraph PowerShell module is used to query resource configuration during upgrade and is a separate install from the Az PowerShell module. It will be automatically installed if you install the `AzureBasicLoadBalancerUpgrade` module using the `Install-Module` command as shown below. 
 
-## Install the 'AzureBasicLoadBalancerUpgrade' module
+### Module Installation
 
 Install the module from [PowerShell gallery](https://www.powershellgallery.com/packages/AzureBasicLoadBalancerUpgrade)
 
 ```powershell
 PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repository PSGallery -Force
 ```
+
+## Pre- and Post-migration Steps
+
+### Pre-migration steps
+
+- [Validate](#example-validate-a-scenario) that your scenario is supported
+- Plan for [application downtime](#how-long-does-the-upgrade-take) during migration
+- Develop inbound and outbound connectivity tests for your traffic
+- Plan for instance-level Public IP changes on Virtual Machine Scale Set instances (see note above)
+- [Recommended] Create Network Security Groups or add security rules to an existing Network Security Group for your backend pool members, allowing the traffic through the Load Balancer and any other traffic which will need to be explicitly allowed on public Standard SKU resources
+- [Recommended] Prepare your [outbound connectivity](../virtual-network/ip-services/default-outbound-access.md), taking one of the following approaches: 
+    - Add a NAT Gateway to your backend member's subnets 
+    - Add Public IP addresses to each backend Virtual Machine or [Virtual Machine Scale Set instance](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine)
+    - Plan to create [Outbound Rules](./outbound-rules.md) for Public Load Balancers with multiple backend pools post-migration
+
+### Post-migration steps
+
+- [Validate that your migration was successful](#example-validate-completed-migration)
+- Test inbound application connectivity through the Load Balancer
+- Test outbound connectivity from backend pool members to the Internet
+- For Public Load Balancers with multiple backend pools, create [Outbound Rules](./outbound-rules.md) for each backend pool 
 
 ## Use the module
 
@@ -84,54 +108,77 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
 
 4. Run the Upgrade command.
 
-### Example: upgrade a Basic Load Balancer to a Standard Load Balancer with the same name, providing the Basic Load Balancer name and resource group
+### Example: validate a scenario
+
+Validate that a Basic Load Balancer is supported for upgrade
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <load balancer resource group name> -BasicLoadBalancerName <existing Basic Load Balancer name>
+PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -validateScenarioOnly
 ```
 
-### Example: upgrade a Basic Load Balancer to a Standard Load Balancer with the specified name, displaying logged output on screen
+### Example: upgrade by name
+
+Upgrade a Basic Load Balancer to a Standard Load Balancer with the same name, providing the Basic Load Balancer name and resource group name
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <load balancer resource group name> -BasicLoadBalancerName <existing Basic Load Balancer name> -StandardLoadBalancerName <new Standard Load Balancer name> -FollowLog
+PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName>
 ```
 
-### Example: upgrade a Basic Load Balancer to a Standard Load Balancer with the specified name and store the Basic Load Balancer backup file at the specified path
+### Example: upgrade, change name, and show logs
+
+Upgrade a Basic Load Balancer to a Standard Load Balancer with the specified name, displaying logged output on screen
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <load balancer resource group name> -BasicLoadBalancerName <existing Basic Load Balancer name> -StandardLoadBalancerName <new Standard Load Balancer name> -RecoveryBackupPath C:\BasicLBRecovery
+PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -FollowLog
 ```
 
-### Example: validate a completed migration by passing the Basic Load Balancer state file backup and the Standard Load Balancer name
+### Example: upgrade with alternate backup path
+
+Upgrade a Basic Load Balancer to a Standard Load Balancer with the specified name and store the Basic Load Balancer backup file at the specified path
+
+```powershell
+PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -StandardLoadBalancerName <newStandardLBName> -RecoveryBackupPath C:\BasicLBRecovery
+```
+
+### Example: validate completed migration
+
+Validate a completed migration by passing the Basic Load Balancer state file backup and the Standard Load Balancer name
 
 ```powershell
 PS C:\> Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
 ```
 
-### Example: migrate multiple Load Balancers with shared backend members at the same time
+### Example: migrate multiple, related Load Balancers
+
+Migrate multiple Load Balancers with shared backend members at the same time, usually when an application has an internal and an external Load Balancer
 
 ```powershell
 # build array of multiple basic load balancers
 PS C:\> $multiLBConfig = @(
     @{
-        'standardLoadBalancerName' = 'myStandardLB01'
+        'standardLoadBalancerName' = 'myStandardInternalLB01' # specifying the standard load balancer name is optional
         'basicLoadBalancer' = (Get-AzLoadBalancer -ResourceGroupName myRG -Name myBasicInternalLB01)
     },
         @{
-        'standardLoadBalancerName' = 'myStandardLB02'
+        'standardLoadBalancerName' = 'myStandardExternalLB02'
         'basicLoadBalancer' = (Get-AzLoadBalancer -ResourceGroupName myRG -Name myBasicExternalLB02)
     }
 )
+# pass the array of load balancer configurations to the -MultiLBConfig parameter
 PS C:\> Start-AzBasicLoadBalancerUpgrade -MultiLBConfig $multiLBConfig
 ```
 
-### Example: retry a failed upgrade for a virtual machine scale set's load balancer (due to error or script termination) by providing the Basic Load Balancer and Virtual Machine Scale Set backup state file
+### Example: retry failed virtual machine scale set migration
+
+Retry a failed upgrade for a virtual machine scale set's load balancer (due to error or script termination) by providing the Basic Load Balancer and Virtual Machine Scale Set backup state file
 
 ```powershell
 PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json -FailedMigrationRetryFilePathVMSS C:\RecoveryBackups\VMSS_myVMSS_rg-basiclbrg_20220912T1740032148.json
 ```
 
-### Example: retry a failed upgrade for a VM load balancer (due to error or script termination) by providing the Basic Load Balancer backup state file
+### Example: retry failed virtual machine migration
+
+Retry a failed upgrade for a VM load balancer (due to error or script termination) by providing the Basic Load Balancer backup state file
 
 ```powershell
 PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
@@ -174,7 +221,8 @@ The script migrates the following from the Basic Load Balancer to the Standard L
 - Inbound NAT Rules:
   - All user-created NAT rules are migrated to the new Standard Load Balancer
 - Inbound NAT Pools:
-  - All inbound NAT Pools will be migrated to the new Standard Load Balancer
+  - By default, NAT Pools are upgraded to NAT Rules
+  - To migrate NAT Pools instead, specify the `-skipUpgradeNATPoolsToNATRules` parameter when upgrading
 - Backend pools:
   - All backend pools are migrated to the new Standard Load Balancer
   - All Virtual Machine Scale Set and Virtual Machine network interfaces and IP configurations are migrated to the new Standard Load Balancer
@@ -200,11 +248,11 @@ The script migrates the following from the Basic Load Balancer to the Standard L
 - Private frontend IP configuration
 
 >[!NOTE]
-> Network security group are not configured as part of Internal Load Balancer upgrade. To learn more about NSGs, see [Network security groups](../virtual-network/network-security-groups-overview.md)
+> Network security groups are not configured as part of Internal Load Balancer upgrade. To learn more about NSGs, see [Network security groups](../virtual-network/network-security-groups-overview.md)
 
 ### How do I migrate when my backend pool members belong to multiple Load Balancers?
 
-In a scenario where your backend pool members are also members of backend pools on another Load Balancer, such as when you have internal and external Load Balancers for the same application, the Basic Load Balancers need to be migrated at the same time. Trying to migrate the Load Balancers one at a time would attempt to mix Basic and Standard SKU resources, which is not allowed. The migration script supports this by passing multiple Basic Load Balancers into the same [script execution using the `-MultiLBConfig` parameter](#example-migrate-multiple-load-balancers-with-shared-backend-members-at-the-same-time). 
+In a scenario where your backend pool members are also members of backend pools on another Load Balancer, such as when you have internal and external Load Balancers for the same application, the Basic Load Balancers need to be migrated at the same time. Trying to migrate the Load Balancers one at a time would attempt to mix Basic and Standard SKU resources, which is not allowed. The migration script supports this by passing multiple Basic Load Balancers into the same [script execution using the `-MultiLBConfig` parameter](#example-migrate-multiple-related-load-balancers). 
 
 ### How do I validate that a migration was successful?
 
@@ -231,8 +279,9 @@ The basic failure recovery procedure is:
   1. Address the cause of the migration failure. Check the log file `Start-AzBasicLoadBalancerUpgrade.log` for details
   1. [Remove the new Standard Load Balancer](./update-load-balancer-with-vm-scale-set.md) (if created). Depending on which stage of the migration failed, you may have to remove the Standard Load Balancer reference from the Virtual Machine Scale Set or Virtual Machine network interfaces (IP configurations) and Health Probes in order to remove the Standard Load Balancer.
   1. Locate the Basic Load Balancer state backup file. This file will either be in the directory where the script was executed, or at the path specified with the `-RecoveryBackupPath` parameter during the failed execution. The file is named: `State_<basicLBName>_<basicLBRGName>_<timestamp>.json`
-  1. Rerun the migration script, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerbackupFilePath>` and `-FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` (for Virtual Machine Scaleset backends) parameters instead of -BasicLoadBalancerName or passing the Basic Load Balancer over the pipeline
+  1. Rerun the migration script, specifying the `-FailedMigrationRetryFilePathLB <BasicLoadBalancerbackupFilePath>` and `-FailedMigrationRetryFilePathVMSS <VMSSBackupFile>` (for Virtual Machine Scale set backends) parameters instead of -BasicLoadBalancerName or passing the Basic Load Balancer over the pipeline
 
 ## Next steps
 
+[If skipped, migrate from using NAT Pools to NAT Rules for Virtual Machine Scale Sets](load-balancer-nat-pool-migration.md)
 [Learn about Azure Load Balancer](load-balancer-overview.md)

@@ -10,14 +10,14 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
-# Quickstart: Provision an Azure Spring Apps service instance
+# Provision an Azure Spring Apps service instance
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
-This quickstart shows you how to provision a Basic or Standard plan Azure Spring Apps service instance.
+This article shows you how to provision a Basic or Standard plan Azure Spring Apps service instance.
 
 Azure Spring Apps supports multiple plans. For more information, see [Quotas and service plans for Azure Spring Apps](./quotas.md). To learn how to create service instances for other plans, see the following articles:
 
@@ -60,9 +60,6 @@ Use the following steps to create an instance of Azure Spring Apps:
 
 1. Select **Review and create**.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
-
 #### [Azure CLI](#tab/Azure-CLI)
 
 1. Use the following command to add or update the Azure Spring Apps extension for the Azure CLI:
@@ -92,13 +89,11 @@ Use the following steps to create an instance of Azure Spring Apps:
        --name <service-instance-name>
    ```
 
-   For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
-
 ---
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
+If you plan to continue working with subsequent tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
 az group delete --name <resource-group-name>

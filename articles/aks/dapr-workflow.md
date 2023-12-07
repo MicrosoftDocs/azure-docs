@@ -67,7 +67,7 @@ Create an AKS cluster.
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 2 --generate-ssh-keys 
 ```
 
-[Make sure `kubectl` is installed and pointed to your AKS cluster.][kubectl] If you use [the Azure Cloud Shell][az-cloud-shell], `kubectl` is already installed. 
+[Make sure `kubectl` is installed and pointed to your AKS cluster.][kubectl] If you use the Azure Cloud Shell, `kubectl` is already installed. 
 
 For more information, see the [Deploy an AKS cluster][cluster] tutorial.
 

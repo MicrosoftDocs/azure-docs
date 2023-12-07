@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS for a blob with Microsoft Entra credentials by using the Azure Storage client library for Java.
 services: storage
 author: pauljewellmsft
-
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/12/2023
-ms.author: pauljewell
 ms.reviewer: dineshm
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java

@@ -2,7 +2,7 @@
 title: Human-labeled transcriptions guidelines - Speech service
 titleSuffix: Azure AI services
 description: You use human-labeled transcriptions with your audio data to improve speech recognition accuracy. This is especially helpful when words are deleted or incorrectly replaced. 
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

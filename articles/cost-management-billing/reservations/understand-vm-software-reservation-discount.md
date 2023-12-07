@@ -2,15 +2,15 @@
 title: Understand how the Azure virtual machine software reservation discount is applied
 description: Learn how Azure virtual machine software reservation discount is applied before you buy.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
-# Understand how the virtual machine software reservation (Azure Marketplace) discount is applied
+# Understand how the virtual machine software reservations (VMSR) - Azure Marketplace discount is applied
 
 After you buy a virtual machine software reservation, the discount is automatically applied to deployed plan that matches the reservation. A software reservation only covers the cost of running the software plan you chose on an Azure VM.
 
@@ -22,7 +22,7 @@ Like Reserved VM Instances, virtual machine software reservation purchases offer
 
 For example, if you buy a virtual machine software reservation for a VM with one vCPU, the ratio for that reservation is 1 and using a two vCPU machine. It covers 50% of the cost if the ratio is 1:2. It's based on how the software plan was configured by the publisher.
 
-## Prepay for virtual machine software reservations
+## Prepay for virtual machine software reservations (VMSR)
 
 When you prepay for your virtual machine software usage (available in the Azure Marketplace), you can save money over your pay-as-you-go costs. The discount is automatically applied to a deployed plan that matches the reservation, not on the virtual machine usage. You can buy reservations for virtual machines separately for more savings.
 

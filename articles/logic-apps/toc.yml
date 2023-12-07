@@ -1,3 +1,4 @@
+items:
 - name: Azure Logic Apps documentation
   href: index.yml
 - name: Overview
@@ -67,6 +68,8 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
+  - name: Mainframe modernization
+    href: mainframe-modernization-overview.md
   - name: Business continuity and disaster recovery
     href: business-continuity-disaster-recovery-guidance.md
   - name: Security
@@ -86,6 +89,8 @@
       href: designer-overview.md
     - name: Create single-tenant workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
+    - name: Get AI-powered help from the workflow assistant
+      href: workflow-assistant-standard.md
     - name: Create single-tenant workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
     - name: Set up SQL storage for single-tenant workflows
@@ -178,8 +183,8 @@
       href: logic-apps-author-definitions.md
     - name: Handle content types
       href: logic-apps-content-type.md
-    - name: Handle exceptions
-      href: logic-apps-exception-handling.md
+    - name: Handle errors and exceptions
+      href: error-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
     - name: Handle long-running stored procedures for SQL connector
@@ -206,12 +211,12 @@
       href: connect-virtual-network-vnet-set-up-single-ip-address.md
     - name: Add resources to integration service environments
       href: add-artifacts-integration-service-environment-ise.md
-  - name: Access on-premises data
+  - name: Access on-premises data sources
     items:
-    - name: Install data gateway
-      href: logic-apps-gateway-install.md
-    - name: Connect to on-premises data
-      href: logic-apps-gateway-connection.md
+    - name: Install on-premises data gateway
+      href: install-on-premises-data-gateway.md
+    - name: Connect to on-premises data sources
+      href: connect-on-premises-data-sources.md
   - name: Develop for B2B scenarios
     items:
     - name: Integration account and artifacts
@@ -329,9 +334,15 @@
     - name: HTTP Webhook
       href: ../connectors/connectors-native-webhook.md
     - name: IBM 3270
-      href: ../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md
+      href: ../connectors/integrate-3270-apps-ibm-mainframe.md
+    - name: IBM CICS
+      href: ../connectors/integrate-cics-apps-ibm-mainframe.md
     - name: IBM DB2
       href: ../connectors/connectors-create-api-db2.md
+    - name: IBM Host File
+      href: ../connectors/integrate-host-files-ibm-mainframe.md
+    - name: IBM IMS
+      href: ../connectors/integrate-ims-apps-ibm-mainframe.md
     - name: IBM Informix
       href: ../connectors/connectors-create-api-informix.md
     - name: IBM MQ

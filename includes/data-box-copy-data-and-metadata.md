@@ -1,9 +1,9 @@
 ---
-author: sipastak
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 11/18/2022
-ms.author: sipastak
+ms.author: shaas
 ---
 
 ## Copying data and metadata
@@ -45,11 +45,11 @@ For more information on these `robocopy` parameters, see [Tutorial: Copy data to
 
 #### Use robocopy to list, copy, modify files on Data Box
 
-Here are some of the common scenarios you'll use when copying data using `robocopy`.
+Here are some of the common scenarios you use when copying data using `robocopy`.
 
 - **Copy only data to Data Box, no ACLs on directories and files**
 
-    Use the `/dcopy:DAT` option to only copy data, attributes, timestamps. ACLs on directories and files are not copied.
+    Use the `/dcopy:DAT` option to only copy data, attributes, timestamps. ACLs on directories and files aren't copied.
 
 - **Copy data and ACLs on directories and files to Data Box**
 
@@ -81,7 +81,7 @@ For more information, see [Using robocopy commands](/windows-server/administrati
 
 ### Linux data copy tools
 
-Transferring metadata in Linux is a two-step process. First, you copy the source data using a tool such as `rsync`, which does not copy metadata. After you copy the data, you can copy the metadata using a tool such as `smbcacls` or `cifsacl`.
+Transferring metadata in Linux is a two-step process. First, you copy the source data using a tool such as `rsync`, which doesn't copy metadata. After you copy the data, you can copy the metadata using a tool such as `smbcacls` or `cifsacl`.
 
 The following sample commands do the first step, copying the data using `rsync`. 
 

@@ -11,11 +11,18 @@ ms.date: 10/09/2023
 > 
 > Allow sufficient elapsed time for the deployment and onboarding process. For example, you might need wait up to two weeks for a new Azure Communications Gateway resource to be provisioned before you can connect it to your network. 
 
-You must own globally routable numbers that you can use for testing, as follows.
+You must own globally routable numbers for two types of testing:
+- Integration testing by your staff during deployment and integration
+- Service verification (continuous call testing) by your chosen communication services
 
-|Type of testing|Numbers required |
-|---------|---------|
-|Manual test calls made by you and/or Microsoft staff during integration testing |Minimum: 1|
-|Automated validation testing by Microsoft Teams test suites (Operator Connect and Teams Phone Mobile only) |Minimum: 6. Recommended: 9 (to run tests simultaneously).|
+The following table describes how many numbers you need to allocate.
 
-After deployment, the automated validation testing numbers for Operator Connect and Teams Phone Mobile use synthetic traffic to continuously check the health of your deployment.
+Service | Numbers for integration testing | Service verification numbers |
+|---------|---------|---------|
+|Operator Connect | 1 (minimum)| 6 |
+|Teams Phone Mobile | 1 (minimum) | 6 |
+|Microsoft Teams Direct Routing | 1 (minimum) |  None (not applicable) |
+|Zoom Phone Cloud Peering | 1 (minimum) | - 6 (US and Canada)<br>- 2 (rest of world)|
+
+> [!IMPORTANT]
+> Service verification numbers must be usable throughout the lifetime of your deployment.

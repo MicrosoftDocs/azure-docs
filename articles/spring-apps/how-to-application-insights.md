@@ -279,7 +279,7 @@ az spring app-insights update \
 
 ### Manage Application Insights buildpack bindings
 
-This section applies to the Enterprise plan only, and provides instructions that that supplement the previous section.
+This section applies to the Enterprise plan only, and provides instructions that supplement the previous section.
 
 The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 

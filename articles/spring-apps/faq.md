@@ -43,11 +43,11 @@ Azure Spring Apps intelligently schedules your applications on the underlying Ku
 
 ### In which regions is the Azure Spring Apps Basic/Standard plan available?
 
-East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, UK West, Sweden Central, Southeast Asia, Australia East, Canada Central, Canada East, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, Switzerland North, China East 2, China North 2, and China North 3. [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps).
 
 ### In which regions is the Azure Spring Apps Enterprise plan available?
 
-East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, UK West, Sweden Central, Southeast Asia, Australia East, Canada Central, Canada East, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, and Switzerland North.
+While the Azure Spring Apps Basic/Standard plan is available in regions of China, the Enterprise plan is not available in all regions on Azure China.
 
 ### Is any customer data stored outside of the specified region?
 

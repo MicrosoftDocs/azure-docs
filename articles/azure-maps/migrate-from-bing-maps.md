@@ -129,7 +129,7 @@ The following list contains common Bing Maps terms and their corresponding Azure
 | Bing Maps Term                    | Azure Maps Term                                                |
 |-----------------------------------|----------------------------------------------------------------|
 | Aerial                            | Satellite or Aerial                                            |
-| Directions                        | May also be referred to as Routing                             |
+| Directions                        | Might also be referred to as Routing                             |
 | Entities                          | Geometries or Features                                         |
 | `EntityCollection`                | Data source or Layer                                           |
 | `Geopoint`                        | Position                                                       |
@@ -157,7 +157,7 @@ Learn the details of how to migrate your Bing Maps application with these articl
 [Azure Active Directory authentication]: azure-maps-authentication.md#azure-ad-authentication
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Blog]: https://aka.ms/AzureMapsTechBlog
-[Azure Maps code samples]: https://aka.ms/AzureMapsSamples
+[Azure Maps code samples]: https://samples.azuremaps.com/
 [Azure Maps developer forums]: https://aka.ms/AzureMapsForums
 [Azure Maps Feedback (UserVoice)]: https://aka.ms/AzureMapsFeedback
 [Azure Maps is also available in Power BI]: power-bi-visual-get-started.md

@@ -272,10 +272,3 @@ Remove-AzResourceGroup @parameters
 1. On the **Are you sure you want to delete** dialog, enter the name of the resource group, and then select **Delete**.
 
 ---
-
-## Next steps
-
-In this quickstart, you learned how to create an Azure Cosmos DB for MongoDB account, create a database, and create a collection using the PyMongo driver. You can now dive deeper into the Azure Cosmos DB for MongoDB to import more data, perform complex queries, and manage your Azure Cosmos DB MongoDB resources.
-
-> [!div class="nextstepaction"]
-> [Options to migrate your on-premises or cloud data to Azure Cosmos DB](../migration-choices.md)

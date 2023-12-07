@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy applications using GitOps with Flux v2"
 description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
-ms.date: 10/10/2023
+ms.date: 12/01/2023
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-2022
 ---
@@ -490,6 +490,8 @@ To view detailed conditions for a configuration object, select its name.
 
 :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-object-conditions.png" alt-text="Screenshot showing condition details for a configuration object in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-object-conditions.png":::
 
+For more information, see [Monitor GitOps (Flux v2) status and activity](monitor-gitops-flux-2.md). 
+
 ---
 
 ## Work with parameters
@@ -606,14 +608,13 @@ Starting with [`microsoft.flux` v1.8.0](extensions-release.md#flux-gitops), you 
 
 1. Be sure to provide proper permissions for workload identity for the resource that you want source-controller or image-reflector controller to pull. For example, if using Azure Container Registry, `AcrPull` permissions are required.
 
-
 ## Delete the Flux configuration and extension
 
-Use the following commands to delete your Flux configuration and, if desired, the Flux extension itself.
+Use the following commands to delete your Flux configurations and, if desired, the Flux extension itself.
 
 ### [Azure CLI](#tab/azure-cli)
 
-#### Delete the Flux configuration
+#### Delete the Flux configurations
 
 The following command deletes both the `fluxConfigurations` resource in Azure and the Flux configuration objects in the cluster. Because the Flux configuration was originally created with the `prune=true` parameter for the kustomization, all of the objects created in the cluster based on manifests in the Git repository will be removed when the Flux configuration is removed. However, this command doesn't remove the Flux extension itself.
 
@@ -624,6 +625,9 @@ az k8s-configuration flux delete -g flux-demo-rg -c flux-demo-arc -n cluster-con
 #### Delete the Flux cluster extension
 
 When you delete the Flux extension, both the `microsoft.flux` extension resource in Azure and the Flux extension objects in the cluster will be removed.
+
+> [!IMPORTANT]
+> Be sure to delete all Flux configurations in the cluster before you delete the Flux extension. Deleting the extension without first deleting the Flux configurations may leave your cluster in an unstable condition.
 
 If the Flux extension was created automatically when the Flux configuration was first created, the extension name will be `flux`.
 
@@ -646,6 +650,9 @@ When you delete a Flux configuration, all of the Flux configuration objects in t
 
 When you delete the Flux extension, both the `microsoft.flux` extension resource in Azure and the Flux extension objects in the cluster will be removed.
 
+> [!IMPORTANT]
+> Be sure to delete all Flux configurations in the cluster before you delete the Flux extension. Deleting the extension without first deleting the Flux configurations may leave your cluster in an unstable condition.
+
 For an Azure Arc-enabled Kubernetes cluster, navigate to the cluster and select **Extensions**. Select the `flux` extension and select **Uninstall**, then confirm the deletion.
 
 For AKS clusters, you can't use the Azure portal to delete the extension. Instead, use the following Azure CLI command:
@@ -660,3 +667,4 @@ az k8s-extension delete -g <resource-group> -c <cluster-name> -n flux -t managed
 
 * Read more about [configurations and GitOps](conceptual-gitops-flux2.md).
 * Learn how to [use Azure Policy to enforce GitOps at scale](./use-azure-policy-flux-2.md).
+* Learn about [monitoring GitOps (Flux v2) status and activity](monitor-gitops-flux-2.md).

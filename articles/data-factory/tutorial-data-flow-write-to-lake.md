@@ -120,6 +120,6 @@ The techniques listed in the above tutorials are good use cases for creating fol
 1. Pick the column that you wish to use for generating file names.
 1. To manipulate the data values, or even if need to generate synthetic values for file names, use the Derived Column transformation to create the values you wish to use in your file names.
 
-## Next steps
+## Related content
 
 Learn more about [data flow sinks](data-flow-sink.md).

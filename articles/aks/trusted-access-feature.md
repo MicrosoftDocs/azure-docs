@@ -4,7 +4,7 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 05/23/2023
+ms.date: 12/04/2023
 ms.author: schaffererin
 ---
 
@@ -25,6 +25,9 @@ Trusted Access addresses the following scenarios:
 This article shows you how to enable secure access from your Azure services to your Kubernetes API server in AKS using Trusted Access.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+> [!NOTE]
+> The Trusted Access API is GA. We provide GA support for CLI, however it's still in preview and requires the `aks-preview` extension.
 
 ## Trusted Access feature overview
 

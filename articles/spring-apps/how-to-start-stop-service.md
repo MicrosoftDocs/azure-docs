@@ -99,7 +99,18 @@ az spring show \
 
 ---
 
+## Troubleshoot failed resource provisioning during startup
+
+When you start a service instance, you might get an error message even if the `ProvisioningState` is `Succeeded`. This error message helps you identify the resources that failed to start or the settings that weren't applied.
+
+You might receive an error message similar to the following example: `Failed to start the following resource(s) or apply setting(s): [<failed resource list>]. Please check and update them accordingly.`
+
+The following list describes some common actions you can take to recover from these failures:
+
+- Identify the failed resources: Refer to the `<failed resource list>` section in the error message to identify the resources that failed to start or the settings that failed to apply.
+- Investigate and mitigate: Examine each listed resource, check failure logs if available, and make necessary mitigations. These mitigations could involve updating the specific resources that failed to start or reapplying the affected settings.
+
 ## Next steps
 
 - [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md)
-- [Azure Monitor cost and usage](../azure-monitor/usage-estimated-costs.md)
+- [Azure Monitor cost and usage](../azure-monitor/cost-usage.md)

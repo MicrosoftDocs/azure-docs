@@ -235,7 +235,7 @@ The preceding sample is for a console app, but the same code can be used in any 
 | Capabilities |Live Stream | Metrics explorer and Log Analytics |
 |---|---|---|
 |Latency|Data displayed within one second.|Aggregated over minutes.|
-|No retention|Data persists while it's on the chart and is then discarded.|[Data retained for 90 days.](./data-retention-privacy.md#how-long-is-the-data-kept)|
+|No retention|Data persists while it's on the chart and is then discarded.|[Data retained for 90 days.](/previous-versions/azure/azure-monitor/app/data-retention-privacy#how-long-is-the-data-kept)|
 |On demand|Data is only streamed while the Live Metrics pane is open. |Data is sent whenever the SDK is installed and enabled.|
 |Free|There's no charge for Live Stream data.|Subject to [pricing](../logs/cost-logs.md#application-insights-billing).
 |Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. |Events can be [sampled](./api-filtering-sampling.md).|
@@ -450,6 +450,6 @@ If you open the Live Metrics pane, the SDKs switch to a higher frequency mode an
 ## Next steps
 
 * [Monitor usage with Application Insights](./usage-overview.md)
-* [Use Diagnostic Search](./search-and-transaction-diagnostics.md?tabs=transaction-search)
+* [Use Diagnostic Search](./transaction-search-and-diagnostics.md?tabs=transaction-search)
 * [Profiler](./profiler.md)
 * [Snapshot Debugger](./snapshot-debugger.md)

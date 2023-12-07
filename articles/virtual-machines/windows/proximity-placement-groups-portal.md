@@ -54,7 +54,7 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 
 ## Add VMs in an availability set to a proximity placement group
 
-If the VM is part of the Availability set, you need to add the availability set into the the placement group, before adding the VMs.
+If the VM is part of the Availability set, you need to add the availability set into the placement group, before adding the VMs.
 
 1. In the [portal](https://portal.azure.com) search for *Availability sets* and select your availability set from the results.
 1. Stop\deallocate each VM in the availability set by selecting the VM, then selecting **Stop** on the page for the VM, and then select **OK** to stop the VM.

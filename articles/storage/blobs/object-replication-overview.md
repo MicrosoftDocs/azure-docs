@@ -222,7 +222,7 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 |Storage cost of the blob and each blob version<sup>1</sup>|Transaction cost to read the blob and blob versions<sup>2</sup>|
 |Cost to add a change feed record|Transaction cost to write the blob and blob versions<sup>2</sup>|
 ||Storage cost of the blob and each blob version<sup>1</sup>|
-||Cost of network egress<sup>2</sup>|
+||Cost of network egress<sup>3</sup>|
 
 
 

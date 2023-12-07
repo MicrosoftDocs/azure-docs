@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 08/22/2023
+ms.date: 12/05/2023
 ms.author: cshoe
 ---
 
@@ -59,9 +59,9 @@ The following table describes the role of each revision created for you:
 | `<extensionName>-k8se-envoy-controller` | Operator, which generates Envoy configuration | 2 | 200 millicpu | 500 MB | ReplicaSet |
 | `<extensionName>-k8se-event-processor` | An alternative routing destination to help with apps that have scaled to zero while the system gets the first instance available. | 2 | 100 millicpu | 500 MB | ReplicaSet |
 | `<extensionName>-k8se-http-scaler` | Monitors inbound request volume in order to provide scaling information to [KEDA](https://keda.sh). | 1 | 100 millicpu | 500 MB | ReplicaSet |
-| `<extensionName>-k8se-keda-cosmosdb-scaler` | Keda Cosmos DB Scaler | 1 | 10 m | 128 MB | ReplicaSet |
-| `<extensionName>-k8se-keda-metrics-apiserver` | Keda Metrics Server | 1 | 1 Core | 1000 MB | ReplicaSet |
-| `<extensionName>-k8se-keda-operator` | Manages component updated and service endpoints for Dapr | 1 | 100 millicpu | 500 MB | ReplicaSet |
+| `<extensionName>-k8se-keda-cosmosdb-scaler` | KEDA Cosmos DB Scaler | 1 | 10 m | 128 MB | ReplicaSet |
+| `<extensionName>-k8se-keda-metrics-apiserver` | KEDA Metrics Server | 1 | 1 Core | 1000 MB | ReplicaSet |
+| `<extensionName>-k8se-keda-operator` | Scales workloads in and out from 0/1 to N instances | 1 | 100 millicpu | 500 MB | ReplicaSet |
 | `<extensionName>-k8se-log-processor` | Gathers logs from apps and other components and sends them to Log Analytics. | 2 | 200 millicpu | 500 MB | DaemonSet |
 | `<extensionName>-k8se-mdm` | Metrics and Logs Agent | 2 | 500 millicpu | 500 MB | ReplicaSet |
 | dapr-metrics | Dapr metrics pod | 1 | 100 millicpu | 500 MB | ReplicaSet |
@@ -171,6 +171,18 @@ ARM64 based clusters aren't supported at this time.
  - Add volume mount support for Azure Container App jobs
  - Added IP Restrictions for applications with TCP Ingress type
  - Added support for Container Apps with multiple exposed ports
+
+### Container Apps extension v1.23.5 (December 2023)
+
+ - Update Envoy to 1.27.2
+ - Update KEDA to v2.10.0
+ - Update EasyAuth to 1.6.20
+ - Update Dapr to 1.11
+ - Set Envoy to max TLS 1.3
+ - Fix to resolve crashes in Log Processor pods
+ - Fix to image pull secret retrieval issues
+ - Update placement of Envoy to distribute across available nodes where possible
+ - When container apps fail to provision as a result of revision conflicts, set the provisioning state to failed
  
 ## Next steps
 

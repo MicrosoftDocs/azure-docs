@@ -2,7 +2,7 @@
 title: Image categorization - Azure AI Vision
 titleSuffix: Azure AI services
 description: Learn concepts related to the image categorization feature of the Image Analysis API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
