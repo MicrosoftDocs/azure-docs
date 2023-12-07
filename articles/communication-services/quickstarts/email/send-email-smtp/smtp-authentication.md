@@ -11,6 +11,9 @@ ms.service: azure-communication-services
 ---
 
 # Quickstart: How to create authentication credentials for sending emails using SMTP
+
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-document.md)]
+
 In this quick start, you learn about how to use an Entra application to create the authentication credentials for using SMTP to send an email using Azure Communication Services.
 
 ## Prerequisites
@@ -74,6 +77,8 @@ Azure Communication Services allows the credentials for an Entra application to 
 
 **Format:**
 ```
+username: <Azure Communication Services Resource name>.<Entra Application ID>.<Entra Tenant ID>
+OR
 username: <Azure Communication Services Resource name>|<Entra Application ID>|<Entra Tenant ID>
 ```
 #### SMTP Authentication Password

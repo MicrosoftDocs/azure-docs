@@ -21,6 +21,21 @@ Azure portal users will always find the latest image available for provisioning 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+## December 5, 2023
+
+DSVM offering for [Data Science VM – Windows 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2022?tab=Overview) is now generally available in the marketplace.
+
+Version `23.11.23`
+
+Main changes:
+
+- SDK `1.54.0`
+- numba
+- Scipy
+- `azure-core` to version `1.29.4`
+- `azure-identity` to version `1.14.0`
+- `azure-storage-queue` to version `12.7.2`
+
 ## July 26, 2023
 
 New DSVM offering for [Data Science VM – Windows 2022 (Preview)](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.dsvm-win-2022?tab=Overview) is currently live in the marketplace.
