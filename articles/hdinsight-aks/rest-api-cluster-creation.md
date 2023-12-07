@@ -35,7 +35,10 @@ Variables required in the script
   /subscriptions/<subscription ID>/resourcegroups/<resource group name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<Managed identity name>
   ```
 - MSI client ID
-- MSI object ID 
+- MSI object ID
+  
+  :::image type="content" source="./media/rest-api-cluster-creation/rest-api.png" alt-text="Screenshot shows overview." lightbox="./media/rest-api-cluster-creation/rest-api.png":::
+  
 - [Microsoft Entra user ID](/partner-center/find-ids-and-domain-names)
 - [HDInsight on AKS VM list](/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning)
 - recommendation-capacity-planning 
