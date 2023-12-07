@@ -41,6 +41,6 @@ Dec 2023 preview release is now available.
 ### Release notes
 
 #### Arc-enabled SQL Server
-Arc SQL Server | Show the Data Processing Service (DPS) connectivity status in the Azure Portal | GA
+Arc SQL Server | Show the Data Processing Service (DPS) connectivity status in the Azure portal | GA
 
-Arc SQL Server | Monitoring | Add IOPS, Queue Latency Storage IO charts in Performance Dashboard in Azure Porta
+Arc SQL Server | Monitoring | Add IOPS, Queue Latency Storage IO charts in Performance Dashboard in Azure portal
