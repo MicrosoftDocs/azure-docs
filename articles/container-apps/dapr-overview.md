@@ -11,22 +11,13 @@ ms.date: 08/28/2023
 
 # Dapr integration with Azure Container Apps
 
-The Distributed Application Runtime ([Dapr][dapr-concepts]) is a set of incrementally adoptable features that simplify the authoring of distributed, microservice-based applications. For example, Dapr provides capabilities for enabling application intercommunication, whether through messaging via pub/sub or reliable and secure service-to-service calls. Once Dapr is enabled for a container app, a secondary process is created alongside your application code that enables communication with Dapr via HTTP or gRPC.
+[Distributed Application Runtime (Dapr)][dapr-concepts] APIs run as a sidecar process that helps you write and implement simple, portable, resilient, and secured microservices. Dapr works as an abstraction layer, simplifying common complexities related to application intercommunication. Enabling Dapr on your container app creates a secondary process alongside your application code that enables communication with Dapr via HTTP or gRPC.
 
-Dapr's APIs are built on best practice industry standards, that:
+Dapr works together with Azure Container Apps to provide a low-maintenance, serverless, and scalable platform. This guide provides insight into core Dapr concepts and details regarding the Dapr interaction model in Azure Container Apps.
 
-- Seamlessly fit with your preferred language or framework
-- Are incrementally adoptable; you can use one, several, or all dapr capabilities depending on your application's needs
+## Dapr APIs available in Azure Container Apps
 
-Dapr is an open source, [Cloud Native Computing Foundation (CNCF)][dapr-cncf] project. The CNCF is part of the Linux Foundation and provides support, oversight, and direction for fast-growing, cloud native projects. As an alternative to deploying and managing the Dapr OSS project yourself, the Container Apps platform:
-
-- Provides a managed and supported Dapr integration
-- Handles Dapr version upgrades seamlessly
-- Exposes a simplified Dapr interaction model to increase developer productivity
-
-This guide provides insight into core Dapr concepts and details regarding the Dapr interaction model in Container Apps.
-
-## Dapr APIs
+Azure Container Apps offers fully-managed versions of the following _stable_ Dapr APIs (building blocks). To learn more about using alpha APIs and features, [see the Dapr FAQ][dapr-faq].
 
 :::image type="content" source="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" alt-text="Diagram that shows Dapr APIs.":::
 
@@ -40,10 +31,6 @@ This guide provides insight into core Dapr concepts and details regarding the Da
 | [**Observability**](./observability.md)               | Send tracing information to an Application Insights backend.                                                                                                    |
 | [**Secrets**][dapr-secrets]                           | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
-
-
-> [!NOTE]
-> The above table covers stable Dapr APIs. To learn more about using alpha APIs and features, [see the Dapr FAQ][dapr-faq].
 
 ## Dapr concepts overview
 
@@ -338,17 +325,9 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 
 ## Limitations
 
-### Unsupported Dapr capabilities
-
-- **Custom configuration for Dapr Observability**: Instrument your environment with Application Insights to visualize distributed tracing.
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
-- **Invoking non-Dapr services from Dapr as if they were Dapr-enabled**: Dapr's Service Invocation with Azure Container Apps is supported only between Dapr-enabled services.
-- **Declarative pub/sub subscriptions**
 - **Any Dapr sidecar annotations not listed above**
 - **Alpha APIs and components**: Azure Container Apps doesn't guarantee the availability of Dapr alpha APIs and features. For more information, refer to the [Dapr FAQ][dapr-faq].
-
-### Known limitations
-
 - **Actor reminders**: Require a minReplicas of 1+ to ensure reminders is always active and fires correctly.
 - **Jobs**: Dapr isn't supported for jobs.
 
