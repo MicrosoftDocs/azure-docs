@@ -31,8 +31,8 @@ To get started with your codespace:
    | Parameter | Value |
    | --------- | ----- |
    | SUBSCRIPTION_ID | Your Azure subscription ID. |
-   | RESOURCE_GROUP | An existing Azure resource group where your cluster will be created. |
-   | LOCATION | An Azure region close to you. The following regions are supported in public preview: eastus, eastus2, westus, westus2, westus3, westeurope, or northeurope. |
+   | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. Remember the resource group name to use in the following CLI commands. |
+   | LOCATION | An Azure region close to you. The following regions are supported in public preview: eastus, eastus2, westus, westus2, westus3, westeurope, or northeurope. Remember the region you choose to use in the following CLI commands. |
 
 1. Select **Create new codespace**.
 
