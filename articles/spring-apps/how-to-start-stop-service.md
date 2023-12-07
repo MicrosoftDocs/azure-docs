@@ -105,7 +105,7 @@ When starting the service, you may sometimes find that the service’s Provision
 Failed to start the following resource(s) or apply setting(s): [<failed resource list>]. Please check and update them accordingly.
 ```
 
-This error message means some resources failed to provision, here’s what to do:
+The error message indicates problems with resource(s) provisioning or starting. Here's what you should do:
 - Identify the failed resources: Refer to the `<failed resource list>` in the error message to identify the resources that failed to start.
 - Investigate and mitigate: Examine each listed resource, check failure logs if available, and make necessary mitigations. This mitigation could involve reapplying some settings or updating some resources.
 
