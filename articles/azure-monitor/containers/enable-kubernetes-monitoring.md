@@ -11,8 +11,8 @@ ms.reviewer: aul
 
 Complete monitoring for a managed Kubernetes cluster hosted on [Azure Kubernetes Service (AKS)](../../aks/index.yml) includes enabling the following features of Azure Monitor. This article describes how to enable these features on for complete monitoring of an AKS cluster.
 
-- [Container insights](./container-insights-overview.md) for log collection
 - [Managed Prometheus](../essentials/prometheus-metrics-overview.md) for metric collection
+- [Container insights](./container-insights-overview.md) for log collection
 - [Managed Grafana](../../managed-grafana/overview.md) for visualization.
 
 Using the Azure portal, you can enable all of the features at the same time. You can also enable them individually by using the Azure portal, Azure CLI, Azure Resource Manager template, Bicep, Terraform, or Azure Policy. Each of these methods is described in this article.
@@ -28,9 +28,27 @@ This article applies to the following clusters:
 
 ## Prerequisites
 
-- Verify the [firewall requirements for Container insights](./container-insights-onboard.md#network-firewall-requirements) in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
-- If you are using an Arc enabled cluster on AKS, and previously installed [monitoring for AKS](./container-insights-enable-existing-clusters.md), please ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install.
-- If you had previously deployed Azure Monitor Container Insights on this cluster using script without cluster extensions, follow the instructions at [here](container-insights-optout-hybrid.md) to delete this Helm chart. You can then continue to creating a cluster extension instance for Azure Monitor Container Insights.
+**Permissions**
+
+  - You require at least [Contributor](../../role-based-access-control/built-in-roles.md#contributor) access to the cluster.
+  - To view data after monitoring is enabled, you must have [Monitoring Reader](../roles-permissions-security.md#monitoring-reader) or [Monitoring Contributor](../roles-permissions-security.md#monitoring-contributor) role.
+
+
+**Workspaces**
+
+Each of the features requires a workspace. You can create each workspace as part of the onboarding process or use an existing workspace. 
+
+| Feature | Workspace | Notes |
+|:---|:---|:---|
+| Prometheus | [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) | `Contributor` permission is enough for enabling the addon to send data to the Azure Monitor workspace. You will need `Owner` level permission in case you're trying to link your Azure Monitor Workspace to view metrics in Azure Managed Grafana. This is required because the user executing the onboarding step, needs to be able to give the Azure Managed Grafana System Identity `Monitoring Reader` role on the Azure Monitor Workspace to query the metrics. |
+| Container insights | [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) | You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Microsoft Entra tenant, but you must use the Azure CLI or an Azure Resource Manager template. You can't currently perform this configuration with the Azure portal.<br><br>If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the *Microsoft.ContainerService* resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).<br><br>For a list of the supported mapping pairs to use for the default workspace, see [Region mappings supported by Container insights](container-insights-region-mapping.md). |
+
+
+**Arc-Enabled Kubernetes clusters**
+
+- Verify the [firewall requirements](#network-firewall-requirements) in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
+- If you previously installed monitoring for AKS, ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install.
+- If you previously installed monitoring on this cluster using script without cluster extensions, follow the instructions at [Disable Container insights on your hybrid Kubernetes cluster](container-insights-optout-hybrid.md) to delete this Helm chart.
 
 
 **Prometheus requirements**
@@ -41,244 +59,6 @@ This article applies to the following clusters:
   - Microsoft.Insights
   - Microsoft.AlertsManagement
 
-**Workspaces**
-
-Each of the features requires a workspace. You can create each workspace as part of the onboarding process or use an existing workspace. 
-
-| Feature | Workspace | Notes |
-|:---|:---|:---|
-| Container insights | [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) | You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Microsoft Entra tenant, but you must use the Azure CLI or an Azure Resource Manager template. You can't currently perform this configuration with the Azure portal.<br><br>If you're connecting an existing AKS cluster to a Log Analytics workspace in another subscription, the *Microsoft.ContainerService* resource provider must be registered in the subscription with the Log Analytics workspace. For more information, see [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).<br><br> |
-| Prometheus | [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md) | `Contributor` permission is enough for enabling the addon to send data to the Azure Monitor workspace. You will need `Owner` level permission in case you're trying to link your Azure Monitor Workspace to view metrics in Azure Managed Grafana. This is required because the user executing the onboarding step, needs to be able to give the Azure Managed Grafana System Identity `Monitoring Reader` role on the Azure Monitor Workspace to query the metrics. |
-| Grafana | [Grafana workspace]() | |
-
-
-## Enable full monitoring with Azure portal
-Using the Azure portal, you can enable both Container insights and Managed Prometheus at the same time. This deploys the containerized version of the Azure Monitor agent which collects data for Container insights and the metrics addon which collects Prometheus metrics.
-
-> [!NOTE]
-> If you want to enabled Managed Prometheus without Container insights, then [enable it from the Azure Monitor workspace](./prometheus-metrics-enable.md) as described below.
-
-### New AKS cluster
-
-When you create a new AKS cluster in the Azure portal, you can enable Prometheus, Container insights, and Grafana from the **Integrations** tab. In the Azure Monitor section, select either **Default configuration** or **Custom configuration** if you want to specify which workspaces to use. You can perform additional configuration once the cluster is created.
-
-:::image type="content" source="media/prometheus-metrics-enable/aks-integrations.png" lightbox="media/prometheus-metrics-enable/aks-integrations.png" alt-text="Screenshot of integrations tab for new AKS cluster.":::
-
-### Existing cluster
-
-This option enables Container insights and optionally Prometheus and Grafana on an existing AKS cluster.
-
-1. Either select **Insights** from the cluster's menu OR select **Containers** from the **Monitor** menu, **Unmonitored clusters** tab, and click **Enable** next to a cluster.
-   1. If Container insights isn't enabled for the cluster, then you're presented with a screen identifying which of the features have been enabled. Click **Configure monitoring**.
-
-    :::image type="content" source="media/aks-onboard/configure-monitoring-screen.png" lightbox="media/aks-onboard/configure-monitoring-screen.png" alt-text="Screenshot that shows the configuration screen for a cluster.":::
-
-   2. If Container insights has already been enabled on the cluster, select the **Monitoring Settings** button to modify the configuration.
-
-    :::image type="content" source="media/aks-onboard/monitor-settings-button.png" lightbox="media/aks-onboard/monitor-settings-button.png" alt-text="Screenshot that shows the monitoring settings button for a cluster.":::
-
-2. **Container insights** will be enabled. **Select** the checkboxes for **Enable Prometheus metrics** and **Enable Grafana** if you also want to enable them for the cluster. If you have existing Azure Monitor workspace and Grafana workspace, then they're selected for you. 
-
-    :::image type="content" source="media/prometheus-metrics-enable/configure-container-insights.png" lightbox="media/prometheus-metrics-enable/configure-container-insights.png" alt-text="Screenshot that shows the dialog box to configure Container insights with Prometheus and Grafana.":::
-
-3. Click **Advanced settings** to select alternate workspaces or create new ones. The **Cost presets** setting allows you to modify the default collection details to reduce your monitoring costs. See [Enable cost optimization settings in Container insights](./container-insights-cost-config.md) for details.
-
-    :::image type="content" source="media/aks-onboard/advanced-settings.png" lightbox="media/aks-onboard/advanced-settings.png" alt-text="Screenshot that shows the advanced settings dialog box.":::
-
-4. Click **Configure** to save the configuration.
-
-### Prometheus only
-
-This option enables Prometheus metrics on a cluster without enabling Container insights.
-
-1. Open the **Azure Monitor workspaces** menu in the Azure portal and select your workspace.
-1. Select **Monitored clusters** in the **Managed Prometheus** section to display a list of AKS clusters.
-1. Select **Configure** next to the cluster you want to enable.
-
-    :::image type="content" source="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" lightbox="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" alt-text="Screenshot that shows an Azure Monitor workspace with a Prometheus configuration.":::
-
-
-## Enable Container insights
-Use the following options to enable Container insights on your AKS cluster.
-
-
-### [CLI](#tab/cli)
-
-Use one of the following commands to enable monitoring of your AKS and Arc-enabled clusters. If you don't specify an existing Log Analytics workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format `DefaultWorkspace-<GUID>-<Region>`.
-
-> [!NOTE]
-> Managed identity authentication will be default in CLI version 2.49.0 or higher. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](container-insights-logs-schema.md) via the ConfigMap.
-
-#### AKS cluster
-Use one of the following commands to enable monitoring of your AKS cluster. If you don't specify an existing Log Analytics workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format `DefaultWorkspace-<GUID>-<Region>`.
-
-```azurecli
-### Use default Log Analytics workspace
-az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name>
-
-### Use existing Log Analytics workspace
-az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id <workspace-resource-id>
-```
-
-**Example**
-
-```azurecli
-az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
-```
-
-
-#### Arc-enabled cluster
-
->[!NOTE]
-> Managed identity authentication is the default in k8s-extension version 1.43.0 or higher.
-> 
-> Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with **ARO**.
-
-```azurecli
-### Use default Log Analytics workspace
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
-
-### Use existing Log Analytics workspace
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=<armResourceIdOfExistingWorkspace>
-
-### Use advanced configuration settings
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  amalogs.resources.daemonset.limits.cpu=150m amalogs.resources.daemonset.limits.memory=600Mi amalogs.resources.deployment.limits.cpu=1 amalogs.resources.deployment.limits.memory=750Mi
-
-### On Azure Stack Edge
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.logsettings.custommountpath=/home/data/docker
-
-```
-
-**Example**
-
-```azurecli
-az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
-```
-
-
-
-### [Azure Resource Manager](#tab/arm)
-
-#### Prerequisites
- 
-- The template must be deployed in the same resource group as the cluster.
-
-#### Download and install template
-
-1. Download the template and parameter file.
-
-    **AKS ARM**
-   - Template file: [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file)
-   - Parameter file: [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file)
-
-    **AKS Bicep**
-    - Template file (Syslog): [https://aka.ms/enable-monitoring-msi-syslog-bicep-template](https://aka.ms/enable-monitoring-msi-syslog-bicep-template)
-    - Parameter file (No Syslog): [https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters](https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters)
-    - Template file (No Syslog): [https://aka.ms/enable-monitoring-msi-bicep-template](https://aka.ms/enable-monitoring-msi-bicep-template)
-    - Parameter file (No Syslog): [https://aka.ms/enable-monitoring-msi-bicep-parameters](https://aka.ms/enable-monitoring-msi-bicep-parameters)
-
-    **Arc-Enabled ARM**
-    - Template file: [https://aka.ms/arc-k8s-azmon-extension-arm-template](https://aka.ms/arc-k8s-azmon-extension-arm-template)
-    - Parameter file: [https://aka.ms/arc-k8s-azmon-extension-arm-template-params](https://aka.ms/arc-k8s-azmon-extension-arm-template-params)
-
-2. Edit the following values in the parameter file. Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
-
-    **AKS**
-
-    | Parameter | Description |
-    |:---|:---|
-    | `aksResourceId` | Resource ID of the cluster. |
-    | `aksResourceLocation` | Location of the cluster. |
-    | `workspaceResourceId` | Resource ID of the Log Analytics workspace. |
-    | `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be `MSCI-<clusterName>-<clusterRegion>` and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
-
-    **Arc-enabled**
-
-    | Parameter | Description |
-    |:---|:---|
-    | `clusterResourceId` | Resource ID of the cluster. |
-    | `clusterRegion` | Location of the cluster. |
-    | `workspaceResourceId` | Resource ID of the Log Analytics workspace. |
-    | `workspaceRegion` | Region of the Log Analytics workspace. |
-    | `workspaceDomain` | Domain of the Log Analytics workspace. `opinsights.azure.com` for Azure public cloud and `opinsights.azure.us for AzureUSGovernment.` 
-
-3. Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
-
-
-
-### [Terraform](#tab/terraform)
-
-#### New AKS cluster
-
-1.	Download Terraform template file depending on whether you want to enable Syslog collection.
-
-    **Syslog**
-    - [https://aka.ms/enable-monitoring-msi-syslog-terraform](https://aka.ms/enable-monitoring-msi-syslog-terraform)
-
-    **No Syslog** 
-    - [https://aka.ms/enable-monitoring-msi-terraform](https://aka.ms/enable-monitoring-msi-terraform)
-
-2.	Adjust the `azurerm_kubernetes_cluster` resource in *main.tf* based on your cluster settings.
-3.	Update parameters in *variables.tf* to replace values in "<>"
-
-    | Parameter | Description |
-    |:---|:---|
-    | `aks_resource_group_name` | Use the values on the AKS Overview page for the resource group. |
-    | `resource_group_location` | Use the values on the AKS Overview page for the resource group. |
-    | `cluster_name` | Define the cluster name that you would like to create. |
-    | `workspace_resource_id` | Use the resource ID of your Log Analytics workspace. |
-    | `workspace_region` | Use the location of your Log Analytics workspace. |
-    | `resource_tag_values` | Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will match `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values. |
-    | `enabledContainerLogV2` | Set this parameter value to be true to use the default recommended ContainerLogV2. |
-    | Cost optimization parameters | Refer to [Data collection parameters](container-insights-cost-config.md#data-collection-parameters) |
-
-
-4.	Run `terraform init -upgrade` to initialize the Terraform deployment.
-5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
-6.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
-
-
-#### Existing AKS cluster
-1.	Import the existing cluster resource first with the command: ` terraform import azurerm_kubernetes_cluster.k8s <aksResourceId>`
-2.	Add the oms_agent add-on profile to the existing azurerm_kubernetes_cluster resource.
-    ```
-    oms_agent {
-        log_analytics_workspace_id = var.workspace_resource_id
-        msi_auth_for_monitoring_enabled = true
-      }
-    ```
-3.	Copy the DCR and DCRA resources from the Terraform templates
-4.	Run `terraform plan -out main.tfplan` and make sure the change is adding the oms_agent property. Note: If the `azurerm_kubernetes_cluster` resource defined is different during terraform plan, the existing cluster will get destroyed and recreated.
-5.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
-
-> [!TIP]
-> - Edit the `main.tf` file appropriately before running the terraform template
-> - Data will start flowing after 10 minutes since the cluster needs to be ready first
-> - WorkspaceID needs to match the format `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.OperationalInsights/workspaces/workspaceValue`
-> - If resource group already exists, run `terraform import azurerm_resource_group.rg /subscriptions/<Subscription_ID>/resourceGroups/<Resource_Group_Name>` before terraform plan
-
-### [Azure Policy](#tab/policy)
-
-1. Download Azure Policy template and parameter files.
-
-   - Template file: [https://aka.ms/enable-monitoring-msi-azure-policy-template](https://aka.ms/enable-monitoring-msi-azure-policy-template)
-   - Parameter file: [https://aka.ms/enable-monitoring-msi-azure-policy-parameters](https://aka.ms/enable-monitoring-msi-azure-policy-parameters)
-
-2. Create the policy definition and assignment using the following CLI commands:
-
-    ```
-    ### Create policy definition    
-    az policy definition create --name "AKS-Monitoring-Addon-MSI" --display-name "AKS-Monitoring-Addon-MSI" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules azure-policy.rules.json --params azure-policy.parameters.json
-    
-    ### Create policy assignment
-    az policy assignment create --name aks-monitoring-addon --policy "AKS-Monitoring-Addon-MSI" --assign-identity --identity-scope /subscriptions/<subscriptionId> --role Contributor --scope /subscriptions/<subscriptionId> --location <location> --role Contributor --scope /subscriptions/<subscriptionId> -p "{ \"workspaceResourceId\": { \"value\":  \"/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>\" } }"
-    ```
-
-> [!TIP]
-> - Make sure when performing remediation task, the policy assignment has access to workspace you specified.
-> - Download all files under *AddonPolicyTemplate* folder before running the policy template.
-
----
 
 
 
@@ -560,7 +340,241 @@ Afterwards, if you create a new Managed Grafana instance, you can link it with t
 - You must get the existing Azure Monitor workspace integrations for a Grafana instance and update the ARM template with it. Otherwise, the ARM deployment gets over-written, which removes existing integrations.
 ---
 
-### Enable Windows metrics collection
+
+
+## Enable Container insights
+Use the following options to enable Container insights on your AKS cluster.
+
+
+### [CLI](#tab/cli)
+
+Use one of the following commands to enable monitoring of your AKS and Arc-enabled clusters. If you don't specify an existing Log Analytics workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format `DefaultWorkspace-<GUID>-<Region>`.
+
+> [!NOTE]
+> Managed identity authentication will be default in CLI version 2.49.0 or higher. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](container-insights-logs-schema.md) via the ConfigMap.
+
+#### AKS cluster
+Use one of the following commands to enable monitoring of your AKS cluster. If you don't specify an existing Log Analytics workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format `DefaultWorkspace-<GUID>-<Region>`.
+
+```azurecli
+### Use default Log Analytics workspace
+az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name>
+
+### Use existing Log Analytics workspace
+az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id <workspace-resource-id>
+```
+
+**Example**
+
+```azurecli
+az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
+```
+
+
+#### Arc-enabled cluster
+
+>[!NOTE]
+> Managed identity authentication is the default in k8s-extension version 1.43.0 or higher.
+> 
+> Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with **ARO**.
+
+```azurecli
+### Use default Log Analytics workspace
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
+
+### Use existing Log Analytics workspace
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=<armResourceIdOfExistingWorkspace>
+
+### Use advanced configuration settings
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  amalogs.resources.daemonset.limits.cpu=150m amalogs.resources.daemonset.limits.memory=600Mi amalogs.resources.deployment.limits.cpu=1 amalogs.resources.deployment.limits.memory=750Mi
+
+### On Azure Stack Edge
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.logsettings.custommountpath=/home/data/docker
+
+```
+
+**Example**
+
+```azurecli
+az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
+```
+
+
+
+### [Azure Resource Manager](#tab/arm)
+
+#### Prerequisites
+ 
+- The template must be deployed in the same resource group as the cluster.
+
+#### Download and install template
+
+1. Download the template and parameter file.
+
+    **AKS ARM**
+   - Template file: [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file)
+   - Parameter file: [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file)
+
+    **AKS Bicep**
+    - Template file (Syslog): [https://aka.ms/enable-monitoring-msi-syslog-bicep-template](https://aka.ms/enable-monitoring-msi-syslog-bicep-template)
+    - Parameter file (No Syslog): [https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters](https://aka.ms/enable-monitoring-msi-syslog-bicep-parameters)
+    - Template file (No Syslog): [https://aka.ms/enable-monitoring-msi-bicep-template](https://aka.ms/enable-monitoring-msi-bicep-template)
+    - Parameter file (No Syslog): [https://aka.ms/enable-monitoring-msi-bicep-parameters](https://aka.ms/enable-monitoring-msi-bicep-parameters)
+
+    **Arc-Enabled ARM**
+    - Template file: [https://aka.ms/arc-k8s-azmon-extension-arm-template](https://aka.ms/arc-k8s-azmon-extension-arm-template)
+    - Parameter file: [https://aka.ms/arc-k8s-azmon-extension-arm-template-params](https://aka.ms/arc-k8s-azmon-extension-arm-template-params)
+
+2. Edit the following values in the parameter file. Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
+
+    **AKS**
+
+    | Parameter | Description |
+    |:---|:---|
+    | `aksResourceId` | Resource ID of the cluster. |
+    | `aksResourceLocation` | Location of the cluster. |
+    | `workspaceResourceId` | Resource ID of the Log Analytics workspace. |
+    | `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be `MSCI-<clusterName>-<clusterRegion>` and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
+
+    **Arc-enabled**
+
+    | Parameter | Description |
+    |:---|:---|
+    | `clusterResourceId` | Resource ID of the cluster. |
+    | `clusterRegion` | Location of the cluster. |
+    | `workspaceResourceId` | Resource ID of the Log Analytics workspace. |
+    | `workspaceRegion` | Region of the Log Analytics workspace. |
+    | `workspaceDomain` | Domain of the Log Analytics workspace. `opinsights.azure.com` for Azure public cloud and `opinsights.azure.us for AzureUSGovernment.` 
+
+3. Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
+
+
+
+### [Terraform](#tab/terraform)
+
+#### New AKS cluster
+
+1.	Download Terraform template file depending on whether you want to enable Syslog collection.
+
+    **Syslog**
+    - [https://aka.ms/enable-monitoring-msi-syslog-terraform](https://aka.ms/enable-monitoring-msi-syslog-terraform)
+
+    **No Syslog** 
+    - [https://aka.ms/enable-monitoring-msi-terraform](https://aka.ms/enable-monitoring-msi-terraform)
+
+2.	Adjust the `azurerm_kubernetes_cluster` resource in *main.tf* based on your cluster settings.
+3.	Update parameters in *variables.tf* to replace values in "<>"
+
+    | Parameter | Description |
+    |:---|:---|
+    | `aks_resource_group_name` | Use the values on the AKS Overview page for the resource group. |
+    | `resource_group_location` | Use the values on the AKS Overview page for the resource group. |
+    | `cluster_name` | Define the cluster name that you would like to create. |
+    | `workspace_resource_id` | Use the resource ID of your Log Analytics workspace. |
+    | `workspace_region` | Use the location of your Log Analytics workspace. |
+    | `resource_tag_values` | Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will match `MSCI-<clusterName>-<clusterRegion>` and this resource is created in the same resource group as the AKS clusters. For first time onboarding, you can set the arbitrary tag values. |
+    | `enabledContainerLogV2` | Set this parameter value to be true to use the default recommended ContainerLogV2. |
+    | Cost optimization parameters | Refer to [Data collection parameters](container-insights-cost-config.md#data-collection-parameters) |
+
+
+4.	Run `terraform init -upgrade` to initialize the Terraform deployment.
+5.	Run `terraform plan -out main.tfplan` to initialize the Terraform deployment.
+6.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
+
+
+#### Existing AKS cluster
+1.	Import the existing cluster resource first with the command: ` terraform import azurerm_kubernetes_cluster.k8s <aksResourceId>`
+2.	Add the oms_agent add-on profile to the existing azurerm_kubernetes_cluster resource.
+    ```
+    oms_agent {
+        log_analytics_workspace_id = var.workspace_resource_id
+        msi_auth_for_monitoring_enabled = true
+      }
+    ```
+3.	Copy the DCR and DCRA resources from the Terraform templates
+4.	Run `terraform plan -out main.tfplan` and make sure the change is adding the oms_agent property. Note: If the `azurerm_kubernetes_cluster` resource defined is different during terraform plan, the existing cluster will get destroyed and recreated.
+5.	Run `terraform apply main.tfplan` to apply the execution plan to your cloud infrastructure.
+
+> [!TIP]
+> - Edit the `main.tf` file appropriately before running the terraform template
+> - Data will start flowing after 10 minutes since the cluster needs to be ready first
+> - WorkspaceID needs to match the format `/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.OperationalInsights/workspaces/workspaceValue`
+> - If resource group already exists, run `terraform import azurerm_resource_group.rg /subscriptions/<Subscription_ID>/resourceGroups/<Resource_Group_Name>` before terraform plan
+
+### [Azure Policy](#tab/policy)
+
+1. Download Azure Policy template and parameter files.
+
+   - Template file: [https://aka.ms/enable-monitoring-msi-azure-policy-template](https://aka.ms/enable-monitoring-msi-azure-policy-template)
+   - Parameter file: [https://aka.ms/enable-monitoring-msi-azure-policy-parameters](https://aka.ms/enable-monitoring-msi-azure-policy-parameters)
+
+2. Create the policy definition and assignment using the following CLI commands:
+
+    ```
+    ### Create policy definition    
+    az policy definition create --name "AKS-Monitoring-Addon-MSI" --display-name "AKS-Monitoring-Addon-MSI" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules azure-policy.rules.json --params azure-policy.parameters.json
+    
+    ### Create policy assignment
+    az policy assignment create --name aks-monitoring-addon --policy "AKS-Monitoring-Addon-MSI" --assign-identity --identity-scope /subscriptions/<subscriptionId> --role Contributor --scope /subscriptions/<subscriptionId> --location <location> --role Contributor --scope /subscriptions/<subscriptionId> -p "{ \"workspaceResourceId\": { \"value\":  \"/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>\" } }"
+    ```
+
+> [!TIP]
+> - Make sure when performing remediation task, the policy assignment has access to workspace you specified.
+> - Download all files under *AddonPolicyTemplate* folder before running the policy template.
+
+---
+
+
+
+
+
+## Enable full monitoring with Azure portal
+Using the Azure portal, you can enable both Container insights and Managed Prometheus at the same time. This deploys the containerized version of the Azure Monitor agent which collects data for Container insights and the metrics addon which collects Prometheus metrics.
+
+> [!NOTE]
+> If you want to enabled Managed Prometheus without Container insights, then [enable it from the Azure Monitor workspace](./prometheus-metrics-enable.md) as described below.
+
+### New AKS cluster
+
+When you create a new AKS cluster in the Azure portal, you can enable Prometheus, Container insights, and Grafana from the **Integrations** tab. In the Azure Monitor section, select either **Default configuration** or **Custom configuration** if you want to specify which workspaces to use. You can perform additional configuration once the cluster is created.
+
+:::image type="content" source="media/prometheus-metrics-enable/aks-integrations.png" lightbox="media/prometheus-metrics-enable/aks-integrations.png" alt-text="Screenshot of integrations tab for new AKS cluster.":::
+
+### Existing cluster
+
+This option enables Container insights and optionally Prometheus and Grafana on an existing AKS cluster.
+
+1. Either select **Insights** from the cluster's menu OR select **Containers** from the **Monitor** menu, **Unmonitored clusters** tab, and click **Enable** next to a cluster.
+   1. If Container insights isn't enabled for the cluster, then you're presented with a screen identifying which of the features have been enabled. Click **Configure monitoring**.
+
+    :::image type="content" source="media/aks-onboard/configure-monitoring-screen.png" lightbox="media/aks-onboard/configure-monitoring-screen.png" alt-text="Screenshot that shows the configuration screen for a cluster.":::
+
+   2. If Container insights has already been enabled on the cluster, select the **Monitoring Settings** button to modify the configuration.
+
+    :::image type="content" source="media/aks-onboard/monitor-settings-button.png" lightbox="media/aks-onboard/monitor-settings-button.png" alt-text="Screenshot that shows the monitoring settings button for a cluster.":::
+
+2. **Container insights** will be enabled. **Select** the checkboxes for **Enable Prometheus metrics** and **Enable Grafana** if you also want to enable them for the cluster. If you have existing Azure Monitor workspace and Grafana workspace, then they're selected for you. 
+
+    :::image type="content" source="media/prometheus-metrics-enable/configure-container-insights.png" lightbox="media/prometheus-metrics-enable/configure-container-insights.png" alt-text="Screenshot that shows the dialog box to configure Container insights with Prometheus and Grafana.":::
+
+3. Click **Advanced settings** to select alternate workspaces or create new ones. The **Cost presets** setting allows you to modify the default collection details to reduce your monitoring costs. See [Enable cost optimization settings in Container insights](./container-insights-cost-config.md) for details.
+
+    :::image type="content" source="media/aks-onboard/advanced-settings.png" lightbox="media/aks-onboard/advanced-settings.png" alt-text="Screenshot that shows the advanced settings dialog box.":::
+
+4. Click **Configure** to save the configuration.
+
+### Prometheus only
+
+This option enables Prometheus metrics on a cluster without enabling Container insights.
+
+1. Open the **Azure Monitor workspaces** menu in the Azure portal and select your workspace.
+1. Select **Monitored clusters** in the **Managed Prometheus** section to display a list of AKS clusters.
+1. Select **Configure** next to the cluster you want to enable.
+
+    :::image type="content" source="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" lightbox="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" alt-text="Screenshot that shows an Azure Monitor workspace with a Prometheus configuration.":::
+
+
+## Enable Windows metrics collection
 
 > [!NOTE]
 > There is no CPU/Memory limit in windows-exporter-daemonset.yaml so it may over-provision the Windows nodes  
@@ -718,6 +732,66 @@ When you create a new Azure Monitor workspace, the following additional resource
 
 - Dependency on DCR/DCRA for region availability. For new AKS region, there might be chances that DCR is still not supported in the new region. In that case, onboarding Container Insights with MSI will fail. One workaround is to onboard to Container Insights through CLI with the old way (with the use of Container Insights solution)
 - You must be on a machine on the same private network to access live logs from a private cluster.
+
+## Differences between Windows and Linux clusters
+
+The main differences in monitoring a Windows Server cluster compared to a Linux cluster include:
+
+- Windows doesn't have a Memory RSS metric. As a result, it isn't available for Windows nodes and containers. The [Working Set](/windows/win32/memory/working-set) metric is available.
+- Disk storage capacity information isn't available for Windows nodes.
+- Only pod environments are monitored, not Docker environments.
+- With the preview release, a maximum of 30 Windows Server containers are supported. This limitation doesn't apply to Linux containers.
+
+>[!NOTE]
+> Container insights support for the Windows Server 2022 operating system is in preview.
+
+
+The containerized Linux agent (replicaset pod) makes API calls to all the Windows nodes on Kubelet secure port (10250) within the cluster to collect node and container performance-related metrics. Kubelet secure port (:10250) should be opened in the cluster's virtual network for both inbound and outbound for Windows node and container performance-related metrics collection to work.
+
+If you have a Kubernetes cluster with Windows nodes, review and configure the network security group and network policies to make sure the Kubelet secure port (:10250) is open for both inbound and outbound in the cluster's virtual network.
+
+
+## Network firewall requirements
+
+The following table lists the proxy and firewall configuration information required for the containerized agent to communicate with Managed Prometheus and Container insights. All network traffic from the agent is outbound to Azure Monitor.
+
+**Azure public cloud**
+
+| Endpoint| Purpose | Port |
+|:---|:---|:---|
+| `*.ods.opinsights.azure.com` | | 443 |
+| `*.oms.opinsights.azure.com` | | 443 |
+| `dc.services.visualstudio.com` | | 443 |
+| `*.monitoring.azure.com` | | 443 |
+| `login.microsoftonline.com` | | 443 |
+| `global.handler.control.monitor.azure.com` | Access control service | 443 |
+| `<cluster-region-name>.ingest.monitor.azure.com` | Azure monitor managed service for Prometheus - metrics ingestion endpoint (DCE) | 443 |
+| `<cluster-region-name>.handler.control.monitor.azure.com` | Fetch data collection rules for specific cluster | 443 |
+
+**Microsoft Azure operated by 21Vianet cloud**
+
+| Endpoint| Purpose | Port |
+|:---|:---|:---|
+| `*.ods.opinsights.azure.cn` | Data ingestion | 443 |
+| `*.oms.opinsights.azure.cn` | OMS onboarding | 443 |
+| `dc.services.visualstudio.com` | For agent telemetry that uses Azure Public Cloud Application Insights | 443 |
+| `global.handler.control.monitor.azure.cn` | Access control service | 443 |
+| `<cluster-region-name>.handler.control.monitor.azure.cn` | Fetch data collection rules for specific cluster | 443 |
+
+**Azure Government cloud**
+
+| Endpoint| Purpose | Port |
+|:---|:---|:---|
+| `*.ods.opinsights.azure.us` | Data ingestion | 443 |
+| `*.oms.opinsights.azure.us` | OMS onboarding | 443 |
+| `dc.services.visualstudio.com` | For agent telemetry that uses Azure Public Cloud Application Insights | 443 |
+| `global.handler.control.monitor.azure.us` | Access control service | 443 |
+| `<cluster-region-name>.handler.control.monitor.azure.us` | Fetch data collection rules for specific cluster | 443 |
+
+
+## Troubleshooting
+If you registered your cluster and/or configured HCI Insights before November 2023, features that use the AMA agent on HCI, such as Arc for Servers Insights, VM Insights, Container Insights, Defender for Cloud or Sentinel might not be collecting logs and event data properly. See [Repair AMA agent for HCI](/azure-stack/hci/manage/monitor-hci-single?tabs=22h2-and-later) for steps to reconfigure the AMA agent and HCI Insights.
+
 
 ## Next steps
 
