@@ -16,7 +16,7 @@ ms.author: jacobjaygbay
 
 Oracle Database@Azure is an Oracle operated and managed service running on Exadata infrastructure physically located in Azure's data centers. This proximity ensures low latency from your application tier to your mission critical Oracle databases and provides you with the ability to innovate with our Azure services like Azure Open AI, Fabric, and others. 
 
-You can run your Exadata Database service in Azure with the feature and pricing parities as Exadata Cloud Service in the Oracle Cloud Infrastructure (OCI). OCI control plane is extended to Azure Datacenters via a secure network for service management including software patching, infrastructure updates, and other operations. While Oracle Database@Azure requires customers to have an OCI tenancy, most service activities take place in the Azure environment. 
+You can run your Exadata Database service in Azure with the feature and pricing parities as Exadata Cloud Service in the Oracle Cloud Infrastructure (OCI). The OCI control plane is extended to Azure Datacenters via a secure network for service management including software patching, infrastructure updates, and other operations. While Oracle Database@Azure requires customers to have an OCI tenancy, most service activities take place in the Azure environment. 
 
 You can subscribe to this service via Azure Marketplace. With native Azure integration, you can provision the Oracle databases within your Azure Virtual Network for a secure connectivity to your application tier and rest of Azure services. The service uses the Azure tenancy's identity management and authorization, which can be either the Azure native identity service or a federated identity provider.  
 
@@ -28,7 +28,7 @@ You can provision and manage your Oracle Database@Azure infrastructure (Exadata 
 
 Oracle Container Databases (CDB) and Oracle Pluggable Databases (PDB) provisioning and management tasks are completed using the OCI console. 
 
-Database and application developers can interact, manage, and monitor their Oracle databases using familiar Oracle tools like Oracle SQL developer, Oracle Enterprise manage, DataGuard and Golden Gate. 
+Database and application developers can interact, manage, and monitor their Oracle databases using familiar Oracle tools like Oracle SQL developer, Oracle Enterprise manage, Data Guard and Golden Gate. 
 
 ## Purchasing Oracle Database@Azure 
 
@@ -40,7 +40,7 @@ After an offer is created for your organization, you can accept the offer and co
 
 ## Available regions
 
-Oracle Database@Azure is available in the locations listed on this page. Oracle Database@Azure infrastructure resources must be provisioned in these Azure regions. The corresponding  regions listed are the regions used by database administrators for certain container database (CDB) and Pluggable database (PDB) management and maintenance operations.
+Oracle Database@Azure is available in the following location. Oracle Database@Azure infrastructure resources must be provisioned in the Azure region listed. The corresponding region listed is used by database administrators for certain container databases (CDB) and Pluggable database (PDB) management and maintenance operations.
 
 |Azure region|
 |------------|
