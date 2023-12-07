@@ -204,7 +204,7 @@ To enable single sign-on on your host pool, you must configure the following RDP
 - In the Azure portal, set **Microsoft Entra single sign-on** to **Connections will use Microsoft Entra authentication to provide single sign-on**.
 - For PowerShell, set the **enablerdsaadauth** property to **1**.
 
-## Allowing Active Directory domain administrator accounts to connect
+## Allow Active Directory domain administrator accounts to connect
 
 To allow Active Directory domain administrator accounts to connect when single sign-on is enabled:
 
