@@ -19,22 +19,6 @@ The [Conditional Access policy](../active-directory/conditional-access/overview.
 >[!IMPORTANT]
 > To configure Conditional Access policy for the registry, you must disable [`authentication-as-arm`](container-registry-disable-authentication-as-arm.md) for all the registries within the desired tenant. 
 
-## Conditional Access policy security measures
-
-Conditional Access policy provides a robust set of tools for securing access to ACR. The following are some of the security measures that can be enforced using Conditional Access policies:
-
-- **Enforcing Strong Authentication**: Conditional Access policies can be used to require strong authentication methods, such as multi-factor authentication (MFA), to access the container registry. This adds an extra layer of security by requiring users to provide more than one form of identification.
-
-- **Location-based Access Control**: Conditional Access policies can be configured to restrict access to ACR based on the user's location. This can be useful for preventing unauthorized access from untrusted locations.
-
-- **Device Trust and Compliance**: Conditional Access policies can also consider the trustworthiness of the user's device. This means that access can be restricted to only compliant and trusted devices.
-
-- **Role-based Access Control**: Conditional Access policies can be used to ensure that only users with specific roles and permissions can access ACR. This helps maintain proper authorization and access control.
-
-- **Authorization Methods**: Conditional Access policies can enforce specific authorization methods. For example, users can be required to provide additional proof of identity, especially when sensitive container images or data are involved.
-
-- **Client Application Control**: Conditional Access policies can control which client applications are allowed to access ACR. This ensures that only approved applications and tools can interact with the container registry.
-
 Learn more about [Conditional Access policy](../active-directory/conditional-access/overview.md), the [conditions](../active-directory/conditional-access/overview.md#common-signals) you'll take it into consideration to make [policy decisions.](../active-directory/conditional-access/overview.md#common-decisions)
 
 In this tutorial, you learn how to:
