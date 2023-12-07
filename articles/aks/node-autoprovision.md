@@ -1,6 +1,6 @@
 ---
-title: Node autoprovision (Preview)
-description: Learn about Azure Kubernetes Service (AKS) Node autoprovision
+title: Node autoprovisioning (Preview)
+description: Learn about Azure Kubernetes Service (AKS) Node autoprovisioning
 ms.topic: article
 ms.date: 10/19/2023
 ms.author: juda
@@ -18,7 +18,7 @@ Node autoprovision (NAP) decides based on pending pod resource requirements the 
 - You need an Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - You need the [Azure CLI installed](/cli/azure/install-azure-cli).
 - [Install the `aks-preview` Azure CLI extension](#install-the-aks-preview-azure-cli-extension).
-- [Register the `NodeAutoprovision` feature flag](#register-the-aks-kedapreview-feature-flag).
+- [Register the NodeAutoProvisioningPreviewfeature flag](#register-the-aks-nodeautoprovisioning-feature-flag).
 
 ### Install the `aks-preview` Azure CLI extension
 
@@ -127,12 +127,34 @@ spec:
 | karpenter.k8s.azure/sku-gpu-memory | Minimum GPU memory per VM | 64 |
 | topology.kubernetes.io/zone | The Availability Zone(s)         | [1,2,3]  | 
 | kubernetes.io/os    | Operating System (Linux only during preview)                                           | linux       |                    
-| kubernetes.io/arch    | CPU architecture (AMD64 only during preview)                                         | amd64       |
+| kubernetes.io/arch    | CPU architecture (AMD64 or ARM64)                                         | [amd64, arm64]       |
                      
 
 
+## Nodepool limits
+By default, NAP will attempt to schedule your workloads within the Azure quota you have available.  You can also specify the upper limit of resources that can be used by a Nodepool by specifying limits within the Nodepool spec. 
+
+```
+  # Resource limits constrain the total size of the cluster.
+  # Limits prevent Karpenter from creating new instances once the limit is exceeded.
+  limits:
+    cpu: "1000"
+    memory: 1000Gi
+```
+
+
+## Nodepool weights
+When you have multiple Nodepools defined, it is possible to set a preference of where a workload should be scheduled.  This can be accomplished by setting a relative weight on your Nodepool definitions.
+
+```
+  # Priority given to the NodePool when the scheduler considers which NodePool
+  # to select. Higher weights indicate higher priority when comparing NodePools.
+  # Specifying no weight is equivalent to specifying a weight of 0.
+  weight: 10
+```
+
 ## Kubernetes and Node image updates 
-AKS manages the Kubernetes version upgrades as well as VM OS disk updates for you. 
+AKS with Node autoprovisionin manages the Kubernetes version upgrades as well as VM OS disk updates for you by default.
 
 ### Kubernetes upgrades
 Kubernetes upgrades for NAP node pools will be dictated by the Control Plane Kubernetes version.  If you perform a cluster upgrade, your NAP nodes will be updated automatically to follow the same versioning.
@@ -149,10 +171,6 @@ Within the node class definition, set the imageVersion to one of the published r
 The imageVersion is the date portion on the Node Image as only Ubuntu 22.04 is supported; for example "AKSUbuntu-2204-202311.07.0" would be "202311.07.0"
 
 ```
-# Please edit the object below. Lines beginning with a '#' will be ignored,
-# and an empty file will abort the edit. If an error occurs while saving this file will be
-# reopened with the relevant failures.
-#
 apiVersion: karpenter.azure.com/v1alpha2
 kind: AKSNodeClass
 metadata:
@@ -178,6 +196,34 @@ spec:
 
 Removing the imageVersion spec would revert the node pool to be updated to the latest node image version.
 
+
+## Node disruption
+
+When the workloads on your nodes scale down, or are removed, Node autoprovisioning will use disruption rules on the Nodepool specification to decide when and how to remove those nodes and potentially re-schedule your workloads to be more efficient.
+
+You can remove a node manually using ```kubectl delete node```, but NAP can also control when it should optimise your nodes.
+
+
+```
+  disruption:
+    # Describes which types of Nodes NAP should consider for consolidation
+    consolidationPolicy: WhenUnderutilized | WhenEmpty
+    # 'WhenUnderutilized', NAP will consider all nodes for consolidation and attempt to remove or replace Nodes when it discovers that the Node is underutilized and could be changed to reduce cost
+
+    #  `WhenEmpty`, NAP will only consider nodes for consolidation that contain no workload pods
+    
+    # The amount of time NAP should wait after discovering a consolidation decision
+    # This value can currently only be set when the consolidationPolicy is 'WhenEmpty'
+    # You can choose to disable consolidation entirely by setting the string value 'Never'
+
+    consolidateAfter: 30s
+    
+    # The amount of time a Node can live on the cluster before being removed
+    # Avoiding long-running Nodes helps to reduce security vulnerabilities by forcing a node image update as well as to reduce the chance of issues that can affect Nodes with long uptimes such as file fragmentation or memory leaks from processes
+    # You can choose to disable expiration entirely by setting the string value 'Never'
+    expireAfter: 720h
+
+```
 
 ## Monitoring selection events 
 Node autoprovision produces cluster events that can be used to monitor deployment and scheduling decisions being made.  You can list these using the Kubernetes events stream.
