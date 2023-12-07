@@ -26,6 +26,10 @@ This article assumes that you're familiar with [Azure virtual machine extensions
 ## When to use the Application Health extension
 Application Health Extension reports on application health from inside the Virtual Machine. The extension probes on a local application endpoint and will update the health status based on TCP/HTTP(S) responses received from the application. This health status is used by Azure to monitor and detect patching failures during [Automatic VM Guest Patching](../automatic-vm-guest-patching.md).
 
+The extension reports health from within a VM and can be used in situations where an external probe such as the [Azure Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) can’t be used. 
+
+Application health is a customer-provided signal on the status of your application running inside the VM. This is different from [resource health](https://learn.microsoft.com/azure/service-health/resource-health-overview) which is a platform-provided signal used to report service-level events impacting the performance of your VM. 
+
 ## Binary versus Rich Health States
 
 Application Health Extensions has two options available: **Binary Health States** and **Rich Health States**. The following table highlights some key differences between the two options. See the end of this section for general recommendations.
