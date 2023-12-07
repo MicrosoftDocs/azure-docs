@@ -124,11 +124,9 @@ To register for the preview, follow the instructions provided in [Set up preview
 
 ### CNAME records, subdomains and IP addresses
 
-Each storage account endpoint maps to a chain of DNS CNAME records which eventually point to a DNS A record. The number of records and the subdomains that are associated with each record can vary between accounts and can depend on the storage account type and how the account is configured.
+Each storage account endpoint points to a chain of DNS CNAME records which eventually point to a DNS A record. The number of records and the subdomains that are associated with each record can vary between accounts and can depend on the storage account type and how the account is configured.
 
-The name of a storage account endpoint (for example: `https://<storage-account>.blob.core.windows.net`) is stable and doesn't change. However, the CNAME records in a given chain can change and you won't be notified when a change occurs. If you host a private DNS service in Azure, then these changes can impact your configuration. 
-
-You should avoid taking a dependency on any CNAME records or subdomains in the chain or any IP addresses that are resolved by the storage account's fully qualified domain name. CNAME records, subdomains and IP addresses are all subject to change without notice. 
+The storage account endpoint is stable and does not change. However, the CNAME records in a given chain can change and you won't be notified when a change occurs. If you host a private DNS service in Azure, then these changes can impact your configuration. 
 
 Consider the following guidelines:
 
@@ -136,7 +134,7 @@ Consider the following guidelines:
 
 - The A record's IP address that is returned by the DNS resolution of a storage account endpoint can change frequently.
 
-- The applications and operating systems should always honor the time-to-live (TTL) associated with the CNAME record. Caching the the value of the CNAME record beyond the TTL could lead to suboptimal behavior.
+- The applications and operating systems should always honor the time-to-live (TTL) associated with the CNAME record. Caching the the value of the CNAME record beyond the TTL could lead to unintended behavior.
 
 ## Migrate a storage account
 
