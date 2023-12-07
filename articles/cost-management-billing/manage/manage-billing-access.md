@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 12/07/2023
 ms.author: banders
 ---
 
@@ -45,22 +45,18 @@ To assign roles, see [Assign Azure roles using the Azure portal](../../role-base
 After an Account administrator has assigned the appropriate roles to other users, they must turn on access to download invoices in the Azure portal. Invoices older than December 2016 are available only to the Account Administrator.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/), as an Account Administrator,
-
-1. Search on **Cost Management + Billing**.
-
-    ![Screenshot that highlights Cost Management + Billing under the Services section.](./media/manage-billing-access/billing-search-cost-management-billing.png)
-
-1. Select **Subscriptions** from the left-hand pane. Depending on your access, you may need to select a billing scope and then select **Subscriptions**.
-
-    ![Screenshot that shows selecting subscriptions.](./media/manage-billing-access/billing-select-subscriptions.png)
-
-1. Select **Invoices** and then **Access to invoice**.
-
-    ![Screenshot shows how to delegate access to invoices.](./media/manage-billing-access/aa-optin01.png)
-
-1. Select **On** and save.
-
-    ![Screenshot shows on-off to delegate access to invoice](./media/manage-billing-access/aa-optinallow01.png)
+1. Search on **Cost Management + Billing**.  
+    :::image type="content" source="./media/manage-billing-access/billing-search-cost-management-billing.png" alt-text="Screenshot that highlights Cost Management + Billing under the Services section." lightbox="./media/manage-billing-access/billing-search-cost-management-billing.png" :::
+1. In the left navigation menu, select **Subscriptions**. Depending on your access, you may need to select a billing scope and then select **Subscriptions**.  
+    :::image type="content" source="./media/manage-billing-access/billing-select-subscriptions.png" alt-text="Screenshot that shows selecting subscriptions." lightbox="./media/manage-billing-access/billing-select-subscriptions.png" :::
+1. In the left navigation menu, select **Invoices**.  
+1. At the top of the page, select **Edit invoice details**, then select **Allow others to download invoice**.  
+    :::image type="content" source="./media/manage-billing-access/select-invoice.png" alt-text="Screenshot shows navigation to Allow others to download invoice option." lightbox="./media/manage-billing-access/select-invoice.png" :::
+1. On the Allow others to download invoice page, select a subscription that you want to give access to.
+1. Select **Users/groups with subscription-level access can download invoices** to allow users with subscription-level access to download invoices.  
+    :::image type="content" source="./media/manage-billing-access/allow-others-page.png" alt-text="Screenshot shows Allow others to download invoice page." lightbox="./media/manage-billing-access/allow-others-page.png" :::  
+    For more information about allowing users with subscription-level access to download invoices, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md?tabs=delegate-condition).
+1. Select **Save**.
 
 The Account Administrator can also configure to have invoices sent via email. To learn more, see [Get your invoice in email](download-azure-invoice-daily-usage-date.md).
 
