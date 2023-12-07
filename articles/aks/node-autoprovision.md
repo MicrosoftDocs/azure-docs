@@ -58,9 +58,13 @@ Node autoprovision (NAP) decides based on pending pod resource requirements the 
     az provider register --namespace Microsoft.ContainerService
     ```
 
+## Limitations
+* NAP isn't available in  WestUS, WestUS2, EastUS, EastUS2, SouthCentralUS, WestEurope regions.  
+* Windows and Azure Linux node pools aren't supported
+* Kubelet configuration through Node pool configuration is not supported
 
-## Enable Node autoprovision
-To enable node autoprovision, you need to use overlay networking and the cilium network policy.
+## Enable Node autoprovisioning
+To enable node autoprovisioning, create a new cluster using the az aks create command and set --node-provisioning-mode to "Auto". You'll also need to use overlay networking and the cilium network policy.  
 
 ```azure-cli
 az aks create --name karpuktest --resource-group karpuk --node-provisioning-mode Auto --network-plugin azure --network-plugin-mode overlay --network-dataplane cilium
@@ -80,7 +84,7 @@ You can have multiple node pool definitions in a cluster, but AKS deploys a defa
 apiVersion: karpenter.sh/v1beta1
 kind: NodePool
 metadata:
-  name: general-purpose
+  name: default
 spec:
   disruption:
     consolidationPolicy: WhenUnderutilized
@@ -122,11 +126,11 @@ spec:
 | karpenter.k8s.azure/sku-series |  VM SKU Series / version | DSv3 |
 | karpenter.k8s.azure/sku-name | Explicit SKU name | Standard_A1_v2 |
 | karpenter.sh/capacity-type | VM allocation type (Spot / On Demand) | spot or on-demand |
-| karpenter.k8s.azure/sku-cpu | Minimum number of CPUs in VM | 16 |
-| karpenter.k8s.azure/sku-memory | Minimum memory in VM in Mb | 131072 |
-| karpenter.k8s.azure/sku-gpu-count | Minimum GPU count per VM | 2 |
-| karpenter.k8s.azure/sku-gpu-memory | Minimum GPU memory per VM | 64 |
-| topology.kubernetes.io/zone | The Availability Zone(s)         | [1,2,3]  | 
+| karpenter.k8s.azure/sku-cpu | Number of CPUs in VM | 16 |
+| karpenter.k8s.azure/sku-memory | Memory in VM in Mb | 131072 |
+| karpenter.k8s.azure/sku-gpu-count | GPU count per VM | 2 |
+| karpenter.k8s.azure/sku-gpu-memory | GPU memory per VM | 64 |
+| topology.kubernetes.io/zone | The Availability Zone(s)         | [uksouth-1,uksouth-2,uksouth-3]  | 
 | kubernetes.io/os    | Operating System (Linux only during preview)                                           | linux       |                    
 | kubernetes.io/arch    | CPU architecture (AMD64 or ARM64)                                         | [amd64, arm64]       |
                      
@@ -171,7 +175,7 @@ Within the node class definition, set the imageVersion to one of the published r
 
 The imageVersion is the date portion on the Node Image as only Ubuntu 22.04 is supported, for example, "AKSUbuntu-2204-202311.07.0" would be "202311.07.0"
 
-```
+```yaml
 apiVersion: karpenter.azure.com/v1alpha2
 kind: AKSNodeClass
 metadata:
@@ -205,7 +209,7 @@ When the workloads on your nodes scale down, NAP uses disruption rules on the No
 You can remove a node manually using ```kubectl delete node```, but NAP can also control when it should optimize your nodes.
 
 
-```
+```yaml
   disruption:
     # Describes which types of Nodes NAP should consider for consolidation
     consolidationPolicy: WhenUnderutilized | WhenEmpty
@@ -216,14 +220,7 @@ You can remove a node manually using ```kubectl delete node```, but NAP can also
     # The amount of time NAP should wait after discovering a consolidation decision
     # This value can currently only be set when the consolidationPolicy is 'WhenEmpty'
     # You can choose to disable consolidation entirely by setting the string value 'Never'
-
     consolidateAfter: 30s
-    
-    # The amount of time a Node can live on the cluster before being removed
-    # Avoiding long-running Nodes helps to reduce security vulnerabilities by forcing a node image update as well as to reduce the chance of issues that can affect Nodes with long uptimes such as file fragmentation or memory leaks from processes
-    # You can choose to disable expiration entirely by setting the string value 'Never'
-    expireAfter: 720h
-
 ```
 
 ## Monitoring selection events 
@@ -233,9 +230,6 @@ Node autoprovision produces cluster events that can be used to monitor deploymen
 kubectl get events -A --field-selector source=karpenter -w
 ```
 
-## Limitations
-* NAP isn't available in  WestUS, WestUS2, EastUS, EastUS2, SouthCentralUS regions.
-* Windows and Azure Linux node pools aren't supported
 
 
 [release-notes]: https://github.com/Azure/AKS/blob/master/CHANGELOG.md
