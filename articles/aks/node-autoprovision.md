@@ -68,10 +68,10 @@ az aks create --name karpuktest --resource-group karpuk --node-provisioning-mode
 ```
 
 ## Node Pools
-Node autoprovision uses a list of VM SKUs as a starting point to decide which is best suited for the workloads that are in a pending state.  Having control over what SKU you want in the initial pool allows you to specify specific SKU families, or VM types and the maximum amount of resources a provisioner will use.
+Node autoprovision uses a list of VM SKUs as a starting point to decide which is best suited for the workloads that are in a pending state.  Having control over what SKU you want in the initial pool allows you to specify specific SKU families, or VM types and the maximum amount of resources a provisioner uses.
 
 
-If you have specific VM SKUs that are reserved instances, for example, you may wish to only use those as the starting pool of VM types to choose from.
+If you have specific VM SKUs that are reserved instances, for example, you may wish to only use those VMs as the starting pool.
 
 You can have multiple node pool definitions in a cluster, but AKS deploys a default provisioner that you can modify:
 
@@ -133,7 +133,7 @@ spec:
 
 
 ## Node pool limits
-By default, NAP will attempt to schedule your workloads within the Azure quota you have available.  You can also specify the upper limit of resources that is used by a Nodepool, specifying limits within the Node pool spec. 
+By default, NAP attempts to schedule your workloads within the Azure quota you have available.  You can also specify the upper limit of resources that is used by a Nodepool, specifying limits within the Node pool spec. 
 
 ```
   # Resource limits constrain the total size of the cluster.
@@ -145,7 +145,7 @@ By default, NAP will attempt to schedule your workloads within the Azure quota y
 
 
 ## Node pool weights
-When you have multiple Nodepools defined, it is possible to set a preference of where a workload should be scheduled.  Define the relative weight on your Node pool definitions.
+When you have multiple Nodepools defined, it's possible to set a preference of where a workload should be scheduled.  Define the relative weight on your Node pool definitions.
 
 ```
   # Priority given to the NodePool when the scheduler considers which NodePool
@@ -158,7 +158,7 @@ When you have multiple Nodepools defined, it is possible to set a preference of 
 AKS with NAP manages the Kubernetes version upgrades and VM OS disk updates for you by default.
 
 ### Kubernetes upgrades
-Kubernetes upgrades for NAP node pools is dictated by the Control Plane Kubernetes version.  If you perform a cluster upgrade, your NAP nodes are updated automatically to follow the same versioning.
+Kubernetes upgrades for NAP node pools follows the Control Plane Kubernetes version.  If you perform a cluster upgrade, your NAP nodes are updated automatically to follow the same versioning.
 
 ### Node image updates
 By default NAP node pool virtual machines are automatically updated when a new image is available.  If you wish to pin a node pool at a certain node image version, you can set the imageVersion on the node class:
@@ -169,7 +169,7 @@ kubectl edit aksnodeclass default
 
 Within the node class definition, set the imageVersion to one of the published releases listed on the [AKS Release notes](release-notes).
 
-The imageVersion is the date portion on the Node Image as only Ubuntu 22.04 is supported for example, "AKSUbuntu-2204-202311.07.0" would be "202311.07.0"
+The imageVersion is the date portion on the Node Image as only Ubuntu 22.04 is supported, for example, "AKSUbuntu-2204-202311.07.0" would be "202311.07.0"
 
 ```
 apiVersion: karpenter.azure.com/v1alpha2
@@ -234,8 +234,8 @@ kubectl get events -A --field-selector source=karpenter -w
 ```
 
 ## Limitations
-* NAP is not available in  WestUS, WestUS2, EastUS, EastUS2, SouthCentralUS regions.
-* Windows and Azure Linux Nodepools are not supported
+* NAP isn't available in  WestUS, WestUS2, EastUS, EastUS2, SouthCentralUS regions.
+* Windows and Azure Linux node pools aren't supported
 
 
 [release-notes]: https://github.com/Azure/AKS/blob/master/CHANGELOG.md
