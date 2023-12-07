@@ -66,7 +66,7 @@ To query Microsoft Defender XDR incident data, use the following statement in th
 
 ```kusto
 SecurityIncident
-| where ProviderName == "Microsoft Defender XDR"
+| where ProviderName == "Microsoft 365 Defender"
 ```
 
 ### Connect entities
