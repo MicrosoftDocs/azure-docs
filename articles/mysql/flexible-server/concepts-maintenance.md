@@ -10,7 +10,7 @@ ms.custom: event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 
-# Scheduled maintenance in Azure Database for MySQL – Flexible Server
+# Scheduled maintenance in Azure Database for MySQL - Flexible Server
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
