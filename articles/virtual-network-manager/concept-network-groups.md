@@ -39,16 +39,14 @@ All group membership is recorded in Azure Resource Graph and available for your 
 
 ## Network groups and Azure Policy
 
-When you create a network group, an Azure Policy is created so that Azure Virtual Network Manager gets notified about changes made to virtual network membership. The policies defined are available for you to see, but they aren't editable by users today. Creating, changing, and deleting Azure Policy definitions and assignments for network groups is only possible through the Azure Network Manager today.
-
-To create an Azure Policy initiative definition and assignment for Azure Virtual Network Manager resources, create and deploy a network group with the necessary configurations. To update an existing Azure Policy initiative definition or corresponding assignment, you need to change and deploy changes to the network group within the Azure Virtual Network Manager resource. To delete an Azure Policy initiative definition and assignment, you need to undeploy and delete the Azure Virtual Network Manager resources associated with your policy. This may include removing a configuration, deleting a configuration, and deleting a network group. For more information on deletion, review the Azure Virtual Network Manager [checklist for removing components](concept-remove-components-checklist.md).
+When you create a network group, an Azure Policy is created so that Azure Virtual Network Manager gets notified about changes made to virtual network membership.
 
 To create, edit, or delete Azure Virtual Network Manager dynamic group policies, you need:
 
 - Read and write role-based access control permissions to the underlying policy.
 - Role-based access control permissions to join the network group (Classic Admin authorization isn't supported).
 
-For more information on required permissions for Azure Virtual Network Manager dynamic group policies, review [Required permissions](concept-azure-policy-integration.md#required-permissions).
+For more information on required permissions for Azure Virtual Network Manager dynamic group policies, review [required permissions](concept-azure-policy-integration.md#required-permissions).
 
  ## Next steps
 

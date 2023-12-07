@@ -19,7 +19,7 @@ In this article, you add the Storage service endpoint to an Azure virtual networ
 
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - [Deploy an Elastic SAN Preview](elastic-san-create.md)
-- [Configure a virtual network endpoint](elastic-san-networking.md#configure-a-virtual-network-endpoint)
+- [Configure a virtual network endpoint](elastic-san-networking.md)
 - [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
 ## Limitations

@@ -2,7 +2,7 @@
 title: Install and run Docker containers for Translator API
 titleSuffix: Azure AI services
 description: Use the Docker container for Translator API to translate text.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator

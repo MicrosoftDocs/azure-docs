@@ -4,9 +4,11 @@ description: Learn how billing is calculated in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.custom:
+  - event-tier1-build-2022
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 08/23/2023
+ms.date: 10/11/2023
 ms.author: cshoe
 ---
 
@@ -37,7 +39,7 @@ The following resources are free during each calendar month, per subscription:
 - The first 360,000 GiB-seconds
 - The first 2 million HTTP requests
 
-Free usage doesn't appear on your bill. You'll only be charged when your resource usage exceeds the monthly free grants.
+Free usage doesn't appear on your bill. You're only charged as your resource usage exceeds the monthly free grants amounts.
 
 > [!NOTE]
 > If you use Container Apps with [your own virtual network](networking.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
@@ -63,7 +65,7 @@ When a revision is scaled to zero replicas, no resource consumption charges are 
 
 ##### Minimum number of replicas are running
 
-Idle usage charges may apply when a container app's revision is running under a specific set of circumstances. To be eligible for idle charges, a revision must be:
+Idle usage charges might apply when a container app's revision is running under a specific set of circumstances. To be eligible for idle charges, a revision must be:
 
 - Configured with a [minimum replica count](scale-app.md) greater than zero
 - Scaled to the minimum replica count
@@ -105,11 +107,10 @@ Billing for apps and jobs running in the Dedicated plan is based on workload pro
 
 | Fixed management costs | Variable costs |
 |---|---|
-| If you have one or more dedicated workload profiles in your environment, you're charged a Dedicated plan management fee. You aren't billed any plan management charges unless you use a Dedicated workload profile in your environment. | You're billed on a per-second basis for vCPU-seconds and GiB-seconds resources in all the workload profile instances in use. As profiles scale out, extra costs apply for the extra instances; as profiles scale in, billing is reduced. |
+| If you have one or more dedicated workload profiles in your environment, you're charged a Dedicated plan management fee. You aren't billed any plan management charges unless you use a Dedicated workload profile in your environment. | As profiles scale out, extra costs apply for the extra instances; as profiles scale in, billing is reduced. |
 
 Make sure to optimize the applications you deploy to a dedicated workload profile. Evaluate the needs of your applications so that they can use the most amount of resources available to the profile.
 
 ## General terms
 
 - For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
-

@@ -29,7 +29,7 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 
 - Install Python packages needed for this quickstart:
 
-  1. Open [New Notebook](/azure-data-studio/notebooks/sql-kernel) connected to the Python 3 Kernel.
+  1. Open [New Notebook](/azure-data-studio/notebooks/notebooks-python-kernel) connected to the Python 3 Kernel.
   1. Select **Manage Packages**
   1. In the **Installed** tab, look for the following Python packages in the list of installed packages. If any of these packages aren't installed, select the **Add New** tab, search for the package, and select **Install**.
      - **scikit-learn**

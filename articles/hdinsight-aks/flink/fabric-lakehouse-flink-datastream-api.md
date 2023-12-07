@@ -1,23 +1,24 @@
 ---
-title: Microsoft Fabric with Apache Flink in HDInsight on AKS
-description: An introduction to lakehouse on Microsoft Fabric with Apache Flink over HDInsight on AKS
+title: Microsoft Fabric with Apache Flink® in HDInsight on AKS
+description: An introduction to lakehouse on Microsoft Fabric with Apache Flink® on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: conceptual
 ms.date: 08/29/2023
 ---
-# Connect to OneLake in Microsoft Fabric with HDInsight on AKS cluster for Apache Flink
+# Connect to OneLake in Microsoft Fabric with HDInsight on AKS cluster for Apache Flink®
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This example demonstrates on how to use HDInsight on AKS Apache Flink with [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview).
+This example demonstrates on how to use HDInsight on AKS cluster for Apache Flink® with [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview).
 
 [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution for enterprises that covers everything from data movement to data science, Real-Time Analytics, and business intelligence. It offers a comprehensive suite of services, including data lake, data engineering, and data integration, all in one place. 
+
 With Fabric, you don't need to piece together different services from multiple vendors. Instead, you can enjoy a highly integrated, end-to-end, and easy-to-use product that is designed to simplify your analytics needs. 
 
 In this example, you learn how to connect to OneLake in Microsoft Fabric with HDInsight on AKS cluster for Apache Flink.
 
 ## Prerequisites
-* [HDInsight on AKS Flink 1.16.0](../flink/flink-create-cluster-portal.md)
+* [Flink cluster on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
 * Create a License Mode of at least Premium Capacity Workspace on [Power BI](https://app.powerbi.com/)
 * [Create a Lake House](/fabric/data-engineering/tutorial-build-lakehouse) on this workspace
 
@@ -203,7 +204,7 @@ public class onelakeDemo {
 ```
 ### Package the jar and submit to Flink
 
-Here, we use the packaged jar and submit to Flink cluster 
+Here, we use the packaged jar and submit to Flink cluster in HDInsight on AKS
 
 :::image type="content" source="./media/fabric-lakehouse-flink-datastream-api/jar-submit-flink-step-1.png" alt-text="Screenshot showing How to submit packaged jar and submitting to Flink cluster - step 1." border="true" lightbox="./media/fabric-lakehouse-flink-datastream-api/jar-submit-flink-step-1.png":::
 
@@ -219,3 +220,4 @@ Let's check the output on Microsoft Fabric
 ### References
 * [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview)
 * [Microsoft Fabric Lakehouse](/fabric/data-engineering/lakehouse-overview)
+* Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

@@ -34,20 +34,20 @@ If you want to install and use the CLI locally, this tutorial requires Azure CLI
 
 ## Enable Chaos Studio on your Virtual Machine Scale Sets instance
 
-Azure Chaos Studio Preview can't inject faults against a resource unless that resource was added to Chaos Studio first. To add a resource to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource.
+Azure Chaos Studio can't inject faults against a resource unless that resource was added to Chaos Studio first. To add a resource to Chaos Studio, create a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource.
 
 Virtual Machine Scale Sets has only one target type (`Microsoft-VirtualMachineScaleSet`) and one capability (`shutdown`). Other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Other resources also might have many other capabilities.
 
 1. Create a [target for your virtual machine scale set](chaos-studio-fault-providers.md) resource. Replace `$RESOURCE_ID` with the resource ID of the virtual machine scale set you're adding:
 
     ```azurecli-interactive  
-    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet?api-version=2022-10-01-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet?api-version=2023-11-01" --body "{\"properties\":{}}"
     ```
 
 1. Create the capabilities on the virtual machine scale set target. Replace `$RESOURCE_ID` with the resource ID of the resource you're adding. Specify the `VirtualMachineScaleSet` target and the `Shutdown-2.0` capability.
 
     ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet/capabilities/Shutdown-2.0?api-version=2022-10-01-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet/capabilities/Shutdown-2.0?api-version=2023-11-01" --body "{\"properties\":{}}"
     ```
 
 You've now successfully added your virtual machine scale set to Chaos Studio.
@@ -119,7 +119,7 @@ Now you can create your experiment. A chaos experiment defines the actions you w
 1. Create the experiment by using the Azure CLI. Replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment. Make sure that you saved and uploaded your experiment JSON. Update `experiment.json` with your JSON filename.
 
     ```azurecli-interactive
-    az rest --method put --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME?api-version=2022-10-01-preview --body @experiment.json
+    az rest --method put --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME?api-version=2023-11-01 --body @experiment.json
     ```
 
     Each experiment creates a corresponding system-assigned managed identity. Note the principal ID for this identity in the response for the next step.
@@ -141,7 +141,7 @@ You're now ready to run your experiment. To see the effect, check the portal to 
 1. Start the experiment by using the Azure CLI. Replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment.
 
     ```azurecli-interactive
-    az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2022-10-01-preview
+    az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2023-11-01
     ```
 
 1. The response includes a status URL that you can use to query experiment status as the experiment runs.

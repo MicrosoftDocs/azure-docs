@@ -12,8 +12,8 @@ This article describes how to customize data sensitivity settings in Microsoft D
 
 Data sensitivity settings are used to identify and focus on managing the critical sensitive data in your organization.
 
-- The sensitive info types and sensitivity labels that come from Microsoft Purview compliance portal and which you can select in Defender for Cloud. By default Defender for Cloud uses the [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about) provided by Microsoft Purview compliance portal. Some of the info types and labels are enabled by default, and you can modify them as needed.
-- You can optionally allow the import of custom sensitive info types and allow the import of [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) that you've defined in Microsoft Purview.
+- The sensitive info types and sensitivity labels that come from Microsoft Purview compliance portal and which you can select in Defender for Cloud. By default Defender for Cloud uses the [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about) provided by Microsoft Purview compliance portal. Some of the information types and labels are enabled by default, Of these built-in sensitive information types, there's a subset supported by sensitive data discovery. You can view a [reference list](sensitive-info-types.md) of this subset, which also lists which information types are supported by default. The [sensitivity settings page](data-sensitivity-settings.md) allows you to modify the default settings.
+- You can optionally allow the import of custom sensitive info types and allow the import of [sensitivity labels](/microsoft-365/compliance/sensitivity-labels) that you defined in Microsoft Purview.
 - If you import labels, you can set sensitivity thresholds that determine the minimum threshold sensitivity level for a label to be marked as sensitive in Defender for Cloud.
 
 This configuration helps you focus on your critical sensitive resources and improve the accuracy of the sensitivity insights.

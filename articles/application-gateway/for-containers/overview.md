@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: overview
-ms.date: 09/07/2023
+ms.date: 11/06/2023
 ms.author: greglin
 ---
 
@@ -53,24 +53,26 @@ Application Gateway for Containers offers an elastic and scalable ingress to AKS
 ### Load balancing features
 
 Application Gateway for Containers supports the following features for traffic management:
-- Layer 7 HTTP/HTTPS request forwarding based on prefix/exact match on:
-  - Hostname
-  - Path
-  - Headers
-  - Query string match
-  - Methods
-  - Ports (80/443)
+- Automatic retries
+- Autoscaling
+- Availability zone resiliency
+- Default and custom health probes
+- Header rewrite
 - HTTPS traffic management:
   - SSL termination
   - End to End SSL
 - Ingress and Gateway API support
-- Traffic Splitting / weighted round robin
+- Layer 7 HTTP/HTTPS request forwarding based on prefix/exact match on:
+  - Hostname
+  - Path
+  - Header
+  - Query string
+  - Methods
+  - Ports (80/443)
 - Mutual Authentication (mTLS) to backend target
-- Health checks: Application Gateway for Containers determines the health of a backend before it registers it as healthy and capable of handling traffic
-- Automatic retries
+- Traffic Splitting / weighted round robin
 - TLS Policies
-- Autoscaling
-- Availability zone resiliency
+- URL rewrite
 
 ### Deployment strategies
 
@@ -99,14 +101,17 @@ Application Gateway for Containers is currently offered in the following regions
 
 ### Implementation of Gateway API
 
-ALB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1) of the [Gateway API](https://gateway-api.sigs.k8s.io/)
+ALB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2fv1) of the [Gateway API](https://gateway-api.sigs.k8s.io/)
 
 | Gateway API Resource      | Support | Comments     |
 | ------------------------- | ------- | ------------ |
-| [GatewayClass](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1beta1.GatewayClass)          | Yes   |  |
-| [Gateway](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1beta1.Gateway)                    | Yes   | Support for HTTP and HTTPS protocol on the listener. The only ports allowed on the listener are 80 and 443. |
-| [HTTPRoute](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1beta1.HTTPRoute)                | Yes   | Currently doesn't support [HTTPRouteFilter](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteFilter) |
-| [ReferenceGrant](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1alpha2.ReferenceGrant)     | Yes   | Currently supports version v1alpha1 of this api |
+| [GatewayClass](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GatewayClass)          | Yes   |  |
+| [Gateway](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.Gateway)                    | Yes   | Support for HTTP and HTTPS protocol on the listener. The only ports allowed on the listener are 80 and 443. |
+| [HTTPRoute](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.HTTPRoute)                | Yes   | |
+| [ReferenceGrant](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.ReferenceGrant)     | Yes   | Currently supports version v1alpha1 of this API |
+
+> [!Note]
+> v1beta1 documentation has been removed within official Gateway API documentation, however the links to the v1 documentation are still highly relevent.
 
 ### Implementation of Ingress API
 
@@ -114,7 +119,7 @@ ALB Controller implements support for [Ingress](https://kubernetes.io/docs/conce
 
 | Ingress API Resource      | Support | Comments     |
 | ------------------------- | ------- | ------------ |
-| [Ingress](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#ingress-v1-networking-k8s-io)          | Yes   | Support for HTTP and HTTPS protocol on the listener. |
+| [Ingress](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.28/#ingress-v1-networking-k8s-io)          | Yes   | Support for HTTP and HTTPS protocol on the listener. |
 
 ## Report issues and provide feedback
 

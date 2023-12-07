@@ -32,8 +32,8 @@ The process that's outlined in this article works only for performance counters 
 1. Create and deploy a classic cloud service. A sample classic Cloud Services application and deployment can be found at [Get started with Azure Cloud Services and ASP.NET](../../cloud-services/cloud-services-dotnet-get-started.md). 
 
 2. You can use an existing storage account or deploy a new storage account. It's best if the storage account is in the same region as the classic cloud service that you created. In the Azure portal, go to the **Storage accounts** resource pane, and then select **Keys**. Take note of the storage account name and the storage account key. You'll need this information in later steps.
-
-   ![Storage account keys](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
+   <!-- convertborder later -->
+   :::image type="content" source="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png" lightbox="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png" alt-text="Storage account keys" border="false":::
 
 ## Create a service principal 
 
@@ -164,7 +164,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 1. Go to the Azure portal. 
 
-   ![Screenshot shows the Azure portal with Monitor, then Metrics selected.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
+   :::image type="content" source="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png" lightbox="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png" alt-text="Screenshot shows the Azure portal with Monitor, then Metrics selected.":::
 
 2. On the left menu, select **Monitor.**
 
@@ -177,8 +177,8 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 6. In the metrics drop-down menu, select **Memory\Committed Bytes in Use**. 
 
 You use the dimension filtering and splitting capabilities to view the total memory that's used by a specific role or role instance. 
-
- ![Screenshot shows Metrics data.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
+ <!-- convertborder later -->
+ :::image type="content" source="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png" lightbox="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png" alt-text="Screenshot shows Metrics data." border="false":::
 
 ## Next steps
 

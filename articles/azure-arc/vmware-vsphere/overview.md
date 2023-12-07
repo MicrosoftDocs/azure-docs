@@ -1,18 +1,18 @@
 ---
-title: What is Azure Arc-enabled VMware vSphere (preview)?
+title: What is Azure Arc-enabled VMware vSphere?
 description: Azure Arc-enabled VMware vSphere extends Azure governance and management capabilities to VMware vSphere infrastructure and delivers a consistent management experience across both platforms. 
 ms.topic: overview
-ms.date: 08/21/2023
+ms.date: 11/06/2023
 ms.custom: references_regions
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ---
 
-# What is Azure Arc-enabled VMware vSphere (preview)?
+# What is Azure Arc-enabled VMware vSphere?
 
-Azure Arc-enabled VMware vSphere (preview) is an [Azure Arc](../overview.md) service that helps you simplify management of hybrid IT estate distributed across VMware vSphere and Azure. It does so by extending the Azure control plane to VMware vSphere infrastructure and enabling the use of Azure security, governance, and management capabilities consistently across VMware vSphere and Azure. 
+Azure Arc-enabled VMware vSphere is an [Azure Arc](../overview.md) service that helps you simplify management of hybrid IT estate distributed across VMware vSphere and Azure. It does so by extending the Azure control plane to VMware vSphere infrastructure and enabling the use of Azure security, governance, and management capabilities consistently across VMware vSphere and Azure. 
 
-Arc-enabled VMware vSphere (preview) allows you to:
+Arc-enabled VMware vSphere allows you to:
 
 - Discover your VMware vSphere estate (VMs, templates, networks, datastores, clusters/hosts/resource pools) and register resources with Arc at scale. 
 
@@ -46,7 +46,7 @@ Arc-enabled VMware vSphere extends Azure's control plane (Azure Resource Manager
 
 ## How does it work?
 
-Arc-enabled VMware vSphere provides these capabilities by integrating with your VMware vCenter Server. To connect your VMware vCenter Server to Azure Arc, you need to deploy the [Azure Arc resource bridge](../resource-bridge/overview.md) (preview) in your vSphere environment. Azure Arc resource bridge is a virtual appliance that hosts the components that communicate with your vCenter Server and Azure. 
+Arc-enabled VMware vSphere provides these capabilities by integrating with your VMware vCenter Server. To connect your VMware vCenter Server to Azure Arc, you need to deploy the [Azure Arc resource bridge](../resource-bridge/overview.md) in your vSphere environment. Azure Arc resource bridge is a virtual appliance that hosts the components that communicate with your vCenter Server and Azure. 
 
 When a VMware vCenter Server is connected to Azure, an automatic discovery of the inventory of vSphere resources is performed. This inventory data is continuously kept in sync with the vCenter Server. 
 
@@ -65,23 +65,27 @@ You have the flexibility to start with either option, and incorporate the other 
 
 ## Supported VMware vSphere versions
 
-Azure Arc-enabled VMware vSphere (preview) currently works with vCenter Server versions 6.7, 7, and 8. 
+Azure Arc-enabled VMware vSphere currently works with vCenter Server versions 7 and 8.
+
 > [!NOTE]
-> Azure Arc-enabled VMware vSphere (preview) supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, we don't recommend you to use Arc-enabled VMware vSphere with it at this point.
+> Azure Arc-enabled VMware vSphere supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, we don't recommend you to use Arc-enabled VMware vSphere with it at this point.
 
 ## Supported regions
 
-You can use Azure Arc-enabled VMware vSphere (preview) in these supported regions:
-- Australia East
-- Canada Central
+You can use Azure Arc-enabled VMware vSphere in these supported regions:
+
 - East US
-- East US 2
-- North Europe
-- Southeast Asia
+- East US2
+- West US2
+- West US3
+- South Central US
+- Canada Central
 - UK South
+- North Europe
 - West Europe
-- West US 2
-- West US 3
+- Sweden Central
+- Southeast Asia
+- Australia East
 
 For the most up-to-date information about region availability of Azure Arc-enabled VMware vSphere, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all) page.
 
@@ -94,4 +98,4 @@ Azure Arc-enabled VMware vSphere doesn't store/process customer data outside the
 
 - Plan your resource bridge deployment by reviewing the [support matrix for Arc-enabled VMware vSphere](support-matrix-for-arc-enabled-vmware-vsphere.md).
 - Once ready, [connect VMware vCenter to Azure Arc using the helper script](quick-start-connect-vcenter-to-arc-using-script.md).
-- Try out Arc-enabled VMware vSphere by using the [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_vsphere/).
+- Try out Arc-enabled VMware vSphere by using the [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_vsphere).

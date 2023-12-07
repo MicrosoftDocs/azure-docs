@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/25/2023
+ms.date: 12/04/2023
 ms.author: wchi
 ---
 
@@ -14,7 +14,7 @@ ms.author: wchi
     dotnet add package Azure.Identity
     ```
 
-2. Authenticate using `Azure.Identity` NuGet package and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `Azure.Identity` NuGet package and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```csharp
     using Microsoft.Azure.Cosmos;
     using Azure.Core;
@@ -94,20 +94,21 @@ ms.author: wchi
         .buildClient();
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 
 Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data](/azure/cosmos-db/nosql/quickstart-java-spring-data?tabs=passwordless%2Csign-in-azure-cli) to set up your Spring application. The configuration properties are added to Spring Apps by Service Connector. Managed identity support for Cosmos DB is only available for Spring Cloud Azure version 4.0 and above. For more information, refer to [Spring Cloud Azure - Reference Documentation](https://microsoft.github.io/spring-cloud-azure/current/reference/html/index.html#authentication).
  
 ### [Python](#tab/python)
 1. Install dependencies.
    ```bash
+   pip install azure-identity
    pip install azure-cosmos
    ```
 1. Authenticate via `azure-identity` library and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
    ```python
    import os
    from azure.cosmos import CosmosClient
-   from azure.identity import DefaultAzureCredential
+   from azure.identity import ManagedIdentityCredential, ClientSecretCredential
    
    # Uncomment the following lines according to the authentication type.
    # system-assigned managed identity
@@ -127,6 +128,44 @@ Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB f
    client = CosmosClient(url=endpoint, credential=cred)
    
    ```
+
+### [Go](#tab/go)
+1. Install dependencies.
+    ```bash
+    go get t github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    go get github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos
+    ```
+1. Authenticate using `azidentity` npm package and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+    ```go
+    import (
+        "os"
+
+        "github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+
+    func main() {
+        endpoint = os.Getenv("AZURE_COSMOS_RESOURCEENDPOINT")
+
+        // Uncomment the following lines according to the authentication type.
+        // For system-assigned identity.
+        // cred, err := azidentity.NewDefaultAzureCredential(nil)
+        
+        // For user-assigned identity.
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // azidentity.ManagedIdentityCredentialOptions.ID := clientid
+        // options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
+        // cred, err := azidentity.NewManagedIdentityCredential(options)
+        
+        // For service principal.
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // tenantid := os.Getenv("AZURE_COSMOS_TENANTID")
+        // clientsecret := os.Getenv("AZURE_COSMOS_CLIENTSECRET")
+        // cred, err := azidentity.NewClientSecretCredential(tenantid, clientid, clientsecret, &azidentity.ClientSecretCredentialOptions{})
+
+        client, err := azcosmos.NewClient(endpoint, cred, nil)
+    }
+    ```
 
 ### [NodeJS](#tab/nodejs)
 1. Install dependencies.
@@ -165,5 +204,5 @@ Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB f
 
 
 
-### [Other](#tab/other)
-For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Blob Storage with Service Connector](../how-to-integrate-storage-blob.md).
+### [Other](#tab/none)
+For other languages, you can use the endpoint URL and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for NoSQL. For environment variable details, see [Integrate Azure Cosmos DB for NoSQL with Service Connector](../how-to-integrate-cosmos-sql.md).

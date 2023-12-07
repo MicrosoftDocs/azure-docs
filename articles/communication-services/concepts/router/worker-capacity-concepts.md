@@ -16,8 +16,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Job Router worker capacity
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 When configuring workers, we want to provide a way to specify how many jobs a worker can handle at a time from various channels.  This configuration can be done by specifying the total capacity of the worker and assigning a cost per job for each channel.
 
 ## Example: Worker that can handle one voice job or up to five chat jobs
@@ -28,13 +26,13 @@ In this example, we configure a worker with total capacity of 100 and set the vo
 
 ```csharp
 var worker = await client.CreateWorkerAsync(
-    new CreateWorkerOptions(workerId: "worker1", totalCapacity: 100)
+    new CreateWorkerOptions(workerId: "worker1", capacity: 100)
     {
-        QueueAssignments = { ["queue1"] = new RouterQueueAssignment() },
-        ChannelConfigurations =
+        Queues = { "queue1" },
+        Channels =
         {
-            ["voice"] = new ChannelConfiguration(capacityCostPerJob: 100),
-            ["chat"] = new ChannelConfiguration(capacityCostPerJob: 20)
+            new RouterChannel(channelId: "voice", capacityCostPerJob: 100),
+            new RouterChannel(channelId: "chat", capacityCostPerJob: 20)
         }
     });
 ```
@@ -44,13 +42,16 @@ var worker = await client.CreateWorkerAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.createWorker("worker1", {
-    totalCapacity: 100,
-    queueAssignments: { queue1: {} },
-    channelConfigurations: {
-        voice: { capacityCostPerJob: 100 },
-        chat: { capacityCostPerJob: 20 },
-    }
+await client.path("/routing/workers/{workerId}", "worker1").patch({
+    body: {
+        capacity: 100,
+        queues: ["queue1"],
+        channels: [
+            { channelId: "voice", capacityCostPerJob: 100 },
+            { channelId: "chat", capacityCostPerJob: 20 },
+        ]
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -59,16 +60,14 @@ await client.createWorker("worker1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
-    total_capacity = 100,
-    queue_assignments = {
-        "queue1": {}
-    },
-    channel_configurations = {
-        "voice": ChannelConfiguration(capacity_cost_per_job = 100),
-        "chat": ChannelConfiguration(capacity_cost_per_job = 20)
-    }
-))
+client.upsert_worker(worker_id = "worker1",
+    capacity = 100,
+    queues = ["queue1"],
+    channels = [
+        RouterChannel(channel_id = "voice", capacity_cost_per_job = 100),
+        RouterChannel(channel_id = "chat", capacity_cost_per_job = 20)
+    ]
+)
 ```
 
 ::: zone-end
@@ -77,10 +76,10 @@ client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
 
 ```java
 client.createWorker(new CreateWorkerOptions("worker1", 100)
-    .setQueueAssignments(Map.of("queue1", new RouterQueueAssignment()))
-    .setChannelConfigurations(Map.of(
-        "voice", new ChannelConfiguration(100),
-        "chat", new ChannelConfiguration(20))));
+    .setQueues(List.of("queue1"))
+    .setChannels(List.of(
+        new RouterChannel("voice", 100),
+        new RouterChannel("chat", 20))));
 ```
 
 ::: zone-end
@@ -93,14 +92,14 @@ In this example, a worker is configured with total capacity of 100.  Next, the v
 
 ```csharp
 var worker = await client.CreateWorkerAsync(
-    new CreateWorkerOptions(workerId: "worker1", totalCapacity: 100)
+    new CreateWorkerOptions(workerId: "worker1", capacity: 100)
     {
-        QueueAssignments = { ["queue1"] = new RouterQueueAssignment() },
-        ChannelConfigurations =
+        Queues = { "queue1" },
+        Channels =
         {
-            ["voice"] = new ChannelConfiguration(capacityCostPerJob: 60),
-            ["chat"] = new ChannelConfiguration(capacityCostPerJob: 10) { MaxNumberOfJobs = 2},
-            ["email"] = new ChannelConfiguration(capacityCostPerJob: 10) { MaxNumberOfJobs = 2}
+            new RouterChannel(channelId: "voice", capacityCostPerJob: 60),
+            new RouterChannel(channelId: "chat", capacityCostPerJob: 10) { MaxNumberOfJobs = 2},
+            new RouterChannel(channelId: "email", capacityCostPerJob: 10) { MaxNumberOfJobs = 2}
         }
     });
 ```
@@ -110,14 +109,17 @@ var worker = await client.CreateWorkerAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.createWorker("worker1", {
-    totalCapacity: 100,
-    queueAssignments: { queue1: {} },
-    channelConfigurations: {
-        voice: { capacityCostPerJob: 60 },
-        chat: { capacityCostPerJob: 10, maxNumberOfJobs: 2 },
-        email: { capacityCostPerJob: 10, maxNumberOfJobs: 2 }
-    }
+await client.path("/routing/workers/{workerId}", "worker1").patch({
+    body: {
+        capacity: 100,
+        queues: ["queue1"],
+        channels: [
+            { channelId: "voice", capacityCostPerJob: 60 },
+            { channelId: "chat", capacityCostPerJob: 10, maxNumberOfJobs: 2 },
+            { channelId: "email", capacityCostPerJob: 10, maxNumberOfJobs: 2 }
+        ]
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -126,17 +128,15 @@ await client.createWorker("worker1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
-    total_capacity = 100,
-    queue_assignments = {
-        "queue1": {}
-    },
-    channel_configurations = {
-        "voice": ChannelConfiguration(capacity_cost_per_job = 60),
-        "chat": ChannelConfiguration(capacity_cost_per_job = 10, max_number_of_jobs = 2),
-        "email": ChannelConfiguration(capacity_cost_per_job = 10, max_number_of_jobs = 2)
-    }
-))
+client.upsert_worker(worker_id = "worker1",
+    capacity = 100,
+    queues = ["queue1"],
+    channels = [
+        RouterChannel(channel_id = "voice", capacity_cost_per_job = 60),
+        RouterChannel(channel_id = "chat", capacity_cost_per_job = 10, max_number_of_jobs = 2),
+        RouterChannel(channel_id = "email", capacity_cost_per_job = 10, max_number_of_jobs = 2)
+    ]
+)
 ```
 
 ::: zone-end
@@ -145,11 +145,11 @@ client.create_worker(worker_id = "worker1", router_worker = RouterWorker(
 
 ```java
 client.createWorker(new CreateWorkerOptions("worker1", 100)
-    .setQueueAssignments(Map.of("queue1", new RouterQueueAssignment()))
-    .setChannelConfigurations(Map.of(
-        "voice", new ChannelConfiguration(60),
-        "chat", new ChannelConfiguration(10).setMaxNumberOfJobs(2),
-        "email", new ChannelConfiguration(10).setMaxNumberOfJobs(2))));
+    .setQueues(List.of("queue1"))
+    .setChannels(List.of(
+        new RouterChannel("voice", 60),
+        new RouterChannel("chat", 10).setMaxNumberOfJobs(2),
+        new RouterChannel("email", 10).setMaxNumberOfJobs(2))));
 ```
 
 ::: zone-end

@@ -116,8 +116,6 @@ To create a cache in the Azure operated by 21Vianet Cloud, use one of the follow
 * China East
 * China North
 
-For more information about the Azure operated by 21Vianet Cloud, see [AzureChinaCloud for Azure operated by 21Vianet in China](https://www.windowsazure.cn/).
-
 ### To connect to Microsoft Azure Germany
 
 To connect to Microsoft Azure Germany, use one of the following commands.

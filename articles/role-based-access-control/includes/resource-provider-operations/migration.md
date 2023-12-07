@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -25,6 +25,15 @@ Azure service: [Azure Migrate](../../../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/assessmentprojects/write | Creates a new assessment project or updates an existing assessment project |
 > | Microsoft.Migrate/assessmentprojects/delete | Deletes the assessment project |
 > | Microsoft.Migrate/assessmentprojects/startreplicationplanner/action | Initiates replication planner for the set of resources included in the request body |
+> | Microsoft.Migrate/assessmentprojects/aksAssessmentOptions/read | Gets the properties of the aks AssessmentOptions |
+> | Microsoft.Migrate/assessmentprojects/aksAssessments/read | Gets the properties of the aks Assessment |
+> | Microsoft.Migrate/assessmentprojects/aksAssessments/write | Creates a aks Assessment or updates an existing aks Assessment |
+> | Microsoft.Migrate/assessmentprojects/aksAssessments/delete | Deletes the aks Assessment which are available in the given location |
+> | Microsoft.Migrate/assessmentprojects/aksAssessments/downloadurl/action | Get Blob SAS URI for the aks AssessmentReport |
+> | Microsoft.Migrate/assessmentprojects/aksAssessments/assessedwebapps/read | Gets the properties of the assessedwebapps  |
+> | Microsoft.Migrate/assessmentprojects/aksAssessments/clusters/read | Gets the properties of the clusters  |
+> | Microsoft.Migrate/assessmentprojects/aksAssessments/costdetails/read | Gets the properties of the costdetails  |
+> | Microsoft.Migrate/assessmentprojects/aksAssessments/summaries/read | Gets the properties of the aks AssessmentSummary |
 > | Microsoft.Migrate/assessmentprojects/assessmentOptions/read | Gets the assessment options which are available in the given location |
 > | Microsoft.Migrate/assessmentprojects/assessments/read | Lists assessments within a project |
 > | Microsoft.Migrate/assessmentprojects/assessmentsSummary/read | Gets the assessments summary which are available in the given location |
@@ -33,12 +42,15 @@ Azure service: [Azure Migrate](../../../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/assessmentprojects/businesscases/read | Gets the properties of a business case |
 > | Microsoft.Migrate/assessmentprojects/businesscases/report/action | Downloads a Business Case report's URL |
 > | Microsoft.Migrate/assessmentprojects/businesscases/write | Creates a new business case or updates an existing business case |
+> | Microsoft.Migrate/assessmentprojects/businesscases/delete | Delete a Business Case |
+> | Microsoft.Migrate/assessmentprojects/businesscases/avssummaries/read | Gets the AVS summary of the business case |
+> | Microsoft.Migrate/assessmentprojects/businesscases/evaluatedavsmachines/read | Get the properties of an evaluated Avs machine |
 > | Microsoft.Migrate/assessmentprojects/businesscases/evaluatedmachines/read | Get the properties of an evaluated machine |
 > | Microsoft.Migrate/assessmentprojects/businesscases/evaluatedsqlentities/read | Get the properties of an evaluated SQL entities |
 > | Microsoft.Migrate/assessmentprojects/businesscases/evaluatedwebapps/read | Get the properties of an Evaluated Webapp  |
-> | Microsoft.Migrate/assessmentprojects/businesscases/iaassummaries/read | Gets the IaaS summary of the business case |
+> | Microsoft.Migrate/assessmentprojects/businesscases/iaassummaries/read | Gets the IAAS summary of the business case |
 > | Microsoft.Migrate/assessmentprojects/businesscases/overviewsummaries/read | Gets the overview summary of the business case |
-> | Microsoft.Migrate/assessmentprojects/businesscases/paassummaries/read | Gets the PaaS summary of the business case |
+> | Microsoft.Migrate/assessmentprojects/businesscases/paassummaries/read | Gets the PAAS summary of the business case |
 > | Microsoft.Migrate/assessmentprojects/groups/read | Get the properties of a group |
 > | Microsoft.Migrate/assessmentprojects/groups/write | Creates a new group or updates an existing group |
 > | Microsoft.Migrate/assessmentprojects/groups/delete | Deletes a group |
@@ -48,26 +60,27 @@ Azure service: [Azure Migrate](../../../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/assessmentprojects/groups/assessments/delete | Deletes an assessment |
 > | Microsoft.Migrate/assessmentprojects/groups/assessments/downloadurl/action | Downloads an assessment report's URL |
 > | Microsoft.Migrate/assessmentprojects/groups/assessments/assessedmachines/read | Get the properties of an assessed machine |
-> | Microsoft.Migrate/assessmentprojects/groups/assessmentsSummary/read | Gets the Assessment summary of a group |
+> | Microsoft.Migrate/assessmentprojects/groups/assessmentsSummary/read | Assessment summary of group |
 > | Microsoft.Migrate/assessmentprojects/groups/avsAssessments/read | Gets the properties of an AVS assessment |
 > | Microsoft.Migrate/assessmentprojects/groups/avsAssessments/write | Creates a new AVS assessment or updates an existing AVS assessment |
 > | Microsoft.Migrate/assessmentprojects/groups/avsAssessments/delete | Deletes an AVS assessment |
 > | Microsoft.Migrate/assessmentprojects/groups/avsAssessments/downloadurl/action | Downloads an AVS assessment report's URL |
 > | Microsoft.Migrate/assessmentprojects/groups/avsAssessments/avsassessedmachines/read | Get the properties of an AVS assessed machine |
-> | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/read | Gets the properties of a SQL assessment |
+> | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/read | Gets the properties of an SQL assessment |
 > | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/write | Creates a new SQL assessment or updates an existing SQL assessment |
-> | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/delete | Deletes a SQL assessment |
-> | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/downloadurl/action | Downloads a SQL assessment report's URL |
+> | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/delete | Deletes an SQL assessment |
+> | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/downloadurl/action | Downloads an SQL assessment report's URL |
 > | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/assessedSqlDatabases/read | Get the properties of assessed SQL databses |
 > | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/assessedSqlInstances/read | Get the properties of assessed SQL instances |
 > | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/assessedSqlMachines/read | Get the properties of assessed SQL machines |
 > | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/recommendedAssessedEntities/read | Get the properties of recommended assessed entity |
 > | Microsoft.Migrate/assessmentprojects/groups/sqlAssessments/summaries/read | Gets Sql Assessment summary of group |
 > | Microsoft.Migrate/assessmentprojects/groups/webappAssessments/downloadurl/action | Downloads WebApp assessment report's URL |
-> | Microsoft.Migrate/assessmentprojects/groups/webappAssessments/read | Gets the properties of a WebApp assessment |
+> | Microsoft.Migrate/assessmentprojects/groups/webappAssessments/read | Gets the properties of an WebApp assessment |
 > | Microsoft.Migrate/assessmentprojects/groups/webappAssessments/write | Creates a new WebApp assessment or updates an existing WebApp assessment |
-> | Microsoft.Migrate/assessmentprojects/groups/webappAssessments/delete | Deletes a WebApp assessment |
+> | Microsoft.Migrate/assessmentprojects/groups/webappAssessments/delete | Deletes an WebApp assessment |
 > | Microsoft.Migrate/assessmentprojects/groups/webappAssessments/assessedwebApps/read | Get the properties of assessed WebApps |
+> | Microsoft.Migrate/assessmentprojects/groups/webappAssessments/summaries/read | Gets web app assessment summary |
 > | Microsoft.Migrate/assessmentprojects/groups/webappAssessments/webappServicePlans/read | Get the properties of WebApp service plan |
 > | Microsoft.Migrate/assessmentprojects/hypervcollectors/read | Gets the properties of HyperV collector |
 > | Microsoft.Migrate/assessmentprojects/hypervcollectors/write | Creates a new HyperV collector or updates an existing HyperV collector |
@@ -76,6 +89,17 @@ Azure service: [Azure Migrate](../../../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/assessmentprojects/importcollectors/write | Creates a new Import collector or updates an existing Import collector |
 > | Microsoft.Migrate/assessmentprojects/importcollectors/delete | Deletes the Import collector |
 > | Microsoft.Migrate/assessmentprojects/machines/read | Gets the properties of a machine |
+> | Microsoft.Migrate/assessmentprojects/oracleAssessmentOptions/read | Gets the properties of the oracle AssessmentOptions |
+> | Microsoft.Migrate/assessmentprojects/oracleAssessments/read | Gets the properties of the oracle Assessment |
+> | Microsoft.Migrate/assessmentprojects/oracleAssessments/write | Creates a oracle Assessment or updates an existing oracle Assessment |
+> | Microsoft.Migrate/assessmentprojects/oracleAssessments/delete | Deletes the oracle Assessment which are available in the given location |
+> | Microsoft.Migrate/assessmentprojects/oracleAssessments/downloadurl/action | Get Blob SAS URI for the oracle AssessmentReport |
+> | Microsoft.Migrate/assessmentprojects/oracleAssessments/assessedDatabases/read | Gets the properties of the assessedDatabases  |
+> | Microsoft.Migrate/assessmentprojects/oracleAssessments/assessedInstances/read | Gets the properties of the assessedInstances  |
+> | Microsoft.Migrate/assessmentprojects/oracleAssessments/summaries/read | Gets the properties of the oracle AssessmentSummary |
+> | Microsoft.Migrate/assessmentprojects/oraclecollectors/read | Gets the properties of the oracle Collector |
+> | Microsoft.Migrate/assessmentprojects/oraclecollectors/write | Creates a oracle Collector or updates an existing oracle Collector |
+> | Microsoft.Migrate/assessmentprojects/oraclecollectors/delete | Deletes the oracle Collector which are available in the given location |
 > | Microsoft.Migrate/assessmentprojects/privateEndpointConnectionProxies/read | Get Private Endpoint Connection Proxy |
 > | Microsoft.Migrate/assessmentprojects/privateEndpointConnectionProxies/validate/action | Validate a Private Endpoint Connection Proxy |
 > | Microsoft.Migrate/assessmentprojects/privateEndpointConnectionProxies/write | Create or Update a Private Endpoint Connection Proxy |
@@ -88,6 +112,16 @@ Azure service: [Azure Migrate](../../../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/assessmentprojects/replicationplannerjobs/read | Gets the properties of an replication planner jobs |
 > | Microsoft.Migrate/assessmentprojects/servercollectors/read | Gets the properties of Server collector |
 > | Microsoft.Migrate/assessmentprojects/servercollectors/write | Creates a new Server collector or updates an existing Server collector |
+> | Microsoft.Migrate/assessmentprojects/springBootAssessmentOptions/read | Gets the properties of the springBoot AssessmentOptions |
+> | Microsoft.Migrate/assessmentprojects/springBootAssessments/read | Gets the properties of the springBoot Assessment |
+> | Microsoft.Migrate/assessmentprojects/springBootAssessments/write | Creates a springBoot Assessment or updates an existing springBoot Assessment |
+> | Microsoft.Migrate/assessmentprojects/springBootAssessments/delete | Deletes the springBoot Assessment which are available in the given location |
+> | Microsoft.Migrate/assessmentprojects/springBootAssessments/downloadurl/action | Get Blob SAS URI for the springBoot AssessmentReport |
+> | Microsoft.Migrate/assessmentprojects/springBootAssessments/assessedApplications/read | Gets the properties of the assessedApplications  |
+> | Microsoft.Migrate/assessmentprojects/springBootAssessments/summaries/read | Gets the properties of the springBoot AssessmentSummary |
+> | Microsoft.Migrate/assessmentprojects/springBootcollectors/read | Gets the properties of the springBoot Collector |
+> | Microsoft.Migrate/assessmentprojects/springBootcollectors/write | Creates a springBoot Collector or updates an existing springBoot Collector |
+> | Microsoft.Migrate/assessmentprojects/springBootcollectors/delete | Deletes the springBoot Collector which are available in the given location |
 > | Microsoft.Migrate/assessmentprojects/sqlAssessmentOptions/read | Gets the SQL assessment options which are available in the given location |
 > | Microsoft.Migrate/assessmentprojects/sqlcollectors/read | Gets the properties of SQL collector |
 > | Microsoft.Migrate/assessmentprojects/sqlcollectors/write | Creates a new SQL collector or updates an existing SQL collector |
@@ -96,6 +130,7 @@ Azure service: [Azure Migrate](../../../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/assessmentprojects/vmwarecollectors/write | Creates a new VMware collector or updates an existing VMware collector |
 > | Microsoft.Migrate/assessmentprojects/vmwarecollectors/delete | Deletes the VMware collector |
 > | Microsoft.Migrate/assessmentprojects/webAppAssessmentOptions/read | Gets the WebApp assessment options which are available in the given location |
+> | Microsoft.Migrate/assessmentprojects/webAppAssessments/read | Lists web app assessments within a project |
 > | Microsoft.Migrate/assessmentprojects/webappcollectors/read | Gets the properties of Webapp collector |
 > | Microsoft.Migrate/assessmentprojects/webappcollectors/write | Creates a new Webapp collector or updates an existing Webapp collector |
 > | Microsoft.Migrate/assessmentprojects/webappcollectors/delete | Deletes the Webapp collector |
@@ -129,6 +164,34 @@ Azure service: [Azure Migrate](../../../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/migrateprojects/VirtualDesktopUsers/read | Gets the properties of a virtual desktop user |
 > | Microsoft.Migrate/migrateprojects/WebServers/read | Gets the properties of a web server |
 > | Microsoft.Migrate/migrateprojects/WebSites/read | Gets the properties of a web site |
+> | Microsoft.Migrate/modernizeProjects/read | Gets the details of the modernize project |
+> | Microsoft.Migrate/modernizeProjects/write | Creates the modernizeProject |
+> | Microsoft.Migrate/modernizeProjects/delete | Removes the modernizeProject |
+> | Microsoft.Migrate/modernizeProjects/deployedResources/read | Gets the details of the deployed resource |
+> | Microsoft.Migrate/modernizeProjects/jobs/read | Gets the details of the job |
+> | Microsoft.Migrate/modernizeProjects/jobs/operations/read | Tracks the results of an asynchronous operation on the job |
+> | Microsoft.Migrate/modernizeProjects/migrateAgents/read | Gets the details of the modernizeProject agent |
+> | Microsoft.Migrate/modernizeProjects/migrateAgents/write | Creates the modernizeProject agent |
+> | Microsoft.Migrate/modernizeProjects/migrateAgents/delete | Deletes the modernizeProject agent |
+> | Microsoft.Migrate/modernizeProjects/migrateAgents/refresh/action | Refreshes the modernizeProject agent |
+> | Microsoft.Migrate/modernizeProjects/migrateAgents/operations/read | Tracks the results of an asynchronous operation on the modernizeProject agent |
+> | Microsoft.Migrate/modernizeProjects/operations/read | Tracks the results of an asynchronous operation on the modernizeProject |
+> | Microsoft.Migrate/modernizeProjects/statistics/read | Gets the statistics for the modernizeProject |
+> | Microsoft.Migrate/modernizeProjects/workloadDeployments/read | Gets the details of the workload deployment |
+> | Microsoft.Migrate/modernizeProjects/workloadDeployments/write | Creates the workload deployment |
+> | Microsoft.Migrate/modernizeProjects/workloadDeployments/delete | Removes the workload deployment |
+> | Microsoft.Migrate/modernizeProjects/workloadDeployments/getSecrets/action | Gets the secrets of the workload deployment |
+> | Microsoft.Migrate/modernizeProjects/workloadDeployments/buildContainerImage/action | Performs the build container image action on the workload deployment |
+> | Microsoft.Migrate/modernizeProjects/workloadDeployments/testMigrate/action | Performs the test migrate on the workload deployment |
+> | Microsoft.Migrate/modernizeProjects/workloadDeployments/testMigrateCleanup/action | Performs the test migrate cleanup on the workload deployment |
+> | Microsoft.Migrate/modernizeProjects/workloadDeployments/migrate/action | Performs migrate on the workload deployment |
+> | Microsoft.Migrate/modernizeProjects/workloadDeployments/operations/read | Tracks the results of an asynchronous operation on the workload deployment |
+> | Microsoft.Migrate/modernizeProjects/workloadInstances/read | Gets the details of the workload instance |
+> | Microsoft.Migrate/modernizeProjects/workloadInstances/write | Creates the workload instance in the given modernizeProject |
+> | Microsoft.Migrate/modernizeProjects/workloadInstances/delete | Deletes the workload instance in the given modernizeProject |
+> | Microsoft.Migrate/modernizeProjects/workloadInstances/completeMigration/action | Performs complete migrate on the workload instance |
+> | Microsoft.Migrate/modernizeProjects/workloadInstances/disableReplication/action | Performs disable replicate on the workload instance |
+> | Microsoft.Migrate/modernizeProjects/workloadInstances/operations/read | Tracks the results of an asynchronous operation on the workload instance |
 > | Microsoft.Migrate/moveCollections/read | Gets the move collection |
 > | Microsoft.Migrate/moveCollections/write | Creates or updates a move collection |
 > | Microsoft.Migrate/moveCollections/delete | Deletes a move collection |
@@ -171,6 +234,8 @@ Azure service: [Azure Migrate](../../../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/register/action | Subscription Registration Action |
 > | Microsoft.OffAzure/unregister/action | Unregisters Subscription with Microsoft.Migrate resource provider |
 > | Microsoft.OffAzure/register/action | Registers Subscription with Microsoft.OffAzure resource provider |
+> | Microsoft.OffAzure/Appliances/credentials/action | Resyncs the credential under appliance resource |
+> | Microsoft.OffAzure/Appliances/credentials/write | Creates or updates the credential under appliance resource |
 > | Microsoft.OffAzure/HyperVSites/read | Gets the properties of a Hyper-V site |
 > | Microsoft.OffAzure/HyperVSites/write | Creates or updates the Hyper-V site |
 > | Microsoft.OffAzure/HyperVSites/delete | Deletes the Hyper-V site |
@@ -226,6 +291,9 @@ Azure service: [Azure Migrate](../../../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/MasterSites/sqlSites/write | Creates or Updates a Sql Site |
 > | Microsoft.OffAzure/MasterSites/sqlSites/delete | Deleta a Sql Site |
 > | Microsoft.OffAzure/MasterSites/sqlSites/refresh/action | Refreshes data for Sql Site |
+> | Microsoft.OffAzure/MasterSites/sqlSites/exportSqlServers/action | Export Sql servers for the entire Sql site inventory |
+> | Microsoft.OffAzure/MasterSites/sqlSites/exportSqlServerErrors/action | Export Sql server errors for the entire Sql site inventory |
+> | Microsoft.OffAzure/MasterSites/sqlSites/errorDetailedSummary/action | Retrieves Sql Error detailed summary for a resource under a given Sql Site |
 > | Microsoft.OffAzure/MasterSites/sqlSites/discoverySiteDataSources/read | Gets the Sql Discovery Site Data Source |
 > | Microsoft.OffAzure/MasterSites/sqlSites/discoverySiteDataSources/write | Creates or Updates the Sql Discovery Site Data Source |
 > | Microsoft.OffAzure/MasterSites/sqlSites/operationsStatus/read | Gets Sql Operation Status |

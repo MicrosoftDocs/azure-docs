@@ -52,7 +52,6 @@ Azure Monitor for SAP solutions is an Azure-native monitoring product for SAP la
 
 For more information, see the [Azure Monitor for SAP solutions](monitor/about-azure-monitor-sap-solutions.md) documentation.
 
-[!INCLUDE [Preview content notice](./monitor/includes/preview-azure-monitor.md)]
 
 ## Next steps
 

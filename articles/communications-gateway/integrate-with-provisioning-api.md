@@ -18,9 +18,10 @@ Whether you need to integrate with the REST API depends on your chosen communica
 
 |Communications service  |Provisioning API integration  |Purpose  |
 |---------|---------|---------|
-|Microsoft Teams Direct Routing |Required |- Configure the subdomain associated with each Direct Routing customer<br>- Generate DNS records specific to each customer (as required by the Microsoft 365 environment).<br>- Indicate that numbers are enabled for Direct Routing.<br>- (Optional) Configure a custom header for messages to your network|
+|Microsoft Teams Direct Routing |Required |- Configure the subdomain associated with each Direct Routing customer<br>- Generate DNS records specific to each customer (as required by the Microsoft 365 environment)<br>- Indicate that numbers are enabled for Direct Routing.<br>- (Optional) Configure a custom header for messages to your network|
 |Operator Connect|Optional|(Optional) Configure a custom header for messages to your network|
 |Teams Phone Mobile|Not supported|N/A|
+|Zoom Phone Cloud Peering |Required |- Indicate that numbers are enabled for Zoom<br>- (Optional) Configure a custom header for messages to your network|
 
 ## Prerequisites
 
@@ -56,3 +57,4 @@ The following steps summarize the Azure configuration you need.
 
 - [Connect to Operator Connect or Teams Phone Mobile](connect-operator-connect.md)
 - [Connect to Microsoft Teams Direct Routing](connect-teams-direct-routing.md)
+- [Connect to Zoom Phone Cloud Peering](connect-zoom.md)

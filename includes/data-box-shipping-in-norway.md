@@ -25,10 +25,10 @@ Take the following steps if you're returning the device in Norway.
     
         :::image type="content" source="media/data-box-shipping-in-norway/dhl-schedule-pickup.png" alt-text="Screenshot of DHL site to schedule a pickup.":::
 
-    - Send an [email](mailto:info@kundeservicedhl.no) using the following template:
+    - Send an [email](mailto:no.cs@dhl.com) using the following template:
     :::image type="content" source="media/data-box-shipping-in-norway/icon-norway-dhl-email-template.png" alt-text="Screenshot of email template":::
 
-1. For any urgent pickup requests or assistance with DHL booking, [email](mailto:info@kundeservicedhl.no) or call (+47) 21 00 22 00.
+1. For any urgent pickup requests or assistance with DHL booking, [email](mailto:no.cs@dhl.com) or call (+47) 21 00 22 00.
 
 1. If you encounter any issues when scheduling a pickup, reach out to [Azure Data Box Operations](mailto:adbops@microsoft.com) for assistance. Provide the order name and the issue encountered in the subject line.
 
