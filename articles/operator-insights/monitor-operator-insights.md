@@ -1,10 +1,11 @@
 ---
-title: Monitoring [TODO-service-name] #Required; Must be "Monitoring *your official service name* 
-description: Start here to learn how to monitor [TODO-service-name] #Required; 
+title: Monitoring Azure Operator Insights
+description: Start here to learn how to monitor Azure Operator Insights
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
 ms.service: operator-insights
+ms.topic: conceptual
 ms.custom: horz-monitor
 ms.date: 12/15/2023
 ---
@@ -77,7 +78,7 @@ See [Monitoring Azure Operator Insights data reference](monitor-operator-insight
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
-Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
 > [!WARNING]
 > INTERNAL INSTRUCTIONS: remove this note before publishing
@@ -97,20 +98,15 @@ Azure Operator Insights doesn't provide metrics in Azure Monitor.
 
 ## Analyzing logs
 
-> [!WARNING]
-> INTERNAL INSTRUCTIONS: remove this note before publishing
-> REQUIRED. Please keep headings in this order
-> If you don't support resource logs, say so. Some services may be only onboarded to metrics and the activity log.
-
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema) The schema for Azure Operator Insights resource logs is found in the [Azure Operator Insights Data Reference](monitor-operator-insights-data-reference.md#schemas) 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema) The schemas for Azure Operator Insights resource logs are found in the [Azure Operator Insights Data Reference: Schemas](monitor-operator-insights-data-reference.md#schemas).
 
-The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
-For a list of the types of resource logs collected for Azure Operator Insights, see [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md#resource-logs)  
+For a list of the types of resource logs collected for Azure Operator Insights, see [Monitoring Azure Operator Insights data reference: Resource logs](monitor-operator-insights-data-reference.md#resource-logs).
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md#azure-monitor-logs-tables)  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Operator Insights data reference: Azure Monitor Logs tables](monitor-operator-insights-data-reference.md#azure-monitor-logs-tables).
 
 > [!WARNING]
 > INTERNAL INSTRUCTIONS: remove this note before publishing
@@ -118,13 +114,9 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 ### Sample Kusto queries
 
-> [!WARNING]
-> INTERNAL INSTRUCTIONS: remove this note before publishing
-> REQUIRED if you support logs. Please keep headings in this order
-> Add sample Log Analytics Kusto queries for your service.
-Following are queries that you can use to help you monitor your Azure Operator Insights resources:
+You can use the following example queries to help you monitor your Azure Operator Insights resources:
 
-+ All logs about rows which have failed to be digested:
+- Get all logs about rows that weren't digested successfully:
 
     ```kusto
     AOIDigestion
@@ -132,7 +124,7 @@ Following are queries that you can use to help you monitor your Azure Operator I
     | take 100
     ```
 
-+ Breakdown of files that could not be digested by the top-level directory that they were uploaded to (typically the SiteId):
+- Get a breakdown of the number of files that weren't digested, grouped by the top-level directory that they were uploaded to (typically the SiteId):
 
     ```kusto
     AOIDigestion
@@ -141,15 +133,15 @@ Following are queries that you can use to help you monitor your Azure Operator I
     | summarize count() by Source
     ```
 
-+ List all the queries run on a dataproduct by a particular user:
+- List all the queries run on a Data Product by a particular user:
 
     ```kusto
     AOIDatabaseQuery
-    | where DatabaseName has_cs "edrdp" and User has_cs "username@domain.com"
+    | where DatabaseName has_cs "edrdp" and User has_cs "username@example.com"
     | take 100
     ```
 
-+ List all the ingestion operation performed on input storage of a dataproduct:
+- List all the ingestion operations performed on input storage of a Data Product:
 
     ```kusto
     AOIStorage
@@ -157,7 +149,7 @@ Following are queries that you can use to help you monitor your Azure Operator I
     | take 100
     ```
 
-+ List all delete operation performed on input storage of a dataproduct:
+- List all delete operations performed on input storage of a Data Product:
 
     ```kusto
     AOIStorage
@@ -165,7 +157,7 @@ Following are queries that you can use to help you monitor your Azure Operator I
     | take 100
     ```
 
-+ List all Read operation performed on storage of a dataproduct:
+- List all Read operations performed on storage of a Data Product:
 
     ```kusto
     AOIStorage

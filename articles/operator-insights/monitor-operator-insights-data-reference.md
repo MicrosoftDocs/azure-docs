@@ -1,5 +1,5 @@
 ---
-title: Monitoring Azure Operator Insights data reference #Required; *your official service name*  
+title: Monitoring Azure Operator Insights data reference
 description: Important reference material needed when you monitor Azure Operator Insights 
 author: rcdun
 ms.author: rdunstan
@@ -24,7 +24,7 @@ Azure Operator Insights doesn't provide metrics in Azure Monitor.
 
 This section lists the types of resource logs you can collect for Azure Operator Insights.   
 
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
+|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual logs |
 |-------|-----|
 | DataProducts| [Microsoft.NetworkAnalytics/DataProducts](/azure/azure-monitor/platform/resource-logs-categories#microsoftnetworkanalyticsdataproducts) |
 
@@ -34,7 +34,7 @@ The DataProducts logs include information about:
 - `Ingestion` (for adding or changing data in the input storage account for a Data Product)
 - `IngestionDelete` (for deleting data from the input storage account for a Data Product)
 - `ReadStorage` (for read access to the output storage account for a Data Product)
-- `DatabaseQuery` (for query operations performed on the database of a dataproduct)
+- `DatabaseQuery` (for query operations performed on the database of a Data Product)
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 
@@ -102,12 +102,12 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 Azure Operator Insights uses multiple schemas for logs.
 
 |Log type|Relates to|Schema link|
-|--------|----------|
+|--------|----------|-----------|
 |Digestion logs|Processing (digestion) of data|[AOIDigestion](/azure/azure-monitor/reference/tables/aoidigestion)|
 |Storage logs|Operations on the Data Product's storage|[AOIStorage](/azure/azure-monitor/reference/tables/aoistorage)|
 |Database query logs|Queries run on the Data Product's database|[AOIStorage](/azure/azure-monitor/reference/tables/aoistorage)|
 
 ## See Also
 
-- See [Monitoring Azure Azure Operator Insights](monitor-operator-insights.md) for a description of monitoring Azure Azure Operator Insights.
+- See [Monitoring Azure Operator Insights](monitor-operator-insights.md) for a description of monitoring Azure Azure Operator Insights.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
