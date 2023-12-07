@@ -68,11 +68,12 @@ az aks create --name karpuktest --resource-group karpuk --node-provisioning-mode
 ```
 
 ## Node Pools
-Node autoprovision uses a list of VM SKUs as a starting point to decide which is best suited for the workloads that are in a pending state.  Having control over what SKU you want in the initial pool allows you to specify specific SKU families, or VM types as well as the maximum amount of resources a provisioner will use.
+Node autoprovision uses a list of VM SKUs as a starting point to decide which is best suited for the workloads that are in a pending state.  Having control over what SKU you want in the initial pool allows you to specify specific SKU families, or VM types and the maximum amount of resources a provisioner will use.
 
-If you have specific VM SKUs that are reserved instances for example, you may wish to only use those as the starting pool of VM types to choose from.
 
-You can have multiple node pool definitions in a cluster, but AKS will deploy a default provisioner for you that you can modify:
+If you have specific VM SKUs that are reserved instances, for example, you may wish to only use those as the starting pool of VM types to choose from.
+
+You can have multiple node pool definitions in a cluster, but AKS deploys a default provisioner that you can modify:
 
 
 ```yaml
@@ -131,8 +132,8 @@ spec:
                      
 
 
-## Nodepool limits
-By default, NAP will attempt to schedule your workloads within the Azure quota you have available.  You can also specify the upper limit of resources that can be used by a Nodepool by specifying limits within the Nodepool spec. 
+## Node pool limits
+By default, NAP will attempt to schedule your workloads within the Azure quota you have available.  You can also specify the upper limit of resources that is used by a Nodepool, specifying limits within the Node pool spec. 
 
 ```
   # Resource limits constrain the total size of the cluster.
@@ -143,8 +144,8 @@ By default, NAP will attempt to schedule your workloads within the Azure quota y
 ```
 
 
-## Nodepool weights
-When you have multiple Nodepools defined, it is possible to set a preference of where a workload should be scheduled.  This can be accomplished by setting a relative weight on your Nodepool definitions.
+## Node pool weights
+When you have multiple Nodepools defined, it is possible to set a preference of where a workload should be scheduled.  Define the relative weight on your Node pool definitions.
 
 ```
   # Priority given to the NodePool when the scheduler considers which NodePool
@@ -154,13 +155,13 @@ When you have multiple Nodepools defined, it is possible to set a preference of 
 ```
 
 ## Kubernetes and Node image updates 
-AKS with Node autoprovisionin manages the Kubernetes version upgrades as well as VM OS disk updates for you by default.
+AKS with NAP manages the Kubernetes version upgrades and VM OS disk updates for you by default.
 
 ### Kubernetes upgrades
-Kubernetes upgrades for NAP node pools will be dictated by the Control Plane Kubernetes version.  If you perform a cluster upgrade, your NAP nodes will be updated automatically to follow the same versioning.
+Kubernetes upgrades for NAP node pools is dictated by the Control Plane Kubernetes version.  If you perform a cluster upgrade, your NAP nodes are updated automatically to follow the same versioning.
 
 ### Node image updates
-By default NAP node pool virtual machines will be automatically updated when a new image is available.  If you wish to pin a node pool at a certain node image version, you can set the imageVersion on the node class:
+By default NAP node pool virtual machines are automatically updated when a new image is available.  If you wish to pin a node pool at a certain node image version, you can set the imageVersion on the node class:
 
 ```kubectl
 kubectl edit aksnodeclass default
@@ -168,7 +169,7 @@ kubectl edit aksnodeclass default
 
 Within the node class definition, set the imageVersion to one of the published releases listed on the [AKS Release notes](release-notes).
 
-The imageVersion is the date portion on the Node Image as only Ubuntu 22.04 is supported; for example "AKSUbuntu-2204-202311.07.0" would be "202311.07.0"
+The imageVersion is the date portion on the Node Image as only Ubuntu 22.04 is supported for example, "AKSUbuntu-2204-202311.07.0" would be "202311.07.0"
 
 ```
 apiVersion: karpenter.azure.com/v1alpha2
@@ -199,9 +200,9 @@ Removing the imageVersion spec would revert the node pool to be updated to the l
 
 ## Node disruption
 
-When the workloads on your nodes scale down, or are removed, Node autoprovisioning will use disruption rules on the Nodepool specification to decide when and how to remove those nodes and potentially re-schedule your workloads to be more efficient.
+When the workloads on your nodes scale down, NAP uses disruption rules on the Node pool specification to decide when and how to remove those nodes and potentially reschedule your workloads to be more efficient.
 
-You can remove a node manually using ```kubectl delete node```, but NAP can also control when it should optimise your nodes.
+You can remove a node manually using ```kubectl delete node```, but NAP can also control when it should optimize your nodes.
 
 
 ```
@@ -226,7 +227,7 @@ You can remove a node manually using ```kubectl delete node```, but NAP can also
 ```
 
 ## Monitoring selection events 
-Node autoprovision produces cluster events that can be used to monitor deployment and scheduling decisions being made.  You can list these using the Kubernetes events stream.
+Node autoprovision produces cluster events that can be used to monitor deployment and scheduling decisions being made.  You can view events through the Kubernetes events stream.
 
 ```
 kubectl get events -A --field-selector source=karpenter -w
