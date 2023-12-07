@@ -1156,7 +1156,7 @@ Use the [Azure Tables JavaScript SDK](cassandra/manage-data-nodejs.md) to use th
 
 ## Use the emulator in a GitHub Actions CI workflow
 
-Use the Azure Cosmos DB emulator with a test suite from your framework of choice to run a continuous integration workload that automatically validates your application. The Azure Cosmos DB emulator is preinstalled in the [`windows-latest`](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md) variant of GitHub Action's hosted runners.
+Use the Azure Cosmos DB emulator with a test suite from your framework of choice to run a continuous integration workload that automatically validates your application. The Azure Cosmos DB emulator is preinstalled in the `windows-latest` variant of GitHub Action's hosted runners.
 
 ### [C#](#tab/csharp)
 

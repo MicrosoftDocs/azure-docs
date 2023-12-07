@@ -300,7 +300,7 @@ else:
 
 Example in Powershell.
 
-```powershell
+```powershell-interactive
 # continues from the previous PowerShell example
 
 $response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json'

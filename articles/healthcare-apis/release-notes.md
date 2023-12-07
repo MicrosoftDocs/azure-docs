@@ -25,24 +25,36 @@ This article provides details about the features and enhancements made to Azure 
 ### FHIR service
 
 **Bulk delete capability now available**
+
 `$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](./../healthcare-apis/fhir/fhir-bulk-delete.md)
 
 Bulk delete operation is currently in public preview. Review disclaimer for details. [!INCLUDE public preview disclaimer]
 
 **$import operation now supports importing soft deleted resources**
+
 The capability to import soft deleted resources is useful during migration from Azure API for FHIR to Azure Health Data Services. For more details, visit [Fix SQL Import for Soft Delete and History](https://github.com/microsoft/fhir-server/pull/3530).
 
 **Performance improvement**
+
 In this release we have improved performance of FHIR queries with _include parameter. For more information, visit [Change query generator to use INNER JOIN](https://github.com/microsoft/fhir-server/pull/3572).
 
 **Bug fix: Searching with _include and wildcard resulted in query failure**
+
 The issue is fixed and permits only wild character  “*” to be present for _include and _revinclude searches. For more information, visit [Fix syntax check for : when wildcard is used](https://github.com/microsoft/fhir-server/pull/3541).
 
 **Bug fix: Multiple export jobs created resulting in increase data storage volume**
+
 Due to a bug, Export job was creating multiple child jobs when used with typefilter parameter. The fix addresses the issue for more information, visit [Fix export](https://github.com/microsoft/fhir-server/pull/3567).
 
 **Bug Fix: Retriable exception for import operation, when using duplicate files**
+
 In case of duplicate files during import, the exception would be thrown This exception was considered as a retriable exception. This bug fix addresses the issue and import operation with same file will no longer be considered retriable. For information, visit [Handles exception message for duplicate file in import operation](https://github.com/microsoft/fhir-server/pull/3557).
+
+### DICOM Service
+
+**DICOM service with Data Lake Storage is available for public preview**
+
+The integration of Azure Data Lake Storage with the DICOM service gives customers full control of their imaging data and increased flexibility for accessing and working with that data through the Azure storage ecosystem and APIs.  Using Data Lake storage also enables new analytics capabilities through integration with Microsoft Fabric.  For more information, see [Azure Data Lake Storage integration for the DICOM service (Preview)](./../healthcare-apis/dicom/dicom-data-lake.md).
 
 
 ## October 2023
