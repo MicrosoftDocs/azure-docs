@@ -82,7 +82,6 @@ The search field allows you to search by callID. See our documentation to [acces
 
 ![Call Diagnostics - Call Search](media/cd-all-calls.png)
 
-<!-- :::image type="content" source="../media/raw-media/raw-media-overview-1.png" alt-text="diagram of raw media overview use cases."::: -->
 
 > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
@@ -110,7 +109,7 @@ failures during a call. If you want to explore a detected issue, select
 the highlighted item and you'll see a pre-populated view of the
 related events in the Timeline tab.
 
-![Call Diagnostisc - Call Issues](media/cd-call-issues.png)
+![Call Diagnostics - Call Issues](media/cd-call-issues.png)
 
 > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
