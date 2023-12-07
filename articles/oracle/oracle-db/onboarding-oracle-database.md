@@ -24,7 +24,7 @@ To use the Oracle Database@Azure, you need the following:
 
 If you do not have an Oracle Cloud (OCI) account, you can create one during your service deployment. If you do have an OCI account, you can use it with Oracle Database@Azure.
 
-Optionally, you can create identity federation for your OCI account so that users can access the OCI tenancy using an Azure login. Certain Oracle Database@Azure tasks related to Container Database (CDB) and Pluggable Database (PDB) management must be performed in the OCI console. If you choose not to federate your OCI tenancy with Azure's identity service, you must create OCI users using the OCI  service. See [Identity Federation](https://docs.oracle.com/iaas/Content/multicloud/signup_guided_federation.htm) in the Oracle Multicloud documentation for information on creating identity federation using Azure's identity service.
+Optionally, you can create identity federation for your OCI account so that users can access the OCI tenancy using an Azure login. You must perform certain Oracle Database@Azure tasks related to Container Database (CDB) and Pluggable Database (PDB) management in the OCI console. If you choose not to federate your OCI tenancy with Azure's identity service, you must create OCI users using the OCI  service. See [Identity Federation](https://docs.oracle.com/iaas/Content/multicloud/signup_guided_federation.htm) in the Oracle Multicloud documentation for information on creating identity federation using Azure's identity service.
 
 ## Step 1: Purchase Oracle Database@Azure in the Azure portal 
 

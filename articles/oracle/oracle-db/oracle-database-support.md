@@ -46,7 +46,7 @@ If you contact Oracle Support, be sure to tell your Oracle Support agent that yo
 2.  Choose option "2" to open a new Service Request (SR).
 3.  Choose option "4" for "unsure".
 4.  Enter "#" each time you're asked for your CSI number. At the third attempt, your call is directed to an Oracle Support agent.
-5.  Let the agent know that you have an issue with your multicloud system, and the name of the product. An internal Service Request is opened on your behalf and a support engineer contacts you directly.
+5. Let the agent know that you have an issue with your multicloud system, and the name of the product. The agent opens an internal Service Request on your behalf and a support engineer contacts you directly.
 
 You can also submit a question to the Oracle Database@Azure forum in Oracle's [Cloud Customer Connect](https://community.oracle.com/customerconnect/categories/oracle-cloud-infrastructure-and-platform) community. This option is available to all customers.
 
