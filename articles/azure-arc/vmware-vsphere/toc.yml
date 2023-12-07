@@ -36,6 +36,10 @@
         href: setup-and-manage-self-service-access.md
       - name: Perform VM operations on VMware VMs through Azure
         href: perform-vm-ops-through-azure.md
+  - name: Enable Extended Security Updates
+    items:
+      - name: Deliver ESUs for VMware VMs through Arc
+        href: deliver-extended-security-updates-for-vmware-vms-through-arc.md
   - name: Administer
     items: 
     - name: Administer Arc-enabled VMware vSphere
