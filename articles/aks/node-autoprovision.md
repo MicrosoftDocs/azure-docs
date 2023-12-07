@@ -232,4 +232,9 @@ Node autoprovision produces cluster events that can be used to monitor deploymen
 kubectl get events -A --field-selector source=karpenter -w
 ```
 
+## Limitations
+* NAP is not available in  WestUS, WestUS2, EastUS, EastUS2, SouthCentralUS regions.
+* Windows and Azure Linux Nodepools are not supported
+
+
 [release-notes]: https://github.com/Azure/AKS/blob/master/CHANGELOG.md
