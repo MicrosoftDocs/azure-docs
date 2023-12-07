@@ -48,7 +48,6 @@ This article covers registering your IoT Edge device and installing IoT Edge on 
 
 <!-- Generate device identity certificates H2 and content -->
 [!INCLUDE [iot-edge-generate-device-identity-certs.md](includes/iot-edge-generate-device-identity-certs.md)]
-NOTE: When generating the device identity certificates, follow the steps for generating PRIMARY and SECONDARY certificates EVEN THOUGH the device is NOT downstream of a gateway device.
 
 <!-- Register your device and View provisioning information H2s and content -->
 [!INCLUDE [iot-edge-register-device-x509.md](includes/iot-edge-register-device-x509.md)]
@@ -94,10 +93,8 @@ Update the following fields:
 
 * **iothub_hostname**: Hostname of the IoT hub the device will connect to. For example, `{IoT hub name}.azure-devices.net`.
 * **device_id**: The ID that you provided when you registered the device.
-* **identity_cert**: URI to an identity certificate on the device, for example: `file:///path/identity_certificate.pem`. Or, dynamically issue the certificate using EST or a local certificate authority.
-* **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/identity_key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the **PKCS#11** section later in the config file.
-
-NOTE: Use the PRIMARY or SECONDARY certificate and key - NOT The device certificate generated in the certificate tutorial.
+* **identity_cert**: URI to one of the primary/secondary device certificates, for example: `file:///path/iot-device-<device ID>-primary.cert.pem`. Or, dynamically issue the certificate using EST or a local certificate authority.
+* **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/iot-device-<device ID>-primary.key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the **PKCS#11** section later in the config file.
 
 Save and close the file.
 
