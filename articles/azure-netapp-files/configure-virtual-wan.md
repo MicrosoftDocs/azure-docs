@@ -24,7 +24,7 @@ This article will explain how to deploy and access an Azure NetApp Files volume 
 
 ## Considerations
 
-* You should be familiar with network policies for Azure NetApp Files [private endpoints](../private-link/disable-private-endpoint-network-policy.md). Refer to [Route Azure NetApp Files traffic from on-premises via Azure Firewall](#route-azure-netapp-files-traffic-from-on-premises-via-azure-firewall) for further information.
+* Azure NetApp Files connectivity over Virtual WAN is supported only when using Standard networking features. For more information see [Supported network topologies](azure-netapp-files-network-topologies.md#supported-network-topologies).
 
 ## Before you begin
 
