@@ -8,9 +8,9 @@ ms.author: juda
 ---
 
 # Node autoprovision
-When deploying workloads onto AKS, you need to make a decision about the nodepool configuration regarding the VM size needed.  As your workloads become more complex, and require different CPU, Memory and capabilities to run, the overhead of having to design your VM configuration for numerous resource requests becomes difficult.
+When deploying workloads onto AKS, you need to make a decision about the node pool configuration regarding the VM size needed.  As your workloads become more complex, and require different CPU, Memory and capabilities to run, the overhead of having to design your VM configuration for numerous resource requests becomes difficult.
 
-Node autoprovision (NAP) will decide based on pending pod resource requirements the optimal VM configuration to run those workloads in the most efficient and cost effective manner.
+Node autoprovision (NAP) decides based on pending pod resource requirements the optimal VM configuration to run those workloads in the most efficient and cost effective manner.
 
 
 ## Before you begin
@@ -60,7 +60,7 @@ Node autoprovision (NAP) will decide based on pending pod resource requirements 
 
 
 ## Enable Node autoprovision
-To enable node autoprovision, you will need to use overlay networking and the cilium network policy.
+To enable node autoprovision, you need to use overlay networking and the cilium network policy.
 
 ```azure-cli
 az aks create --name karpuktest --resource-group karpuk --node-provisioning-mode Auto --network-plugin azure --network-plugin-mode overlay --network-dataplane cilium
@@ -68,7 +68,7 @@ az aks create --name karpuktest --resource-group karpuk --node-provisioning-mode
 ```
 
 ## Node Pools
-Node autoprovision will use a list of VM SKUs as a starting point to decide which of those will be the best suited for the workloads that are in a pending state (ready to be provisioned on nodes).  Having control over what SKU you want in the initial pool allows you to specify specific SKU families, or VM types as well as the maximum amount of resources a provisioner will ever deploy.
+Node autoprovision uses a list of VM SKUs as a starting point to decide which is best suited for the workloads that are in a pending state.  Having control over what SKU you want in the initial pool allows you to specify specific SKU families, or VM types as well as the maximum amount of resources a provisioner will use.
 
 If you have specific VM SKUs that are reserved instances for example, you may wish to only use those as the starting pool of VM types to choose from.
 
@@ -138,7 +138,7 @@ AKS manages the Kubernetes version upgrades as well as VM OS disk updates for yo
 Kubernetes upgrades for NAP node pools will be dictated by the Control Plane Kubernetes version.  If you perform a cluster upgrade, your NAP nodes will be updated automatically to follow the same versioning.
 
 ### Node image updates
-By default NAP nodepool virtual machines will be automatically updated when a new image is available.  If you wish to pin a node pool at a certain node image version, you can set the imageVersion on the node class:
+By default NAP node pool virtual machines will be automatically updated when a new image is available.  If you wish to pin a node pool at a certain node image version, you can set the imageVersion on the node class:
 
 ```kubectl
 kubectl edit aksnodeclass default
