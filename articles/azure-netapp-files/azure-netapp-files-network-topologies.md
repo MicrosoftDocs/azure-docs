@@ -79,7 +79,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   West US 2
 *	West US 3 
 
-<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
+<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes (preview)](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
 
 * Australia Central
 * Australia Central 2
@@ -92,7 +92,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Central India
 * Central US
 * East Asia
-* East US 
+* East US* 
 * East US 2 
 * France Central 
 * Germany North
@@ -106,7 +106,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Norway West 
 * Qatar Central 
 * South Africa North
-* South Central US 
+* South Central US* 
 * South India
 * Southeast Asia 
 * Sweden Central
@@ -117,9 +117,10 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * UK South
 * West Europe 
 * West US 
-* West US 2  
+* West US 2*  
 * West US 3 
 
+\* Not all volume in this region are available for conversion. All volumes will be available for conversion in the future. 
 
 ## Considerations
 
@@ -186,7 +187,9 @@ If you use a new VNet, you can create a subnet and delegate the subnet to Azure 
 If the VNet is peered with another VNet, you can't expand the VNet address space. For that reason, the new delegated subnet needs to be created within the VNet address space. If you need to extend the address space, you must delete the VNet peering before expanding the address space.
 
 >[!IMPORTANT]
->The address space size of the Azure NetApp Files VNet should be larger than its delegated subnet. If it is not, Azure NetApp Files volume creation will fail in some scenarios.
+> Ensure the address space size of the Azure NetApp Files VNet is larger than its delegated subnet.
+>
+> For example, if the delegated subnet is /24, the VNet address space containing the subnet must be /23 or larger. Noncompliance with this guideline can lead to unexpected issues in some traffic patterns: traffic traversing a hub-and-spoke topology that reaches Azure NetApp Files via a Network Virtual Appliance does not function properly. Additionally, this configuration can result in failures when creating SMB and CIFS volumes if they attempt to reach DNS through hub-and-spoke network topology. 
 >
 > It's also recommended that the size of the delegated subnet be at least /25 for SAP workloads and /26 for other workload scenarios.
 

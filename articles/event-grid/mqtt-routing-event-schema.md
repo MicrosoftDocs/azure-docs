@@ -8,6 +8,7 @@ ms.custom:
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
+
 ---
 # Event Schema for MQTT Routed Messages
 

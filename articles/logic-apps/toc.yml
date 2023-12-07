@@ -183,8 +183,8 @@ items:
       href: logic-apps-author-definitions.md
     - name: Handle content types
       href: logic-apps-content-type.md
-    - name: Handle exceptions
-      href: logic-apps-exception-handling.md
+    - name: Handle errors and exceptions
+      href: error-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
     - name: Handle long-running stored procedures for SQL connector
@@ -211,12 +211,12 @@ items:
       href: connect-virtual-network-vnet-set-up-single-ip-address.md
     - name: Add resources to integration service environments
       href: add-artifacts-integration-service-environment-ise.md
-  - name: Access on-premises data
+  - name: Access on-premises data sources
     items:
-    - name: Install data gateway
-      href: logic-apps-gateway-install.md
-    - name: Connect to on-premises data
-      href: logic-apps-gateway-connection.md
+    - name: Install on-premises data gateway
+      href: install-on-premises-data-gateway.md
+    - name: Connect to on-premises data sources
+      href: connect-on-premises-data-sources.md
   - name: Develop for B2B scenarios
     items:
     - name: Integration account and artifacts

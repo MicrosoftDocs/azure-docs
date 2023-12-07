@@ -21,6 +21,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.confidentialledger%2Fconfidential-ledger-create%2Fazuredeploy.json)
 
 ## Prerequisites
+[!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)]
 
 ### Azure subscription
 

@@ -52,7 +52,7 @@ client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_KEY"),  
     api_version="2023-10-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-    )
+)
 ```
 
 </td>
@@ -123,7 +123,7 @@ OpenAI uses the `model` keyword argument to specify what model to use. Azure Ope
 ```python
 completion = client.completions.create(
     model='gpt-3.5-turbo-instruct',
-    prompt="<prompt>)
+    prompt="<prompt>")
 )
 
 chat_completion = client.chat.completions.create(

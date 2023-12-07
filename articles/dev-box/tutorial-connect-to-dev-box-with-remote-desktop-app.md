@@ -72,9 +72,17 @@ To get the subscription URL for your workspace:
 
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/dev-box-rdp-subscription-windows.png" alt-text="Screenshot of the Configure Remote Desktop dialog with the subscription feed URL highlighted.":::
 
-1. In Remote Desktop, on the **Let's get started** page, select **Subscribe with URL**.
+1. Open the Remote Desktop app. 
+ 
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app.png" alt-text="Screenshot of the Windows 11 start menu with Remote desktop showing and open highlighted.":::
 
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app-get-started.png" alt-text="Screenshot of the Remote Desktop Let's get started page."::: 
+    a. If this is the first time you've opened the Remote Desktop app, you see the **Let's get started** page. Select **Subscribe with URL**.
+
+      :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app-get-started.png" alt-text="Screenshot of the Remote Desktop Let's get started page."::: 
+
+    b. If you've used the Remote Desktop app before, you see your workspaces. Select More options (**...**), and the select **Subscribe with URL**.
+
+      :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app-more-options.png" alt-text="Screenshot of the Remote Desktop app with the More options menu highlighted.":::
 
 1. In the **Email or Workspace URL** box, paste the Workspace URL you copied in step 3, and then select **Next**.
 
