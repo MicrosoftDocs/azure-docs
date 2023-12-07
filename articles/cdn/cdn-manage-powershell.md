@@ -136,7 +136,6 @@ Get-AzCdnEndpoint -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 - Standard_Verizon
 - Premium_Verizon
 - Custom_Verizon
-- Standard_Akamai
 - Standard_Microsoft
 - Standard_ChinaCdn
 
