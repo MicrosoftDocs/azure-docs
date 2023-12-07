@@ -1,11 +1,10 @@
 ---
 title: Automatic update of the Mobility service in Azure Site Recovery
 description: Overview of automatic update of the Mobility service when replicating Azure VMs by using Azure Site Recovery.
-services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: ankitadutta
 ms.custom: engagement-fy23
