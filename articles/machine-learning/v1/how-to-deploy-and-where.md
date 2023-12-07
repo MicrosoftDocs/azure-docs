@@ -43,7 +43,7 @@ For more information on the concepts involved in the machine learning deployment
 
 [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
-[!INCLUDE [cli10-only](../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli10-only](../includes/machine-learning-cli-v1-deprecation.md)]
 
 - An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
 - A model. The examples in this article use a pre-trained model.
