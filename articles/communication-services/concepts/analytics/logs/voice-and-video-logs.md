@@ -122,6 +122,7 @@ For each endpoint within a call, a distinct call diagnostic log is created for o
 |     `RecvResolutionHeight`     |    The average of vertical size of the incoming video stream that is transmitted during a video/screensharing call. It's measured in pixels and is one of the factors that determines the overall resolution and quality of the video stream. The specific resolution used may depend on the capabilities of the devices and network conditions involved in the call.  <br><br> The stream quality is considered poor when this value is less than 240 for video stream, or less than 768 for screensharing stream. 
 |     `RecvFreezeDurationPerMinuteInMs`     |    The average freeze duration in milliseconds per minute for incoming video/screensharing stream. Freezes are typically due to bad network condition and can degrade the stream quality.  <br><br> The stream quality is considered poor when this value is greater than 6,000 ms for video stream, or greater than 25,000 ms for screensharing stream. 
 
+### Call Client Operations log schema
 
 ### P2P vs. group calls
 
