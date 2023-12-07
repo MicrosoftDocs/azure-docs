@@ -66,7 +66,7 @@ A populated URL might look like this:
 
 `https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&features=tags,read,caption,denseCaptions,smartCrops,objects,people`
 
-
+<!--
 ### Set model name when using a custom model
 
 You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name. You do not need to specify visual features if you use a custom model.
@@ -75,7 +75,7 @@ You can also do image analysis with a custom trained model. To create and train 
 To use a custom model, don't use the features query parameter. Instead, set the `model-name` parameter to the name of your model as shown here. Replace `MyCustomModelName` with your custom model name.
 
 `https://<endpoint>/computervision/imageanalysis:analyze?api-version=2023-10-01&model-name=MyCustomModelName`
-
+-->
 
 ### Specify languages
 
