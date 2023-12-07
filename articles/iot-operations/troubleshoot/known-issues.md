@@ -21,10 +21,6 @@ This article contains known issues for Azure IoT Operations Preview.
 
 - Uninstalling K3s: When you uninstall k3s on Ubuntu by using the `/usr/local/bin/k3s-uninstall.sh` script, you may encounter an issue where the script gets stuck on unmounting the NFS pod. A workaround for this issue is to run the following command before you run the uninstall script: `sudo systemctl stop k3s`.
 
-## Azure Data Processor (preview)
-
-- Some clusters that have slow Kubernetes API calls may result in selftest ping failures and "Status {Failed}. Probe failed: Ping: 1/2" messages from az iot ops check
-
 ## Azure IoT MQ (preview)
 
 - You can only access the default deployment by using the cluster IP, TLS, and a service account token. Clients outside the cluster need extra configuration before they can connect.
@@ -34,6 +30,8 @@ This article contains known issues for Azure IoT Operations Preview.
 - You can't configure the size of a disk-backed buffer unless your chosen storage class supports it.
 
 - Even though IoT MQ's [diagnostic service](../monitor/howto-configure-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
+
+- Some clusters that have slow Kubernetes API calls may result in selftest ping failures and "Status {Failed}. Probe failed: Ping: 1/2" messages from az iot ops check
 
 - When implementing Azure Event Grid and Kafka, you may encounter timeout errors in the logs. Despite this, the connector will continue to function and forward messages
 
