@@ -60,8 +60,6 @@ Before you can enable single sign-on, you must meet the following prerequisites:
 
 - [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) on your local device, or [Azure Cloud Shell](../cloud-shell/overview.md).
 
-- [Create a dynamic group in Microsoft Entra ID](/entra/identity/users/groups-create-rule) that contains all your session hosts. This group is used to configure the target device group for single sign-on.
-
 - A supported Remote Desktop client to connect to a remote session. The following clients are supported:
 
    - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to Microsoft Entra ID or an Active Directory domain.
