@@ -27,7 +27,7 @@ This article shows you how to enable secure access from your Azure services to y
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 > [!NOTE]
-> The Trusted Access API is GA. CLI is in preview and requires use of the `aks-preview` extension.
+> The Trusted Access API is GA. We provide GA support for CLI, however it's still in preview and requires the `aks-preview` extension.
 
 ## Trusted Access feature overview
 
