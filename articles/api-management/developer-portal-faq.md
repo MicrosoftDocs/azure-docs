@@ -140,9 +140,7 @@ If you don't need the sign-up functionality enabled by default in the developer 
    :::image type="content" source="media/developer-portal-faq/delete-identity-providers.png" alt-text="Delete identity providers":::
  
 1. Navigate to the developer portal administrative interface.
-1. Remove **Sign up** links and navigation items in the portal content. For information about customizing portal content, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
- 
-   :::image type="content" source="media/developer-portal-faq/delete-navigation-item.png" alt-text="Delete navigation item":::
+1. Remove **Sign up** links and navigation items in the portal content. For information about customizing portal content, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md#edit-navigation-menus).
  
 1. Modify the **Sign up** page content to remove fields used to enter identity data, in case users navigate directly to it.
    

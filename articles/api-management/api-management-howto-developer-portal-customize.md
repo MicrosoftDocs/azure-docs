@@ -118,6 +118,7 @@ You can change the background on your home page to an image or color that matche
     * **Background image**, to select an image from the media library, or to upload a new image
     * **Background color**, to select a color from the color picker, or to clear a color
     * **Background gradient**, to select a gradient from your site styles page, or to clear a gradient
+1. Under **Background sizing**, make a selection appropriate for your background.
 1. In the top bar, select **Save**.
 
 ## Change the default layout
