@@ -80,7 +80,7 @@ This section shows you how to set the network features option when you create a 
 
     [ ![Screenshot that shows the Volumes page displaying the network features setting.](../media/azure-netapp-files/network-features-volume-list.png)](../media/azure-netapp-files/network-features-volume-list.png#lightbox)
 
-## <a name="edit-network-features-option-for-existing-volumes"></a> Edit network features option for existing volumes (preview)
+## Edit network features option for existing volumes
 
 You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same *network sibling set* (or *siblings*). Siblings are determined by their network IP address relationship. They share the same NIC for mounting the volume to the client or connecting to the SMB share of the volume. At the creation of a volume, its siblings are determined by a placement algorithm that aims for reusing the IP address where possible. 
 
