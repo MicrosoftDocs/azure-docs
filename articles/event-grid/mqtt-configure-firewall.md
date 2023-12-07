@@ -5,8 +5,9 @@ ms.topic: how-to
 ms.custom:
   - ignite-2023
 ms.date: 11/15/2023
-author: veyaddan
-ms.author: veyaddan
+author: george-guirguis
+ms.author: geguirgu
+
 ---
 
 # Configure IP firewall for Azure Event Grid namespaces (MQTT)
@@ -34,4 +35,4 @@ This article describes how to configure IP firewall settings for an Event Grid n
     :::image type="content" source="./media/configure-firewall-mqtt/namespace-ip-firewall-settings.png" alt-text="Screenshot that shows IP firewall settings on the Networking page of an existing namespace.":::
 
 ## Next steps
-See [Allow access via private endpoints](configure-private-endpoints-mqtt.md).
+See [Allow access via private endpoints](mqtt-configure-private-endpoints.md).

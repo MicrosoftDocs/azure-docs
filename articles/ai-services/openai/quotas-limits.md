@@ -9,7 +9,7 @@ ms.service: azure-ai-openai
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 12/06/2023
 ms.author: mbullwin
 ---
 
@@ -78,7 +78,7 @@ The default quota for models varies by model and region. Default quota limits ar
   </tr>  
   <tr>  
     <td rowspan="2">gpt-4</td>  
-    <td>East US, South Central US, West Europe, France Central</td>  
+    <td>East US, South Central US, France Central</td>  
     <td>20 K</td>  
   </tr>  
   <tr>  
@@ -87,7 +87,7 @@ The default quota for models varies by model and region. Default quota limits ar
   </tr>  
   <tr>  
     <td rowspan="2">gpt-4-32k</td>  
-    <td>East US, South Central US, West Europe, France Central</td>  
+    <td>East US, South Central US, France Central</td>  
     <td>60 K</td>  
   </tr>  
   <tr>  

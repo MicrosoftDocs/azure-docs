@@ -135,13 +135,9 @@
         href: store-fslogix-profile.md
     - name: Applications
       items:
-      - name: MSIX app attach
-        items:
-        - name: What is MSIX app attach?
-          displayName: applications, apps
-          href: what-is-app-attach.md
-        - name: MSIX app attach FAQ
-          href: app-attach-faq.yml
+      - name: App attach
+        displayName: applications, apps, msix app attach, app attach, app packages, appx packages
+        href: app-attach-overview.md
       - name: Microsoft Teams supported features
         displayName: applications, apps
         href: teams-supported-features.md
@@ -281,37 +277,22 @@
             href: windows-11-language-packs.md
       - name: Applications
         items:
-        - name: Publish applications using Azure portal
-          displayName: deploy, get started, apps
-          href: manage-app-groups.md
-        - name: Publish applications using CLI and PowerShell
-          displayName: deploy, get started, apps
-          href: manage-app-groups-powershell.md
-        - name: Publish built-in apps
-          displayName: deploy, get started, applications
-          href: publish-apps.md
-        - name: MSIX app attach
+        - name: Publish applications
+          displayName: deploy, get started, apps, sandbox, Microsoft Store
+          href: publish-applications.md
+        - name: App attach
           items:
           - name: Create an MSIX image
-            displayName: msix app attach, applications, apps
-            href: msix-app-attach-create-msix-image.md
-          - name: Set up a file share
-            displayName: msix app attach, applications, apps
-            href: app-attach-file-share.md
-          - name: Use Azure NetApp Files and MSIX app attach
-            displayName: applications, apps
-            href: create-netapp-files.md
-          - name: Set up MSIX app attach with the Azure portal
-            displayName: applications, apps
-            href: app-attach-azure-portal.md
-          - name: Set up MSIX app attach with PowerShell
-            displayName: applications, apps
-            href: app-attach-powershell.md
-          - name: Test and troubleshoot MSIX packages
-            displayName: msix app attach, applications, apps
-            href: app-attach.md
+            displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+            href: app-attach-create-msix-image.md
+          - name: Add and manage app attach applications
+            displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+            href: app-attach-setup.md
+          - name: Test MSIX packages
+            displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+            href: app-attach-test-msix-packages.md
           - name: MSIXMGR tool parameters
-            displayName: msix app attach, applications, apps
+            displayName: msix app attach, app attach, applications, apps, appx packages, app packages
             href: msixmgr-tool-syntax-description.md 
         - name: Specific applications
           items:
@@ -335,7 +316,7 @@
         - name: Configure single sign-on using AD FS
           displayName: identity, sso
           href: configure-adfs-sso.md
-        - name: Assign RBAC roles to the service principal
+        - name: Assign RBAC roles to the service principals
           displayName: identity, role-based access control, role based access control
           href: service-principal-assign-roles.md
         - name: Set up the KDC proxy
@@ -656,6 +637,9 @@
   - name: REST API
     displayName: reference
     href: /rest/api/desktopvirtualization/
+  - name: MSIXMGR tool parameters
+    displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+    href: msixmgr-tool-syntax-description.md 
 - name: Resources
   items:
   - name: User experience estimator

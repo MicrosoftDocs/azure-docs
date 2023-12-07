@@ -42,7 +42,7 @@ durable_timeout_task = context.create_timer(due_time)
 
 ```powershell
 # Put the orchestrator to sleep for 72 hours
-@duration = New-TimeSpan -Hours 72
+$duration = New-TimeSpan -Hours 72
 Start-DurableTimer -Duration $duration
 ```
 
