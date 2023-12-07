@@ -45,7 +45,7 @@ curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type:
     "containerUrl": "https://contoso.blob.core.windows.net/voicecontainer?mySasToken",
     "prefix": "jessica/",
     "extensions": [
-      "*.wav"
+      ".wav"
     ]
   }
 } '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/personalvoices/JessicaPersonalVoiceId?api-version=2023-12-01-preview"

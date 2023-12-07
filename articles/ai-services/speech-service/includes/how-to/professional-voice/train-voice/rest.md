@@ -71,7 +71,7 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "id": "Jessica",
+  "id": "JessicaModelId",
   "voiceName": "JessicaNeural",
   "description": "Jessica voice",
   "recipe": {
@@ -126,7 +126,7 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "id": "Jessica",
+  "id": "JessicaModelId",
   "voiceName": "JessicaNeuralCrossLingual",
   "description": "Jessica cross lingual voice",
   "recipe": {
@@ -194,7 +194,7 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "id": "Jessica",
+  "id": "JessicaModelId",
   "voiceName": "JessicaNeuralMultiStyle",
   "description": "Jessica multi-style voice",
   "recipe": {
@@ -248,11 +248,14 @@ Make an HTTP GET request using the URI as shown in the following `Models_Get` ex
 curl -v -X GET "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/models/JessicaModelId?api-version=2023-12-01-preview" -H "Ocp-Apim-Subscription-Key: YourResourceKey"
 ```
 
-You should receive a response body in the following format. You might need to wait for several minutes before the training is completed. Eventually the status will change to either `Succeeded` or `Failed`.
+You should receive a response body in the following format. 
+
+> [!NOTE]] 
+> The recipe `kind` and other properties depend on how you [trained the voice](#choose-a-training-method). In this example, the recipe kind is `Default` for neural voice training.
 
 ```json
 {
-  "id": "Jessica",
+  "id": "JessicaModelId",
   "voiceName": "JessicaNeural",
   "description": "Jessica voice",
   "recipe": {
@@ -269,6 +272,8 @@ You should receive a response body in the following format. You might need to wa
   "lastActionDateTime": "2023-04-02T10:15:30.000Z"
 }
 ```
+
+You might need to wait for several minutes before the training is completed. Eventually the status will change to either `Succeeded` or `Failed`.
 
 ## Next steps
 

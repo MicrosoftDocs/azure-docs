@@ -77,14 +77,14 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type
     "containerUrl": "https://contoso.blob.core.windows.net/voicecontainer?mySasToken",
     "prefix": "jessica300/",
     "extensions": [
-      "*.wav"
+      ".wav"
     ]
   },
   "scripts": {
     "containerUrl": "https://contoso.blob.core.windows.net/voicecontainer?mySasToken",
     "prefix": "jessica300/",
     "extensions": [
-      "*.txt"
+      ".txt"
     ]
   }
 } '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/trainingsets/JessicaTrainingSetId:upload?api-version=2023-12-01-preview"
