@@ -39,7 +39,7 @@ Disconnecting the session also ensures that when the connection is relaunched af
 
 In environments with an Active Directory Domain Services (AD DS) and hybrid user accounts, the default *Password Replication Policy* on read-only domain controllers denies password replication for members of *Domain Admins* and *Administrators* security groups. This policy prevents these administrator accounts from signing in to Microsoft Entra hybrid joined hosts and might keep prompting them to enter their credentials. It also prevents administrator accounts from accessing on-premises resources that use Kerberos authentication from Microsoft Entra joined hosts.
 
-To allow these admin accounts to connect when single sign-on is enabled, see [Allowing Active Directory domain administrator accounts to connect](#allowing-active-directory-domain-administrator-accounts-to-connect).
+To allow these admin accounts to connect when single sign-on is enabled, see [Allow Active Directory domain administrator accounts to connect](#allow-active-directory-domain-administrator-accounts-to-connect).
 
 ## Prerequisites
 
