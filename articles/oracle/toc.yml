@@ -19,6 +19,6 @@ items:
     href: oracle-db/oracle-database-support.md
   - name: Network planning
     items:
-    - name: Solution design for Oracle Database@Azure
+    - name: Network planning for Oracle Database@Azure
       href: oracle-db/oracle-database-solution-design.md
  
