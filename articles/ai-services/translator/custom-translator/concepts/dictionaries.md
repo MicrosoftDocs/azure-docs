@@ -22,6 +22,14 @@ Dictionaries only work for projects in language pairs that have a fully supporte
 
 A phrase dictionary is case-sensitive. It's an exact find-and-replace operation. When you include a phrase dictionary in training your model, any word or phrase listed is translated in the way specified. The rest of the sentence is translated as usual. You can use a phrase dictionary to specify phrases that shouldn't be translated by providing the same untranslated phrase in the source and target files.
 
+## Dynamic dictionary
+
+The [dynamic dictionary](../../dynamic-dictionary.md) feature allows you to customize translations for specific terms or phrases. You define custom translations for your unique context, language, or specific needs.
+
+## Neural dictionary
+
+The neural dictionary is an extension to our [dynamic dictionary](#dynamic-dictionary) and [phrase dictionary](#phrase-dictionary) features. Both allow you to customize the translation output by providing your own translations for specific terms or phrases. Our previous method used a verbatim dictionary, which was an exact find-and-replace operation. Neural dictionary improves translation quality for sentences which may include one or more term translations by letting the machine translation model adjust both the term and the context to produce more fluent translation. At the same time, it preserves high-term translation accuracy.
+
 ## Sentence dictionary
 
 A sentence dictionary is case-insensitive. The sentence dictionary allows you to specify an exact target translation for a source sentence. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. If the source dictionary entry ends with punctuation, it's ignored during the match. If only a portion of the sentence matches, the entry won't match.  When a match is detected, the target entry of the sentence dictionary will be returned.
