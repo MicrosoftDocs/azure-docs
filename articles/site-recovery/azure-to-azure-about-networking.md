@@ -40,7 +40,7 @@ Typically, networks are protected using firewalls and network security groups (N
 
 ## Outbound connectivity for URLs
 
-If you are using a URL-based firewall proxy to control outbound connectivity, allow these Site Recovery URLs:
+If you're using a URL-based firewall proxy to control outbound connectivity, allow these Site Recovery URLs:
 
 **URL** | **Details**
 --- | ---
@@ -64,7 +64,7 @@ While using NSG to control outbound connectivity, these service tags need to be 
     - Allow these addresses so that data can be written to the cache storage account, from the VM.
 - Create a [Microsoft Entra service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to Microsoft Entra ID
 - Create an EventsHub service tag-based NSG rule for the target region, allowing access to Site Recovery monitoring.
-- Create an AzureSiteRecovery service tag-based NSG rule for allowing access to Site Recovery service in any region.
+- Create an Azure Site Recovery service tag-based NSG rule for allowing access to Site Recovery service in any region.
 - Create an AzureKeyVault service tag-based NSG rule. This is required only for enabling replication of ADE-enabled virtual machines via portal.
 - Create a GuestAndHybridManagement service tag-based NSG rule. This is required only for enabling autoupgrade of mobility agent for a replicated item via portal.
 - We recommend that you create the required NSG rules on a test NSG, and verify that there are no problems before you create the rules on a production NSG.
@@ -88,7 +88,7 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 3. Similar to the security rules, create outbound HTTPS (443) security rule for "EventHub.CentralUS" on the NSG that corresponds to the target location. This allows access to Site Recovery monitoring.
 
-4. Create an outbound HTTPS (443) security rule for "AzureSiteRecovery" on the NSG. This allows access to Site Recovery Service in any region.
+4. Create an outbound HTTPS (443) security rule for "Azure Site Recovery" on the NSG. This allows access to Site Recovery Service in any region.
 
 ### NSG rules - Central US
 
@@ -100,15 +100,15 @@ These rules are required so that replication can be enabled from the target regi
 
 3. Similar to the security rules, create outbound HTTPS (443) security rule for "EventHub.EastUS" on the NSG that corresponds to the source location. This allows access to Site Recovery monitoring.
 
-4. Create an outbound HTTPS (443) security rule for "AzureSiteRecovery" on the NSG. This allows access to Site Recovery Service in any region.
+4. Create an outbound HTTPS (443) security rule for "Azure Site Recovery" on the NSG. This allows access to Site Recovery Service in any region.
 
 ## Network virtual appliance configuration
 
-If you are using network virtual appliances (NVAs) to control outbound network traffic from VMs, the appliance might get throttled if all the replication traffic passes through the NVA. We recommend creating a network service endpoint in your virtual network for "Storage" so that the replication traffic does not go to the NVA.
+If you're using network virtual appliances (NVAs) to control outbound network traffic from VMs, the appliance might get throttled if all the replication traffic passes through the NVA. We recommend creating a network service endpoint in your virtual network for "Storage" so that the replication traffic doesn't go to the NVA.
 
 ### Create network service endpoint for Storage
 
-You can create a network service endpoint in your virtual network for "Storage" so that the replication traffic does not leave Azure boundary.
+You can create a network service endpoint in your virtual network for "Storage" so that the replication traffic doesn't leave Azure boundary.
 
 - Select your Azure virtual network and click on 'Service endpoints'
 
@@ -118,14 +118,15 @@ You can create a network service endpoint in your virtual network for "Storage" 
 - Select 'Microsoft.Storage' under 'Service' and the required subnets under 'Subnets' field and click 'Add'
 
 >[!NOTE]
->If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md). Also, ensure that you allow access to at least one subnet of source Vnet.
+>If you're using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md). Also, ensure that you allow access to at least one subnet of source Vnet.
 
 
 ### Forced tunneling
 
-You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) and divert VM traffic to an on-premises network virtual appliance (NVA), but this configuration isn't recommended for Site Recovery replication. If you're using custom routes, you should [create a virtual network service endpoint](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic does not leave the Azure boundary.
+You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) and divert VM traffic to an on-premises network virtual appliance (NVA), but this configuration isn't recommended for Site Recovery replication. If you're using custom routes, you should [create a virtual network service endpoint](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic doesn't leave the Azure boundary.
 
 ## Next steps
+
 - Start protecting your workloads by [replicating Azure virtual machines](./azure-to-azure-quickstart.md).
 - Learn more about [IP address retention](site-recovery-retain-ip-azure-vm-failover.md) for Azure virtual machine failover.
 - Learn more about disaster recovery of [Azure virtual machines with ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
