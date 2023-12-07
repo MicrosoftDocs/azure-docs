@@ -94,7 +94,7 @@ Update the following fields:
 * **iothub_hostname**: Hostname of the IoT hub the device will connect to. For example, `{IoT hub name}.azure-devices.net`.
 * **device_id**: The ID that you provided when you registered the device.
 * **identity_cert**: URI to one of the primary/secondary device certificates, for example: `file:///path/iot-device-<device ID>-primary.cert.pem`. Or, dynamically issue the certificate using EST or a local certificate authority.
-* **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///path/iot-device-<device ID>-primary.key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the **PKCS#11** section later in the config file.
+* **identity_pk**: URI to the private key file for the provided primary/secondary device certificate, for example: `file:///path/iot-device-<device ID>-primary.key.pem`. Or, provide a PKCS#11 URI and then provide your configuration information in the **PKCS#11** section later in the config file.
 
 Save and close the file.
 
