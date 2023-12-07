@@ -5,8 +5,8 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2023
 ms.date: 11/15/2023
-author: veyaddan
-ms.author: veyaddan
+author: george-guirguis
+ms.author: geguirgu
 ---
 
 # Azure Event Grid - high availability and disaster recovery for namespaces

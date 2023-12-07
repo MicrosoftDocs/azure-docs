@@ -37,8 +37,8 @@
     items:
     - name: About confidential VMs
       href: confidential-vm-overview.md
-    - name: FAQ for AMD confidential VMs
-      href: confidential-vm-faq-amd.yml
+    - name: FAQ for confidential VMs
+      href: confidential-vm-faq.yml
     - name: Confidential VM solutions
       href: virtual-machine-solutions.md
     - name: Guest attestation for confidential VMs

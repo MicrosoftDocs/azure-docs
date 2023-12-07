@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/17/2023
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
+ROBOTS: NOINDEX
 ---
 
 # Upgrade an internal basic load balancer - Outbound connections required
