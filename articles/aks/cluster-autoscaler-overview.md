@@ -3,7 +3,7 @@ title: Cluster autoscaling in Azure Kubernetes Service (AKS) overview
 titleSuffix: Azure Kubernetes Service
 description: Learn about cluster autoscaling in Azure Kubernetes Service (AKS) using the cluster autoscaler.
 ms.topic: conceptual
-ms.date: 11/28/2023
+ms.date: 12/07/2023
 ---
 
 # Cluster autoscaling in Azure Kubernetes Service (AKS) overview
@@ -41,7 +41,7 @@ It's a common practice to enable cluster autoscaler for nodes and either the Ver
 
 ## Cluster autoscaler profile
 
-The cluster autoscaler profile is a set of parameters that control the behavior of the cluster autoscaler. You can configure the cluster autoscaler profile when you create a cluster or update an existing cluster.
+The [cluster autoscaler profile](./cluster-autoscaler.md#cluster-autoscaler-profile-settings) is a set of parameters that control the behavior of the cluster autoscaler. You can configure the cluster autoscaler profile when you create a cluster or update an existing cluster.
 
 ### Optimizing the cluster autoscaler profile
 
@@ -51,7 +51,7 @@ It's important to note that the cluster autoscaler profile settings are cluster-
 
 #### Example 1: Optimizing for performance
 
-For clusters that handle substantial and bursty workloads with a primary focus on performance, we recommend increasing the scan interval and decreasing the utilization threshold. These settings help batch multiple scaling operations into a single call, optimizing scaling time and the utilization of compute read/write quotas. It also helps mitigate the risk of swift scale down operations on underutilized nodes, enhancing the pod scheduling efficiency.
+For clusters that handle substantial and bursty workloads with a primary focus on performance, we recommend increasing the `scan-interval` and decreasing the `scale-down-utilization-threshold`. These settings help batch multiple scaling operations into a single call, optimizing scaling time and the utilization of compute read/write quotas. It also helps mitigate the risk of swift scale down operations on underutilized nodes, enhancing the pod scheduling efficiency.
 
 For clusters with daemonset pods, we recommend setting `ignore-daemonset-utilization` to `true`, which effectively ignores node utilization by daemonset pods and minimizes unnecessary scale down operations.
 
@@ -63,46 +63,6 @@ If you want a cost-optimized profile, we recommend setting the following paramet
 * Reduce `scale-down-delay-after-add`, which is the amount of time to wait after a node is added before considering it for scale down.
 * Increase `scale-down-utilization-threshold`, which is the utilization threshold for removing nodes.
 * Increase `max-empty-bulk-delete`, which is the maximum number of nodes that can be deleted in a single call.
-
-## Flags that impact scaling behavior
-
-### Flags impacting scale up
-
-The following flags can impact cluster autoscaler scale up behavior:
-
-| Flag | Description | Default value |
-|--------------|--------------|---------------------|
-| `scan-interval` | The amount of time between scans for pending pods. | 10 seconds |
-| `balance-similar-node-groups` | When set to `true`, the cluster autoscaler attempts to maintain a balanced distribution of nodes across zones for your workloads during scale up operations. When this approach isn't implemented, scale down operations can disrupt the balance of nodes across zones. |  |
-| `expander` | The expander is responsible for selecting the most optimal node for a pod. | `priority` |
-| `new-pod-scale-up-delay` | The amount of time to wait before considering a pod for scale up. | 10 seconds |
-| `max-node-provision-time` | The maximum amount of time to wait for a node to be created. | 15 minutes |
-| `ok-total-unready-count` | The maximum number of pods that can be unready before a node is considered for scale up. | 10 |
-| `max-total-unready-percentage` | The maximum percentage of pods that can be unready before a node is considered for scale up. | 10 |
-
-For more information, see [How does scale up work?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-up-work)
-
-### Flags impacting scale down
-
-The following flags can impact cluster autoscaler scale down behavior:
-
-| Flag | Description | Default value |
-|--------------|--------------|---------------------|
-| `scan-interval` | The amount of time between scans for pending pods. | 10 seconds |
-| `scale-down-delay-after-add` | The amount of time to wait after a node is added before considering it for scale down. | 10 minutes |
-| `scale-down-delay-after-delete` | The amount of time to wait after a node is deleted before considering it for scale down. | 10 seconds |
-| `scale-down-delay-after-failure` | The amount of time to wait after a node fails to be deleted before considering it for scale down. | Three minutes |
-| `scale-down-unneeded-time` | The amount of time a node should be unneeded before it's eligible for scale down. | 10 minutes |
-| `scale-down-unready-time` | The amount of time a node should be unready before it's eligible for scale down. | 20 minutes |
-| `max-graceful-termination-sec` | The maximum amount of time to wait for a pod to terminate gracefully. | 600 seconds |
-| `skip-nodes-with-local-storage` | If `true`, the cluster autoscaler skips nodes with local storage when scaling down. | `false` |
-| `skip-nodes-with-system-pods` | If `true`, the cluster autoscaler skips nodes with system pods when scaling down. | `false` |
-| `max-empty-bulk-delete` | The maximum number of nodes that can be deleted in a single call. | 10 |
-| `max-total-unready-percentage` | The maximum percentage of pods that can be unready before a node is considered for scale down. | 10 |
-| `ok-total-unready-count` | The maximum number of pods that can be unready before a node is considered for scale down. | 10 |
-| `scale-down-utlization-threshold` | The utilization threshold for removing nodes. | 50 |
-
-For more information, see [How does scale down work?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-down-work)
 
 ## Common issues and mitigation recommendations
 
@@ -118,18 +78,17 @@ For more information, see [How does scale down work?](https://github.com/kuberne
 | Common causes | Mitigation recommendations |
 |--------------|--------------|
 | IP address exhaustion in the subnet | Add another subnet in the same virtual network and add another node pool into the new subnet. |
-| Core quota exhaustion | [Request a quota increase](../quotas/quickstart-increase-quota-portal.md). The cluster autoscaler enters an [exponential backoff state](#node-pool-in-backoff) within the specific node group when it experiences multiple failed scale up attempts.  |
-| Max size of node pool | Increase the max nodes on the node pool or create a new node pool. |
+| Node pool at max size | [Request a quota increase](../quotas/quickstart-increase-quota-portal.md). The cluster autoscaler enters an [exponential backoff state](#node-pool-in-backoff) within the specific node group when it experiences multiple failed scale up attempts.  |
 | Requests/Calls exceeding the rate limit | See [429 Too Many Requests errors](/troubleshoot/azure/azure-kubernetes/429-too-many-requests-errors). |
 
 ### Scale down operation failures
 
 | Common causes | Mitigation recommendations |
 |--------------|--------------|
-| Pod preventing node drain/Unable to evict pod |• For pods using local storage, such as hostPath and emptyDir, set the cluster autoscaler profile flag `skip-nodes-with-local-storage` to `false`. <br> • In the pod specification, set the `cluster-autoscaler.kubernetes.io/safe-to-evict` annotation to `true`. <br> • You can also check the PDBs. |
-| Min size of node pool | Reduce the minimum size of the node pool. |
+| Pod preventing node drain/Unable to evict pod |• View [what types of pods can prevent scale down](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node). <br> • For pods using local storage, such as hostPath and emptyDir, set the cluster autoscaler profile flag `skip-nodes-with-local-storage` to `false`. <br> • In the pod specification, set the `cluster-autoscaler.kubernetes.io/safe-to-evict` annotation to `true`. <br> • Check your [PDB](https://kubernetes.io/docs/tasks/run-application/configure-pdb/), as it might be restrictive. |
+| Node pool at min size | Reduce the minimum size of the node pool. |
 | Requests/Calls exceeding the rate limit | See [429 Too Many Requests errors](/troubleshoot/azure/azure-kubernetes/429-too-many-requests-errors). |
-| Write operations locked | Don't make any changes to the [fully-managed AKS resource group](./cluster-configuration.md#fully-managed-resource-group-preview). Remove or reset any resource locks you previously applied to the resource group. |
+| Write operations locked | Don't make any changes to the [fully-managed AKS resource group](./cluster-configuration.md#fully-managed-resource-group-preview) (see [AKS support policies](./support-policies.md)). Remove or reset any [resource locks](../azure-resource-manager/management/lock-resources.md) you previously applied to the resource group. |
 
 ### Other issues
 
@@ -139,9 +98,9 @@ For more information, see [How does scale down work?](https://github.com/kuberne
 
 ### Node pool in backoff
 
-Node pool in backoff was introduced in version 0.6.2 and causes the cluster autoscaler to back off from scaling up a node group after a failure.
+Node pool in backoff was introduced in version 0.6.2 and causes the cluster autoscaler to back off from scaling a node pool after a failure.
 
-Depending on how long the scale up operations have been experiencing failures, it may take up to 30 minutes before making another attempt. You can reset the node pool's backoff state by disabling and then re-enabling autoscaling.
+Depending on how long the scaling operations have been experiencing failures, it may take up to 30 minutes before making another attempt. You can reset the node pool's backoff state by disabling and then re-enabling autoscaling.
 
 <!-- LINKS --->
 [vertical-pod-autoscaler]: vertical-pod-autoscaler.md
