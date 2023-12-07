@@ -72,9 +72,9 @@ To create another NGINX ingress controller with a public facing Azure Load Balan
     nginxingresscontroller.approuting.kubernetes.azure.com/nginx-public created
     ```
 
-### Create an internal NGINX ingress controller
+### Create an internal NGINX ingress controller with a private IP address
 
-To create an NGINX ingress controller with an internal facing Azure Load Balancer:
+To create an NGINX ingress controller with an internal facing Azure Load Balancer with a private IP address:
 
 1. Copy the following YAML manifest into a new file named **nginx-internal-controller.yaml** and save the file to your local computer.
 
