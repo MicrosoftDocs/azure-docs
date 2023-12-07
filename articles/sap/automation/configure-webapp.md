@@ -96,6 +96,7 @@ By default there's no inbound public internet access to the web app apart from t
 
 You'll also need to grant reader permissions to the app service system-assigned managed identity. Navigate to the app service resource. On the left hand side, select "Identity In the "system assigned" tab, select on "Azure role assignments" > "Add role assignment." Select "subscription" as the scope, and "reader" as the role. Then select save. Without this step, the web app dropdown functionality won't work.
 ".
+
 You can sign in and visit the web app by following the URL from earlier or selecting browse inside the app service resource. With the web app, you're able to configure SAP workload zones and system infrastructure. Select download to obtain a parameter file of the workload zone or system you specified, for use in the later deployment steps.
 
 
@@ -129,6 +130,6 @@ If deploying using the Azure CLI, you can download the parameter file for any la
 1. Navigate to the Workload zones or Systems tab.
 2. Next to the workload zone or system you would like to deploy, select "Deploy."
    * If you would like to deploy a file, first convert it to a workload zone or system object.
-4. Specify the necessary parameters, and confirm it's the correct object.
-5. Select deploy.
-6. The web app generates a 'tfvars' file from the object, update your Azure DevOps repository, and kick off the workload zone or system (infrastructure) pipeline. You can monitor the deployment in the Azure DevOps Portal.
+3. Specify the necessary parameters, and confirm it's the correct object.
+4. Select deploy.
+5. The web app generates a 'tfvars' file from the object, updates your Azure DevOps repository, and kicks off the workload zone or system (infrastructure) pipeline. You can monitor the deployment in the Azure DevOps Portal.

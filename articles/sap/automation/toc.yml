@@ -37,7 +37,7 @@ items:
       href: get-started.md
     - name: Upgrading the automation framework
       href: upgrading.md
-    - name: Troubleshooting the automation framework
+    - name: Troubleshoot the automation framework
       href: troubleshooting.md
     - name: Deployment
       items:

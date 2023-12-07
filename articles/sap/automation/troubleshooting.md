@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting the SAP Deployment Automation Framework
+title: Troubleshoot the SAP Deployment Automation Framework
 description: Describe how to troubleshoot the SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
