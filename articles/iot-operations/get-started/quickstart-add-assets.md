@@ -21,6 +21,8 @@ An _asset_ is a physical device or logical entity that represents a device, a ma
 
 _OPC UA servers_ are software applications that communicate with assets. _OPC UA tags_ are data points that OPC UA servers expose. OPC UA tags can provide real-time or historical data about the status, performance, quality, or condition of assets.
 
+In this quickstart, you use the Azure IoT Operations portal to create your assets. You can also use the [Azure CLI to complete some of these tasks](/cli/azure/iot/ops/asset).
+
 ## Prerequisites
 
 Complete [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md) before you begin this quickstart.
@@ -33,7 +35,7 @@ The data that OPC UA servers expose can have a complex structure and can be diff
 
 ## Sign into the Azure IoT Operations portal
 
-To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign with your Microsoft Entra ID credentials.
+To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
 > [!IMPORTANT]
 > You must use a work or school account to sign in to the Azure IoT Operations portal. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
