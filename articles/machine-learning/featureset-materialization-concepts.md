@@ -79,7 +79,7 @@ Both the start time and end time of the feature window are optional in the backf
 - If the *feature window* end time isn't provided, the end time is defined as the end time of the last *data interval* that doesn't have a data materialization status of `None`.
 
 > [!NOTE]
-    > If no backfill or recurrent jobs have been submitted for a feature set, the first backfill job must be submitted with a *feature window* start time and end time.
+> If no backfill or recurrent jobs have been submitted for a feature set, the first backfill job must be submitted with a *feature window* start time and end time.
 
 This example has these current data interval and materialization status values:
 
@@ -155,7 +155,7 @@ You can submit a backfill job with the job ID of a failed or canceled materializ
 
 The `source_delay` property for the source data indicates the delay between the acquisition time of consumption-ready data, compared to the event time of data generation. An event that happened at time `t` lands in the source data table at time `t + x`, because of the upstream data pipeline latency. The `x` value is the source delay.
 
-:::image type="content" source="media/featureset-specification-transformation-concepts/illustration-source-delay.png" lightbox="media/featureset-specification-transformation-concepts/illustration-source-delay.png" alt-text="Illustration that shows the source_delay concept.":::
+:::image type="content" source="media/featureset-materialization-concepts/illustration-source-delay.png" lightbox="media/featureset-materialization-concepts/illustration-source-delay.png" alt-text="Illustration that shows the source_delay concept.":::
 
 For proper set-up, the recurrent materialization job schedule accounts for latency. The recurrent job produces features for the `[schedule_trigger_time - source_delay - schedule_interval, schedule_trigger_time - source_delay)` time window.
 

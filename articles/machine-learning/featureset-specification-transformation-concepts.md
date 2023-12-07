@@ -151,7 +151,7 @@ This shows the calculated feature values:
 
 Sliding window aggregation can help handle feature values that present statistics (for example, sum, average, etc.) that accumulate over time. The SparkSQL `Window` function defines a sliding window around each row in the data, is useful in these cases.
 
-For each row, the `Window` object can look into both future and past. In the context of machine learning features, you should define the `Window` object to look only the past, for each row. Visit the [Best Practice](#Prevent-data-leakage-in-feature-transformation) section for more details.
+For each row, the `Window` object can look into both future and past. In the context of machine learning features, you should define the `Window` object to look only the past, for each row. Visit the [Best Practice](#prevent-data-leakage-in-feature-transformation) section for more details.
 
 Start with this example data:
 
