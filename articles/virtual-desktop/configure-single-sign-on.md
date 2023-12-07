@@ -11,7 +11,7 @@ ms.date: 06/12/2023
 
 This article walks you through the process of configuring single sign-on (SSO) for Azure Virtual Desktop using Microsoft Entra ID authentication. When you enable single sign-on, users authenticate to Windows using a Microsoft Entra ID token. This token enables the use of passwordless authentication and third-party identity providers that federate with Microsoft Entra ID when connecting to a session host.
 
-Single sign-on using Microsoft Entra ID authentication also provides a seamless experience when connecting Microsoft Entra ID-based resources inside the session. For more information on using passwordless authentication within a session, see [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication).
+Single sign-on using Microsoft Entra ID authentication also provides a seamless experience for Microsoft Entra ID-based resources inside the session. For more information on using passwordless authentication within a session, see [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication).
 
 To enable single sign-on using Microsoft Entra ID authentication, there are five tasks you must complete:
 
@@ -72,7 +72,7 @@ Before you can enable single sign-on, you must meet the following prerequisites:
 
 ## Enable Microsoft Entra authentication for RDP
 
-You must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant, which enables issuing RDP access tokens allowing users to sign in to your Azure Virtual Desktop session hosts. You set the `isRemoteDesktopProtocolEnabled` property to true on the service principal's `remoteDesktopSecurityConfiguration` object for following Microsoft Entra applications:
+You must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant, which enables issuing RDP access tokens allowing users to sign in to your Azure Virtual Desktop session hosts. You set the `isRemoteDesktopProtocolEnabled` property to true on the service principal's `remoteDesktopSecurityConfiguration` object for the following Microsoft Entra applications:
 
 | Application Name | Application ID |
 |--|--|
@@ -98,8 +98,8 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
 3. Get the object ID for each service principal and store them in variables by running the following commands:
 
    ```powershell
-   $MSRDspId = (Get-MgServicePrincipal -Filter "DisplayName eq 'Microsoft Remote Desktop'").Id
-   $WCLspId = (Get-MgServicePrincipal -Filter "DisplayName eq 'Windows Cloud Login'").Id
+   $MSRDspId = (Get-MgServicePrincipal -Filter "AppId eq 'a4a365df-50f1-4397-bc59-1a1564b8bb9c'").Id
+   $WCLspId = (Get-MgServicePrincipal -Filter "AppId eq '270efc09-cd0d-444b-a71f-39af4910ec45'").Id
    ```
 
 4. Set the property `isRemoteDesktopProtocolEnabled` to `true` by running the following commands. There's no output from these commands.
@@ -167,7 +167,7 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
    12345678-abcd-1234-abcd-1234567890ab Contoso-session-hosts
    ```
 
-   Repeat steps 2 and 3 for each group you want to add to the `targetDeviceGroup` object.
+   Repeat steps 2 and 3 for each group you want to add to the `targetDeviceGroup` object, up to a maximum of 10 groups.
 
 1. If you later need to remove a device group from the `targetDeviceGroup` object, run the following commands, replacing the `<placeholders>` with your own values:
 
