@@ -15,7 +15,7 @@ You can use Azure Backup to encrypt your backup data via customer-managed keys (
 
 The encryption key that you use for encrypting backups might be different from the one that you use for the source. An AES 256-based data encryption key (DEK) helps protect the data. Your key encryption keys (KEKs), in turn, help protect the DEK. You have full control over the data and the keys.
 
-To allow encryption, you must grant the Backup vault the permissions to access the encryption key in the Azure key vault. You can change the key when necessary.
+To allow encryption, you must grant the Backup vault the permissions to access the encryption key in the key vault. You can change the key when necessary.
 
 Support for CMK configuration for a Backup vault is in preview.
 
@@ -23,7 +23,7 @@ Support for CMK configuration for a Backup vault is in preview.
 
 ### Supported regions
 
-CMKs for Backup vaults are currently available in the following regions: West Central US, Switzerland North.
+CMKs for Backup vaults are currently available in the following regions: West Central US, Switzerland North, Australia East, North Europe, South Central US.
 
 ### Key Vault and managed HSM key requirements
 
@@ -112,7 +112,7 @@ The following sections discuss each of these actions in detail.
 Azure Backup uses system-assigned managed identities and user-assigned managed identities of the Backup vault to access encryption keys stored in Azure Key Vault. You can choose which managed identity to use.
 
 > [!NOTE]
-> After you enable a managed identity, you must *not* disable it (even temporarily). Disabling the managed identity can lead to inconsistent behavior.
+> After you enable a managed identity, you must *not* disable it (even temporarily). Disabling the managed identity might lead to inconsistent behavior.
 
 For security reasons, you can't update both a Key Vault key URI and a managed identity in a single request. Update one attribute at a time.
 
@@ -204,7 +204,7 @@ You can set these properties from the Azure Key Vault interface, as shown in the
 Before you select the encryption key for your vault, ensure that you successfully:
 
 - Enabled the Backup vault's managed identity and assigned the required permissions to it.
-- Enabled soft delete and purge protection for the Azure key vault.
+- Enabled soft delete and purge protection for the key vault.
 
 To assign the key, follow these steps:
 
@@ -216,9 +216,9 @@ To assign the key, follow these steps:
 
    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/update-encryption-settings.png" alt-text="Screenshot that shows the link for updating encryption settings." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/update-encryption-settings.png":::
 
-3. On the **Encryption Settings (Preview)** pane, select **Use your own key** and continue to specify the key by using one of the following ways. Be sure to use an RSA key that's in an enabled and active state.
+3. On the **Encryption Settings (Preview)** pane, select **Use your own key** and then specify the key by using one of the following options. Be sure to use an RSA key that's in an enabled and active state.
 
-    - Select **Enter key URI**. In the **Key URI** box, enter the URI for the key that you want to use for encrypting data in this Backup vault. You can also get this key URI from the corresponding key in your Azure key vault.
+    - Select **Enter key URI**. In the **Key URI** box, enter the URI for the key that you want to use for encrypting data in this Backup vault. You can also get this key URI from the corresponding key in your key vault.
 
       Be sure to copy the key URI correctly. We recommend that you use the **Copy to clipboard** button provided with the key identifier.
 

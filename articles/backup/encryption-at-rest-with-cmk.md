@@ -15,7 +15,7 @@ You can use Azure Backup to encrypt your backup data via customer-managed keys (
 
 The encryption key that you use for encrypting backups might be different from the one that you use for the source. An AES 256-based data encryption key (DEK) helps protect the data. Your key encryption keys (KEKs), in turn, help protect the DEK. You have full control over the data and the keys.
 
-To allow encryption, you must grant the Backup vault the permissions to access the encryption key in the Azure key vault. You can change the key when necessary.
+To allow encryption, you must grant the Backup vault the permissions to access the encryption key in the key vault. You can change the key when necessary.
 
 In this article, you learn how to:
 
@@ -28,30 +28,28 @@ In this article, you learn how to:
 
 ## Considerations
 
-- This feature (using Azure Backup to encrypt backup data via CMKs) allows you to encrypt *new Recovery Services vaults only*. Any vaults that contain existing items registered or attempted to be registered to it aren't supported.
+- You can use this feature (using Azure Backup to encrypt backup data via CMKs) to encrypt *new Recovery Services vaults only*. Any vault that contains existing items registered or attempted to be registered to it aren't supported.
 
 - After you enable encryption by using CMKs for a Recovery Services vault, you can't revert to using PMKs (the default). You can change the encryption keys to meet requirements.
 
-- This feature currently *doesn't support backup via the Microsoft Azure Recovery Services (MARS) agent*, and you might not be able to use a CMK-encrypted vault for backup via the MARS agent. The MARS agent uses a user passphrase-based encryption. This feature also doesn't support backup of virtual machines (VMs) that were created in the classic deployment model.
+- This feature currently *doesn't support backup via the Microsoft Azure Recovery Services (MARS) agent*, and you might not be able to use a CMK-encrypted vault for backup via the MARS agent. The MARS agent uses passphrase-based encryption. This feature also doesn't support backup of virtual machines (VMs) that you created in the classic deployment model.
 
 - This feature isn't related to [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md), which uses guest-based encryption of a VM's disk by using BitLocker for Windows and DM-Crypt for Linux.
 
-- You can encrypt the Recovery Services vault only with keys that are stored in Azure Key Vault and located in the *same region*. Also, keys must be [supported](../key-vault/keys/about-keys.md#key-types-and-protection-methods) RSA keys and must be in the enabled state.
+- You can encrypt the Recovery Services vault only by using keys that are stored in Azure Key Vault and located in the *same region*. Also, keys must be [supported](../key-vault/keys/about-keys.md#key-types-and-protection-methods) RSA keys and must be in the enabled state.
 
 - Moving a CMK-encrypted Recovery Services vault across resource groups and subscriptions isn't currently supported.
 
-- When you move a Recovery Services vault that's already encrypted via CMKs to a new tenant, you need to update the Recovery Services vault to re-create and reconfigure the vault's managed identity and CMK (which should be in the new tenant). If you don't update the vault, the backup and restore operations will fail. Also, you'll need to reconfigure any Azure role-based access control (RBAC) permissions that you set up within the subscription.
+- When you move a Recovery Services vault that's already encrypted via CMKs to a new tenant, you need to update the Recovery Services vault to re-create and reconfigure the vault's managed identity and CMK (which should be in the new tenant). If you don't update the vault, the backup and restore operations will fail. You also need to reconfigure any Azure role-based access control (RBAC) permissions that you set up within the subscription.
 
-- You can configure this feature through the Azure portal and PowerShell.
-
-  Use Az module 5.3.0 or later to use customer-managed keys for backups in the Recovery Services vault.
+- You can configure this feature through the Azure portal and PowerShell. Use Az module 5.3.0 or later to use CMKs for backups in the Recovery Services vault.
 
   > [!WARNING]
-  > If you're using PowerShell for managing encryption keys for Backup, we don't recommend updating the keys from the portal. If you update the keys from the portal, you can't use PowerShell to update the keys further until a PowerShell update to support the new model is available. However, you can continue to update the keys from the Azure portal.
+  > If you're using PowerShell to manage encryption keys for Backup, we don't recommend updating the keys from the portal. If you update the keys from the portal, you can't use PowerShell to update the keys further until a PowerShell update to support the new model is available. However, you can continue to update the keys from the Azure portal.
 
 - If you haven't created and configured your Recovery Services vault, see [this article](backup-create-rs-vault.md).
 
-## Configure a vault to encrypt using customer-managed keys
+## Configure a vault to encrypt by using customer-managed keys
 
 To configure a vault, perform the following actions in sequence:
 
@@ -70,7 +68,7 @@ The following sections discuss each of these actions in detail.
 Azure Backup uses system-assigned managed identities and user-assigned managed identities to authenticate the Recovery Services vault to access encryption keys stored in Azure Key Vault. You can choose which managed identity to use.
 
 > [!NOTE]
-> After you enable a managed identity, you must *not* disable it (even temporarily). Disabling the managed identity can lead to inconsistent behavior.
+> After you enable a managed identity, you must *not* disable it (even temporarily). Disabling the managed identity might lead to inconsistent behavior.
 
 #### Enable a system-assigned managed identity for the vault
 
@@ -135,9 +133,9 @@ Type        : SystemAssigned
 #### Assign a user-assigned managed identity to the vault (in preview)
 
 > [!NOTE]
-> Vaults using user-assigned managed identities for CMK encryption don't support the use of private endpoints for Backup.
+> Vaults that use user-assigned managed identities for CMK encryption don't support the use of private endpoints for Backup.
 >
-> Azure key vaults limiting access to specific networks aren't yet supported for use along with user-assigned managed identities for CMK encryption.
+> Key vaults that limit access to specific networks aren't yet supported for use with user-assigned managed identities for CMK encryption.
 
 To assign the user-assigned managed identity for your Recovery Services vault, choose a client:
 
@@ -212,7 +210,7 @@ Choose a client:
 
 # [Azure portal](#tab/portal)
 
-1. Go to *your Azure key vault* > **Access policies**. Select **+Add Access Policy**.
+1. Go to *your key vault* > **Access policies**. Select **+Add Access Policy**.
 
     :::image type="content" source="./media/encryption-at-rest-with-cmk/access-policies.png" alt-text="Screenshot that shows selections to add an access policy." lightbox="./media/encryption-at-rest-with-cmk/access-policies.png":::
 
@@ -333,7 +331,7 @@ You can enable soft delete and purge protection from the Azure Key Vault interfa
 Before you select the encryption key for your vault, ensure that you successfully:
 
 - Enabled the Recovery Services vault's managed identity and assigned the required permissions to it.
-- Enabled soft delete and purge protection for the Azure key vault.
+- Enabled soft delete and purge protection for the key vault.
 - Don't have any items protected or registered to the Recovery Services vault for which you want to enable CMK encryption.
 
 To assign the key and follow the steps, choose a client:
@@ -346,15 +344,15 @@ To assign the key and follow the steps, choose a client:
 
 2. Under **Encryption Settings**, select **Update**.
 
-3. On the **Encryption Settings** pane, select **Use your own key** and continue to specify the key by using one of the following ways. Be sure to use an RSA key that's in an enabled state.
+3. On the **Encryption Settings** pane, select **Use your own key** and then specify the key by using one of the following options. Be sure to use an RSA key that's in an enabled state.
 
-    - Select **Enter key URI**. In the **Key Uri** box, enter the URI for the key that you want to use for encrypting data in this Recovery Services vault. You can also get this key URI from the corresponding key in your Azure key vault. In the **Subscription** box, specify the subscription for the Azure key vault that contains this key.
+    - Select **Enter key URI**. In the **Key Uri** box, enter the URI for the key that you want to use for encrypting data in this Recovery Services vault. You can also get this key URI from the corresponding key in your key vault. In the **Subscription** box, specify the subscription for the key vault that contains this key.
 
       Be sure to copy the key URI correctly. We recommend that you use the **Copy to clipboard** button provided with the key identifier.
 
-      When you're specifying the encryption key by using the full key URI with the version component, the key will not be autorotated. You need to update keys manually by specifying the new key or version when required. Alternatively, remove the version component of the key URI to get automatic rotation.
-
       :::image type="content" source="./media/encryption-at-rest-with-cmk/key-uri.png" alt-text="Screenshot that shows a key URI for a Recovery Services vault." lightbox="./media/encryption-at-rest-with-cmk/key-uri.png":::
+
+      When you're specifying the encryption key by using the full key URI with the version component, the key won't be autorotated. You need to update keys manually by specifying the new key or version when required. Alternatively, remove the version component of the key URI to get automatic rotation.
 
     - Choose **Select from Key Vault**. On the **Key picker** pane, browse to and select the key from the key vault.
 
@@ -436,7 +434,7 @@ Before you configure backup protection, confirm that you successfully:
 - Enabled soft delete and purge protection for your key vault.
 - Assigned a valid encryption key for your Recovery Services vault.
 
-This checklist is important because after you configure (or attempt to configure) an item to back up to a non-CMK encrypted vault, you can't enable CMK encryption on it. It will continue to use PMKs.
+This checklist is important because after you configure (or try to configure) an item to back up to a non-CMK encrypted vault, you can't enable CMK encryption on it. It continues to use PMKs.
 
 The process to configure and perform backups to a Recovery Services vault that's encrypted via CMKs is the same as the process to configure and perform backups to a vault that uses PMKs. There are no changes to the experience. This statement is true for the [backup of Azure VMs](./quick-backup-vm-portal.md) and the backup of workloads running inside a VM (for example, [SAP HANA](./tutorial-backup-sap-hana-db.md) or [SQL Server](./tutorial-sql-backup.md) databases).
 
@@ -450,9 +448,9 @@ The experience that this section describes applies only when you restore data fr
 
 #### Restore a disk or VM
 
-When you recover a disk or VM from a **Snapshot** recovery point, the restored data will be encrypted with the DES that you used to encrypt the source VM's disks.
+When you recover a disk or VM from a **Snapshot** recovery point, the restored data is encrypted with the DES that you used to encrypt the source VM's disks.
 
-When you're restoring a disk or VM from a recovery point with **Recovery Type** as **Vault**, you can choose to encrypt the restored data by using a DES that you specify. Alternatively, you can continue to restore the data without specifying a DES. In that case, the encryption setting on the VM will be applied.
+When you're restoring a disk or VM from a recovery point with **Recovery Type** as **Vault**, you can choose to encrypt the restored data by using a DES that you specify. Alternatively, you can continue to restore the data without specifying a DES. In that case, the encryption setting on the VM is applied.
 
 During cross-region restore, CMK-enabled Azure VMs (which aren't backed up in a CMK-enabled Recovery Services vault) are restored as non-CMK-enabled VMs in the secondary region.
 
@@ -466,7 +464,7 @@ Choose a client:
 
 # [Azure portal](#tab/portal)
 
-The ability to choose a DES while restoring is now supported if you're doing a cross-region restore. However, it's currently not supported if you're restoring a VM that uses Azure Disk Encryption.
+The ability to choose a DES while restoring is supported if you're doing a cross-region restore. However, it's currently not supported if you're restoring a VM that uses Azure Disk Encryption.
 
 To specify a DES under **Encryption Settings** in the restore pane, follow these steps:
 
@@ -478,7 +476,7 @@ To specify a DES under **Encryption Settings** in the restore pane, follow these
 
 # [PowerShell](#tab/powershell)
 
-Use the [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) command with the parameter [`-DiskEncryptionSetId <string>`] to [specify the DES](/powershell/module/az.compute/get-azdiskencryptionset) for encrypting the restored disk. For more information about restoring disks from a VM backup, see [this article](./backup-azure-vms-automation.md#restore-an-azure-vm).
+Use the [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) command with the parameter `-DiskEncryptionSetId <string>` to [specify the DES](/powershell/module/az.compute/get-azdiskencryptionset) for encrypting the restored disk. For more information about restoring disks from a VM backup, see [this article](./backup-azure-vms-automation.md#restore-an-azure-vm).
 
 Example:
 
@@ -493,7 +491,7 @@ $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -Storag
 
 # [CLI](#tab/cli)
 
-Use the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command with the parameter [`-DiskEncryptionSetId <string>`] to [specify the DES](/cli/azure/disk-encryption-set) for encrypting the restored disk.
+Use the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command with the parameter `-DiskEncryptionSetId <string>` to [specify the DES](/cli/azure/disk-encryption-set) for encrypting the restored disk.
 
 Example:
 
@@ -516,9 +514,9 @@ When you restore from a backed-up SAP HANA or SQL Server database running in an 
 
 ### Enable encryption by using customer-managed keys at vault creation (in preview)
 
-Enabling encryption at vault creation using customer managed keys is in limited public preview and requires allowlisting of subscriptions. To sign up for the preview, fill the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u) and write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+Enabling encryption at vault creation by using CMKs is in limited public preview and requires allowlisting of subscriptions. To sign up for the preview, fill out the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u) and write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
-When your subscription is allowlisted, the **Backup Encryption** appears. You use this tab to enable encryption on the backup by using CMKs during the creation of a new Recovery Services vault.
+When your subscription is allowlisted, the **Backup Encryption** tab appears. You use this tab to enable encryption on the backup by using CMKs during the creation of a new Recovery Services vault.
 
 To enable the encryption, follow these steps:
 
@@ -528,9 +526,9 @@ To enable the encryption, follow these steps:
 
 1. To specify the key to use for encryption, select the appropriate option for **Encryption key**. You can provide the URI for the encryption key, or browse and select the key.
 
-   If you specify the key by using the **Select the Key Vault** option, autorotation of the encryption key is enabled automatically. [Learn more about autorotation](#enable-autorotation-of-encryption-keys).
+   If you specify the key by using the **Select from Key Vault** option, autorotation of the encryption key is enabled automatically. [Learn more about autorotation](#enable-autorotation-of-encryption-keys).
 
-1. For **Identity**, specify the user-assigned managed identity to manage encryption by using CMKs. Click **Select** to browse and select the required identity.
+1. For **Identity**, specify the user-assigned managed identity to manage encryption by using CMKs. Click **Select** to browse to and select the required identity.
 
 1. Add tags (optional) and continue creating the vault.
 
@@ -559,7 +557,7 @@ For vaults that have CMK encryption enabled before April 1, 2021, the policy mig
 To use the audit policy for auditing vaults with CMK encryption enabled before April 1, 2021, use the Azure portal to update an encryption key. This approach helps you upgrade to the new model. If you don't want to change the encryption key, provide the same key again through the key URI or the key selection option.
 
 > [!WARNING]
-> If you're using PowerShell for managing encryption keys for Backup, we don't recommend that you update an encryption key from the portal. If you update a key from the portal, you can't use PowerShell to update the encryption key further, until a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
+> If you're using PowerShell for managing encryption keys for Backup, we don't recommend that you update an encryption key from the portal. If you update a key from the portal, you can't use PowerShell to update the encryption key until a PowerShell update to support the new model is available. However, you can continue updating the key from the portal.
 
 ## Frequently asked questions
 
@@ -573,20 +571,20 @@ No. The vault must not have had any attempts to protect any items to it in the p
 
 ### I have a vault that's using CMK encryption. Can I later revert to PMK encryption even if I have backup items protected to the vault?
 
-No. After you enable CMK encryption, you can't revert it to using PMKs. You can change the keys according to your requirements.
+No. After you enable CMK encryption, you can't revert to using PMKs. You can change the keys according to your requirements.
 
 ### Does CMK encryption for Azure Backup also apply to Azure Site Recovery?
 
 No. This article discusses encryption of Backup data only. For Azure Site Recovery, you need to set the property separately as available from the service.
 
-### I missed one of the steps in this article and went on to protect my data source. Can I still use CMK encryption?
+### I missed one of the steps in this article and proceeded to protect my data source. Can I still use CMK encryption?
 
-If you don't follow the steps in the article and continue to protect items, the vault might not be able to use CMK encryption. We recommend that you refer to [this checklist](#back-up-data-to-a-vault-encrypted-via-customer-managed-keys) before you proceed to protecting items.
+If you don't follow the steps in the article and proceed to protect items, the vault might not be able to use CMK encryption. We recommend that you use [this checklist](#back-up-data-to-a-vault-encrypted-via-customer-managed-keys) before you protect items.
 
 ### Does using CMK encryption add to the cost of my backups?
 
-Using CMK encryption for Backup doesn't incur any additional costs. But you might continue to incur costs for using your Azure key vault where your key is stored.
+Using CMK encryption for Backup doesn't incur any additional costs. But you might continue to incur costs for using your key vault where your key is stored.
 
 ## Next steps
 
-[Overview of security features in Azure Backup](security-overview.md).
+[Overview of security features in Azure Backup](security-overview.md)
