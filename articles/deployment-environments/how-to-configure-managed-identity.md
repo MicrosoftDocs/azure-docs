@@ -59,22 +59,31 @@ As a security best practice, if you choose to use user-assigned identities, use 
 
 ## Assign a subscription role assignment to the managed identity
 
-The identity that's attached to the dev center in Azure Deployment Environments should be assigned the Owner role for all the deployment subscriptions and the Reader role for all subscriptions that contain the relevant project. When a user creates or deploys an environment, the service grants appropriate access to the deployment identity that's attached to the project environment type. The deployment identity uses the access to perform deployments on behalf of the user. You can use the managed identity to empower developers to create environments without granting them access to the subscription.
+The identity that's attached to the dev center should be assigned the Contributor and User Access Administrator roles for all the deployment subscriptions and the Reader role for all subscriptions that contain the relevant project. When a user creates or deploys an environment, the service grants appropriate access to the deployment identity that's attached to the project environment type. The deployment identity uses the access to perform deployments on behalf of the user. You can use the managed identity to empower developers to create environments without granting them access to the subscription.
 
 ### Add a role assignment to a system-assigned managed identity
 
-1. In the Azure portal, go to your dev center.
+1. In the Azure portal, navigate to your dev center.
 1. On the left menu under **Settings**, select **Identity**.
 1. Under **System assigned** > **Permissions**, select **Azure role assignments**.
   
     :::image type="content" source="./media/configure-managed-identity/system-assigned-azure-role-assignment.png" alt-text="Screenshot that shows the Azure role assignment for system-assigned identity.":::
 
-1. On **Azure role assignments**, select **Add role assignment (Preview)**, and then enter or select the following information:
+1. To give Contributor access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+    
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|Contributor|
 
-    1. For **Scope**, select **Subscription**.
-    1. For **Subscription**, select the subscription in which to use the managed identity.
-    1. For **Role**, select **Owner**.
-    1. Select **Save**.
+1. To give User Access Administrator access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|User Access Administrator|
 
 ### Add a role assignment to a user-assigned managed identity
 
@@ -82,12 +91,21 @@ The identity that's attached to the dev center in Azure Deployment Environments 
 1. On the left menu under **Settings**, select **Identity**.
 1. Under **User assigned**, select the identity.
 1. On the left menu, select **Azure role assignments**.
-1. On **Azure role assignments**, select **Add role assignment (Preview)**, and then enter or select the following information:
+1. To give Contributor access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+    
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|Contributor|
 
-    1. For **Scope**, select **Subscription**.
-    1. For **Subscription**, select the subscription in which to use the managed identity.
-    1. For **Role**, select **Owner**.
-    1. Select **Save**.
+1. To give User Access Administrator access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
+
+    |Name     |Value     |
+    |---------|----------|
+    |**Scope**|Subscription|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|User Access Administrator|
 
 ## Grant the managed identity access to the key vault secret
 

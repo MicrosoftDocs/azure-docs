@@ -46,6 +46,14 @@ items:
       href: how-to-configure-visual-comparisons.md   
     - name: Monitor Microsoft Playwright Testing
       href: monitor-playwright-testing.md
+
+- name: Samples
+  items:
+    - name: Contoso Traders cloud testing demo
+      href: https://github.com/microsoft/contosotraders-cloudtesting/
+    - name: Examples repository
+      href: https://github.com/microsoft/playwright-testing-service/
+
 - name: Troubleshoot & debug
   expanded: true
   items:

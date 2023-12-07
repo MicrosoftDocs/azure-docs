@@ -62,7 +62,7 @@ F7c68818-039f-4a0f-8d73-e0747e68a813  Restore (Log)          Completed   master 
 To change the policy underlying the SQL backup configuration, use the [az backup policy set](/cli/azure/backup/policy#az-backup-policy-set) command. The name parameter in this command refers to the backup item whose policy you want to change. Here, replace the policy of the SQL database *sqldatabase;mssqlserver;master* with a new policy *newSQLPolicy*. You can create new policies using the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) command.
 
 ```azurecli-interactive
-az backup item set policy --resource-group SQLResourceGroup \
+az backup item set-policy --resource-group SQLResourceGroup \
     --vault-name SQLVault \
     --container-name VMAppContainer;Compute;SQLResourceGroup;testSQLVM \
     --policy-name newSQLPolicy \

@@ -13,14 +13,9 @@ ms.topic:    conceptual
 ms.date:     08/10/2023
 ---
 
-# Msv3 and Mdsv3 Medium Memory Series (Preview)
+# Msv3 and Mdsv3 Medium Memory Series 
 
-> [!IMPORTANT]
-> The Msv3 and Mdsv3 Medium Memory Series is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
->
-> Customers can [sign up for Msv3 and Mdsv3 Medium Memory Series preview today](https://forms.office.com/r/s0fKkC420i). Msv3 and Mdsv3 Medium Memory Series VMs preview is available in the West Europe, North Europe, East US 2 and East US Azure regions.
-
-The Msv3 and Mdsv3 Medium Memory(MM) series, powered by 4<sup>th</sup> generation Intel® Xeon® Scalable processors, are the next generation of memory-optimized VM sizes delivering faster performance, lower total cost of ownership and improved resilience to failures compared to previous generation Mv2 VMs. The Mv3 MM offers VM sizes of up to 3TB of memory and 4,000 MBps throughout to remote storage and provides up to 25% networking performance improvements over previous generations.
+The Msv3 and Mdsv3 Medium Memory(MM) series, powered by 4<sup>th</sup> generation Intel® Xeon® Scalable processors, are the next generation of memory-optimized VM sizes delivering faster performance, lower total cost of ownership and improved resilience to failures compared to previous generation Mv2 VMs. The Mv3 MM offers VM sizes of up to 4TB of memory and 4,000 MBps throughout to remote storage and provides up to 25% networking performance improvements over previous generations.
 
 ## Msv3 Medium Memory series
 
@@ -41,6 +36,7 @@ The Msv3 and Mdsv3 Medium Memory(MM) series, powered by 4<sup>th</sup> generatio
 |Standard_M96s_1_v3|96|974|64|65,000/ 1,560|65,000/ 1,560|8|16,000|
 |Standard_M96s_2_v3|96|1,946|64|130,000/ 3,120|130,000/ 3,120|8|30,000|
 |Standard_M176s_3_v3|176|2794|64|130,000/ 4,000|130,000/ 4,000|8|40,000|
+|Standard_M176s_4_v3|176|3892|64|130,000/ 4,000|130,000/ 4,000|8|40,000|
 
 ## Mdsv3 Medium Memory series
 
@@ -63,6 +59,7 @@ These virtual machines feature local SSD storage (up to 400 GiB).
 |Standard_M96ds_1_v3|96|974|400|64|40,000/400|65,000/ 1,560|65,000/ 1,560|8|16,000|
 |Standard_M96ds_2_v3|96|1,946|400|64|160,000/1600|130,000/ 3,120|130,000/ 3,120|8|30,000|
 |Standard_M176ds_3_v3|176|2794|400|64|160,000/1600|130,000/ 4,000|130,000/ 4,000|8|40,000|
+|Standard_M176ds_4_v3|176|3892|400|64|160,000/1600|130,000/ 4,000|130,000/ 4,000|8|40,000|
 
 <sup>*</sup> Read iops is optimized for sequential reads<br>
 

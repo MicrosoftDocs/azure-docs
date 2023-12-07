@@ -19,8 +19,6 @@
     items:
     - name: Cost Management best practices
       href: cost-mgt-best-practices.md
-    - name: AI-powered Cost Management
-      href: ai-powered-cost-management.md
     - name: Understand Cost Management data
       href: understand-cost-mgt-data.md
     - name: Understand and work with scopes
@@ -35,8 +33,6 @@
       href: cost-management-error-codes.md
   - name: Resources
     items:
-    - name: Estimate costs with Azure pricing calculator
-      href: pricing-calculator.md
     - name: Cost Management for AWS pricing
       href: https://azure.microsoft.com/pricing/details/cost-management
     - name: Build your skills with Microsoft Learn training
@@ -47,10 +43,20 @@
     items:
     - name: Cost Management REST APIs
       href: /rest/api/cost-management/
+- name: Pricing and estimation
+  items:
+  - name: Quickstarts
+    items:
+    - name: Estimate costs with the Azure pricing calculator
+      href: pricing-calculator.md
+  - name: Reference
+    items:
     - name: Azure Retail Prices REST API
       href: /rest/api/cost-management/retail-prices/azure-retail-prices
     - name: Price Sheet API (MCA)
       href: /rest/api/cost-management/price-sheet
+    - name: Price Sheet API (EA)
+      href: /rest/api/consumption/price-sheet
 - name: Reporting and analytics
   items:
   - name: Overview
@@ -67,6 +73,8 @@
       items:
       - name: Use built-in views
         href: cost-analysis-built-in-views.md
+      - name: View Kubernetes costs
+        href: view-kubernetes-costs.md
       - name: Customize views
         href: customize-cost-analysis-views.md
       - name: Save and share customized views

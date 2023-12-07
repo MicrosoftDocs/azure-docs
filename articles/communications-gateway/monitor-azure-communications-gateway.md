@@ -30,7 +30,7 @@ Start with the article [Monitoring Azure resources with Azure Monitor](../azure-
 The following sections build on this article by describing the specific data gathered for Azure Communications Gateway. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor/usage-estimated-costs.md).
+> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md).
 
 ## Azure Monitor data for Azure Communications Gateway
 

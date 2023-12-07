@@ -1,6 +1,6 @@
 ---
 title: Create an experiment using a service-direct fault with Chaos Studio
-description: Create an experiment that uses a service-direct fault with Azure Chaos Studio Preview to fail over an Azure Cosmos DB instance.
+description: Create an experiment that uses a service-direct fault with Azure Chaos Studio to fail over an Azure Cosmos DB instance.
 author: prasha-microsoft 
 ms.author: prashabora
 ms.service: chaos-studio
@@ -11,7 +11,7 @@ ms.custom: template-how-to, ignite-fall-2021
 
 # Create a chaos experiment that uses a service-direct fault to fail over an Azure Cosmos DB instance
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a multi-read, single-write Azure Cosmos DB failover by using a chaos experiment and Azure Chaos Studio Preview. Running this experiment can help you defend against data loss when a failover event occurs.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a multi-read, single-write Azure Cosmos DB failover by using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against data loss when a failover event occurs.
 
 You can use these same steps to set up and run an experiment for any service-direct fault. A *service-direct* fault runs directly against an Azure resource without any need for instrumentation. Agent-based faults require installation of the chaos agent.
 
@@ -26,7 +26,7 @@ You can use these same steps to set up and run an experiment for any service-dir
 Chaos Studio can't inject faults against a resource unless that resource is added to Chaos Studio first. You add a resource to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Azure Cosmos DB accounts have only one target type (service-direct) and one capability (failover). Other resources might have up to two target types. One target type is for service-direct faults. Another target type is for agent-based faults. Other resources might have many other capabilities.
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Search for **Chaos Studio (preview)** in the search bar.
+1. Search for **Chaos Studio** in the search bar.
 1. Select **Targets** and go to your Azure Cosmos DB account.
 
    ![Screenshot that shows the Targets view in the Azure portal.](images/tutorial-service-direct-targets.png)

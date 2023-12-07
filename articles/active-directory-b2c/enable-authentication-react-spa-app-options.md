@@ -1,11 +1,11 @@
 ---
 title: Enable React application options by using Azure Active Directory B2C
 description:  Enable the use of React application options in several ways.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 07/07/2022
 ms.author: kengaderdus

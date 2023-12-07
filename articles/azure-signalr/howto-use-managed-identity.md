@@ -77,25 +77,13 @@ After you add a [system-assigned identity](#add-a-system-assigned-identity) or [
 
    :::image type="content" source="media/signalr-howto-use-managed-identity/msi-settings.png" alt-text="Screenshot of upstream settings for Azure SignalR Service.":::
 
-1. In the managed identity authentication settings, for **Resource**, you can specify the target resource. The resource will become an `aud` claim in the obtained access token, which can be used as a part of validation in your upstream endpoints. The resource can be in one of the following formats:
+1. In the managed identity authentication settings, for **Audience in the issued token**, you can specify the target **resource**. The **resource** will become an `aud` claim in the obtained access token, which can be used as a part of validation in your upstream endpoints. The resource can be in one of the following formats:
 
-   - Empty.
    - Application (client) ID of the service principal.
    - Application ID URI of the service principal.
-   - Resource ID of an Azure service. For more information, see [Azure services that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-   > [!NOTE]
-   > If you manually validate an access token for your service, you can choose any one of the resource formats. Make sure that the **Resource** value in **Auth** settings and the validation are consistent. When you use Azure role-based access control (RBAC) for a data plane, you must use the resource format that the service provider requests.
-
-### Validate access tokens
-
-The token in the `Authorization` header is a [Microsoft identity platform access token](../active-directory/develop/access-tokens.md).
-
-To validate access tokens, your app should also validate the audience and the signing tokens. These tokens need to be validated against the values in the OpenID discovery document. For an example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
-
-The Microsoft Entra middleware has built-in capabilities for validating access tokens. You can browse through the [Microsoft identity platform code samples](../active-directory/develop/sample-v2-code.md) to find one in the language of your choice.
-
-Libraries and code samples that show how to handle token validation are available. Several open-source partner libraries are also available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language. For more information about Microsoft Entra authentication libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+   > [!IMPORTANT]
+   > Using empty resource actully acquire a token targets to Microsoft Graph. As today, Microsoft Graph enables token encryption so it's not available for application to authenticate the token other than Microsoft Graph. In common practice, you should always create a service principal to represent your upstream target. And set the **Application ID** or **Application ID URI** of the service principal you've created.
 
 #### Authentication in a function app
 
@@ -114,17 +102,18 @@ You can easily set access validation for a function app without code changes by 
 
 After you configure these settings, the function app will reject requests without an access token in the header.
 
-> [!IMPORTANT]
-> To pass the authentication, the issuer URL must match the `iss` claim in the token. Currently, we support only v1.0 endpoints. See [Access tokens in the Microsoft identity platform](../active-directory/develop/access-tokens.md).
+### Validate access tokens
 
-To verify the issuer URL format in your function app:
+If you're not using WebApp or Azure Function, you can also validate the token.
 
-1. In the portal, go to the function app.
-1. Select **Authentication**.
-1. Select **Identity provider**.
-1. Select **Edit**.
-1. Select **Issuer Url**.
-1. Verify that the issuer URL has the format `https://sts.windows.net/<tenant-id>/`.
+The token in the `Authorization` header is a [Microsoft identity platform access token](../active-directory/develop/access-tokens.md).
+
+To validate access tokens, your app should also validate the audience and the signing tokens. These tokens need to be validated against the values in the OpenID discovery document. For an example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
+
+The Microsoft Entra middleware has built-in capabilities for validating access tokens. You can browse through the [Microsoft identity platform code samples](../active-directory/develop/sample-v2-code.md) to find one in the language of your choice.
+
+Libraries and code samples that show how to handle token validation are available. Several open-source partner libraries are also available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language. For more information about Microsoft Entra authentication libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+
 
 ## Use a managed identity for a Key Vault reference
 

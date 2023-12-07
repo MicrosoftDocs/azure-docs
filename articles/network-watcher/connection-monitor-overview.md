@@ -1,14 +1,14 @@
 ---
-title: Connection monitor
+title: Connection monitor overview
 titleSuffix: Azure Network Watcher
-description: Learn how to use Azure Network Watcher connection monitor to monitor network communication in a distributed environment.
+description: Learn about Azure Network Watcher connection monitor and how to use it to monitor network communication in a distributed environment.
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
-ms.date: 10/04/2022
+ms.date: 10/31/2023
 
-#CustomerIntent: I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
+#CustomerIntent: As an Azure administrator, I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
 
 # Connection monitor overview
@@ -17,9 +17,6 @@ ms.date: 10/04/2022
 > As of July 1, 2021, you can no longer add new tests in an existing workspace or enable a new workspace in Network Performance Monitor (NPM). You're also no longer able to add new connection monitors in Connection Monitor (Classic). You can continue to use the tests and connection monitors that you've created prior to July 1, 2021. 
 > 
 > To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor](migrate-to-connection-monitor-from-network-performance-monitor.md), or  [migrate from Connection Monitor (Classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before February 29, 2024.
-
-> [!IMPORTANT]
-> Connection Monitor will now support end-to-end connectivity checks from and to *Azure Virtual Machine Scale Sets*, enabling faster performance monitoring and network troubleshooting across scale sets 
 
 Connection Monitor provides unified, end-to-end connection monitoring in Azure Network Watcher. The Connection Monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
@@ -41,9 +38,9 @@ Here are some benefits of Connection Monitor:
 * Support for connectivity checks that are based on HTTP, Transmission Control Protocol (TCP), and Internet Control Message Protocol (ICMP) 
 * Metrics and Log Analytics support for both Azure and non-Azure test setups
 
-![Diagram showing how Connection Monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.](./media/connection-monitor-2-preview/hero-graphic-new.png)
+:::image type="content" source="./media/connection-monitor-2-preview/hero-graphic-new.png" alt-text="Diagram showing how Connection Monitor interacts with Azure VMs, non-Azure hosts, endpoints and data storage locations.":::
 
-To start using Connection Monitor for monitoring, do the following: 
+To start using Connection Monitor for monitoring, follow these steps: 
 
 1. [Install monitoring agents](#install-monitoring-agents).
 1. [Enable Network Watcher on your subscription](#enable-network-watcher-on-your-subscription).
@@ -70,9 +67,10 @@ Rules for a network security group (NSG) or firewall can block communication bet
 
 If you wish to escape the installation process for enabling the Network Watcher extension, you can proceed with the creation of Connection Monitor and allow auto enablement of Network Watcher extensions on your Azure VMs and scale sets.
 
- > [!Note]
- > In case the virtual machine scale sets is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with virtual machine scale sets as endpoints. Incase the virtual machine scale set is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
- > As Connection Monitor now supports unified auto enablement of monitoring extensions, user can consent to auto upgradation of VM scale set with auto enablement of Network Watcher extension during the creation on Connection Monitor for VM scale sets with manual upgradation. 
+> [!NOTE]
+> If the Automatic Extension Upgrade isn't enabled on the virtual machine scale sets, then you have to manually upgrade the Network Watcher extension whenever a new version is released.
+> 
+> As Connection Monitor now supports unified auto enablement of monitoring extensions, user can consent to auto upgrade of the virtual machine scale set with auto enablement of Network Watcher extension during the creation of Connection Monitor for virtual machine scale sets with manual upgrade.
 
 ### Agents for on-premises machines
 
@@ -152,7 +150,7 @@ Connection Monitor includes the following entities:
 * **Test group**: The group that contains source endpoints, destination endpoints, and test configurations. A connection monitor can contain more than one test group.
 * **Test**: The combination of a source endpoint, destination endpoint, and test configuration. A test is the most granular level at which monitoring data is available. The monitoring data includes the percentage of checks that failed and the round-trip time (RTT).
 
- ![Diagram showing a connection monitor, defining the relationship between test groups and tests.](./media/connection-monitor-2-preview/cm-tg-2.png)
+:::image type="content" source="./media/connection-monitor-2-preview/cm-tg-2.png" alt-text="Diagram showing a connection monitor, defining the relationship between test groups and tests.":::
 
 You can create a connection monitor by using the [Azure portal](./connection-monitor-create-using-portal.md), [ARMClient](./connection-monitor-create-using-template.md), or [Azure PowerShell](connection-monitor-create-using-powershell.md).
 
@@ -178,9 +176,6 @@ All sources, destinations, and test configurations that you add to a test group 
 | 10 | C | D | Config 2 |
 | 11 | C | E | Config 1 |
 | 12 | C | E | Config 2 |
-| | |
-
-
 
 ### Scale limits
 
@@ -364,7 +359,6 @@ When you use metrics, set the resource type as **Microsoft.Network/networkWatche
 | ChecksFailedPercent | % Checks Failed | Percentage | Average | Percentage of failed checks for a test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 | RoundTripTimeMs | Round-trip time (ms) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 | TestResult | Test Result | Count | Average | Connection monitor test results. <br>Interpretation of result values: <br>0-&nbsp;Indeterminate <br>1- Pass <br>2- Warning <br>3- Fail| SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
-| | |
 
 #### Metric-based alerts for Connection Monitor
 

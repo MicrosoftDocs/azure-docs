@@ -1,5 +1,5 @@
 ---
-title: Standalone Cluster Deployment Preparation 
+title: Standalone Cluster Deployment Preparation
 description: Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload.
 ms.topic: how-to
 ms.author: tomcassidy
@@ -56,7 +56,7 @@ Here are recommended specs for machines in a Service Fabric cluster:
 * Connectivity to a secure network or networks for all machines
 * Windows Server OS installed (valid versions: 2012 R2, 2016, 1709, or 1803). Service Fabric version 6.4.654.9590 and later also supports Server 2019 and 1809.
 * [.NET Framework 4.5.1 or higher](https://www.microsoft.com/download/details.aspx?id=40773), full install
-* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell)
+* [Windows PowerShell 3.0](/previous-versions/powershell/scripting/windows-powershell/install/installing-windows-powershell)
 * The [RemoteRegistry service](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) should be running on all the machines
 * **Service Fabric installation drive must be NTFS File System**
 * **Windows services *Performance Logs & Alerts* and *Windows Event Log* must [be enabled](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))**.

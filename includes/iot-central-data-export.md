@@ -23,7 +23,7 @@ For example, you can:
 > When you turn on data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when data export was off. To retain more historical data, turn on data export early.
 
 > [!NOTE]
-> In some circumstances it could take up to 60 seconds for for messages to be exported. This time is measured from when IoT Central receives the message from the underlying IoT hub to when the message is delivered to the destination endpoint.
+> In some circumstances it could take up to 60 seconds for the messages to be exported. This time is measured from when IoT Central receives the message from the underlying IoT hub to when the message is delivered to the destination endpoint.
 
 ## Prerequisites
 

@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 10/26/2023
+ms.date: 11/01/2023
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -56,6 +56,27 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't place policies within your subscription or management group that prevent SREs from performing normal maintenance against the Azure Red Hat OpenShift cluster. For example, don't require tags on the Azure Red Hat OpenShift RP-managed cluster resource group.
 * Don't circumvent the deny assignment that is configured as part of the service, or perform administrative tasks that are normally prohibited by the deny assignment.
 * OpenShift relies on the ability to automatically tag Azure resources. If you have configured a tagging policy, do not apply more than 10 user-defined tags to resources in the managed resource group.
+
+
+## Incident management
+
+An incident is an event that results in a degradation or outage Azure Red Hat OpenShift services. An incident can be raised by a customer or Customer Experience and Engagement (CEE) member through a [support case](openshift-service-definitions.md#support), directly by the centralized monitoring and alerting system, or directly by a member of the ARO Site Reliability Engineer (SRE) team.
+
+Depending on the impact on the service and customer, the incident is categorized in terms of severity.
+
+The general workflow of how a new incident is managed is described below:
+
+1. An SRE first responder is alerted to a new incident and begins an initial investigation.
+
+1. After the initial investigation, the incident is assigned an incident lead, who coordinates the recovery efforts.
+
+1. The incident lead manages all communication and coordination around recovery, including any relevant notifications or support case updates.
+
+1. The incident is recovered.
+
+1. The incident is documented and a root cause analysis (RCA) is performed within 5 business days of the incident.
+
+1. An RCA draft document is shared with the customer within 7 business days of the incident.
 
 ## Supported virtual machine sizes
 

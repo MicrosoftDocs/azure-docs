@@ -131,5 +131,5 @@ DerivedColumn1 select(mapColumn(
     skipDuplicateMapOutputs: true) ~> Select1
 ```
 
-## Next steps
+## Related content
 * After using Select to rename, reorder, and alias columns, use the [Sink transformation](data-flow-sink.md) to land your data into a data store.

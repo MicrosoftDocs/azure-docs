@@ -2,7 +2,7 @@
 title: CI/CD for Custom Speech - Speech service
 titleSuffix: Azure AI services
 description: Apply DevOps with Custom Speech and CI/CD workflows. Implement an existing DevOps solution for your own project.
-services: cognitive-services
+#services: cognitive-services
 author: nitinme
 manager: cmayomsft
 ms.service: azure-ai-speech

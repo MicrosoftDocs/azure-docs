@@ -1,16 +1,18 @@
 ---
 title: "Tutorial: Train a model"
 titleSuffix: Azure Machine Learning
-description: Dive in to the process of training a model  
+description: Dive in to the process of training a model
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: build-2023
+ms.custom:
+  - build-2023
+  - ignite-2023
 ms.topic: tutorial
 ms.reviewer: ssalgado
 author: ssalgadodev
 ms.author: ssalgado
-ms.date: 03/15/2023
+ms.date: 10/20/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
@@ -45,7 +47,7 @@ The steps are:
 
 [!INCLUDE [notebook set kernel](includes/prereq-set-kernel.md)] 
 
-<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/main/tutorials/get-started-notebooks/train-model.ipynb -->
+<!-- nbstart https://raw.githubusercontent.com/Azure/azureml-examples/sdg-serverless/tutorials/get-started-notebooks/train-model.ipynb -->
 
 ## Use a command job to train a model in Azure Machine Learning
 
@@ -55,7 +57,6 @@ A command job is a function that allows you to submit a custom training script t
 
 In this tutorial, we'll focus on using a command job to create a custom training job that we'll use to train a model. For any custom training job, the below items are required:
 
-* compute resource (usually a compute cluster, which we recommend for scalability)
 * environment
 * data
 * command job 
@@ -82,72 +83,28 @@ from azure.identity import DefaultAzureCredential
 
 # authenticate
 credential = DefaultAzureCredential()
-# # Get a handle to the workspace
+
+SUBSCRIPTION="<SUBSCRIPTION_ID>"
+RESOURCE_GROUP="<RESOURCE_GROUP>"
+WS_NAME="<AML_WORKSPACE_NAME>"
+# Get a handle to the workspace
 ml_client = MLClient(
     credential=credential,
-    subscription_id="<SUBSCRIPTION_ID>",
-    resource_group_name="<RESOURCE_GROUP>",
-    workspace_name="<AML_WORKSPACE_NAME>",
+    subscription_id=SUBSCRIPTION,
+    resource_group_name=RESOURCE_GROUP,
+    workspace_name=WS_NAME,
 )
 ```
 
 > [!NOTE]
 > Creating MLClient will not connect to the workspace. The client initialization is lazy, it will wait for the first time it needs to make a call (this will happen in the next code cell).
 
-## Create a compute cluster to run your job
-
-> [!NOTE]
-> To try [serverless compute (preview)](how-to-use-serverless-compute.md), skip this step and proceed to [create a job environment](#create-a-job-environment).
-
-In Azure, a job can refer to several tasks that Azure allows its users to do: training, pipeline creation, deployment, etc. For this tutorial and our purpose of training a machine learning model, we'll use *job* as a reference to running training computations (*training job*).
-
-You need a compute resource for running any job in Azure Machine Learning. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark. In Azure, there are two compute resources that you can choose from: instance and cluster. A compute instance contains one node of computation resources while a *compute cluster* contains several. A *compute cluster* contains more memory for the computation task. For training, we recommend using a compute cluster because it allows the user to distribute calculations on multiple nodes of computation, which results in a faster training experience. 
-
-You provision a Linux compute cluster. See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
-
-For this example, you only need a basic cluster, so you use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM.
-
 
 ```python
-from azure.ai.ml.entities import AmlCompute
-
-# Name assigned to the compute cluster
-cpu_compute_target = "cpu-cluster"
-
-try:
-    # let's see if the compute target already exists
-    cpu_cluster = ml_client.compute.get(cpu_compute_target)
-    print(
-        f"You already have a cluster named {cpu_compute_target}, we'll reuse it as is."
-    )
-
-except Exception:
-    print("Creating a new cpu compute target...")
-
-    # Let's create the Azure Machine Learning compute object with the intended parameters
-    cpu_cluster = AmlCompute(
-        name=cpu_compute_target,
-        # Azure Machine Learning Compute is the on-demand VM service
-        # if you run into an out of quota error, change the size to a comparable VM that is available.\
-        # Learn more on https://azure.microsoft.com/en-us/pricing/details/machine-learning/.
-
-        type="amlcompute",
-        # VM Family
-        size="STANDARD_DS3_V2",
-        # Minimum running nodes when there is no job running
-        min_instances=0,
-        # Nodes in cluster
-        max_instances=4,
-        # How many seconds will the node running after the job termination
-        idle_time_before_scale_down=180,
-        # Dedicated or LowPriority. The latter is cheaper but there is a chance of job termination
-        tier="Dedicated",
-    )
-    print(
-        f"AMLCompute with name {cpu_cluster.name} will be created, with compute size {cpu_cluster.size}"
-    )
-    # Now, we pass the object to MLClient's create_or_update method
-    cpu_cluster = ml_client.compute.begin_create_or_update(cpu_cluster)
+# Verify that the handle works correctly.  
+# If you ge an error here, modify your SUBSCRIPTION, RESOURCE_GROUP, and WS_NAME in the previous cell.
+ws = ml_client.workspaces.get(WS_NAME)
+print(ws.location,":", ws.resource_group)
 ```
 
 ## Create a job environment
@@ -180,12 +137,13 @@ dependencies:
   - python=3.8
   - numpy=1.21.2
   - pip=21.2.4
-  - scikit-learn=0.24.2
+  - scikit-learn=1.0.2
   - scipy=1.7.1
   - pandas>=1.1,<1.2
   - pip:
     - inference-schema[numpy-support]==1.3.0
-    - mlflow== 2.4.1
+    - mlflow==2.8.0
+    - mlflow-skinny==2.8.0
     - azureml-mlflow==1.51.0
     - psutil>=5.8,<5.9
     - tqdm>=4.59,<4.60
@@ -207,9 +165,9 @@ custom_env_name = "aml-scikit-learn"
 custom_job_env = Environment(
     name=custom_env_name,
     description="Custom environment for Credit Card Defaults job",
-    tags={"scikit-learn": "0.24.2"},
+    tags={"scikit-learn": "1.0.2"},
     conda_file=os.path.join(dependencies_dir, "conda.yaml"),
-    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+    image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
 )
 custom_job_env = ml_client.environments.create_or_update(custom_job_env)
 
@@ -358,12 +316,11 @@ In this script, once the model is trained, the model file is saved and registere
 Now that you have a script that can perform the classification task, use the general purpose **command** that can run command line actions. This command line action can be directly calling system commands or by running a script. 
 
 Here, create input variables to specify the input data, split ratio, learning rate and registered model name.  The command script will:
-* Use the compute created earlier to run this command.
+
 * Use the environment created earlier - you can use the `@latest` notation to indicate the latest version of the environment when the command is run.
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
+* Since a compute resource was not specified, the script will be run on a [serverless compute cluster](how-to-use-serverless-compute.md) that is automatically created.
 
-> [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
 
 ```python
 from azure.ai.ml import command
@@ -384,7 +341,6 @@ job = command(
     code="./src/",  # location of source code
     command="python main.py --data ${{inputs.data}} --test_train_ratio ${{inputs.test_train_ratio}} --learning_rate ${{inputs.learning_rate}} --registered_model_name ${{inputs.registered_model_name}}",
     environment="aml-scikit-learn@latest",
-    compute="cpu-cluster", #delete this line to use serverless compute
     display_name="credit_default_prediction",
 )
 ```
@@ -415,6 +371,7 @@ When you run the cell, the notebook output shows a link to the job's details pag
 * Metrics: The metrics tab showcases key performance metrics from your model such as training score, f1 score, and precision score. 
 
 <!-- nbend -->
+
 
 
 

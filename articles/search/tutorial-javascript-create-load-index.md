@@ -1,6 +1,6 @@
 ---
-title: "Load an index (JavaScript tutorial)" 
-titleSuffix: Azure Cognitive Search
+title: "Load an index (JavaScript tutorial)"
+titleSuffix: Azure AI Search
 description: Create index and import CSV data into Search index with JavaScript using the npm SDK @azure/search-documents.
 manager: nitinme
 author: diberry
@@ -8,7 +8,11 @@ ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/13/2023
-ms.custom: devx-track-js, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-js
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - ignite-2023
 ms.devlang: javascript
 ---
 
@@ -20,13 +24,13 @@ Continue to build your search-enabled website by following these steps:
 * Create a new index
 * Import data with JavaScript using the [bulk_insert_books script](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/main/search-website-functions-v4/bulk-insert/bulk_insert_books.js) and Azure SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
 
-## Create an Azure Cognitive Search resource
+## Create an Azure AI Search resource
 
 [!INCLUDE [tutorial-create-search-resource](includes/tutorial-add-search-website-create-search-resource.md)]
 
 ## Prepare the bulk import script for Search
 
-The ESM script uses the Azure SDK for Cognitive Search:
+The ESM script uses the Azure SDK for Azure AI Search:
 
 * [npm package @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
 * [Reference Documentation](/javascript/api/overview/azure/search-documents-readme)
