@@ -107,7 +107,7 @@ Failed to start the following resource(s) or apply setting(s): [<failed resource
 
 To recover from these failures, here's what you should do:
 - Identify the failed resources: Refer to the `<failed resource list>` in the error message to identify the resources that failed to start.
-- Investigate and mitigate: Examine each listed resource, check failure logs if available, and make necessary mitigations. This mitigation could involve reapplying some settings or updating some resources.
+- Investigate and mitigate: Examine each listed resource, check failure logs if available, and make necessary mitigations. These mitigations could involve reapplying the affected settings or updating the specific resources that failed to start.
 
 ---
 
