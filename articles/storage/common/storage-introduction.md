@@ -52,7 +52,7 @@ Azure provides a variety of storage tools and services. To determine which Azure
 
 ## Sample scenarios for Azure Storage services
 
-The following table compares Files, Blobs, Disks, Queues, Tables, and Azure NetApp Files, and shows example scenarios for each.
+The following table compares Azure Storage services and shows example scenarios for each.
 
 | Feature | Description | When to use |
 |--------------|-------------|-------------|
