@@ -107,7 +107,7 @@ Use the following options to enable Container insights on your AKS cluster.
 Use one of the following commands to enable monitoring of your AKS and Arc-enabled clusters. If you don't specify an existing Log Analytics workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format `DefaultWorkspace-<GUID>-<Region>`.
 
 > [!NOTE]
-> Managed identity authentication will be default in CLI version 2.49.0 or higher. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](container-insights-logging-v2.md) via the ConfigMap.
+> Managed identity authentication will be default in CLI version 2.49.0 or higher. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](container-insights-logs-schema.md) via the ConfigMap.
 
 #### AKS cluster
 Use one of the following commands to enable monitoring of your AKS cluster. If you don't specify an existing Log Analytics workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format `DefaultWorkspace-<GUID>-<Region>`.

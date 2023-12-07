@@ -42,7 +42,7 @@ Container insights supports the following environments:
 Container insights uses managed identity authentication. This authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. Read more in [Authentication for Container Insights](container-insights-authentication.md) including guidance on migrating from legacy authentication models.
 
 > [!Note] 
-> [ContainerLogV2](container-insights-logging-v2.md) is the default schema when you onboard Container insights with using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
+> [ContainerLogV2](container-insights-logs-schema.md) is the default schema when you onboard Container insights with using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
 
 
 ## Agent

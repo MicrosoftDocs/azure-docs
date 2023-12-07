@@ -78,7 +78,7 @@ Essentials|[Send Prometheus metrics to Log Analytics workspace with Container in
 Essentials|[Collect Prometheus metrics from an AKS cluster](containers/prometheus-metrics-enable.md)|Updated to include additional onboarding methods.|
 Essentials|[Azure Monitor managed service for Prometheus rule groups](essentials/prometheus-rule-groups.md)|Expanded "Limiting rules to a specific cluster"|
 Logs|[Enable cost optimization settings](containers/container-insights-cost-config.md)|Updated for portal updates and additional details on workspace tables.|
-Logs|[Enable the ContainerLogV2 schema](containers/container-insights-logging-v2.md)|Updated configuration section.|
+Logs|[Enable the ContainerLogV2 schema](containers/container-insights-logs-schema.md)|Updated configuration section.|
 Logs|[Manage access to Log Analytics workspaces](logs/manage-access.md)|Simplified flow for setting table-level access.|
 Logs|[Query data in Azure Data Explorer and Azure Resource Graph from Azure Monitor](logs/azure-monitor-data-explorer-proxy.md)|Azure Monitor now lets you query data in Azure Resource Graph from your Log Analytics workspace. |
 
@@ -725,7 +725,7 @@ All references to unsupported versions of .NET and .NET CORE are scrubbed from A
 
 | Article | Description |
 |:---|:---|
-| [Configure ContainerLogv2 schema (preview) for Container insights](containers/container-insights-logging-v2.md) | New article: Describes new schema for container logs. |
+| [Configure ContainerLogv2 schema (preview) for Container insights](containers/container-insights-logs-schema.md) | New article: Describes new schema for container logs. |
 | [Enable Container insights](containers/container-insights-onboard.md) | Rewritten to improve clarity. |
 | [Resource Manager template samples for Container insights](containers/resource-manager-container-insights.md) | Added Bicep examples. |
 ### Insights

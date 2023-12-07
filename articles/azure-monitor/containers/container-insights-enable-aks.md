@@ -66,7 +66,7 @@ From the Container insights menu, you can view all of your clusters, quickly ide
 ## [CLI](#tab/azure-cli)
 
 > [!NOTE]
-> Managed identity authentication will be default in CLI version 2.49.0 or higher. If you need to use legacy/non-managed identity authentication, use CLI version < 2.49.0. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](container-insights-logging-v2.md) via the ConfigMap
+> Managed identity authentication will be default in CLI version 2.49.0 or higher. If you need to use legacy/non-managed identity authentication, use CLI version < 2.49.0. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](container-insights-logs-schema.md) via the ConfigMap
 
 ### Use a default Log Analytics workspace
 

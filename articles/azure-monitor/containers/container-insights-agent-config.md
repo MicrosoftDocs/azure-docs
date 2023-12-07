@@ -81,7 +81,7 @@ The following table describes the settings you can configure to control data col
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | True or false | This setting controls container log enrichment to populate the `Name` and `Image` property values<br> for every log record written to the **ContainerLog** table for all container logs in the cluster.<br> It defaults to `enabled = false` when not specified in the ConfigMap. |
 | `[log_collection_settings.collect_all_kube_events] enabled =` | Boolean | True or false | This setting allows the collection of Kube events of all types.<br> By default, the Kube events with type **Normal** aren't collected. When this setting is set to `true`, the **Normal** events are no longer filtered, and all events are collected.<br> It defaults to `enabled = false` when not specified in the ConfigMap. |
 | `[log_collection_settings.schema] enabled =` | String (case sensitive) | v2 or v1 [(retired)](./container-insights-v2-migration.md) | This setting sets the log ingestion format to ContainerLogV2 |
-| `[log_collection_settings.enable_multiline_logs] enabled =` | Boolean | True or False | This setting controls whether multiline container logs are enabled. They are disabled by default. See [Multi-line logging in Container Insights](./container-insights-logging-v2.md) to learn more. |
+| `[log_collection_settings.enable_multiline_logs] enabled =` | Boolean | True or False | This setting controls whether multiline container logs are enabled. They are disabled by default. See [Multi-line logging in Container Insights](./container-insights-logs-schema.md) to learn more. |
 
 ### Metric collection settings
 

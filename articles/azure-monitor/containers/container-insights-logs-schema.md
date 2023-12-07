@@ -121,7 +121,7 @@ For Python:
 
 ### Pre-requisites 
 
-Customers must [enable ContainerLogV2](./container-insights-logging-v2.md#enable-the-containerlogv2-schema) for multi-line logging to work.
+Customers must [enable ContainerLogV2](./container-insights-logs-schema.md#enable-the-containerlogv2-schema) for multi-line logging to work.
 
 ### How to enable 
 Multi-line logging feature can be enabled by setting **enabled** flag to "true" under the `[log_collection_settings.enable_multiline_logs]` section in the [config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml)

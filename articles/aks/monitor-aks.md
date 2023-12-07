@@ -147,7 +147,7 @@ Azure Monitor Container Insights provides a schema for container logs known as C
 - PodNamespace
 
 In addition, this schema is compatible with [Basic Logs](../azure-monitor/logs/basic-logs-configure.md?tabs=portal-1#set-a-tables-log-data-plan) data plan, which offers a low-cost alternative to standard analytics logs. The Basic log data plan lets you save on the cost of ingesting and storing high-volume verbose logs in your Log Analytics workspace for debugging, troubleshooting, and auditing, but not for analytics and alerts. For more information, see [Manage tables in a Log Analytics workspace](../azure-monitor/logs/manage-logs-tables.md?tabs=azure-portal).
-ContainerLogV2 is the recommended approach and is the default schema for customers onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy, and Azure portal. For more information about how to enable ContainerLogV2 through either the cluster's Data Collection Rule (DCR) or ConfigMap, see [Enable the ContainerLogV2 schema](../azure-monitor/containers/container-insights-logging-v2.md?tabs=configure-portal#enable-the-containerlogv2-schema-1). 
+ContainerLogV2 is the recommended approach and is the default schema for customers onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy, and Azure portal. For more information about how to enable ContainerLogV2 through either the cluster's Data Collection Rule (DCR) or ConfigMap, see [Enable the ContainerLogV2 schema](../azure-monitor/containers/container-insights-logs-schema.md?tabs=configure-portal#enable-the-containerlogv2-schema-1). 
 
 ## Visualization
 

@@ -19,7 +19,7 @@ To transition to ContainerLogV2, we recommend the following approach.
 
 1. Learn about the feature differences between ContainerLog and ContainerLogV2
 2. Assess the impact migrating to ContainerLogV2 might have on your existing queries, alerts, or dashboards
-3. [Enable the ContainerLogV2 schema](container-insights-logging-v2.md) through either the container insights data collection rules (DCRs) or ConfigMap
+3. [Enable the ContainerLogV2 schema](container-insights-logs-schema.md) through either the container insights data collection rules (DCRs) or ConfigMap
 4. Validate that you're now ingesting ContainerLogV2 to your Log Analytics workspace.
 
 ## ContainerLog vs ContainerLogV2 schema
@@ -57,4 +57,4 @@ resources
 ```
 
 ## Next steps
-- [Enable ContainerLogV2](container-insights-logging-v2.md)
+- [Enable ContainerLogV2](container-insights-logs-schema.md)

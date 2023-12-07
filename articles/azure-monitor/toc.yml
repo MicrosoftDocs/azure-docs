@@ -540,7 +540,7 @@ items:
         - name: Agent collection settings
           href: containers/container-insights-agent-config.md
         - name: Log schema
-          href: containers/container-insights-logging-v2.md
+          href: containers/container-insights-logs-schema.md
         - name: Enable cost optimization settings
           href: containers/container-insights-cost-config.md
         - name: Data Transformations
