@@ -14,16 +14,14 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Verify CAPTCHA code using CAPTCHA display controls
+# Verify CAPTCHA code using CAPTCHA display control
 
 Use CAPTCHA display controls to generate a captcha code string, then verifies it by asking the user to enter what they see or hear. To display a CAPTCHA display control, you reference it from a [self-asserted technical profile](self-asserted-technical-profile.md), and you must set the self-asserted technical profile's `setting.enableCaptchaChallenge` metadata to *true*.
 
-> [!NOTE]
-> This feature is in public preview  
+The screenshot shows the CAPTCHA display control shown on a sign-up page:
 
-## CAPTCHA display control process 
+TODO - add screenshot
 
-TODO
 
 ## CAPTCHA display control elements
 
@@ -36,3 +34,41 @@ This table summarizes the elements that a CAPTCHA display control contains:
 |  DisplayClaims  |  Yes  |  The claims to be shown to the user such as the captcha challenge code, or collected from the user, such as code input by the user  |
 |    OutputClaim    |  No  | Any claim to be returned to the self-asserted page after the user completes captcha code verification process.   |
 |  Actions  |  Yes  |  CAPTCHA display control contains two actions, *GetChallenge* and *VerifyChallenge*. <br> *GetChallenge* action generate, then displays the captcha challenge code on the interface. This action contains a validation technical profile, which is usually the GetChallenge[CAPTCHA technical profile](captcha-technical-profile.md), to generate and display the CAPTCHA challenge string. <br> *VerifyChallenge* action verifies the CAPTCHA challenge code that the user inputs. This action contains a validation technical profile, which is usually the VerifyChallenge [CAPTCHA technical profile](captcha-technical-profile.md), to validate the CAPTCHA code that the user inputs.  |
+
+The following XML snippet code shows an examples of CaptchaProvider display control
+
+```xml
+<DisplayControls>
+    ...
+    <DisplayControl Id="captchaControlChallengeCode" UserInterfaceControlType="CaptchaControl" DisplayName="Help us beat the bots">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="challengeType" />
+        <InputClaim ClaimTypeReferenceId="challengeId" />
+      </InputClaims>
+    
+      <DisplayClaims>
+        <DisplayClaim ClaimTypeReferenceId="challengeType" ControlClaimType="ChallengeType" />
+        <DisplayClaim ClaimTypeReferenceId="challengeId" ControlClaimType="ChallengeId" />
+        <DisplayClaim ClaimTypeReferenceId="challengeString" ControlClaimType="ChallengeString" />
+        <DisplayClaim ClaimTypeReferenceId="captchaEntered" ControlClaimType="CaptchaEntered" />
+      </DisplayClaims>
+    
+      <Actions>
+        <Action Id="GetChallenge">
+          <ValidationClaimsExchange>
+            <ValidationClaimsExchangeTechnicalProfile
+              TechnicalProfileReferenceId="HIP-GetChallenge" />
+          </ValidationClaimsExchange>
+        </Action>
+    
+        <Action Id="VerifyChallenge">
+          <ValidationClaimsExchange>
+            <ValidationClaimsExchangeTechnicalProfile
+              TechnicalProfileReferenceId="HIP-VerifyChallenge" />
+          </ValidationClaimsExchange>
+        </Action>
+      </Actions>
+    </DisplayControl>
+    ...
+</DisplayControls>
+```
