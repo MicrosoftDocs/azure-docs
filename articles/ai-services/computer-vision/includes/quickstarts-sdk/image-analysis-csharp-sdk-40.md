@@ -17,6 +17,9 @@ Use the Image Analysis client SDK for C# to analyze an image to read text and ge
 
 [Reference documentation](/dotnet/api/azure.ai.vision.imageanalysis) | [Packages (NuGet)](https://www.nuget.org/packages/Azure.AI.Vision.ImageAnalysis) | [Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk)
 
+> [!IMPORTANT]
+> The current Image Analysis 4.0 client SDKs are still in private preview. We recommend you use the REST API, which is generally available (GA), until the SDKs are updated to GA.
+
 > [!TIP]
 > The Analysis 4.0 API can do many different operations. See the [Analyze Image how-to guide](../../how-to/call-analyze-image-40.md) for examples that showcase all of the available features.
 
