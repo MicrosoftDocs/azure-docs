@@ -2,18 +2,18 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/25/2023
+ms.date: 12/04/2023
 ms.author: wchi
 ---
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies.
+1. Install dependency.
     ```bash
     dotnet add package Microsoft.Azure.Cosmos
     ```
 
-2. Get the connection string from the environment variable added by Service Connector.
+1. Get the connection string from the environment variable added by Service Connector.
     ```csharp
     using Microsoft.Azure.Cosmos;
     using System; 
@@ -26,7 +26,7 @@ ms.author: wchi
 
 ### [Java](#tab/java)
 
-1. Add the following dependencies in your *pom.xml* file:
+1. Add the following dependency in your *pom.xml* file:
     ```xml
     <dependency>
     	<groupId>com.azure</groupId>
@@ -50,12 +50,12 @@ ms.author: wchi
         .buildClient();
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 
 Refer to [Spring Data Azure Cosmos DB v3 examples](/azure/cosmos-db/nosql/samples-java-spring-data) and [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB for NoSQL data](/azure/cosmos-db/nosql/quickstart-java-spring-data?tabs=password%2Csign-in-azure-cli) to set up your Spring application. The configuration properties are added to Spring Apps by Service Connector. Two sets of configuration properties are provided according to the version of Spring Cloud Azure (below 4.0 and above 4.0). For more information about library changes of Spring Cloud Azure, refer to [Spring Cloud Azure Migration Guide](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#configuration-spring-cloud-azure-starter-data-cosmos). It is recommended to use Spring Cloud Azure version 4.0 and above. The configurations in the format of "azure.cosmos.*" from Spring Cloud Azure 3.x will no longer be supported after 1st July, 2024. 
 
 ### [Python](#tab/python)
-1. Install dependencies.
+1. Install dependency.
     ```bash
     pip install azure-cosmos
     ```
@@ -69,8 +69,23 @@ Refer to [Spring Data Azure Cosmos DB v3 examples](/azure/cosmos-db/nosql/sample
     client = CosmosClient.from_connection_string(conn_str=CONN_STR) 
     ```
 
+### [Go](#tab/go)
+1. Install dependency.
+    ```bash
+    go get github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos
+    ```
+1. Get the connection string from the environment variable added by Service Connector.
+    ```go
+    import {
+        "github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos"
+    }
+    connectionString := os.Getenv("AZURE_COSMOS_CONNECTIONSTRING")
+    client, err := azcosmos.NewClientFromConnectionString(connectionString, nil)
+    ```
+
+
 ### [NodeJS](#tab/nodejs)
-1. Install dependencies.
+1. Install dependency.
     ```bash
     npm install @azure/cosmos
     ```
@@ -84,5 +99,5 @@ Refer to [Spring Data Azure Cosmos DB v3 examples](/azure/cosmos-db/nosql/sample
 
 
 
-### [Other](#tab/other)
+### [Other](#tab/none)
 For other languages, you can use the endpoint URL and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for NoSQL. For environment variable details, see [Integrate Azure Cosmos DB for NoSQL with Service Connector](../how-to-integrate-cosmos-sql.md).

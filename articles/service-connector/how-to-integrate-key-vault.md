@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 11/02/2023
 ms.custom: event-tier1-build-2022
 ---
-
 # Integrate Azure Key Vault with Service Connector
 
 > [!NOTE]
 > When you use Service Connector to connect your Key Vault or manage Key Vault connections, Service Connector uses your token to perform the corresponding operations.
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Key Vault to other cloud services using Service Connector. You might still be able to connect to Azure Key Vault in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection, as well as sample code. 
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Key Vault to other cloud services using Service Connector. You might still be able to connect to Azure Key Vault in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
 
-## Supported compute service
+## Supported compute services
 
 - Azure App Service
+- Azure Functions
 - Azure Container Apps
 - Azure Spring Apps
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
 | Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret / connection string | Service principal                    |
 |--------------------|--------------------------------------|--------------------------------------|----------------------------|--------------------------------------|
@@ -54,8 +54,8 @@ Use the connection details below to connect compute services to Azure Key Vault.
 
 #### Other client types
 
-| Default environment variable name | Description             | Example value                           |
-|-----------------------------------|-------------------------|-----------------------------------------|
+| Default environment variable name | Description             | Example value                             |
+| --------------------------------- | ----------------------- | ----------------------------------------- |
 | AZURE_KEYVAULT_SCOPE              | Your Azure RBAC scope   | `https://management.azure.com/.default` |
 | AZURE_KEYVAULT_RESOURCEENDPOINT   | Your Key Vault endpoint | `https://<vault-name>.vault.azure.net/` |
 

@@ -43,7 +43,7 @@ You can schedule messages using any of our clients in two ways:
 
 Scheduled messages and their sequence numbers can also be discovered using [message browsing](message-browsing.md).
 
-The **SequenceNumber** for a scheduled message is only valid while the message is in this state. As the message transitions to the active state, the message is appended to the queue as if had been enqueued at the current instant, which includes assigning a new **SequenceNumber**.
+The **SequenceNumber** for a scheduled message is only valid while the message is in this state. As the message transitions to the active state, the message is appended to the queue as if it had been enqueued at the current instant, which includes assigning a new **SequenceNumber**.
 
 Because the feature is anchored on individual messages and messages can only be enqueued once, Service Bus doesn't support recurring schedules for messages.
 

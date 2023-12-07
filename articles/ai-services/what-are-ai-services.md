@@ -10,8 +10,8 @@ ms.topic: overview
 ms.date: 11/15/2023
 ms.author: eur
 ms.custom:
-  - build-2023
-  - build-2023-dataai
+  - build-2023	
+  - build-2023-dataai	
   - ignite-2023
 ---
 
@@ -19,7 +19,8 @@ ms.custom:
 
 Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models. Example applications include natural language processing for conversations, search, monitoring, translation, speech, vision, and decision-making. 
 
-[!INCLUDE [Azure AI services rebrand](./includes/rebrand-note.md)]
+> [!TIP]
+> Try Azure AI services including Azure OpenAI, Content Safety, Speech, Vision, amd more in [Azure AI Studio](https://ai.azure.com). For more information, see [What is Azure AI Studio?](../ai-studio/what-is-ai-studio.md).
 
 Most Azure AI services are available through REST APIs and client library SDKs in popular development languages. For more information, see each service's documentation.
 
@@ -143,6 +144,5 @@ Azure AI services provides several support options to help you move forward with
 ## Next steps
 
 * Learn how to [get started with Azure](https://azure.microsoft.com/get-started/)
-* Select a service from the tables above and learn how it can help you meet your development goals.
-* [Create a multi-service resource](multi-service-resource.md?pivots=azportal)
+* [Try Azure AI services and more in Azure AI Studio?](../ai-studio/what-is-ai-studio.md)
 * [Plan and manage costs for Azure AI services](plan-manage-costs.md)

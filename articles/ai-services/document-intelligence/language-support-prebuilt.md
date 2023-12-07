@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-# Prebuilt model language support
+# Language support: prebuilt models
 
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
@@ -36,9 +36,18 @@ ms.date: 11/15/2023
 
 Azure AI Document Intelligence models provide multilingual document processing support. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Prebuilt models enable you to add intelligent domain-specific document processing to your apps and flows without having to train and build your own models. The following tables list the available language and locale support by model and feature:
 
-:::moniker range="doc-intel-3.0.0"
+## Business card
 
-## [Business card](#tab/business-card)
+:::moniker range="doc-intel-4.0.0"
+ > [!IMPORTANT]
+> Starting with Document Intelligence **v4.0 (preview)**, and going forward, the business card model (prebuilt-businessCard) is deprecated. To extract data from business card formats, use the following:
+
+| Feature   | version| Model ID |
+|----------  |---------|--------|
+| Business card model|&bullet; v3.1:2023-07-31 (GA)</br>&bullet; v3.0:2022-08-31 (GA)</br>&bullet; v2.1 (GA)|**`prebuilt-businessCard`**|
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0 "
 
 ***Model ID: prebuilt-businessCard***
 
@@ -56,9 +65,9 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker-end
 
-:::moniker range="doc-intel-4.0.0 ||doc-intel-3.1.0"
+## Contract
 
-## [Contract](#tab/contract)
+:::moniker range="doc-intel-4.0.0 ||doc-intel-3.1.0"
 
 ***Model ID: prebuilt-contract***
 
@@ -68,9 +77,9 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker-end
 
-:::moniker range=">=doc-intel-3.0.0"
+## Health insurance card
 
-## [Health insurance card](#tab/health-insurance-card)
+:::moniker range=">=doc-intel-3.0.0"
 
 ***Model ID: prebuilt-healthInsuranceCard.us***
 
@@ -80,7 +89,9 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker-end
 
-## [ID document](#tab/id-document)
+## ID document
+
+:::moniker range=">=doc-intel-3.0.0"
 
 ***Model ID: prebuilt-idDocument***
 
@@ -95,13 +106,26 @@ Azure AI Document Intelligence models provide multilingual document processing s
 |Canada|Driver License, Identification Card, Residency Permit (Maple Card)|
 |Australia|Driver License, Photo Card, Key-pass ID (including digital version)|
 
-## [Invoice](#tab/invoice)
+::: moniker-end
+
+:::moniker range=">=doc-intel-2.1.0"
+
+| Region | Document types |
+|--------|----------------|
+|Worldwide|Passport Book, Passport Card|
+|United States|Driver License, Identification Card
+
+:::moniker-end
+
+## Invoice
 
 ***Model ID: prebuilt-invoice***
 
 :::moniker range=">=doc-intel-3.1.0"
 
-| Supported languages | Details |
+### [Supported languages](#tab/languages)
+
+| Languages | Details |
 |:----------------------|:---------|
 | &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
 | &bullet; Spanish (`es`) |Spain (`es`)|
@@ -133,7 +157,9 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; Chinese (simplified (zh-hans)) | China (zh-hans-cn)|
 | &bullet; Chinese (traditional (zh-hant)) | Hong Kong SAR (zh-hant-hk), Taiwan (zh-hant-tw)|
 
-| Supported Currency Codes | Details |
+### [Supported Currency Codes](#tab/currency)
+
+| Currency Code | Details |
 |:----------------------|:---------|
 | &bullet; ARS | Argentine Peso (`ar`) |
 | &bullet; AUD | Australian Dollar (`au`) |
@@ -164,10 +190,12 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; TWD | New Taiwan Dollar (`tw`) |
 | &bullet; USD | United States Dollar (`us`) |
 
+---
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
 
+### [Supported languages](#tab/languages)
 | Supported languages | Details |
 |:----------------------|:---------|
 | &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
@@ -178,6 +206,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; Portuguese (`pt`) | Portugal (`pt`), Brazil (`br`)|
 | &bullet; Dutch (`nl`) | Netherlands (`nl`)|
 
+### [Supported Currency Codes](#tab/currency)
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
 | &bullet; BRL | Brazilian Real (`br`) |
@@ -187,15 +216,22 @@ Azure AI Document Intelligence models provide multilingual document processing s
 | &bullet; GGP | Guernsey Pound (`gg`) |
 | &bullet; INR | Indian Rupee (`in`) |
 | &bullet; USD | United States (`us`) |
+---
 :::moniker-end
 
-## [Receipt](#tab/receipt)
+:::moniker range="doc-intel-2.1.0"
+  | Supported languages | Details |
+  |:----------------------|:---------|
+  |English (`en`) | United States (`us`)
+:::moniker-end
 
-***Model ID: prebuilt-receipt***
+## Receipt
 
 :::moniker range=">=doc-intel-3.0.0"
 
-#### Thermal receipts (retail, meal, parking, etc.)
+***Model ID: prebuilt-receipt***
+
+### [Thermal receipts](#tab/thermal)
 
 | Language name | Language code | Language name | Language code |
 |:--------------|:-------------:|:--------------|:-------------:|
@@ -257,23 +293,22 @@ Azure AI Document Intelligence models provide multilingual document processing s
 |Latvian|``lv``|Xitsonga|`ts`|
 |Lingala|``ln``|||
 
-#### Hotel receipts
 
-| Supported Languages | Details |
-|:--------------------|:-------:|
-|English|United States (`en-US`)|
-|French|France (`fr-FR`)|
-|German|Germany (`de-DE`)|
-|Italian|Italy (`it-IT`)|
-|Japanese|Japan (`ja-JP`)|
-|Portuguese|Portugal (`pt-PT`)|
-|Spanish|Spain (`es-ES`)|
+### [Hotel receipts](#tab/hotel)
+| Supported Languages|Language code |
+|:--------------------|:------------|
+|English (United States)|`en-US`|
+|French|`fr-FR`|
+|German|`de-DE`|
+|Italian|`it-IT`|
+|Japanese|`ja-JP`|
+|Portuguese|`pt-PT`|
+|Spanish|`es-ES`|
 
+---
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-
-### Supported languages and locales v2.1
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
@@ -281,13 +316,29 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 ::: moniker-end
 
-### [Tax Documents](#tab/tax)
+## Tax documents
 
- Model ID | Language—Locale code | Default |
-|--------|:----------------------|:---------|
-|**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
-|**prebuilt-tax.us.1098**|English (United States)|English (United States)—en-US|
-|**prebuilt-tax.us.1098E**|English (United States)|English (United States)—en-US|
-|**prebuilt-tax.us.1098T**|English (United States)|English (United States)—en-US|
+:::moniker range="doc-intel-4.0.0"
+  | Model ID | Language—Locale code | Default |
+  |--------|:----------------------|:---------|
+  |**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098E**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098T**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1099**|English (United States)|English (United States)—en-US|
+:::moniker-end
 
----
+:::moniker range="doc-intel-3.1.0"
+  | Model ID | Language—Locale code | Default |
+  |--------|:----------------------|:---------|
+  |**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098E**|English (United States)|English (United States)—en-US|
+  |**prebuilt-tax.us.1098T**|English (United States)|English (United States)—en-US|
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+  | Model ID | Language—Locale code | Default |
+  |--------|:----------------------|:---------|
+  |**prebuilt-tax.us.w2**|English (United States)|English (United States)—en-US|
+:::moniker-end

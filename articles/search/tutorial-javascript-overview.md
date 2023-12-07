@@ -20,15 +20,13 @@ In this Azure AI Search tutorial, create a web app that searches through a catal
 
 This tutorial is for JavaScript developers who want to create a frontend client app that includes search interactions like faceted navigation, typeahead, and pagination. It also demonstrates the `@azure/search-documents` library in the Azure SDK for JavaScript for calls to Azure AI Search for indexing and query workflows on the backend.
 
-Source code is available in the [azure-search-javascript-samples](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/search-website-functions-v4) GitHub repository.
-
 ## What does the sample do? 
 
 [!INCLUDE [tutorial-overview](includes/tutorial-add-search-website-what-sample-does.md)]
 
 ## How is the sample organized?
 
-The [sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/search-website-functions-v4) includes the following components:
+The [sample code](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/search-website-functions-v4) includes the following components:
 
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|

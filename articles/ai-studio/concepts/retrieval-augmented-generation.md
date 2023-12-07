@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: This article introduces retrieval augmented generation for use in generative AI applications.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
@@ -44,5 +44,3 @@ Azure AI Index also supports [FAISS](https://github.com/facebookresearch/faiss) 
 ## Next steps
 
 - [Create a vector index](../how-to/index-add.md)
-- [Check out the Azure AI samples for RAG](https://github.com/Azure-Samples/azureai-samples/notebooks/rag)
-  

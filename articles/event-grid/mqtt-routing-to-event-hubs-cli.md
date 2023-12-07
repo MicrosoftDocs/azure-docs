@@ -6,9 +6,10 @@ ms.custom:
   - build-2023
   - devx-track-azurecli
   - ignite-2023
-ms.date: 05/23/2023
-author: veyaddan
-ms.author: veyaddan
+ms.date: 11/15/2023
+author: george-guirguis
+ms.author: geguirgu
+
 ---
 
 # Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with Azure CLI 

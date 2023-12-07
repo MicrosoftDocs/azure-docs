@@ -41,7 +41,7 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 |Korean (`ko-kr`)|Chinese Simplified (`zh-hans`)|
 |Spanish (`es-es`)|German (`de-de`)|
 
-#### To/from English language models
+#### To/From English language models
 
 |Source |Target|
 |:----|:----|

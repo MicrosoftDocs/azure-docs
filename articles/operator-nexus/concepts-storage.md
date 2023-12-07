@@ -1,7 +1,7 @@
 ---
 title: Azure Operator Nexus storage appliance
 description: Get an overview of storage appliance resources for Azure Operator Nexus.
-author: soumyamaitra
+author: neilverse
 ms.author: soumyamaitra
 ms.service: azure-operator-nexus
 ms.topic: conceptual
@@ -112,7 +112,7 @@ items:
 ### Examples
 #### Read Write Once (RWO) with nexus-volume storage class
 The below manifest creates a StatefulSet with PersistentVolumeClaimTemplate using nexus-volume storage class in ReadWriteOnce mode.
-```dotnetcli
+```
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -151,21 +151,21 @@ spec:
         storageClassName: nexus-volume
 ```
 Each pod of the StatefulSet will have one PersistentVolumeClaim created.
-```dotnetcli
+```
 # kubectl get pvc
 NAME                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 test-volume-rwo-test-sts-rwo-0   Bound    pvc-e41fec47-cc43-4cd5-8547-5a4457cbdced   10Gi       RWO            nexus-volume   8m17s
 test-volume-rwo-test-sts-rwo-1   Bound    pvc-1589dc79-59d2-4a1d-8043-b6a883b7881d   10Gi       RWO            nexus-volume   7m58s
 test-volume-rwo-test-sts-rwo-2   Bound    pvc-82e3beac-fe67-4676-9c61-e982022d443f   10Gi       RWO            nexus-volume   12s
 ```
-```dotnetcli
+```
 # kubectl get pods -o wide -w
 NAME             READY   STATUS    RESTARTS   AGE     IP              NODE                                         NOMINATED NODE   READINESS GATES
 test-sts-rwo-0   1/1     Running   0          8m31s   10.245.231.74   nexus-cluster-6a8c4018-agentpool2-md-vhhv6   <none>           <none>
 test-sts-rwo-1   1/1     Running   0          8m12s   10.245.126.73   nexus-cluster-6a8c4018-agentpool1-md-27nw4   <none>           <none>
 test-sts-rwo-2   1/1     Running   0          26s     10.245.183.9    nexus-cluster-6a8c4018-agentpool1-md-4jprt   <none>           <none>
 ```
-```dotnetcli
+```
 # kubectl exec test-sts-rwo-0 -- cat /mnt/hostname.txt
 Thu Nov  9 21:57:25 UTC 2023 -- test-sts-rwo-0
 Thu Nov  9 21:57:26 UTC 2023 -- test-sts-rwo-0
@@ -183,7 +183,7 @@ Thu Nov  9 21:58:34 UTC 2023 -- test-sts-rwo-2
 ```
 #### Read Write Many (RWX) with nexus-shared storage class
 The below manifest creates a Deployment with a PersistentVolumeClaim (PVC) using nexus-shared storage class in ReadWriteMany mode. The PVC created is shared by all the pods of the deployment and can be used to read and write by all of them simultaneously.
-```dotnetcli
+```
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -253,7 +253,7 @@ test-deploy-rwx-fdb8f49c-9zsjf   1/1     Running   0          18s     10.245.126
 test-deploy-rwx-fdb8f49c-wdgw7   1/1     Running   0          18s     10.245.231.75    nexus-cluster-6a8c4018-agentpool2-md-vhhv6   <none>           <none>
 ```
 It can observed from the below output that all pods are writing into the same PVC.
-```dotnetcli
+```
 # kubectl exec test-deploy-rwx-fdb8f49c-86pv4 -- cat /mnt/hostname.txt
 Thu Nov  9 21:51:41 UTC 2023 -- test-deploy-rwx-fdb8f49c-86pv4
 Thu Nov  9 21:51:41 UTC 2023 -- test-deploy-rwx-fdb8f49c-9zsjf

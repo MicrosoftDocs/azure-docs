@@ -27,7 +27,7 @@ This Azure Databricks Delta Lake connector is supported for the following capabi
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 In general, the service supports Delta Lake with the following capabilities to meet your various needs.
 
@@ -495,6 +495,6 @@ The same [copy activity monitoring experience](copy-activity-monitoring.md) is p
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by Copy activity, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

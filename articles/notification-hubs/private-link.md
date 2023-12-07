@@ -4,9 +4,9 @@ description: Learn how to use the Private Link feature in Azure Notification Hub
 author: sethmanheim
 ms.author: sethm
 ms.service: notification-hubs
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 11/06/2023
-
 ---
 
 # Use Private Link

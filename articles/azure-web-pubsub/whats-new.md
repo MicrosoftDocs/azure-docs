@@ -11,7 +11,7 @@ ms.custom: mode-other
 
 # What's new with Azure Web PubSub
 
-On this page, you can read about recent updates about Azure Web PubSub. As we make continuous improvements to the capabilities and developer experience of the service, we welcome any feedback and suggestions. Reach out to the service team at **awps@micrsoft.com**
+On this page, you can read about recent updates about Azure Web PubSub. As we make continuous improvements to the capabilities and developer experience of the service, we welcome any feedback and suggestions. Reach out to the service team at **awps@microsoft.com**
 
 ## Q4 2023
 

@@ -31,7 +31,7 @@ This Microsoft Fabric Lakehouse connector is supported for the following capabil
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
 |[Mapping data flow](concepts-data-flow-overview.md) (-/sink)|&#9312; |- |
 
-<small>*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
 ## Get started
 
@@ -573,6 +573,6 @@ sink(allowSchemaDrift: true,
 
 ```
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

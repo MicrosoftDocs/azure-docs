@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Use this article to generate product name ideas in the Azure AI Studio playground.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
@@ -90,5 +90,5 @@ To avoid incurring unnecessary Azure costs, you should delete the resources you 
 
 ## Next steps
 
-* Learn more about what you can do in the [Azure AI Studio](../what-is-ai-studio.md).
-* Get answers to frequently asked questions in the [Azure AI FAQ article](../what-is-ai-studio.md).
+- [Create a project in Azure AI Studio](../how-to/create-projects.md)
+- [Deploy a web app for chat on your data](../tutorials/deploy-chat-web-app.md)

@@ -3,7 +3,7 @@ title:  Get resource information using Microsoft Copilot for Azure (preview)
 description: Learn about scenarios where Microsoft Copilot for Azure (preview) can help with Azure Resource Graph.
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -20,6 +20,8 @@ Azure Resource Graph's query language is based on the [Kusto Query Language (KQL
 While a high level of accuracy is typical, we strongly advise you to review the generated queries to ensure they meet your expectations.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
+
+[!INCLUDE [preview-note](includes/preview-note.md)]
 
 ## Sample prompts
 

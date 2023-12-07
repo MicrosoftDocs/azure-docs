@@ -1,14 +1,14 @@
 ---
 title: Introduction to Azure AI Search
 titleSuffix: Azure AI Search
-description: Azure AI Search is a fully managed cloud search service from Microsoft. Learn about use cases, the development workflow, comparisons to other Microsoft search products, and how to get started.
+description: Azure AI Search is an AI-powered information retrieval platform, helps developers build rich search experiences and generative AI apps that combine large language models with enterprise data.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/07/2023
+ms.date: 11/22/2023
 ms.custom:
   - contperf-fy21q1
   - build-2023
@@ -19,11 +19,11 @@ ms.custom:
 
 Azure AI Search ([formerly known as "Azure Cognitive Search"](whats-new.md#new-service-name)) provides secure information retrieval at scale over user-owned content in traditional and conversational search applications.
 
-Information retrieval is foundational to any app that surfaces text and vectors. Common scenarios include catalog or document search, data exploration, and increasingly chat-style search modalities over proprietary grounding data. When you create a search service, you'll work with the following capabilities:
+Information retrieval is foundational to any app that surfaces text and vectors. Common scenarios include catalog or document search, data exploration, and increasingly chat-style copilot apps over proprietary grounding data. When you create a search service, you work with the following capabilities:
 
-+ A search engine for [full text](search-lucene-query-architecture.md) and [vector search](vector-search-overview.md) over a search index 
-+ Rich indexing, with [integrated data chunking and vectorization (preview)](vector-search-integrated-vectorization.md), [lexical analysis](search-analyzers.md) for text, and [optional AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
-+ Rich query syntax for [vector queries](vector-search-how-to-query.md), text search, [hybrid search](hybrid-search-overview.md), fuzzy search, autocomplete, geo-search and others
++ A search engine for [vector search](vector-search-overview.md) and [full text](search-lucene-query-architecture.md) and [hybrid search](hybrid-search-overview.md) over a search index 
++ Rich indexing with [integrated data chunking and vectorization (preview)](vector-search-integrated-vectorization.md), [lexical analysis](search-analyzers.md) for text, and [optional AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
++ Rich query syntax for [vector queries](vector-search-how-to-query.md), text search, [hybrid queries](hybrid-search-how-to-query.md), fuzzy search, autocomplete, geo-search and others
 + Azure scale, security, and reach
 + Azure integration at the data layer, machine learning layer, Azure AI services and Azure OpenAI
 
@@ -32,7 +32,7 @@ Information retrieval is foundational to any app that surfaces text and vectors.
 
 Architecturally, a search service sits between the external data stores that contain your un-indexed data, and your client app that sends query requests to a search index and handles the response.
 
-![Azure AI Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure AI Search architecture")
+![Azure AI Search architecture](media/search-what-is-azure-search/azure-search.svg "Azure AI Search architecture")
 
 In your client app, the search experience is defined using APIs from Azure AI Search, and can include relevance tuning, semantic ranking, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
 
@@ -54,9 +54,9 @@ On the search service itself, the two primary workloads are *indexing* and *quer
 
 Azure AI Search is well suited for the following application scenarios:
 
-+ Search over your vector and text content, isolated from the internet.
++ Use it for traditional full text search and next-generation vector similarity search. Back your generative AI apps with information retrieval that leverages the strength of keyword and similarity search. Use both modalities to retrieve the most relevant results.
 
-+ Consolidate heterogeneous content into a user-defined and populated search index composed of vectors and text. 
++ Consolidate heterogeneous content into a user-defined and populated search index composed of vectors and text. You own and control what's searchable.
 
 + [Integrate data chunking and vectorization](vector-search-integrated-vectorization.md) for generative AI and RAG apps.
 
@@ -103,23 +103,22 @@ Customers often ask how Azure AI Search compares with other search-related solut
 
 | Compared to | Key differences |
 |-------------|-----------------|
-| Microsoft Search | [Microsoft Search](/microsoftsearch/overview-microsoft-search) is for Microsoft 365 authenticated users who need to query over content in SharePoint. It's a ready-to-use search experience, enabled and configured by administrators, with the ability to accept external content through connectors from Microsoft and other sources. <br/><br/>In contrast, Azure AI Search executes queries over an index that you define, populated with data and documents you own, often from diverse sources. Azure AI Search has crawler capabilities for some Azure data sources through [indexers](search-indexer-overview.md), but you can push any JSON document that conforms to your index schema into a single, consolidated searchable resource. You can also customize the indexing pipeline to include machine learning and lexical analyzers. Because Azure AI Search is built to be a plug-in component in larger solutions, you can integrate search into almost any app, on any platform.|
-|Bing | [Bing family of search APIs](/bing/search-apis/bing-web-search/bing-api-comparison) search the indexes on Bing.com for matching terms you submit. Indexes are built from HTML, XML, and other web content on public sites. Based on the same foundation, [Bing Custom Search](/bing/search-apis/bing-custom-search/overview) offers the same crawler technology for web content types, scoped to individual web sites.<br/><br/>In Azure AI Search, you define and populate the search index with your content. You control data ingestion using [indexers](search-indexer-overview.md) or by pushing any index-conforming JSON document to your search service. |
-|Database search | Many database platforms include a built-in search experience. SQL Server has [full text search](/sql/relational-databases/search/full-text-search). Azure Cosmos DB and similar technologies have queryable indexes. When evaluating products that combine search and storage, it can be challenging to determine which way to go. Many solutions use both: DBMS for storage, and Azure AI Search for specialized search features.<br/><br/>Compared to DBMS search, Azure AI Search stores content from heterogeneous sources and offers specialized text processing features such as linguistic-aware text processing (stemming, lemmatization, word forms) in [56 languages](/rest/api/searchservice/language-support). It also supports autocorrection of misspelled words, [synonyms](/rest/api/searchservice/create-synonym-map), [suggestions](/rest/api/searchservice/suggestions), [scoring controls](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [facets](search-faceted-navigation.md),  and [custom tokenization](/rest/api/searchservice/custom-analyzers-in-azure-search). The [full text search engine](search-lucene-query-architecture.md) in Azure AI Search is built on Apache Lucene, an industry standard in information retrieval. However, while Azure AI Search persists data in the form of an inverted index, it isn't a replacement for true data storage and we don't recommend using it in that capacity. For more information, see this [forum post](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data). <br/><br/>Resource utilization is another inflection point in this category. Indexing and some query operations are often computationally intensive. Offloading search from the DBMS to a dedicated solution in the cloud preserves system resources for transaction processing. Furthermore, by externalizing search, you can easily adjust scale to match query volume.|
-|Dedicated search solution | Assuming you've decided on dedicated search with full spectrum functionality, a final categorical comparison is between on premises solutions or a cloud service. Many search technologies offer controls over indexing and query pipelines, access to richer query and filtering syntax, control over rank and relevance, and features for self-directed and intelligent search. <br/><br/>A cloud service is the right choice if you want a turn-key solution with minimal overhead and maintenance, and adjustable scale. <br/><br/>Within the cloud paradigm, several providers offer comparable baseline features, with full-text search, geospatial search, and the ability to handle a certain level of ambiguity in search inputs. Typically, it's a [specialized feature](search-features-list.md), or the ease and overall simplicity of APIs, tools, and management that determines the best fit. |
-
-Among cloud providers, Azure AI Search is strongest for full text search workloads over content stores and databases on Azure, for apps that rely primarily on search for both information retrieval and content navigation. 
+| Microsoft Search | [Microsoft Search](/microsoftsearch/overview-microsoft-search) is for Microsoft 365 authenticated users who need to query over content in SharePoint. Azure AI Search pulls in content across Azure and any JSON dataset. |
+|Bing | [Bing APIs](/bing/search-apis/bing-web-search/bing-api-comparison) query the indexes on Bing.com for matching terms. Azure AI Search searches over indexes populated with your content. You control data ingestion and the schema. |
+|Database search | SQL Server has [full text search](/sql/relational-databases/search/full-text-search) and Azure Cosmos DB and similar technologies have queryable indexes. Azure AI Search becomes an attractive alternative when you need features like lexical analyzers and relevance tuning, or content from heterogeneous sources. Resource utilization is another inflection point. Indexing and queries are computationally intensive. Offloading search from the DBMS preserves system resources for transaction processing. |
+|Dedicated search solution | Assuming you've decided on dedicated search with full spectrum functionality, a final categorical comparison is between search technologies. Among cloud providers, Azure AI Search is strongest for vector, keyword, and hybrid workloads over content on Azure, for apps that rely primarily on search for both information retrieval and content navigation. |
 
 Key strengths include:
 
++ Store, index, and search vector embeddings for sentences, images, audio, graphs, and more. 
++ Find information that’s semantically similar to search queries, even if the search terms aren’t exact matches. 
++ Use hybrid search for the best of keyword and vector search.
++ Relevance tuning through semantic ranking and scoring profiles.
 + Data integration (crawlers) at the indexing layer.
-+ AI and machine learning integration with Azure AI services, useful if you need to make unsearchable content full text-searchable.
-+ Security integration with Microsoft Entra ID for trusted connections, and with Azure Private Link integration to support private connections to a search index in no-internet scenarios.
-+ Linguistic and custom text analysis in 56 languages.
-+ [Full search experience](search-features-list.md): rich query language, relevance tuning and semantic ranking, faceting, autocomplete queries and suggested results, and synonyms.
-+ Azure scale, reliability, and world-class availability.
-
-Among our customers, those able to apply the widest range of features in Azure AI Search include online catalogs, line-of-business programs, and document discovery applications.
++ Azure AI integration for transformations that make content text and vector searchable.
++ Microsoft Entra security for trusted connections, and Azure Private Link for private connections in no-internet scenarios.
++ [Full search experience](search-features-list.md): Linguistic and custom text analysis in 56 languages. Faceting, autocomplete queries and suggested results, and synonyms.
++ Azure scale, reliability, and global reach.
 
 <!-- ## Watch this video
 

@@ -39,7 +39,7 @@ When you [create a new query pack](#create-a-query-pack), you can add tags that 
 To add query packs to your Log Analytics workspace: 
 
 1. Open Log Analytics and select **Queries** in the upper-right corner.
-1. In the upper-left corner on the **Queries** dialog, next to **Query packs**, click **0 selected**.
+1. In the upper-left corner on the **Queries** dialog, next to **Query packs**, click **Select query packs** or **0 selected**.
 1. Select the query packs that you want to add to the workspace.
 
 :::image type="content" source="media/query-packs/log-analytics-add-query-pack.png" alt-text="Screenshot that shows the Select query packs page in Log Analytics, where you can add query packs to a Log Analytics workspace." lightbox="media/query-packs/log-analytics-add-query-pack.png":::

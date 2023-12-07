@@ -29,24 +29,17 @@ Azure AI is built on top of multiple Azure services. While the data is stored se
 
         For example, the managed identity for Azure Cosmos DB would need to have those permissions to the key vault.
 
-## Limitations
-
-* The customer-managed key for resources that Azure AI depends on can't be updated after Azure AI resource creation.
-* Resources that are created in the Microsoft-managed Azure resource group in your subscription can't be modified by you or be provided by you at the time of creation as existing resources.
-* You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your project.
-
-## How project metadata is stored
+## How metadata is stored
 
 The following services are used by Azure AI to store metadata for your Azure AI resource and projects:
 
 |Service|What it's used for|Example|
 |-----|-----|-----|
 |Azure Cosmos DB|Stores metadata for your Azure AI projects and tools|Flow creation timestamps, deployment tags, evaluation metrics|
-|Azure AI Search|Stores indices that are used to help query your machine learning content.|An index based off your model deployment names|
-|Azure Storage Account|Stores artifacts created by Azure AI projects and tools|Finetuned models|
-|Azure AI services|Hosts a collection of model endpoints|Project metadata such as language tags|
+|Azure AI Search|Stores indices that are used to help query your AI studio content.|An index based off your model deployment names|
+|Azure Storage Account|Stores artifacts created by Azure AI projects and tools|Fine-tuned models|
 
-All of the above services are encrypted using the same key at the time that you create your Azure AI resource for the first time. Your Azure AI resource and projects read and write data using managed identity. Managed identities are granted access to the resources using a role assignment (Azure role-based access control) on the data resources. The encryption key you provide is used to encrypt data that is stored on Microsoft-managed resources. It's also used to create indices for Azure AI Search, which are created at runtime.
+All of the above services are encrypted using the same key at the time that you create your Azure AI resource for the first time, and are set up in a managed resource group in your subscription once for every Azure AI resource and set of projects associated with it. Your Azure AI resource and projects read and write data using managed identity. Managed identities are granted access to the resources using a role assignment (Azure role-based access control) on the data resources. The encryption key you provide is used to encrypt data that is stored on Microsoft-managed resources. It's also used to create indices for Azure AI Search, which are created at runtime.
 
 ## Customer-managed keys
 
@@ -57,7 +50,7 @@ When you use a customer-managed key, these resources are _in your Azure subscrip
 > [!IMPORTANT]
 > When using a customer-managed key, the costs for your subscription will be higher because these resources are in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-These Microsoft-managed resources are located in a new Azure resource group is created in your subscription. This group is in addition to the resource group for your project. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure AI resource group name><GUID>`. It is not possible to change the naming of the resources in this managed resource group.
+These Microsoft-managed resources are located in a new Azure resource group is created in your subscription. This group is in addition to the resource group for your project. This resource group contains the Microsoft-managed resources that your key is used with. The resource group is named using the formula of `<Azure AI resource group name><GUID>`. It isn't possible to change the naming of the resources in this managed resource group.
 
 > [!TIP]
 > * The [Request Units](../../cosmos-db/request-units.md) for the Azure Cosmos DB automatically scale as needed.
@@ -83,7 +76,7 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Azure AI se
 
 ## How compute data is stored
 
-Azure AI uses compute resources for compute instance and serverless compute when you finetune models or build flows. The following table describes the compute options and how data is encrypted by each one:
+Azure AI uses compute resources for compute instance and serverless compute when you fine-tune models or build flows. The following table describes the compute options and how data is encrypted by each one:
 
 | Compute | Encryption |
 | ----- | ----- |
@@ -91,14 +84,22 @@ Azure AI uses compute resources for compute instance and serverless compute when
 | Serverless compute | OS disk encrypted in Azure Storage with Microsoft-managed keys. Temporary disk is encrypted. |
 
 **Compute instance**
-The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. If the project was created with the `hbi_workspace` parameter set to `TRUE`, the local temporary disk on compute instance is encrypted with Microsoft managed keys. Customer managed key encryption isn't supported for OS and temp disk.
+The OS disk for compute instance is encrypted with Microsoft-managed keys in Microsoft-managed storage accounts. If the project was created with the `hbi_workspace` parameter set to `TRUE`, the local temporary disk on compute instance is encrypted with Microsoft managed keys. Customer managed key encryption isn't supported for OS and temp disk.
 
 **Serverless compute**
 The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys. This compute target is ephemeral, and clusters are typically scaled down when no jobs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk. 
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. This environment is short-lived (only during your job) and encryption support is limited to system-managed keys only.
 
+## Limitations
+
+* Encryption keys don't pass down from the Azure AI resource to dependent resources including Azure AI Services and Azure Storage when configured on the Azure AI resource. You must set encryption specifically on each resource.
+* The customer-managed key for encryption can only be updated to keys in the same Azure Key Vault instance.
+* After deployment, you can't switch from Microsoft-managed keys to Customer-managed keys or vice versa.
+* Resources that are created in the Microsoft-managed Azure resource group in your subscription can't be modified by you or be provided by you at the time of creation as existing resources.
+* You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your project.
+
 ## Next steps
 
+* [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk) is still required for Speech and Content Moderator.
 * [What is Azure Key Vault](../../key-vault/general/overview.md)?
-* [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)

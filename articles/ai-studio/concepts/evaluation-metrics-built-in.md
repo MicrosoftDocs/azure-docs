@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Discover the supported built-in metrics for evaluating large language models, understand their application and usage, and learn how to interpret them effectively.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
@@ -269,7 +269,7 @@ To rate the groundness of chat response, follow the below steps:
 
 2. Look for all the factual information in chatbot's response  
 
-3. Compare the factual information in chatbot's response with the retrieved documents. Check if there are any facts that are not in the retrieved documents at all,or that contradict or distort the facts in the retrieved documents. If there are, write them down. If there are none, leave it blank. Note that some facts may be implied or suggested by the retrieved documents, but not explicitly stated. In that case, use your best judgment to decide if the fact is grounded or not.  
+3. Compare the factual information in chatbot's response with the retrieved documents. Check if there are any facts that are not in the retrieved documents at all,or that contradict or distort the facts in the retrieved documents. If there are, write them down. If there are none, leave it blank. Note that some facts might be implied or suggested by the retrieved documents, but not explicitly stated. In that case, use your best judgment to decide if the fact is grounded or not.  
 
    For example, if the retrieved documents mention that a film was nominated for 12 Oscars, and chatbot's reply states the same, you can consider that fact as grounded, as it is directly taken from the retrieved documents.  
 
@@ -322,9 +322,9 @@ You will be provided a question, a conversation history, fetched documents relat
 
 5 - Ideal: The provided response includes all information necessary to answer the question based on the reference answer and conversation history. Please be strict about giving a 5 score. 
 
-4 - Mostly Relevant: The provided response is mostly relevant, although it may be a little too narrow or too broad based on the reference answer and conversation history. 
+4 - Mostly Relevant: The provided response is mostly relevant, although it might be a little too narrow or too broad based on the reference answer and conversation history. 
 
-3 - Somewhat Relevant: The provided response may be partly helpful but might be hard to read or contain other irrelevant content based on the reference answer and conversation history. 
+3 - Somewhat Relevant: The provided response might be partly helpful but might be hard to read or contain other irrelevant content based on the reference answer and conversation history. 
 
 2 - Barely Relevant: The provided response is barely relevant, perhaps shown as a last resort based on the reference answer and conversation history. 
 
@@ -362,9 +362,9 @@ Labeling standards are as following:
 
 5 - ideal, should include all information to answer the question comparing to the ground truth answer， and the generated answer is consistent with the ground truth answer 
 
-4 - mostly relevant, although it may be a little too narrow or too broad comparing to the ground truth answer, and the generated answer is consistent with the ground truth answer 
+4 - mostly relevant, although it might be a little too narrow or too broad comparing to the ground truth answer, and the generated answer is consistent with the ground truth answer 
 
-3 - somewhat relevant, may be partly helpful but might be hard to read or contain other irrelevant content comparing to the ground truth answer, and the generated answer is consistent with the ground truth answer 
+3 - somewhat relevant, might be partly helpful but might be hard to read or contain other irrelevant content comparing to the ground truth answer, and the generated answer is consistent with the ground truth answer 
 
 2 - barely relevant, perhaps shown as a last resort comparing to the ground truth answer, and the generated answer contrdicts with the ground truth answer 
 

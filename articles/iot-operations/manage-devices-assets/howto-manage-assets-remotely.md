@@ -28,13 +28,15 @@ This article describes how to use the Azure IoT Operations (preview) portal to:
 
 These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQ broker and Azure IoT Data Processor (preview) pipelines.
 
+You can also use the Azure CLI to manage assets. To learn more, see [az iot ops asset](/cli/azure/iot/ops/asset). Currently, it's not possible to use the Azure CLI manage asset endpoints.
+
 ## Prerequisites
 
 To configure an assets endpoint, you need a running instance of Azure IoT Operations.
 
 ## Sign in to the Azure IoT Operations portal
 
-Navigate to the [Azure IoT Operations portal](https://aka.ms/iot-operations-portal) in your browser and sign in by using your Microsoft Entra ID credentials.
+Navigate to the [Azure IoT Operations portal](https://iotoperations.azure.com) in your browser and sign in by using your Microsoft Entra ID credentials.
 
 ## Select your cluster
 
@@ -76,7 +78,7 @@ The following script shows how to create a secret for the username and password 
 
 ```sh
 # NAMESPACE is the namespace containing the MQ broker.
-export NAMESPACE="alice-springs-solution"
+export NAMESPACE="azure-iot-operations"
 
 # Set the desired username and password here.
 export USERNAME="username"

@@ -135,6 +135,8 @@
       href: prepare-extended-security-updates.md
     - name: License provisioning for Extended Security Updates
       href: license-extended-security-updates.md
+    - name: Billing service for Extended Security Updates
+      href: billing-extended-security-updates.md
     - name: Deliver Extended Security Updates
       href: deliver-extended-security-updates.md
     - name: Programmatically manage Extended Security Updates licenses
@@ -199,7 +201,7 @@
 - name: Resources
   items:
   - name: Azure Arc Jumpstart
-    href: https://azurearcjumpstart.io
+    href: https://aka.ms/AzureArcJumpstart
   - name: Microsoft Q&A for Azure Arc
     href: /answers/tags/146/azure-arc
   - name: Azure updates
