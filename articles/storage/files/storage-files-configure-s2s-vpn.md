@@ -67,12 +67,12 @@ To deploy a virtual network gateway, follow these steps.
    - **Subscription**: Select the subscription you want to use from the dropdown.
    - **Resource Group**: This setting is autofilled when you select your virtual network on this page.
    - **Name**: Name your virtual network gateway. Naming your gateway isn't the same as naming a gateway subnet. It's the name of the virtual network gateway object you're creating.
-   - **Region**: Select the region in which you want to create this resource. The region for the gateway must be the same as the virtual network.
+   - **Region**: Select the region in which you want to create this resource. The region for the virtual network gateway must be the same as the virtual network.
    - **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**.
    - **SKU**: Select the gateway SKU that supports the features you want to use from the dropdown. The SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. See [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Don't use the Basic SKU if you want to use IKEv2 authentication (route-based VPN).
    - **Generation**: Select the generation you want to use. We recommend using a Generation2 SKU. For more information, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
    - **Virtual network**: From the dropdown, select the virtual network you added to your storage account in the previous step.
-   - **Subnet**: This field should be grayed out and list the name of the gateway subnet you created, along with its IP address range. If you instead see a **Gateway subnet address range** field with a text box, then you haven't yet configured a gateway subnet (see [Prerequisites](#prerequisites).)
+   - **Subnet**: This field should be grayed out and list the name of the gateway subnet you created, along with its IP address range. If you instead see a **Gateway subnet address range** field with a text box, then you haven't yet configured a gateway subnet on the virtual network.
 
 1. Specify the values for the **Public IP address** that gets associated to the virtual network gateway. The public IP address is assigned to this object when the virtual network gateway is created. The only time the primary public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades.
 
@@ -89,19 +89,25 @@ To deploy a virtual network gateway, follow these steps.
 
 ### Create a local network gateway for your on-premises gateway
 
-A local network gateway is an Azure resource that represents your on-premises network appliance. In the table of contents for the Azure portal, select **Create a new resource** and search for *local network gateway*. The local network gateway is an Azure resource that will be deployed alongside your storage account, virtual network, and virtual network gateway, but doesn't need to be in the same resource group or subscription as the storage account.
+A local network gateway is an Azure resource that represents your on-premises network appliance. It's deployed alongside your storage account, virtual network, and virtual network gateway, but doesn't need to be in the same resource group or subscription as the storage account. To create a local network gateway, follow these steps.
 
-To deploy the local network gateway resource, you must populate the following fields:
+1. In the search box at the top of the Azure portal, search for and select *local network gateways*.  The **Local network gateways** page should appear. At the top of the page, select **+ Create**.
 
-- **Name**: The name of the Azure resource for the local network gateway. This name may be any name you find useful for your management.
-- **IP address**: The public IP address of your local gateway on-premises.
-- **Address space**: The address ranges for the network this local network gateway represents. You can add multiple address space ranges, but make sure that the ranges you specify here don't overlap with ranges of other networks that you want to connect to.
-- **Configure BGP settings**: Only configure BGP settings if your configuration requires this setting. To learn more about this setting, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
-- **Subscription**: The desired Azure subscription. This doesn't need to match the subscription used for the virtual network gateway or the storage account.
-- **Resource group**: The desired resource group. This doesn't need to match the resource group used for the virtual network gateway or the storage account.
-- **Location**: The Azure region the local network gateway resource should be created in. This should match the region you selected for the virtual network gateway and the storage account.
+1. On the **Basics** tab, fill in the values for **Project details** and **Instance details**.
 
-Select **Create** to create the local network gateway resource.  
+   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-local-network-gateway.png" alt-text="Screenshot showing how to create a local network gateway using the Azure portal." lightbox="media/storage-files-configure-s2s-vpn/create-local-network-gateway.png":::
+
+   - **Subscription**: The desired Azure subscription. This doesn't need to match the subscription used for the virtual network gateway or the storage account.
+   - **Resource group**: The desired resource group. This doesn't need to match the resource group used for the virtual network gateway or the storage account.
+   - **Region**: The Azure region the local network gateway resource should be created in. This should match the region you selected for the virtual network gateway and the storage account.
+   - **Name**: The name of the Azure resource for the local network gateway. This name may be any name you find useful for your management.
+   - **Endpoint**: Leave **IP address** selected.
+   - **IP address**: The public IP address of your local gateway on-premises.
+   - **Address space**: The address range or ranges for the network this local network gateway represents. For example: 192.168.0.0/16. If you add multiple address space ranges, make sure that the ranges you specify don't overlap with ranges of other networks that you want to connect to. If you plan to use this local network gateway in a BGP-enabled connection, then the minimum prefix you need to declare is the host address of your BGP Peer IP address on your VPN device.
+
+1. If your organization requires BGP, select the **Advanced** tab to configure BGP settings. To learn more, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+
+1. Select **Review + create** to run validation. Once validation passes, select **Create** to create the local network gateway.
 
 ## Configure on-premises network appliance
 
