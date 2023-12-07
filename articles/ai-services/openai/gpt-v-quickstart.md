@@ -15,9 +15,6 @@ zone_pivot_groups: openai-quickstart-gpt-v
 
 # Quickstart: Use images in your AI chats
 
-> [!NOTE]
-> The image generation API creates an image from a text prompt. It does not edit existing images or create variations.
-
 ::: zone pivot="programming-language-studio"
 
 [!INCLUDE [Studio quickstart](includes/gpt-v-studio.md)]
