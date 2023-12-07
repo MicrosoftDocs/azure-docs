@@ -45,7 +45,7 @@ The workflow for this model will be similar to the following:
 1. When the target customer subscription is ready, proceed with the migration through the access granted by Azure Lighthouse. The migration project containing assessment results and migrated resources will be created in the customer tenant under the target subscription.
 
 > [!TIP]
-> Prior to migration, a landing zone must be deployed to provision the foundation infrastructure resources and to prepare the subscription to which virtual machines will be migrated. The Owner built-in role may be required to access or create some resources in this landing zone. Because this role is not currently supported in Azure Lighthouse, the customer may need to provide [guest access](../../active-directory/external-identities/what-is-b2b.md) to the service provider, or delegate admin access via the [Cloud Solution Provider (CSP) subscription model](/partner-center/customers-revoke-admin-privileges).
+> Prior to migration, a landing zone must be deployed to provision the foundation infrastructure resources and to prepare the subscription to which virtual machines will be migrated. The Owner built-in role may be required to access or create some resources in this landing zone. Because this role is not currently supported in Azure Lighthouse, the customer may need to provide [guest access](/entra/external-id/what-is-b2b) to the service provider, or delegate admin access via the [Cloud Solution Provider (CSP) subscription model](/partner-center/customers-revoke-admin-privileges).
 >
 > For more information about multi-tenant landing zones, see [Considerations and recommendations for multi-tenant Azure landing zone scenarios](/azure/cloud-adoption-framework/ready/landing-zone/design-area/multi-tenant/considerations-recommendations) and the [Multi-tenant Landing-Zones demo solution](https://github.com/Azure/Multi-tenant-Landing-Zones) on GitHub.
 
@@ -69,7 +69,7 @@ The workflow for this model will be similar to the following:
 
 As a member of the [Microsoft Cloud Partner Program](https://partner.microsoft.com), you can link your partner ID with the credentials used to manage delegated customer resources. This allows Microsoft to attribute influence and Azure consumed revenue to your organization based on the tasks you perform for customers, including migration projects.
 
-For more information, see [Link your partner ID to track your impact on delegated resources](partner-earned-credit.md).
+For more information, see [Link a partner ID](../../cost-management-billing/manage/link-partner-id.md).
 
 ## Next steps
 
