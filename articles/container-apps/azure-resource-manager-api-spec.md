@@ -501,7 +501,7 @@ A Container Apps job resource's `properties` object includes the following prope
 
 | Property | Description | Data type | Read only |
 |---|---|---|---|
-| `environmentId` | The environment ID for your Container Apps job. **This is a required property to create a Container Apps job.** If you're using YAML, you can specify the environment ID using the `--environment` option in the Azure CLI instead. | string | No |
+| `environmentId` | The environment ID for your Container Apps job. **This property is required to create a Container Apps job.** If you're using YAML, you can specify the environment ID using the `--environment` option in the Azure CLI instead. | string | No |
 
 The `environmentId` value takes the following form:
 
