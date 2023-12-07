@@ -6463,6 +6463,11 @@
             "source_path_from_root": "/articles/azure-monitor/logs/resource-expression.md",
             "redirect_url": "/azure/azure-monitor/logs/cross-workspace-query",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-configure-workspace.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-enable-overview",
+            "redirect_document_id": false
         }
     ]
 }
