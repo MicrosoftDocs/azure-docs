@@ -275,6 +275,8 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
 
 1. Run the copied `az iot ops init` command on your development machine or in your codespace terminal.
 
+   Wait for the command to complete before continuing to the next step.
+
    >[!TIP]
    >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
 

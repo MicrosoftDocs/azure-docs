@@ -38,4 +38,4 @@ To get started with your codespace:
 
 1. Once the codespace is ready, select the menu button at the top left, then select **Open in VS Code Desktop**.
 
-   ![Open VS Code desktop](/media/prepare-codespaces/open-in-vs-code-desktop.png)
+   ![Open VS Code desktop](media/prepare-codespaces/open-in-vs-code-desktop.png)

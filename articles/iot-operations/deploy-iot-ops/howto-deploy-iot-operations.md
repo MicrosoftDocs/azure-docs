@@ -89,8 +89,11 @@ Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabl
 
 1. Run the copied [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command on your development machine.
 
-1. If you copied the **Optional** CLI command, then you're done with the cluster configuration and deployment. If you copied the **Required** CLI command, 
-1. Return to the Azure portal and select **Review + Create**.
+   Wait for the command to complete.
+
+   If you copied the **Optional** CLI command, then you're done with the cluster configuration and deployment.
+
+1. If you copied the **Required** CLI command, return to the Azure portal and select **Review + Create**.
 
 1. Wait for the validation to pass and then select **Create**.
 
