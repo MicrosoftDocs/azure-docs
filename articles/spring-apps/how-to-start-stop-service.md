@@ -99,13 +99,11 @@ az spring show \
 
 ---
 
-## Troubleshoot failed resources during start issue
+## Troubleshoot failed resource provisioning during startup
 
-When you start a service instance, you might get an error message even if the `ProvisioningState` shows up as `Succeeded`. This error message helps you identify the resources that failed to start or the settings that failed to apply.
+When you start a service instance, you might get an error message even if the `ProvisioningState` is `Succeeded`. This error message helps you identify the resources that failed to start or the settings that weren't applied.
 
-You might receive an error message similar to the following example:
-
-`Failed to start the following resource(s) or apply setting(s): [<failed resource list>]. Please check and update them accordingly.`
+You might receive an error message similar to the following example: `Failed to start the following resource(s) or apply setting(s): [<failed resource list>]. Please check and update them accordingly.`
 
 The following list describes some common actions you can take to recover from these failures:
 
