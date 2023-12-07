@@ -5,7 +5,7 @@ ms.topic: overview
 ms.custom: 
 author: rboucher
 ms.author: robb
-ms.date: 06/20/2023
+ms.date: 12/07/2023
 ms.reviewer: robb
 ---
 # Azure Monitor overview
