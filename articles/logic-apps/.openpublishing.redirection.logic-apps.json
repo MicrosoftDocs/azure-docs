@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-exception-handling.md",
+            "redirect_url": "/azure/logic-apps/error-exception-handling",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/app-service-logic/app-service-logic-exception-handling.md",
+            "redirect_url": "/azure/logic-apps/error-exception-handling",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/logic-apps-gateway-connection.md",
             "redirect_url": "/azure/logic-apps/connect-on-premises-data-sources",
             "redirect_document_id": true
@@ -358,11 +368,6 @@
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-use-logic-app-features.md",
             "redirect_url": "/azure/logic-apps/logic-apps-examples-and-scenarios",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-exception-handling.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-exception-handling",
             "redirect_document_id": false
         },
         {

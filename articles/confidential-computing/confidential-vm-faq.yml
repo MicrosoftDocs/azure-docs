@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure DCasv5/ECasv5-series confidential virtual machines FAQ 
+  title: Azure confidential virtual machines FAQ
   description: Answers to frequently asked questions (FAQs) about confidential virtual machines (confidential VMs) in Azure Confidential Computing.
   author: edendcohen
   ms.topic: faq
@@ -9,7 +9,7 @@ metadata:
   ms.subservice: confidential-computing
   ms.date: 7/01/2022
   ms.author: RunCai
-title: Azure DCasv5/ECasv5-series confidential virtual machines FAQ 
+title: Azure confidential virtual machines FAQ 
 summary: |
 
   This article provides answers to some of the most common questions about [confidential VMs](confidential-vm-overview.md).
@@ -43,12 +43,21 @@ sections:
           Confidential VMs combine AMD SEV-SNP with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md). 
           You can encrypt data in use, in transit, and at rest with keys that you control. 
           With built-in [Azure Attestation](https://azure.microsoft.com/services/azure-attestation/) capabilities, you can independently establish trust in the security, health and underlying infrastructure of your confidential VMs.
-
+      
       - question: |
-          How do Azure confidential VMs (DCasv5/ECasv5) offer better protection against threats originating from both within and outside Azure cloud infrastructure? 
+          What are Intel TDX technologies and how do they relate to Azure confidential VMs?
+        answer: |
+          Intel Trust Domain Extensions (Intel TDX) offers multiple protections. 
+          Intel TDX uses hardware extensions for managing and encrypting memory and protects both the confidentiality and integrity of the TD CPU state.
+          Additionally, Intel TDX helps to harden the virtualized environment by denying the hypervisor, other host management code and administrators access to the VM memory and state.
+          Confidential VMs combine Intel TDX with Azure technologies such as full-disk encryption and [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md). 
+          You can encrypt data in use, in transit, and at rest with keys that you control. 
+     
+      - question: |
+          How do Azure confidential VMs offer better protection against threats originating from both within and outside Azure cloud infrastructure? 
         answer: |
           Azure VMs already offer industry leading security and protection against other tenants and malicious intruders. 
-          Azure confidential VMs augment these protections by using hardware-based TEEs (Trusted Execution Environment) which leverage AMD’s SEV-SNP to cryptographically isolate and protect your data confidentiality and integrity even when they are in use. 
+          Azure confidential VMs augment these protections by using hardware-based TEEs (Trusted Execution Environment) which leverage AMD’s SEV-SNP and Intel TDX to cryptographically isolate and protect your data confidentiality and integrity even when they are in use. 
           This means neither host admins, nor services (including the Azure hypervisor) can directly view or modify the memory or CPU state of your VM. 
           Moreover, with full attestation capability, full OS disk encryption and hardware-protected virtual Trusted Platform Modules, confidential VM persistent state is protected such that neither your private keys, nor the contents of your memory are ever exposed to the hosting environment.
 
@@ -67,16 +76,23 @@ sections:
       - question: |
           How can I deploy Azure confidential VMs?
         answer: |
-          Here are some ways you can deploy a confidential VM on AMD processors:
-             - [Deploy from the Azure portal](quick-create-confidential-vm-portal-amd.md)
-             - [Deploy from the Azure Command-Line Interface (Azure CLI)](quick-create-confidential-vm-arm-amd.md)
+          Here are some ways you can deploy a confidential VM:
+             - [Deploy from the Azure portal](quick-create-confidential-vm-portal.md)
+             - [Deploy from the Azure Command-Line Interface (Azure CLI)](quick-create-confidential-vm-arm.md)
 
       - question: |
-          Can I perform attestation for my confidential VMs?
+          Can I perform attestation for my AMD-based confidential VMs?
         answer: |
-          Azure confidential VMs undergo attestation as part of their boot phase. This process is opaque to the user and takes place in the cloud operating system in conjunction with the Microsoft Azure Attestation and Azure Key Vault services.
+          Azure confidential VMs on AMD SEV-SNP undergo attestation as part of their boot phase. This process is opaque to the user and takes place in the cloud operating system in conjunction with the Microsoft Azure Attestation and Azure Key Vault services.
           Confidential VMs also allow users to perform independent attestation for their confidential VMs. 
           This attestation happens using new tooling called [Azure confidential VM Guest Attestation](https://aka.ms/CVMattestation). Guest attestation allows customers to attest that their confidential VMs are running on AMD processors with SEV-SNP enabled.
+      
+      - question: |
+          Can I perform attestation for my Intel-based confidential VMs?
+        answer: |
+          Azure confidential VMs on Intel TDX have the option of including attestation as part of their boot phase. This process is opaque to the user and takes place in the cloud operating system in conjunction with the Microsoft Azure Attestation and Azure Key Vault services.
+          Support for in-guest [attestation](guest-attestation-confidential-vms.md) will be available via the vTPM. You can use this to validate the entire stack from the hardware platform to the guest application layer. The functionality exists on AMD SEV-SNP today and will soon be released for Intel TDX. Today, only in-guest platform attestation is available for Intel TDX. This allows you to verify that your VM is running on Intel TDX hardware. To access this preview feature, visit our [preview branch](https://github.com/Azure/confidential-computing-cvm-guest-attestation/tree/tdx-preview).
+          Additionally, we support [Intel® Trust Authority](https://www.intel.com/content/www/us/en/security/trust-authority.html) for enterprises seeking operator independent attestation.
 
       - question: |
           Do all OS images work with confidential VMs?
@@ -115,7 +131,14 @@ sections:
           No. For security reasons, you must create a confidential VM as such from the start.
 
       - question: |
-          Why can't I find DCasv5 or ECasv5 VMs in the Azure portal size selector?
+          Can I convert a DCasv5/ECasv5 CVM into a DCesv5/ECesv5 CVM or a DCesv5/ECesv5 CVM into a DCasv5/ECasv5 CVM?
+        answer: |
+          Yes, converting from one confidential VM to another confidential VM is allowed on both DCasv5/ECasv5 and DCesv5/ECesv5 in the regions that they share.
+          If you are using a Windows image, please make sure you have all the most recent updates.
+          If you are using a Ubuntu Linux image, please make sure you are using the Ubuntu 22.04 LTS confidential image with the minimum kernel version `6.2.0-1011-azure`.
+
+      - question: |
+          Why can't I find DCasv5/ECasv5 or DCesv5/ECesv5 VMs in the Azure portal size selector?
         answer: |
           Make sure you've selected an [available region for confidential VMs](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). 
           Also make sure to select **clear all filters** in the size selector. 
@@ -126,19 +149,19 @@ sections:
           No. Confidential VMs don't support Accelerated Networking. You can't enable Accelerated Networking for any confidential VM deployment, or any Azure Kubernetes Service cluster deployment that runs on Confidential Computing.
 
       - question: |
-          What does this error mean? "Operation couldn't be completed as it results in exceeding approved standard DCasV5/ECasv5 Family Cores Quota"
+          What does this error mean? "Operation couldn't be completed as it results in exceeding approved standard DCasV5/ECasv5 or DCesv5/ECesv5 Family Cores Quota"
         answer: |
           You might receive the error **Operation could not be completed as it results in exceeding approved standard DCasv5/ECasv5 Family Cores Quota**.
           This Azure Resource Manager template (ARM template) error means the deployment failed because of a lack of Azure compute cores. 
           Azure free trial subscriptions don't have a large enough core quota for confidential VMs. [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md).  
           
       - question: |
-          What's the difference between DCasv5-series and ECasv5-series VMs?
+          What's the difference between DCasv5-series/DCesv5-series and ECasv5-series/ECesv5-series VMs?
         answer: |
-          ECasv5-series are memory-optimized VM sizes, which offer a higher memory-to-CPU ratio. These sizes are especially well-suited for relational database servers, medium to large caches, and in-memory analytics. 
+          ECasv5-series and ECesv5-series are memory-optimized VM sizes, which offer a higher memory-to-CPU ratio. These sizes are especially well-suited for relational database servers, medium to large caches, and in-memory analytics. 
           
       - question: |
-          Are DCasv5/ECasv5 VMs available globally?
+          Are confidential VMs available globally?
         answer: |
           No. At this time, these VMs are only available in select regions. For a current list of available regions, see [VM products by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). 
 
@@ -155,9 +178,58 @@ sections:
       - question: |
           Is there an extra cost for using confidential VMs?
         answer: |
-          Billing for confidential VMs depends on your usage and storage, and the size and region of the VM. Confidential VMs are available in dedicated sizes, so prices might differ from general-purpose VMs. 
+          Billing for confidential VMs depends on your usage and storage, and the size and region of the VM. 
           Confidential VMs use a small encrypted virtual machine guest state (VMGS) disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This disk might result in a monthly storage fee.
           Also, if you choose to enable the optional full-disk encryption, encrypted OS disks will incur higher costs.
           For more information on storage fees, see the [pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
           Lastly, for some high security and privacy settings, you might choose to create linked resources, such as a [Managed HSM Pool](../key-vault/managed-hsm/overview.md). 
           Azure bills such resources separately from the confidential VM costs.
+
+      - question: |
+          What can I do if the time on my DCesv5/ECesv5-series VM differs from UTC?
+        answer: |
+          Rarely some DCesv5/ECesv5-series VMs may experience a small time difference from UTC. A long term fix will be available for this soon. In the meantime here are the workarounds for Windows and Ubuntu Linux VMs:
+
+            ``` Windows
+            sc config vmictimesync start=disabled
+            sc stop vmictimesync
+            ```
+          For Ubuntu Linux images please run the following script:
+          
+            ``` Ubuntu Linux
+            #!/bin/bash
+
+            # Backup the original chrony.conf file
+            cp /etc/chrony/chrony.conf /etc/chrony/chrony.conf.bak
+
+            # check chronyd.service status
+            status=$(systemctl is-active chronyd.service)
+
+            # check chronyd.service status is "active" or not
+            if [ "$status" == "active" ]; then
+              echo "chronyd.service is active."
+            else
+              echo "chronyd.service is not active. Exiting script."
+              exit 1
+            fi
+
+            # Comment out the line with 'refclock PHC /dev/ptp_hyperv'
+            sed -i '/refclock PHC \/dev\/ptp_hyperv/ s/^/#/' /etc/chrony/chrony.conf
+
+            # Uncomment the lines with 'pool ntp.ubuntu.com' and other pool entries
+            sed -i '/#pool ntp.ubuntu.com/ s/^#//' /etc/chrony/chrony.conf
+            sed -i '/#pool 0.ubuntu.pool.ntp.org/ s/^#//' /etc/chrony/chrony.conf
+            sed -i '/#pool 1.ubuntu.pool.ntp.org/ s/^#//' /etc/chrony/chrony.conf
+            sed -i '/#pool 2.ubuntu.pool.ntp.org/ s/^#//' /etc/chrony/chrony.conf
+
+            echo "Changes applied to /etc/chrony/chrony.conf. Backup created at /etc/chrony/chrony.conf.bak."
+
+            echo "Restart chronyd service"
+            systemctl restart chronyd.service
+
+
+            echo "Check chronyd status"
+            systemctl status chronyd.service
+            ```
+
+          

@@ -94,8 +94,8 @@ The following table shows locations by service provider. If you want to view ava
 | **[Fibrenoire](https://fibrenoire.ca/en/services/cloudextn-2/)** | Supported | Supported | Montreal<br/>Quebec City<br/>Toronto2 |
 | **[GBI](https://www.gbiinc.com/microsoft-azure/)** | Supported | Supported | Dubai2<br/>Frankfurt |
 | **[GÉANT](https://www.geant.org/Networks)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Dublin<br/>Frankfurt<br/>Marseille |
-| **[GlobalConnect](https://bedrift.globalconnect.no/tjenester/nettverk/cloud-access)** | Supported | Supported | Copenhagen<br/>Oslo<br/>Stavanger<br/>Stockholm | 
-| **[GlobalConnect DK](https://bedrift.globalconnect.no/tjenester/nettverk/cloud-access)** | Supported | Supported | Amsterdam | 
+| **[GlobalConnect](https://www.globalconnect.no/)** | Supported | Supported | Copenhagen<br/>Oslo<br/>Stavanger<br/>Stockholm | 
+| **[GlobalConnect DK](https://www.globalconnect.no/)** | Supported | Supported | Amsterdam | 
 | **GTT** |Supported |Supported | Amsterdam<br/>Dallas<br/>Los Angeles2<br/>London2<br/>Singapore<br/>Sydney<br/>Washington DC |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Supported| Supported | Chennai<br/>Mumbai |
 | **[iAdvantage](https://www.scx.sunevision.com/)** | Supported | Supported | Hong Kong2 |
