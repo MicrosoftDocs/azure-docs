@@ -69,7 +69,7 @@ For the NFS protocol, ensure that the export policy rules satisfy the requiremen
 
 7. Under the **Tags** tab, create key/value pairs as necessary.  
 
-8. Under the **Replication** tab, paste in the source volume resource ID that you obtained in [Locate the source volume resource ID](#locate-the-source-volume-resource-id), and then select the desired replication schedule. Options for replication schedule include: every 10 minutes, hourly, and daily.
+8. Under the **Replication** tab, paste in the source volume resource ID that you obtained in [Locate the source volume resource ID](#locate-the-source-volume-resource-id), and then select the desired replication schedule. There are three options for the replication schedule: every 10 minutes, hourly, and daily.
 
     ![Create volume replication](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
 
