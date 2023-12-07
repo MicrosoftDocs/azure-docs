@@ -96,6 +96,7 @@ az spring show \
     --name <service-instance-name> \
     --resource-group <resource-group-name>
 ```
+---
 
 ## Troubleshooting
 ### Some resources provision failed during start
@@ -108,8 +109,6 @@ Failed to start the following resource(s) or apply setting(s): [<failed resource
 To recover from these failures, here's what you should do:
 - Identify the failed resources: Refer to the `<failed resource list>` in the error message to identify the resources that failed to start or settings that failed to apply.
 - Investigate and mitigate: Examine each listed resource, check failure logs if available, and make necessary mitigations. These mitigations could involve updating the specific resources that failed to start or reapplying the affected settings.
-
----
 
 ## Next steps
 
