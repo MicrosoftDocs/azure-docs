@@ -83,7 +83,28 @@ Before you can enable single sign-on, you must meet the following prerequisites:
 
 Before enabling the single sign-on feature, you must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant. This will enable issuing RDP access tokens allowing users to sign in to Azure Virtual Desktop session hosts. This is done by enabling the isRemoteDesktopProtocolEnabled property on the service principal's remoteDesktopSecurityConfiguration object for the apps listed above.
 
-Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration) and set the property **isRemoteDesktopProtocolEnabled** to **true** to enable Microsoft Entra authentication. See the next section for step-by-step instructions using Microsoft Graph Explorer.
+Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration) or the [PowerShell Microsoft Graph Module](https://learn.microsoft.com/en-us/powershell/microsoftgraph/overview?view=graph-powershell-1.0) to [create remoteDesktopSecurityConfiguration](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.applications/update-mgserviceprincipalremotedesktopsecurityconfiguration?view=graph-powershell-1.0) to set the property **isRemoteDesktopProtocolEnabled** to **true**.
+
+```powershell
+#Requirements
+Install-Module Microsoft.Graph.Authentication
+Install-Module Microsoft.Graph.Applications
+
+#Login to Microsoft Graph
+Connect-MgGraph -Scopes Application-RemoteDesktopConfig.ReadWrite.All
+
+#Get the service principal ID's
+$MSRDspId = Get-MgServicePrincipal -Filter "DisplayName eq 'Microsoft Remote Desktop'"
+$WCLspId = Get-MgServicePrincipal -Filter "DisplayName eq 'Windows Cloud Login'"
+
+#Check status of IsRemoteDesktopProtocolEnabled flag if already enabled for the service principal ID's
+Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId.Id
+Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId.Id
+
+#Set the IsRemoteDesktopProtocolEnabled flag to true
+Update-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId.Id -IsRemoteDesktopProtocolEnabled
+Update-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId.Id -IsRemoteDesktopProtocolEnabled
+```
 
 ### Configure the target device groups
 
@@ -105,7 +126,33 @@ Follow these steps to hide the dialog:
 1. [Create a Dynamic Device Group](/entra/identity/users/groups-create-rule) in Microsoft Entra containing the devices to hide the dialog for. Remember the device group ID for the next step.
     > [!TIP]
     > It's recommended to use a dynamic device group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. This can be done using the device names or for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview) using [Microsoft Graph API](/graph/api/resources/device). While dynamic device groups normally update within 5-10 minutes, in some large tenant this can take up to 24 hours.
-1. Use the [Microsoft Graph API](/graph/use-the-api) to [create a new targetDeviceGroup object](/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups) to suppress the prompt from these devices.
+2. Use the [Microsoft Graph API](/graph/use-the-api) to [create a new targetDeviceGroup object](/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups) or the [PowerShell Microsoft Graph Module](https://learn.microsoft.com/en-us/powershell/microsoftgraph/overview?view=graph-powershell-1.0) to [create a new targetDeviceGroup object](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.applications/update-mgserviceprincipalremotedesktopsecurityconfiguration?view=graph-powershell-1.0) to suppress the prompt from these devices.
+
+```powershell
+#Requirements
+Install-Module Microsoft.Graph.Authentication
+Install-Module Microsoft.Graph.Applications
+
+#Login to Microsoft Graph
+Connect-MgGraph -Scopes Application-RemoteDesktopConfig.ReadWrite.All
+
+#Get the service principal ID's
+$MSRDspId = Get-MgServicePrincipal -Filter "DisplayName eq 'Microsoft Remote Desktop'"
+$WCLspId = Get-MgServicePrincipal -Filter "DisplayName eq 'Windows Cloud Login'"
+
+#Check if any Targetdevicegroup is already configured
+Get-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $MSRDspId.Id
+Get-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId.Id
+
+#Create a Targetdevicegroup Object
+$tdg = New-Object -TypeName Microsoft.Graph.PowerShell.Models.MicrosoftGraphTargetDeviceGroup
+$tdg.Id = "<Your Group Object Id>"
+$tdg.DisplayName = "<Your Group Display Name>"
+
+#Configure a Targetdevicegroup
+New-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $MSRDspId.Id -BodyParameter $tdg
+New-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId.Id -BodyParameter $tdg
+```
 
 **Microsoft Graph Explorer example:**
 
