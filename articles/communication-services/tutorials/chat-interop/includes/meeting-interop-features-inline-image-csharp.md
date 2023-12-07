@@ -2,14 +2,14 @@
 title: Tutorial - Enable Inline Image Support
 author: palatter
 ms.author: palatter
-ms.date: oct 25, 2023
+ms.date: 10/25/2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
 
 In this tutorial, you learn how to enable inline image support using the Azure Communication Services Chat SDK for C#.
 
-## Sample Code
+## Sample code
 Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropInlineImageQuickStart).
 
 ## Prerequisites 
@@ -21,7 +21,7 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
   
 ## Goal
 
-1. Grab the previewUri for inline image attachments
+- Grab the previewUri for inline image attachments
 
 ## Handle inline images for new messages
 
