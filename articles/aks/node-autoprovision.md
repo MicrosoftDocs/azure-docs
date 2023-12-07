@@ -62,6 +62,7 @@ Node autoprovision (NAP) decides based on pending pod resource requirements the 
 * NAP isn't available in  WestUS, WestUS2, EastUS, EastUS2, SouthCentralUS, WestEurope regions.  
 * Windows and Azure Linux node pools aren't supported
 * Kubelet configuration through Node pool configuration is not supported
+* NAP can only be enabled on new clusters
 
 ## Enable Node autoprovisioning
 To enable node autoprovisioning, create a new cluster using the az aks create command and set --node-provisioning-mode to "Auto". You'll also need to use overlay networking and the cilium network policy.  
