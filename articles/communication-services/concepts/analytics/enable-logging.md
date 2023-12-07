@@ -75,4 +75,5 @@ For your Communications Services logs, we've provided a useful [default query pa
 
 - If you don't have a Log Analytics workspace to send your data to, you must create one before you proceed. See: [Create a Log Analytics workspace](../../../azure-monitor/logs/quick-create-workspace.md)
 
+
 - You may start a Diagnostic Setting to use certain capabilities by enabling collection for all logs, however you should monitor costs associated with logs from Diagnostic Settings, see: [Controlling costs](../../../azure-monitor/essentials/diagnostic-settings.md#controlling-costs)
