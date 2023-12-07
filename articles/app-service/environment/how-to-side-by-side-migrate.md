@@ -63,10 +63,23 @@ If there are no errors, your migration is supported, and you can continue to the
 
 ## 3. Generate IP addresses for your new App Service Environment v3
 
+Create a file called "zoneredundancy.json" with the following details for your region and zone redundancy selection.
+
+```json
+{
+    "location":"<region>",    
+    "Properties": {
+        "zoneRedundant": "<true/false>"
+    }
+}
+```
+
+You can make your new App Service Environment v3 zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). Zone redundancy can be configured by setting the `zoneRedundant` property to "true". Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time.
+
 Run the following command to create the new outbound IPs. This step takes about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time.
 
 ```azurecli
-az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=PreMigration&api-version=2022-03-01"
+az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=PreMigration&api-version=2022-03-01" --body @zoneredundancy.json
 ```
 
 Run the following command to check the status of this step.
@@ -119,7 +132,7 @@ If your existing App Service Environment uses a custom domain suffix, you have t
 > If you're configuring a custom domain suffix, when adding the network permissions on your Azure Key Vault, be sure that your key vault allows access from your App Service Environment's new outbound IP addresses that were generated during the IP address generation in step 3.
 >
 
-In order to set these configurations including identifying the subnet you selected earlier, create a file called "parameters.json" with the following details based on your scenario. Don't include the custom domain suffix properties if this feature doesn't apply to your migration.
+In order to set these configurations including identifying the subnet you selected earlier, create another file called "parameters.json" with the following details based on your scenario. Don't include the custom domain suffix properties if this feature doesn't apply to your migration. Be sure to update the `zoneRedundant` property based on your zone redundancy selection in the IP generation step. You must use the same value for zone redundancy that you used in the IP generation step.
 
 If you're migrating without a custom domain suffix:
 
@@ -128,7 +141,8 @@ If you're migrating without a custom domain suffix:
     "Properties": {
         "VirtualNetwork": {
             "Id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>"
-        }
+        },
+        "zoneRedundant": "false"
     }
 }
 ```
@@ -141,6 +155,7 @@ If you're using a user assigned managed identity for your custom domain suffix c
         "VirtualNetwork": {
             "Id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>"
         },
+        "zoneRedundant": "false",
         "customDnsSuffixConfiguration": {
             "dnsSuffix": "internal-contoso.com",
             "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
@@ -158,6 +173,7 @@ If you're using a system assigned managed identity for your custom domain suffix
         "VirtualNetwork": {
             "Id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>"
         },
+        "zoneRedundant": "false",
         "customDnsSuffixConfiguration": {
             "dnsSuffix": "internal-contoso.com",
             "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",

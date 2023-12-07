@@ -44,7 +44,7 @@ The following App Service Environment configurations can be migrated using the s
 |ILB App Service Environment v2 with a custom domain suffix                                         |ILB App Service Environment v3 (custom domain suffix is optional) |
 |ILB/ELB zone pinned App Service Environment v2                                                     |ILB/ELB App Service Environment v3                         |
 
-App Service Environment v3 can deployed as [zone redundant](../../availability-zones/migrate-app-service-environment.md). Zone redundancy can be enabled once the migration is complete as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions). For details on how to enable zone redundancy, see [Configure zone redundancy for App Service Environment v3](TODO:add link to in place ZR migration when ready).
+App Service Environment v3 can deployed as [zone redundant](../../availability-zones/migrate-app-service-environment.md). Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
 If you want your new App Service Environment v3 to use a custom domain suffix and you aren't using one currently, custom domain suffix can be configured during the migration set-up or at any time once migration is complete. For more information, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). If your existing environment has a custom domain suffix and you no longer want to use it, don't configure a custom domain suffix during the migration set-up.
 
@@ -120,7 +120,7 @@ When completed, you'll be given the new outbound IPs that your future App Servic
 
 You receive the new inbound IP address once migration is complete but before you make the [DNS change to redirect customer traffic to your new App Service Environment v3](#redirect-customer-traffic-and-complete-migration). You don't get the inbound IP at this point in the process because the inbound IP is dependent on the subnet you select for the new environment. You have a chance to update any resources that are dependent on the new inbound IP before you redirect traffic to your new App Service Environment v3.
 
-TODO:is this where they select if they want to enable ZR?
+This step is also where you decide if you want to enable zone redundancy for your new App Service Environment v3. Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
 ### Update dependent resources with new IPs
 
