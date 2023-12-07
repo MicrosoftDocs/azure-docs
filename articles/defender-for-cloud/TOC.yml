@@ -942,7 +942,9 @@
         - name: Capabilities to counter identity-based supply chain attacks
           href: episode-thirty-seven.md
         - name: Data security dashboard
-          href: episode-thirty-eight.md  
+          href: episode-thirty-eight.md
+        - name: Defender for APIs reaches GA
+          href: episode-thirty-nine.md    
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation
