@@ -94,7 +94,8 @@ the participants in the call and key metrics for their call quality. You
 can select a participant to drill into their call timeline details
 directly or navigate to the Call Issues tab for further analysis.
 
-![Call Diagnostics - Call Overview](media/cd-call-overview.png)
+
+
 > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
 
