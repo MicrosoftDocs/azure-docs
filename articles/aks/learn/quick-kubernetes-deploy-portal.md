@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the A
 titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 ms.topic: quickstart
-ms.date: 12/06/2023
+ms.date: 12/07/2023
 ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-ui, devx-track-linux
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
@@ -40,7 +40,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
         - Select an Azure **Subscription**.
         - Create an Azure **Resource group**, such as *myResourceGroup*. While you can select an existing resource group, for testing or evaluation purposes, we recommend creating a resource group to temporarily host these resources and avoid impacting your production or development workloads.
     - Under **Cluster details**:
-      - Ensure the **Cluster preset configuration** is set to *Production Standard*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
+      - Set the **Cluster preset configuration** to *Dev/Test*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
 
         > [!NOTE]
         > You can change the preset configuration when creating your cluster by selecting *Compare presets* and choosing a different option.
@@ -48,35 +48,33 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
       - Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
       - Select a **Region** for the AKS cluster.
-        <!-- any reason to change AZ setting? -->
-      - Leave the **Availability zones** setting set to the default value.
-        <!-- standard vs dev/test vs std economy? -->
-      - Set the **AKS pricing tier** to *Standard*.
+      - Set the **Availability zones** setting to *None*.
+      - Set the **AKS pricing tier** to *Free*.
       - Leave the default value selected for **Kubernetes version**.
       - Leave the **Automatic upgrade** setting set to the recommended value, which is *Enabled with patch*.
       - Leave the **Authentication and authorization** setting set to *Local accounts with Kubernetes RBAC*.
 
-    :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal" lightbox="media/quick-kubernetes-deploy-portal/create-cluster-basics.png":::
+        :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal" lightbox="media/quick-kubernetes-deploy-portal/create-cluster-basics.png":::
 
 1. Select **Next**. On the **Node pools** tab, add a new node pool:
     - Select **Add node pool**.
     - Enter a **Node pool name**, such as *nplinux*.
     - For **Mode**, select **User**.
-    <!-- Any reason to use Azure Linux here? -->
     - For **OS SKU**, select **Ubuntu Linux**.
-    - Leave the **Availability zones** setting set to the default value.
+    - Set the **Availability zones** setting to *None*.
     - Leave the **Enable Azure Spot instances** checkbox unchecked.
     - For **Node size**, select **Choose a size**. On the **Select a VM size** page, select *D2s_v3*, then choose the **Select** button.
     - Leave the **Scale method** setting set to *Autoscale*.
     - Leave the **Minimum node count** and **Maximum node count** fields set to their default settings.
-<!-- CNI vs Kubenet? -->
-<!-- Do we want to have user change this, or is new default preferable? -->
-1. Select **Next** to move to the **Networking** tab.
-    - Under **Container networking**, change the **Network configuration** setting to use the *kubenet* networking plug-in.
-    - Leave other networking values set to their defaults.
+
+    :::image type="content" source="media/quick-kubernetes-deploy-portal/create-node-pool-linux.png" alt-text="Screenshot showing how to create a node pool running Ubuntu Linux" lightbox="media/quick-kubernetes-deploy-portal/create-node-pool-linux.png":::
+
+1. Leave all settings on the other tabs set to their defaults.
+
 1. Select **Review + create** to run validation on the cluster configuration. After validation completes, select **Create** to create the AKS cluster.
 
 It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
+
     - Selecting **Go to resource**, or
     - Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*.
 
@@ -457,7 +455,6 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 > [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
-[azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -470,11 +467,6 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [az-group-delete]: /cli/azure/group#az-group-delete
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
-[az-aks-delete]: /cli/azure/aks#az_aks_delete
-[aks-monitor]: ../azure-monitor/containers/container-insights-overview.md
-[aks-network]: ../concepts-network.md
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
-[http-routing]: ../http-application-routing.md
 [preset-config]: ../quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
-[sp-delete]: ../kubernetes-service-principal.md#additional-considerations
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md

@@ -3,7 +3,7 @@ title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure portal.
 ms.topic: article
 ms.custom: azure-kubernetes-service
-ms.date: 12/06/2023
+ms.date: 12/07/2023
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
 
@@ -45,7 +45,7 @@ The following limitations apply to *Windows Server node pools*:
         - Select an Azure **Subscription**.
         - Create an Azure **Resource group**, such as *myResourceGroup*. While you can select an existing resource group, for testing or evaluation purposes, we recommend creating a resource group to temporarily host these resources and avoid impacting your production or development workloads.
     - Under **Cluster details**:
-      - Ensure the **Cluster preset configuration** is set to *Production Standard*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
+      - Set the **Cluster preset configuration** to *Production Standard*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
 
         > [!NOTE]
         > You can change the preset configuration when creating your cluster by selecting *Compare presets* and choosing a different option.
@@ -53,32 +53,32 @@ The following limitations apply to *Windows Server node pools*:
 
       - Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
       - Select a **Region** for the AKS cluster.
-        <!-- any reason to change this one? -->
-      - Leave the **Availability zones** setting set to the default value.
-        <!-- standard vs dev/test vs std economy? -->
-      - Set the **AKS pricing tier** to *Standard*.
+      - Leave the **Availability zones** setting set to *None*.
+      - Leave the **AKS pricing tier** setting set to *Standard*.
       - Leave the default value selected for **Kubernetes version**.
       - Leave the **Automatic upgrade** setting set to the recommended value, which is *Enabled with patch*.
       - Leave the **Authentication and authorization** setting set to *Local accounts with Kubernetes RBAC*.
 
-    :::image type="content" source="media/quick-windows-container-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal" lightbox="media/quick-windows-container-deploy-portal/create-cluster-basics.png":::
+        :::image type="content" source="media/quick-windows-container-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal" lightbox="media/quick-windows-container-deploy-portal/create-cluster-basics.png":::
 
 1. Select **Next**. On the **Node pools** tab, add a new node pool:
     - Select **Add node pool**.
     - Enter a **Node pool name**, such as *npwin*. For a Windows node pool, the name must be six characters or fewer.
     - For **Mode**, select **User**.
     - For **OS SKU**, select **Windows**.
-    - Leave the **Availability zones** setting set to the default value.
+    - Leave the **Availability zones** setting set to *None*.
     - Leave the **Enable Azure Spot instances** checkbox unchecked.
     - For **Node size**, select **Choose a size**. On the **Select a VM size** page, select *D2s_v3*, then choose the **Select** button.
     - Leave the **Scale method** setting set to *Autoscale*.
     - Leave the **Minimum node count** and **Maximum node count** fields set to their default settings.
-<!-- Do we want to have user change this, or is new default preferable? -->
-<!-- CNI vs Kubenet? -->
-1. Select **Next** to move to the **Networking** tab. Leave all values set to their defaults.
+
+    :::image type="content" source="media/quick-windows-container-deploy-portal/create-node-pool-windows.png" alt-text="Screenshot showing how to create a node pool running Windows Server" lightbox="media/quick-windows-container-deploy-portal/create-node-pool-windows.png":::
+
+1. Leave all settings on the other tabs set to their defaults.
 1. Select **Review + create** to run validation on the cluster configuration. After validation completes, select **Create** to create the AKS cluster.
 
 It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
+
     - Selecting **Go to resource**, or
     - Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*.
 
@@ -257,7 +257,6 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
-[dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
 
 <!-- LINKS - internal -->
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
