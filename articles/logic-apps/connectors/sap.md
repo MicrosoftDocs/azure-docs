@@ -3,7 +3,9 @@ title: Connect to SAP
 description: Connect to an SAP server from a workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, daviburg, azla
+author: daviburg
+ms.author: daviburg
+ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/18/2023
 tags: connectors
