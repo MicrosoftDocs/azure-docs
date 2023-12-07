@@ -33,15 +33,13 @@ CMKs for Backup vaults are currently available in the following regions: West Ce
 
   - A built-in [Crypto Service Encryption User role](/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-user) assigned, if your key vault is using a role-based access control (RBAC) configuration that's based on identity and access management (IAM).
   - **Get**, **Wrap**, and **Unwrap** permissions if your key vault is using a configuration that's based on access policies.
-  - **Get**, **Wrap**, and **Unwrap** permissions granted via local RBAC on the key if you're using a managed HSM.
+  - **Get**, **Wrap**, and **Unwrap** permissions granted via local RBAC on the key if you're using a managed HSM. [Learn more](/azure/key-vault/managed-hsm/overview).
 
 - Ensure that you have a valid, enabled Key Vault key. Don't use an expired or disabled key, because it can't be used for encryption at rest and will lead to failures of backup and restore operations. The Key Vault term also indicates a managed HSM if you didn't note it earlier.
 
 - Key Vault must have soft delete and purge protection enabled.
 
-- Encryption settings support Azure Key Vault RSA and RSA-HSM keys only of sizes 2,048, 3,072, and 4,096 bits. [Learn more about keys](/azure/key-vault/keys/about-keys). Before you consider Key Vault regions for encryption settings, see [Key Vault disaster recovery scenarios](/azure/key-vault/general/disaster-recovery-guidance) for regional failover support.
-
-- A managed HSM uses local RBAC to manage the keys' permissions. [Learn more](/azure/key-vault/managed-hsm/overview).
+- Encryption settings support Azure Key Vault RSA and RSA-HSM keys only of sizes 2,048, 3,072, and 4,096. [Learn more about keys](/azure/key-vault/keys/about-keys). Before you consider Key Vault regions for encryption settings, see [Key Vault disaster recovery scenarios](/azure/key-vault/general/disaster-recovery-guidance) for regional failover support.
 
 ### Known limitations
 
@@ -118,7 +116,7 @@ For security reasons, you can't update both a Key Vault key URI and a managed id
 
 #### Enable a system-assigned managed identity for the vault
 
-Follow these steps to generate an object ID, which is the system-assigned managed identity of the vault:
+To enable a system-assigned managed identity for your Backup vault, follow these steps:
 
 1. Go to *your Backup vault* > **Identity**.
 
@@ -130,9 +128,11 @@ Follow these steps to generate an object ID, which is the system-assigned manage
 
 :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/enable-system-assigned-managed-identity-for-vault.png" alt-text="Screenshot that shows selections for enabling a system-assigned managed identity." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/enable-system-assigned-managed-identity-for-vault.png":::
 
+The preceding steps generate an object ID, which is the system-assigned managed identity of the vault.
+
 #### Assign a user-assigned managed identity to the vault (in preview)
 
-To assign a user-assigned managed identity for your Backup vault:
+To assign a user-assigned managed identity for your Backup vault, follow these steps:
 
 1. Go to *your Backup vault* > **Identity**.
 
@@ -212,7 +212,7 @@ To assign the key, follow these steps:
 
    :::image type="content" source="./media/encryption-at-rest-with-cmk/encryption-settings.png" alt-text="Screenshot that shows properties for a Backup vault." lightbox="./media/encryption-at-rest-with-cmk/encryption-settings.png":::
 
-2. Under **Encryption Settings (preview)**, select **Update**.
+2. For **Encryption Settings (Preview)**, select **Update**.
 
    :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/update-encryption-settings.png" alt-text="Screenshot that shows the link for updating encryption settings." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/update-encryption-settings.png":::
 
@@ -228,7 +228,7 @@ To assign the key, follow these steps:
 
       :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/key-uri.png" alt-text="Screenshot that shows the status warning for a failed update." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/key-uri.png":::
 
-      When you're specifying the encryption key by using the full key URI with the version component, the key will not be autorotated. You need to update keys manually by specifying the new key or version when required. Alternatively, remove the version component of the key URI to get automatic rotation.
+      When you're specifying the encryption key by using the full key URI with the version component, the key won't be autorotated. You need to update keys manually by specifying the new key or version when required. Alternatively, remove the version component of the key URI to get automatic rotation.
 
       :::image type="content" source="./media/encryption-at-rest-with-cmk/key-uri.png" alt-text="Screenshot that shows a key URI for a Backup vault." lightbox="./media/encryption-at-rest-with-cmk/key-uri.png":::
 
@@ -283,7 +283,7 @@ The process to configure and perform backups to a Backup vault that's encrypted 
 
 **Cause**: The managed identity in the encryption settings doesn't have the required permissions to access the key vault or key. The backup vault's managed identity (system-assigned or user-assigned identity used for encryption settings) should have the following permissions on your key vault:
 
-- If your key vault is using an RBAC configuration that's based on IAM, you need Key Vault Crypto Service Encryption User built-in role permissions on the key vault.
+- If your key vault is using an RBAC configuration that's based on IAM, you need Key Vault Crypto Service Encryption User built-in role permissions.
 - If you use access policies, you need **Get**, **Wrap** and **Unwrap** permissions.
 
 **Recommended action**: Check the Key Vault access policies and grant permissions accordingly.

@@ -340,9 +340,9 @@ To assign the key and follow the steps, choose a client:
 
 1. Go to *your Recovery Services vault* > **Properties**.
 
-    :::image type="content" source="./media/encryption-at-rest-with-cmk/encryption-settings.png" alt-text="Screenshot that shows properties for a Recovery Services vault." lightbox="./media/encryption-at-rest-with-cmk/encryption-settings.png":::
-
 2. Under **Encryption Settings**, select **Update**.
+
+    :::image type="content" source="./media/encryption-at-rest-with-cmk/encryption-settings.png" alt-text="Screenshot that shows properties for a Recovery Services vault." lightbox="./media/encryption-at-rest-with-cmk/encryption-settings.png":::
 
 3. On the **Encryption Settings** pane, select **Use your own key** and then specify the key by using one of the following options. Be sure to use an RSA key that's in an enabled state.
 
@@ -464,13 +464,14 @@ Choose a client:
 
 # [Azure portal](#tab/portal)
 
-The ability to choose a DES while restoring is supported if you're doing a cross-region restore. However, it's currently not supported if you're restoring a VM that uses Azure Disk Encryption.
-
 To specify a DES under **Encryption Settings** in the restore pane, follow these steps:
 
 1. For **Encrypt disk(s) using your key?**, select **Yes**.
 
 2. In the **Encryption Set** dropdown list, select the DES that you want to use for the restored disks. Ensure that you have access to the DES.
+
+> [!NOTE]
+> The ability to choose a DES while restoring is supported if you're doing a cross-region restore. However, it's currently not supported if you're restoring a VM that uses Azure Disk Encryption.
 
 :::image type="content" source="./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png" alt-text="Screenshot that shows selections for encrypting a disk by using a key." lightbox="./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png":::
 
@@ -528,7 +529,7 @@ To enable the encryption, follow these steps:
 
    If you specify the key by using the **Select from Key Vault** option, autorotation of the encryption key is enabled automatically. [Learn more about autorotation](#enable-autorotation-of-encryption-keys).
 
-1. For **Identity**, specify the user-assigned managed identity to manage encryption by using CMKs. Click **Select** to browse to and select the required identity.
+1. For **Identity**, specify the user-assigned managed identity to manage encryption by using CMKs. Choose **Select** to browse to and select the required identity.
 
 1. Add tags (optional) and continue creating the vault.
 
@@ -579,7 +580,7 @@ No. This article discusses encryption of Backup data only. For Azure Site Recove
 
 ### I missed one of the steps in this article and proceeded to protect my data source. Can I still use CMK encryption?
 
-If you don't follow the steps in the article and proceed to protect items, the vault might not be able to use CMK encryption. We recommend that you use [this checklist](#back-up-data-to-a-vault-encrypted-via-customer-managed-keys) before you protect items.
+If you don't follow the steps in the article and you proceed to protect items, the vault might not be able to use CMK encryption. We recommend that you use [this checklist](#back-up-data-to-a-vault-encrypted-via-customer-managed-keys) before you protect items.
 
 ### Does using CMK encryption add to the cost of my backups?
 
