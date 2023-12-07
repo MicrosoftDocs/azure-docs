@@ -123,7 +123,9 @@ For each endpoint within a call, a distinct call diagnostic log is created for o
 |     `RecvFreezeDurationPerMinuteInMs`     |    The average freeze duration in milliseconds per minute for incoming video/screensharing stream. Freezes are typically due to bad network condition and can degrade the stream quality.  <br><br> The stream quality is considered poor when this value is greater than 6,000 ms for video stream, or greater than 25,000 ms for screensharing stream. 
 
 ### Call client operations log schema
+TBD
 
+### Call client media stats time series log schema
 The **call client media statistics time series** log provides
 client-side information about the media streams between individual
 participants involved in a call. These logs provide detailed time series
@@ -157,9 +159,6 @@ Diagnostics for your Azure Communication Services Resource. [Learn More](../../v
 | RemoteEndpointId           | Same as EndpointId, but it represents the user on the remote side of the stream.                                                                                                                                                                                                                                                                                                          |
 | MediaStreamId              | A unique ID that represents each media stream in the call. MediaStreamId is not currently instrumented in clients. When implemented, it wil match the streamId column in CallDiagnostics logs.                                                                                                                                                                                            |
 | AggregationIntervalSeconds | The time interval for aggregating the media statistics. Currently in calling SDK, the media metrics are sampled every 10 seconds.                                                                                                                                                                                                           
-
-### Call client media stats time series log schema
-TBD
 
 
 
