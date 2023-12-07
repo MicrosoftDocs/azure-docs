@@ -72,7 +72,7 @@ The following limitations apply to *Windows Server node pools*:
     - Leave the **Scale method** setting set to *Autoscale*.
     - Leave the **Minimum node count** and **Maximum node count** fields set to their default settings.
 
-    :::image type="content" source="media/quick-windows-container-deploy-portal/create-node-pool-windows.png" alt-text="Screenshot showing how to create a node pool running Windows Server" lightbox="media/quick-windows-container-deploy-portal/create-node-pool-windows.png":::
+        :::image type="content" source="media/quick-windows-container-deploy-portal/create-node-pool-windows.png" alt-text="Screenshot showing how to create a node pool running Windows Server" lightbox="media/quick-windows-container-deploy-portal/create-node-pool-windows.png":::
 
 1. Leave all settings on the other tabs set to their defaults.
 1. Select **Review + create** to run validation on the cluster configuration. After validation completes, select **Create** to create the AKS cluster.
