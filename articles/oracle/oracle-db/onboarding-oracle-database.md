@@ -62,4 +62,4 @@ Optionally, you can use Microsoft Entra ID for federated identity and access man
 - [Overview - Oracle Database@Azure](database-overview.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-database-support.md)
-- [Solution design for Oracle Database@Azure](oracle-database-solution-design.md)
+- [Network planning for Oracle Database@Azure](oracle-database-solution-design.md)

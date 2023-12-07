@@ -51,4 +51,4 @@ Oracle Database@Azure is available in the locations listed on this page. Oracle 
 - [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-database-support.md)
-- [Solution design for Oracle Database@Azure](oracle-database-solution-design.md)
+- [Network planning for Oracle Database@Azure](oracle-database-solution-design.md)
