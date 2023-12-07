@@ -46,7 +46,7 @@ This section lists all of the Azure Monitor Logs Kusto tables relevant to Azure 
 |--------|----------|
 |Digestion logs|[AOIDigestion](/azure/azure-monitor/reference/tables/aoidigestion)|
 |Storage logs|[AOIStorage](/azure/azure-monitor/reference/tables/aoistorage)|
-|Database query logs|[AOIStorage](/azure/azure-monitor/reference/tables/aoistorage)|
+|Database query logs|[AOIDatabaseQuery](/azure/azure-monitor/reference/tables/aoidatabasequery)|
 
 ### Diagnostics tables
 
@@ -105,7 +105,7 @@ Azure Operator Insights uses multiple schemas for logs.
 |--------|----------|-----------|
 |Digestion logs|Processing (digestion) of data|[AOIDigestion](/azure/azure-monitor/reference/tables/aoidigestion)|
 |Storage logs|Operations on the Data Product's storage|[AOIStorage](/azure/azure-monitor/reference/tables/aoistorage)|
-|Database query logs|Queries run on the Data Product's database|[AOIStorage](/azure/azure-monitor/reference/tables/aoistorage)|
+|Database query logs|Queries run on the Data Product's database|[AOIDatabaseQuery](/azure/azure-monitor/reference/tables/aoidatabasequery)|
 
 ## See Also
 
