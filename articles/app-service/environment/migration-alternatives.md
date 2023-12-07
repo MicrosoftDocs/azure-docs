@@ -14,7 +14,7 @@ ms.author: jordanselig
 
 If you're currently using App Service Environment v1 or v2, you have the opportunity to migrate your workloads to [App Service Environment v3](overview.md). App Service Environment v3 has [advantages and feature differences](overview.md#feature-differences) that provide enhanced support for your workloads and can reduce overall costs. Consider using the [the automated migration features](upgrade-to-asev3.md) if your environment meets the criteria described in the [migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree).
 
-If your App Service Environment [isn't supported for migration](migrate.md#migration-feature-limitations) with the migration features, you must use one of the manual methods to migrate to App Service Environment v3.
+If your App Service Environment [isn't supported for migration](migrate.md#in-place-migration-feature-limitations) with the migration features, you must use one of the manual methods to migrate to App Service Environment v3.
 
 ## Prerequisites
 
