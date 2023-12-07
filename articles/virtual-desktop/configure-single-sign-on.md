@@ -9,7 +9,7 @@ ms.date: 06/12/2023
 
 # Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID authentication
 
-This article walks you through the process of configuring single sign-on (SSO) for Azure Virtual Desktop using Microsoft Entra ID authentication. When you enable SSO, users will authenticate to Windows using a Microsoft Entra ID token. This token enables the use of passwordless authentication and third-party identity providers that federate with Microsoft Entra ID when connecting to a session host.
+This article walks you through the process of configuring single sign-on (SSO) for Azure Virtual Desktop using Microsoft Entra ID authentication. When you enable single sign-on, users authenticate to Windows using a Microsoft Entra ID token. This token enables the use of passwordless authentication and third-party identity providers that federate with Microsoft Entra ID when connecting to a session host.
 
 Single sign-on using Microsoft Entra ID authentication also provides a seamless experience when connecting Microsoft Entra ID-based resources inside the session. For more information on using passwordless authentication within a session, see [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication).
 
@@ -31,13 +31,13 @@ Before you enable single sign-on, review the following information for using it 
 
 ### Disconnection when the session is locked
 
-When single sign-on is enabled, you sign in to Windows using a Microsoft Entra ID authentication token, which provides support for passwordless authentication to Windows. The Windows lock screen in the remote session doesn't support Microsoft Entra ID authentication tokens or passwordless authentication methods, like FIDO keys. The lack of support for these authentication methods means that users can't unlock their screens in a remote session. When you try to lock a remote session, either through user action or system policy, the session is instead disconnected and the service sends a message to the user explaining they've been disconnected.
+When single sign-on is enabled, you sign in to Windows using a Microsoft Entra ID authentication token, which provides support for passwordless authentication to Windows. The Windows lock screen in the remote session doesn't support Microsoft Entra ID authentication tokens or passwordless authentication methods, like FIDO keys. The lack of support for these authentication methods means that users can't unlock their screens in a remote session. When you try to lock a remote session, either through user action or system policy, the session is instead disconnected and the service sends a message to the user explaining they were disconnected.
 
 Disconnecting the session also ensures that when the connection is relaunched after a period of inactivity, Microsoft Entra ID reevaluates any applicable conditional access policies.
 
 ### Using an Active Directory domain administrator account with single sign-on
 
-In environments with an Active Directory Domain Services (AD DS) and hybrid user accounts, the default *Password Replication Policy* on read-only domain controllers denies password replication for members of *Domain Admins* and *Administrators* security groups. This policy prevents these administrator accounts from signing in to Microsoft Entra hybrid joined hosts and might keep prompting them to enter their credentials. It also prevents administrator accounts from accessing on-premises resources that leverage Kerberos authentication from Microsoft Entra joined hosts.
+In environments with an Active Directory Domain Services (AD DS) and hybrid user accounts, the default *Password Replication Policy* on read-only domain controllers denies password replication for members of *Domain Admins* and *Administrators* security groups. This policy prevents these administrator accounts from signing in to Microsoft Entra hybrid joined hosts and might keep prompting them to enter their credentials. It also prevents administrator accounts from accessing on-premises resources that use Kerberos authentication from Microsoft Entra joined hosts.
 
 To allow these admin accounts to connect when single sign-on is enabled, see [Allowing Active Directory domain administrator accounts to connect](#allowing-active-directory-domain-administrator-accounts-to-connect).
 
@@ -50,11 +50,6 @@ Before you can enable single sign-on, you must meet the following prerequisites:
    - [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
    - [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)
 
-   You must also have one of the following [Microsoft Graph permissions](/graph/permissions-overview):
-   - [Application-RemoteDesktopConfig.ReadWrite.All](/graph/permissions-reference)
-   - [Application.ReadWrite.All](/graph/permissions-reference)
-   - [Directory.ReadWrite.All](/graph/permissions-reference)
-
 - Your session hosts must be running one of the following operating systems with the relevant cumulative update installed:
 
    - Windows 11 Enterprise single or multi-session with the [2022-10 Cumulative Updates for Windows 11 (KB5018418)](https://support.microsoft.com/kb/KB5018418) or later installed.
@@ -62,6 +57,8 @@ Before you can enable single sign-on, you must meet the following prerequisites:
    - Windows Server 2022 with the [2022-10 Cumulative Update for Microsoft server operating system (KB5018421)](https://support.microsoft.com/kb/KB5018421) or later installed.
 
 - Your session hosts must be [Microsoft Entra joined](/entra/identity/devices/concept-directory-join) or [Microsoft Entra hybrid joined](/entra/identity/devices/concept-hybrid-join). Session hosts joined to Microsoft Entra Domain Services or to Active Directory Domain Services only aren't supported.
+
+- [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) on your local device, or [Azure Cloud Shell](../cloud-shell/overview.md).
 
 - [Create a dynamic group in Microsoft Entra ID](/entra/identity/users/groups-create-rule) that contains all your session hosts. This group is used to configure the target device group for single sign-on.
 
@@ -73,190 +70,136 @@ Before you can enable single sign-on, you must meet the following prerequisites:
    - [iOS client](users/connect-ios-ipados.md), version 10.5.1 or later.
    - [Android client](users/connect-android-chrome-os.md), version 10.0.16 or later.
 
-### Enable Microsoft Entra authentication for RDP
+- To configure allowing Active Directory domain administrator account to connect when single sign-on is enabled, you need an account that is a member of the **Domain Admins** security group.
+
+## Enable Microsoft Entra authentication for RDP
+
+You must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant, which enables issuing RDP access tokens allowing users to sign in to your Azure Virtual Desktop session hosts. You set the `isRemoteDesktopProtocolEnabled` property to true on the service principal's `remoteDesktopSecurityConfiguration` object for following Microsoft Entra applications:
+
+| Application Name | Application ID |
+|--|--|
+| Microsoft Remote Desktop | a4a365df-50f1-4397-bc59-1a1564b8bb9c |
+| Windows Cloud Login | 270efc09-cd0d-444b-a71f-39af4910ec45 |
 
 > [!IMPORTANT]
-> Due to an upcoming change, the steps below should be completed for the following Microsoft Entra Apps:
-> 
-> - Microsoft Remote Desktop (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c).
-> - Windows Cloud Login (App ID 270efc09-cd0d-444b-a71f-39af4910ec45).
+> As part of an upcoming change, we're transitioning from Microsoft Remote Desktop to Windows Cloud Login, beginning in 2024. Configuring both applications now ensures you're ready for the change.
 
-Before enabling the single sign-on feature, you must first allow Microsoft Entra authentication for Windows in your Microsoft Entra tenant. This will enable issuing RDP access tokens allowing users to sign in to Azure Virtual Desktop session hosts. This is done by enabling the isRemoteDesktopProtocolEnabled property on the service principal's remoteDesktopSecurityConfiguration object for the apps listed above.
+To configure the service principal, use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/overview) to create a new [remoteDesktopSecurityConfiguration object](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration) on the service principal and set the property `isRemoteDesktopProtocolEnabled` to `true`. You can also use the [Microsoft Graph API](/graph/use-the-api) with a tool such as [Graph Explorer](/graph/use-the-api#graph-explorer).
 
-Use the [Microsoft Graph API](/graph/use-the-api) to [create remoteDesktopSecurityConfiguration](/graph/api/serviceprincipal-post-remotedesktopsecurityconfiguration) or the [PowerShell Microsoft Graph Module](https://learn.microsoft.com/en-us/powershell/microsoftgraph/overview?view=graph-powershell-1.0) to [create remoteDesktopSecurityConfiguration](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.applications/update-mgserviceprincipalremotedesktopsecurityconfiguration?view=graph-powershell-1.0) to set the property **isRemoteDesktopProtocolEnabled** to **true**.
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-```powershell
-#Requirements
-Install-Module Microsoft.Graph.Authentication
-Install-Module Microsoft.Graph.Applications
+2. Import the *Authentication* and *Applications* Microsoft Graph modules and connect to Microsoft Graph with the `Application.Read.All` and `Application-RemoteDesktopConfig.ReadWrite.All` scopes by running the following commands:
 
-#Login to Microsoft Graph
-Connect-MgGraph -Scopes Application-RemoteDesktopConfig.ReadWrite.All
+   ```powershell
+   Import-Module Microsoft.Graph.Authentication
+   Import-Module Microsoft.Graph.Applications
 
-#Get the service principal ID's
-$MSRDspId = Get-MgServicePrincipal -Filter "DisplayName eq 'Microsoft Remote Desktop'"
-$WCLspId = Get-MgServicePrincipal -Filter "DisplayName eq 'Windows Cloud Login'"
+   Connect-MgGraph -Scopes "Application.Read.All","Application-RemoteDesktopConfig.ReadWrite.All"
+   ```
 
-#Check status of IsRemoteDesktopProtocolEnabled flag if already enabled for the service principal ID's
-Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId.Id
-Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId.Id
+3. Get the object ID for each service principal and store them in variables by running the following commands:
 
-#Set the IsRemoteDesktopProtocolEnabled flag to true
-Update-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId.Id -IsRemoteDesktopProtocolEnabled
-Update-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId.Id -IsRemoteDesktopProtocolEnabled
-```
+   ```powershell
+   $MSRDspId = (Get-MgServicePrincipal -Filter "DisplayName eq 'Microsoft Remote Desktop'").Id
+   $WCLspId = (Get-MgServicePrincipal -Filter "DisplayName eq 'Windows Cloud Login'").Id
+   ```
 
-### Configure the target device groups
+4. Set the property `isRemoteDesktopProtocolEnabled` to `true` by running the following commands. There's no output from these commands.
 
-> [!IMPORTANT]
-> Due to an upcoming change, the steps below should be completed for the following Microsoft Entra Apps:
-> 
-> - Microsoft Remote Desktop (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c).
-> - Windows Cloud Login (App ID 270efc09-cd0d-444b-a71f-39af4910ec45).
+   ```powershell
+   If ((Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId) -ne $true) {
+       Update-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId -IsRemoteDesktopProtocolEnabled
+   }
 
-> [!IMPORTANT]
-> To complete this step, the calling user must be assigned the Application Administrator, Cloud Application Administrator, or Global Administrator [directory role](/entra/identity/role-based-access-control/permissions-reference). They must also have the Application-RemoteDesktopConfig.ReadWrite.All, Application.ReadWrite.All or Directory.ReadWrite.All [permission](/graph/permissions-reference).
+   If ((Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId) -ne $true) {
+       Update-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId -IsRemoteDesktopProtocolEnabled
+   }
+   ```
 
-By default when enabling single sign-on, users are prompted to authenticate to Microsoft Entra ID and allow the Remote Desktop connection when launching a connection to a new session host. Microsoft Entra remembers up to 15 hosts for 30 days before prompting again. If you see this dialogue, select **Yes** to connect.
+5. Confirm the property `isRemoteDesktopProtocolEnabled` is set to `true` by running the following commands:
 
-To provide single sign-on for all connections, you can hide this dialog by configuring a list of trusted devices. This is done by adding one or more Device Groups containing Azure Virtual Desktop session hosts to a property on the service principals for the apps listed above in your Microsoft Entra tenant.
+   ```powershell
+   Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId
+   Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId
+   ```
 
-Follow these steps to hide the dialog:
+   The output should be:
 
-1. [Create a Dynamic Device Group](/entra/identity/users/groups-create-rule) in Microsoft Entra containing the devices to hide the dialog for. Remember the device group ID for the next step.
-    > [!TIP]
-    > It's recommended to use a dynamic device group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. This can be done using the device names or for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview) using [Microsoft Graph API](/graph/api/resources/device). While dynamic device groups normally update within 5-10 minutes, in some large tenant this can take up to 24 hours.
-2. Use the [Microsoft Graph API](/graph/use-the-api) to [create a new targetDeviceGroup object](/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups) or the [PowerShell Microsoft Graph Module](https://learn.microsoft.com/en-us/powershell/microsoftgraph/overview?view=graph-powershell-1.0) to [create a new targetDeviceGroup object](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.applications/update-mgserviceprincipalremotedesktopsecurityconfiguration?view=graph-powershell-1.0) to suppress the prompt from these devices.
+   ```output
+   Id IsRemoteDesktopProtocolEnabled
+   -- ------------------------------
+   id True
+   ```
 
-```powershell
-#Requirements
-Install-Module Microsoft.Graph.Authentication
-Install-Module Microsoft.Graph.Applications
+## Configure the target device groups
 
-#Login to Microsoft Graph
-Connect-MgGraph -Scopes Application-RemoteDesktopConfig.ReadWrite.All
+After you enable Microsoft Entra authentication for RDP, you need to configure the target device groups. By default when enabling single sign-on, users are prompted to authenticate to Microsoft Entra ID and allow the Remote Desktop connection when launching a connection to a new session host. Microsoft Entra remembers up to 15 hosts for 30 days before prompting again. If you see a dialogue to allow the Remote Desktop connection, select **Yes** to connect.
 
-#Get the service principal ID's
-$MSRDspId = Get-MgServicePrincipal -Filter "DisplayName eq 'Microsoft Remote Desktop'"
-$WCLspId = Get-MgServicePrincipal -Filter "DisplayName eq 'Windows Cloud Login'"
+You can hide this dialog and provide single sign-on for connections to all your session hosts by configuring a list of trusted devices. You need to create one or more groups in Microsoft Entra ID that contains your session hosts, then set a property on the service principals for the same *Microsoft Remote Desktop* and *Windows Cloud Login* applications, as used in the previous section, for the group.
 
-#Check if any Targetdevicegroup is already configured
-Get-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $MSRDspId.Id
-Get-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId.Id
+> [!TIP]
+> We recommend you use a dynamic group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. You can use the device names in this group, but for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview) using [Microsoft Graph API](/graph/api/resources/device). While dynamic groups normally update within 5-10 minutes, large tenants can take up to 24 hours.
+>
+> Dynamic groups requires the Microsoft Entra ID P1 license or Intune for Education license. For more information, see [Dynamic membership rules for groups](//entra/identity/users/groups-dynamic-membership).
 
-#Create a Targetdevicegroup Object
-$tdg = New-Object -TypeName Microsoft.Graph.PowerShell.Models.MicrosoftGraphTargetDeviceGroup
-$tdg.Id = "<Your Group Object Id>"
-$tdg.DisplayName = "<Your Group Display Name>"
+To configure the service principal, use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/overview) to create a new [targetDeviceGroup object](/graph/api/remotedesktopsecurityconfiguration-post-targetdevicegroups) on the service principal with the dynamic group's object ID and display name. You can also use the [Microsoft Graph API](/graph/use-the-api) with a tool such as [Graph Explorer](/graph/use-the-api#graph-explorer).
 
-#Configure a Targetdevicegroup
-New-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $MSRDspId.Id -BodyParameter $tdg
-New-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId.Id -BodyParameter $tdg
-```
+1. [Create a dynamic group](/entra/identity/users/groups-create-rule) in Microsoft Entra ID containing the session hosts for which you want to hide the dialog. Make a note of the object ID of the group for the next step.
 
-**Microsoft Graph Explorer example:**
+1. In the same PowerShell session, create a `targetDeviceGroup` object by running the following commands, replacing the `<placeholders>` with your own values:
 
-There are multiple ways to configure the service principal using Microsoft Graph API, but an example is provided below that leverages Microsoft Graph Explorer to enable Microsoft Entra authentication and configure a target device group.
+   ```powershell
+   $tdg = New-Object -TypeName Microsoft.Graph.PowerShell.Models.MicrosoftGraphTargetDeviceGroup
+   $tdg.Id = "<Group object ID>"
+   $tdg.DisplayName = "<Group display name>"
+   ```
 
-Start by giving Graph Explorer permission to update the new properties on the service principal.
+1. Add the group to the `targetDeviceGroup` object by running the following commands:
 
-1. Navigate to the [consent page](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=de8bc8b5-d9f9-48b1-a8ad-b748da725064&response_type=code&scope=https://graph.microsoft.com/Application-RemoteDesktopConfig.ReadWrite.All) for Graph Explorer (App ID de8bc8b5-d9f9-48b1-a8ad-b748da725064).
-1. Follow the prompts and check the box to Consent on behalf of your organization.
-1. At the end of the flow, you might see an error page with error “AADSTS9002325: Proof Key for Code Exchange is required for cross-origin authorization code redemption”, you can ignore it as the permissions should have been consented successfully.
-1. If you want to confirm:
-    1. Navigate to the [Microsoft Entra ID](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview) section in the Azure Portal.
-    1. Select **Enterprise applications** on the left.
-    1. Remove any **Application type** filters to see all applications.
-    1. Search for **Graph Explorer**.
-    1. Click on the app with Application ID starting with **de8bc8b5-d9f9-48b1-a8ad-b748da725064**.
-    1. Select **Permissions** on the left.
-    1. Look for the **Application-RemoteDesktopConfig.ReadWrite.All** Claim value with Type = Delegated mode under the Admin Consent tab.
-1. Close your browser or sign out of your account to ensure the permission changes are applied.
+   ```powershell
+   New-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $MSRDspId -BodyParameter $tdg
+   New-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId -BodyParameter $tdg
+   ```
 
-Repeat the steps to configure the service principal using Graph Explorer for the Microsoft Remote Desktop (App ID a4a365df-50f1-4397-bc59-1a1564b8bb9c) and the Windows Cloud Login (App ID 270efc09-cd0d-444b-a71f-39af4910ec45) apps.
+   The output should be similar:
 
-1. Navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-1. Sign in with your Microsoft Entra ID credentials.
-1. Retrieve the object id of the service principal in your tenant:
-    1. In Graph Explorer, ensure the command type is set to **GET**.
-    1. Type this command in the text box: `https://graph.microsoft.com/v1.0/servicePrincipals(appID='a4a365df-50f1-4397-bc59-1a1564b8bb9c')`.
-    1. Click **Run query**.
-    1. Copy the **Id** attribute in the response. Use this value to replace the \<SPObjectID\> referred to in the steps below.
-1. Enable issuing RDP Access Tokens.
-    1. Change the command type to **PATCH**.
-    1. Change the command in the text box to: `https://graph.microsoft.com/v1.0/servicePrincipals/<SPObjectID>/remoteDesktopSecurityConfiguration`, replacing the SPObjectID  with your value.
-    1. Copy the following in the Request body:
-        ```json
-        {
-          "isRemoteDesktopProtocolEnabled": true,
-          "targetDeviceGroups": []
-        }
-        ```
-    1. Click **Run query**.
-1. Add the device group to the list.
-    1. Change the command type to **POST**.
-    1. Change the command in the text box to: `https://graph.microsoft.com/v1.0/servicePrincipals/<SPObjectID>/remoteDesktopSecurityConfiguration/targetDeviceGroups`, replacing the SPObjectID  with your value.
-    1. Copy the following in the Request body, replacing the GroupObjectID with the object ID from your device group. The GroupName is for your reference and doesn’t need to match the device group name.
-        ```json
-        {
-          "id": "<GroupObjectID>",
-          "displayName": "<GroupName>"
-        }
-        ```
-    1. Click **Run query**.
-1. Check the configuration of the service principal.
-    1. Change the command type to **GET**.
-    1. Change the command in the text box to: `https://graph.microsoft.com/v1.0/servicePrincipals/<SPObjectID>/remoteDesktopSecurityConfiguration`, replacing the SPObjectID  with your value.
-    1. Click **Run query**.
-    1. You should see the following as part of the output:
-        ```json
-        {
-          "isRemoteDesktopProtocolEnabled": true,
-          "targetDeviceGroups": [
-          {
-            "id": "<GroupObjectID>",
-            "displayName": "<GroupName>"
-          }
-          ]
-        }
-        ```
+   ```output
+   Id                                   DisplayName
+   --                                   -----------
+   12345678-abcd-1234-abcd-1234567890ab Contoso-session-hosts
+   ```
 
-If you later need to remove a device group using Graph Explorer.
+   Repeat steps 2 and 3 for each group you want to add to the `targetDeviceGroup` object.
 
-1. Navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-1. Sign in with your Microsoft Entra ID credentials.
-1. Retrieve the object id of the service principal in your tenant:
-    1. In Graph Explorer, ensure the command type is set to **GET**.
-    1. Type this command in the text box: `https://graph.microsoft.com/v1.0/servicePrincipals(appID='a4a365df-50f1-4397-bc59-1a1564b8bb9c')`.
-    1. Click **Run query**.
-    1. Copy the **Id** attribute in the response. Use this value to replace the \<SPObjectID\> referred to in the steps below.
-1. Remove the device group from the list.
-    1. Change the command type to **DELETE**.
-    1. Change the command in the text box to: `https://graph.microsoft.com/v1.0/servicePrincipals/<SPObjectID>/remoteDesktopSecurityConfiguration/targetDeviceGroups/<GroupObjectID>`, replacing the SPObjectID  with your value and the GroupObjectID with the object ID from your device group.
-    1. Click **Run query**.
+1. If you later need to remove a device group from the `targetDeviceGroup` object, run the following commands, replacing the `<placeholders>` with your own values:
 
-### Create a Kerberos Server object
+   ```powershell
+   Remove-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $MSRDspId -TargetDeviceGroupId "<Group object ID>"
+   Remove-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId -TargetDeviceGroupId "<Group object ID>"
+   ```
 
-You must [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object) if your session host meets the following criteria:
+## Create a Kerberos Server object
 
-- Your session host is Microsoft Entra hybrid joined. You must have a Kerberos Server object to complete authentication to the domain controller.
-- Your session host is Microsoft Entra joined and your environment contains Active Directory Domain Controllers. You must have a Kerberos Server object for users to access on-premises resources, such as SMB shares, and Windows-integrated authentication to websites.
+If your session hosts meet the following criteria, you must [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object):
+
+- Your session host is Microsoft Entra hybrid joined. You must have a Kerberos Server object to complete authentication to a domain controller.
+- Your session host is Microsoft Entra joined and your environment contains Active Directory domain controllers. You must have a Kerberos Server object for users to access on-premises resources, such as SMB shares, and Windows-integrated authentication to websites.
 
 > [!IMPORTANT]
-> If you enable SSO on your Microsoft Entra hybrid joined VMs before you create a Kerberos server object, one of the following things can happen: 
+> If you enable single sign-on on Microsoft Entra hybrid joined session hosts before you create a Kerberos server object, one of the following things can happen: 
 >
 > - You receive an error message saying the specific session doesn't exist.
-> - SSO will be skipped and you'll see a standard authentication dialog for the session host. 
+> - Single sign-on will be skipped and you see a standard authentication dialog for the session host. 
 >
-> To resolve these issues, create the Kerberos server object before trying to connect again.
+> To resolve these issues, create the Kerberos Server object, then connect again.
 
-### Review your conditional access policies
+## Review your conditional access policies
 
 When single sign-on is enabled, a new Microsoft Entra ID app is introduced to authenticate users to the session host. If you have conditional access policies that apply when accessing Azure Virtual Desktop, review the recommendations on setting up [multifactor authentication](set-up-mfa.md) to ensure users have the desired experience.
 
-### Configure your host pool
+## Configure your host pool to enable single sign-on
 
-To enable SSO on your host pool, you must configure the following RDP property, which you can do using the Azure portal or PowerShell. You can find the steps to do this in [Customize Remote Desktop Protocol (RDP) properties for a host pool](customize-rdp-properties.md).
+To enable single sign-on on your host pool, you must configure the following RDP property, which you can do using the Azure portal or PowerShell. You can find the steps to do configure RDP properties in [Customize Remote Desktop Protocol (RDP) properties for a host pool](customize-rdp-properties.md).
 
 - In the Azure portal, set **Microsoft Entra single sign-on** to **Connections will use Microsoft Entra authentication to provide single sign-on**.
 - For PowerShell, set the **enablerdsaadauth** property to **1**.
@@ -266,13 +209,18 @@ To enable SSO on your host pool, you must configure the following RDP property, 
 To allow Active Directory domain administrator accounts to connect when single sign-on is enabled:
 
 1. On a device that you use to manage your Active Directory domain, open the **Active Directory Users and Computers** console using an account that is a member of the **Domain Admins** security group.
-1. Open the **Domain Controllers** folder for your tenant.
-1. Find the **AzureADKerberos** object, then right-click it and select **Properties**.
-1. Select the **Password Replication Policy** tab.
-1. Change the policy for **Domain Admins** from *Deny* to *Allow*.
-1. Delete the policy for **Administrators**. The Domain Admins group is a member of the Administrators group, so denying replication for administrators also denies it for domain admins.
-1. Select **OK** to save your changes.
 
+1. Open the **Domain Controllers** organizational unit for your domain.
+
+1. Find the **AzureADKerberos** object, right-click it, then select **Properties**.
+
+1. Select the **Password Replication Policy** tab.
+
+1. Change the policy for **Domain Admins** from *Deny* to *Allow*.
+
+1. Delete the policy for **Administrators**. The Domain Admins group is a member of the Administrators group, so denying replication for administrators also denies it for domain admins.
+
+1. Select **OK** to save your changes.
 
 ## Next steps
 
