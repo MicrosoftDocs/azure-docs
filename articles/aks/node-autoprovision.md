@@ -77,7 +77,7 @@ Node autoprovision uses a list of VM SKUs as a starting point to decide which is
 
 If you have specific VM SKUs that are reserved instances, for example, you may wish to only use those VMs as the starting pool.
 
-You can have multiple node pool definitions in a cluster, but AKS deploys a default provisioner that you can modify:
+You can have multiple node pool definitions in a cluster, but AKS deploys a default node pool definition that you can modify:
 
 
 ```yaml
@@ -171,7 +171,7 @@ By default NAP node pool virtual machines are automatically updated when a new i
 kubectl edit aksnodeclass default
 ```
 
-Within the node class definition, set the imageVersion to one of the published releases listed on the [AKS Release notes](release-notes).
+Within the node class definition, set the imageVersion to one of the published releases listed on the [AKS Release notes](release-notes).  You can also see the availability of images in regions by referring to the [AKS release tracker](release-tracker)
 
 The imageVersion is the date portion on the Node Image as only Ubuntu 22.04 is supported, for example, "AKSUbuntu-2204-202311.07.0" would be "202311.07.0"
 
@@ -233,3 +233,4 @@ kubectl get events -A --field-selector source=karpenter -w
 
 
 [release-notes]: https://github.com/Azure/AKS/blob/master/CHANGELOG.md
+[release-tracker]:  https://releases.aks.azure.com/
