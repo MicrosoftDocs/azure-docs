@@ -124,7 +124,7 @@ You need additional claims to enable you enable CAPTCHA:
 
 ### Configure a display control
 
-To enable CAPTCHA for your custom policy, you use a CAPTCHA Display Control. The display control renders the CAPTCHA image.
+To enable CAPTCHA for your custom policy, you use a [CAPTCHA display Control](display-control-captcha.md). The CAPTCHA display control generates and renders the CAPTCHA image.
 
 In the *TrustFrameworkBase.XML* file, locate the `DisplayControls` element, then add the following display control as a child element. If you don't already have `DisplayControls` element, add one.
 
@@ -164,9 +164,9 @@ In the *TrustFrameworkBase.XML* file, locate the `DisplayControls` element, then
 <!--</DisplayControls>-->
 ```
 
-### Configure a CaptchaProvider technical profile 
+### Configure a CAPTCHA technical profile 
 
-Azure AD B2C provides a technical profile that verifies the CAPTCHA challenge. This technical profile can generate a CAPTCHA image or verifies the CAPTCHA string depending on how you configure it.
+Azure AD B2C [CAPTCHA technical profile](captcha-technical-profile.md) verifies the CAPTCHA challenge. This technical profile can generate a CAPTCHA code or verify it depending on how you configure it.
 
 In the *TrustFrameworkBase.XML* file, locate the `ClaimsProviders` element and add the claims provider by using the following code:
 
@@ -226,6 +226,8 @@ In the *TrustFrameworkBase.XML* file, locate the `ClaimsProviders` element and a
 <!--<ClaimsProviders>-->
 ```
 
+The CAPTCHA technical profile that's configured with the *GetChallenge* operation generates and display the CAPTCHA code whereas the one that's configured with the *VerifyChallenge* verifies the code that the user inputs.
+
 ### Update content definition's page layouts
 
 For the various page layouts, use the following page layout versions:
@@ -260,7 +262,7 @@ Once you configure your technical profiles and display controls, you can specify
  
 To enable CAPTCHA for your sign-up or sign-in flow, use the following steps:
 
-1. Inspect your sign-up sign-in user journey, such as *SignUpOrSignIn*, to identify the self asserted technical profile that's responsible for your sign-up or sign-in flow. 
+1. Inspect your sign-up sign-in user journey, such as *SignUpOrSignIn*, to identify the self asserted technical profile that displays your sign-up or sign-in experience. 
 
 1. In the technical profile, such as *LocalAccountSignUpWithLogonEmail*, add a metadata key and a display claim entries as shown in the following code:
 
@@ -269,14 +271,14 @@ To enable CAPTCHA for your sign-up or sign-in flow, use the following steps:
     ...
   <Metadata>
     ...
-    <!--Add this metadata entry. Value set to true-->
+    <!--Add this metadata entry. Set value to true to activate CAPTCHA-->
     <Item Key="setting.enableCaptchaChallenge">true</Item>
     ...
   </Metadata>
     ...
   <DisplayClaims>
     ...
-    <!--Add this display claim-->
+    <!--Add this display claim, which is a reference to the captcha display control-->
     <DisplayClaim DisplayControlReferenceId="captchaControlChallengeCode" /> 
     ...
   </DisplayClaims>
