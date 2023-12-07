@@ -9,7 +9,7 @@ ms.date: 12/07/2023
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Haris Sohail joins Yuri Diogenes to talk about what's news in Defender for APIs GA. Haris gives a quick recap about API security, explains the value proposition of Defender APIs, and covers all the Ignite announcements related to Defender for APIs. Haris also demonstrates some features, such as the integration with Purview, Defender CSPM, and the new partnership with 42Crunch.
 
-> [!VIDEO https://aka.ms/docs/player?id=6b97cb8a-4ae4-41bc-8318-8947f64575fd]
+> [!VIDEO https://aka.ms/docs/player?id=62f3c0ca-13b1-47d4-b48a-e09fb4ca0395]
 
 - [01:37](/shows/mdc-in-the-field/data-security#time=01m37s) - Recap of Defender for APIs release
 - [03:18](/shows/mdc-in-the-field/data-security#time=03m18s) - What's new in Defender for APIs GA
