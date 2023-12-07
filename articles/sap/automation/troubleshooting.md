@@ -14,11 +14,11 @@ ms.custom: devx-track-ansible
 # Troubleshooting the SAP Deployment Automation Framework
 
 
-Within the SAP Deployment Automation Framework (SDAF), we recognize that there are many moving parts.  This article is intended to help you troubleshoot issues that you may encounter.
+Within the SAP Deployment Automation Framework (SDAF), we recognize that there are many moving parts.  This article is intended to help you troubleshoot issues that you can encounter.
 
 ## Deployment
 
-This section describes how to troubleshoot issues that you may encounter when performing deployments using the SAP Deployment Automation Framework.
+This section describes how to troubleshoot issues that you can encounter when performing deployments using the SAP Deployment Automation Framework.
 
 ### OverconstrainedAllocationRequest error
 If you see an error similar to the following when running the deployment:
@@ -29,7 +29,7 @@ Virtual Machine Name: "devsap01app01": Code="OverconstrainedAllocationRequest" M
 - VM Size
 ```
 
-This error indicates that the selected VM size is not available using the provided constraints.  To resolve this issue, select a different VM size or a different availability zone.
+This error indicates that the selected VM size isn't available using the provided constraints.  To resolve this issue, select a different VM size or a different availability zone.
 
 ### The client 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' with object id error
 If you see an error similar to the following message when running the deployment:
@@ -44,7 +44,7 @@ The error indicates that the deployment credential does not have 'User Access Ad
 
 ## Configuration
 
-This section describes how to troubleshoot issues that you may encounter when performing configuration using the SAP Deployment Automation Framework.
+This section describes how to troubleshoot issues that you can encounter when performing configuration using the SAP Deployment Automation Framework.
 
 ### Task 'ansible.builtin.XXX' has extra params'
 
@@ -58,7 +58,7 @@ This error indicates that the task is not supported by the version of Ansible th
 
 ## Software download
 
-This section describes how to troubleshoot issues that you may encounter when downloading the SAP software using the SAP Deployment Automation Framework.
+This section describes how to troubleshoot issues that you can encounter when downloading the SAP software using the SAP Deployment Automation Framework.
 
 ### "HTTP Error 404: Not Found"
 
@@ -66,7 +66,7 @@ This error indicates that the software version is no longer available for downlo
 
 ## Azure DevOps
 
-This section describes how to troubleshoot issues that you may encounter when using Azure DevOps with the SAP Deployment Automation Framework.
+This section describes how to troubleshoot issues that you can encounter when using Azure DevOps with the SAP Deployment Automation Framework.
 
 ### Issues with the Azure Pipelines
 
