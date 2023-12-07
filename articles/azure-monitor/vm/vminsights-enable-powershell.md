@@ -50,10 +50,7 @@ Use the script to enable VM insights using Azure Monitoring Agent and  Dependenc
 
 ### [Azure Monitor Agent](#tab/AMA)
 
-
-AMA Onboarding 
-If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated to the VM/VMSS and UAMI settings are passed over to AMA extension.   
-
+When you enable VM insights using Azure Monitor Agent, the script associates a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) to the VM/VMSS, and passes the UAMI settings to the Azure Monitor Agent extension.   
 
 ```powershell
 Install-VMInsights.ps1 -SubscriptionId <SubscriptionId> `

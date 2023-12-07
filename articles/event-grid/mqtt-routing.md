@@ -7,6 +7,7 @@ ms.custom:
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
+
 ---
 # Routing MQTT Messages in Azure Event Grid
 

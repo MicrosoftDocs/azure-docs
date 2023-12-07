@@ -34,7 +34,7 @@ Near-zero Downtime Scaling is a feature designed to minimize downtime when modif
 
 ### How it works
 
-When updating your Flexible server in scaling scenarios, we create a new copy of your server (VM) with the updated configuration, synchronize it with your current one, briefly switch to the new copy with a 30-second interruption, and retire the old server, all at no extra cost to you. This process allows for seamless updates while minimizing downtime and ensuring cost-efficiency. This scaling process is triggered when changes are made to the storage and compute tiers, and the experience remains consistent for both (HA) and non-HA servers. This feature is enabled in all Azure regions and there's **no customer action required** to use this capability. 
+When updating your Flexible server in scaling scenarios, we create a new copy of your server (VM) with the updated configuration, synchronize it with your current one, briefly switch to the new copy with a 30-second interruption, and retire the old server, all at no extra cost to you. This process allows for seamless updates while minimizing downtime and ensuring cost-efficiency. This scaling process is triggered when changes are made to the storage and compute tiers, and the experience remains consistent for both (HA) and non-HA servers. This feature is enabled in all Azure regions* and there's **no customer action required** to use this capability. 
 
 > [!NOTE]
 >  Near-zero downtime scaling process is the _default_ operation. However, in cases where the following limitations are encountered, the system switches to regular scaling, which involves more downtime compared to the near-zero downtime scaling.
@@ -45,6 +45,7 @@ When updating your Flexible server in scaling scenarios, we create a new copy of
 - Near-zero Downtime Scaling won't work if there are regional capacity constraints or quota limits on customer subscriptions.
 - Near-zero Downtime Scaling doesn't work for replica server but supports the primary server. For replica server it will automatically go through regular scaling process.
 - Near-zero Downtime Scaling won't work if a [virtual network injected Server with delegated subnet](../flexible-server/concepts-networking-private.md#virtual-network-concepts) doesn't have sufficient usable IP addresses. If you have a standalone server, one extra IP address is necessary, and for a HA-enabled server, two extra IP addresses are required.
+- *For HA enabled servers, near-zero downtime scaling is currently enabled for limited set of regions. We will be enabling this to more regions in a phased manner based upon the regional capacity.
 
 ## Related content
 
