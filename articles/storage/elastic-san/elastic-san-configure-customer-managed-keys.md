@@ -110,7 +110,7 @@ There are two steps involved in preparing a key vault as a store for your volume
 
 > [!div class="checklist"]
 > * Create a new key vault with soft delete and purge protection enabled, or enable purge protection for an existing one.
-> * Assign the role of Key Vault Crypto Officer to your account to be able to create a key in the vault.
+> * Create or assign an Azure RBAC role that has the **backup create delete get import get list update restore** permissions.
 
 # [PowerShell](#tab/azure-powershell)
 
