@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 
 # API Management developer portal - frequently asked questions
 
-This articles provides answers to frequently asked questions about the [developer portal](developer-portal-overview.md) in Azure API Management.
+This article provides answers to frequently asked questions about the [developer portal](developer-portal-overview.md) in Azure API Management.
 
 ## What if I need functionality that isn't supported in the portal?
 
