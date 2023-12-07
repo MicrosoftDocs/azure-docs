@@ -187,7 +187,7 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 
 ## Frequently asked questions:
 
--  How do I setup Call Diagnostics?
+-  How do I set up Call Diagnostics?
 
     - Follow instructions to add diagnostic settings for your resource here [Enable logs via Diagnostic Settings in Azure Monitor.](../analytics/enable-logging.md) When prompted to select [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting) select "**allLogs**".
     - If you have multiple Azure Communications Services Resource IDs you must enable these settings for each resource ID and query call details for participants within their respective Azure Communications Services Resource ID. Your data volume, retention, and CDC query usage in Log Analytics is billed through existing Azure data meters, monitor your data usage and retention policies for [cost considerations as needed](../../../azure-monitor/logs/cost-logs.md)
