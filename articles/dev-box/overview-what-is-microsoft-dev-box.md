@@ -103,7 +103,7 @@ For example, as you create a project, you might see this informational message a
 
 :::image type="content" source="media/overview-what-is-microsoft-dev-box/project-catalog-message.png" alt-text="Screenshot showing an informational message that reads The dev center that contains this project does not have a catalog assigned." lightbox="media/overview-what-is-microsoft-dev-box/project-catalog-message.png":::
 
-## Next steps
+## Related content
 
 Start using Microsoft Dev Box:
 
