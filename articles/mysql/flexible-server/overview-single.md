@@ -1,6 +1,6 @@
 ---
-title: Overview - Azure Database for MySQL
-description: Learn about the Azure Database for MySQL service, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
+title: Overview
+description: Learn about Azure Database for MySQL - Flexible Server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: sudheeshgh
 ms.author: sunaray
 ms.service: mysql
@@ -10,7 +10,7 @@ ms.topic: overview
 ms.date: 06/20/2022 
 ---
 
-# What is Azure Database for MySQL?
+# What is Azure Database for MySQL - Flexible Server?
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 

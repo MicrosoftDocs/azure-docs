@@ -1,6 +1,6 @@
 ---
-title: Profile query performance - Azure Database for MySQL 
-description: Learn how to profile query performance in Azure Database for MySQL by using EXPLAIN.
+title: Profile query performance
+description: Learn how to profile query performance in Azure Database for MySQL - Flexible Server by using EXPLAIN.
 ms.service: mysql
 ms.subservice: flexible-server
 author: SudheeshGH
@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 10/20/2023
 ---
 
-# Profile query performance in Azure Database for MySQL using EXPLAIN
+# Profile query performance in Azure Database for MySQL - Flexible Server by using EXPLAIN
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 

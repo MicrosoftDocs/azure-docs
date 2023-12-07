@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Point-in-time restore of an Azure Database for MySQL - Flexible Server using Azure portal
+# Point-in-time restore in Azure Database for MySQL - Flexible Server with the Azure portal
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
