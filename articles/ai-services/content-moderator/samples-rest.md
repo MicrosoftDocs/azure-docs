@@ -13,7 +13,7 @@ ms.author: pafarley
 ---
 # Content Moderator REST samples in C#
 
-The following list includes links to code samples built using the Azure AI Content Moderator API.
+The following list includes links to code samples built using the Azure Content Moderator API.
 
 - [Image moderation](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageModeration)
 - [Text moderation](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/TextModeration)

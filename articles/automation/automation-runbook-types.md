@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/21/2023
+ms.date: 11/28/2023
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python
 ---
@@ -14,7 +14,7 @@ The Azure Automation Process Automation feature supports several types of runboo
 
 | Type | Description |
 |:--- |:--- |
-| [PowerShell](#powershell-runbooks) |Textual runbook based on Windows PowerShell scripting.  The currently supported versions are: PowerShell 5.1 (GA), PowerShell 7.1 (preview), and PowerShell 7.2 (GA).|
+| [PowerShell](#powershell-runbooks) |Textual runbook based on Windows PowerShell scripting.  The currently supported versions are: PowerShell 7.2 (GA), PowerShell 5.1 (GA), and PowerShell 7.1 (preview). |
 | [PowerShell Workflow](#powershell-workflow-runbooks)|Textual runbook based on Windows PowerShell Workflow scripting. |
 | [Python](#python-runbooks) |Textual runbook based on Python scripting. The currently supported versions are: Python 2.7 (GA), Python 3.8 (GA), and Python 3.10 (preview).  |
 | [Graphical](#graphical-runbooks)|Graphical runbook based on Windows PowerShell and created and edited completely in the graphical editor in Azure portal. |
@@ -64,7 +64,7 @@ The following are the current limitations and known issues with PowerShell runbo
 > [!NOTE]
 > Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel  Central, Italy North, Germany North and Gov clouds.
 
-- For the PowerShell 7.2 runtime version, the module activities aren't extracted for the imported modules.
+- For the PowerShell 7.2 runtime version, the module activities aren't extracted for the imported modules. Use [Azure Automation extension for VS code](automation-runbook-authoring.md) to simplify runbook authoring experience. 
 - PowerShell 7.x doesn't support workflows. For more information, see [PowerShell workflow](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
 - PowerShell 7.x currently doesn't support signed runbooks.
 - Source control integration doesn't support PowerShell 7.2. Also, PowerShell 7.2 runbooks in source control get created in Automation account as Runtime 5.1.

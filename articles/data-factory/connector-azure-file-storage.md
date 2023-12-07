@@ -23,10 +23,10 @@ This Azure Files connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
-|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
-|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
-|[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ Exclude storage account V1|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ Exclude storage account V1|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ Exclude storage account V1|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ Exclude storage account V1|
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
@@ -570,5 +570,5 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ]
 ```
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

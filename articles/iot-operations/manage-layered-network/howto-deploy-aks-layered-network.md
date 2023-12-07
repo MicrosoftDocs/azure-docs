@@ -1,7 +1,7 @@
 ---
-title: Deploy Azure IoT Layered Network Management to an AKS cluster
+title: "Quickstart: Configure Layered Network Management to Arc-enable a cluster in Azure environment"
 titleSuffix: Azure IoT Layered Network Management
-description: Configure Azure IoT Layered Network Management to an AKS cluster.
+description: Deploy Azure IoT Layered Network Management to an AKS cluster and Arc-enable a cluster on an Ubuntu VM.
 author: PatAltimore
 ms.subservice: layered-network-management
 ms.author: patricka
@@ -12,7 +12,7 @@ ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
-# Deploy Azure IoT Layered Network Management to an AKS cluster
+# Quickstart: Configure Layered Network Management to Arc-enable a cluster in Azure environment
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -65,7 +65,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
     kind: Lnm
     metadata:
       name: level4
-      namespace: default
+      namespace: azure-iot-operations
     spec:
       image:
         pullPolicy: IfNotPresent

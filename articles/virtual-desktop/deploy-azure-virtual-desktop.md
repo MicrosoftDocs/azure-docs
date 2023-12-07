@@ -13,7 +13,15 @@ ms.date: 11/16/2023
 > [!IMPORTANT]
 > Using Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article shows you how to deploy Azure Virtual Desktop on Azure or Azure Stack HCI by using the Azure portal, Azure CLI, or Azure PowerShell. You create a host pool, workspace, application group, and session hosts and can optionally enable diagnostics settings. You also assign users or groups to the application group for users to get access to their desktops and applications. You can do all these tasks in the same process when using the Azure portal, but you can also do them separately.
+This article shows you how to deploy Azure Virtual Desktop on Azure or Azure Stack HCI by using the Azure portal, Azure CLI, or Azure PowerShell. To deploy Azure Virtual Desktop you:
+- Create a host pool.
+- Create a workspace.
+- Create an application group.
+- Create session host virtual machines.
+- Enable diagnostics settings (*optional*).
+- Assign users or groups to the application group for users to get access to desktops and applications.
+
+You can do all these tasks in a single process when using the Azure portal, but you can also do them separately.
 
 The process covered in this article is an in-depth and adaptable approach to deploying Azure Virtual Desktop. If you want a more simple approach to deploy a sample Windows 11 desktop in Azure Virtual Desktop, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-try-deploy-windows-11-desktop.md) or use the [getting started feature](getting-started-feature.md).
 
@@ -40,6 +48,8 @@ In addition, you need:
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
 
    For ongoing management of host pools, workspaces, and application groups, you can use more granular roles for each resource type. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
+
+- To assign users to the application group, you'll also need `Microsoft.Authorization/roleAssignments/write` permissions on the application group. Built-in RBAC roles that include this permission are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Owner](../role-based-access-control/built-in-roles.md#owner).
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating session hosts using the Azure portal, as [PowerShell DSC](/powershell/dsc/overview) requires it.
 
@@ -116,7 +126,7 @@ Here's how to create a host pool using the Azure portal.
    | Host pool name | Enter a name for the host pool, for example **hp01**. |
    | Location | Select the Azure region where you want to create your host pool. |
    | Validation environment | Select **Yes** to create a host pool that is used as a [validation environment](create-validation-host-pool.md).<br /><br />Select **No** (*default*) to create a host pool that isn't used as a validation environment. |
-   | Preferred app group type | Select the preferred [application group type](environment-setup.md#app-groups) for this host pool from *Desktop* or *RemoteApp*. |   
+   | Preferred app group type | Select the preferred [application group type](environment-setup.md#app-groups) for this host pool from *Desktop* or *RemoteApp*. A Desktop application group is created automatically when using the Azure portal, with whichever application group type you set as the preferred. |
    | Host pool type | Select whether you want your host pool to be Personal or Pooled.<br /><br />If you select **Personal**, a new option appears for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host. |
 
    > [!TIP]
@@ -220,7 +230,7 @@ If you also added session hosts to your host pool, there's some extra configurat
 [!INCLUDE [include-session-hosts-post-deployment](includes/include-session-hosts-post-deployment.md)]
 
 > [!NOTE]
-> - If you created a host pool, workspace, and registered the default desktop application group from this host pool in the same process, go to the section [Assign users to an application group](#assign-users-to-an-application-group) and complete the rest of the article.
+> - If you created a host pool, workspace, and registered the default desktop application group from this host pool in the same process, go to the section [Assign users to an application group](#assign-users-to-an-application-group) and complete the rest of the article. A Desktop application group is created automatically when using the Azure portal, whichever application group type you set as the preferred.
 >
 > - If you created a host pool and workspace in the same process, but didn't register the default desktop application group from this host pool, go to the section [Create an application group](#create-an-application-group) and complete the rest of the article.
 >
@@ -432,7 +442,7 @@ Here's how to create an application group using the Azure portal.
    > [!TIP]
    > Once you've completed this tab, select **Next: Review + create**. You don't need to complete the other tabs to create an application group, but you'll need to [create a workspace](#create-a-workspace), [add an application group to a workspace](#add-an-application-group-to-a-workspace) and [assign users to the application group](#assign-users-to-an-application-group) before users can access the resources.
    >
-   > If you created an application group for RemoteApp, you will also need to add applications. For more information, see [Add applications to an application group](manage-app-groups.md)
+   > If you created an application group for RemoteApp, you will also need to add applications to it. For more information, see [Publish applications](publish-applications.md).
 
 1. *Optional*: If you selected to create a RemoteApp application group, you can add applications to this application group. On the **Application groups** tab, select **+ Add applications**, then select an application. For more information on the application parameters, see [Publish applications with RemoteApp](manage-app-groups.md). At least one session host in the host pool must be powered on and available in Azure Virtual Desktop.
 

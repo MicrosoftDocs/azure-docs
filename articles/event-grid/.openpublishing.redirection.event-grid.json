@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "configure-firewall-mqtt.md",
+      "redirect_url": "/azure/event-grid/mqtt-configure-firewall",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "configure-private-endpoints-mqtt.md",
+      "redirect_url": "/azure/event-grid/mqtt-configure-private-endpoints",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "configure-firewall-namespace-topics.md",
+      "redirect_url": "/azure/event-grid/configure-firewall-namespaces",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "network-security-mqtt.md",
+      "redirect_url": "/azure/event-grid/network-security-namespaces",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "scripts/powershell-webhook-secure-delivery-azure-ad-user.md",
       "redirect_url": "/azure/event-grid/scripts/powershell-webhook-secure-delivery-microsoft-entra-user",
       "redirect_document_id": false

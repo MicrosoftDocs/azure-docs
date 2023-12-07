@@ -3,7 +3,6 @@ title: Extensions - Azure Database for PostgreSQL - Flexible Server
 description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
 author: sunilagarwal
 ms.author: sunila
-ms.reviewer: maghan
 ms.date: 11/06/2023
 ms.service: postgresql
 ms.subservice: flexible-server
