@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the side by side migration
 description: Overview of the side by side migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 08/30/2023
+ms.date: 12/7/2023
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -44,7 +44,7 @@ The following App Service Environment configurations can be migrated using the s
 |ILB App Service Environment v2 with a custom domain suffix                                         |ILB App Service Environment v3 (custom domain suffix is optional) |
 |ILB/ELB zone pinned App Service Environment v2                                                     |ILB/ELB App Service Environment v3                         |
 
-App Service Environment v3 can deployed as [zone redundant](../../availability-zones/migrate-app-service-environment.md). Zone redundancy can be enabled once the migration is complete as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions). For details on how to enable zone redudancy, see [Configure zone redundancy for App Service Environment v3](TODO:add link to in place ZR migration when ready).
+App Service Environment v3 can deployed as [zone redundant](../../availability-zones/migrate-app-service-environment.md). Zone redundancy can be enabled once the migration is complete as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions). For details on how to enable zone redundancy, see [Configure zone redundancy for App Service Environment v3](TODO:add link to in place ZR migration when ready).
 
 If you want your new App Service Environment v3 to use a custom domain suffix and you aren't using one currently, custom domain suffix can be configured during the migration set-up or at any time once migration is complete. For more information, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). If your existing environment has a custom domain suffix and you no longer want to use it, don't configure a custom domain suffix during the migration set-up.
 
@@ -114,13 +114,17 @@ The platform creates your new App Service Environment v3 in a different subnet t
 
 ### Generate IP addresses for your new App Service Environment v3
 
-The platform creates the [new inbound IP and the new outbound IP](networking.md#addresses) addresses. While these IPs are getting created, activity with your existing App Service Environment isn't interrupted, however, you can't scale or make changes to your existing environment. This process takes about 15 minutes to complete.
+The platform creates the [the new outbound IP addresses](networking.md#addresses). While these IPs are getting created, activity with your existing App Service Environment isn't interrupted, however, you can't scale or make changes to your existing environment. This process takes about 15 minutes to complete.
 
-When completed, you'll be given the new IPs that your future App Service Environment v3 uses. These new IPs have no effect on your existing environment. The IPs used by your existing environment continue to be used up until you redirect customer traffic and complete the migration in the final step.
+When completed, you'll be given the new outbound IPs that your future App Service Environment v3 uses. These new IPs have no effect on your existing environment. The IPs used by your existing environment continue to be used up until you redirect customer traffic and complete the migration in the final step.
+
+You receive the new inbound IP address once migration is complete but before you make the [DNS change to redirect customer traffic to your new App Service Environment v3](#redirect-customer-traffic-and-complete-migration). You don't get the inbound IP at this point in the process because the inbound IP is dependent on the subnet you select for the new environment. You have a chance to update any resources that are dependent on the new inbound IP before you redirect traffic to your new App Service Environment v3.
+
+TODO:is this where they select if they want to enable ZR?
 
 ### Update dependent resources with new IPs
 
-The new IPs will be created and given to you before you start the actual migration. The new default outbound to the internet public addresses are given so you can adjust any external firewalls, DNS routing, network security groups, and any other resources that rely on these IPs before completing the migration. You also have the new inbound IP address that you can use to set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md). **It's your responsibility to update any and all resources that will be impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.** This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3 including the port change for the Azure Load Balancer, which now uses port 80.
+The new outbound IPs will be created and given to you before you start the actual migration. The new default outbound to the internet public addresses are given so you can adjust any external firewalls, DNS routing, network security groups, and any other resources that rely on these IPs before completing the migration. **It's your responsibility to update any and all resources that will be impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.** This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3 including the port change for the Azure Load Balancer, which now uses port 80.
 
 ### Delegate your App Service Environment subnet
 
@@ -136,7 +140,7 @@ Virtual network locks block platform operations during migration. If your virtua
 
 ### Add a custom domain suffix
 
-If your existing App Service Environment uses a custom domain suffix, you can configure a custom domain suffix for your new App Service Environment v3. Custom domain suffix on App Service Environment v3 is implemented differently than on App Service Environment v2. You need to provide the custom domain name, managed identity, and certificate, which must be store in Azure Key Vault. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). Configuring a custom domain suffix is optional. If your App Service Environment v2 has a custom domain suffix and you don't want to use it on your new App Service Environment v3, don't configure a custom domain suffix during the migration set-up. 
+If your existing App Service Environment uses a custom domain suffix, you can configure a custom domain suffix for your new App Service Environment v3. Custom domain suffix on App Service Environment v3 is implemented differently than on App Service Environment v2. You need to provide the custom domain name, managed identity, and certificate, which must be stored in Azure Key Vault. For more information on App Service Environment v3 custom domain suffix including requirements, step-by-step instructions, and best practices, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). Configuring a custom domain suffix is optional. If your App Service Environment v2 has a custom domain suffix and you don't want to use it on your new App Service Environment v3, don't configure a custom domain suffix during the migration set-up. 
 
 ### Migrate to App Service Environment v3
 
@@ -156,9 +160,13 @@ Side by side migration requires a three to six hour service window for App Servi
 
 When this step completes, your application traffic is still going to your old App Service Environment and the IPs that were assigned to it. However, you also now have a functioning App Service Environment v3 with all of your apps.
 
+### Get the inbound IP address for your new App Service Environment v3 and update dependent resources
+
+You get the new inbound IP address that you can use to set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md). Don't move on to the next step until you account for this change. There will be downtime if you don't update dependent resources with the new inbound IP. **It's your responsibility to update any and all resources that will be impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.**
+
 ### Redirect customer traffic and complete migration
 
-You need to redirect traffic to your new App Service Environment v3 and complete the migration. Before you do this, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. Once you're ready to redirect traffic, you can complete the final step of the migration. This step will update your DNS records to point to the new inbound IP address of your App Service Environment v3. Changes are effective immediately. This step shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment.
+You need to redirect traffic to your new App Service Environment v3 and complete the migration. Before you do this, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. You have the IPs associated with your App Service Environment v3 from the [IP generation step](#generate-ip-addressses-for-your-new-app-service-environment-v3). Once you're ready to redirect traffic, you can complete the final step of the migration. This step will update your DNS records to point to the new inbound IP address of your App Service Environment v3. Changes are effective immediately. This step shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment.
 
 > [!NOTE]
 > Due to the conversion of App Service plans from Isolated to Isolated v2, your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and CPU per corresponding instance size. You'll have the opportunity to [scale your environment](../manage-scale-up.md) as needed once migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
@@ -170,7 +178,7 @@ If you discover any issues with your new App Service Environment v3, you have th
 
 There's no cost to migrate your App Service Environment. However, you'll be billed for both your App Service Environment v2 and your new App Service Environment v3 once you start the migration process. You stop being charged for your old App Service Environment v2 when you complete the final migration step where your DNS is updated and the old environment gets deleted. You should complete your validation as quickly as possible to prevent excess charges from accumulating. For more information about App Service Environment v3 pricing, see the [pricing details](overview.md#pricing).
 
-When you migrate to App Service Environment v3 from previous versions, there are scenarios that you should consider that can potentially reduce your monthly cost. For information on cost saving opportunities, see [Cost saving opportunities after upgrading to App Service Environment v3](upgrade-to-asev3.md#cost-saving-opportunities-after-upgrading-to-app-service-environment-v3).
+When you migrate to App Service Environment v3 from previous versions, there are scenarios that you should consider that can potentially reduce your monthly cost. Consider [reservations](../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances) and [savings plans](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md) to further reduce your costs. For information on cost saving opportunities, see [Cost saving opportunities after upgrading to App Service Environment v3](upgrade-to-asev3.md#cost-saving-opportunities-after-upgrading-to-app-service-environment-v3).
 
 ### Scale down your App Service plans
 
