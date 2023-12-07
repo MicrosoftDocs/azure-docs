@@ -23,7 +23,7 @@ The neural dictionary is an extension to our [dynamic dictionary](dynamic-dictio
 
 * Overall high-term translation accuracy.
 
-* Neural phrase fixing that effectively handles verbs, adjectives and noun phrases. **Note**: both source and target should have the same part-of-speech (syntax) tags.
+* Neural phrase fixing that effectively handles verbs, adjectives, and noun phrases. **Both source and target must have the same part-of-speech (syntax) tags**.
 
 The following table lists the differences between standard and neural phrase fixing:
 
@@ -71,11 +71,12 @@ Neural dictionary is available using [Custom Translator](https://portal.customtr
 1. An entry from the phrase dictionary is applied only if the source element is found via an exact case-sensitive match. This action applies to both hard and neural phrase fixing.
 
     * When working with a neural phrase-fix dictionary, to ensure that the phrase dictionary entry is applied consistently, consider adding phrase entries with the source in various forms.
-    * For example, If you want to make sure that "solution" is translated as "alternatywa" (Polish translation of the English word "alternative"), next to `solution _ alternatywa` you can add the following entries as well: `Solution _ alternatywa`, `solutions _ alternatywy`, `Solutions _ alternatywy`.
+
+    * For example, If you want to make sure that "solution" is translated as "alternatywa" (Polish translation of the English word "alternative") next to `solution _ alternatywa` you can add the following entries as well: `Solution _ alternatywa`, `solutions _ alternatywy`, `Solutions _ alternatywy`.
 
 1. If you're using a phrase dictionary to ensure that a specific word or phrase is copied "*as is*" from the input text to the output translation, consider enforcing a verbatim dictionary for greater consistency.  "*As is*" copying isn't guaranteed with the neural phrase dictionary because it can inflect words or change casing. However, it can copy named entities and acronyms.
 
-1. Neural phrase fixing isn't applied for sentences containing at least one of the following elements:  emoji, emoticon, URL, social media identifier, code identifier, math symbols, long number sequences such as a hexadecimal.
+1. Neural phrase fixing isn't applied for sentences containing at least one of the following elements:  emoji, emoticon, URL, social media identifier, code identifier, math symbols, or long number sequences such as a hexadecimal.
 
 1. Infrequently (less than 0.1%), a neural phrase fix doesn't respect the dynamic dictionary annotation or phrase dictionary entry and the requested translation doesn't appear in the output translation.
 
