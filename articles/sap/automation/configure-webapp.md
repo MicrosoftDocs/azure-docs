@@ -69,8 +69,9 @@ rm ./manifest.json
 Persist the values in the control plane variable group for later use.
 
 
+
 | Variable name                    | Value                                       | Note           |
-| -------------------------------- | ------------------------------------------- |                |
+| -------------------------------- | ------------------------------------------- | -------------- |
 | `APP_REGISTRATION_APP_ID`        | App registration ID from last step          |                |
 | `WEB_APP_CLIENT_SECRET`          | App registration password from last step    | Mark as secret |
 
