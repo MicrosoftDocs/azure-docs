@@ -19,15 +19,15 @@ For more information about how the CA certificates are used in IoT Edge devices,
 
 You need the following files for manual provisioning with X.509:
 
-* Two of device identity certificates with their matching private key certificates in .cer or .pem formats.
+* Primary and secondary device certificates with their matching private key certificates in .cer or .pem formats.
 
   One set of certificate/key files is provided to the IoT Edge runtime. When you create device identity certificates, set the certificate common name (CN) with the device ID that you want the device to have in your IoT hub.
 
-* Thumbprints taken from both device identity certificates.
+* Thumbprints taken from both primary/secondary device certificates.
 
   Thumbprint values are 40-hex characters for SHA-1 hashes or 64-hex characters for SHA-256 hashes. Both thumbprints are provided to IoT Hub at the time of device registration.
 
-If you don't have certificates available, you can [Create demo certificates to test IoT Edge device features](../how-to-create-test-certificates.md). Follow the instructions in that article to set up certificate creation scripts, create a root CA certificate, and then create two IoT Edge device identity certificates.
+If you don't have certificates available, you can [Create demo certificates to test IoT Edge device features](../how-to-create-test-certificates.md). Follow the instructions in that article to set up certificate creation scripts, create a root CA certificate, and then create the primary/secondary identity certificates in the "Create downstream device certificates / Self-signed certificates" section.
 
 One way to retrieve the thumbprint from a certificate is with the following openssl command:
 
