@@ -80,7 +80,9 @@ selected call.
 
 The search field allows you to search by callID. See our documentation to [access your client call ID.](../troubleshooting-info.md#access-your-client-call-id)
 
- <!-- (**insert image)** -->
+![Call Diagnostics - Call Search](media/cd-all-calls.png)
+
+<!-- :::image type="content" source="../media/raw-media/raw-media-overview-1.png" alt-text="diagram of raw media overview use cases."::: -->
 
 > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
@@ -93,13 +95,9 @@ the participants in the call and key metrics for their call quality. You
 can select a participant to drill into their call timeline details
 directly or navigate to the Call Issues tab for further analysis.
 
-<!-- (**<u>TODO insert image)</u>** -->
-
-
-<!-- > [!NOTE]
-> You can explore information icons and links on each page within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
-
-<!-- (**insert image)** -->
+![Call Diagnostics - Call Overview](media/cd-call-overview.png)
+> [!NOTE]
+> You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
 
 ## Call Issues
 
@@ -112,11 +110,10 @@ failures during a call. If you want to explore a detected issue, select
 the highlighted item and you'll see a pre-populated view of the
 related events in the Timeline tab.
 
-<!-- (**<u>TODO insert image)</u>** -->
+![Call Diagnostisc - Call Issues](media/cd-call-issues.png)
 
-
-<!-- > [!NOTE]
-> You can explore information icons and links on each page within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
+> [!NOTE]
+> You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
 
 ## Call Timeline
 
@@ -132,11 +129,11 @@ results and reduce complexity.
 
 You can view detailed call logs for each participant within a call. Call information may not be present, this can be due to various reasons such as privacy constraints between different calling resources. See frequently asked questions to learn more.
 
-<!-- (**<u>TODO insert image)</u>** -->
-
+![Call Diagnostics - Call Timeline](media/cd-call-timeline.png)
 
 <!-- > [!NOTE]
-> You can explore information icons and links on each page within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
+> You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
+
 
 <!-- # Common issues
 
