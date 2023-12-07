@@ -1,6 +1,6 @@
 ---
-title: How to create users
-description: This article describes how to create new user accounts to interact with Azure Database for MySQL - Flexible Server.
+title: How to create users for Azure Database for MySQL
+description: This article describes how to create new user accounts to interact with an Azure Database for MySQL server.
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
@@ -9,7 +9,7 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
-# Create users in Azure Database for MySQL - Flexible Server
+# Create users in Azure Database for MySQL
 
 [!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
