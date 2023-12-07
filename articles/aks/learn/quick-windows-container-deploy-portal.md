@@ -79,8 +79,8 @@ The following limitations apply to *Windows Server node pools*:
 
 It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
 
-    - Selecting **Go to resource**, or
-    - Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*.
+- Selecting **Go to resource**, or
+- Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*.
 
 ## Connect to the cluster
 
