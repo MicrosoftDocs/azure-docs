@@ -408,8 +408,6 @@ items:
           href: vm/vminsights-enable-hybrid.md
         - name: Dependency Agent
           href: vm/vminsights-dependency-agent-maintenance.md
-        - name: Configure workspace 
-          href: vm/vminsights-configure-workspace.md
         - name: Migrate from deprecated VM insights policies 
           href: vm/vminsights-migrate-deprecated-policies.md          
       - name: Map dependencies
