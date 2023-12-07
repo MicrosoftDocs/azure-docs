@@ -67,7 +67,7 @@ The following sections provide details about properties that are used to define 
 ## Linked service properties
 
 > [!Important]
-> Due to the sunset of Google Ads API by **April 27, 2022**, the service has upgraded to the new Google Ads API. Please refer this [document](connector-troubleshoot-google-adwords.md#migrate-to-the-new-version-of-google-ads-api) for detailed migration steps and recommendations. Please make sure the migration to be done before **April 27, 2022**.  
+> Due to the sunset of Google AdWords API by **April 27, 2022**, the service has upgraded to the new Google Ads API.  Please recreate the linked service with the latest Google Ads API if you use the legacy version.
 
 The following properties are supported for Google Ads linked service:
 
@@ -75,15 +75,15 @@ The following properties are supported for Google Ads linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **GoogleAdWords** | Yes |
 | googleAdsApiVersion | The Google Ads API version that you use.| Yes |
-| clientCustomerID | The Client customer ID of the AdWords account that you want to fetch report data for.  | Yes |
+| clientCustomerID | The Client customer ID of the Ads account that you want to fetch report data for.  | Yes |
 | loginCustomerID | The customer ID of the Google Ads manager account through which you want to fetch report data of specific customer.| No |
-| developerToken | The developer token associated with the manager account that you use to grant access to the AdWords API.  You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| developerToken | The developer token associated with the manager account that you use to grant access to the Ads API.  You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | authenticationType | The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR. <br/>Allowed values are: **ServiceAuthentication**, **UserAuthentication** | Yes |
-| refreshToken | The refresh token obtained from Google for authorizing access to AdWords for UserAuthentication. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| refreshToken | The refresh token obtained from Google for authorizing access to Ads for UserAuthentication. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | clientId | The client ID of the Google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | clientSecret | The client secret of the google application used to acquire the refresh token. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | email | The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.  | No |
-| privateKey | The service private key that is used for ServiceAuthentication for recommended driver version (Google Ads API version v14). You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md).| No |
+| privateKey | The service private key that is used for ServiceAuthentication for recommended driver version and can only be used on self-hosted IR. You can choose to mark this field as a SecureString to store it securely, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md).| No |
 | keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
 | trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Specify this property when you use ServiceAuthentication for the legacy driver version. | No |
@@ -96,28 +96,26 @@ The following properties are supported for Google Ads linked service:
     "properties": {
         "type": "GoogleAdWords",
         "typeProperties": {
-            "connectionProperties": {
-                "clientCustomerID": "<clientCustomerID>",
-                "loginCustomerID": "<loginCustomerID>",
-                "developerToken": {
-                    "type": "SecureString",
-                    "value": "<developerToken>"
-                },
-                "authenticationType": "UserAuthentication",
-                "refreshToken": {
-                    "type": "SecureString",
-                    "value": "<refreshToken>"
-                },
-                "clientId": {
-                    "type": "SecureString",
-                    "value": "<clientId>"
-                },
-                "clientSecret": {
-                    "type": "SecureString",
-                    "value": "<clientSecret>"
-                },
-                "googleAdsApiVersion": "v14"
-            }
+            "clientCustomerID": "<clientCustomerID>",
+            "loginCustomerID": "<loginCustomerID>",
+            "developerToken": {
+                "type": "SecureString",
+                "value": "<developerToken>"
+            },
+            "authenticationType": "UserAuthentication",
+            "refreshToken": {
+                "type": "SecureString",
+                "value": "<refreshToken>"
+            },
+            "clientId": {
+                "type": "SecureString",
+                "value": "<clientId>"
+            },
+            "clientSecret": {
+                "type": "SecureString",
+                "value": "<clientSecret>"
+            },
+            "googleAdsApiVersion": "v14"
         }
     }
 }
@@ -163,7 +161,7 @@ To copy data from Google Ads set the source type in the copy activity to **Googl
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **GoogleAdWordsSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
+| query | Use the GAQL query to read data. For example: `SELECT campaign.id FROM campaign`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -187,7 +185,7 @@ To copy data from Google Ads set the source type in the copy activity to **Googl
         "typeProperties": {
             "source": {
                 "type": "GoogleAdWordsSource",
-                "query": "SELECT * FROM MyTable"
+                "query": "SELECT campaign.id FROM campaign"
             },
             "sink": {
                 "type": "<sink type>"
