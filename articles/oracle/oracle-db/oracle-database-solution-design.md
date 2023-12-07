@@ -1,5 +1,5 @@
 ---
-title: Solution design for Oracle Database@Azure
+title: Network planning for Oracle Database@Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
 description: Learn about topologies and constraints for Oracle Database@Azure. 
@@ -9,9 +9,9 @@ ms.custom: engagement-fy23
 ms.date: 12/6/2023
 ---
 
-# Solution design for Oracle Database@Azure
+# Network planning for Oracle Database@Azure
 
-This article identifies topologies and constraints for Oracle Database@Azure.
+In this article, you learn about the topologies and constraints for Oracle Database@Azure.
 
 ## Supported topologies
 
