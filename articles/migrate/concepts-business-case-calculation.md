@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 08/24/2023
+ms.date: 12/07/2023
 ms.custom: engagement-fy24
 ---
 
@@ -146,6 +146,10 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 |     | SQL Servers | SQL protection cost | Default is USD 1000 per year per server. This is multiplied with number of servers running SQL |
 | Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
+| Management | Management Software licensing | System center Management software <br/><br/> VMWare Vcenter Management software <br/><br/> Other Management software | Used for cost of the System center management software that includes monitoring, hardware and virtual machine provisioning, automation, backup and configuration management capabilities. Cost of Microsoft system center management software is added when the system center agents are identified on any of the discovered resources. This is applicable only for windows servers and SQL servers related scenarios and includes Software assurance. <br/><br/> This is the cost associated with VMWare management software i.e. Management software cost for vSphere Standard + production support cost of management software. Not included- other hypervisor software cost or Antivirus/Monitoring Agents. <br/><br/> This is the cost of the management software for third party management products. |
+|     | Management cost other than software | Monitoring cost <br/><br/> Patch Management cost <br/><br/> Backup cost | Specify costs other than monitoring software. Default is USD 430 per year per server. This is multiplied with the number of servers. The default used is the cost associated with a monitoring administrator. <br/><br/> Specify costs other than patch management software. Default is USD 430 per year per server. This is multiplied with the number of servers. Default is the cost associated with a patch management administrator. <br/><br/> Specify costs other than backup software. Default is USD 580 per year per server. This is multiplied with the number of servers. Default used is the cost associated with a backup administrator and storage. |
+
+
 
 #### Azure cost
 
@@ -164,6 +168,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 |     | Azure App Service security cost | Defender for App Service | For web apps recommended for App Service or App Service containers, the Defender for App Service cost for that region is added. |
 | Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
+| Management | Azure Management Services | | Azure Monitor costs for each server is estimated at $6.9/month his assumes collection of logs ingestion for the guest operating system and one custom application is enabled for the server, totaling logs data of 3GB/month. <br/><br/> Azure Backup cost for each server/month is dynamically calculated  estimated based on the protected instance fee +Vault storage +Snapshot storage. <br/><br/> Azure Update Manager is free for Azure servers. |
 
 ### Year on Year costs
 

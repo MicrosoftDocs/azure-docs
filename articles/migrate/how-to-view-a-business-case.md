@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 08/24/2023
+ms.date: 12/07/2023
 ms.custom: engagement-fy24
 
 ---
@@ -77,6 +77,9 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
 - These servers were on but don't have adequate metrics available:
     - Unknown: Many servers can land in this section if the discovery is still ongoing or has some unaddressed discovery issues.
 
+### Savings with Security and Management
+
+It shows the potential savings with respect to securing your migration with Microsoft Defender for Cloud and Azure Management services including Azure Monitor, Azure Backup and Azure Update Manager for streamlining your operations.
     
 ## On-premises vs Azure report 
 It covers cost components for on-premises and Azure, savings, and insights to understand the savings better.
