@@ -28,7 +28,7 @@ You can provision and manage your Oracle Database@Azure infrastructure (Exadata 
 
 Oracle Container Databases (CDB) and Oracle Pluggable Databases (PDB) provisioning and management tasks are completed using the OCI console. 
 
-Database and application developers can interact, manage, and monitor their Oracle databases using familiar Oracle tools like Oracle SQL developer, Oracle Enterprise manage, DataGuard and Golden Gate 
+Database and application developers can interact, manage, and monitor their Oracle databases using familiar Oracle tools like Oracle SQL developer, Oracle Enterprise manage, DataGuard and Golden Gate. 
 
 ## Purchasing Oracle Database@Azure 
 

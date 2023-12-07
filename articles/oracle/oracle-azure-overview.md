@@ -12,7 +12,7 @@ ms.date: 12/06/2023
 
 # Oracle on Azure
 
-There are multiple Microsoft Azure offerings for running and managing your Oracle systems. These offerings range from traditional Azure Virtual Machines, top-level Azure services, to tools that integrate with other Azure services or external products. 
+Microsoft Azure is an authorized cloud provider for customers to run Oracle workloads. Customers have been migrating their Oracle databases, and enterprise applications such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic server applications to Azure infrastructure as part of their cloud migration journey. 
 
 ## Oracle on Azure Virtual Machines 
 

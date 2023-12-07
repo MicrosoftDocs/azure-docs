@@ -17,7 +17,8 @@ items:
     href: oracle-db/provision-oracle-database.md
   - name: Support for Oracle Database@Azure
     href: oracle-db/oracle-database-support.md
-- name: Solution design
-  items:
-  - name: Solution design for Oracle Database@Azure
-    href: oracle-db/oracle-database-solution-design.md
+  - name: Network planning
+    items:
+    - name: Solution design for Oracle Database@Azure
+      href: oracle-db/oracle-database-solution-design.md
+ 

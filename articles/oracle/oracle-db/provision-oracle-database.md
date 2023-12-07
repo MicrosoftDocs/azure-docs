@@ -14,27 +14,23 @@ ms.author: jacobjaygbay
 
 # Provision and manage Oracle Database@Azure
 
-Oracle Database@Azure offers you a seamless integration of Oracle resources within the Microsoft Azure cloud environment.
+Oracle Database@Azure offers you a seamless integration of Oracle resources within Microsoft Azure.
 
 :::image type="content" source="media/ODAAZMain.png" alt-text="Diagram showing the starting page for accessing Oracle Database@Azure from the Microsoft Azure portal.":::
 
-You access the OracleDB@Azure service through the Microsoft Azure portal.
+After accepting the private offer through the Azure Marketplace, navigate to the Oracle Database@Azure service page in the Azure portal to create and manage Oracle Exadata Infrastructure and Oracle Exadata virtual machine Cluster resources with direct access to the Oracle Cloud Infrastructure (OCI) portal to create and manage Oracle Exadata Databases, including all Container Databases (CDBs) and Pluggable Databases (PDBs).
 
 :::image type="content" source="media/ODAAZStart.png" alt-text="Diagram showing the second page for accessing Oracle Database@Azure from the Microsoft Azure portal.":::
 
-From here, you create and manage Oracle Exadata Infrastructure and Oracle Exadata Virtual Machine Cluster resources with direct access to the Oracle Cloud Infrastructure (OCI) portal for creation and management of Oracle Exadata Databases, including all Container Databases (CDBs) and Pluggable Databases (PDBs).
-
-## Other information
+## Additional information
 
 For more information on specific database articles beyond their implementation and use within Oracle Database@Azure, see the following articles:
-* [Exadata Database Service on Dedicated Infrastructure](https://docs.oracle.com/en/engineered-systems/exadata-cloud-service/ecscm/index.html#Oracle%C2%AE-Cloud)
-* [Manage Databases on Exadata Cloud Infrastructure](https://docs.oracle.com/en/engineered-systems/exadata-cloud-service/ecscm/manage-databases.html#GUID-51424A67-C26A-48AD-8CBA-B015F88F841A)
+- [Exadata Database Service on Dedicated Infrastructure](https://docs.oracle.com/en/engineered-systems/exadata-cloud-service/ecscm/index.html#Oracle%C2%AE-Cloud)
+ - [Manage Databases on Exadata Cloud Infrastructure](https://docs.oracle.com/en/engineered-systems/exadata-cloud-service/ecscm/manage-databases.html#GUID-51424A67-C26A-48AD-8CBA-B015F88F841A)
 
-## Create a resource
+## Create an Exadata infrastructure
 
-You can use the Oracle Database@Azure portal to provision Oracle Exadata Infrastructure and Oracle Exadata Virtual Machine Cluster resources with direct access to the Oracle Cloud Infrastructure (OCI) portal for creation and management of Oracle Exadata Databases, including all Container Databases (CDBs) and Pluggable Databases (PDBs).
-
-From the OracleDB@Azure blade, you can provision Oracle Exadata Infrastructure and Oracle Exadata Virtual Machine Cluster resources.
+Navigate to the Oracle Database@Azure service blade, to provision Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources.
 
 :::image type="content" source="media/ODAAZExaInf01.png" alt-text="Diagram showing next page to access Oracle Database@Azure from the Microsoft Azure portal.":::
 
@@ -45,7 +41,7 @@ From the OracleDB@Azure blade, you can provision Oracle Exadata Infrastructure a
 
 ## Provision Exadata infrastructure
 
-Provisioning Oracle Exadata Infrastructure is a time-consuming process. Provisioning an Oracle Exadata Infrastructure is a prerequisite for provisioning Oracle Exadata Virtual Machine Clusters and any Oracle Exadata Databases.
+Provisioning Oracle Exadata Infrastructure takes a few hours and is a prerequisite for provisioning Oracle Exadata VM Clusters and any Oracle Exadata Databases.
 
 1. To provision an Oracle Exadata Infrastructure, start at the Oracle Database@Azure blade with the Oracle Exadata Infrastructure tab selected. Select the + Create icon.
 
@@ -56,26 +52,25 @@ Provisioning Oracle Exadata Infrastructure is a time-consuming process. Provisio
 
     :::image type="content" source="media/ODAAZExaInf02.png" alt-text="Diagram showing the basics Tab of the Create Oracle Exadata Infrastructure Flow":::
 
-    1. Select the Microsoft Azure subscription to which the Oracle Exadata Infrastructure will be provisioned.
+    1. Select the Microsoft Azure subscription to which the Oracle Exadata Infrastructure is being provisioned.
     1. Select an existing Resource group or select the Create new link to create and use a new Resource group for this resource.
     1. Enter a unique Name for the Oracle Exadata Infrastructure on this subscription.
     1. Select the Region where this Oracle Exadata Infrastructure is provisioned. 
-       >[!Note] 
-       > The regions where the OracleDB@Azure service is available are > limited.
+       
     1. Select the Availability zone where this Oracle Exadata Infrastructure is provisioned. 
        >[!NOTE] 
-       >The availability zones where the OracleDB@Azure service is available are limited.
-    1. The Oracle Cloud account name field is display-only. If the name isn't showing correctly, your OracleDB@Azure account setup isn't successfully completed.
+       >Select the same availability zone as your application tier for proximity. Oracle Database@Azure is deployed in at least two availability zones per region.
+    1. The Oracle Cloud account name field is display-only. If the name isn't showing correctly, your Oracle Database@Azure account setup isn't successfully completed.
 1. From the Configuration tab of the Create Oracle Exadata Infrastructure flow, enter the following information.
 
     :::image type="content" source="media/ODAAZExaInf03.png" alt-text="Diagram showing the basics Tab of the the configuration Tab of the Create Oracle Exadata Infrastructure Flow":::
 
     1. From the dropdown list, select the Exadata infrastructure model you want to use for this deployment. 
         >[!NOTE] 
-        >Not all Oracle Exadata Infrastructure models are available. For more information, see [Oracle Exadata Infrastructure Models](https://docs.oracle.com/en-us/iaas/exadatacloud/exacs/ecs-ovr-x8m-scable-infra.html).
-    1. The Database servers selector can be used to select a range from 2 to 32.
-    1. The Storage servers selector can be used to select a range from 3 to 64.
-    1. The OCPUs and Storage fields are automatically updated based on the settings of the Database servers and Storage servers selectors.
+        > Not all Oracle Exadata Infrastructure models are available. For more information, see [Oracle Exadata Infrastructure Models](https://docs.oracle.com/en-us/iaas/exadatacloud/exacs/ecs-ovr-x8m-scable-infra.html).
+    1. Use the database servers selector to select a range from 2 to 32.
+    1. Use the storage servers selector to select a range from 3 to 64.
+    1. The OCPUs and storage fields are automatically updated based on the settings of the database servers and storage servers selectors.
 1. From the Maintenance tab of the Create Oracle Exadata Infrastructure flow, enter the following information. 
      :::image type="content" source="media/ODAAZExaInf04b.png" alt-text="Diagram showing the basics Tab of the the configuration Tab of the expanded Custom Maintenance Schedule":::      
     1. The Maintenance method is selectable to either **Rolling** or **Non-rolling** based on your patching preferences.
@@ -98,9 +93,9 @@ Provisioning Oracle Exadata Infrastructure is a time-consuming process. Provisio
 
 ## Provision an Exadata Virtual Machine Cluster
 
-Provisioning an Oracle Exadata Virtual Machine Cluster requires the existence of an Oracle Exadata Infrastructure, and is a prerequisite for Oracle Exadata Databases that runs on the cluster.
+Once you have provisioned the Oracle Exadata Infrastructure, you now need to create  an Oracle Exadata VM Cluster to run your  Oracle Exadata Databases.
 
-1. To provision an Oracle Exadata Virtual Machine Cluster, start at the OracleDB@Azure blade with the Oracle Exadata Virtual Machine Cluster tab selected. Select the + Create icon.
+1. To provision an Oracle Exadata Virtual Machine Cluster, start at the OracleDB@Azure blade with the Oracle Exadata Virtual Machine Cluster tab selected. Select the **+ Create** icon.
 
      :::image type="content" source="media/ODAAZExaVM01.png" alt-text="Diagram showing the Oracle Database@Azure Blade":::
 
@@ -110,12 +105,12 @@ Provisioning an Oracle Exadata Virtual Machine Cluster requires the existence of
 
      :::image type="content" source="media/ODAAZExaVM02.png" alt-text="Diagram showing the Basics Tab of the Create Oracle Exadata Virtual Machine Cluster Flow":::
 
-   1. Select the Microsoft Azure subscription to which the Oracle Exadata Virtual Machine Cluster will be provisioned.
+    1. Select the Microsoft Azure subscription to which the Oracle Exadata Virtual Machine Cluster will be provisioned.
     1. Select an existing Resource group or select the Create new link to create and use a new Resource group for this resource.
     1. Enter a unique Name for the Oracle Exadata Virtual Machine Cluster on this subscription.
     1. Select the Region where this Oracle Exadata Infrastructure is provisioned. 
         >[!NOTE]
-        >The regions where the OracleDB@Azure service is available are limited, and you should assign the Oracle Exadata Virtual Machine Cluster to the same region as the parent Oracle Exadata Infrastructure.
+        >You should assign the Oracle Exadata VM Cluster to the same region as the parent Oracle Exadata Infrastructure.
     1. The Cluster name should match the Name to avoid other naming conflicts.
     1. Select the existing Exadata infrastructure that is the parent for your Oracle Exadata Virtual Machine Cluster.
     1. The License type is either License Included or Bring your own license (BYOL). Your selection affects your billing.
@@ -129,15 +124,15 @@ Provisioning an Oracle Exadata Virtual Machine Cluster requires the existence of
    1. The options for Compute count, DbSystem shape, OCPU count per VM, Memory per VM, and Local storage per Virtual Machine are limited by the Oracle Exadata Infrastructure.
     1. Total requested OCPU count, Total requested memory, and Total local storage are computed based on the local values that you accept or select.
     1. Usable Exadata Storage (TB) is limited by the Oracle Exadata Infrastructure.1. Use Exadata sparse snapshots, Use local backups, and Usable storage allocation are options that can only be set at this time before the Oracle Virtual Machine Cluster has been provisioned.
-1. From the Networking tab of the Create Oracle Exadata Virtual Machine Cluster flow, enter the following information. 
+1. From the **Networking** tab of the Create Oracle Exadata Virtual Machine Cluster flow, enter the following information. 
 
       :::image type="content" source="media/ODAAZExaVM04b.png" alt-text="Diagram showing the expanded Options for Private DNS Service"::: 
 
-   1. The Virtual network is limited based on the Subscription and Resource group that you selected earlier in the provisioning flow.
-    1. The Client subnet is filtered based on the selected Virtual network.
+    1. Select the virtual network from the **Virtual network** drop-down list. A filtered list for selection based on the Subscription and Resource group that you selected earlier in the provisioning flow displays.
+    1. Next select the ``Client subnet`` from the Virtual network selected in step a above. You can only select the subnet that’s delegated to ``Oracle.Database/networkAttachments``.
     1. By default, the Use private DNS service checkbox isn't selected. When not selected, you must enter a Host name prefix for your Oracle Exadata Virtual Machine Cluster.
-    1. If the Use private DNS service checkbox selected, you must enter Private view, Private zone, Host name prefix, Host domain name, and Host and domain URL for your Oracle Exadata Virtual Machine Cluster. Private view and Private zone are dropdown selections based on your Subscription and Region. Host domain name is entered, and Host and domain URL is derived based on Host name prefix and Host domain name.
-1. Use the Diagnostics Collection tab of the Create Oracle Exadata Virtual Machine Cluster to specify the diagnostic events, health monitoring, and incident logs and tracing that Oracle can use to identify, track, and resolve issues. 
+    1. If the **Use private DNS service** checkbox is selected, you must enter Private view, Private zone, Host name prefix, Host domain name, and Host and domain URL for your Oracle Exadata Virtual Machine Cluster. Private view and Private zone are in the drop-down list selections based on your Subscription and Region. Host domain name is entered, and Host and domain URL is derived based on Host name prefix and Host domain name.
+1. Use the **Diagnostics Collection** tab of the **Create Oracle Exadata Virtual Machine Cluster** to specify the diagnostic events, health monitoring, and incident logs and tracing that Oracle can use to identify, track, and resolve issues. 
 
     :::image type="content" source="media/ODAAZExaVM05.png" alt-text="Diagram showing the diagnostics collection of the Create Oracle Exadata Virtual Machine Cluster Flow"::: 
 
@@ -157,9 +152,7 @@ Consent Tab of the Create Oracle Exadata Virtual Machine Cluster Flow.
 
     :::image type="content" source="media/ODAAZExaVM08.png" alt-text="Diagram showing Validation Succeeded"::: 
 
-## Troubleshooting
-
-Use the information in this section to resolve common errors and provisioning issues in the Oracle Database@Azure. The issues covered in this guide don't cover general issues related to Oracle Database@Azure configuration, settings, and account setup. For that troubleshooting guide, see the [xref-here](http://link-to-be-determined.com) guide.
+1. Now that you have provisioned the Oracle Exadata infrastructure and Virtual Machine Cluster go to the Oracle Cloud Infrastructure (OCI) portal to create and manage Oracle Exadata Databases, including all Container Databases (CDBs) and Pluggable Databases (PDBs).
 
 ## Next steps
 - [Overview - Oracle Database@Azure](database-overview.md)
