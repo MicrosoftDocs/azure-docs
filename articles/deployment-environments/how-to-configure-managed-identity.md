@@ -87,7 +87,7 @@ The identity attached to the dev center should be assigned the Contributor and U
 
 ### Add a role assignment to a user-assigned managed identity
 
-1. In the Azure portal, navigate to your dev center in Azure Deployment Environments.
+1. In the Azure portal, navigate to your dev center.
 1. On the left menu under **Settings**, select **Identity**.
 1. Under **User assigned**, select the identity.
 1. On the left menu, select **Azure role assignments**.
@@ -141,7 +141,7 @@ If the key vault is configured to use Azure role-based access control:
     1. For **Role**, select **Key Vault Secrets User**.
     1. Select **Save**.
 
-## Next steps
+## Related content
 
 - [Add and configure a catalog](how-to-configure-catalog.md)
 - [Create and configure a project environment type](how-to-configure-project-environment-types.md)

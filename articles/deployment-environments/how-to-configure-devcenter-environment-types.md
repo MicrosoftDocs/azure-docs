@@ -1,7 +1,7 @@
 ---
 title: Configure dev center environment types
 titleSuffix: Azure Deployment Environments
-description: Learn how to define permissions and deployment settings for the dev center environments that developers can deploy.
+description: Learn how to define the environment types available for all projects within a dev center by creating them as dev center environment types.
 ms.service: deployment-environments
 ms.custom: ignite-2022, build-2023
 ms.author: rosemalcolm
@@ -54,6 +54,6 @@ To delete an environment type from a dev center:
 1. Select the environment types that you want to delete.
 1. Select **Delete** and then confirm.
 
-## Next steps
+## Next step
 
 * [Configure environment types for specific projects](how-to-configure-project-environment-types.md)

@@ -69,7 +69,7 @@ The users can now view the project and manage only the specific environment type
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
-## Next steps
+## Related content
 
 * [Create and configure projects](./quickstart-create-and-configure-projects.md)
 * [Provide access for developers to projects](./how-to-configure-deployment-environments-user.md)
