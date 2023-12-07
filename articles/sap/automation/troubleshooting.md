@@ -16,8 +16,6 @@ ms.custom: devx-track-ansible
 
 Within the SAP Deployment Automation Framework (SDAF), we recognize that there are many moving parts.  This article is intended to help you troubleshoot issues that you may encounter.
 
-## Installation
-
 ## Deployment
 
 This section describes how to troubleshoot issues that you may encounter when performing deployments using the SAP Deployment Automation Framework.
@@ -26,7 +24,7 @@ This section describes how to troubleshoot issues that you may encounter when pe
 If you see an error similar to the following when running the deployment:
 
 ```text
-Virtual Machine Name: "devsap01app01"): Code="OverconstrainedAllocationRequest" Message="Allocation failed. VM(s) with the following constraints cannot be allocated, because the condition is too restrictive. Please remove some constraints and try again. Constraints applied are:
+Virtual Machine Name: "devsap01app01": Code="OverconstrainedAllocationRequest" Message="Allocation failed. VM(s) with the following constraints cannot be allocated, because the condition is too restrictive. Please remove some constraints and try again. Constraints applied are:
 - Networking Constraints (such as Accelerated Networking or IPv6)
 - VM Size
 ```
@@ -48,7 +46,23 @@ The error indicates that the deployment credential does not have 'User Access Ad
 
 This section describes how to troubleshoot issues that you may encounter when performing configuration using the SAP Deployment Automation Framework.
 
+### Task 'ansible.builtin.XXX' has extra params'
+
+If you see an error similar to the following message when running the deployment:
+
+```text
+ERROR! this task 'ansible.builtin.command' has extra params, which is only allowed in the following modules: set_fact, shell, include_tasks, win_shell, import_tasks, import_role, include, win_command, command, include_role, meta, add_host, script, group_by, raw, include_vars
+```
+
+This error indicates that the task is not supported by the version of Ansible that is installed. To resolve this issue, upgrade to the latest version of Ansible on the agent virtual machine.
+
 ## Software download
+
+This section describes how to troubleshoot issues that you may encounter when downloading the SAP software using the SAP Deployment Automation Framework.
+
+### "HTTP Error 404: Not Found"
+
+This error indicates that the software version is no longer available for download. Please open a GitHub issue [New Issue](https://github.com/Azure/SAP-automation-samples/issues/new/choose)to request an update to the Bill of Materials file, or update the Bill of Materials file yourself and submit a pull request.
 
 ## Azure DevOps
 
