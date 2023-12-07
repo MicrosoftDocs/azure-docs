@@ -18,7 +18,7 @@ Node autoprovision (NAP) decides based on pending pod resource requirements the 
 - You need an Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - You need the [Azure CLI installed](/cli/azure/install-azure-cli).
 - [Install the `aks-preview` Azure CLI extension.  Minimum version 0.5.170](#install-the-aks-preview-azure-cli-extension).
-- [Register the NodeAutoProvisioningPreviewfeature flag](#register-the-aks-nodeautoprovisioning-feature-flag).
+- [Register the NodeAutoProvisioningPreviewfeature flag](#register-the-nodeautoprovisioningpreview-feature-flag).
 
 ### Install the `aks-preview` Azure CLI extension
 
@@ -172,7 +172,7 @@ By default NAP node pool virtual machines are automatically updated when a new i
 kubectl edit aksnodeclass default
 ```
 
-Within the node class definition, set the imageVersion to one of the published releases listed on the [AKS Release notes](release-notes).  You can also see the availability of images in regions by referring to the [AKS release tracker](release-tracker)
+Within the node class definition, set the imageVersion to one of the published releases listed on the [AKS Release notes](https://github.com/Azure/AKS/blob/master/CHANGELOG.md).  You can also see the availability of images in regions by referring to the [AKS release tracker](https://releases.aks.azure.com/)
 
 The imageVersion is the date portion on the Node Image as only Ubuntu 22.04 is supported, for example, "AKSUbuntu-2204-202311.07.0" would be "202311.07.0"
 
@@ -230,8 +230,3 @@ Node autoprovision produces cluster events that can be used to monitor deploymen
 ```
 kubectl get events -A --field-selector source=karpenter -w
 ```
-
-
-
-[release-notes]: https://github.com/Azure/AKS/blob/master/CHANGELOG.md
-[release-tracker]:  https://releases.aks.azure.com/
