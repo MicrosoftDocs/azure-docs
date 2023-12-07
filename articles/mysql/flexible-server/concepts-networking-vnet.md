@@ -1,6 +1,6 @@
 ---
-title: Private Network Access overview - Azure Database for MySQL - Flexible Server
-description: Learn about private access networking option in Azure Database for MySQL flexible server.
+title: Private Network Access overview
+description: Learn about private access networking option in Azure Database for MySQL - Flexible Server.
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan

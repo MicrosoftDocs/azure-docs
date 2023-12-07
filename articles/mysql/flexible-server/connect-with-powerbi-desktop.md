@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Database for MySQL - Flexible Server with Power BI 
-description: This topic shows how to build Power BI reports from data on your Azure Database for MySQL - Flexible Server.
+title: Connect with Power BI
+description: This topic shows how to build Power BI reports from data on Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.author: sumuth
 ms.date: 05/23/2023
 ---
 
-# Import data from Azure Database for MySQL - Flexible Server in Power BI 
+# Import data from Azure Database for MySQL - Flexible Server in Power BI
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

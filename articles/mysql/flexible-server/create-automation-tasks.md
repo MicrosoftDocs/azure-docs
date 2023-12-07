@@ -1,5 +1,5 @@
 ---
-title: Create automated tasks to manage an Azure Database for MySQL - Flexible Server
+title: Create Azure Automation tasks
 description: Set up automated tasks that help you manage Azure Database for MySQL - Flexible Server by creating workflows that run on Azure Logic Apps.
 author: mksuni
 ms.author: sumuth

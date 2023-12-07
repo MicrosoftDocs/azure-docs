@@ -1,5 +1,5 @@
 ---
-title: Selecting the right deployment type - Azure Database for MySQL
+title: Select the right deployment type
 description: This article describes what factors to consider before you deploy Azure Database for MySQL as either infrastructure as a service (IaaS) or platform as a service (PaaS).
 author: SudheeshGH
 ms.author: sunaray
@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Choose the right MySQL Server option in Azure
+# Choose the right Azure Database for MySQL - Flexible Server option in Azure
 
 [!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 

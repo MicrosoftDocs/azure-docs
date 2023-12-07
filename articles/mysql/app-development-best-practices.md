@@ -1,6 +1,6 @@
 ---
-title: App development best practices - Azure Database for MySQL
-description: Learn about best practices for building an app by using Azure Database for MySQL.
+title: App development best practices
+description: Learn about best practices for building an app by using Azure Database for MySQL - Flexible Server.
 author: mksuni
 ms.author: sumuth
 ms.reviewer: maghan
@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Best practices for building an application with Azure Database for MySQL
+# Best practices for building an application with Azure Database for MySQL - Flexible Server
 
 [!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 

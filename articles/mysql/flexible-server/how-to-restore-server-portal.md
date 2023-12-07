@@ -1,7 +1,6 @@
 ---
-title: Restore MySQL - Flexible Server with Azure portal
-titleSuffix: Azure Database for MySQL - Flexible Server
-description: This article describes how to perform restore operations in Azure Database for MySQL - Flexible Server through the Azure portal
+title: Restore from backup
+description: This article describes how to perform restore operations in Azure Database for MySQL - Flexible Server through the Azure portal.
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
