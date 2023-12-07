@@ -122,7 +122,46 @@ For each endpoint within a call, a distinct call diagnostic log is created for o
 |     `RecvResolutionHeight`     |    The average of vertical size of the incoming video stream that is transmitted during a video/screensharing call. It's measured in pixels and is one of the factors that determines the overall resolution and quality of the video stream. The specific resolution used may depend on the capabilities of the devices and network conditions involved in the call.  <br><br> The stream quality is considered poor when this value is less than 240 for video stream, or less than 768 for screensharing stream. 
 |     `RecvFreezeDurationPerMinuteInMs`     |    The average freeze duration in milliseconds per minute for incoming video/screensharing stream. Freezes are typically due to bad network condition and can degrade the stream quality.  <br><br> The stream quality is considered poor when this value is greater than 6,000 ms for video stream, or greater than 25,000 ms for screensharing stream. 
 
-### Call Client Operations log schema
+### Call client operations log schema
+
+The **call client media statistics time series** log provides
+client-side information about the media streams between individual
+participants involved in a call. These logs provide detailed time series
+data on the audio, video, and screenshare media steams between
+participants with a **<u>XX</u>** second granularity.
+
+This log provides more detailed information than the Call Diagnostic log
+on the quality of media steams between participants and can be used to
+visualize and investigate quality issues for your calls through Call
+Diagnostics for your Azure Communication Services Resource. [Learn More](../../voice-video-calling/call-diagnostics.md)
+
+
+| Property                   | Description                                                                                                                                                                                                                                                                                                                                                                               |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OperationName              | The operation associated with the log record.                                                                                                                                                                                                                                                                                                                                             |
+| CallId                     | The unique ID for a call. It identifies correlated events from all of the participants and endpoints that connect during a single call, and you can use it to join data from different logs. It is similar to the correlationId in call summary log and call diagnostic log.                                                                                                              |
+| CallClientTimeStamp        | The timestamp when the media stats is recorded.                                                                                                                                                                                                                                                                                                                                           |
+| MetricName                 | The name of the media statistics, such as Bitrate, JitterInMs, PacketsPerSecond etc.                                                                                                                                                                                                                                                                                                      |
+| Count                      | The number of data points sampled during at a given timestamp.                                                                                                                                                                                                                                                                                                                            |
+| Sum                        | The sum of metric values of all the data points sampled.                                                                                                                                                                                                                                                                                                                                  |
+| Average                    | The average metric value of the data points sampled. Average = Sum / Count                                                                                                                                                                                                                                                                                                                |
+| Minimum                    | The minimum of metric values of all the data points sampled.                                                                                                                                                                                                                                                                                                                              |
+| Maximum                    | The maximum of metric values of all the data points sampled.                                                                                                                                                                                                                                                                                                                              |
+| MediaStreamDirection       | The direction of the media stream. It can be send or recv.                                                                                                                                                                                                                                                                                                                                |
+| MediaStreamType            | The type of the media stream. It can be video, audio or screen.                                                                                                                                                                                                                                                                                                                           |
+| MediaStreamCodec           | The codec used to encode/decode the media stream, such as H264, OPUS, VP8 etc.                                                                                                                                                                                                                                                                                                            |
+| ParticipantId              | The unique ID that's generated to represent each endpoint in the call.                                                                                                                                                                                                                                                                                                                    |
+| ClientInstanceId           | The unique ID that represents the Call Client object created in the calling SDK.                                                                                                                                                                                                                                                                                                          |
+| EndpointId                 | The unique ID that represents each endpoint that's connected to the call. EndpointId can persist for the same user across multiple calls (callIds) for native clients but is unique for every call when the client is a web browser. Note that EndpointId is not currently instrumented in this log. When implemented in future, it will match the values in CallSummary/Diagnostics logs |
+| RemoteParticipantId        | The unique ID that represents the remote endpoint in the media stream. For example a user can render multiple video streams for the other users in the same call. Each video stream has a different RemoteParticipantId.                                                                                                                                                                  |
+| RemoteEndpointId           | Same as EndpointId, but it represents the user on the remote side of the stream.                                                                                                                                                                                                                                                                                                          |
+| MediaStreamId              | A unique ID that represents each media stream in the call. MediaStreamId is not currently instrumented in clients. When implemented, it wil match the streamId column in CallDiagnostics logs.                                                                                                                                                                                            |
+| AggregationIntervalSeconds | The time interval for aggregating the media statistics. Currently in calling SDK, the media metrics are sampled every 10 seconds.                                                                                                                                                                                                           
+
+### Call client media stats time series log schema
+TBD
+
+
 
 ### P2P vs. group calls
 
@@ -570,3 +609,9 @@ The `participantEndReason` property contains a value from the set of Calling SDK
 ## Next steps
 
 - Learn about the [insights dashboard to monitor Voice Calling and Video Calling logs and metrics](/azure/communication-services/concepts/analytics/insights/voice-and-video-insights).
+
+- Learn best practices to manage your call quality and reliability, see: [Improve and manage call quality](../../voice-video-calling/manage-call-quality.md)
+ 
+
+- Learn how to use call logs to diagnose call quality and reliability
+  issues with Call Diagnostics, see: [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
