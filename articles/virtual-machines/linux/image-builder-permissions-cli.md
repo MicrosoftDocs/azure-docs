@@ -15,10 +15,7 @@ ms.custom: devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-When you register for Azure VM Image Builder, this grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources to a resource group, required for the image build. During a successful registration, your subscription gets access to a VM Image Builder service principal name (SPN).
-
-> [!NOTE]
-> The Contributor role assignment is also required at the resource group scope.
+When you register for Azure VM Image Builder, your subscription gets access to a VM Image Builder service principal name (SPN). This registration also authorizes the service permission to create, manage, and delete a staging resource group. For the image building process, the Contributor role assignment is also required at the staging resource group.
 
 If you want VM Image Builder to distribute images, you need to create a user-assigned identity in Azure, with permissions to read and write images. For example, you might want to distribute images to managed images or to Azure Compute Gallery. If you're accessing Azure storage, then the user-assigned identity you create needs permissions to read private or public containers.
 
