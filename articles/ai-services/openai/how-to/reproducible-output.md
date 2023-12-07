@@ -24,8 +24,8 @@ Reproducible output is only currently supported with the following:
 
 ### Supported models
 
-- `gpt-4-1106-preview`
-- `gpt-35-turbo-1106`
+- `gpt-4-1106-preview` ([region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-preview-model-availability))
+- `gpt-35-turbo-1106` ([region availability)](../concepts/models.md#gpt-35-turbo-model-availability))
 
 ### API Version
 
@@ -34,6 +34,8 @@ Reproducible output is only currently supported with the following:
 ## Example
 
 First we'll generate three responses to the same question to demonstrate the variability that is common to Chat Completion responses even when other parameters are the same:
+
+# [Python](#tab/pyton)
 
 ```python
 import os
@@ -64,6 +66,47 @@ for i in range(3):
   
   del response
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell-interactive
+$openai = @{
+   api_key     = $Env:AZURE_OPENAI_KEY
+   api_base    = $Env:AZURE_OPENAI_ENDPOINT # like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+   api_version = '2023-12-01-preview' # may change in the future
+   name        = 'YOUR-DEPLOYMENT-NAME-HERE' # name you chose for your deployment
+}
+
+$headers = @{
+  'api-key' = $openai.api_key
+}
+
+$messages  = @()
+$messages += @{
+  role     = 'system'
+  content  = 'You are a helpful assistant.'
+}
+$messages += @{
+  role     = 'user'
+  content  = 'Tell me a story about how the universe began?'
+}
+
+$body         = @{
+  #seed       = 42
+  temperature = 0.7
+  max_tokens  = 200
+  messages    = $messages
+} | ConvertTo-Json
+
+$url = "$($openai.api_base)/openai/deployments/$($openai.name)/chat/completions?api-version=$($openai.api_version)"
+
+for ($i=0; $i -le 2; $i++) {
+  $response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json'
+  write-host "Story Version $($i+1)`n---`n$($response.choices[0].message.content)`n---`n"
+}
+```
+
+---
 
 ### Output
 
@@ -104,6 +147,8 @@ Notice that while each story might have similar elements and some verbatim repet
 
 Now we'll run the same code as before but this time uncomment the line for the parameter that says `seed=42`
 
+# [Python](#tab/pyton)
+
 ```python
 import os
 from openai import AzureOpenAI
@@ -133,6 +178,47 @@ for i in range(3):
   
   del response
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell-interactive
+$openai = @{
+   api_key     = $Env:AZURE_OPENAI_KEY
+   api_base    = $Env:AZURE_OPENAI_ENDPOINT # like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+   api_version = '2023-12-01-preview' # may change in the future
+   name        = 'YOUR-DEPLOYMENT-NAME-HERE' # name you chose for your deployment
+}
+
+$headers = @{
+  'api-key' = $openai.api_key
+}
+
+$messages  = @()
+$messages += @{
+  role     = 'system'
+  content  = 'You are a helpful assistant.'
+}
+$messages += @{
+  role     = 'user'
+  content  = 'Tell me a story about how the universe began?'
+}
+
+$body         = @{
+  seed        = 42
+  temperature = 0.7
+  max_tokens  = 200
+  messages    = $messages
+} | ConvertTo-Json
+
+$url = "$($openai.api_base)/openai/deployments/$($openai.name)/chat/completions?api-version=$($openai.api_version)"
+
+for ($i=0; $i -le 2; $i++) {
+  $response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json'
+  write-host "Story Version $($i+1)`n---`n$($response.choices[0].message.content)`n---`n"
+}
+```
+
+---
 
 ### Output
 
@@ -179,7 +265,7 @@ This fingerprint represents the backend configuration that the model runs with.
 
 It can be used with the seed request parameter to understand when backend changes have been made that might affect determinism.
 
-To view the full chat completion object with `system_fingerprint`, you could add ` print(response.model_dump_json(indent=2))` to the previous code next to the existing print statement. This change results in the following additional information being part of the output:
+To view the full chat completion object with `system_fingerprint`, you could add ` print(response.model_dump_json(indent=2))` to the previous Python code next to the existing print statement, or `$response | convertto-json -depth 5` at the end of the PowerShell example. This change results in the following additional information being part of the output:
 
 ### Output
 

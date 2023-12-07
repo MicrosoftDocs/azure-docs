@@ -16,7 +16,6 @@ Microsoft Azure cloud environments meet demanding US government compliance requi
 
 - [Federal Risk and Authorization Management Program](https://www.fedramp.gov/) (FedRAMP)
 - Department of Defense (DoD) Cloud Computing [Security Requirements Guide](https://public.cyber.mil/dccs/dccs-documents/) (SRG) Impact Level (IL) 2, 4, 5, and 6
-- [Intelligence Community Directive (ICD) 503](http://www.dni.gov/files/documents/ICD/ICD_503.pdf)
 - [Joint Special Access Program (SAP) Implementation Guide (JSIG)](https://www.dcsa.mil/portals/91/documents/ctp/nao/JSIG_2016April11_Final_(53Rev4).pdf)
 
 **Azure** (also known as Azure Commercial, Azure Public, or Azure Global) maintains the following authorizations that pertain to all Azure public regions in the United States:
