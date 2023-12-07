@@ -28,7 +28,7 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 
 * An [Azure Machine Learning workspace](../quickstart-create-resources.md)
 
-[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Scaffold an environment
 

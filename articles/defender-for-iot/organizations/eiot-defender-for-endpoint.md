@@ -37,7 +37,6 @@ Make sure that you have:
 
     For more information, see [Enterprise IoT security in Microsoft 365 Defender](concept-enterprise.md#enterprise-iot-security-in-microsoft-365-defender).
 
-
 ## Turn on enterprise IoT monitoring
 
 This procedure describes how to turn on enterprise IoT monitoring in Microsoft 365 Defender, and is relevant only for ME5/E5 Security customers.
@@ -69,15 +68,40 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
 1. On the device details page, explore the following tabs to view data added by the enterprise IoT security for your device:
 
-    - On the **Alerts** tab, check for any alerts triggered by the device.
+    - On the **Alerts** tab, check for any alerts triggered by the device. Simulate alerts in Microsoft 365 Defender for Enterprise IoT using the Raspberry Pi scenario available in the Microsoft 365 Defender [Evaluation & Tutorials](https://security.microsoft.com/tutorials/all) page.
+
+        You can also set up advanced hunting queries to create custom alert rules. For more information, see [sample advanced hunting queries for Enterprise IoT monitoring](#sample-advanced-hunting-queries-for-enterprise-iot). 
 
     - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface.
 
-    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network.
+    - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network. Alternatively, use [advanced hunting queries](#sample-advanced-hunting-queries-for-enterprise-iot) to collect vulnerabilities across all your devices.
 
 **To hunt for threats**:
 
 On the **Device inventory** page, select **Go hunt** to query devices using tables like the *[DeviceInfo](/microsoft-365/security/defender/advanced-hunting-deviceinfo-table)* table. On the **Advanced hunting** page, query data using other schemas. 
+
+## Sample advanced hunting queries for Enterprise IoT
+
+This section lists sample advanced hunting queries that you can use in Microsoft 365 Defender to help you monitor and secure your IoT devices with Enterprise for IoT security. 
+
+### Find devices by specific type or subtype
+
+Use the following query to identify devices that exist in your corporate network by type of device, such as routers:  
+
+```kusto
+| DeviceInfo  
+| summarize arg_max(Timestamp, *) by DeviceId  
+| where DeviceType == "NetworkDevice" and DeviceSubtype  == "Router"  
+```
+
+### Find and export vulnerabilities for your IoT devices
+
+Use the following query to list all vulnerabilities on your IoT devices:
+
+```kusto
+| where DeviceCategory =~ "iot"
+| join kind=inner DeviceTvmSoftwareVulnerabilities on DeviceId 
+```
 
 For more information, see [Advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) and [Understand the advanced hunting schema](/microsoft-365/security/defender/advanced-hunting-schema-tables).
 

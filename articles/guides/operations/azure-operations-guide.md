@@ -8,7 +8,7 @@ ms.custom: devx-track-arm-template
 ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
-ms.date: 08/24/2018
+ms.date: 12/03/2023
 ---
 
 # Get started for Azure IT operators

@@ -80,7 +80,7 @@ For availability information, see which [VM products are available by Azure regi
 
 ### Resizing
 
-Confidential VMs run on specialized hardware, so you can only resize confidential VM instances to other confidential sizes in the same region. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv5-series instance. If you would like to resize your VM you must stop it before resizing.
+Confidential VMs run on specialized hardware, so you can only [resize confidential VM instances](confidential-vm-faq.yml#can-i-convert-a-dcasv5-ecasv5-cvm-into-a-dcesv5-ecesv5-cvm-or-a-dcesv5-ecesv5-cvm-into-a-dcasv5-ecasv5-cvm-) to other confidential sizes in the same region. For example, if you have a DCasv5-series VM, you can resize to another DCasv5-series instance or a DCesv5-series instance. 
 
 It's not possible to resize a non-confidential VM to a confidential VM.
 
@@ -90,8 +90,8 @@ OS images for confidential VMs have to meet certain security and compatibility r
 
 - Ubuntu 20.04 LTS (AMD SEV-SNP supported only)
 - Ubuntu 22.04 LTS
-- Windows Server 2019 Datacenter - x64 Gen 2
-- Windows Server 2019 Datacenter Server Core - x64 Gen 2
+- Windows Server 2019 Datacenter - x64 Gen 2 (AMD SEV-SNP supported only)
+- Windows Server 2019 Datacenter Server Core - x64 Gen 2 (AMD SEV-SNP supported only)
 - Windows Server 2022 Datacenter - x64 Gen 2
 - Windows Server 2022 Datacenter: Azure Edition Core - x64 Gen 2
 - Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2
@@ -126,4 +126,4 @@ Make sure to specify the following properties for your VM in the parameters sect
 ## Next steps 
 
 > [!div class="nextstepaction"]
-> [Deploy a confidential VM on AMD from the Azure portal](quick-create-confidential-vm-portal-amd.md)
+> [Deploy a confidential VM from the Azure portal](quick-create-confidential-vm-portal.md)
