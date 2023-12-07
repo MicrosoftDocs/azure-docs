@@ -60,7 +60,7 @@ The following table compares Files, Blobs, Disks, Queues, Tables, and Azure NetA
 | **Azure Blobs** | Allows unstructured data to be stored and accessed at a massive scale in block blobs.<br/><br/>Also supports [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) for enterprise big data analytics solutions. | You want your application to support streaming and random access scenarios.<br/><br/>You want to be able to access application data from anywhere.<br/><br/>You want to build an enterprise data lake on Azure and perform big data analytics. |
 | **Azure Elastic SAN** (preview) | Azure Elastic SAN (preview) is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability. | You want large scale storage that is interoperable with multiple types of compute resources (such as SQL, MariaDB, Azure virtual machines, and Azure Kubernetes Services) accessed via the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.|
 | **Azure Disks** | Allows data to be persistently stored and accessed from an attached virtual hard disk. | You want to "lift and shift" applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that isn't required to be accessed from outside the virtual machine to which the disk is attached. |
-| **Azure Container Storage** (preview) | Azure Container Storage (preview) is a volume management, deployment, and orchestration service that integrates with Kubernetes and is built natively for containers. | You want to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. | 
+| **Azure Container Storage** (preview) | Azure Container Storage (preview) is a volume management, deployment, and orchestration service that integrates with Kubernetes and is built natively for containers. | You want to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. |
 | **Azure Queues** | Allows for asynchronous message queueing between application components. | You want to decouple application components and use asynchronous messaging to communicate between them.<br><br>For guidance around when to use Queue Storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
 | **Azure Tables** | Allows you to store structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. | You want to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. <br/><br/>For guidance around when to use Table Storage versus Azure Cosmos DB for Table, see [Developing with Azure Cosmos DB for Table and Azure Table Storage](../../cosmos-db/table-support.md). |
 | **Azure NetApp Files** | Offers a fully managed, highly available, enterprise-grade NAS service that can handle the most demanding, high-performance, low-latency workloads requiring advanced data management capabilities. | You have a difficult-to-migrate workload such as POSIX-compliant Linux and Windows applications, SAP HANA, databases, high-performance compute (HPC) infrastructure and apps, and enterprise web applications. <br></br> You require support for multiple file-storage protocols in a single service, including NFSv3, NFSv4.1, and SMB3.1.x, enables a wide range of application lift-and-shift scenarios, with no need for code changes. |
@@ -112,6 +112,14 @@ For more information about Azure Elastic SAN, see [What is Azure Elastic SAN? (p
 ## Azure Container Storage (preview)
 
 Azure Container Storage integrates with Kubernetes and utilizes existing Azure Storage offerings for actual data storage, offering a volume orchestration and management solution purposely built for containers. You can choose any of the supported backing storage options to create a storage pool for your persistent volumes.
+
+Azure Container Storage offers substantial benefits:
+
+- Rapid scale out of stateful pods
+
+- Improved performance for stateful workloads
+
+- Kubernetes-native volume orchestration
 
 For more information about Azure Container Storage, see [What is Azure Container Storage? (preview)](../container-storage/container-storage-introduction.md).
 
@@ -175,7 +183,7 @@ Azure NetApp Files data traffic is inherently secure by design, as it doesn't pr
 
 ## Redundancy
 
-To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](./storage-redundancy.md?toc=/azure/storage/blobs/toc.json).
+To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](./storage-redundancy.md?toc=/azure/storage/blobs/toc.json) and [Azure Files data redundancy](../files/files-redundancy.md).
 
 Azure NetApp Files provides locally redundant storage with [99.99% availability](https://azure.microsoft.com/support/legal/sla/netapp/v1_1/).
 
