@@ -379,6 +379,19 @@ items:
             items:
             - name: Graph API event sources
               href: partner-events-graph-api.md
+              items:
+              - name: One Drive
+                href: one-drive-events.md
+              - name: SharePoint
+                href: share-point-events.md
+              - name: ToDo
+                href: to-do-events.md
+              - name: Security alerts
+                href: security-alert-events.md
+              - name: Cloud printing
+                href: cloud-printing-events.md
+              - name: Conversations
+                href: conversation-events.md
             - name: Microsoft Entra ID
               href: microsoft-entra-events.md
             - name: Microsoft Outlook
