@@ -95,6 +95,8 @@ Azure reliability guidance contains the following:
 | [Azure Spring Apps](reliability-spring-apps.md) |
 | [Azure Storage Mover](./reliability-azure-storage-mover.md)|
 |[Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|
+| [Microsoft Fabric](reliability-fabric.md) 
+
 
 ## Azure Service Manager Retirement
 

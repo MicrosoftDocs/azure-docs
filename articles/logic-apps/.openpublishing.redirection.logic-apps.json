@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/create-managed-service-identity.md",
+            "redirect_url": "/azure/logic-apps/authenticate-with-managed-identity",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/logic-apps-exception-handling.md",
             "redirect_url": "/azure/logic-apps/error-exception-handling",
             "redirect_document_id": true
