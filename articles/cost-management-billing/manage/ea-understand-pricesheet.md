@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/17/2023
+ms.date: 12/07/2023
 ms.author: banders
 ms.reviewer: paagraw
 ---
@@ -17,22 +17,16 @@ This article applies to an Azure billing account for an Enterprise Agreement (EA
 
 Depending on the policies set for your organization by the Enterprise Admin, only certain administrative roles provide access to your organization's EA pricing information. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
 
-Starting January 2023 and later, a new version of the Azure Price Sheet is available for download. The new version features a new schema. It's a .ZIP file to support large amounts of data.
-
-Azure reservation pricing is available in the Azure Price Sheet for the current billing period. If you want to maintain an ongoing record of Azure reservation pricing, we recommend that you download your Azure Price Sheet for each billing period.
-
 ## Terms and descriptions in your price sheet
 
 The following section describes the terms shown in your Microsoft Enterprise Agreement price sheet.
 
 | **Field Name** | **Description** |
 | --- | --- |
-| basePrice | The market price at the time the customer signs on or the market price at the time the service meter launches if it is after sign-on. |
 | CurrencyCode | Currency in which the EA was signed. |
 | effectiveEndDate | End date of the price sheet billing period. |
 | effectiveStartDate | Start date of the price sheet billing period. |
 | includedQuantity | Quantities of a specific service to which a customer is entitled to consume without incremental charges. |
-| marketPrice | EA list price for this service. |
 | meterId | Unique identifier for the meter. |
 | meterCategory | Name of the classification category for the meter. For example, _Cloud services_, and _Networking_. |
 | meterName | Name of the meter. The meter represents the deployable resource of an Azure service. |
