@@ -12,13 +12,15 @@ ms.date: 07/04/2023
 ms.author: pafarley
 ---
 
-# OCR for images (version 4.0 preview)
+# OCR for images (version 4.0)
 
 > [!NOTE]
 >
 > For extracting text from PDF, Office, and HTML documents and document images, use the [Document Intelligence Read OCR model](../../ai-services/document-intelligence/concept-read.md) optimized for text-heavy digital and scanned documents with an asynchronous API that makes it easy to power your intelligent document processing scenarios.
 
 OCR traditionally started as a machine-learning-based technique for extracting text from in-the-wild and non-document images like product labels, user-generated images, screenshots, street signs, and posters. For several scenarios, such as single images that aren't text-heavy, you need a fast, synchronous API or service. This allows OCR to be embedded in near real-time user experiences to enrich content understanding and follow-up user actions with fast turn-around times.
+
+## What is Computer Vision v4.0 Read OCR?
 
 The new Computer Vision Image Analysis 4.0 REST API offers the ability to extract printed or handwritten text from images in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR results in a single API operation. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for [global language support](./language-support.md).
 

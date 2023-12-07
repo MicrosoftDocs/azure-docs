@@ -88,7 +88,7 @@ items:
     items:
     - name: Embeddings basics
       href: ./how-to/embeddings.md
-    - name: Getting started with embeddings (Python)
+    - name: Getting started with embeddings
       href: ./tutorials/embeddings.md
   - name: Fine-tuning
     items:

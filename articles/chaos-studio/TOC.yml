@@ -86,6 +86,8 @@
       href: chaos-studio-set-up-app-insights.md
   - name: Configure an experiment using customer-managed keys (CMK)
     href: chaos-studio-configure-customer-managed-keys.md
+  - name: Set up an agent-based chaos experiment using private link
+    href: chaos-studio-private-link-agent-service.md
   - name: Troubleshoot common issues
     href: troubleshooting.md
 - name: Reference

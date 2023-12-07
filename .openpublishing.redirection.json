@@ -25738,6 +25738,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/update-manager/whats-upcoming.md",
+            "redirect_url": "/azure/update-manager/whats-new",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/orbital/delete-contact.md",
 	        "redirect_url": "/azure/orbital/spacecraft-object",
             "redirect_document_id": false

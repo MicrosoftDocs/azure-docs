@@ -68,8 +68,9 @@ items:
             href: security-controls-policy.md
           - name: Azure Policy built-ins
             displayName: samples, policies, definitions
+            href: ./policy-reference.md
           - name: Network security (MQTT)
-            href: network-security-mqtt.md
+            href: network-security-namespaces.md
         - name: Use cases
           items:
           - name: Automotive Messaging
@@ -97,9 +98,9 @@ items:
         - name: Secure
           items:
           - name: Allow access from specific IP addresses
-            href: configure-firewall-mqtt.md
+            href: mqtt-configure-firewall.md
           - name: Allow access via private endpoints
-            href: configure-private-endpoints-mqtt.md
+            href: mqtt-configure-private-endpoints.md
     - name: Namespace topics
       items:
       - name: Pull delivery overview
@@ -153,7 +154,8 @@ items:
           - name: Security controls by Azure Policy
             href: security-controls-policy.md
           - name: Azure Policy built-ins
-            displayName: samples, policies, definitions          
+            displayName: samples, policies, definitions
+            href: ./policy-reference.md
           - name: Network security
             href: network-security-namespaces.md            
       - name: How-to
