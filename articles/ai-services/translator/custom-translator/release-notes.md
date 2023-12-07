@@ -231,7 +231,7 @@ This page presents the latest feature, improvement, bug fix, and known issue rel
 
 ## 2021-May release
 
-### May 2021 improvements and fixes
+### **May** 2021 improvements and fixes
 
 * We added new training pipeline to improve the custom model generalization and capacity to retain more customer terminology (words and phrases).
 
