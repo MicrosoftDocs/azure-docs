@@ -7,7 +7,7 @@ ms.topic: overview
 
 # What is Azure Lighthouse?
 
-Azure Lighthouse enables multi-tenant management with scalability, higher automation, and enhanced governance across resources.
+Azure Lighthouse enables multitenant management with scalability, higher automation, and enhanced governance across resources.
 
 With Azure Lighthouse, service providers can deliver managed services using [comprehensive and robust tooling built into the Azure platform](concepts/architecture.md). Customers maintain control over who has access to their tenant, which resources they can access, and what actions can be taken. [Enterprise organizations](concepts/enterprise.md) managing resources across multiple tenants can use Azure Lighthouse to streamline management tasks.
 
@@ -45,7 +45,7 @@ Azure Lighthouse is a non-regional service. You can manage delegated resources t
 
 ## Support for Azure Lighthouse
 
-For help using Azure Lighthouse, [open a support request](../azure-portal/supportability/how-to-create-azure-support-request.md) in the Azure portal. For **Issue type**, choose **Technical**. Select a subscription, then select **Lighthouse** (under **Monitoring & Management**).
+For help with Azure Lighthouse, [open a support request](../azure-portal/supportability/how-to-create-azure-support-request.md) in the Azure portal. For **Issue type**, choose **Technical**. Select a subscription, then select **Lighthouse** (under **Monitoring & Management**).
 
 ## Next steps
 
