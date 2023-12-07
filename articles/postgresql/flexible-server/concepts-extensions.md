@@ -15,7 +15,7 @@ ms.topic: conceptual
 
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects in a single package that can be loaded or removed from your database with a command. After being loaded into the database, extensions function like built-in features.
 
-## How to use extensions
+## How to use PostgreSQL extensions
 
 Before installing extensions in Azure Database for PostgreSQL - Flexible Server, you'll need to allowlist these extensions for use.
 
