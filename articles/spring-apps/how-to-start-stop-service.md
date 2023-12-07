@@ -99,7 +99,7 @@ az spring show \
 
 ## Troubleshooting
 ### Some resources provision failed during start
-When starting the service, you might encounter a situation that despite the service's ProvisioningState is `Succeeded`, an error message is returned. This message allows you to know that certain resources failed to start or settings could not be applied promptly:
+When starting the service, you might encounter a situation that despite the service's ProvisioningState is `Succeeded`, an error message is returned. This message allows you to know that certain resources failed to start or settings couldn't be applied promptly:
 
 ```
 Failed to start the following resource(s) or apply setting(s): [<failed resource list>]. Please check and update them accordingly.
