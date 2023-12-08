@@ -23,7 +23,7 @@ The following section describes the important terms shown in your Microsoft Cust
 
 | **Field Name**   | **Description**   |
 | --- | --- |
-| basePrice  | The unit price at the time the customer signs the agreement. Or, the unit price at the time that the service meter becomes generally-available (GA) if GA is after the agreement is signed. This is applicable for EA accounts.   |
+| basePrice  | The unit price at the time the customer signs the agreement. Or, the unit price at the time that the service meter becomes generally available (GA) if GA is after the agreement is signed. |
 | billingAccountId  | Unique identifier for the billing account.   |
 | billingAccountName  | Name of the billing account.  |
 | billingCurrency | Currency in which charges are posted |
