@@ -137,7 +137,7 @@ ai-chat-demo/
 1. From the *src/main/java/com/example/aichatdemo* folder, open *AiChatApplication.java* in your preferred editor or IDE and paste in the following code:
 
    ```java
-    package com.example.aichatdemo;
+   package com.example.aichatdemo;
 
    import java.util.ArrayList;
    import java.util.List;
