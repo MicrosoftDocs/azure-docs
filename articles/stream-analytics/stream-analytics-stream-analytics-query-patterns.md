@@ -109,7 +109,7 @@ For more information, see [**WITH** clause](/stream-analytics-query/with-azure-s
 
 ## Simple pass-through query
 
-A simple pass-through query can be used to copy the input stream data into the output. For example, if a stream of data containing real-time vehicle information needs to be saved in a SQL database for later analysis, a simple pass-through query will do the job.
+A simple pass-through query can be used to copy the input stream data into the output. For example, if a stream of data containing real-time vehicle information needs to be saved in a SQL database for later analysis, a simple pass-through query does the job.
 
 **Input**:
 
@@ -695,7 +695,7 @@ The End_fault is the current non-faulty event where the previous event was fault
 ## Process events with independent time (Substreams)
 
 Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency.
-For example, the device clock for *TollID* 2 is five seconds behind *TollID* 1, and the device clock for *TollID* 3 is ten seconds behind *TollID* 1. A computation can happen independently for each toll, considering only its own clock data as a timestamp.
+For example, the device clock for *TollID* 2 is five seconds behind *TollID* 1, and the device clock for *TollID* 3 is 10 seconds behind *TollID* 1. A computation can happen independently for each toll, considering only its own clock data as a timestamp.
 
 **Input**:
 
