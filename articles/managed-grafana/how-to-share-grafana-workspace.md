@@ -33,9 +33,6 @@ More details on Grafana roles can be found in the [Grafana documentation](https:
 
 Grafana user roles and assignments are fully [integrated within Microsoft Entra ID](../role-based-access-control/built-in-roles.md#grafana-admin). You can assign a Grafana role to any Microsoft Entra user, group, service principal or managed identity, and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign Grafana roles to users in the Azure portal.
 
-> [!NOTE]
-> Azure Managed Grafana doesn't support personal Microsoft accounts (MSA) currently.
-
 ## Add a Grafana role assignment
 
 ### [Portal](#tab/azure-portal)

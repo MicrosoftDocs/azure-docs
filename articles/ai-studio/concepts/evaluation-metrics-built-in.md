@@ -263,7 +263,7 @@ You will be given a question, chatbot's response to the question, a chat history
 The chatbot must base its response exclusively on factual information extracted from the retrieved documents, utilizing paraphrasing, summarization, or inference techniques. When the chatbot responds to information that is not mentioned in or cannot be inferred from the retrieved documents, we refer to it as a grounded issue. 
 
  
-To rate the groundness of chat response, follow the below steps: 
+To rate the groundedness of chat response, follow the below steps: 
 
 1. Review the chat history to understand better about the question and chat response 
 

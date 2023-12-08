@@ -133,7 +133,7 @@ from promptflow import tool
 from promptflow.connections import CustomConnection
 
 @tool
-def my_python_tool(message:str, myconn:CustomConnection) -> str:
+def my_python_tool(message: str, myconn: CustomConnection) -> str:
     # Get authentication key-values from the custom connection
     connection_key1_value = myconn.key1
     connection_key2_value = myconn.key2
