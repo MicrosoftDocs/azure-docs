@@ -12,12 +12,12 @@ ms.date: 11/02/2023
 recommendations: false
 ---
 
-# Azure OpenAI on your data with images using GPT-4V (preview)
+# Azure OpenAI on your data with images using GPT-4 Turbo with Vision (preview)
 
-Use this article to learn how to provide your own image data for GPT-4V, Azure OpenAI’s vision model. GPT-4V on your data allows the model to generate more customized and targeted answers using Retrieval Augmented Generation based on your own images and image metadata. 
+Use this article to learn how to provide your own image data for GPT-4 Turbo with Vision, Azure OpenAI’s vision model. GPT-4 Turbo with Vision on your data allows the model to generate more customized and targeted answers using Retrieval Augmented Generation based on your own images and image metadata. 
 
 > [!IMPORTANT]
-> This article is for using your data on the GPT-4V (vision) model. If you are interested in using your data for text-based models, see [Use your text data](./use-your-data.md).  
+> This article is for using your data on the GPT-4 Turbo with Vision model. If you are interested in using your data for text-based models, see [Use your text data](./use-your-data.md).  
 
 ## Prerequisites 
 
@@ -25,7 +25,7 @@ Use this article to learn how to provide your own image data for GPT-4V, Azure O
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI resource with the GPT-4V model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI resource with the GPT-4 Turbo with Vision model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 - Be sure that you're assigned at least the [Cognitive Services Contributor role](../how-to/role-based-access-control.md#cognitive-services-contributor) for the Azure OpenAI resource. 
 
 ## Data formats and file types
@@ -52,7 +52,7 @@ In the pane that appears after you select **Add a data source**, you'll see mult
 
 :::image type="content" source="../media/use-your-image-data/select-add-data-source.png" alt-text="A screenshot showing the data source selection." lightbox="../media/use-your-image-data/select-add-data-source.png":::
 
-You have three different options to add your data for GPT-4V’s data source: 
+You have three different options to add your data for GPT-4 Turbo with Vision’s data source: 
 
 * Using [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)  
 * Using [Azure AI Search](/azure/search/search-what-is-azure-search) 
@@ -132,7 +132,7 @@ After you have a blob storage populated with image files and at least one metada
     > [!NOTE]
     > The name of the index will be suffixed with `–v`, to indicate that this is an index with image vectors extracted from the images provided. The description filed in the metadata.json will be added as text metadata in the index.
 
-1. After you've filled in all fields, select the two checkboxes at the bottom asking you to acknowledge the charges incurred from using GPT-4V vector embeddings and Azure AI Search. Select **Next**.
+1. After you've filled in all fields, select the two checkboxes at the bottom asking you to acknowledge the charges incurred from using GPT-4 Turbo with Vision vector embeddings and Azure AI Search. Select **Next**.
 
     :::image type="content" source="../media/use-your-image-data/data-source-fields-blob-storage.png" alt-text="A screenshot showing the data source selection fields for blob storage." lightbox="../media/use-your-image-data/data-source-fields-blob-storage.png":::
 
@@ -151,7 +151,7 @@ If you have an existing Azure AI search index, you can use it as a data source. 
 
 1. Select your Azure AI Search index you have created with your images.
 
-1. After you have filled in all fields, select the two checkboxes at the bottom asking you to acknowledge the charges incurred from using GPT-4V vector embeddings and Azure AI Search. Select **Next**. If [CORS](#turn-on-cors) isn't already turned on for the AI Search resource, you will see a warning. To fix the warning, select **Turn on CORS**. 
+1. After you have filled in all fields, select the two checkboxes at the bottom asking you to acknowledge the charges incurred from using GPT-4 Turbo with Vision vector embeddings and Azure AI Search. Select **Next**. If [CORS](#turn-on-cors) isn't already turned on for the AI Search resource, you will see a warning. To fix the warning, select **Turn on CORS**. 
 
 
     :::image type="content" source="../media/use-your-image-data/completed-data-source-cognitive-search.png" alt-text="A screenshot showing the completed fields for using an Azure AI Search index." lightbox="../media/use-your-image-data/completed-data-source-cognitive-search.png":::
@@ -183,7 +183,7 @@ When you remove a data source, you'll see a warning message. Removing a data sou
 :::image type="content" source="../media/use-your-image-data/remove-data-source-warning.png" alt-text="A screenshot showing the data source removal warning." lightbox="../media/use-your-image-data/remove-data-source-warning.png":::
 
 > [!IMPORTANT] 
-> If you switch to a model deployment which is not using the GPT-4V model, you will see a warning message for removing a data source. Please note that removing a data source will clear the chat session and reset all playground settings.
+> If you switch to a model deployment which is not using the GPT-4 Turbo with Vision model, you will see a warning message for removing a data source. Please note that removing a data source will clear the chat session and reset all playground settings.
 
 ## Next steps
 
