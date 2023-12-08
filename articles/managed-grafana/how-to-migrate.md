@@ -1,7 +1,7 @@
 ---
 title: Migrate a self-hosted Grafana to Azure Managed Grafana
 titlesuffix: Azure Managed Grafana
-description: Learn how to migrate a self-hosted Grafana to Azure Managed Grafana to reuse your already set-up data sources and dashboards.
+description: Learn how to migrate a self-hosted Grafana to Azure Managed Grafana and move your dashboards to Azure Managed Grafana.
 ms.service: managed-grafana
 ms.topic: how-to
 author: maud-lv
@@ -18,13 +18,14 @@ This guide shows how to migrate a self-managed Grafana workspace to Azure Manage
 This guide walks you through the process of exporting self-hosted Grafana dashboards, importing them into Azure Managed Grafana, adding data source plugins, and configuring your data sources in your new workspace.
 
 > [!NOTE]
-> Some of the instructions presented in this tutorial vary slightly depending on the version of Grafana used. This tutorial uses Grafana 10.
+> Some of the instructions presented in this tutorial vary slightly depending on the version of Grafana used. This tutorial was created using Grafana 10.
 
 ## Prerequisites
 
-[An Azure Managed Grafana workspace](./how-to-permissions.md)
+* [An Azure Managed Grafana workspace](./how-to-permissions.md)
+* Minimum permissions: Grafana Editor
 
-## Export your local Grafana dashboards
+## Export your Grafana dashboards
 
 Start by exporting your local Grafana dashboards as JSON files.
 
@@ -37,9 +38,9 @@ Start by exporting your local Grafana dashboards as JSON files.
 1. Copy the JSON data and save it in a new file on your local machine.
 1. Repeat this process for each dashboard you want to export.
 
-## Import your dashboards into Azure Managed Grafana
+## Import your self-hosted Grafana dashboards into Azure Managed Grafana
 
-Create a new dashboard in Azure Managed Grafana by importing the JSON files you exported.
+Create new dashboard in Azure Managed Grafana by importing the JSON files you exported.
 
 1. In the **Overview** page of your Azure Managed Grafana workspace, open the **Endpoint** URL to open the Grafana portal.
 1. Select **+** at the top of the page, then **Import dashboard**.
@@ -55,11 +56,9 @@ Create a new dashboard in Azure Managed Grafana by importing the JSON files you 
 
 For more information about how to create and edit dashboards, go to [Create a dashboard in Azure Managed Grafana](how-to-create-dashboard.md).
 
-Make sure that all the data sources used in your imported dashboards are added to your Azure Managed Grafana workspace. If needed, install the necessary data source plugins. Then add and configure the required data sources.
+## Install data source plugins
 
-### Install data source plugins
-
-Core data source plugins supported by your instance's pricing plan are installed by default. To install additional optional plugins, follow the process below:
+Core data source plugins supported by your instance's pricing plan are installed by default. To install other optional plugins, follow the process below:
 
 1. Open your workspace in the Azure portal and go to **Plugin management (Preview)**.
 1. Choose a plugin to install by selecting its checkbox and select **Save**.
@@ -74,7 +73,8 @@ Configure your new data sources in Azure Managed Grafana.
 1. In the **Overview** page of your Azure Managed Grafana workspace, open the **Endpoint** URL to open the Grafana portal.
 1. In the Grafana user interface, go to **Connections** > **Data sources** > **Add new datasource**.
 1. Select a data source from the list.
-1. Fill out the required fields and select **Save & test** to save the configuration and verify that Grafana can connect to the data source.1. 1. Repeat this process for each data source you want to use.
+1. Fill out the required fields and select **Save & test** to save the configuration and verify that Grafana can connect to the data source.
+1. Repeat this process for each data source.
 
 ## Related content
 
@@ -82,4 +82,4 @@ For more information about plugins, data sources, and dashboards, check the foll
 
 * [How to manage plugins](how-to-manage-plugins.md)
 * [How to manage data sources](how-to-data-source-plugins-managed-identity.md)
-* [Create a dashboard](how-to-create-dashboard.md).
+* [Create a dashboard](how-to-create-dashboard.md)
