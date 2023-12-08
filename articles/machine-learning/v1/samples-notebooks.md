@@ -55,7 +55,7 @@ The Data Science Virtual Machine (DSVM) is a customized VM image built specifica
 
     * In [Azure Machine Learning studio](https://ml.azure.com), select your workspace settings in the upper right, then select **Download config file**. 
 
-    ![Download config.json](../media/aml-dsvm-server/download-config.png)
+    ![Screenshot of download config.json.](../media/aml-dsvm-server/download-config.png)
 
     * Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) notebook.
 

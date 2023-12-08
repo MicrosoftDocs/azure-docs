@@ -60,7 +60,7 @@ The Data Science Virtual Machine (DSVM) is a customized VM image built specifica
     * Select your workspace settings in the upper right
     * Select **Download config file**
 
-    ![Download config.json](./media/aml-dsvm-server/download-config.png)
+    ![Screenshot of download config.json.](./media/aml-dsvm-server/download-config.png)
 
 1. From the directory where you added the configuration file, clone the [the AzureML-Examples repository](https://aka.ms/aml-notebooks).
 
