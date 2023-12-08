@@ -32,7 +32,7 @@ The following section describes the terms shown in your Microsoft Enterprise Agr
 | EffectiveEndDate | Effective end date of the price sheet. |
 | EffectiveStartDate | Effective start date of the price sheet. |
 | IncludedQuantity | Quantities of a specific service to which a customer is entitled to consume without incremental charges. |
-| MarketPrice | The current list price for a given product or service. The price is without any negotiations and is based on your Microsoft Agreement type. For `PriceType` _Consumption_, marketPrice is reflected as the pay-as-you-go price. For `PriceType`  _Savings Plan_, market price reflects the Savings plan benefit on top of pay-as-you-go price for the corresponding commitment term. For `PriceType` _ReservedInstance_, marketPrice reflects the total price of the one or three-year commitment. |
+| MarketPrice | The current list price for a given product or service. The price is without any negotiations and is based on your Microsoft Agreement type. For `PriceType` _Consumption_, marketPrice is reflected as the pay-as-you-go price. For `PriceType`  _Savings Plan_, market price reflects the Savings plan benefit on top of pay-as-you-go price for the corresponding commitment term. For `PriceType` _ReservedInstance_, marketPrice reflects the total price of the one or three-year commitment. For EA customers with no negotiations, MarketPrice might appear rounded to a different decimal precision than UnitPrice.  |
 | MeterId | Unique identifier for the meter. |
 | MeterCategory | Name of the classification category for the meter. For example, _Cloud services_, and _Networking_. |
 | MeterName | Name of the meter. The meter represents the deployable resource of an Azure service. |
