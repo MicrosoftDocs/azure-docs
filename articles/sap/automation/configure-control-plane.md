@@ -40,12 +40,12 @@ This table shows the Terraform parameters. These parameters need to be entered 
 This table shows the parameters that define the resource naming.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                        | Description                                       | Type       | Notes                                                                                       |
-> | ------------------------------- | ------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-> | `environment`                   | Identifier for the control plane (maximum of five characters).    | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment. |
-> | `location`                      | Azure region in which to deploy.              | Required   | Use lowercase.                                                                              |
-> | `name_override_file`            | Name override file.                                | Optional   | See [Custom naming](naming-module.md).                                            |
-> | `place_delete_lock_on_resources` | Place a delete lock on the key resources.          | Optional   |
+> | Variable                         | Description                                          | Type       | Notes                                                                                       |
+> | -------------------------------- | ---------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+> | `environment`                    | Identifier for the control plane (max 5 characters). | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
+> | `location`                       | Azure region in which to deploy.                     | Required   | Use lowercase.                                                                              |
+> | `name_override_file`             | Name override file.                                  | Optional   | See [Custom naming](naming-module.md).                                                      |
+> | `place_delete_lock_on_resources` | Place a delete lock on the key resources.            | Optional   |                                                                                             |
 
 ### Resource group
 
