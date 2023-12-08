@@ -366,11 +366,11 @@ items:
     - name: SAP
       items:
       - name: Prerequisites and setup
-        href: logic-apps-using-sap-connector.md
+        href: connectors/sap.md
       - name: Create common example workflows
-        href: sap-create-example-scenario-workflows.md
+        href: connectors/sap-create-example-scenario-workflows.md
       - name: Generate schemas for SAP artifacts
-        href: sap-generate-schemas-for-artifacts.md
+        href: connectors/sap-generate-schemas-for-artifacts.md
     - name: SFTP - SSH
       href: ../connectors/connectors-sftp-ssh.md
     - name: Sliding Window
