@@ -35,19 +35,20 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 ## Create a new Python application
 
 Create a new Python file named _quickstart.py_. Open the new file in your preferred editor or IDE.
+
+#### [Image prompts](#tab/image)
+
 1. Replace the contents of _quickstart.py_ with the following code. 
     
     ```python
-    # Packages required: 
-    # requests 
-    # azure-identity
+    # Packages required:
     import requests 
     import json 
     from azure.identity import DefaultAzureCredential 
     
-    api_base = '<your_endpoint>'      # Set this to the name of the Azure OpenAI resource 
-    deployment_name = '<your_deployment_name>'  # Set this to the name of the gptv model deployment 
-    API_KEY = "############"                # Set this to the API key for the Azure OpenAI resource 
+    api_base = '<your_azure_openai_endpoint>' 
+    deployment_name = '<your_deployment_name>'
+    API_KEY = '<your_azure_openai_key>'
     
     base_url = f"{api_base}openai/deployments/{deployment_name}" 
     headers = {   
@@ -60,9 +61,9 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     data = { 
         "messages": [ 
             { "role": "system", "content": "You are a helpful assistant." }, # Content can be a string, OR 
-            { "role": "user", "content": [                                   # It can be an array containing strings and images. 
+            { "role": "user", "content": [       # It can be an array containing strings and images. 
                 "Describe this picture:", 
-                { "image": "<base_64_encoded_image>" }                          # Images are represented like this. 
+                { "image": "<base_64_encoded_image>" }      # Images are represented like this. 
             ] } 
         ], 
         "max_tokens": 100 
@@ -85,6 +86,74 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     python quickstart.py
     ```
 
+#### [Enhanced image prompts](#tab/enhanced)
+
+1. Replace the contents of _quickstart.py_ with the following code. 
+    
+    ```python
+    # Packages required:
+    import requests 
+    import json 
+    from azure.identity import DefaultAzureCredential 
+    
+    api_base = '<your_azure_openai_endpoint>' 
+    deployment_name = '<your_deployment_name>'
+    API_KEY = '<your_azure_openai_key>'
+    
+    base_url = f"{api_base}openai/deployments/{deployment_name}" 
+    headers = {   
+        "Content-Type": "application/json",   
+        "api-key": API_KEY 
+    } 
+    
+    # Prepare endpoint, headers, and request body 
+    endpoint = f"{base_url}/chat/completions?api-version=2023-12-01-preview" 
+    data = {
+        "enhancements": {
+            "ocr": {
+              "enabled": true
+            },
+            "grounding": {
+              "enabled": true
+            }
+          },
+        "dataSources": [
+        {
+            "type": "AzureComputerVision",
+            "parameters": {
+            "endpoint": " <your_computer_vision_endpoint> ",
+            "key": "<your_computer_vision_key>"
+            }
+        }],
+        "messages": [ 
+            { "role": "system", "content": "You are a helpful assistant." }, # Content can be a string, OR 
+            { "role": "user", "content": [       # It can be an array containing strings and images. 
+                "Describe this picture:", 
+                { "image": "<base_64_encoded_image>" }      # Images are represented like this. 
+            ]} 
+        ], 
+        "max_tokens": 100 
+    }   
+    
+    # Make the API call   
+    response = requests.post(endpoint, headers=headers, data=json.dumps(data))   
+    
+    print(f"Status Code: {response.status_code}")   
+    print(response.text) 
+    ```
+
+1. Make the following changes:
+    1. Enter your Azure OpenAI endpoint URL and key in the appropriate fields.
+    1. Enter your GPT-4 Turbo with Vision deployment name in the appropriate field. 
+    1. Enter your Computer Vision endpoint URL and key in the appropriate fields.
+    1. Change the value of the `"image"` field to the base 64 byte data of your image.
+1. Run the application with the `python` command:
+
+    ```console
+    python quickstart.py
+    ```
+
+---
 
 ## Clean up resources
 
