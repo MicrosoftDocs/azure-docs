@@ -34,7 +34,7 @@ Here is the high-level structure for a workflow definition:
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | `definition` | Yes | The starting element for your workflow definition |
-| `$schema` | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <br><br>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
+| `$schema` | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <br><br>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json` |
 | `actions` | No | The definitions for one or more actions to execute at workflow runtime. For more information, see [Triggers and actions](#triggers-actions). <br><br><br><br>Maximum actions: 250 |
 | `contentVersion` | No | The version number for your workflow definition, which is "1.0.0.0" by default. To help identify and confirm the correct definition when deploying a workflow, specify a value to use. |
 | `outputs` | No | The definitions for the outputs to return from a workflow run. For more information, see [Outputs](#outputs). <br><br><br><br>Maximum outputs: 10 |
@@ -46,7 +46,7 @@ Here is the high-level structure for a workflow definition:
 
 ## Triggers and actions
 
-In a workflow definition, the `triggers` and `actions` sections define the calls that happen during your workflow's execution. For syntax and more information about these sections, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
+In a workflow definition, the `triggers` and `actions` sections define the calls that happen during your workflow's execution. For syntax and more information about these sections, see [Workflow triggers and actions](logic-apps-workflow-actions-triggers.md).
 
 <a name="parameters"></a>
 
@@ -72,7 +72,7 @@ Here is the general structure for a parameter definition:
 | Attribute | Required | Type | Description |
 |-----------|----------|------|-------------|
 | <*parameter-name*> | Yes | String | The name for the parameter that you want to define |
-| <*parameter-type*> | Yes | int, float, string, bool, array, object, securestring, secureobject <br><br><br><br>**Note**: For all passwords, keys, and secrets, use the `securestring` or `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Security recommendations for action and input parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). | The type for the parameter |
+| <*parameter-type*> | Yes | int, float, string, bool, array, object, securestring, secureobject <br><br><br><br>**Note**: For all passwords, keys, and secrets, use the `securestring` or `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Security recommendations for action and input parameters](logic-apps-securing-a-logic-app.md#secure-action-parameters). | The type for the parameter |
 | <*default-parameter-value*> | Yes | Same as `type` | The default parameter value to use if no value is specified when the workflow instantiates. The `defaultValue` attribute is required so that the Logic App Designer can correctly show the parameter, but you can specify an empty value. |
 | <*array-with-permitted-parameter-values*> | No | Array | An array with values that the parameter can accept |
 | <*parameter-description*> | No | JSON object | Any other parameter details, such as a description for the parameter |
@@ -83,7 +83,7 @@ Next, create an [Azure Resource Manager template](../azure-resource-manager/temp
 
 ## Static results
 
-In the `staticResults` attribute, define an action's mock `outputs` and `status` that the action returns when the action's static result setting is turned on. In the action's definition, the `runtimeConfiguration.staticResult.name` attribute references the name for the static result definition inside `staticResults`. Learn how you can [test logic apps with mock data by setting up static results](../logic-apps/test-logic-apps-mock-data-static-results.md).
+In the `staticResults` attribute, define an action's mock `outputs` and `status` that the action returns when the action's static result setting is turned on. In the action's definition, the `runtimeConfiguration.staticResult.name` attribute references the name for the static result definition inside `staticResults`. Learn how you can [test logic app workflows with mock data by setting up static results](test-logic-apps-mock-data-static-results.md).
 
 ```json
 "definition": {
@@ -108,11 +108,13 @@ In the `staticResults` attribute, define an action's mock `outputs` and `status`
 
 | Attribute | Required | Type | Description |
 |-----------|----------|------|-------------|
-| <*static-result-definition-name*> | Yes | String | The name for a static result definition that an action definition can reference through a `runtimeConfiguration.staticResult` object. For more information, see [Runtime configuration settings](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <br><br>You can use any unique name that you want. By default, this unique name is appended with a number, which is incremented as necessary. |
+| <*static-result-definition-name*> | Yes | String | The name for a static result definition that an action definition can reference through a `runtimeConfiguration.staticResult` object. For more information, see [Runtime configuration settings](logic-apps-workflow-actions-triggers.md#runtime-config-options). <br><br>You can use any unique name that you want. By default, this unique name is appended with a number, which is incremented as necessary. |
 | <*output-attributes-and-values-returned*> | Yes | Varies | The requirements for these attributes vary based on different conditions. For example, when the `status` is `Succeeded`, the `outputs` attribute includes attributes and values returned as mock outputs by the action. If the `status` is `Failed`, the `outputs` attribute includes the `errors` attribute, which is an array with one or more error `message` objects that have error information. |
 | <*header-values*> | No | JSON | Any header values returned by the action |
 | <*status-code-returned*> | Yes | String | The status code returned by the action |
-| <*action-status*> | Yes | String | The action's status, for example, `Succeeded` or `Failed` |For example, in this HTTP action definition, the `runtimeConfiguration.staticResult.name` attribute references `HTTP0` inside the `staticResults` attribute where the mock outputs for the action are defined. The `runtimeConfiguration.staticResult.staticResultOptions` attribute specifies that the static result setting is `Enabled` on the HTTP action. |
+| <*action-status*> | Yes | String | The action's status, for example, `Succeeded` or `Failed` |
+
+For example, in this HTTP action definition, the `runtimeConfiguration.staticResult.name` attribute references `HTTP0` inside the `staticResults` attribute where the mock outputs for the action are defined. The `runtimeConfiguration.staticResult.staticResultOptions` attribute specifies that the static result setting is `Enabled` on the HTTP action.
 
 ```json
 "actions": {
@@ -170,9 +172,9 @@ With JSON, you can have literal values that exist at design time, for example:
 ```
 
 You can also have values that don't exist until run time. To represent these values, you can use *expressions*, which are evaluated at run time. An expression is a sequence that can contain one or more [functions](#functions), 
-[operators](#operators), [variables](./logic-apps-create-variables-store-values.md), explicit values, or constants. In your workflow definition, you can use an expression anywhere in a JSON string value by prefixing the expression with the at-sign (\@). When evaluating an expression that represents a JSON value, the expression body is extracted by removing the \@ character, and always results in another JSON value.
+[operators](#operators), [variables](logic-apps-create-variables-store-values.md), explicit values, or constants. In your workflow definition, you can use an expression anywhere in a JSON string value by prefixing the expression with the at-sign (\@). When evaluating an expression that represents a JSON value, the expression body is extracted by removing the \@ character, and always results in another JSON value.
 
-For example, for the previously defined `customerName` property, you can get the property value by using the [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 
+For example, for the previously defined `customerName` property, you can get the property value by using the [parameters()](workflow-definition-language-functions-reference.md#parameters) 
 function in an expression and assign that value to the `accountName` property:
 
 ```json
