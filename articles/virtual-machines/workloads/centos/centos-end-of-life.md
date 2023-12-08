@@ -27,8 +27,8 @@ Workloads running on these CentOS versions need to migrate to alternate platform
 
 There are several options for CentOS customers to move to a supported OS. The decision of where and how to migrate will depend on whether you need to:
 
-- retain compatibility with CentOS / Red Hat Enterprise Linux (RHEL)
-- prefer a community supported distribution vs. commercial distribution (for example Red Hat Enterprise Linux or RHEL)
+- Retain compatibility with CentOS / Red Hat Enterprise Linux (RHEL)
+- Prefer a community supported distribution vs. commercial distribution (for example Red Hat Enterprise Linux or RHEL)
 - Configuration and image source(s) of your CentOS estate in Azure
 
 If you need to keep CentOS compatibility, migration to Red Hat Enterprise Linux, a commercial distribution, is a low-risk option. There are also several choices such as Oracle Linux, Alma Linux, Rocky Linux, etc.
@@ -49,15 +49,15 @@ See the [Endorsed Distribution](../..//linux/endorsed-distros.md) page for detai
 
 | **Distribution** | **Description** | **Azure Images** | **Support Model** |
 |---|---|---|---|
-| **Red Hat Enterprise Linux** | Best binary compatible OS w/ support and EUS available. <br/> [Migration offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rh-rhel-3p-migration?tab=Overview) available in the Azure marketplace.<br/> [Conversion tool](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux) available from Red Hat.<br/> [Multiple offers and images](../redhat/overview.md) | Yes PAYG, BYOS, ARM64 | Commercial, integrated support |
+| **Red Hat Enterprise Linux** | Best binary compatible OS w/ support and EUS available. <br/> [Migration offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rh-rhel-3p-migration?tab=Overview) available in the Azure Marketplace.<br/> [Conversion tool](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux) available from Red Hat.<br/> [Multiple offers and images](../redhat/overview.md) | Yes PAYG, BYOS, ARM64 | Commercial, integrated support |
 | **AlmaLinux** | Official community images: <br/> [AlmaLinux OS (x86_64/AMD64)](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-x86_64?tab=Overview)<br/> [AlmaLinux OS (AArch64/Arm64)](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-arm?tab=Overview)<br/> [AlmaLinux HPC](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-hpc?tab=Overview)<br/> [Conversion tool](https://wiki.almalinux.org/documentation/migration-guide.html#how-to-migrate) available from AlmaLinux. | Yes (multiple publishers) | Community, Commercial support by 3<sup>rd</sup> parties |
 | **Oracle Linux** | [Migration tooling and guidance](https://docs.oracle.com/en/learn/switch_centos7_ol7/index.html#introduction) available from Oracle. | YesPAYG, BYOS, ARM64 | Community and commercial |
 | **Rocky Linux** | Official community images:<br/>[Rocky Linux for x86_64 (AMD64) - Official](https://azuremarketplace.microsoft.com/marketplace/apps/resf.rockylinux-x86_64?tab=PlansAndPrice)<br/> [Conversion tool](https://docs.rockylinux.org/guides/migrate2rocky/) available from Rocky.| Yes (multiple publishers) | Community and commercial |
 
-Notes:
-- “Binary compatible” means based on the same upstream distribution (Fedora). There is no guarantee of bug for bug compatibility.
-- For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](../../linux/endorsed-distros.md)
-- For details on Red Hat & Microsoft Integrated Support see: Microsoft and Red Hat Partner and Deliver Integrated Support, a Unique Offering in the IT World | Microsoft Learn
+> [!NOTE]
+> - “Binary compatible” means based on the same upstream distribution (Fedora). There is no guarantee of bug for bug compatibility.
+> - For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](../../linux/endorsed-distros.md)
+> - For details on Red Hat & Microsoft Integrated Support see: Microsoft and Red Hat Partner and Deliver Integrated Support, a Unique Offering in the IT World | Microsoft Learn
 
 ## Alternate distributions
 
@@ -86,7 +86,7 @@ As you consider whether to convert your VM in place vs redeploying, the way you 
 
 If you created your own VM for use in Azure, no software billing information is present in your VM. You are likely OK to convert it in place (after a backup and any necessary prerequisites and updates).
 
-Rogue Wave Software (formerly OpenLogic) Azure marketplace offer
+Rogue Wave Software (formerly OpenLogic) Azure Marketplace offer
 
 - [CentOS-based](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos?tab=Overview)
 
@@ -96,19 +96,19 @@ Rogue Wave Software (formerly OpenLogic) Azure marketplace offer
 
 These are the official / endorsed CentOS image in Azure, and don't have software billing information associated. They're candidates for an in-place conversion (after a backup and any necessary prerequisites and updates).
 
-**Other Azure marketplace offers**
+**Other Azure Marketplace offers**
 
-There is a multitude of CentOS based offers from various publishers available in the Azure marketplace. They range from simple OS only offers to various bundled offers with more software, desktop versions and configurations for specific cases (for example CIS hardened images).
+There is a multitude of CentOS based offers from various publishers available in the Azure Marketplace. They range from simple OS only offers to various bundled offers with more software, desktop versions and configurations for specific cases (for example CIS hardened images).
 
 Some of these offers do have a price tag associated, and can include services such as end customer support etc.
 
-If you convert a system with a price associated, you will continue to pay the original price after conversion. Even if you have a separate subscription or license for the converted system, you my be double paying.
+If you convert a system with a price associated, you will continue to pay the original price after conversion. Even if you have a separate subscription or license for the converted system, you may be double paying.
 
 Check with your image provider whether they recommend / support an in-place upgrade or have further guidance.
 
 ### Changing distributions
 
-If you are moving to another distribution, you need to redeploy your Virtual Machines and workloads. Make sure to look at the [MicrosoftCloud Adoption Framework](https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework) for Azure for guidance, best practices and templates to deploy your solution in Azure.
+If you are moving to another distribution, you need to redeploy your Virtual Machines and workloads. Make sure to look at the [Microsoft Cloud Adoption Framework](https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework) for Azure for guidance, best practices and templates to deploy your solution in Azure.
 
 ### Modernize
 
