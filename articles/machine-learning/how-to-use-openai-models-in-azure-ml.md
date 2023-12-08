@@ -5,18 +5,13 @@ description: Learn how to use Azure OpenAI models in Azure Machine Learning.
 ms.author: marouzba
 author: MahsaRouzbahman
 ms.reviewer: ssalgado
-ms.date: 10/12/2023
+ms.date: 12/12/2023
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: how-to
 ---
 
-# Use Azure OpenAI models in Azure Machine Learning (preview)
-
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Use Azure OpenAI models in Azure Machine Learning
 
 In this article, you learn how to discover, fine-tune, and deploy Azure OpenAI models at scale by using Azure Machine Learning.
 
@@ -38,7 +33,7 @@ OpenAI models in Machine Learning provide Machine Learning native capabilities t
 
 ## Access Azure OpenAI models in Machine Learning
 
-The model catalog (preview) in Azure Machine Learning studio is your starting point to explore various collections of foundation models. The Azure OpenAI models collection consists of models that are exclusively available on Azure. These models enable customers to access prompt engineering, fine-tuning, evaluation, and deployment capabilities for large language models that are available in Azure OpenAI. You can view the complete list of supported Azure OpenAI models in the [model catalog](https://ml.azure.com/model/catalog) under the **Azure OpenAI Service** collection.
+The model catalog in Azure Machine Learning studio is your starting point to explore various collections of foundation models. The Azure OpenAI models collection consists of models that are exclusively available on Azure. These models enable customers to access prompt engineering, fine-tuning, evaluation, and deployment capabilities for large language models that are available in Azure OpenAI. You can view the complete list of supported Azure OpenAI models in the [model catalog](https://ml.azure.com/model/catalog) under the **Azure OpenAI Service** collection.
 
 > [!TIP]
 >Supported Azure OpenAI models are published to the Machine Learning model catalog. You can view a complete list of [Azure OpenAI models](../ai-services/openai/concepts/models.md).
