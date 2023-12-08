@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 
 # Common query patterns in Azure Stream Analytics
 
-Queries in Azure Stream Analytics are expressed in a SQL-like query language. The language constructs are documented in the [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference) guide. 
+Queries in Azure Stream Analytics are expressed in an SQL-like query language. The language constructs are documented in the [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference) guide. 
 
 The query design can express simple pass-through logic to move event data from one input stream into an output data store, or it can do rich pattern matching and temporal analysis to calculate aggregates over various time windows as in the [Build an IoT solution by using Stream Analytics](stream-analytics-build-an-iot-solution-using-stream-analytics.md) guide. You can join data from multiple inputs to combine streaming events, and you can do lookups against static reference data to enrich the event values. You can also write data to multiple outputs.
 
@@ -299,7 +299,7 @@ FROM
 	AND Input.Time = LastInWindow.LastEventTime
 ```
 
-The first step on the query finds the maximum time stamp in 10-minute windows, that is the time stamp of the last event for that window. The second step joins the results of the first query with the original stream to find the event that matches the last time stamps in each window. 
+The first step on the query finds the maximum time stamp in 10-minute windows, that is, the time stamp of the last event for that window. The second step joins the results of the first query with the original stream to find the event that matches the last time stamps in each window. 
 
 **DATEDIFF** is a date-specific function that compares and returns the time difference between two DateTime fields, for more information, see [date functions](/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
 
@@ -631,7 +631,7 @@ When the first statement executes, the duplicate records are combined into one a
 
 ## Specify logic for different cases/values (CASE statements)
 
-**CASE** statements can provide different computations for different fields, based on particular criterion. For example, assign lane 'A' to cars of *Make1* and lane 'B' to any other make.
+**CASE** statements can provide different computations for different fields, based on particular criterion. For example, assign lane 'A' to cars of `Make1` and lane `B` to any other make.
 
 **Input**:
 
@@ -666,7 +666,7 @@ FROM
 	Input TIMESTAMP BY Time
 ```
 
-The **CASE** expression compares an expression to a set of simple expressions to determine its result. In this example, vehicles of *Make1* are dispatched to lane 'A' while vehicles of any other make will be assigned lane 'B'.
+The **CASE** expression compares an expression to a set of simple expressions to determine its result. In this example, vehicles of `Make1` are dispatched to lane `A` while vehicles of any other make will be assigned lane `B`.
 
 For more information, see [case expression](/stream-analytics-query/case-azure-stream-analytics).
 
