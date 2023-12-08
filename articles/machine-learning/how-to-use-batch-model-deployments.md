@@ -422,6 +422,9 @@ You can run and invoke a batch endpoint using Azure CLI, Azure Machine Learning 
 
 # [Python](#tab/python)
 
+> [!NOTE]
+> [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+
 [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=start_batch_scoring_job)]
 
 # [Studio](#tab/studio)

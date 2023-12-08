@@ -294,6 +294,9 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    
    # [Python](#tab/python)
    
+   > [!NOTE]
+   > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path="data")
    job = ml_client.batch_endpoints.invoke(
