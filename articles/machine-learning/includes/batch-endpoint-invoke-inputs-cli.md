@@ -1,5 +1,5 @@
 ---
-author: masakande
+author: msakande
 ms.service: machine-learning
 ms.topic: include
 ms.date: 11/30/2023
