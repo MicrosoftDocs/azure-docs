@@ -14,7 +14,8 @@ In this guide, you learn about data sources supported in each Azure Managed Gran
 
 ## Prerequisites
 
-* [An Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
+* [An Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
+* Required Grafana role: Grafana Editor.
 
 ## Supported Grafana data sources
 
@@ -80,7 +81,7 @@ To add a data source to Azure Managed Grafana, follow the steps below.
 
 ### [Portal](#tab/azure-portal)
 
-1. If needed, add a install a new data source plugin. [Core Grafana plugins](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) are installed in your workspace by default. If you want to use another type of data source, you first need to install it. Instructions to install a plugin are available at [Add a plugin](how-to-manage-plugins.md#add-a-plugin).
+1. [Core Grafana plugins](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) are installed in your workspace by default. If you want to use another type of data source, you first need to install its plugin. To install a new data source plugin, follow the instructions available at [Add a plugin](how-to-manage-plugins.md#add-a-plugin).
 1. Add the data source to your instance.
 
    1. Open your Azure Managed Grafana workspace in the Azure portal and go to **Overview** > **Endpoint** to open the Grafana UI.
@@ -122,7 +123,7 @@ az grafana data-source create --name <instance-name> --definition '{
 
 ## Configure a data source
 
-The content below, shows how to configure some of the most popular data sources in Azure Managed Grafana: Azure Monitor and Azure Data Explorer. A similar process can be used to configure other types of data sources. For more information about a specific data source, refer to [Grafana's documentation](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources).
+The content below shows how to configure some of the most popular data sources in Azure Managed Grafana: Azure Monitor and Azure Data Explorer. A similar process can be used to configure other types of data sources. For more information about a specific data source, refer to [Grafana's documentation](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources).
 
 ### Azure Monitor configuration
 
