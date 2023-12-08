@@ -53,7 +53,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
       - Leave the **Automatic upgrade** setting set to the recommended value, which is *Enabled with patch*.
       - Leave the **Authentication and authorization** setting set to *Local accounts with Kubernetes RBAC*.
 
-        :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal" lightbox="media/quick-kubernetes-deploy-portal/create-cluster-basics.png":::
+        :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal." lightbox="media/quick-kubernetes-deploy-portal/create-cluster-basics.png":::
 
 1. Select **Next**. On the **Node pools** tab, add a new node pool:
     - Select **Add node pool**.
@@ -66,7 +66,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
     - Leave the **Scale method** setting set to *Autoscale*.
     - Leave the **Minimum node count** and **Maximum node count** fields set to their default settings.
 
-        :::image type="content" source="media/quick-kubernetes-deploy-portal/create-node-pool-linux.png" alt-text="Screenshot showing how to create a node pool running Ubuntu Linux" lightbox="media/quick-kubernetes-deploy-portal/create-node-pool-linux.png":::
+        :::image type="content" source="media/quick-kubernetes-deploy-portal/create-node-pool-linux.png" alt-text="Screenshot showing how to create a node pool running Ubuntu Linux." lightbox="media/quick-kubernetes-deploy-portal/create-node-pool-linux.png":::
 
 1. Leave all settings on the other tabs set to their defaults.
 

@@ -46,7 +46,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
       - Leave the **Automatic upgrade** setting set to the recommended value, which is *Enabled with patch*.
       - Leave the **Authentication and authorization** setting set to *Local accounts with Kubernetes RBAC*.
 
-        :::image type="content" source="media/quick-windows-container-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal" lightbox="media/quick-windows-container-deploy-portal/create-cluster-basics.png":::
+        :::image type="content" source="media/quick-windows-container-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal." lightbox="media/quick-windows-container-deploy-portal/create-cluster-basics.png":::
 
 1. Select **Next**. On the **Node pools** tab, add a new node pool:
     - Select **Add node pool**.
@@ -59,7 +59,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
     - Leave the **Scale method** setting set to *Autoscale*.
     - Leave the **Minimum node count** and **Maximum node count** fields set to their default settings.
 
-        :::image type="content" source="media/quick-windows-container-deploy-portal/create-node-pool-windows.png" alt-text="Screenshot showing how to create a node pool running Windows Server" lightbox="media/quick-windows-container-deploy-portal/create-node-pool-windows.png":::
+        :::image type="content" source="media/quick-windows-container-deploy-portal/create-node-pool-windows.png" alt-text="Screenshot showing how to create a node pool running Windows Server." lightbox="media/quick-windows-container-deploy-portal/create-node-pool-windows.png":::
 
 1. Leave all settings on the other tabs set to their defaults.
 1. Select **Review + create** to run validation on the cluster configuration. After validation completes, select **Create** to create the AKS cluster.
