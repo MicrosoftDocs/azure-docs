@@ -6,7 +6,7 @@ ms.author: dobett
 # ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 11/07/2023
+ms.date: 12/07/2023
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
@@ -161,8 +161,6 @@ pod/resource-sync-agent-769bb66b79-z9n46          2/2     Running   0           
 pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0               10m
 ```
 
-
-
 ## Next steps
 
-Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](../get-started/quickstart-deploy.md).
+Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
