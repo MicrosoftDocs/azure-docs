@@ -130,8 +130,8 @@ You should receive a response body in the following format:
 {
   "id": "9f50c644-2121-40e9-9ea7-544e48bfe3cb",
   "description": "Endpoint for Jessica voice",
-  "projectId": "Jessica",
-  "modelId": "Jessica",
+  "projectId": "ProjectId",
+  "modelId": "JessicaModelId",
   "properties": {
     "kind": "HighPerformance"
   },
