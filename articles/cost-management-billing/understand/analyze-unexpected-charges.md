@@ -145,7 +145,7 @@ There are several reasons why you're not receiving alert emails. Try the followi
 - Work with your admin to reenable the [view charges policy](../costs/assign-access-acm-data.md#enable-access-to-costs-in-the-azure-portal) in the Azure portal. The policy applies to indirect Enterprise Agreements and to Microsoft Customer Agreements with a Microsoft partner.
 
 >[!NOTE]
-> Azure checks the permissions of the alert rule creator before sending the alert email. If your organization has a policy that prohibits permanently assigning higher privileges to users, you can use a service principal and create the alert directly using the Scheduled Actions API.
+> Azure checks the permissions of the alert rule creator before sending the alert email. If your organization has a policy that prohibits permanently assigning higher privileges to users, you can use a service principal and create the alert directly using the [Scheduled Actions API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope#createorupdateinsightalertscheduledactionbyscope).
 
 ### Why am I not able to create an anomaly alert rule?
 
