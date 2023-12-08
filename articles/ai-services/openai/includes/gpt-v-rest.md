@@ -106,8 +106,9 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     } 
     
     # Prepare endpoint, headers, and request body 
-    endpoint = f"{base_url}/chat/completions?api-version=2023-12-01-preview" 
+    endpoint = f"{base_url}/extensions/chat/completions?api-version=2023-12-01-preview" 
     data = {
+        "model": "gpt-4-vision-preview",
         "enhancements": {
             "ocr": {
               "enabled": True

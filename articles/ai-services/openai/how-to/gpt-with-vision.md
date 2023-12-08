@@ -63,8 +63,19 @@ GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored 
 
 > [!IMPORTANT]
 > To use Vision enhancement, you need a Computer Vision resource, and it must be in one of the Azure regions where GPT-4 Turbo with Vision is available.
- 
-You use the same API call as in the above section, but you must include the `enhancements` and `dataSources` objects in the request body. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource.
+
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+
+- RESOURCE_NAME is the name of your Azure OpenAI resource 
+- DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 
+
+**Required headers**: 
+- `Content-Type`: application/json 
+- `api-key`: {API_KEY} 
+
+**Body**: 
+
+The request body is the same as above, except you must include the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource.
 
 ```json
 {
