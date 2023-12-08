@@ -282,7 +282,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     )
     ```
 
-    Alternatively, if your endpoint serves a model deployment, simplify the `invoke` call by specifying the input as a value to the `input` parameter:
+    Further simplify the `invoke` call for a model deployment by specifying the location to the input data as a value to the `input` parameter:
 
     ```python
     job = ml_client.batch_endpoints.invoke(
@@ -432,7 +432,8 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     )
     ```
 
-    Alternatively, if your endpoint serves a model deployment, simplify the `invoke` call by specifying the input as a value to the `input` parameter:
+    Further simplify the `invoke` call for a model deployment by specifying the location to the input data as a value to the `input` parameter:
+
    
     ```python
     job = ml_client.batch_endpoints.invoke(
@@ -576,7 +577,8 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
     )
     ```
 
-    Alternatively, if your endpoint serves a model deployment, simplify the `invoke` call by specifying the input as a value to the `input` parameter:
+    Further simplify the `invoke` call for a model deployment by specifying the location to the input data as a value to the `input` parameter:
+
    
     ```python
     job = ml_client.batch_endpoints.invoke(
