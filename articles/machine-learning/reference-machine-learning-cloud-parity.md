@@ -28,7 +28,7 @@ In the list of global Azure regions, there are several regions that serve specif
 
 Azure Machine Learning is still in development in air-gap Regions. 
 
-For the Italy North Region, Application Insights is not available until 12/12/2023 without whitelist. This will effect the following service until then - Job schedule  - Feature store  - Model monitor - Data import
+For the Italy North Region, Application Insights is not available until 12/12/2023 without allow list. This will effect the following service until then - Job schedule  - Feature store  - Model monitor - Data import
 
 
 
