@@ -43,6 +43,8 @@ In this chat session, you're instructing the assistant to aid in understanding i
 1. In the **Chat session** pane, enter a text prompt like "Describe this image," and upload an image with the attachment button. You can use a different text prompt for your use case. Then select **Send**. 
 1. Observe the output provided. Consider asking follow-up questions related to the analysis of your image to learn more.
 
+:::image type="content" source="../media/quickstarts/studio-vision.png" lightbox="../media/quickstarts/studio-vision.png" alt-text="Screenshot of OpenAI studio chat playground.":::
+
 #### [Enhanced image prompts](#tab/enhanced)
 
 In this chat session, you try out the capabilities of the enhanced Vision model. 
@@ -52,6 +54,8 @@ In this chat session, you try out the capabilities of the enhanced Vision model.
 1. Save your changes, and when prompted to confirm updating the system message, select **Continue**.
 1. In the **Chat session** pane, enter a text prompt like "Describe this image," and upload an image with the attachment button. You can use a different text prompt for your use case. Then select **Send**.  
 1. You should receive a response with more detailed information about visible text in the image and the locations of objects. Consider asking follow-up questions related to the analysis of your image to learn more.
+
+:::image type="content" source="../media/quickstarts/studio-vision-enhanced.png" lightbox="../media/quickstarts/studio-vision-enhanced.png" alt-text="Screenshot of OpenAI studio chat playground with Enhancements turned on and the Computer Vision resource selection box.":::
 
 #### [Video prompts](#tab/video)
 
@@ -66,6 +70,9 @@ In this chat session, you're instructing the assistant to aid in understanding v
     > Currently the chat playground only supports videos that are less than 3 minutes long.
 
 1. You should receive a response describing the video. Consider asking follow-up questions related to the analysis of your video to learn more.
+
+
+:::image type="content" source="../media/quickstarts/studio-vision-enhanced-video.png" alt-text="Screenshot of OpenAI studio chat playground with Enhancements turned on and the Computer Vision resource selection box. Video-specific text prompt." lightbox="../media/quickstarts/studio-vision-enhanced-video.png":::
 
 ---
 
