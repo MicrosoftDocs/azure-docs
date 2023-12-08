@@ -14,17 +14,17 @@ ms.date: 11/10/2020
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
-You can manage Azure Database for MySQL - Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.
+You can manage Azure Database for MySQL flexible server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.
 
-This article describes how to view and configure server parameters by using the Azure portal. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameter. The non-modifiable server parameters are greyed out.
+This article describes how to view and configure server parameters by using the Azure portal. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameters. The non-modifiable server parameters are greyed out.
 
 >[!Note]
 > Server parameters can be updated globally at the server-level, use the [Azure CLI](./how-to-configure-server-parameters-cli.md) or [Azure portal](./how-to-configure-server-parameters-portal.md).
 
 ## Configure server parameters
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then locate your Azure Database for MySQL - Flexible Server.
-2. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL - Flexible Server.
+1. Sign in to the [Azure portal](https://portal.azure.com), and locate your Azure Database for MySQL flexible server instance.
+2. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL flexible server instance.
 [:::image type="content" source="./media/how-to-server-parameters/azure-portal-server-parameters.png" alt-text="Azure portal server parameters page":::](./media/how-to-server-parameters/azure-portal-server-parameters.png#lightbox)
 3. Locate any server parameter you need to adjust. Review the **Description** column to understand the purpose and allowed values.
 [:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Enumerate drop down":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
@@ -39,11 +39,11 @@ This article describes how to view and configure server parameters by using the 
 
 If the server parameter you want to update is non-modifiable, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server.
 
-1. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL server.
+1. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL flexible server instance.
 2. Search for `init_connect`
 3. Add the server parameters in the format: `SET parameter_name=YOUR_DESIRED_VALUE` in value the value column.
 
-    For example, you can change the character set of your server by setting of `init_connect` to `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
+    For example, you can change the character set of your Azure Database for MySQL flexible server instance by setting `init_connect` to `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
 4. Click **Save** to save your changes.
 
 >[!Note]
