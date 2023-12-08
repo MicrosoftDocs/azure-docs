@@ -84,11 +84,13 @@ The total number of tokens processed in a given request depends on the length of
 #### Image tokens (GPT-4 Turbo with Vision)
 
 The token cost of an input image depends on two main factors: the size of the image and the detail setting (low or high) used for each image. Here's a breakdown of how it works:
-- Detail: Low
+
+- **Detail: Low resolution mode**
     - Low detail allows the API to return faster responses and consume fewer input tokens for use cases that don’t require high detail.
     - These images cost 85 tokens each, regardless of the image size.
     - **Example: 4096 x 8192 image (low detail)**: The cost is a fixed 85 tokens, because it's a low detail image, and the size doesn't affect the cost in this mode.
-- Detail: High
+      
+- **Detail: High resolution mode**
     - High detail lets the API see the image in more detail by cropping it into smaller squares. Each square uses more tokens to generate text.
     - The token cost is calculated by a series of scaling steps:
         1. The image is first scaled to fit within a 2048 x 2048 square while maintaining its aspect ratio.
@@ -112,7 +114,7 @@ Once you create an Azure OpenAI Resource, you must deploy a model before you can
 
 ### Prompt engineering
 
-The GPT-3, GPT-3.5, GPT-4, and GPT-4 Turbo with Vision models from OpenAI are prompt-based. With prompt-based models, the user interacts with the model by entering a text prompt, to which the model responds with a text completion. This completion is the model’s continuation of the input text.
+The GPT-3, GPT-3.5 and GPT-4 models from OpenAI are prompt-based. With prompt-based models, the user interacts with the model by entering a text prompt, to which the model responds with a text completion. This completion is the model’s continuation of the input text.
 
 While these models are extremely powerful, their behavior is also very sensitive to the prompt. This makes [prompt engineering](./concepts/prompt-engineering.md) an important skill to develop.
 
