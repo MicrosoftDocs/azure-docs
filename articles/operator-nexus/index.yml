@@ -92,8 +92,8 @@ landingContent:
         links:
            - text: Set up Defender for Cloud security
              url: howto-set-up-defender-for-cloud-security.md
-           - text: Use Azure Policy to protect AKS clusters
-             url: howto-use-azure-policy-for-aks-cluster-security.md
+           - text: Use Azure Policy to protect Nexus resources
+             url: howto-use-azure-policy.md
 #
   # Card
   - title: References
