@@ -8,7 +8,7 @@ author: roygara
 ms.author: rogarana
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 12/08/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -205,7 +205,7 @@ $Key = Add-AzKeyVaultKey @NewKeyArguments
 
 # [Azure CLI](#tab/azure-cli)
 
-To add a key with Azure CLI, call [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create). Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
+To add a key with Azure CLI, call [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create). You can also set a policy on your keyvault, to give permissions to specific users directly. Use the following sample and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
 
 ```azurecli
 #### Get vault_url
@@ -239,11 +239,11 @@ Azure Elastic SAN can automatically update the customer-managed key that is used
 
 > [!IMPORTANT]
 >
-> If the Elastic SAN volume group was previously configured for manual updating of the key version and you want to change it to update automatically, you might need to explicitly change the key version to an empty string. For more information on manually changing the key version, see elastic-san-encryption-mana[Automatically update the key version](elastic-san-encryption-manage-customer-keys.md#automatically-update-the-key-version).
+> If the Elastic SAN volume group was configured for manual updating of the key version and you want to change it to update automatically, you might need to explicitly change the key version to an empty string. For more information on manually changing the key version, see [Automatically update the key version](elastic-san-encryption-manage-customer-keys.md#automatically-update-the-key-version).
 
 ### Manual key version rotation
 
-If you prefer to update the key version manually, specify the URI for a specific version at the time that you configure encryption with customer-managed keys. In this case, Elastic SAN won't automatically update the key version when a new version is created in the key vault. For Elastic SAN to use a new key version, you must update it manually.
+If you prefer to update the key version manually, specify the URI for a specific version at the time that you configure encryption with customer-managed keys. When you specify the URI, your elastic SAN won't automatically update the key version when a new version is created in the key vault. For your elastic SAN to use a new key version, you must update it manually.
 
 To locate the URI for a specific version of a key in the Azure portal:
 
@@ -354,7 +354,7 @@ az elastic-san volume create -g $rg -e $san_name -v $vg_name -n $volume_name --s
 
 A system-assigned managed identity is associated with an instance of an Azure service, such as an Azure Elastic SAN volume group.
 
-The system-assigned managed identity must have permissions to access the key in the key vault. Assign the **Key Vault Crypto Service Encryption User** role to the system-assigned managed identity with key vault scope to grant these permissions.
+The system-assigned managed identity must have permissions to access the key in the key vault. This article uses the **Key Vault Crypto Service Encryption User** role to the system-assigned managed identity with key vault scope to grant these permissions.
 
 When a volume group is created, a system-assigned identity is automatically created for it if the `-IdentityType "SystemAssigned"` parameter is specified with the `New-AzElasticSanVolumeGroup` command. The system-assigned identity isn't available until after the volume group has been created. You must also assign the **Key Vault Crypto Service Encryption User** role to the identity before it can access the encryption key in the key vault. So, you can't configure customer-managed keys to use a system-assigned identity during creation of a volume group. Only existing Elastic SAN volume groups can be configured to use a system-assigned identity to authorize access to the key vault. New volume groups must use a user-assigned identity, if customer-managed keys are to be configured during volume group creation.
 
@@ -386,7 +386,7 @@ New-AzRoleAssignment @CryptoUserRoleArguments
 
 #### [Azure CLI](#tab/azure-cli)
 
-To authenticate access to the key vault with a system-assigned managed identity, first assign the system-assigned managed identity to the volume group by calling `az elastic-san volume-group update`. Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
+To authenticate access to the key vault with a system-assigned managed identity, first assign the system-assigned managed identity to the volume group by calling `az elastic-san volume-group update`. Use the following sample and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
 
 ```azurecli
 az elastic-san volume-group update \
@@ -395,7 +395,7 @@ az elastic-san volume-group update \
     --identity
 ```
 
-Next, assign to the system-assigned managed identity the required RBAC role, scoped to the key vault. Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
+Next, assign to the system-assigned managed identity the required RBAC role, scoped to the key vault. Use the following sample and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
 
 ```azurecli
 PrincipalId=$(az elastic-san volume-group show --name $EsanVgName \
@@ -467,12 +467,7 @@ New-AzElasticSanVolumeGroup @NewVgArguments
 
 ### [New volume group](#tab/new-vg/azure-cli)
 
-Use the following instructions to configure customer-managed keys during creation of a new volume group using the Azure CLI.
-
-To configure customer-managed keys for an existing volume group with automatic updating of the key version with Azure CLI, install [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-Next, call `az elastic-san volume-group update` to update the volume group's encryption settings. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account, and set `encryption-key-version` to an empty string to enable automatic updating of the key version. If the volume group was previously configured for customer-managed keys with a specific key version, then setting the key version to an empty string enables automatic updating of the key version going forward. Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
-
+Use the following samples and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article) to configure customer-managed keys during creation of a new volume group:
 
 #### Managed identity
 
@@ -519,7 +514,7 @@ az elastic-san volume-group update -e $san_name -n $vg_name -g $rg --encryption 
 
 ### [Existing volume group](#tab/existing-vg/azure-powershell)
 
-This set of samples shows how to configure an existing volume group to use customer-managed keys with a system-assigned identity. The steps are:
+These set of samples shows how to configure an existing volume group to use customer-managed keys with a system-assigned identity. The steps are:
 
 > [!div class="checklist"]
 > * Generate a system-assigned identity for the volume group.
@@ -606,14 +601,9 @@ Update-AzElasticSanVolumeGroup @UpdateVgArguments
 
 ### [Existing volume group](#tab/existing-vg/azure-cli)
 
-Use the instructions below to configure customer-managed keys for an existing volume group using the Azure CLI.
+Use the following samples  [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article) to configure customer-managed keys for an existing volume group using the Azure CLI.
 
-To configure customer-managed keys with manual updating of the key version, explicitly provide the key version when you configure encryption for the volume group. Call `az elastic-san volume-group update` to update the volume group's encryption settings, as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account. Use the sample below and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
-
-Remember to replace the placeholder values in brackets with your own values.
-
-
-Managed identity
+#### Managed identity
 
 ```azurecli
 
@@ -628,7 +618,7 @@ az keyvault set-policy -n $kv_name --object-id $uai_2_principal_id --key-permiss
 az elastic-san volume-group update -e $san_name -n $vg_name -g $rg --identity "{type:UserAssigned,user-assigned-identity:'$uai_2_id'}" --encryption-properties "{key-vault-properties:{key-name:'$key_name2',key-vault-uri:'$vault_uri'},identity:{user-assigned-identity:'$uai_2_id'}}" 
 ```
 
-System assigned identity
+#### System assigned identity
 
 ```azurecli
 az elastic-san volume-group update -e $san_name -n $vg_name -g $rg --identity '{type:SystemAssigned}'
