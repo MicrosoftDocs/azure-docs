@@ -16,7 +16,7 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-Azure AI Studio supports developing in VS Code - Web and Desktop. In this scenario, your VS Code instance is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance. To work in your local environment instead, or to learn more, follow the steps in [Install the Azure AI SDK](sdk-install.md) and [Install the Azure AI CLI](cli-install.md).
+Azure AI Studio supports developing in VS Code - Web and Desktop. In each scenario, your VS Code instance is remotely connected to a prebuilt custom container running on a virtual machine, also known as a compute instance. To work in your local environment instead, or to learn more, follow the steps in [Install the Azure AI SDK](sdk-install.md) and [Install the Azure AI CLI](cli-install.md).
 
 ## Launch VS Code from Azure AI Studio
 
@@ -31,7 +31,7 @@ Azure AI Studio supports developing in VS Code - Web and Desktop. In this scenar
 1. Once the compute is running, select **Set up** which configures the container on your compute for you. The compute setup might take a few minutes to complete. Once you set up the compute the first time, you can directly launch subsequent times. You might need to authenticate your compute when prompted.
 
     > [!WARNING]
-    > Even if you enable and configure idle shutdown on your compute instance, any computes that host this custom container for VS Code (Web) won't idle shutdown. This is to ensure the compute doesn't shut down unexpectedly while you're working within a container. We are working to improve this experience. Scheduled startup and shutdown of the compute should still work as expected.
+    > Even if you [enable and configure idle shutdown on your compute instance](./create-manage-compute.md#configure-idle-shutdown), any computes that host this custom container for VS Code won't idle shutdown. This is to ensure the compute doesn't shut down unexpectedly while you're working within a container. We are working to improve this experience. Scheduled startup and shutdown of the compute should still work as expected.
 
 1. Once the container is ready, select **Launch**. This launches your previously selected VS Code experience, remotely connected to a custom development environment running on your compute instance.
     1. If you selected VS Code (Web), a new browser tab connected to *vscode.dev* opens. If you selected VS Code (Desktop), a new local instance of VS Code opens on your local machine.
