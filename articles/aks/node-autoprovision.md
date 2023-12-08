@@ -12,6 +12,8 @@ When deploying workloads onto AKS, you need to make a decision about the node po
 
 Node autoprovision (NAP) decides based on pending pod resource requirements the optimal VM configuration to run those workloads in the most efficient and cost effective manner.
 
+NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and the AKS provider is also Open Source.  NAP automatically deploys and configures and manages Karpenter on your AKS clusters.
+
 
 ## Before you begin
 
@@ -59,7 +61,7 @@ Node autoprovision (NAP) decides based on pending pod resource requirements the 
     ```
 
 ## Limitations
-* NAP isn't available in  WestUS, WestUS2, EastUS, EastUS2, SouthCentralUS, WestEurope regions.  
+* NAP isn't available yet in  WestUS, WestUS2, EastUS, EastUS2, SouthCentralUS, WestEurope regions.  
 * Windows and Azure Linux node pools aren't supported
 * Kubelet configuration through Node pool configuration is not supported
 * NAP can only be enabled on new clusters
@@ -124,13 +126,19 @@ spec:
 
 |  Selector | Description | Example |
 ---|---|---|
-| karpenter.k8s.azure/sku-series |  VM SKU Series / version | DSv3 |
-| karpenter.k8s.azure/sku-name | Explicit SKU name | Standard_A1_v2 |
+| karpenter.azure.com/sku-family | VM SKU Family | D, F, L etc. |  
+| karpenter.azure.com/sku-name | Explicit SKU name | Standard_A1_v2 |  
+| karpenter.azure.com/sku-version | SKU version (without "v", can use 1) | 1 , 2 |  
 | karpenter.sh/capacity-type | VM allocation type (Spot / On Demand) | spot or on-demand |
-| karpenter.k8s.azure/sku-cpu | Number of CPUs in VM | 16 |
-| karpenter.k8s.azure/sku-memory | Memory in VM in Mb | 131072 |
-| karpenter.k8s.azure/sku-gpu-count | GPU count per VM | 2 |
-| karpenter.k8s.azure/sku-gpu-memory | GPU memory per VM | 64 |
+| karpenter.azure.com/sku-cpu | Number of CPUs in VM | 16 |
+| karpenter.azure.com/sku-memory | Memory in VM in MiB | 131072 |  
+| karpenter.azure.com/sku-gpu-name | GPU name | A100 |  
+| karpenter.azure.com/sku-gpu-manufacturer | GPU manufacturer | nvidia |  
+| karpenter.azure.com/sku-gpu-count | GPU count per VM | 2 |
+| karpenter.azure.com/sku-networking-accelerated | Whether the VM has accelerated networking | [true, false] |
+| karpenter.azure.com/sku-storage-premium-capable | Whether the VM supports Premium IO storage | [true, false] |
+| karpenter.azure.com/sku-storage-temp-maxsize     | Size limit for the VM temp storage in Mb | 7168 |
+| karpenter.azure.com/sku-storage-ephemeralos-maxsize | Size limit for the Ephemeral OS disk in Mb | 7168 |
 | topology.kubernetes.io/zone | The Availability Zone(s)         | [uksouth-1,uksouth-2,uksouth-3]  | 
 | kubernetes.io/os    | Operating System (Linux only during preview)                                           | linux       |                    
 | kubernetes.io/arch    | CPU architecture (AMD64 or ARM64)                                         | [amd64, arm64]       |
