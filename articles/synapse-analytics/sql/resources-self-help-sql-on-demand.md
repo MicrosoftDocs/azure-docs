@@ -934,6 +934,9 @@ Tables that are created might not be immediately available in serverless SQL poo
 - A table that contains some [unsupported column types](../metadata/table.md#share-spark-tables) will not be available in serverless SQL pool.
 - Accessing Delta Lake tables in Lake databases is in **public preview**. Check other issues listed in this section or in the Delta Lake section.
 
+### An external table created in Spark is showing unexpected results in serverless pool
+It can happen that there is a mismatch between the source Spark external table and the replicated external table on the serverless pool. This can happen if the files used in creating Spark external tabless are without extensions. To get the proper results make sure all files are with extensions such as .parquet. 
+
 ### Operation isn't allowed for a replicated database
 
 This error is returned if you are trying to modify a Lake database, create external tables, external data sources, database scoped credentials or other objects in your [Lake database](../metadata/database.md). These objects can be created only on SQL databases.

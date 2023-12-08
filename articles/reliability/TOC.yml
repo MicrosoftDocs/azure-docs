@@ -422,6 +422,8 @@
         href: reliability-azure-storage-mover.md
       - name: Microsoft Defender for Cloud DevOps security
         href: reliability-defender-devops.md
+      - name: Microsoft Fabric
+        href: reliability-fabric.md  
   - name: Test reliability
     items: 
     - name: Chaos engineering
