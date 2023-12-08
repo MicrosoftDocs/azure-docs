@@ -6,14 +6,14 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 07/18/2023
+ms.date: 12/07/2023
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
 ---
 # What is Document Translation?
 
-Document Translation is a cloud-based feature of the [Azure AI Translator](../translator-overview.md) service and is part of the Azure AI service family of REST APIs. The Document Translation API can be used to translate multiple and complex documents across all [supported languages and dialects](../../language-support.md), while preserving original document structure and data format.
+Document Translation is a cloud-based feature of the [Azure AI Translator](../translator-overview.md) service and is part of the Azure AI service family of REST APIs. The Document Translation API can be used to translate multiple and complex documents asynchronously or single page documents synchronously while preserving original document structure and data format. Document translation is available across all [supported languages and dialects](../../language-support.md).
 
 ## Key features
 
