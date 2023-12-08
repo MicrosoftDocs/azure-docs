@@ -34,7 +34,7 @@ The following integrations are both more unique and popular, and are treated ind
 - [Amazon Web Services (AWS) CloudTrail](connect-aws.md)
 - [Microsoft Entra ID](connect-azure-active-directory.md)
 - [Azure Virtual Desktop](connect-azure-virtual-desktop.md)
-- [Microsoft 365 Defender](connect-microsoft-365-defender.md)
+- [Microsoft Defender XDR](connect-microsoft-365-defender.md)
 - [Microsoft Defender for Cloud](connect-defender-for-cloud.md)
 - [Microsoft Purview Information Protection](connect-microsoft-purview.md)
 - [Windows DNS](connect-dns-ama.md)

@@ -287,7 +287,9 @@
         - name: Azure VMware Solution
           href: ../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md
         - name: Microsoft Defender for Cloud DevOps security
-          href: reliability-defender-devops.md
+          href: reliability-defender-devops.md 
+        - name: Microsoft Fabric
+          href: reliability-fabric.md
 - name: Reliability Guidance
   items:
   - name: Reliability by service
