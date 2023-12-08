@@ -1178,7 +1178,7 @@
     },
 
     {
-      "source_path_from_root": "/articles/sap/workloads/disaster-recovery-sap-hana-sles.md",
+      "source_path_from_root": "/articles/sap/workloads/disaster-recovery-sap-hana-suse.md",
       "redirect_url": "/azure/sap/workloads/disaster-recovery-sap-hana",
       "redirect_document_id": false
     },
