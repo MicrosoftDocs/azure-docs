@@ -16,9 +16,9 @@ ms.date: 06/20/2022
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-You can perform MySQL migrations to Azure Database for MySQL with minimal downtime by using Data-in replication, which limits the amount of downtime that is incurred by the application.
+You can perform MySQL migrations to Azure Database for MySQL flexible server with minimal downtime by using Data-in replication, which limits the amount of downtime that is incurred by the application.
 
-You can also refer to [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) for detailed information and use cases about migrating databases to Azure Database for MySQL. This guide provides guidance that will lead the successful planning and execution of a MySQL migration to Azure.
+You can also refer to [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) for detailed information and use cases about migrating databases to Azure Database for MySQL flexible server. This guide provides guidance that will lead the successful planning and execution of a MySQL migration to Azure.
 
 ## Overview
 
@@ -26,4 +26,4 @@ Using Data-in replication, you can configure the source as your primary and the 
 
 ## Next steps
 
-- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
+- For more information about migrating databases to Azure Database for MySQL flexible server, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
