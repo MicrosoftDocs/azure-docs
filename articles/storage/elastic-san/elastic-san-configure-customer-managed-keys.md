@@ -473,8 +473,10 @@ Use the following samples and [the same variables you created previously in this
 
 ```azurecli
 vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
+
 #### set policy for key permission
 az keyvault set-policy -n $kv_name --object-id $uai_principal_id --key-permissions get wrapkey unwrapkey
+
 #### create key
 az keyvault key create --vault-name $kv_name -n $key_name2 --protection software
 
@@ -493,6 +495,7 @@ az elastic-san volume update -g $rg -e $san_name -v $vg_name -n $volume_name --s
 ```azurecli
 #### Get vault_url
 vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
+
 #### Find your object id and set key policy
 objectId=$(az ad user show --id YOUREMAIL@HERE.COM --query objectId -o tsv)
 az keyvault set-policy -n $kv_name --object-id $objectId --key-permissions backup create delete get import get list update restore
@@ -500,15 +503,15 @@ az keyvault set-policy -n $kv_name --object-id $objectId --key-permissions backu
 #### Create key
 az keyvault key create --vault-name $kv_name -n $key_name --protection software
 
-### 2. PUT a volume group with PMK and a system assigned identity with it
+### Create a volume group with platform-managed keys and a system assigned identity with it
 #### Get the system identity's principalId from the response of PUT volume group request.
 vg_identity_principal_id=$(az elastic-san volume-group create -e $san_name -n $vg_name -g $rg --encryption EncryptionAtRestWithPlatformKey --protocol-type Iscsi --identity '{type:SystemAssigned}' --query "identity.principalId" -o tsv)
 
-### 3. Grant access to  the system assigned identity to the key vault created in step1
+### Grant access to  the system assigned identity to the key vault created in step1
 #### (key permissions: Get, Unwrap Key, Wrap Key)
 az keyvault set-policy -n $kv_name --object-id $vg_identity_principal_id --key-permissions backup create delete get import get list update restore
 
-### 4. PATCH the volume group with the key created in step 1
+### Update the volume group with the key created earlier
 az elastic-san volume-group update -e $san_name -n $vg_name -g $rg --encryption EncryptionAtRestWithCustomerManagedKey --encryption-properties "{key-vault-properties:{key-name:'$key_name',key-vault-uri:'$vault_uri'}}"
 ```
 
