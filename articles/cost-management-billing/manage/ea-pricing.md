@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 12/07/2023
+ms.date: 12/08/2023
 ms.author: banders
 ms.custom: seodec18
 ---
@@ -30,6 +30,10 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
 1. On the Download Usage + Charges page, under Price Sheet, select **Prepare document**. It could take a while to prepare your file.  
     :::image type="content" source="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png" alt-text="Screenshot shows the Download Usage + Charges options." lightbox="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png":::
 1. When the file is ready to download, select **Download file**.
+
+Starting January 2023 and later, a new version of the Azure Price Sheet is available for download. The new version features a new schema. It's a .ZIP file to support large amounts of data.
+
+Azure reservation pricing is available in the Azure Price Sheet for the current billing period. If you want to maintain an ongoing record of Azure reservation pricing, we recommend that you download your Azure Price Sheet for each billing period.
 
 ## Download pricing for an MCA or MPA account
 
