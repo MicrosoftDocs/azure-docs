@@ -572,7 +572,7 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-In this example, the second statement projects columns that were referenced in the GROUP BY of the first statement except the time stamp window. 
+When the first statement executes, the duplicate records are combined into one as the fields in the group by clause are all the same. Therefore, it removes the duplicates. 
 
 ## Specify logic for different cases/values (CASE statements)
 
