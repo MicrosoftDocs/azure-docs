@@ -18,7 +18,7 @@ Use this article to get started using the Azure OpenAI REST APIs to deploy and u
 - <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>.
 - The following Python libraries: `requests`, `json`.
 - An Azure OpenAI Service resource with a GPT-4 Turbo with Vision model deployed. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about model deployment, see [the resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
-- For Vision enhancement (optional): An Azure Computer Vision resource in one of the supported regions above.
+- For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource.
 
 ## Retrieve key and endpoint
 
@@ -88,6 +88,15 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
 
 #### [Enhanced image prompts](#tab/enhanced)
 
+GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. When combined with Azure AI Vision, it enhances your chat experience by providing the chat model with more detailed information about visible text in the image and the locations of objects.
+
+The **Optical character recognition (OCR)** integration allows the model to produce higher quality responses for dense text, transformed images, and number-heavy financial documents. It also covers a wider range of languages.
+
+The **object grounding** integration brings a new layer to data analysis and user interaction, as the feature can visually distinguish and highlight important elements in the images it processes.
+
+> [!CAUTION]
+> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
+
 1. Replace the contents of _quickstart.py_ with the following code. 
     
     ```python
@@ -152,6 +161,10 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     ```console
     python quickstart.py
     ```
+
+#### [Enhanced video prompts](#tab/enhanced)
+
+Video prompt integration is outside the scope of this quickstart. See the [GPT-4 Turbo with Vision how-to guide](../how-to/gpt-with-vision.md#use-vision-enhancement-with-video) for detailed instructions on setting up video prompts in chat completions programmatically.
 
 ---
 
