@@ -14,6 +14,17 @@ author: SnehaSudhirG
 
 Pre and post events allows you to execute user-defined actions before and after the schedule patch installation. This article describes on how to create, view, and cancel the pre and post events in Azure Update Manager.
 
+## Register your subscription for public preview
+
+To self-register your subscription for public preview in Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
+1. On the **All services** page, search for **Preview features**.
+1. On the **Preview Features** page, search and select **Pre and Post maintenance activity support for InGuest Patch**.
+1. Select the feature and then select **Register** to register the subscription.
+   
+   :::image type="content" source="./media/tutorial-using-functions/register-feature.png" alt-text="Screenshot that shows how to register the preview feature." lightbox="./media/tutorial-using-functions/register-feature.png"::: 
+
 ## Timeline of schedules for pre and post events
 
 We recommend you to go through the following table to understand the timeline of the schedule for pre and post events.

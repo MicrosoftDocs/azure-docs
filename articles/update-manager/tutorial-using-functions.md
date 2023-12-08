@@ -26,16 +26,6 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [pre-post-prerequisites.md](includes/pre-post-prerequisites.md)]
 
-## Register your subscription for public preview
-
-To self-register your subscription for public preview in Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
-1. On the **All services** page, search for **Preview features**.
-1. On the **Preview Features** page, search and select **Pre and Post maintenance activity support for InGuest Patch**.
-1. Select the feature and then select **Register** to register the subscription.
-   
-   :::image type="content" source="./media/tutorial-using-functions/register-feature.png" alt-text="Screenshot that shows how to register the preview feature." lightbox="./media/tutorial-using-functions/register-feature.png"::: 
 
 ## Create a function app
 
