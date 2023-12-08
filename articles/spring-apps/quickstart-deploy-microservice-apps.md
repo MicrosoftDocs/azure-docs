@@ -29,7 +29,7 @@ The Pet Clinic sample demonstrates the microservice architecture pattern. The fo
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
 - Uses Azure Spring Apps to manage the frontend and backend apps, the frontend app is built with Node JS; the backend apps are built with Spring Boot and each app uses HSQLDB as the persistent store.
-- Uses the managed components on Azure Spring Apps, they are Build Service, Service Registry, Application Configuration Service, Spring Cloud Gateway and Application Live View. The Application Configuration Service reads Git repository configuration.
+- Uses the managed components on Azure Spring Apps, they are Service Registry, Application Configuration Service, Spring Cloud Gateway and Application Live View. The Application Configuration Service reads Git repository configuration.
 - Exposes the URL of Spring Cloud Gateway to load balance requests to backend service apps, and exposes the URL of the Application Live View to monitor the backend apps.
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
@@ -37,7 +37,7 @@ The diagram shows the following architectural flows and relationships of the Pet
 > [!NOTE]
 > This article uses a simplified version of PetClinic, using an in-memory database that is not production-ready to quickly deploy to Azure Spring Apps.
 >
-> The Tanzu Developer Tools exposes public access for app live view, which is a risk point. The production environment needs to secure the access, see more from [Configure Dev Tools Portal](./how-to-use-dev-tool-portal.md#configure-dev-tools-portal).
+> The Tanzu Developer Tools exposes public access for Application Live View, which is a risk point. The production environment needs to secure the access, see more from [Configure Dev Tools Portal](./how-to-use-dev-tool-portal.md#configure-dev-tools-portal).
 
 ::: zone-end
 
@@ -164,7 +164,7 @@ Application Insights monitors the application dependencies, as shown by the foll
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png" alt-text="Screenshot of the Azure portal showing the Application map page for Azure Spring Apps enterprise instance." lightbox="media/quickstart-deploy-microservice-apps/enterprise-application-insights-map.png":::
 
-Open the App Live View URL exposed by the Developer Tools to monitor application runtimes, as shown in the following screenshot:
+Open the Application Live View URL exposed by the Developer Tools to monitor application runtimes, as shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-deploy-microservice-apps/application-live-view.png" alt-text="Screenshot of the Application Live View for the PetClinic application." lightbox="media/quickstart-deploy-microservice-apps/application-live-view.png":::
 
