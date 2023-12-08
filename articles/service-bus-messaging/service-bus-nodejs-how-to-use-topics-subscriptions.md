@@ -97,6 +97,9 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. Create a file called `sendtotopic.js` and paste the below code into it. This code will send a message to your topic.
 
+    > [!IMPORTANT]
+    > The passwordless credential is provided with the [**DefaultAzureCredential**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential).
+
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");
     const { DefaultAzureCredential } = require("@azure/identity");
