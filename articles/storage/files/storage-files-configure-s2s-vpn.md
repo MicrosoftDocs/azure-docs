@@ -1,10 +1,10 @@
 ---
 title: Configure a Site-to-Site (S2S) VPN for use with Azure Files
-description: How to configure a Site-to-Site (S2S) VPN for use with Azure Files
+description: Learn how to configure a Site-to-Site (S2S) VPN for use with Azure Files.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/07/2023
+ms.date: 12/08/2023
 ms.author: kendownie
 ---
 
@@ -83,7 +83,7 @@ To deploy a virtual network gateway, follow these steps.
    - **Public IP address SKU**: Setting is autoselected.
    - **Assignment**: The assignment is typically autoselected and can be either Dynamic or Static.
    - **Enable active-active mode**: Select **Disabled**. Only enable this setting if you're creating an active-active gateway configuration. To learn more about active-active mode, see [Highly available cross-premises and VNet-to-VNet connectivity](../../vpn-gateway/vpn-gateway-highlyavailable.md).
-   - **Configure BGP**: Select **Disabled**, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this value can be changed. To learn more about this setting, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+   - **Configure BGP**: Select **Disabled**, unless your configuration specifically requires Border Gateway Protocol. If you do require this setting, the default ASN is 65515, although this value can be changed. To learn more about this setting, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Select **Review + create** to run validation. Once validation passes, select **Create** to deploy the virtual network gateway. Deployment can take up to 45 minutes to complete.
 
@@ -115,15 +115,45 @@ The specific steps to configure your on-premises network appliance depend on the
 
 ## Create the Site-to-Site connection
 
-To complete the deployment of a S2S VPN, you must create a connection between your on-premises network appliance (represented by the local network gateway resource) and the Azure virtual network gateway. To do this, navigate to the virtual network gateway you created. In the table of contents for the virtual network gateway, select **Connections**, and then select **Add**. The resulting **Add connection** pane requires the following fields:
+To complete the deployment of a S2S VPN, you must create a connection between your on-premises network appliance (represented by the local network gateway resource) and the Azure virtual network gateway. To do this, follow these steps.
 
-- **Name**: The name of the connection. A virtual network gateway can host multiple connections, so choose a name that's helpful for your management and that will distinguish this particular connection.
-- **Connection type**: Since this a S2S connection, select **Site-to-site (IPSec)** from the drop-down list.
-- **Virtual network gateway**: This field is auto-selected to the virtual network gateway you're making the connection to and can't be changed.
-- **Local network gateway**: This is the local network gateway you want to connect to your virtual network gateway. The resulting selection pane should have the name of the local network gateway you created.
-- **Shared key (PSK)**: A mixture of letters and numbers used to establish encryption for the connection. The same shared key must be used in both the virtual network and local network gateways. If your gateway device doesn't provide one, you can make one up here and provide it to your device.
+1. Navigate to the virtual network gateway you created. In the table of contents for the virtual network gateway, select **Settings > Connections**, and then select **+ Add**.
 
-Select **OK** to create the connection. You can verify the connection has been made successfully through the **Connections** page.
+1. On the **Basics** tab, fill in the values for **Project details** and **Instance details**.
+
+   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-connection-basics.png" alt-text="Screenshot showing how to create a local network gateway using the Azure portal." lightbox="media/storage-files-configure-s2s-vpn/create-connection-basics.png":::
+
+   - **Subscription**: The desired Azure subscription.
+   - **Resource group**: The desired resource group.
+   - **Connection type**: Because this a S2S connection, select **Site-to-site (IPSec)** from the drop-down list.
+   - **Name**: The name of the connection. A virtual network gateway can host multiple connections, so choose a name that's helpful for your management and that will distinguish this particular connection.
+   - **Region**: The region you selected for the virtual network gateway and the storage account.
+
+1. On the **Settings** tab, supply the following information.
+
+   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-connection-settings.png" alt-text="Screenshot showing how to create a local network gateway using the Azure portal." lightbox="media/storage-files-configure-s2s-vpn/create-connection-settings.png":::
+
+   - **Virtual network gateway**: Select the virtual network gateway you created.
+   - **Local network gateway**: Select the local network gateway you created.
+   - **Shared key (PSK)**: A mixture of letters and numbers used to establish encryption for the connection. The same shared key must be used in both the virtual network and local network gateways. If your gateway device doesn't provide one, you can make one up here and provide it to your device.
+   - **IKE protocol**: Depending on your VPN device, select IKEv1 for policy-based VPN or IKEv2 for route-based VPN. To learn more about the two types of VPN gateways, see [About policy-based and route-based VPN gateways](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about).
+   - **Use Azure Private IP Address**: Checking this option allows you to use Azure private IPs to establish an IPsec VPN connection. Support for private IPs must be set on the VPN gateway for this option to work. It's only supported on AZ Gateway SKUs.
+   - **Enable BGP**: Leave unchecked unless your organization specifically requires this setting.
+   - **Enable Custom BGP Addresses**: Leave unchecked unless your organization specifically requires this setting.
+   - **FastPath**: FastPath is designed to improve the datapath performance between your on-premises network and your virtual network. [Learn more](https://aka.ms/erfastpath).
+   - **IPsec / IKE policy**: The IPsec / IKE policy that will be negotiated for the connection. Leave **Default** selected unless your organization requires a custom policy. [Learn more](../../vpn-gateway/vpn-gateway-about-compliance-crypto.md).
+   - **Use policy based traffic selector**: Leave disabled unless you need to configure the Azure VPN gateway to connect to a policy-based VPN firewall on premises. If you enable this field, you must ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you would need to specify the following traffic selectors:
+     - 10.1.0.0/16 <====> 192.168.0.0/16
+     - 10.1.0.0/16 <====> 172.16.0.0/16
+     - 10.2.0.0/16 <====> 192.168.0.0/16
+     - 10.2.0.0/16 <====> 172.16.0.0/16
+   - **DPD timeout in seconds**: Dead Peer Detection Timeout of the connection in seconds. The recommended and default value for this property is 45 seconds.
+   - **Connection mode**: Connection mode is used to decide which gateway can initiate the connection. When this value is set to:
+     - **Default**: Both Azure and the on-premises VPN gateway can initiate the connection.
+     - **ResponderOnly**: Azure VPN gateway will never initiate the connection. The on-premises VPN gateway must initiate the connection.
+     - **InitiatorOnly**: Azure VPN gateway will initiate the connection and reject any connection attempts from the on-premises VPN gateway.
+
+1. Select **Review + create** to run validation. Once validation passes, select **Create** to create the connection. You can verify the connection has been made successfully through the virtual network gateway's **Connections** page.
 
 ## Mount Azure file share
 
