@@ -4,12 +4,12 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 11/12/2023
+ms.date: 11/28/2023
 ---
 
 # What's new in Azure VMware Solution
 
-Microsoft will regularly apply important updates to the Azure VMware Solution for new features and software lifecycle management. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
+Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
 ## November 2023
 
@@ -35,7 +35,7 @@ All Azure NetApp Files features available on Azure public cloud are also availab
 
 **Azure Arc-enabled VMware vSphere**
 
-Customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs will now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](https://aka.ms/vSphereGAblog)
+Customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](https://aka.ms/vSphereGAblog)
 
 **Five-year Reserved Instance**
 
@@ -53,11 +53,11 @@ Pure Cloud Block Store for Azure VMware Solution is now in public preview. Now c
 
 **Azure Arc-enabled VMware vSphere (preview)**
 
-Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs will now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](/azure/azure-arc/vmware-vsphere/overview)
+Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now customers can start their onboarding with Azure Arc-enabled VMware vSphere, install agents at-scale, and enable Azure management, observability, and security solutions, while benefitting from the existing lifecycle management capabilities. Azure Arc-enabled VMware vSphere VMs now show up alongside other Azure Arc-enabled servers under ‘Machines’ view in the Azure portal. [Learn more](/azure/azure-arc/vmware-vsphere/overview)
 
 **VMware Cloud Director Service**
 
-VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multi-cloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud. [Learn more](https://blogs.vmware.com/cloud/2023/08/15/cloud-director-service-ga-for-avs/)
+VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multicloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud. [Learn more](https://blogs.vmware.com/cloud/2023/08/15/cloud-director-service-ga-for-avs/)
 
 **Well-Architected Assessment Tool**
 
@@ -86,9 +86,9 @@ Azure VMware Service will become generally available on May 17, 2023, to US Fede
 
 **New Azure VMware Solution Region: Qatar**
 
-We are excited to announce that the Azure VMware Solution has gone live in Qatar Central and is now available to customers. 
+We're excited to announce that the Azure VMware Solution is now live in Qatar Central and available to customers. 
 
-With the introduction of AV36P in Qatar, customers will receive access to 36 cores, 2.6 GHz clock speed, 768GB of RAM, and 19.2TB of SSD storage.
+With the introduction of AV36P in Qatar, customers receive access to 36 cores, 2.6-GHz clock speed, 768 GB of RAM, and 19.2 TB of SSD storage.
 
 To learn more about available regions of Azure products, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&regions=all)
 
