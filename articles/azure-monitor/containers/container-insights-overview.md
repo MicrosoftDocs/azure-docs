@@ -22,6 +22,11 @@ Access Container insights in the Azure portal from **Containers** in the **Monit
 
 :::image type="content" source="media/container-insights-overview/azmon-containers-experience.png" lightbox="media/container-insights-overview/azmon-containers-experience.png" alt-text="Screenshot that shows an overview of methods to access Container insights." border="false":::
 
+ Container insights also lists your unmonitored clusters and allows you to quickly enable monitoring by both Container Insights and Managed Prometheus.
+
+ :::image type="content" source="media/container-insights-overview/azmon-containers-experience.png" lightbox="media/container-insights-overview/azmon-containers-experience.png" alt-text="Screenshot that shows an overview of methods to access Container insights." border="false":::
+
+
 ## Data collected
 Container insights sends data to [Logs](../logs/data-platform-logs.md) where you can analyze it using different features of Azure Monitor. It works with other Azure services such as [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) and [Managed Grafana](../../managed-grafana/overview.md) for complete monitoring of your Kubernetes cluster and your container workloads. For more information on these other services, see [Monitoring data](../../aks/monitor-aks.md#monitoring-data).
 
@@ -49,22 +54,22 @@ Container insights supports the following environments:
 >[!NOTE]
 > Container insights support for Windows Server 2022 operating system is in public preview.
 
-## Authentication
-
-Container insights uses managed identity authentication. This authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. Read more in [Authentication for Container Insights](container-insights-authentication.md) including guidance on migrating from legacy authentication models.
-
 
 ## Agent
 
-Container insights relies on a containerized [Azure Monitor agent](../agents/agents-overview.md) for Linux. This specialized agent collects performance and event data from all nodes in the cluster and sends it to a Log Analytics workspace. The agent is automatically deployed and registered with the specified Log Analytics workspace during deployment.
+Container insights and Managed Prometheus rely on a containerized [Azure Monitor agent](../agents/agents-overview.md) for Linux. This specialized agent collects performance and event data from all nodes in the cluster and sends it to a Log Analytics workspace. The agent is deployed and registered with the specified workspaces during deployment.
 
-### Data collection rule
-[Data collection rules (DCR)](../essentials/data-collection-rule-overview.md) contain the definition of data that should be collected by Azure Monitor agent.  When you enable Container insights on a cluster, a DCR is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
+[Data collection rules (DCR)](../essentials/data-collection-rule-overview.md) contain the definition of data that should be collected by Azure Monitor agent. 
+
+- When you enable Container insights on a cluster, a DCR is created with the name `MSCI-<cluster-region>-<cluster-name>`. 
+- When you enable Managed Prometheus on a cluster, a DCR is created with the name `MSProm-<cluster-region>-<cluster-name>`. 
+
+### Agent version
 
 Since March 1, 2023 Container insights uses a semver compliant agent version. The agent version is *mcr.microsoft.com/azuremonitor/containerinsights/ciprod:3.1.4* or later. It's represented by the format mcr.microsoft.com/azuremonitor/containerinsights/ciprod:\<semver compatible version\>. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on AKS. To track which versions are released, see [Agent release announcements](https://github.com/microsoft/Docker-Provider/blob/ci_prod/ReleaseNotes.md). 
 
 > [!NOTE]
-> Ingestion Transformations are not currently supported with the [Container insights DCR](../essentials/data-collection-transformations.md).
+> Transformations are not currently supported with the [Container insights DCR](../essentials/data-collection-transformations.md).
 
 
 ### Log Analytics agent

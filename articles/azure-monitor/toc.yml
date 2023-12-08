@@ -450,20 +450,21 @@ items:
         href: vm/tutorial-monitor-vm-guest.md
   - name: Monitor containers
     items:
-    - name: Monitor Kubernetes
+    - name: Container insights
+      href: containers/container-insights-overview.md
+    - name: Full stack monitoring
       displayName: containers
       href: containers/monitor-kubernetes.md
     - name: Best practices
       displayName: containers, kubernetes
       href: best-practices-containers.md
-    - name: Container insights overview
-      href: containers/container-insights-overview.md
     - name: Onboarding
       items:
-      - name: Overview
-        href: containers/container-insights-onboard.md
-      - name: Onboard process
-        href: containers/enable-kubernetes-monitoring.md
+      - name: Enable monitoring
+        href: containers/kubernetes-monitoring-enable.md
+      - name: Firewall requirements
+        displayName: Container insights, Prometheus
+        href: containers/container-insights-firewall.md
       - name: Agent management
         href: containers/container-insights-manage-agent.md
       - name: Disable monitoring
