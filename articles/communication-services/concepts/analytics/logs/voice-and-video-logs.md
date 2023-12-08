@@ -189,6 +189,12 @@ Azure Communication Services creates two types of logs:
 
 - **Call diagnostic logs**: Contain information about the stream, along with a set of metrics that indicate quality of experience measurements. For each endpoint within a call (including the server), Communication Services creates a distinct call diagnostic log for each media stream (audio or video, for example) between endpoints.
 
+
+- **Op Log**:
+
+- **media Log**:
+
+
 In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In a group call, each stream associated with `endpointType` = `"Server"` creates a log that contains data for the inbound streams. All other streams create logs that contain data for the outbound streams for all non-server endpoints. In group calls, use the `participantId` value as the key to join the related inbound and outbound logs into a distinct participant connection.
 
 ### Example: P2P call
