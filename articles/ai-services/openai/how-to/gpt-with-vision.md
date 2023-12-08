@@ -14,20 +14,17 @@ keywords:
 
 # Use GPT-4 Turbo with Vision
 
-The GPT-4 Turbo with Vision model answers general questions about what's present in the images. You can also show it video, if you use Vision enhancements. 
 
-While it does understand the relationship between objects in images, it isn't optimized to answer detailed questions about the locations of certain objects. For example, you can ask it what color a car is or what some ideas for dinner might be based on what's in your fridge, but if you show it an image of a room and ask it where the chair is, it might not answer correctly.
+GPT-4 Turbo with Vision is a large multimodal model (LMM) developed by OpenAI that can analyze images and provide textual responses to questions about them. It incorporates both natural language processing and visual understanding.
 
-It's important to note the following:
-- GPT-4 Turbo with Vision doesn't behave differently from GPT-4, with the small exception of the system prompt OpenAI uses for the model.
-- GPT-4 Turbo with Vision doesn't perform worse at text tasks because it has vision, it's simply GPT-4 with vision added.
-- GPT-4 Turbo with Vision is an augmentative set of capabilities for the model.
+The GPT-4 Turbo with Vision model answers general questions about what's present in the images. You can also show it video, if you use Vision enhancements.
 
-To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Vision model that you have deployed.
+> [!TIP]
+> To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Vision model that you have deployed. If you're not familiar with the Chat Completion API, see the [GPT-4 Turbo & GPT-4 how-to guide](/azure/ai-services/openai/how-to/chatgpt?tabs=python&pivots=programming-language-chat-completions).
 
 ## Call the Chat Completion APIs
 
-The following REST command shows the most basic way to use the GPT-4 Turbo with Vision model with code. If this is your first time using these models programmatically, we recommend starting with our [GPT-4 Turbo with Vision quickstart](../gpt-v-quickstart.md).
+The following REST command shows the most basic way to use the GPT-4 Turbo with Vision model with code. If this is your first time using these models programmatically, we recommend starting with our [GPT-4 Turbo with Vision quickstart](../gpt-v-quickstart.md). 
 
 Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-12-01-preview` where 
 
@@ -60,7 +57,53 @@ The following is a sample request body. The format is the same as the chat compl
 } 
 ```
 
-## Low or high fidelity image understanding
+## Use Vision enhancement
+
+GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. When combined with Azure AI Vision, it enhances your chat experience by providing the chat model with more detailed information about visible text in the image and the locations of objects.
+
+> [!IMPORTANT]
+> To use Vision enhancement, you need a Computer Vision resource, and it must be in one of the Azure regions where GPT-4 Turbo with Vision is available.
+ 
+You use the same API call as in the above section, but you must include the `enhancements` and `dataSources` objects in the request body. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource.
+
+```json
+{
+    "enhancements": {
+            "ocr": {
+              "enabled": true
+            },
+            "grounding": {
+              "enabled": true
+            }
+    },
+    "dataSources": [
+    {
+        "type": "AzureComputerVision",
+        "parameters": {
+            "endpoint": "<your_computer_vision_endpoint>",
+            "key": "<your_computer_vision_key>"
+        }
+    }],
+    "messages": [ 
+        {
+            "role": "system", 
+            "content": "You are a helpful assistant." 
+        },
+        {
+            "role": "user", 
+            "content": [ 
+                "Describe this picture:", { "image": "URL or base-64-encoded image" } 
+            ] 
+        }
+    ],
+    "max_tokens": 100, 
+    "stream": false 
+} 
+```
+
+The chat responses you receive from the model should now include enhanced information about the image, such as object labels and bounding boxes, and OCR results.
+
+ ## Low or high fidelity image understanding
 
 By controlling the _detail_ parameter, which has two options, `low` or `high`, you can control how the model processes the image and generates its textual understanding.
 - `low` disables the "high res" mode. The model receives a low-res 512x512 version of the image and represents the image with a budget of 65 tokens. This allows the API to return faster responses and consume fewer input tokens for use cases that don't require high detail.
