@@ -23,18 +23,6 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 - To learn more about creating a Linux node pool, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure portal](quick-kubernetes-deploy-portal.md).
 - The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
-### Limitations
-
-The following limitations apply when you create and manage AKS clusters that support multiple node pools:
-
-- You can't delete the first node pool.
-
-The following limitations apply to *Windows Server node pools*:
-
-- The AKS cluster can have a maximum of 10 node pools.
-- The AKS cluster can have a maximum of 100 nodes in each node pool.
-- The Windows Server node pool name has a limit of six characters.
-
 ## Create an AKS cluster
 
 1. Sign in to the [Azure portal][azure-portal].
