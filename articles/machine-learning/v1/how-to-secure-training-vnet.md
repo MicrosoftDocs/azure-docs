@@ -278,7 +278,8 @@ except ComputeTargetException:
 
 When the creation process finishes, you train your model. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
-[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
+> [!NOTE]
+> You may choose to use [low-priority VMs](../how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. See how to [create a low-priority VM](how-to-create-attach-compute-cluster.md#lower-your-compute-cluster-cost-with-low-priority-vms). 
 
 ## Azure Databricks
 

@@ -94,7 +94,8 @@ if not compute_name in ws.compute_targets :
 compute_target = ws.compute_targets[compute_name]
 ```
 
-[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
+> [!NOTE]
+> You may choose to use [low-priority VMs](../how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. See how to [create a low-priority VM](how-to-create-attach-compute-cluster.md#lower-your-compute-cluster-cost-with-low-priority-vms).
 
 The intermediate data between the data preparation and the automated ML step can be stored in the workspace's default datastore, so we don't need to do more than call `get_default_datastore()` on the `Workspace` object. 
 
