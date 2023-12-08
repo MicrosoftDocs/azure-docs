@@ -15,11 +15,13 @@ recommendations: false
 
 Document Translation is a cloud-based feature of the [Azure AI Translator](../translator-overview.md) service and is part of the Azure AI service family of REST APIs. The Document Translation API can be used to translate multiple and complex documents asynchronously or single page documents synchronously while preserving original document structure and data format. Document translation is available across all [supported languages and dialects](../../language-support.md).
 
-## Key features
+## Asynchronous document translation
+
+The following table lists the asynchronous operation key features:
 
 | Feature | Description |
 | ---------| -------------|
-| **Translate large files**| Translate whole documents asynchronously.|
+|**Translate large files**| Translate whole documents asynchronously.|
 |**Translate numerous files**|Translate multiple files across all supported languages and dialects while preserving document structure and data format.|
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../custom-translator/concepts/customization.md#custom-translator) models.|
@@ -30,6 +32,25 @@ Document Translation is a cloud-based feature of the [Azure AI Translator](../tr
 > [!NOTE]
 > When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
 > For more information on input requirements, *see* [Document Translation request limits](../service-limits.md#document-translation)
+
+Asynchronous document translation requires an Azure Blob storage account with containers for your source and translated documents. Here is a high-level illustration of the asynchronous request process:
+
+For more information, see [Asynchronous document translation]()
+
+## Synchronous document translation
+
+|Feature | Description |
+| ---------| -------------|
+|**Translate single-page files**| The synchronous request accepts only a single document as input.|
+|**Preserve source file presentation**| Translate files while preserving the original layout and format.|
+|**Apply custom translation**| Translate documents using general and [custom translation](../custom-translator/concepts/customization.md#custom-translator) models.|
+|**Apply custom glossaries**|Translate documents using custom glossaries.|
+|**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
+
+The synchronous document translation operation does not require an Azure Blob storage account. The final response is returned directly to the calling client. Here is a high-level illustration of the synchronous request process:
+
+
+For more information, see [Synchronous document translation]()
 
 ## Development options
 
