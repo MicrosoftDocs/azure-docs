@@ -21,21 +21,21 @@ This article describes the process for enrolling in Azure Dev Tools for Teaching
 1. Select the type of subscription you're enrolling:
     - Apply for a new subscription
  
-    :::image type="content" source="media/enroll-renew-subscription/adt4t.png" alt-text="Sign in error message." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/adt4t.png" alt-text="Screenshot of Sign in error message." border="false":::
 
 2. Select the **Save** button.
 
 3. Complete your **Institution Information**, if enrolling for the first time. If renewing, this information will autofill.
 
-    :::image type="content" source="media/enroll-renew-subscription/adt4t-order.png" alt-text="Enter institution information." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/adt4t-order.png" alt-text="Screenshot of Enter institution information." border="false":::
 
 4. Select the **Subscription Plan** and confirm the **Subscription Administrator** for the subscription. The email domain of the Subscription Administrator will enable students on the same domain to get easy access to download their software benefits.
 
-    :::image type="content" source="media/enroll-renew-subscription/adt4t-confirm.png" alt-text="Select subscription plan." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/adt4t-confirm.png" alt-text="Screenshot of Select subscription plan." border="false":::
     
 5. Confirm all enrollment information and click **Place Order**. Confirmation emails will be sent to your inbox, with updates on enrollment status and any possible next steps.
 
-    :::image type="content" source="media/enroll-renew-subscription/adt4t-final-confirmation.png" alt-text="Confirm your order." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/adt4t-final-confirmation.png" alt-text="Screenshot of Confirm your order." border="false":::
 
 ## Renew an existing subscription
 
