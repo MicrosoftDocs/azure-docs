@@ -26,8 +26,8 @@ A load test configuration uses the following keys:
 | `testName` | string | N |  | **Deprecated**. Unique identifier of the load test. This setting is replaced by `testId`. You can still run existing tests with the `testName` field. |
 | `displayName` | string | N |  | Display name of the test. This value is shown in the list of tests in the Azure portal. If not provided, `testId` is used as the display name. |
 | `description` | string | N |  | Short description of the test. The value has a maximum length of 100 characters. |
-| `testType` | string | Y | | Test type. Possible values:<br/><ul><li>`URL`: URL-based load test</li><li>`JMETER`: JMeter-based load test</li></ul> |
-| `testPlan` | string | Y |  | Reference to the test plan file.<br/><ul><li>If `testType: JMETER`: relative path to the JMeter test script.</li><li>If `testType: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md).</li></ul> |
+| `testType` | string | Y | | Test type. Possible values:<br/><ul><li>`URL`: URL-based load test</li><li>`JMX`: JMeter-based load test</li></ul> |
+| `testPlan` | string | Y |  | Reference to the test plan file.<br/><ul><li>If `testType: JMX`: relative path to the JMeter test script.</li><li>If `testType: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md).</li></ul> |
 | `engineInstances` | integer | Y |  | Number of parallel test engine instances for running the test plan. Learn more about [configuring high-scale load](./how-to-high-scale-load.md). |
 | `configurationFiles` | array of string | N |  | List of external files, required by the test script. For example, CSV data files, images, or any other data file.<br/>Azure Load Testing uploads all files in the same folder as the test script. In the JMeter script, only refer to external files using the file name, and remove any file path information. |
 | `failureCriteria` | object | N |  | List of load test fail criteria. See [failureCriteria](#failurecriteria-configuration) for more details. |
