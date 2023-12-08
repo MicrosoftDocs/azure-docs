@@ -463,7 +463,7 @@ To learn how to modify this template or create new ones, see:
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
-The Azure Developer CLI (`azd`) is designed around [`azd` templates](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-convert). These templates leverage Bicep files, basic configurations and automation tasks to provision and deploy resources to Azure. You can also view the source code for the template in the [create a storage account quickstart]() repository.
+The Azure Developer CLI (`azd`) is designed around [`azd` templates](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-convert). These templates leverage Bicep files, basic configurations and automation tasks to provision and deploy resources to Azure. You can also view the source code for the template in the [create a storage account quickstart](https://github.com/Azure-Samples/azd-create-storage-account/tree/main) repository.
 
 Initialize and run the template for this quickstart using the following steps:
 
