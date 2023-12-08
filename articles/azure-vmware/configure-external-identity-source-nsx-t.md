@@ -3,20 +3,21 @@ title: Configure external identity source for NSX-T Data Center
 description: Learn how to use the Azure VMware Solution to configure an external identity source for NSX-T Data Center.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/17/2022
+ms.date: 12/05/2023
+ms.custom: engagement-fy23
 
 ---
 # Configure external identity source for NSX-T Data Center
 
-In this article, you'll learn how to configure an external identity source for NSX-T Data Center in an Azure VMware Solution. The NSX-T Data Center can be configured with external LDAP directory service to add remote directory users or groups. The users can be assigned an NSX-T Data Center Role-based access control (RBAC) role like you've on-premises. 
+In this article, learn how to configure an external identity source for NSX-T Data Center in an Azure VMware Solution. The NSX-T Data Center can be configured with external LDAP directory service to add remote directory users or groups. The users can be assigned an NSX-T Data Center Role-based access control (RBAC) role like you have on-premises. 
 
 ## Prerequisites 
 
 - A working connectivity from your Active Directory network to your Azure VMware Solution private cloud. 
 - If you require Active Directory authentication with LDAPS:
-    - You'll need access to the Active Directory Domain Controller(s) with Administrator permissions. 
+    - You need access to the Active Directory Domain Controller(s) with Administrator permissions. 
 
-    - Your Active Directory Domain Controller(s) must have LDAPS enabled with a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
+    - Your Active Directory Domain Controller(s) must have LDAPS enabled with a valid certificate. The certificate is issued from [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
     >[!Note] 
     > Self-sign certificates are not recommended for production environments.   
     
@@ -46,10 +47,10 @@ In this article, you'll learn how to configure an external identity source for N
    | ----- | ----- |
    |Hostname/IP | The hostname or IP address of your LDAP server.  For example, `dc.avslab.local.`| 
    | LDAP Protocol | Select **LDAPS** (LDAP is unsecured). |
-   | Port | The default port is populated based on the selected protocol 636 for LDAPS and 389 for LDAP. If your LDAP server is running on a non-standard port, you can edit this text box to give the port number. |
+   | Port | The default port is populated based on the selected protocol 636 for LDAPS and 389 for LDAP. If your LDAP server is running on a nonstandard port, you can edit this text box to give the port number. |
    | Connection Status | After filling in the mandatory text boxes, including the LDAP server information, select **Connection Status** to test the connection. |
    | Use StartTLS | If selected, the LDAPv3 StartTLS extension is used to upgrade the connection to use encryption. To determine if you should use this option, consult your LDAP server administrator. This option can only be used if LDAP protocol is selected. |
-   | Certificate  | If you're using LDAPS or LDAP + StartTLS, this text box should contain the PEM-encoded X.509 certificate of the server. If you leave this text box blank and select the **Check Status** link, NSX connects to the LDAP server. NSX will then retrieve the LDAP server's certificate, and prompt you if you want to trust that certificate. If you've verified that the certificate is correct, select **OK**, and the certificate text box will be populated with the retrieved certificate. |
+   | Certificate  | If you're using LDAPS or LDAP + StartTLS, this text box should contain the PEM-encoded X.509 certificate of the server. If you leave this text box blank and select the **Check Status** link, NSX connects to the LDAP server. NSX retrieves the LDAP server's certificate, and prompts you if you want to trust that certificate. If you verified that the certificate is correct, select **OK**, and the certificate text box is populated with the retrieved certificate. |
    |Bind Identity | The format is `user@domainName`, or you can specify the distinguished name. For Active Directory, you can use either the userPrincipalName (user@domainName) or the distinguished name. For OpenLDAP, you must supply a distinguished name. This text box is required unless your LDAP server supports anonymous bind, then it's optional. Consult your LDAP server administrator if you aren't sure.|
    |Password |Enter a password for the LDAP server. This text box is required unless your LDAP server supports anonymous bind, then it's optional. Consult your LDAP server administrator.|
 1. Select **Add**. 
@@ -79,7 +80,7 @@ After adding an external identity, you can assign NSX-T Data Center Roles to Act
 1. Users should now be able to sign in to NSX-T Manager using their Active Directory credentials. 
 
 ## Next steps
-Now that you've configured the external source, you can also learn about:
+Now that you configured the external source, you can also learn about:
 
 - [Configure external identity source for vCenter Server](configure-identity-source-vcenter.md)
 - [Azure VMware Solution identity concepts](concepts-identity.md)
