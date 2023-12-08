@@ -50,7 +50,7 @@ For more information on Windows containers, see the [Windows Server containers F
 [comparison-with-linux]: https://kubernetes.io/docs/concepts/windows/intro/#compatibility-linux-similarities
 
 <!-- LINKS - internal -->
-[cluster-configuration]: ../aks/learn/quick-windows-container-deploy-cli.md#limitations
+[cluster-configuration]: ../aks/learn/quotas-skus-regions
 [privileged-containers]: use-windows-hpc.md#limitations
 [hpc-containers]: use-windows-hpc.md#limitations
 [node-upgrade]: ./manage-node-pools.md#upgrade-a-single-node-pool
