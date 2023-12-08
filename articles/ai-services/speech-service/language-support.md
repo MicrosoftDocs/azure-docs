@@ -78,10 +78,11 @@ Each prebuilt neural voice supports a specific language and dialect, identified 
 
 Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. Other sample rates can be obtained through upsampling or downsampling when synthesizing.
 
-Please note that the following neural voices are retired.
+Note that the following neural voices are retired.
 
 - The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version. All requests with previous versions won't succeed starting from October 30, 2021.
-- The `en-US-JessaNeural` voice is retired and replaced by `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." 
+- The `en-US-JessaNeural` voice is retired and replaced by `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria."
+- The Chinese (Mandarin, Simplified) voice `zh-CN-XiaoxuanNeural` retired on December 29, 2023. All service requests to `zh-CN-XiaoxuanNeural` will be redirected to `zh-CN-XiaozhenNeural` automatically as of December 29, 2023. Redirection will remain active till December 29, 2026. After December 29, 2026, requests made by `zh-CN-XiaoxuanNeural` voice will no longer be valid. On December 15, 2023, the  `zh-CN-XiaoxuanNeural ` text to speech voice container image was retired. Starting from January 15, 2024, all requests made by `zh-CN-XiaoxuanNeural`  won't succeed unless you update to the latest version and choose another voice. If you're using container Neural TTS, [download](speech-container-ntts.md#get-the-container-image-with-docker-pull) and deploy the latest version before January 15, 2024. 
 
 ### Custom Neural Voice
 
