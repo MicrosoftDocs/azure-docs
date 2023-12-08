@@ -61,7 +61,7 @@ landingContent:
             url: overview-of-samples.md
       - linkListType: how-to-guide
         links:
-          - text: Mapping debugger
+          - text: Mapping debugger (Preview)
             url: how-to-use-mapping-debugger.md
           - text: CalculatedContent templates
             url: how-to-use-calculatedcontent-templates.md

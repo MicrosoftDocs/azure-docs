@@ -82,7 +82,7 @@ Customers can access Defender for Cloud related data from the following data str
 
 ## Defender for Cloud and Microsoft Defender 365 Defender integration
 
-When you enable any of Defender for Cloud's paid plans you automatically gain all of the benefits of Microsoft 365 Defender. Information from Defender for Cloud will be shared with Microsoft 365 Defender. This data may contain customer data and will be stored according to [Microsoft 365 data handling guidelines](/microsoft-365/security/defender/data-privacy?view=o365-worldwide).
+When you enable any of Defender for Cloud's paid plans you automatically gain all of the benefits of Microsoft Defender XDR. Information from Defender for Cloud will be shared with Microsoft Defender XDR. This data may contain customer data and will be stored according to [Microsoft 365 data handling guidelines](/microsoft-365/security/defender/data-privacy?view=o365-worldwide).
 
 ## Next steps
 
