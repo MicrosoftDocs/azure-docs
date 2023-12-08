@@ -118,7 +118,7 @@ items:
   - name: Security controls
     href: concept-security-controls.md
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+    href: /security/benchmark/azure/baselines/azure-spring-apps-security-baseline?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Azure Policy Security controls
     href: security-controls-policy.md
 - name: How-to guides
@@ -568,7 +568,7 @@ items:
   - name: Landing zone accelerator
     href: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Deploy to multiple regions
-    href: /azure/architecture/reference-architectures/microservices/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+    href: /azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Reference
   items:
   - name: API breaking changes
