@@ -94,9 +94,6 @@ if not compute_name in ws.compute_targets :
 compute_target = ws.compute_targets[compute_name]
 ```
 
-> [!NOTE]
-> You may choose to use [low-priority VMs](../how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. See how to [create a low-priority VM](how-to-create-attach-compute-cluster.md#lower-your-compute-cluster-cost-with-low-priority-vms).
-
 The intermediate data between the data preparation and the automated ML step can be stored in the workspace's default datastore, so we don't need to do more than call `get_default_datastore()` on the `Workspace` object. 
 
 After that, the code checks if the Azure Machine Learning compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](../../virtual-machines/sizes-gpu.md). 

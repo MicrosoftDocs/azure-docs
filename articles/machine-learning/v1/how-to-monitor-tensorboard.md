@@ -141,9 +141,6 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 # print(compute_target.get_status().serialize())
 ```
 
-> [!NOTE]
-> You may choose to use [low-priority VMs](../how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. See how to [create a low-priority VM](how-to-create-attach-compute-cluster.md#lower-your-compute-cluster-cost-with-low-priority-vms). 
-
 ### Configure and submit training job
 
 Configure a training job by creating a ScriptRunConfig object.

@@ -117,9 +117,6 @@ except ComputeTargetException:
 
 If you instead want to create a CPU cluster, provide a different VM size to the vm_size parameter, such as STANDARD_D2_V2.
 
-> [!NOTE]
-> You may choose to use [low-priority VMs](../how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. See how to [create a low-priority VM](how-to-create-attach-compute-cluster.md#lower-your-compute-cluster-cost-with-low-priority-vms). 
-
 For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ### Define your environment
