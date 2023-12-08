@@ -62,7 +62,7 @@ To deploy a virtual network gateway, follow these steps.
 
 1. On the **Basics** tab, fill in the values for **Project details** and **Instance details**. Your virtual network gateway must be in the same subscription, Azure region, and resource group as the virtual network.
 
-   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-virtual-network-gateway.png" alt-text="Screenshot showing how to create a virtual network gateway using the Azure portal." lightbox="media/storage-files-configure-s2s-vpn/create-virtual-network-gateway.png":::
+   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-virtual-network-gateway.png" alt-text="Screenshot showing how to create a virtual network gateway using the Azure portal.":::
 
    - **Subscription**: Select the subscription you want to use from the dropdown.
    - **Resource Group**: This setting is autofilled when you select your virtual network on this page.
@@ -76,7 +76,7 @@ To deploy a virtual network gateway, follow these steps.
 
 1. Specify the values for the **Public IP address** that gets associated to the virtual network gateway. The public IP address is assigned to this object when the virtual network gateway is created. The only time the primary public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades.
 
-   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-public-ip-address.png" alt-text="Screenshot showing how to specify the public IP address for a virtual network gateway using the Azure portal." lightbox="media/storage-files-configure-s2s-vpn/create-public-ip-address.png":::
+   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-public-ip-address.png" alt-text="Screenshot showing how to specify the public IP address for a virtual network gateway using the Azure portal.":::
 
    - **Public IP address**: The IP address of the virtual network gateway that will be exposed to the internet. Likely, you'll need to create a new IP address, however you may also use an existing unused IP address. If you select **Create new**, a new IP address Azure resource will be created in the same resource group as the virtual network gateway, and the **Public IP address name** will be the name of the newly created IP address. If you select **Use existing**, you must select the existing unused IP address.
    - **Public IP address name**: In the text box, type a name for your public IP address instance.
@@ -95,7 +95,7 @@ A local network gateway is an Azure resource that represents your on-premises ne
 
 1. On the **Basics** tab, fill in the values for **Project details** and **Instance details**.
 
-   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-local-network-gateway.png" alt-text="Screenshot showing how to create a local network gateway using the Azure portal." lightbox="media/storage-files-configure-s2s-vpn/create-local-network-gateway.png":::
+   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-local-network-gateway.png" alt-text="Screenshot showing how to create a local network gateway using the Azure portal.":::
 
    - **Subscription**: The desired Azure subscription. This doesn't need to match the subscription used for the virtual network gateway or the storage account.
    - **Resource group**: The desired resource group. This doesn't need to match the resource group used for the virtual network gateway or the storage account.
@@ -121,7 +121,7 @@ To complete the deployment of a S2S VPN, you must create a connection between yo
 
 1. On the **Basics** tab, fill in the values for **Project details** and **Instance details**.
 
-   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-connection-basics.png" alt-text="Screenshot showing how to create a local network gateway using the Azure portal." lightbox="media/storage-files-configure-s2s-vpn/create-connection-basics.png":::
+   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-connection-basics.png" alt-text="Screenshot showing how to create a site to site VPN connection using the Azure portal.":::
 
    - **Subscription**: The desired Azure subscription.
    - **Resource group**: The desired resource group.
@@ -131,7 +131,7 @@ To complete the deployment of a S2S VPN, you must create a connection between yo
 
 1. On the **Settings** tab, supply the following information.
 
-   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-connection-settings.png" alt-text="Screenshot showing how to create a local network gateway using the Azure portal." lightbox="media/storage-files-configure-s2s-vpn/create-connection-settings.png":::
+   :::image type="content" source="media/storage-files-configure-s2s-vpn/create-connection-settings.png" alt-text="Screenshot showing how to configure the settings for a site to site VPN connection using the Azure portal.":::
 
    - **Virtual network gateway**: Select the virtual network gateway you created.
    - **Local network gateway**: Select the local network gateway you created.
