@@ -86,7 +86,7 @@ Follow these steps to list containers using asynchronous APIs:
 
     :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-containers-async.py" id="Snippet_create_client_async":::
 
-1. Add code to list the containers. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `list_containers` method.
+1. Add code to list the containers. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and `async for` is used when calling the `list_containers` method.
 
     :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-containers-async.py" id="Snippet_list_containers":::
 
