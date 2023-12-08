@@ -74,13 +74,25 @@ Set up an AKS Edge Essentials cluster on your machine.
     kubectl apply -f https://raw.githubusercontent.com/Azure/AKS-Edge/main/samples/storage/local-path-provisioner/local-path-storage.yaml
     ```
 
+## Arc-enable your cluster
+
+To connect your cluster to Azure Arc, complete the steps in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
+
 # [Ubuntu](#tab/ubuntu)
 
 [!INCLUDE [prepare-ubuntu](../includes/prepare-ubuntu.md)]
 
+## Arc-enable your cluster
+
+[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
+
 # [Codespaces](#tab/codespaces)
 
 [!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
+
+## Arc-enable your cluster
+
+[!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
 
 # [WSL Ubuntu](#tab/wsl-ubuntu)
 
@@ -117,23 +129,23 @@ To set up your WSL Ubuntu environment:
 
 [!INCLUDE [prepare-ubuntu](../includes/prepare-ubuntu.md)]
 
----
-
 ## Arc-enable your cluster
 
 [!INCLUDE [connect-cluster](../includes/connect-cluster.md)]
+
+---
 
 ## Verify your cluster
 
 To verify that your Kubernetes cluster is now Azure Arc-enabled, run the following command:
 
-```bash/powershell
+```console
 kubectl get deployments,pods -n azure-arc
 ```
 
 The output looks like the following example:
 
-```text
+```output
 NAME                                         READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/clusterconnect-agent         1/1     1            1           10m
 deployment.apps/extension-manager            1/1     1            1           10m
