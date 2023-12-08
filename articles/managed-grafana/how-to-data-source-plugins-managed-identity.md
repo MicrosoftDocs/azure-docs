@@ -76,13 +76,13 @@ For more information about data sources, go to [Data sources](https://grafana.co
 
 ## Add a data source
 
-To add a data source to Azure Managed Grafana, follow the steps below using the Azure portal or the Azure CLI.
+To add a data source to Azure Managed Grafana, follow the steps below.
 
 ### [Portal](#tab/azure-portal)
 
-### Grafana core data sources
+[Core Grafana plugins](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) are installed in your workspace by default. If you want to use another type of data source, you first need to install it. Instructions to install a plugin are available at [Add a plugin](how-to-manage-plugins.md#add-a-plugin).
 
-To add a [Grafana core data source](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) using the Grafana user interface:
+Then, add the data source to your instance:
 
 1. Open your Azure Managed Grafana instance in the Azure portal and go to **Overview** > **Endpoint** to open the Grafana UI.
 1. In the Grafana portal, deploy the menu on the left and select **Connections** > **Data sources** > **Add new data source**.
@@ -90,16 +90,6 @@ To add a [Grafana core data source](https://grafana.com/docs/grafana/latest/data
 1. Fill out the required fields and select **Save & test** to update the data source configuration and make sure it works.
 
    :::image type="content" source="media/data-sources/add-data-source.png" alt-text="Screenshot of the Add data source page in Grafana.":::
-
-### Other data sources
-
-1. To add a data source that isn't part of the Grafana built-in core data sources, start by [installing the corresponding data source plugin](how-to-manage-plugins.md#add-a-plugin).
-
-1. Then add the datasource from the Grafana portal.
-
-    1. In the Grafana portal, go to **Connections** > **Connect data**.
-    1. Select a data source from the list, and add the data source to your instance by selecting **Create** in the top right hand corner.
-    1. Fill out the form and select **Save and test** to test and update the data source configuration.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -125,8 +115,6 @@ az grafana data-source create --name <instance-name> --definition '{
   "user": "<user>"
 }'
 ```
-
-Other data sources can be added [from the Azure portal](#other-data-sources).
 
 ---
 
