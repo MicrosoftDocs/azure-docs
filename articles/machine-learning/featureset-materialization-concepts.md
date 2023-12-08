@@ -1,7 +1,7 @@
 ---
 title: Feature set materialization concepts
 titleSuffix: Azure Machine Learning
-description: Feature set materialization concepts.
+description: Build and use feature set materialization resources.
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
@@ -24,7 +24,8 @@ The **Materialization jobs** UI shows the data materialization status in offline
 
 :::image type="content" source="media/featureset-materialization-concepts/feature-set-materialization-ui.png" lightbox="media/featureset-materialization-concepts/feature-set-materialization-ui.png" alt-text="Screenshot showing the feature set materialization jobs user interface.":::
 
-In a feature window
+In a feature window:
+
 - The time series chart at the top shows the [data intervals](#data-materialization-status-and-data-interval) that fall into the feature window, with the materialization status, for both offline and online stores.
 - The job list at the bottom shows all the materialization jobs with processing windows that overlap with the selected feature window.
 
@@ -38,6 +39,7 @@ A data interval is a time window in which the feature set materializes its featu
 - None (gray) - no materialization job was submitted for this *data interval*
 
 As materialization jobs run for the feature set, they create or merge data intervals:
+
 - When two data intervals are continuous on the timeline, and they have the same data materialization status, they become one data interval
 - In a data interval, when a portion of the feature data is materialized again, and that portion gets a different data materialization status, that data interval is split into multiple data intervals
 
@@ -54,19 +56,22 @@ Before you run a data materialization job, enable the offline and/or online data
 [!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable online store and run online inference.ipynb?name=enable-accounts-material)]
 
 You can submit the data materialization jobs as a:
-1. backfill job - a manually submitted batch materialization job
-2. recurrent materialization job - an automatic materialization job [triggered on a scheduled interval](./featureset-materialization-concepts.md#set-proper-source_delay-and-recurrent-schedule).
+
+- backfill job - a manually submitted batch materialization job
+- recurrent materialization job - an automatic materialization job [triggered on a scheduled interval](./featureset-materialization-concepts.md#set-proper-source_delay-and-recurrent-schedule).
 
 > [!WARNING]
 > Data already materialized in the offline and/or online materialization will no longer be usable if offline and/or online data materialization is disabled at the feature set level. The data materialization status in offline and/or online materialization store will be reset to `None`.
 
-You can submit backfill jobs by
+You can submit backfill jobs by:
+
 - Data materialization status
 - The job ID of a canceled or failed materialization job
 
 ### Data backfill by data materialization status
 
-User can submit a backfill request with
+User can submit a backfill request with:
+
 - A list of data materialization status values - Incomplete, Complete, or None
 - A feature window (optional)
 
@@ -74,8 +79,9 @@ User can submit a backfill request with
 
 After submission of the backfill request, a new materialization job is created for each *data interval* that has a matching data materialization status (Incomplete, Complete, or None). Additionally, the relevant data intervals must fall within the defined *feature window*. If the data materialization status is `Pending` for a *data interval*, no materialization job is submitted for that interval.
 
-Both the start time and end time of the feature window are optional in the backfill request.
-- If the *feature window* start time isn't provided, the start time is defined as the start time of the first *data interval* that doesn't have a data materialization status of `None`. 
+Both the start time and end time of the feature window are optional in the backfill request:
+
+- If the *feature window* start time isn't provided, the start time is defined as the start time of the first *data interval* that doesn't have a data materialization status of `None`.
 - If the *feature window* end time isn't provided, the end time is defined as the end time of the last *data interval* that doesn't have a data materialization status of `None`.
 
 > [!NOTE]
@@ -91,13 +97,14 @@ This example has these current data interval and materialization status values:
 |`2023-04-04T04:00:00.000`|`2023-04-05T04:00:00.000`|`Complete`|
 |`2023-04-05T04:00:00.000`|`2023-04-06T04:00:00.000`|`None`|
 
-This backfill request
+This backfill request has these values:
 
 - Data materialization `data_status=[DataAvailabilityStatus.Complete, DataAvailabilityStatus.Incomplete]`
 - Feature window start = `2023-04-02T12:00:00.000`
 - Feature window end = `2023-04-04T12:00:00.000`
 
-creates these materialization jobs:
+It creates these materialization jobs:
+
 - Job 1: process feature window [`2023-04-02T12:00:00.000`, `2023-04-03T04:00:00.000`)
 - Job 2: process feature window [`2023-04-04T04:00:00.000`, `2023-04-04T12:00:00.000`)
 
@@ -124,6 +131,7 @@ Compare the feature window for these latest request jobs, and the request jobs s
 ### Data backfill by job ID
 
 A backfill request can also be created with a job ID. This is a convenient way to retry a failed or canceled materialization job. First, find the job ID of the job to retry:
+
 - Navigate to the feature set **Materialization jobs** UI
 - Select the **Display name** of a specific job that has a *Failed* **Status** value
 - At the job **Overview** page, locate the relevant job ID value under the **Name** property It starts with `Featurestore-Materialization-`.
@@ -168,7 +176,7 @@ materialization_settings:
     start_time: "2023-04-15T04:00:00.000"
 ```
 
-This example defines a daily job that triggers at 4 AM, starting on 4/15/2023. Depending on the `source_delay` setting, the job run of 5/1/2023 produces features in different time windows.
+This example defines a daily job that triggers at 4 AM, starting on 4/15/2023. Depending on the `source_delay` setting, the job run of 5/1/2023 produces features in different time windows:
 
 - `source_delay=0` produces feature values in window `[2023-04-30T04:00:00.000, 2023-05-01T04:00:00.000)`
 - `source_delay=2hours` produces feature values in window `[2023-04-30T02:00:00.000, 2023-05-01T02:00:00.000)`
@@ -176,12 +184,14 @@ This example defines a daily job that triggers at 4 AM, starting on 4/15/2023. D
 
 ### Update materialization store
 
-- Before you update a feature store online or offline materialization store, all feature sets in that feature store should have the corresponding offline and/or online materialization disabled. The update operation fails as `UserError`, if some feature sets have materialization enabled.
-- The materialization status of the data in the offline and/or online materialization store resets if offline and/or online materialization is disabled on a feature set. The reset renders materialized data unusable. If offline and/or online materialization on the feature set is enabled later, users must resubmit their materialization jobs.
+Before you update a feature store online or offline materialization store, all feature sets in that feature store should have the corresponding offline and/or online materialization disabled. The update operation fails as `UserError`, if some feature sets have materialization enabled.
+
+The materialization status of the data in the offline and/or online materialization store resets if offline and/or online materialization is disabled on a feature set. The reset renders materialized data unusable. If offline and/or online materialization on the feature set is enabled later, users must resubmit their materialization jobs.
 
 ### Online data bootstrap
 
-Online data bootstrap is only applicable if submitted offline materialization jobs have successfully completed. If only offline materialization was initially enabled for a feature set, and online materialization is enabled later, then
+Online data bootstrap is only applicable if submitted offline materialization jobs have successfully completed. If only offline materialization was initially enabled for a feature set, and online materialization is enabled later, then:
+
   - The default data materialization status of the data in the online store is `None`
   - When an online materialization job is submitted, the data with `Complete` materialization status in the offline store is used to calculate online features. This is called online data bootstrapping. Online data bootstrapping saves computational cost because it reuses already-computed features saved in the offline materialization store
     This table summarizes the offline and online data status values in data intervals that would result in online data bootstrapping:
@@ -193,7 +203,7 @@ Online data bootstrap is only applicable if submitted offline materialization jo
     |`2023-04-03T04:00:00.000`|`2023-04-04T04:00:00.000`|`Pending`|`None`| No materialization job submitted |
     |`2023-04-04T04:00:00.000`|`2023-04-05T04:00:00.000`|`Complete`|`None`| Yes |
 
-### Addressing source data errors and modifications
+### Address source data errors and modifications
 
 Some scenarios modify the source data because of an error, or other reasons, after the data materialization. In these cases, a feature data refresh, for a specific feature window across multiple data intervals, can resolve erroneous or stale feature data. Submit the materialization request for erroneous or stale feature data resolution in the feature window, for the data statuses `None`, `Complete`, and `Incomplete`.
 
@@ -201,9 +211,10 @@ You should submit a materialization request for a feature data refresh only when
 
 ### Filling the gaps
 
-In the materialization store, the materialized data might have gaps because
-1. a materialization job was never submitted for the feature window
-2. materialization jobs submitted for the feature window failed, or were canceled
+In the materialization store, the materialized data might have gaps because:
+
+- a materialization job was never submitted for the feature window
+- materialization jobs submitted for the feature window failed, or were canceled
 
 In this case, submit a materialization request in the feature window for `data_status=[DataAvailabilityStatus.NONE,DataAvailabilityStatus.Incomplete]` to fill the gaps. A single materialization request fills all the gaps in the feature window.
 
