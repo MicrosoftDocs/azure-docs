@@ -15,7 +15,7 @@ ms.author: banders
 
 You can provide others access to the billing information for your account in the Azure portal. The type of billing roles and the instructions to provide access to the billing information vary by the type of your billing account. To determine the type of your billing account, see [Check the type of your billing account](#check-the-type-of-your-billing-account).
 
-The article applies to customers with Microsoft Online Service program accounts. If you're an Azure customer with an Enterprise Agreement (EA) and are the Enterprise Administrator, you can give permissions to the Department Administrators and Account Owners in the Enterprise portal. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md). If you are a Microsoft Customer Agreement customer, see, [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
+The article applies to customers with Microsoft Online Service program accounts. If you're an Azure customer with an Enterprise Agreement (EA) and are the Enterprise Administrator, you can give permissions to the Department Administrators and Account Owners in the Enterprise portal. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md). If you're a Microsoft Customer Agreement customer, see, [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
 
 ## Account administrators for Microsoft Online Service program accounts
 
@@ -26,7 +26,7 @@ An Account Administrator is the only owner for a Microsoft Online Service Progra
 Account administrator can grant others access to Azure billing information by assigning one of the following roles on a subscription in their account.
 
 - Service Administrator
-- Co-administrator
+- Coadministrator
 - Owner
 - Contributor
 - Reader
@@ -42,17 +42,17 @@ To assign roles, see [Assign Azure roles using the Azure portal](../../role-base
 
 ### <a name="opt-in"></a> Allow users to download invoices
 
-After an Account administrator has assigned the appropriate roles to other users, they must turn on access to download invoices in the Azure portal. Invoices older than December 2016 are available only to the Account Administrator.
+After an Account administrator assigns the appropriate roles to other users, they must turn on access to download invoices in the Azure portal. Invoices older than December 2016 are available only to the Account Administrator.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/), as an Account Administrator,
 1. Search on **Cost Management + Billing**.  
     :::image type="content" source="./media/manage-billing-access/billing-search-cost-management-billing.png" alt-text="Screenshot that highlights Cost Management + Billing under the Services section." lightbox="./media/manage-billing-access/billing-search-cost-management-billing.png" :::
-1. In the left navigation menu, select **Subscriptions**. Depending on your access, you may need to select a billing scope and then select **Subscriptions**.  
+1. In the left navigation menu, select **Subscriptions**. Depending on your access, you might need to select a billing scope and then select **Subscriptions**.  
     :::image type="content" source="./media/manage-billing-access/billing-select-subscriptions.png" alt-text="Screenshot that shows selecting subscriptions." lightbox="./media/manage-billing-access/billing-select-subscriptions.png" :::
 1. In the left navigation menu, select **Invoices**.  
 1. At the top of the page, select **Edit invoice details**, then select **Allow others to download invoice**.  
     :::image type="content" source="./media/manage-billing-access/select-invoice.png" alt-text="Screenshot shows navigation to Allow others to download invoice option." lightbox="./media/manage-billing-access/select-invoice.png" :::
-1. On the Allow others to download invoice page, select a subscription that you want to give access to.
+1. On the **Allow others to download invoice** page, select a subscription that you want to give access to.
 1. Select **Users/groups with subscription-level access can download invoices** to allow users with subscription-level access to download invoices.  
     :::image type="content" source="./media/manage-billing-access/allow-others-page.png" alt-text="Screenshot shows Allow others to download invoice page." lightbox="./media/manage-billing-access/allow-others-page.png" :::  
     For more information about allowing users with subscription-level access to download invoices, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md?tabs=delegate-condition).
@@ -64,7 +64,7 @@ The Account Administrator can also configure to have invoices sent via email. To
 
 Assign the Billing Reader role to someone that needs read-only access to the subscription billing information but not the ability to manage or create Azure services. This role is appropriate for users in an organization who are responsible for the financial and cost management for Azure subscriptions.
 
-The Billing Reader feature is in preview, and does not yet support non-global clouds.
+The Billing Reader feature is in preview, and doesn't yet support nonglobal clouds.
 
 - Assign the Billing Reader role to a user at the subscription scope.  
      For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
