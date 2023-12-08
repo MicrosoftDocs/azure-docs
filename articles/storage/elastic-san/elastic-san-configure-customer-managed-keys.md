@@ -178,22 +178,6 @@ az keyvault create --name $KvName --resource-group $RgName --location $Location 
 
 To learn how to enable purge protection on an existing key vault with Azure CLI, see [Azure Key Vault recovery overview](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli).
 
-After you have created the key vault, you'll need to assign the **Key Vault Crypto Officer** role to yourself. This role enables you to create a key in the key vault. The following example assigns this role to a user, scoped to the key vault:
-
-```azurecli
-KvResourceId=$(az keyvault show --resource-group $RgName \
-    --name $KvName \
-    --query id \
-    --output tsv)
-
-az role assignment create --assignee $AdminUpn \
-    --role "Key Vault Crypto Officer" \
-    --scope $KvResourceId \
-    --assignee-principal-type User
-```
-
-For more information on how to assign an RBAC role with Azure CLI, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
-
 ---
 
 ## Add a key
@@ -294,6 +278,7 @@ When you configure customer-managed keys with a user-assigned managed identity, 
 A user-assigned managed identity is a standalone Azure resource. To learn more about user-assigned managed identities, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To learn how to create and manage a user-assigned managed identity, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
 The user-assigned managed identity must have permissions to access the key in the key vault. You can either manually grant permissions to the identity, or assign a built-in role with key vault scope to grant these permissions.
+
 ### [PowerShell](#tab/azure-powershell)
 
 The following example shows how to:
@@ -302,7 +287,7 @@ The following example shows how to:
 > * Create a new user-assigned managed identity.
 > * Wait for the creation of the user-assigned identity to complete.
 > * Get the `PrincipalId` from the new identity.
-> * Assign the required RBAC role to the new identity, scoped to the key vault.
+> * Assign an RBAC role to the new identity, scoped to the key vault.
 
 Use the same [variables you defined previously](#create-variables-to-be-used-in-the-powershell-samples-in-this-article) in this article.
 
@@ -337,7 +322,7 @@ The following example shows how to:
 > * Create a new user-assigned managed identity.
 > * Wait for the creation of the user-assigned identity to complete.
 > * Get the `PrincipalId` from the new identity.
-> * Assign permissions to the identity, allowing it access to the key vault
+> * Set a policy on your key vault, allowing access to your identity.
 
 Use the same [variables you defined previously](#create-variables-to-be-used-in-the-powershell-samples-in-this-article) in this article.
 
