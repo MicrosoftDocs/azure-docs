@@ -213,8 +213,8 @@ Microsoft Graph API documentation provides code samples with instructions to:
 
 Web application samples are available for the following languages:
 
-- [C# sample](https://github.com/microsoftgraph/aspnetcore-webhooks-sample)
-- [Java sample](https://github.com/microsoftgraph/java-spring-webhooks-sample) 
+- [C# sample](https://github.com/microsoftgraph/msgraph-sample-eventgrid-notifications-dotnet). This is an up-to-date sample that includes how to create and renew Graph API subcriptions and walks you through some of the steps to enable the flow of events.
+- [Java sample](https://github.com/microsoftgraph/java-spring-webhooks-sample)
   - [GraphAPIController](https://github.com/jfggdl/event-grid-ms-graph-api-java-snippet) contains sample code to create, delete, and renew a Graph API subscription. It must be used along with the Java sample application above.
 - [NodeJS sample](https://github.com/microsoftgraph/nodejs-webhooks-sample).
 
