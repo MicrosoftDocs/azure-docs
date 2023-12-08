@@ -5,8 +5,9 @@ ms.service: azure-arc
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 11/1/2023
+ms.date: 12/06/2023
 ---
+
 <!--
 At this time, a test or preview build is not available for the next release.
  -->
@@ -41,6 +42,7 @@ Dec 2023 preview release is now available.
 ### Release notes
 
 #### Arc-enabled SQL Server
+
 Arc SQL Server | Show the Data Processing Service (DPS) connectivity status in the Azure portal | GA
 
 Arc SQL Server | Monitoring | Add IOPS, Queue Latency Storage IO charts in Performance Dashboard in Azure portal
