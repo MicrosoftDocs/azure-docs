@@ -3,7 +3,7 @@ title: Concepts - Network interconnectivity
 description: Learn about key concepts and use cases of networking and interconnectivity in Azure VMware Solution.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 06/27/2023
+ms.date: 12/05/2023
 ms.custom: engagement-fy23
 ---
 
@@ -68,12 +68,12 @@ For full interconnectivity to your private cloud, enable ExpressRoute Global Rea
 
 ## Route advertisement guidelines to Azure VMware Solution
 
-Follow these guidelines when advertising routes from your on-premises and Azure VNET to Azure VMware Solution over ExpressRoute:
+Follow these guidelines when advertising routes from your on-premises and Azure virtual network to Azure VMware Solution over ExpressRoute:
 
 | **Supported** |**Not supported**|
 | ---------------| ---------------|
 | Default route – 0.0.0.0/0*| Bogon routes. For example: ``0.0.0.0/1, 128.0.0.0/1 0.0.0.0/5``, or ``192.0.0.0/3.``|
-|RFC-1918 address blocks. For example, (``10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16``) or its subnets ( ``10.1.0.0/16, 172.24.0.0/16, 192.168.1.0/24``).| Special address block reserved by IANA. For example,``RFC 6598-100.64.0.0/10`` and its subnets. |
+|RFC-1918 address blocks. For example: (``10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16``) or its subnets ( ``10.1.0.0/16, 172.24.0.0/16, 192.168.1.0/24``).| Special address block reserved by IANA. For example,``RFC 6598-100.64.0.0/10`` and its subnets. |
 |Customer owned public-IP CIDR block or its subnets.||
 
 > [!NOTE]

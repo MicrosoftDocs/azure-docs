@@ -123,8 +123,6 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
-
 For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ### Define your environment

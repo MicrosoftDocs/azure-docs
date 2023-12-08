@@ -50,12 +50,6 @@ Choose the tab for the environment you're using for other prerequisites.
 
 * No extra prerequisites.
 
-# [Studio (preview)](#tab/azure-studio-preview)
-
-* To use the Studio (preview) version, enable the preview feature **Create Compute Instances using the optimized creation wizard**:
-
-  :::image type="content" source="media/how-to-create-compute-instance/preview-panel.png" alt-text="Screenshot shows how to enable the preview feature.":::
-
 ---
 
 ## Create
@@ -95,44 +89,6 @@ Where the file *create-instance.yml* is:
 
 
 # [Studio](#tab/azure-studio)
-
-1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
-1. Under __Manage__, select __Compute__.
-1. Select **Compute instance** at the top.
-1. If you have no compute instances, select  **Create** in the middle of the page.
-
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Create compute target":::
-
-1. If you see a list of compute resources, select **+New** above the list.
-
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Select new":::
-
-1. Fill out the form:
-
-    :::image type="content" source="media/how-to-create-compute-instance/required.png" alt-text="Screenshot shows required entries.":::
-
-    |Field  |Description  |
-    |---------|---------|
-    |Compute name     |  - Name is required and must be between 3 to 24 characters long.<br/> - Valid characters are upper and lower case letters, digits, and the  **-** character.<br/> - Name must start with a letter<br/> - Name needs to be unique across all existing computes within an Azure region. You see an alert if the name you choose isn't unique<br/> - If **-**  character is used, then it needs to be followed by at least one letter later in the name     |
-    |Virtual machine type |  Choose CPU or GPU. This type can't be changed after creation     |
-    |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
-
-1. Select **Create** unless you want to configure advanced settings for the compute instance.
-1. <a name="advanced-settings"></a> Select **Next: Advanced Settings** if you want to:
-
-    * Enable idle shutdown. Configure a compute instance to automatically shut down if it's inactive. For more information, see [enable idle shutdown](#configure-idle-shutdown).
-    * Add schedule. Schedule times for the compute instance to automatically start and/or shut down. For more information, see [schedule details](#schedule-automatic-start-and-stop).
-    * Enable SSH access.  Follow the information in the [detailed SSH access instructions](#enable-ssh-access) section.
-    * Enable virtual network:
-
-        * If you're using an __Azure Virtual Network__, specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network. You can also select __No public IP__ to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup.
-
-        * If you're using an Azure Machine Learning __managed virtual network__, the compute instance is created inside the managed virtual network. You can also select __No public IP__ to prevent the creation of a public IP address. For more information, see [managed compute with a managed network](./how-to-managed-network-compute.md).
-
-    * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#create-on-behalf-of).
-    * Provision with a setup script - for more information about how to create and use a setup script, see [Customize the compute instance with a script](how-to-customize-compute-instance.md).
-
-# [Studio (preview)](#tab/azure-studio-preview)
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
 1. Under __Manage__, select __Compute__.
@@ -224,25 +180,6 @@ idle_time_before_shutdown_minutes: 30
 You can't change the idle time of an existing compute instance with the CLI.
 
 # [Studio](#tab/azure-studio)
-
-* When creating a new compute instance:
-
-    1. Select **Advanced** after completing required settings.
-    1.  Select **Enable idle shutdown** to enable or disable.
-
-        :::image type="content" source="media/how-to-create-compute-instance/enable-idle-shutdown.png" alt-text="Screenshot: Enable compute instance idle shutdown." lightbox="media/how-to-create-compute-instance/enable-idle-shutdown.png":::
-
-    1. Specify the shutdown period when enabled.
-
-* For an existing compute instance:
-
-    1. In the left navigation bar, select **Compute**
-    1. In the list, select the compute instance you wish to change
-    1. Select the **Edit** pencil in the **Schedules** section.
-
-        :::image type="content" source="media/how-to-create-compute-instance/edit-idle-time.png" alt-text="Screenshot: Edit idle time for a compute instance." lightbox="media/how-to-create-compute-instance/edit-idle-time.png":::
-
-# [Studio (preview)](#tab/azure-studio-preview)
 
 * When creating a new compute instance:
 
@@ -346,29 +283,6 @@ Where the file *create-instance.yml* is:
 # [Studio](#tab/azure-studio)
 
 1. [Fill out the form](?tabs=azure-studio#create).
-1. On the second page of the form, open **Show advanced settings**.
-1. Select **Add schedule** to add a new schedule.
-
-    :::image type="content" source="media/how-to-create-attach-studio/create-schedule.png" alt-text="Screenshot: Add schedule in advanced settings.":::
-
-1. Select **Start compute instance** or **Stop compute instance**.
-1. Select the **Time zone**.
-1. Select the **Startup time** or **Shutdown time**.
-1. Select the days when this schedule is active.
-
-    :::image type="content" source="media/how-to-create-attach-studio/stop-compute-schedule.png" alt-text="Screenshot: schedule a compute instance to shut down.":::
-
-1. Select **Add schedule** again if you want to create another schedule.
-
-Once the compute instance is created, you can view, edit, or add new schedules from the compute instance details section.
-
-
-> [!NOTE]
-> Timezone labels don't account for day light savings. For instance,  (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna is actually UTC+02:00 during day light savings.
-
-# [Studio (preview)](#tab/azure-studio-preview)
-
-1. [Fill out the form](?tabs=azure-studio-preview#create).
 1. Select **Next** to advance to **Scheduling** after completing required settings.
 1. Select **Add schedule** to add a new schedule.
 
@@ -517,7 +431,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
 
-* Studio, using the [Advanced settings](?tabs=azure-studio#advanced-settings) or [Security settings (preview)](?tabs=azure-studio-preview#security-settings)
+* Studio, using the [Security settings](?tabs=azure-studio-preview#security-settings)
 
 * [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/azure-api-for-fhir/find-identity-object-ids.md).  You can also find these values in the Microsoft Entra admin center.
 
@@ -574,21 +488,12 @@ identity:
     - resource_id: identity_resource_id
 ```
 
+
 # [Studio](#tab/azure-studio)
 
 You can create compute instance with managed identity from Azure Machine Learning studio:
 
 1. Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
-1. Select **Next: Advanced Settings**.
-1. Enable **Assign a managed identity**.
-1. Select **System-assigned** or **User-assigned** under **Identity type**.
-1. If you selected **User-assigned**, select subscription and name of the identity.
-
-# [Studio (preview)](#tab/azure-studio-preview)
-
-You can create compute instance with managed identity from Azure Machine Learning studio:
-
-1. Fill out the form to [create a new compute instance](?tabs=azure-studio-preview#create).
 1. Select **Security**.
 1. Enable **Assign a managed identity**.
 1. Select **System-assigned** or **User-assigned** under **Identity type**.
@@ -661,31 +566,11 @@ The data scientist can start, stop, and restart the compute instance. They can u
 
 You can set up other applications, such as RStudio, or Posit Workbench (formerly RStudio Workbench), when creating a compute instance. Follow these steps in studio to set up a custom application on your compute instance
 
-# [Python SDK](#tab/python)
-
-Use either Studio or Studio (preview) to see how to set up applications.
-
-# [Azure CLI](#tab/azure-cli)
-
-Use either Studio or Studio (preview) to see how to set up applications.
-
-# [Studio](#tab/azure-studio)
-
-  1. Fill out the form to [create a new compute instance](?tabs=azure-studio#create)
-  1. Select **Next: Advanced Settings**
-  1. Select **Add application** under the **Custom application setup (RStudio Workbench, etc.)** section
-
-  :::image type="content" source="media/how-to-create-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
-
-# [Studio (preview)](#tab/azure-studio-preview)
-
   1. Fill out the form to [create a new compute instance](?tabs=azure-studio-preview#create)
   1. Select **Applications**
   1. Select **Add application**
 
   :::image type="content" source="media/how-to-create-compute-instance/custom-service-setup-preview.png" alt-text="Screenshot showing Custom Service Setup.":::
-
----
 
 ### Setup Posit Workbench (formerly RStudio Workbench)
 
