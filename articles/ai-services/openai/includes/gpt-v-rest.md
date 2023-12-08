@@ -45,7 +45,6 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     # Packages required:
     import requests 
     import json 
-    from azure.identity import DefaultAzureCredential 
     
     api_base = '<your_azure_openai_endpoint>' 
     deployment_name = '<your_deployment_name>'
@@ -95,7 +94,6 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     # Packages required:
     import requests 
     import json 
-    from azure.identity import DefaultAzureCredential 
     
     api_base = '<your_azure_openai_endpoint>' 
     deployment_name = '<your_deployment_name>'
@@ -112,10 +110,10 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     data = {
         "enhancements": {
             "ocr": {
-              "enabled": true
+              "enabled": True
             },
             "grounding": {
-              "enabled": true
+              "enabled": True
             }
         },
         "dataSources": [
