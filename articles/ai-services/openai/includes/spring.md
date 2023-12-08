@@ -44,7 +44,7 @@ mkdir ai-completion-demo && cd ai-completion-demo
 Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml* file used for managing Maven based projects.
 
 ```bash
-mkdir ai-completion-demo && cd ai-completion-demo
+spring init -a ai-completion-demo -n AICompletion --force --build maven -x
 ```
 
 The generated files and folders resemble the following structure:

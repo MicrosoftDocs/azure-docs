@@ -38,7 +38,7 @@ Create a new Spring project.
 In a Bash window, create a new directory for your app, and navigate to it.
 
 ```bash
-mkdir ai-completion-demo && cd ai-completion-demo
+mkdir ai-chat-demo && cd ai-chat-demo
 ```
 
 Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml* file used for managing Maven based projects.

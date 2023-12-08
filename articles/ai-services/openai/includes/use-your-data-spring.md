@@ -19,7 +19,7 @@ Spring AI supports a VectorStore abstraction, and you can wrap Azure AI Search c
 In a Bash window, create a new directory for your app, and navigate to it.
 
 ```bash
-mkdir ai-completion-demo && cd ai-completion-demo
+mkdir ai-custom-data-demo && cd ai-custom-data-demo
 ```
 
 Run the `spring init` command from your working directory. This command creates a standard directory structure for your Spring project including the main Java class source file and the *pom.xml* file used for managing Maven based projects.
