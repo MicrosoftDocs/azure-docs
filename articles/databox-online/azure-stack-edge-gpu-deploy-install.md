@@ -253,7 +253,6 @@ The backplane of Azure Stack Edge device:
 For a full list of supported cables, switches, and transceivers for these network adapter cards, see:
 
 - [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- 25 GbE and 10 GbE cables and modules in [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
 
 > [!NOTE]
 > Using USB ports to connect any external device, including keyboards and monitors, is not supported for Azure Stack Edge devices.

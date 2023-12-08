@@ -75,9 +75,9 @@
     - name: Setup diagnostic logging
       href: analysis-services-logging.md
     - name: Create service principal - Azure portal
-      href: ../active-directory/develop/howto-create-service-principal-portal.md
+      href: /entra/identity-platform/howto-create-service-principal-portal
     - name: Create service principal - PowerShell
-      href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
+      href: /entra/identity-platform/howto-authenticate-service-principal-powershell
     - name: Add a service principal to server administrator role
       href: analysis-services-addservprinc-admins.md
     - name: Move between regions

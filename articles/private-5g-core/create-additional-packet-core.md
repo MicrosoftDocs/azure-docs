@@ -42,47 +42,61 @@ In this step, you'll create an additional packet core instance for a site in you
 
     - Ensure **AKS-HCI** is selected in the **Platform** field.
 :::zone pivot="ase-pro-gpu"
-
-9. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the site to fill out the fields in the **Access network** section.
-    > [!NOTE]
-    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro GPU device.
-:::zone-end
-:::zone pivot="ase-pro-2"
-
-9. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the site to fill out the fields in the **Access network** section.
-    > [!NOTE]
-    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network names on port 3 on your Azure Stack Edge Pro 2 device.
-:::zone-end
+9. If you want to enable UE Metric monitoring, use the information collected in [Collect UE Usage Tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
 
 10. In the **Attached data networks** section, select **Attach data network**. Select the existing data network you used for the site then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
-    - **ASE N6 virtual subnet** (if this site supports 5G UEs) or **ASE SGi virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
+
+11. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the site to fill out the fields in the **Access network** section.
+    > [!NOTE]
+    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs), **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs), or **ASE N2/S1-MME virtual subnet** and **ASE N3/S1-U virtual subnet** (if this site supports both 4G and 5G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
+
+12. In the **Attached data networks** section, select **Attach data network**. Select the existing data network you used for the site then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
+    - **ASE N6 virtual subnet** (if this site supports 5G UEs), **ASE SGi virtual subnet** (if this site supports 4G UEs), or  **ASE N6/SGi virtual subnet** (if this site supports both 4G and 5G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
     - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
     - If you decided to keep NAPT disabled, ensure you configure your data network router with static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network.
 
     Once you've finished filling out the fields, select **Attach**.
+:::zone-end
+:::zone pivot="ase-pro-2"
 
-11. Repeat the previous step for each additional data network configured on the site.
-12. If you decided to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificate for this site, select **Next : Identity >**.  
+9. If you want to enable UE Metric monitoring, select **Enable** from the **UE Metric monitoring** dropdown. Use the information collected in [Collect UE Usage Tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
+
+10. In the **Attached data networks** section, select **Attach data network**. Select the existing data network you used for the site then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
+
+11. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the site to fill out the fields in the **Access network** section.
+    > [!NOTE]
+    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs), **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs), or **ASE N2/S1-MME virtual subnet** and **ASE N3/S1-U virtual subnet** (if this site supports both 4G and 5G UEs)  must match the corresponding virtual network names on port 3 on your Azure Stack Edge Pro 2 device.
+
+12. In the **Attached data networks** section, select **Attach data network**. Select the existing data network you used for the site then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
+    - **ASE N6 virtual subnet** (if this site supports 5G UEs), **ASE SGi virtual subnet** (if this site supports 4G UEs), or  **ASE N6/SGi virtual subnet** (if this site supports both 4G and 5G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
+    - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
+    - If you decided to keep NAPT disabled, ensure you configure your data network router with static routes to the UE IP pools via the appropriate user plane data IP address for the corresponding attached data network.
+
+    Once you've finished filling out the fields, select **Attach**.
+:::zone-end
+
+13. Repeat the previous step for each additional data network configured on the site.
+14. If you decided to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificate for this site, select **Next : Identity >**.  
 If you decided not to configure diagnostics packet collection or use a user assigned managed identity for HTTPS certificates for this site, you can skip this step.
     1. Select **+ Add** to configure a user assigned managed identity.
     1. In the **Select Managed Identity** side panel:
         - Select the **Subscription** from the dropdown.
         - Select the **Managed identity** from the dropdown.
-13. If you decided you want to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate for monitoring this site, you can skip this step.
+15. If you decided you want to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values), select **Next : Local access >**. If you decided not to provide a custom HTTPS certificate for monitoring this site, you can skip this step.
     1. Under **Provide custom HTTPS certificate?**, select **Yes**.
     1. Use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
-14. In the **Local access** section, set the fields as follows:
+16. In the **Local access** section, set the fields as follows:
     - Under **Authentication type**, select the authentication method you decided to use in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools).
     - Under **Provide custom HTTPS certificate?**, select **Yes** or **No** based on whether you decided to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values). If you selected **Yes**, use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
 
-15. Select **Review + create**.
-16. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+17. Select **Review + create**.
+18. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
     If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged with red dots. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-17. Once your configuration has been validated, you can select **Create** to create the packet core instance. The Azure portal will display a confirmation screen when the packet core instance has been created.
+19. Once your configuration has been validated, you can select **Create** to create the packet core instance. The Azure portal will display a confirmation screen when the packet core instance has been created.
 
-18. Return to the **Site** overview, and confirm that it contains the new packet core instance.
+20. Return to the **Site** overview, and confirm that it contains the new packet core instance.
 
 ## Next steps
 

@@ -113,7 +113,7 @@ The following labels are AKS reserved labels. *Virtual node usage* specifies if 
 | kubernetes.azure.com/agentpool | \<agent pool name> | nodepool1 | Same |
 | kubernetes.io/arch | amd64 | runtime.GOARCH | N/A |
 | kubernetes.io/os | \<OS Type> | Linux/Windows | Same |
-| node.kubernetes.io/instance-type | \<VM size> | Standard_NC6 | Virtual |
+| node.kubernetes.io/instance-type | \<VM size> | Standard_NC6s_v3 | Virtual |
 | topology.kubernetes.io/region | \<Azure region> | westus2 | Same |
 | topology.kubernetes.io/zone | \<Azure zone> | 0 | Same |
 | kubernetes.azure.com/cluster | \<MC_RgName> | MC_aks_myAKSCluster_westus2 | Same |

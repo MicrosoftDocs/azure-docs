@@ -671,6 +671,8 @@ items:
       href: ./kafka/connect-kafka-cluster-with-vm-in-different-vnet.md         
   - name: Concepts
     items:
+    - name: Migrate Apache Kafka workloads to Azure HDInsight 5.1
+      href: ./kafka/migrate-5-1-versions.md
     - name: Migrate Kafka workloads to 4.0
       href: ./kafka/migrate-versions.md
     - name: Storage and scalability
@@ -697,7 +699,7 @@ items:
           href: ./apache-kafka-spark-structured-streaming-cosmosdb.md
         - name: Apache Kafka and Apache Spark (DStream)
           href: ./hdinsight-apache-spark-with-kafka.md
-        - name: Use Apache Kafka with Azure Container Service
+        - name: Use Apache Kafka with Azure Kubernetes Service
           href: ./kafka/apache-kafka-azure-container-services.md
     - name: Manage
       items:

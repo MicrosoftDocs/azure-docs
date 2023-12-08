@@ -129,7 +129,7 @@ A user that is responsible for building and modifying LUIS application, as a col
 ### Cognitive Services LUIS Owner
 
 > [!NOTE]
-> * If you are assigned as an *Owner* and *LUIS Owner* you will be be shown as *LUIS Owner* in LUIS portal.
+> * If you are assigned as an *Owner* and *LUIS Owner* you will be shown as *LUIS Owner* in LUIS portal.
 
 These users are the gatekeepers for LUIS applications in a production environment. They should have full access to any of the underlying functions and thus can view everything in the application and have direct access to edit any changes for both authoring and runtime environments.
 

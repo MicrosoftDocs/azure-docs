@@ -92,8 +92,8 @@ the settings set by the image used by each compute node. Although the Batch node
 most secure settings available when possible, it can still be limited by operating system level settings.  We recommend that
 you review your OS level defaults and set them appropriately for the most secure mode that is amenable for your workflow and
 organizational requirements. For more information, please visit
-[Manage TLS](https://learn.microsoft.com/windows-server/security/tls/manage-tls) for cipher suite order enforcement and
-[TLS registry settings](https://learn.microsoft.com/windows-server/security/tls/tls-registry-settings) for SSL/TLS version
+[Manage TLS](/windows-server/security/tls/manage-tls) for cipher suite order enforcement and
+[TLS registry settings](/windows-server/security/tls/tls-registry-settings) for SSL/TLS version
 control for Schannel SSP. Note that some setting changes require a reboot to take effect. Utilizing a newer operating system
 with modern security defaults or a [custom image](batch-sig-images.md) with modified settings is recommended instead of
 application of such settings with a Batch start task.

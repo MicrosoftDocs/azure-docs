@@ -12,6 +12,8 @@ ms.reviewer: mmcc
 
 Telemetry channels are an integral part of the [Application Insights SDKs](./app-insights-overview.md). They manage buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs have two built-in telemetry channels: `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel and shows how to customize channel behavior.
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 ## What are telemetry channels?
 
 Telemetry channels are responsible for buffering telemetry items and sending them to the Application Insights service, where they're stored for querying and analysis. A telemetry channel is any class that implements the [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel) interface.
@@ -170,7 +172,7 @@ For systems other than Windows, no local storage is created automatically by the
 > [!NOTE]
 > With the release 2.15.0-beta3 and greater, local storage is now automatically created for Linux, Mac, and Windows.
 
- You can create a storage directory yourself and configure the channel to use it. In this case, you're responsible for ensuring that the directory is secured. Read more about [data protection and privacy](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
+ You can create a storage directory yourself and configure the channel to use it. In this case, you're responsible for ensuring that the directory is secured. Read more about [data protection and privacy](/previous-versions/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage).
 
 ## Open-source SDK
 Like every SDK for Application Insights, channels are open source. Read and contribute to the code or report problems at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).

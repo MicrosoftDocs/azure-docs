@@ -196,7 +196,7 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
 1. **If you came from [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)**, you set a connection string in App Service using SQL authentication, with a username and password. Use the following command to remove the connection secrets, but replace *\<group-name>*, *\<app-name>*, *\<db-server-name>*, and *\<db-name>* with yours.
 
     ```azurecli-interactive
-    az webapp config connection-string set --resource-group <group-name> --name <app-name> --type SQLAzure --settings MyDbConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
+    az webapp config connection-string set --resource-group <group-name> --name <app-name> --connection-string-type SQLAzure --settings MyDbConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
     ```
 
 1. Publish your changes in Visual Studio. In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
@@ -210,7 +210,7 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
 1. **If you came from [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)**, you have a connection string called `defaultConnection` in App Service using SQL authentication, with a username and password. Use the following command to remove the connection secrets, but replace *\<group-name>*, *\<app-name>*, *\<db-server-name>*, and *\<db-name>* with yours.
 
     ```azurecli-interactive
-    az webapp config connection-string set --resource-group <group-name> --name <app-name> --type SQLAzure --settings defaultConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
+    az webapp config connection-string set --resource-group <group-name> --name <app-name> --connection-string-type SQLAzure --settings defaultConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
     ```
 
 1. You would have made your code changes in your GitHub fork, with Visual Studio Code in the browser. From the left menu, select **Source Control**.

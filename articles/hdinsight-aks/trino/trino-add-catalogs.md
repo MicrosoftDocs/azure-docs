@@ -2,8 +2,9 @@
 title: Configure catalogs in Azure HDInsight on AKS
 description: Add catalogs to an existing Trino cluster in HDInsight on AKS
 ms.service: hdinsight-aks
+ms.custom: devx-track-arm-template
 ms.topic: how-to 
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 # Configure catalogs
@@ -11,7 +12,7 @@ ms.date: 08/29/2023
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 Every Trino cluster comes by default with few catalogs - system, tpcds, `tpch`. You can add your own catalogs same way you would do with OSS Trino. 
-In addition, HDInsight on AKS Trino allows storing secrets in Key Vault so you don’t have to specify them explicitly in ARM template. 
+In addition, Trino with HDInsight on AKS allows storing secrets in Key Vault so you don’t have to specify them explicitly in ARM template. 
 
 You can add a new catalog by updating your cluster ARM template except the hive catalog, which you can add during [Trino cluster creation](./trino-create-cluster.md) in the Azure portal.
 
@@ -19,7 +20,7 @@ This article demonstrates how you can add a new catalog to your cluster using AR
 
 ## Prerequisites
 
-* An operational HDInsight on AKS Trino cluster.
+* An operational Trino cluster with HDInsight on AKS.
 * Azure SQL database.
 * Azure SQL server login/password are stored in the Key Vault secrets and user-assigned MSI attached to your Trino cluster granted permissions to read them. Refer [store credentials in Key Vault and assign role to MSI](../prerequisites-resources.md#create-azure-key-vault).
 * Create [ARM template](../create-cluster-using-arm-template-script.md) for your cluster.
@@ -96,8 +97,7 @@ This article demonstrates how you can add a new catalog to your cluster using AR
    |files|List of Trino catalog files to be added to the cluster.|
    |filename|List of Trino catalog files to be added to the cluster.|
    |content|`json` escaped string to put into trino catalog file. This string should contain all trino-specific catalog properties, which depend on type of connector used. For more information, see OSS trino documentation.|
-   |${SECRET_REF:\<referenceName\>}|Special tag to reference a secret from secretsProfile. HDInsight on AKS Trino at runtime fetch the secret from Key Vault and substitute it in catalog configuration.|
+   |${SECRET_REF:\<referenceName\>}|Special tag to reference a secret from secretsProfile. Trino at runtime fetch the secret from Key Vault and substitute it in catalog configuration.|
    |values|It’s possible to specify catalog configuration using content property as single string, and using separate key-value pairs for each individual Trino catalog property as shown for memory catalog.|
 
  Deploy the updated ARM template to reflect the changes in your cluster. Learn how to [deploy an ARM template](/azure/azure-resource-manager/templates/deploy-portal).
-

@@ -194,6 +194,8 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+
 | Property Name        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | Unique identifier of an external call from producer to the queue. Refer to [Request-Id in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) for the rationale, considerations, and format |

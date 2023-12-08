@@ -32,7 +32,7 @@ Counts the number of data and management operations requests.
 The following two types of errors are classified as **user errors**:
 
 1. Client-side errors (In HTTP that would be 400 errors).
-2. Errors that occur while processing messages, such as [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
+2. Errors that occur while processing messages, such as [MessageLockLostException](/dotnet/api/azure.messaging.servicebus.servicebusfailurereason).
 
 
 ### Message metrics
@@ -264,13 +264,13 @@ AzureDiagnostics:
 ```json
 {
     "ActivityId": "<activity id>",
-    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
     "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
     "Time": "1/1/2021 8:40:06 PM +00:00",
     "Status": "Success | Failure",
     "Protocol": "AMQP | HTTP | SBMP", 
     "AuthType": "SAS | AAD", 
-    "AuthId": "<AAD Application Name| SAS policy name>",
+    "AuthKey": "<AAD Application Name| SAS policy name>",
     "NetworkType": "Public | Private", 
     "ClientIp": "x.x.x.x",
     "Count": 1, 
@@ -282,7 +282,7 @@ Resource specific table entry:
 ```json
 {
     "ActivityId": "<activity id>",
-    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage",
+    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
     "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
     "TimeGenerated (UTC)": "1/1/2021 8:40:06 PM +00:00",
     "Status": "Success | Failure",
@@ -297,6 +297,9 @@ Resource specific table entry:
  }
 
 ```
+
+[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
+
 ## Azure Monitor Logs tables
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
 

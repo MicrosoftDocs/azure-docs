@@ -43,11 +43,41 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Denmark phone numbers are available
 | Country/region |
 | :---------- |
+|Australia|
+|Canada|
 |Denmark|
+|France|
+|Germany|
 |Ireland|
 |Italy|
+|Japan|
+|Netherlands|
+|Spain|
 |Sweden|
+|United Kingdom|
 |United States|
+
+
+## Azure subscription billing locations where Denmark alphanumeric sender IDs are available
+| Country/Region |
+| :---------- |
+| Australia |
+| Austria |
+| Denmark |
+| France |
+| Germany |
+| India |
+| Ireland |
+| Italy |
+| Netherlands |
+| Poland |
+| Portugal |
+| Puerto Rico |
+| Spain |
+| Sweden |
+| Switzerland |
+| United Kingdom |
+| United States |
 
 ## Find information about other countries/regions
 

@@ -2,7 +2,7 @@
 title: Custom speech to text containers - Speech service
 titleSuffix: Azure AI services
 description: Install and run custom speech to text containers with Docker to perform speech recognition, transcription, generation, and more on-premises.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

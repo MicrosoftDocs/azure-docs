@@ -3,26 +3,72 @@ title: Enable Container insights
 description: This article describes how to enable and configure Container insights so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 08/29/2022
+ms.date: 10/18/2023
 ms.reviewer: viviandiec
 ---
 
 # Enable Container insights
 
-This article provides an overview of the requirements and options that are available for configuring Container insights to monitor the performance of workloads that are deployed to Kubernetes environments. You can enable Container insights for a new deployment or for one or more existing deployments of Kubernetes by using several supported methods.
+This article provides an overview of the requirements and options that are available for enabling [Container insights](../containers/container-insights-overview.md) on your Kubernetes clusters. You can enable Container insights for a new deployment or for one or more existing deployments of Kubernetes by using several supported methods.
 
 ## Supported configurations
 
 Container insights supports the following environments:
-
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)
-- [Azure Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
-   - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
-   - [Red Hat OpenShift](https://docs.openshift.com/container-platform/latest/welcome/index.html) version 4.x
+- Following [Azure Arc-enabled Kubernetes cluster distributions](../../azure-arc/kubernetes/validation-program.md):
+   - AKS on Azure Stack HCI
+   - AKS Edge Essentials
+   - Canonical
+   - Cluster API Provider on Azure
+   - K8s on Azure Stack Edge
+   - Red Hat OpenShift version 4.x
+   - SUSE Rancher (Rancher Kubernetes engine)
+   - SUSE Rancher K3s
+   - VMware (ie. TKG)
 
-The versions of Kubernetes and support policy are the same as those versions [supported in AKS](../../aks/supported-kubernetes-versions.md).
+> [!NOTE]
+> Container insights supports ARM64 nodes on AKS. See [Cluster requirements](../../azure-arc/kubernetes/system-requirements.md#cluster-requirements) for the details of Azure Arc-enabled clusters that support ARM64 nodes.
 
-### Differences between Windows and Linux clusters
+
+## Prerequisites
+
+- Container insights stores its data in a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md). It supports workspaces in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). For a list of the supported mapping pairs to use for the default workspace, see [Region mappings supported by Container insights](container-insights-region-mapping.md). You can let the onboarding experience create a Log Analytics workspace in the default resource group of the AKS cluster subscription. If you already have a workspace, you'll probably want to use that one. For more information, see [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
+- Permissions
+  - To enable Container insights, you require must have at least [Contributor](../../role-based-access-control/built-in-roles.md#contributor) access to the AKS cluster. 
+  - To view data after container monitoring is enabled, you must have [Monitoring Reader](../roles-permissions-security.md#monitoring-reader) or [Monitoring Contributor](../roles-permissions-security.md#monitoring-contributor) role.
+
+## Authentication
+
+Container insights uses managed identity authentication. This authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. Read more in [Authentication for Container Insights](container-insights-authentication.md) including guidance on migrating from legacy authentication models.
+
+> [!Note] 
+> [ContainerLogV2](container-insights-logging-v2.md) is the default schema when you onboard Container insights with using ARM, Bicep, Terraform, Policy and Portal onboarding. ContainerLogV2 can be explicitly enabled through CLI version 2.51.0 or higher using Data collection settings.
+
+
+## Agent
+
+Container insights relies on a containerized [Azure Monitor agent](../agents/agents-overview.md) for Linux. This specialized agent collects performance and event data from all nodes in the cluster and sends it to a Log Analytics workspace. The agent is automatically deployed and registered with the specified Log Analytics workspace during deployment.
+
+### Data collection rule
+[Data collection rules (DCR)](../essentials/data-collection-rule-overview.md) contain the definition of data that should be collected by Azure Monitor agent.  When you enable Container insights on a cluster, a DCR is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
+
+Since March 1, 2023 Container insights uses a semver compliant agent version. The agent version is *mcr.microsoft.com/azuremonitor/containerinsights/ciprod:3.1.4* or later. It's represented by the format mcr.microsoft.com/azuremonitor/containerinsights/ciprod:\<semver compatible version\>. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on AKS. To track which versions are released, see [Agent release announcements](https://github.com/microsoft/Docker-Provider/blob/ci_prod/ReleaseNotes.md). 
+
+> [!NOTE]
+> Ingestion Transformations are not currently supported with the [Container insights DCR](../essentials/data-collection-transformations.md).
+
+
+### Log Analytics agent
+
+When Container insights doesn't use managed identity authentication, it relies on a containerized [Log Analytics agent for Linux](../agents/log-analytics-agent.md). The agent version is *microsoft/oms:ciprod04202018* or later. It's represented by a date in the following format: *mmddyyyy*. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on AKS. To track which versions are released, see [Agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+
+With the general availability of Windows Server support for AKS, an AKS cluster with Windows Server nodes has a preview agent installed as a daemon set pod on each individual Windows Server node to collect logs and forward them to Log Analytics. For performance metrics, a Linux node that's automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor for all Windows nodes in the cluster.
+
+> [!NOTE]
+> If you've already deployed an AKS cluster and enabled monitoring by using either the Azure CLI or a Resource Manager template, you can't use `kubectl` to upgrade, delete, redeploy, or deploy the agent. The template needs to be deployed in the same resource group as the cluster.
+
+
+## Differences between Windows and Linux clusters
 
 The main differences in monitoring a Windows Server cluster compared to a Linux cluster include:
 
@@ -34,67 +80,11 @@ The main differences in monitoring a Windows Server cluster compared to a Linux 
 >[!NOTE]
 > Container insights support for the Windows Server 2022 operating system is in preview.
 
-## Installation options
-
-- [AKS cluster](container-insights-enable-aks.md)
-- [AKS cluster with Azure Policy](container-insights-enable-aks-policy.md)
-- [Azure Arc-enabled cluster](container-insights-enable-arc-enabled-clusters.md)
-- [Hybrid Kubernetes clusters](container-insights-hybrid-setup.md)
-
-## Prerequisites
-
-Before you start, make sure that you've met the following requirements:
-
-### Log Analytics workspace
-
-Container insights stores its data in a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md). It supports workspaces in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). For a list of the supported mapping pairs to use for the default workspace, see [Region mappings supported by Container insights](container-insights-region-mapping.md).
-
-You can let the onboarding experience create a Log Analytics workspace in the default resource group of the AKS cluster subscription. If you already have a workspace, you'll probably want to use that one. For more information, see [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
-
- You can attach an AKS cluster to a Log Analytics workspace in a different Azure subscription in the same Microsoft Entra tenant. Currently, you can't do it with the Azure portal, but you can use the Azure CLI or an Azure Resource Manager template.
-
-### Azure Monitor workspace (preview)
-
-If you're going to configure the cluster to [collect Prometheus metrics](container-insights-prometheus.md) with [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), you must have an Azure Monitor workspace where Prometheus metrics are stored. You can let the onboarding experience create an Azure Monitor workspace in the default resource group of the AKS cluster subscription or use an existing Azure Monitor workspace.
-
-### Permissions
-
-To enable Container insights, you require the following permissions:
-
-- You must have at least [Contributor](../../role-based-access-control/built-in-roles.md#contributor) access to the AKS cluster. 
-
-To view data after container monitoring is enabled, you require the following permissions:
-
-- You must have [Monitoring Reader](../roles-permissions-security.md#monitoring-reader) or [Monitoring Contributor](../roles-permissions-security.md#monitoring-contributor) role.
-
-### Kubelet secure port
 
 The containerized Linux agent (replicaset pod) makes API calls to all the Windows nodes on Kubelet secure port (10250) within the cluster to collect node and container performance-related metrics. Kubelet secure port (:10250) should be opened in the cluster's virtual network for both inbound and outbound for Windows node and container performance-related metrics collection to work.
 
-If you have a Kubernetes cluster with Windows nodes, review and configure the network security group and network policies to make sure the Kubelet secure port (:10250) is opened for both inbound and outbound in the cluster's virtual network.
+If you have a Kubernetes cluster with Windows nodes, review and configure the network security group and network policies to make sure the Kubelet secure port (:10250) is open for both inbound and outbound in the cluster's virtual network.
 
-## Authentication
-
-Container insights defaults to managed identity authentication. This secure and simplified authentication model has a monitoring agent that uses the cluster's managed identity to send data to Azure Monitor. It replaces the existing legacy certificate-based local authentication and removes the requirement of adding a *Monitoring Metrics Publisher* role to the cluster. Read more in [Authentication for Container Insights](container-insights-authentication.md)
-
-## Agent
-
-This section reviews the agents used by Container insights.
-
-### Azure Monitor agent
-
-When Container insights uses managed identity authentication (in preview), it relies on a containerized Azure Monitor agent for Linux. This specialized agent collects performance and event data from all nodes in the cluster. The agent is automatically deployed and registered with the specified Log Analytics workspace during deployment.
-
-### Log Analytics agent
-
-When Container insights doesn't use managed identity authentication, it relies on a containerized Log Analytics agent for Linux. This specialized agent collects performance and event data from all nodes in the cluster. The agent is automatically deployed and registered with the specified Log Analytics workspace during deployment.
-
-The agent version is *microsoft/oms:ciprod04202018* or later. It's represented by a date in the following format: *mmddyyyy*. When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on AKS. To track which versions are released, see [Agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
-
-With the general availability of Windows Server support for AKS, an AKS cluster with Windows Server nodes has a preview agent installed as a daemonset pod on each individual Windows Server node to collect logs and forward them to Log Analytics. For performance metrics, a Linux node that's automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor for all Windows nodes in the cluster.
-
-> [!NOTE]
-> If you've already deployed an AKS cluster and enabled monitoring by using either the Azure CLI or a Resource Manager template, you can't use `kubectl` to upgrade, delete, redeploy, or deploy the agent. The template needs to be deployed in the same resource group as the cluster.
 
 ## Network firewall requirements
 
@@ -102,7 +92,7 @@ The following table lists the proxy and firewall configuration information requi
 
 **Azure public cloud**
 
-|Agent resource|Port |
+| Endpoint |Port |
 |--------------|------|
 | `*.ods.opinsights.azure.com` | 443 |
 | `*.oms.opinsights.azure.com` | 443 |
@@ -139,7 +129,7 @@ The following table lists the extra firewall configuration required for managed 
 
 The following table lists the proxy and firewall configuration information for Azure US Government.
 
-|Agent resource| Purpose | Port | 
+| Endpoint | Purpose | Port | 
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.us` | Data ingestion | 443 |
 | `*.oms.opinsights.azure.us` | OMS onboarding | 443 |
@@ -152,8 +142,14 @@ The following table lists the extra firewall configuration required for managed 
 | `global.handler.control.monitor.azure.us` | Access control service | 443 |
 | `<cluster-region-name>.handler.control.monitor.azure.us` | Fetch data collection rules for specific AKS cluster | 443 |
 
+
+## Troubleshooting
+If you registered your cluster and/or configured HCI Insights before November 2023, features that use the AMA agent on HCI, such as Arc for Servers Insights, VM Insights, Container Insights, Defender for Cloud or Sentinel might not be collecting logs and event data properly. See [Repair AMA agent for HCI](/azure-stack/hci/manage/monitor-hci-single?tabs=22h2-and-later) for steps to reconfigure the AMA agent and HCI Insights.
+
 ## Next steps
 
 After you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on AKS, Azure Stack, or another environment.
 
 To learn how to use Container insights, see [View Kubernetes cluster performance](container-insights-analyze.md).
+
+

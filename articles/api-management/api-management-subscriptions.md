@@ -77,8 +77,7 @@ Each API Management instance comes with a built in all-access subscription that 
 > [!WARNING]
 > The all-access subscription enables access to every API in the API Management instance and should only be used by authorized users. Never use this subscription for routine API access or embed the all-access subscription key in client apps.
 
-> [!NOTE]
-> If you're using an API-scoped subscription or the all-access subscription, any [policies](api-management-howto-policies.md) configured at the product scope aren't applied to requests from that subscription.
+[!INCLUDE [api-management-product-policy-alert](../../includes/api-management-product-policy-alert.md)]
 
 ### Standalone subscriptions
 

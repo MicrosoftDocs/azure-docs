@@ -21,7 +21,7 @@ Azure Service Bus supports choosing a specific TLS version for namespaces. Curre
 Azure Service Bus namespaces permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Service Bus namespace to require that clients send and receive data with a newer version of TLS. If a Service Bus namespace requires a minimum version of TLS, then any requests made with an older version will fail.
 
 > [!IMPORTANT]
-> If you are using a service that connects to Azure Service Bus, make sure that that service is using the appropriate version of TLS to send requests to Azure Service Bus before you set the required minimum version for a Service Bus namespace.
+> If you are using a service that connects to Azure Service Bus, make sure that service is using the appropriate version of TLS to send requests to Azure Service Bus before you set the required minimum version for a Service Bus namespace.
 
 ## Permissions necessary to require a minimum version of TLS
 
@@ -44,6 +44,8 @@ When a client sends a request to Service Bus namespace, the client establishes a
 
 > [!NOTE]
 > Due to backwards compatibility, namespaces that do not have the `MinimumTlsVersion` setting specified or have specified this as 1.0, we do not do any TLS checks when connecting via the SBMP protocol.
+
+[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
 Here're a few important points to consider:
 

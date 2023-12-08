@@ -8,7 +8,7 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/27/2022
+ms.date: 10/20/2023
 ---
 
 # Data Flow activity in Azure Data Factory and Azure Synapse Analytics
@@ -189,7 +189,7 @@ To get the number of rows read from a source named 'source1' that was used in th
 > [!NOTE]
 > If a sink has zero rows written, it won't show up in metrics. Existence can be verified using the `contains` function. For example, `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` checks whether any rows were written to sink1.
 
-## Next steps
+## Related content
 
 See supported control flow activities: 
 

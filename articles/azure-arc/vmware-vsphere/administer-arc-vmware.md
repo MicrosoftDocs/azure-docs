@@ -2,7 +2,7 @@
 title:  Perform ongoing administration for Arc-enabled VMware vSphere
 description: Learn how to perform administrator operations related to Azure Arc-enabled VMware vSphere
 ms.topic: how-to 
-ms.date: 08/18/2023
+ms.date: 12/05/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ms.custom: devx-track-azurecli
@@ -10,54 +10,31 @@ ms.custom: devx-track-azurecli
 
 # Perform ongoing administration for Arc-enabled VMware vSphere
 
-In this article, you'll learn how to perform various administrative operations related to Azure Arc-enabled VMware vSphere (preview):
+In this article, you learn how to perform various administrative operations related to Azure Arc-enabled VMware vSphere:
 
-- Upgrading the Azure Arc resource bridge (preview)
+- Upgrading the Azure Arc resource bridge
 - Updating the credentials
 - Collecting logs from the Arc resource bridge
 
 Each of these operations requires either SSH key to the resource bridge VM or the kubeconfig that provides access to the Kubernetes cluster on the resource bridge VM.
 
-## Upgrading the Arc resource bridge
+## Upgrade the Arc resource bridge manually
 
-Azure Arc-enabled VMware vSphere requires the Arc resource bridge to connect your VMware vSphere environment with Azure. Periodically, new images of Arc resource bridge will be released to include security and feature updates.
+Azure Arc-enabled VMware vSphere requires the Arc resource bridge to connect your vSphere environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates. The Arc resource bridge can be manually upgraded from the vCenter server. You must meet all upgrade [prerequisites](../resource-bridge/upgrade.md#prerequisites) before attempting to upgrade. The vCenter server must have the kubeconfig and appliance configuration files stored locally. If the vSphere account credentials changed after the initial deployment of the resource bridge, [update the new account credentials](administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding) before attempting manual upgrade.
 
-> [!NOTE]
-> To upgrade the Arc resource bridge VM to the latest version, you will need to perform the onboarding again with the **same resource IDs**. This will cause some downtime as operations performed through Arc during this time might fail.
+The manual upgrade generally takes between 30-90 minutes, depending on the network speed. The upgrade command takes your Arc resource bridge to the immediate next version, which might not be the latest available version. Multiple upgrades could be needed to reach a [supported version](../resource-bridge/upgrade.md#supported-versions). You can check your resource bridge version by checking the Azure resource of your Arc resource bridge.
 
-To upgrade to the latest version of the resource bridge, perform the following steps:
+To manually upgrade your Arc resource bridge, make sure you've installed the latest `az arcappliance` CLI extension by running the extension upgrade command from the vCenter server:
 
-1. Copy the Azure region and resource IDs of the Arc resource bridge, custom location and vCenter Azure resources
+```azurecli
+az extension add --upgrade --name arcappliance 
+```
 
-2. Find and delete the old Arc resource bridge **template** from your vCenter
+To manually upgrade your resource bridge, use the following command:
 
-3. Download the script from the portal and update the following section in the script
-
-    ```powershell
-    $location = <Azure region of the resources>
-    
-    $applianceSubscriptionId = <subscription-id>
-    $applianceResourceGroupName = <resourcegroup-name>
-    $applianceName = <resource-bridge-name>
-    
-    $customLocationSubscriptionId = <subscription-id>
-    $customLocationResourceGroupName = <resourcegroup-name>
-    $customLocationName = <custom-location-name>
-    
-    $vCenterSubscriptionId = <subscription-id>
-    $vCenterResourceGroupName = <resourcegroup-name>
-    $vCenterName = <vcenter-name-in-azure>
-    ```
-
-4. [Run the onboarding script](quick-start-connect-vcenter-to-arc-using-script.md#run-the-script) again with the `--force` parameter
-
-    ``` powershell-interactive
-    ./resource-bridge-onboarding-script.ps1 --force
-    ```
-
-5. [Provide the inputs](quick-start-connect-vcenter-to-arc-using-script.md#inputs-for-the-script) as prompted.
-
-6. Once the onboarding is successfully completed, the resource bridge is upgraded to the latest version.
+```azurecli
+az arcappliance upgrade vmware --config-file <file path to ARBname-appliance.yaml> 
+```
 
 ## Updating the vSphere account credentials (using a new password or a new vSphere account after onboarding)
 
@@ -77,7 +54,7 @@ az account set -s <subscription id>
 az arcappliance get-credentials -n <name of the appliance> -g <resource group name> 
 az arcappliance update-infracredentials vmware --kubeconfig kubeconfig
 ```
-For more details on the commands see [`az arcappliance get-credentials`](/cli/azure/arcappliance#az-arcappliance-get-credentials) and [`az arcappliance update-infracredentials vmware`](/cli/azure/arcappliance/update-infracredentials#az-arcappliance-update-infracredentials-vmware).
+For more details on the commands, see [`az arcappliance get-credentials`](/cli/azure/arcappliance#az-arcappliance-get-credentials) and [`az arcappliance update-infracredentials vmware`](/cli/azure/arcappliance/update-infracredentials#az-arcappliance-update-infracredentials-vmware).
 
 
 To update the credentials used by the VMware cluster extension on the resource bridge. This command can be run from anywhere with `connectedvmware` CLI extension installed.

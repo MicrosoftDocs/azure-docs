@@ -534,7 +534,7 @@ Let's assume the input log message body is `User account with userId 123456xx fa
         "body": {
           "toAttributes": {
             "rules": [
-              "^User account with userId (?<redactedUserId>\\d+) .*"
+              "userId (?<redactedUserId>[0-9a-zA-Z]+)"
             ]
           }
         }

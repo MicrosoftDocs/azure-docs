@@ -25,7 +25,7 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Prevent joining locked meeting                                                                                      | ✔️        |
 |                   | Honor assigned Teams meeting role                                                                                   |   ✔️      |
 | Chat              | Send and receive chat messages                                                                                      | ✔️ |
-|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️** |
+|                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️ |
 |                   | Send inline images                                                                                                        | ❌ |
 |                   | [Receive file attachments](../../../tutorials/chat-interop/meeting-interop-features-file-attachment.md)                                                                                                           | ✔️** |
 |                   | Send file attachments                                                                                                        | ❌ |
@@ -172,7 +172,7 @@ When Teams external users leave the meeting, or the meeting ends, they can no lo
 
 *Azure Communication Services provides developers tools to integrate Microsoft Teams Data Loss Prevention that is compatible with Microsoft Teams. For more information, go to [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md)
 
-**Inline image and file attachment support are currently in public preview and are available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+**File attachment support is currently in public preview and is available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Server capabilities
 
@@ -180,7 +180,7 @@ The following table shows supported server-side capabilities available in Azure 
 
 |Capability | Supported |
 | --- | --- |
-| [Manage ACS call recording](../../voice-video-calling/call-recording.md)                                                        | ❌ |
+| [Manage Azure Communication Services call recording](../../voice-video-calling/call-recording.md)                                                        | ❌ |
 | [Azure Metrics](../../metrics.md)                                                                                               | ✔️ |
 | [Azure Monitor](../../analytics/logs/voice-and-video-logs.md)                                                                                  | ✔️ |
 | [Azure Communication Services Insights](../../analytics/insights/voice-and-video-insights.md)                                                            | ✔️ |

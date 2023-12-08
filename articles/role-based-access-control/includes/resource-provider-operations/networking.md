@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -58,6 +58,7 @@ Azure service: [Content Delivery Network](../../../cdn/index.yml)
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/Purge/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/Usages/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/ValidateCustomDomain/action |  |
+> | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/CheckCustomDomainDNSMappingStatus/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/CheckEndpointNameAvailability/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/routeresults/read |  |
 > | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/routeresults/write |  |
@@ -116,12 +117,17 @@ Azure service: [Content Delivery Network](../../../cdn/index.yml)
 > | Microsoft.Cdn/profiles/CheckHostNameAvailability/action |  |
 > | Microsoft.Cdn/profiles/Usages/action |  |
 > | Microsoft.Cdn/profiles/Upgrade/action |  |
+> | Microsoft.Cdn/profiles/queryloganalyticsmetrics/action |  |
+> | Microsoft.Cdn/profiles/queryloganalyticsrankings/action |  |
+> | Microsoft.Cdn/profiles/querywafloganalyticsmetrics/action |  |
+> | Microsoft.Cdn/profiles/querywafloganalyticsrankings/action |  |
 > | Microsoft.Cdn/profiles/afdendpoints/read |  |
 > | Microsoft.Cdn/profiles/afdendpoints/write |  |
 > | Microsoft.Cdn/profiles/afdendpoints/delete |  |
 > | Microsoft.Cdn/profiles/afdendpoints/Purge/action |  |
 > | Microsoft.Cdn/profiles/afdendpoints/Usages/action |  |
 > | Microsoft.Cdn/profiles/afdendpoints/ValidateCustomDomain/action |  |
+> | Microsoft.Cdn/profiles/afdendpoints/CheckCustomDomainDNSMappingStatus/action |  |
 > | Microsoft.Cdn/profiles/afdendpoints/CheckEndpointNameAvailability/action |  |
 > | Microsoft.Cdn/profiles/afdendpoints/routes/read |  |
 > | Microsoft.Cdn/profiles/afdendpoints/routes/write |  |
@@ -277,12 +283,20 @@ Azure service: Microsoft.HybridConnectivity
 > | Microsoft.HybridConnectivity/endpoints/delete | Deletes the endpoint access to the target resource. |
 > | Microsoft.HybridConnectivity/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
 > | Microsoft.HybridConnectivity/endpoints/listIngressGatewayCredentials/action | List the ingress gateway access credentials to the resource. |
-> | Microsoft.HybridConnectivity/endpoints/listManagedProxyDetails/action | List the managed proxy details to the resource. |
-> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read | Get or list of serviceConfigurations to the target resource. |
-> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write | Create or update the serviceConfigurations to the target resource. |
-> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/delete | Deletes the serviceConfigurations access to the target resource. |
+> | Microsoft.HybridConnectivity/endpoints/listManagedProxyDetails/action | Get managed proxy details for the resource. |
+> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read | Get or list of service configurations of the endpoints resource. |
+> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write | Create or update the service configurations. |
+> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/delete | Deletes the service configurations of the target endpoints resource. |
+> | Microsoft.HybridConnectivity/inventory/read | Get or list of inventory. |
 > | Microsoft.HybridConnectivity/Locations/OperationStatuses/read | read OperationStatuses |
 > | Microsoft.HybridConnectivity/operations/read | Get the list of Operations |
+> | Microsoft.HybridConnectivity/publicCloudConnectors/write | Create or update the publicCloudConnectors resource. |
+> | Microsoft.HybridConnectivity/publicCloudConnectors/read | Gets/List publicCloudConnectors resource. |
+> | Microsoft.HybridConnectivity/publicCloudConnectors/delete | Deletes publicCloudConnectors resource. |
+> | Microsoft.HybridConnectivity/solutionConfigurations/write | Create or update the solutionConfiguration resource. |
+> | Microsoft.HybridConnectivity/solutionConfigurations/read | Gets/List solution configuration resource. |
+> | Microsoft.HybridConnectivity/solutionConfigurations/delete | Deletes solution configuration resource. |
+> | Microsoft.HybridConnectivity/solutionTypes/read | Gets/List the available solution types. |
 
 ### Microsoft.MobileNetwork
 
@@ -306,6 +320,11 @@ Azure service: [Mobile networks](../../../private-5g-core/index.yml)
 > | Microsoft.MobileNetwork/mobileNetworks/dataNetworks/delete | Deletes the specified data network. |
 > | Microsoft.MobileNetwork/mobileNetworks/dataNetworks/write | Updates data network tags. |
 > | Microsoft.MobileNetwork/mobileNetworks/dataNetworks/read | Lists all data networks in the mobile network. |
+> | Microsoft.MobileNetwork/mobileNetworks/edgeNetworkSecurityGroups/read | Gets information about the specified Edge Network Security Group. |
+> | Microsoft.MobileNetwork/mobileNetworks/edgeNetworkSecurityGroups/write | Creates or updates a Edge Network Security Group. Must be created in the same location as its parent mobile network. |
+> | Microsoft.MobileNetwork/mobileNetworks/edgeNetworkSecurityGroups/delete | Deletes the specified Edge Network Security Group. |
+> | Microsoft.MobileNetwork/mobileNetworks/edgeNetworkSecurityGroups/write | Updates Edge Network Security Group. |
+> | Microsoft.MobileNetwork/mobileNetworks/edgeNetworkSecurityGroups/read | Lists all Edge Network Security Groups in the mobile network. |
 > | Microsoft.MobileNetwork/mobileNetworks/services/read | Gets information about the specified service. |
 > | Microsoft.MobileNetwork/mobileNetworks/services/write | Creates or updates a service. Must be created in the same location as its parent mobile network. |
 > | Microsoft.MobileNetwork/mobileNetworks/services/delete | Deletes the specified service. |
@@ -316,6 +335,7 @@ Azure service: [Mobile networks](../../../private-5g-core/index.yml)
 > | Microsoft.MobileNetwork/mobileNetworks/simPolicies/delete | Deletes the specified SIM policy. |
 > | Microsoft.MobileNetwork/mobileNetworks/simPolicies/write | Updates SIM policy tags. |
 > | Microsoft.MobileNetwork/mobileNetworks/simPolicies/read | Gets all the SIM policies in a mobile network. |
+> | Microsoft.MobileNetwork/mobileNetworks/sites/deletePacketCore/action | Deletes a packet core under the specified mobile network site. |
 > | Microsoft.MobileNetwork/mobileNetworks/sites/read | Gets information about the specified mobile network site. |
 > | Microsoft.MobileNetwork/mobileNetworks/sites/write | Creates or updates a mobile network site. Must be created in the same location as its parent mobile network. |
 > | Microsoft.MobileNetwork/mobileNetworks/sites/delete | Deletes the specified mobile network site. This will also delete any network functions that are a part of this site. |
@@ -326,16 +346,26 @@ Azure service: [Mobile networks](../../../private-5g-core/index.yml)
 > | Microsoft.MobileNetwork/mobileNetworks/slices/delete | Deletes the specified network slice. |
 > | Microsoft.MobileNetwork/mobileNetworks/slices/write | Updates slice tags. |
 > | Microsoft.MobileNetwork/mobileNetworks/slices/read | Lists all slices in the mobile network. |
+> | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/read | Gets information about the specified Wi-Fi SSID. |
+> | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/write | Creates or updates a Wi-Fi SSID. Must be created in the same location as its parent mobile network. |
+> | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/delete | Deletes the specified Wi-Fi SSID. |
+> | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/write | Updates Wi-Fi SSID. |
+> | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/read | Lists all Wi-Fi SSIDs in the mobile network. |
 > | Microsoft.MobileNetwork/Operations/read | read Operations |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/read | Gets information about the specified packet core control plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/write | Creates or updates a packet core control plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/delete | Deletes the specified packet core control plane. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/write | Updates packet core control planes tags. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/read | Lists all the packet core control planes in a subscription. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/read | Lists all the packet core control planes in a resource group. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/rollback/action | Roll back the specified packet core control plane to the previous version, "rollbackVersion". Multiple consecutive rollbacks are not possible. This action may cause a service outage. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/reinstall/action | Reinstall the specified packet core control plane. This action will remove any transaction state from the packet core to return it to a known state. This action will cause a service outage. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/collectDiagnosticsPackage/action | Collect a diagnostics package for the specified packet core control plane. This action will upload the diagnostics to a storage account. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/read | Gets information about the specified packet core control plane. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/write | Creates or updates a packet core control plane. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/delete | Deletes the specified packet core control plane. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/write | Patch packet core control plane resource. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/read | Lists all the packet core control planes in a subscription. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/read | Lists all the packet core control planes in a resource group. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCaptures/stop/action | Stop a packet capture session. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCaptures/read | Gets information about the specified packet capture session. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCaptures/write | Creates or updates a packet capture. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCaptures/delete | Deletes the specified packet capture. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCaptures/read | Lists all the packet capture sessions under a packet core control plane. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/read | Gets information about the specified packet core data plane. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/write | Creates or updates a packet core data plane. Must be created in the same location as its parent packet core control plane. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/delete | Deletes the specified packet core data plane. |
@@ -346,21 +376,38 @@ Azure service: [Mobile networks](../../../private-5g-core/index.yml)
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/delete | Deletes the specified attached data network. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/write | Updates an attached data network tags. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/read | Gets all the attached data networks associated with a packet core data plane. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/routingInfo/read | Get the routing information for the user plane data interface corresponding to this attached DN. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/read | Gets information about the specified Wi-Fi Attached SSID. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/write | Creates or updates an Wi-Fi Attached SSID. Must be created in the same location as its parent packet core data plane. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/delete | Deletes the specified Wi-Fi Attached SSID. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/write | Updates an Wi-Fi Attached SSID. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/read | Gets all the Wi-Fi Attached SSIDs associated with a packet core data plane. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/read | Gets information about the specified Edge Virtual Network. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/write | Creates or updates an Edge Virtual Network . |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/delete | Deletes the specified Edge Virtual Network. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/write | Update Edge Virtual Network resource. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/read | Lists all the Edge Virtual Networks in a resource group. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/routingInfo/read | Get the routing information for the user plane access interface on the packet core. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/routingInfo/read | Get the routing information for the control plane access interface on the packet core. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/ues/read | List all UEs and their state in a packet core. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/ues/extendedInformation/read | Gets extended information about the specified UE from the packet core. |
 > | Microsoft.MobileNetwork/packetCoreControlPlaneVersions/read | Gets information about the specified packet core control plane version. |
 > | Microsoft.MobileNetwork/packetCoreControlPlaneVersions/read | Lists all supported packet core control planes versions. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/read | Gets information about the specified RAN. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/write | Creates or updates a RAN. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/delete | Deletes the specified RAN. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/write | Updates RAN tags. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/read | Gets all the RANs in a subscription. |
-> | Microsoft.MobileNetwork/radioAccessNetworks/read | Gets all the RANs in a resource group. |
+> | Microsoft.MobileNetwork/packetCoreControlPlaneVersions/read | Gets information about the specified packet core control plane version. |
+> | Microsoft.MobileNetwork/packetCoreControlPlaneVersions/read | Lists all supported packet core control planes versions. |
+> | Microsoft.MobileNetwork/radioAccessNetworks/read | Gets information about the specified radio access network. |
+> | Microsoft.MobileNetwork/radioAccessNetworks/write | Creates or updates a radio access network. |
+> | Microsoft.MobileNetwork/radioAccessNetworks/delete | Deletes the specified radio access network. |
+> | Microsoft.MobileNetwork/radioAccessNetworks/write | Updates a radio access network. |
+> | Microsoft.MobileNetwork/radioAccessNetworks/read | Gets all the radio access networks in a subscription. |
+> | Microsoft.MobileNetwork/radioAccessNetworks/read | Gets all the radio access networks in a resource group. |
 > | Microsoft.MobileNetwork/simGroups/uploadSims/action | Bulk upload SIMs to a SIM group. |
 > | Microsoft.MobileNetwork/simGroups/deleteSims/action | Bulk delete SIMs from a SIM group. |
 > | Microsoft.MobileNetwork/simGroups/uploadEncryptedSims/action | Bulk upload SIMs in encrypted form to a SIM group. The SIM credentials must be encrypted. |
 > | Microsoft.MobileNetwork/simGroups/read | Gets information about the specified SIM group. |
 > | Microsoft.MobileNetwork/simGroups/write | Creates or updates a SIM group. |
 > | Microsoft.MobileNetwork/simGroups/delete | Deletes the specified SIM group. |
-> | Microsoft.MobileNetwork/simGroups/write | Updates SIM group tags. |
+> | Microsoft.MobileNetwork/simGroups/write | Patch SIM group resource. |
 > | Microsoft.MobileNetwork/simGroups/read | Gets all the SIM groups in a subscription. |
 > | Microsoft.MobileNetwork/simGroups/read | Gets all the SIM groups in a resource group. |
 > | Microsoft.MobileNetwork/simGroups/sims/read | Gets information about the specified SIM. |
@@ -386,6 +433,7 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/checkTrafficManagerNameAvailability/action | Checks the availability of a Traffic Manager Relative DNS name. |
 > | Microsoft.Network/internalNotify/action | DNS alias resource notification |
 > | Microsoft.Network/getDnsResourceReference/action | DNS alias resource dependency request |
+> | Microsoft.Network/queryExpressRoutePortsBandwidth/action | Queries ExpressRoute Ports Bandwidth |
 > | Microsoft.Network/checkFrontDoorNameAvailability/action | Checks whether a Front Door name is available |
 > | Microsoft.Network/privateDnsZonesInternal/action | Executes Private DNS Zones Internal APIs |
 > | Microsoft.Network/applicationGatewayAvailableRequestHeaders/read | Get Application Gateway available Request Headers |
@@ -399,6 +447,7 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/applicationGateways/delete | Deletes an application gateway |
 > | Microsoft.Network/applicationGateways/backendhealth/action | Gets an application gateway backend health |
 > | Microsoft.Network/applicationGateways/getBackendHealthOnDemand/action | Gets an application gateway backend health on demand for given http setting and backend pool |
+> | Microsoft.Network/applicationGateways/getListenerCertificateMetadata/action | Gets an application gateway listener certificate metadata |
 > | Microsoft.Network/applicationGateways/resolvePrivateLinkServiceId/action | Resolves privateLinkServiceId for application gateway private link resource |
 > | Microsoft.Network/applicationGateways/start/action | Starts an application gateway |
 > | Microsoft.Network/applicationGateways/stop/action | Stops an application gateway |
@@ -419,6 +468,8 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read | Gets an Application Gateway WAF policy |
 > | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write | Creates an Application Gateway WAF policy or updates an Application Gateway WAF policy |
 > | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete | Deletes an Application Gateway WAF policy |
+> | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/attachWafPolicyToAgc/action | Attaches Web application firewall policy to application gateway for containers |
+> | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/detachWafPolicyFromAgc/action | Detaches Web application firewall policy from application gateway for containers |
 > | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action | Joins an IP Configuration to Application Security Groups. Not alertable. |
 > | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Joins a Security Rule to Application Security Groups. Not alertable. |
 > | Microsoft.Network/applicationSecurityGroups/read | Gets an Application Security Group ID. |
@@ -440,6 +491,8 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/read | Gets Azure Firewall NetworkRuleCollection |
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/write | CreatesOrUpdates Azure Firewall NetworkRuleCollection |
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/delete | Deletes Azure Firewall NetworkRuleCollection |
+> | Microsoft.Network/azureFirewalls/providers/Microsoft.Insights/DiagnosticSettings/Read | Get the diagnostic settings of Azure Firewalls |
+> | Microsoft.Network/azureFirewalls/providers/Microsoft.Insights/DiagnosticSettings/Write | Create or update the diagnostic settings of Azure Firewalls |
 > | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/logDefinitions/read | Gets the events for Azure Firewall |
 > | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Azure Firewall |
 > | Microsoft.Network/azureWebCategories/read | Gets Azure WebCategories |
@@ -456,9 +509,13 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/bastionHosts/createShareableLinks/action | Creates shareable urls for the VMs under a bastion and returns the urls |
 > | Microsoft.Network/bastionHosts/deleteShareableLinks/action | Deletes shareable urls for the provided VMs under a bastion |
 > | Microsoft.Network/bastionHosts/deleteShareableLinksByToken/action | Deletes shareable urls for the provided tokens under a bastion |
+> | Microsoft.Network/bastionHosts/setsessionrecordingsasurl/action | Sets SAS URL for BastionHost Session Recording Feature |
+> | Microsoft.Network/bastionHosts/getsessionrecordingsasurl/action | Gets SAS URL for BastionHost Session Recording Feature |
+> | Microsoft.Network/bastionHosts/getsessionrecordingsasurl/read | Gets SAS URL for BastionHost Session Recording Feature |
 > | Microsoft.Network/bastionHosts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Microsoft.Network/bastionHosts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Microsoft.Network/bastionHosts/providers/Microsoft.Insights/logDefinitions/read | Gets the available audit logs for Bastion Host |
+> | Microsoft.Network/bastionHosts/setsessionrecordingsasurl/read | Sets SAS URL for BastionHost Session Recording Feature |
 > | Microsoft.Network/bgpServiceCommunities/read | Get Bgp Service Communities |
 > | Microsoft.Network/connections/read | Gets VirtualNetworkGatewayConnection |
 > | Microsoft.Network/connections/write | Creates or updates an existing VirtualNetworkGatewayConnection |
@@ -530,6 +587,12 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/dnszones/CNAME/read | Get the record set of type 'CNAME', in JSON format. The record set contains the TTL, tags, and etag. |
 > | Microsoft.Network/dnszones/CNAME/write | Create or update a record set of type 'CNAME' within a DNS zone. The records specified will replace the current records in the record set. |
 > | Microsoft.Network/dnszones/CNAME/delete | Remove the record set of a given name and type 'CNAME' from a DNS zone. |
+> | Microsoft.Network/dnszones/dnssecConfigs/default/read | Gets the DNSSEC configuration for a DNS zone |
+> | Microsoft.Network/dnszones/dnssecConfigs/default/write | Creates or updates the DNSSEC configuration for a DNS zone |
+> | Microsoft.Network/dnszones/dnssecConfigs/default/delete | Deletes the DNSSEC configuration for a DNS zone |
+> | Microsoft.Network/dnszones/DS/read | Gets DNS record set of type DS |
+> | Microsoft.Network/dnszones/DS/write | Creates or updates DNS record set of type DS |
+> | Microsoft.Network/dnszones/DS/delete | Deletes the DNS record set of type DS |
 > | Microsoft.Network/dnszones/MX/read | Get the record set of type 'MX', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
 > | Microsoft.Network/dnszones/MX/write | Create or update a record set of type 'MX' within a DNS zone. The records specified will replace the current records in the record set. |
 > | Microsoft.Network/dnszones/MX/delete | Remove the record set of a given name and type 'MX' from a DNS zone. |
@@ -548,6 +611,9 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/dnszones/SRV/read | Get the record set of type 'SRV', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
 > | Microsoft.Network/dnszones/SRV/write | Create or update record set of type SRV |
 > | Microsoft.Network/dnszones/SRV/delete | Remove the record set of a given name and type 'SRV' from a DNS zone. |
+> | Microsoft.Network/dnszones/TLSA/read | Gets DNS record set of type TLSA |
+> | Microsoft.Network/dnszones/TLSA/write | Creates or updates DNS record set of type TLSA |
+> | Microsoft.Network/dnszones/TLSA/delete | Deletes the DNS record set of type TLSA |
 > | Microsoft.Network/dnszones/TXT/read | Get the record set of type 'TXT', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
 > | Microsoft.Network/dnszones/TXT/write | Create or update a record set of type 'TXT' within a DNS zone. The records specified will replace the current records in the record set. |
 > | Microsoft.Network/dnszones/TXT/delete | Remove the record set of a given name and type 'TXT' from a DNS zone. |
@@ -660,6 +726,9 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | Creates or updates a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/delete | Deletes a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/join/action | Joins a Web Application Firewall Policy. Not Alertable. |
+> | Microsoft.Network/gatewayLoadBalancerAliases/write | Creates a Gateway LoadBalancer Alias Or Updates An Existing Gateway LoadBalancer Alias |
+> | Microsoft.Network/gatewayLoadBalancerAliases/delete | Delete Gateway LoadBalancer Alias |
+> | Microsoft.Network/gatewayLoadBalancerAliases/read | Get a Gateway LoadBalancer Alias definition |
 > | Microsoft.Network/internalPublicIpAddresses/read | Returns internal public IP addresses in subscription |
 > | Microsoft.Network/ipAllocations/read | Get The IpAllocation |
 > | Microsoft.Network/ipAllocations/write | Creates A IpAllocation Or Updates An Existing IpAllocation |
@@ -686,7 +755,7 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Gets a load balancer frontend IP configuration definition |
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Joins a Load Balancer Frontend IP Configuration. Not alertable. |
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/read | Gets a load balancer frontend IP address backend pool definition |
-> | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/write | Creates a load balancer frontend IP address backend pool or updates an existing public IP address load balancer backend pool |
+> | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/write | Creates a load balancer frontend IP address backend pool or updates an existing public IP Address load balancer backend pool |
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/delete | Deletes a load balancer frontend IP address backend pool |
 > | Microsoft.Network/loadBalancers/frontendIPConfigurations/loadBalancerPools/join/action | Joins a load balancer frontend IP address backend pool. Not alertable. |
 > | Microsoft.Network/loadBalancers/inboundNatPools/read | Gets a load balancer inbound nat pool definition |
@@ -724,6 +793,11 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/locations/internalAzureVirtualNetworkManagerOperation/action | Internal AzureVirtualNetworkManager Operation In ANM |
 > | Microsoft.Network/locations/setLoadBalancerFrontendPublicIpAddresses/action | SetLoadBalancerFrontendPublicIpAddresses targets frontend IP configurations of 2 load balancers. Azure Resource Manager IDs of the IP configurations are provided in the body of the request. |
 > | Microsoft.Network/locations/queryNetworkSecurityPerimeter/action | Queries Network Security Perimeter by the perimeter GUID |
+> | Microsoft.Network/locations/startPacketTagging/action | Starts Packet Tagging |
+> | Microsoft.Network/locations/getPacketTagging/action | Gets Packet Tagging |
+> | Microsoft.Network/locations/deletePacketTagging/action | Deletes Packet Tagging |
+> | Microsoft.Network/locations/rnmEffectiveRouteTable/action | Gets Effective Routes Configured In Rnm Format |
+> | Microsoft.Network/locations/rnmEffectiveNetworkSecurityGroups/action | Gets Effective Security Groups Configured In Rnm Format |
 > | Microsoft.Network/locations/applicationGatewayWafDynamicManifests/read | Get the application gateway waf dynamic manifest |
 > | Microsoft.Network/locations/applicationGatewayWafDynamicManifests/default/read | Get Application Gateway Waf Dynamic Manifest Default entry |
 > | Microsoft.Network/locations/autoApprovedPrivateLinkServices/read | Gets Auto Approved Private Link Services |
@@ -734,13 +808,16 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/locations/dataTasks/run/action | Runs Data Task |
 > | Microsoft.Network/locations/dnsResolverOperationResults/read | Gets results of a DNS Resolver operation, in JSON format |
 > | Microsoft.Network/locations/dnsResolverOperationStatuses/read | Gets status of a DNS Resolver operation |
+> | Microsoft.Network/locations/getPacketTagging/read | Gets Packet Tagging |
 > | Microsoft.Network/locations/operationResults/read | Gets operation result of an async POST or DELETE operation |
 > | Microsoft.Network/locations/operations/read | Gets operation resource that represents status of an asynchronous operation |
+> | Microsoft.Network/locations/perimeterAssociableResourceTypes/read | Gets Network Security Perimeter Associable Resources |
 > | Microsoft.Network/locations/privateLinkServices/privateEndpointConnectionProxies/read | Gets an private endpoint connection proxy resource. |
 > | Microsoft.Network/locations/privateLinkServices/privateEndpointConnectionProxies/write | Creates a new private endpoint connection proxy, or updates an existing private endpoint connection proxy. |
 > | Microsoft.Network/locations/privateLinkServices/privateEndpointConnectionProxies/delete | Deletes an private endpoint connection proxy resource. |
 > | Microsoft.Network/locations/serviceTagDetails/read | GetServiceTagDetails |
 > | Microsoft.Network/locations/serviceTags/read | Get Service Tags |
+> | Microsoft.Network/locations/setAzureNetworkManagerConfiguration/read | Permission for calling Set Azure Network Manager Configuration operation. This read permission, not setAzureNetworkManagerConfiguration/action, is required to call Set Azure Network Manager Configuration. |
 > | Microsoft.Network/locations/supportedVirtualMachineSizes/read | Gets supported virtual machines sizes |
 > | Microsoft.Network/locations/usages/read | Gets the resources usage metrics |
 > | Microsoft.Network/locations/virtualNetworkAvailableEndpointServices/read | Gets a list of available Virtual Network Endpoint Services |
@@ -769,8 +846,6 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/networkInterfaces/delete | Deletes a network interface |
 > | Microsoft.Network/networkInterfaces/effectiveRouteTable/action | Get Route Table configured On Network Interface Of The Vm |
 > | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action | Get Network Security Groups configured On Network Interface Of The Vm |
-> | Microsoft.Network/networkInterfaces/rnmEffectiveRouteTable/action | Get Route Table configured On Network Interface Of The Vm In RNM Format |
-> | Microsoft.Network/networkInterfaces/rnmEffectiveNetworkSecurityGroups/action | Get Network Security Groups configured On Network Interface Of The Vm In RNM Format |
 > | Microsoft.Network/networkInterfaces/UpdateParentNicAttachmentOnElasticNic/action | Updates the parent NIC associated to the elastic NIC |
 > | Microsoft.Network/networkInterfaces/diagnosticIdentity/read | Gets Diagnostic Identity Of The Resource |
 > | Microsoft.Network/networkInterfaces/ipconfigurations/read | Gets a network interface ip configuration definition.  |
@@ -788,11 +863,21 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/networkManagers/delete | Delete Network Manager |
 > | Microsoft.Network/networkManagers/commit/action | Network Manager Commit |
 > | Microsoft.Network/networkManagers/listDeploymentStatus/action | List Deployment Status |
-> | Microsoft.Network/networkManagers/listActiveSecurityAdminRules/action | List Active Security Admin Rules |
-> | Microsoft.Network/networkManagers/listActiveSecurityUserRules/action | List Active Security User Rules |
+> | Microsoft.Network/networkManagers/listActiveSecurityAdminRules/action | Lists Active Security Admin Rules |
+> | Microsoft.Network/networkManagers/listActiveSecurityUserRules/action | Lists Active Security User Rules |
+> | Microsoft.Network/networkManagers/listActiveConnectivityConfigurations/action | Lists Active Connectivity Configurations |
+> | Microsoft.Network/networkManagers/associatedResources/read | Permission for calling List Associated Resource To Ipam Pool operation. This read permission, not associatedResources/action, is required to call List Ipam Pool Associated Resources. |
 > | Microsoft.Network/networkManagers/connectivityConfigurations/read | Get Connectivity Configuration |
 > | Microsoft.Network/networkManagers/connectivityConfigurations/write | Create Or Update Connectivity Configuration |
 > | Microsoft.Network/networkManagers/connectivityConfigurations/delete | Delete Connectivity Configuration |
+> | Microsoft.Network/networkManagers/ipamPools/read | Gets a Ipam Pool |
+> | Microsoft.Network/networkManagers/ipamPools/write | Creates or Updates a Ipam Pool |
+> | Microsoft.Network/networkManagers/ipamPools/delete | Deletes a Ipam Pool |
+> | Microsoft.Network/networkManagers/ipamPools/associateResourcesToPool/action | Action permission for associate resources to Ipam Pool |
+> | Microsoft.Network/networkManagers/ipamPools/associatedResources/action | Action permission for list Associated Resource To Ipam Pool |
+> | Microsoft.Network/networkManagers/listActiveConnectivityConfigurations/read | Permission for calling List Active Connectivity Configurations operation. This read permission, not listActiveConnectivityConfigurations/action, is required to call List Active Connectivity Configurations. |
+> | Microsoft.Network/networkManagers/listActiveSecurityAdminRules/read | Permission for calling List Active Security Admin Rules operation. This read permission, not listActiveSecurityAdminRules/action, is required to call List Active Security Admin Rules. |
+> | Microsoft.Network/networkManagers/listActiveSecurityUserRules/read | Permission for calling List Active Security User Rules operation. This read permission, not listActiveSecurityUserRules/action, is required to call List Active Security User Rules. |
 > | Microsoft.Network/networkManagers/networkGroups/read | Get Network Group |
 > | Microsoft.Network/networkManagers/networkGroups/write | Create Or Update Network Group |
 > | Microsoft.Network/networkManagers/networkGroups/delete | Delete Network Group |
@@ -843,6 +928,9 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/networkSecurityPerimeters/delete | Deletes a Network Security Perimeter |
 > | Microsoft.Network/networkSecurityPerimeters/joinPerimeterRule/action | Joins an NSP Access Rule |
 > | Microsoft.Network/networkSecurityPerimeters/linkPerimeter/action | Link Perimeter in Auto-Approval mode |
+> | Microsoft.Network/networkSecurityPerimeters/backingResourceAssociations/read | Gets a Network Security Perimeter Backing Resource Association |
+> | Microsoft.Network/networkSecurityPerimeters/backingResourceAssociations/write | Creates or Updates a Network Security Perimeter Backing Resource Association |
+> | Microsoft.Network/networkSecurityPerimeters/backingResourceAssociations/delete | Deletes a Network Security Perimeter Backing Resource Association |
 > | Microsoft.Network/networkSecurityPerimeters/linkReferences/read | Gets a Network Security Perimeter LinkReference |
 > | Microsoft.Network/networkSecurityPerimeters/linkReferences/write | Creates or Updates a Network Security Perimeter LinkReference |
 > | Microsoft.Network/networkSecurityPerimeters/linkReferences/delete | Deletes a Network Security Perimeter LinkReference |
@@ -857,16 +945,32 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/networkSecurityPerimeters/profiles/accessRules/read | Gets a Network Security Perimeter Access Rule |
 > | Microsoft.Network/networkSecurityPerimeters/profiles/accessRules/write | Creates or Updates a Network Security Perimeter Access Rule |
 > | Microsoft.Network/networkSecurityPerimeters/profiles/accessRules/delete | Deletes a Network Security Perimeter Access Rule |
+> | Microsoft.Network/networkSecurityPerimeters/profiles/diagnosticSettingsProxies/read | Gets a Network Security Perimeter Diagnostic Settings Proxy |
 > | Microsoft.Network/networkSecurityPerimeters/resourceAssociationProxies/read | Gets a Network Security Perimeter Resource Association Proxy |
 > | Microsoft.Network/networkSecurityPerimeters/resourceAssociationProxies/write | Creates or Updates a Network Security Perimeter Resource Association Proxy |
 > | Microsoft.Network/networkSecurityPerimeters/resourceAssociationProxies/delete | Deletes a Network Security Perimeter Resource Association Proxy |
 > | Microsoft.Network/networkSecurityPerimeters/resourceAssociations/read | Gets a Network Security Perimeter Resource Association |
 > | Microsoft.Network/networkSecurityPerimeters/resourceAssociations/write | Creates or Updates a Network Security Perimeter Resource Association |
 > | Microsoft.Network/networkSecurityPerimeters/resourceAssociations/delete | Deletes a Network Security Perimeter Resource Association |
+> | Microsoft.Network/networkVerifiers/read | Gets a Network Verifier |
+> | Microsoft.Network/networkVerifiers/write | Creates or Updates a Network Verifier |
+> | Microsoft.Network/networkVerifiers/delete | Deletes a Network Verifier |
+> | Microsoft.Network/networkVerifiers/analysisIntents/read | Gets a Analysis Intent |
+> | Microsoft.Network/networkVerifiers/analysisIntents/write | Creates or Updates a Analysis Intent |
+> | Microsoft.Network/networkVerifiers/analysisIntents/delete | Deletes a Analysis Intent |
+> | Microsoft.Network/networkVerifiers/analysisIntents/analysisRuns/read | Gets a Analysis Run |
+> | Microsoft.Network/networkVerifiers/analysisIntents/analysisRuns/write | Creates or Updates a Analysis Run |
+> | Microsoft.Network/networkVerifiers/analysisIntents/analysisRuns/delete | Deletes a Analysis Run |
+> | Microsoft.Network/networkVerifiers/configurationSnapshots/read | Gets a Configuration Snapshot |
+> | Microsoft.Network/networkVerifiers/configurationSnapshots/write | Creates or Updates a Configuration Snapshot |
+> | Microsoft.Network/networkVerifiers/configurationSnapshots/delete | Deletes a Configuration Snapshot |
 > | Microsoft.Network/networkVirtualAppliances/delete | Delete a Network Virtual Appliance |
 > | Microsoft.Network/networkVirtualAppliances/read | Get a Network Virtual Appliance |
 > | Microsoft.Network/networkVirtualAppliances/write | Create or update a Network Virtual Appliance |
 > | Microsoft.Network/networkVirtualAppliances/getDelegatedSubnets/action | Get Network Virtual Appliance delegated subnets |
+> | Microsoft.Network/networkVirtualAppliances/inboundSecurityRules/read | Get a InboundSecurityRule |
+> | Microsoft.Network/networkVirtualAppliances/inboundSecurityRules/write | Create or update a InboundSecurityRule |
+> | Microsoft.Network/networkVirtualAppliances/inboundSecurityRules/delete | Delete a InboundSecurityRule |
 > | Microsoft.Network/networkWatchers/read | Get the network watcher definition |
 > | Microsoft.Network/networkWatchers/write | Creates a network watcher or updates an existing network watcher |
 > | Microsoft.Network/networkWatchers/delete | Deletes a network watcher |
@@ -890,15 +994,19 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/networkWatchers/connectionMonitors/write | Creates a Connection Monitor |
 > | Microsoft.Network/networkWatchers/connectionMonitors/delete | Deletes a Connection Monitor |
 > | Microsoft.Network/networkWatchers/connectionMonitors/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Connection Monitor |
+> | Microsoft.Network/networkWatchers/connectivityCheck/read | Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint including another VM or an arbitrary remote server. |
 > | Microsoft.Network/networkWatchers/flowLogs/read | Get Flow Log details |
 > | Microsoft.Network/networkWatchers/flowLogs/write | Creates a Flow Log |
 > | Microsoft.Network/networkWatchers/flowLogs/delete | Deletes a Flow Log |
+> | Microsoft.Network/networkWatchers/ipFlowVerify/read | Returns whether the packet is allowed or denied to or from a particular destination. |
 > | Microsoft.Network/networkWatchers/lenses/start/action | Start monitoring network traffic on a specified endpoint |
 > | Microsoft.Network/networkWatchers/lenses/stop/action | Stop/pause monitoring network traffic on a specified endpoint |
 > | Microsoft.Network/networkWatchers/lenses/query/action | Query monitoring network traffic on a specified endpoint |
 > | Microsoft.Network/networkWatchers/lenses/read | Get Lens details |
 > | Microsoft.Network/networkWatchers/lenses/write | Creates a Lens |
 > | Microsoft.Network/networkWatchers/lenses/delete | Deletes a Lens |
+> | Microsoft.Network/networkWatchers/networkConfigurationDiagnostic/read | Diagnostic of network configuration. |
+> | Microsoft.Network/networkWatchers/nextHop/read | For a specified target and destination IP address, return the next hop type and next hope IP address. |
 > | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Gets information about properties and status of a packet capture resource. |
 > | Microsoft.Network/networkWatchers/packetCaptures/stop/action | Stop the running packet capture session. |
 > | Microsoft.Network/networkWatchers/packetCaptures/read | Get the packet capture definition |
@@ -971,6 +1079,7 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/privateEndpoints/delete | Deletes an private endpoint resource. |
 > | Microsoft.Network/privateEndpoints/privateDnsZoneGroups/read | Gets a Private DNS Zone Group |
 > | Microsoft.Network/privateEndpoints/privateDnsZoneGroups/write | Puts a Private DNS Zone Group |
+> | Microsoft.Network/privateEndpoints/privateDnsZoneGroups/delete | Deletes a Private DNS Zone Group |
 > | Microsoft.Network/privateEndpoints/privateLinkServiceProxies/read | Gets a private link service proxy resource. |
 > | Microsoft.Network/privateEndpoints/privateLinkServiceProxies/write | Creates a new private link service proxy, or updates an existing private link service proxy. |
 > | Microsoft.Network/privateEndpoints/privateLinkServiceProxies/delete | Deletes an private link service proxy resource. |
@@ -991,14 +1100,14 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/publicIPAddresses/write | Creates a public IP address or updates an existing public IP address.  |
 > | Microsoft.Network/publicIPAddresses/delete | Deletes a public IP address. |
 > | Microsoft.Network/publicIPAddresses/join/action | Joins a public IP address. Not Alertable. |
-> | Microsoft.Network/publicIPAddresses/ddosProtectionStatus/action | Gets the effective Ddos protection status for a Public IP address resource. |
-> | Microsoft.Network/publicIPAddresses/dnsAliases/read | Gets a Public IP address Dns Alias resource |
-> | Microsoft.Network/publicIPAddresses/dnsAliases/write | Creates a Public IP address Dns Alias resource |
-> | Microsoft.Network/publicIPAddresses/dnsAliases/delete | Deletes a Public IP address Dns Alias resource |
-> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostic settings of Public IP address |
-> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Create or update the diagnostic settings of Public IP address |
-> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Get the log definitions of Public IP address |
-> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | Get the metrics definitions of Public IP address |
+> | Microsoft.Network/publicIPAddresses/ddosProtectionStatus/action | Gets the effective Ddos protection status for a Public IP Address resource. |
+> | Microsoft.Network/publicIPAddresses/dnsAliases/read | Gets a Public IP Address Dns Alias resource |
+> | Microsoft.Network/publicIPAddresses/dnsAliases/write | Creates a Public IP Address Dns Alias resource |
+> | Microsoft.Network/publicIPAddresses/dnsAliases/delete | Deletes a Public IP Address Dns Alias resource |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostic settings of Public IP Address |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Create or update the diagnostic settings of Public IP Address |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Get the log definitions of Public IP Address |
+> | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | Get the metrics definitions of Public IP Address |
 > | Microsoft.Network/publicIPPrefixes/read | Gets a Public Ip Prefix Definition |
 > | Microsoft.Network/publicIPPrefixes/write | Creates A Public Ip Prefix Or Updates An Existing Public Ip Prefix |
 > | Microsoft.Network/publicIPPrefixes/delete | Deletes A Public Ip Prefix |
@@ -1064,6 +1173,9 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/virtualHubs/bgpConnections/delete | Deletes a Hub Bgp Connection child resource of Virtual Hub |
 > | Microsoft.Network/virtualHubs/bgpConnections/advertisedRoutes/action | Gets virtualrouter advertised routes |
 > | Microsoft.Network/virtualHubs/bgpConnections/learnedRoutes/action | Gets virtualrouter learned routes |
+> | Microsoft.Network/virtualHubs/connectionPolicies/read | Gets Connection Policy child resource of Virtual Hub |
+> | Microsoft.Network/virtualHubs/connectionPolicies/write | Creates or Updates Connection Policy child resource of Virtual Hub |
+> | Microsoft.Network/virtualHubs/connectionPolicies/delete | Deletes Connection Policy child resource of Virtual Hub |
 > | Microsoft.Network/virtualHubs/hubRouteTables/read | Gets a Route Table child resource of Virtual Hub |
 > | Microsoft.Network/virtualHubs/hubRouteTables/write | Creates or Updates a Route Table child resource of Virtual Hub |
 > | Microsoft.Network/virtualHubs/hubRouteTables/delete | Deletes a Route Table child resource of Virtual Hub |
@@ -1116,14 +1228,18 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | Microsoft.Network/virtualNetworks/join/action | Joins a virtual network. Not Alertable. |
 > | Microsoft.Network/virtualNetworks/BastionHosts/action | Gets Bastion Host references in a Virtual Network. |
 > | Microsoft.Network/virtualNetworks/ddosProtectionStatus/action | Gets the effective Ddos protection status for a Virtual Network resource. |
-> | Microsoft.Network/virtualNetworks/listNetworkManagerEffectiveConnectivityConfigurations/action | List Network Manager Effective Connectivity Configurations |
-> | Microsoft.Network/virtualNetworks/listNetworkManagerEffectiveSecurityAdminRules/action | List Network Manager Effective Security Admin Rules |
+> | Microsoft.Network/virtualNetworks/rnmEffectiveRouteTable/action | Gets RouteTables Configured On CA Of The Vnet In Rnm Format |
+> | Microsoft.Network/virtualNetworks/rnmEffectiveNetworkSecurityGroups/action | Gets Security Groups Configured On CA Of The Vnet In Rnm Format |
+> | Microsoft.Network/virtualNetworks/listNetworkManagerEffectiveConnectivityConfigurations/action | Lists Network Manager Effective Connectivity Configurations |
+> | Microsoft.Network/virtualNetworks/listNetworkManagerEffectiveSecurityAdminRules/action | Lists Network Manager Effective Security Admin Rules |
 > | Microsoft.Network/virtualNetworks/listDnsResolvers/action | Gets the DNS Resolver for Virtual Network, in JSON format |
 > | Microsoft.Network/virtualNetworks/listDnsForwardingRulesets/action | Gets the DNS Forwarding Ruleset for Virtual Network, in JSON format |
 > | Microsoft.Network/virtualNetworks/bastionHosts/default/action | Gets Bastion Host references in a Virtual Network. |
-> | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | Check if IP address is available at the specified virtual network |
+> | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | Check if IP Address is available at the specified virtual network |
 > | Microsoft.Network/virtualNetworks/customViews/read | Get definition of a custom view of Virtual Network |
 > | Microsoft.Network/virtualNetworks/customViews/get/action | Get a Virtual Network custom view content |
+> | Microsoft.Network/virtualNetworks/listNetworkManagerEffectiveConnectivityConfigurations/read | Permission for calling List Network Manager Effective Connectivity Configurations operation. This read permission, not listNetworkManagerEffectiveConnectivityConfigurations/action, is required to call List Network Manager Effective Connectivity Configurations. |
+> | Microsoft.Network/virtualNetworks/listNetworkManagerEffectiveSecurityAdminRules/read | Permission for calling List Network Manager Effective Security Admin Rules operation. This read permission, not listNetworkManagerEffectiveSecurityAdminRules/action, is required to call List Network Manager Effective Security Admin Rules. |
 > | Microsoft.Network/virtualNetworks/privateDnsZoneLinks/read | Get the Private DNS zone link to a virtual network properties, in JSON format. |
 > | Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostic settings of Virtual Network |
 > | Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/write | Create or update the diagnostic settings of the Virtual Network |
@@ -1222,6 +1338,9 @@ Azure service: [Application Gateway](../../../application-gateway/index.yml), [A
 > | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/getikesas/action | Lists Vpn Link Connection IKE Security Associations |
 > | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/resetconnection/action | Resets connection for vWAN |
 > | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/read | Gets a Vpn Link Connection |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKey/action | Puts Vpn Link Connection Shared Key |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKey/read | Gets Vpn Link Connection Shared Key |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKey/reset/action | Resets Vpn Link Connection Shared Key |
 > | Microsoft.Network/vpnServerConfigurations/read | Get VpnServerConfiguration |
 > | Microsoft.Network/vpnServerConfigurations/write | Create or Update VpnServerConfiguration |
 > | Microsoft.Network/vpnServerConfigurations/delete | Delete VpnServerConfiguration |

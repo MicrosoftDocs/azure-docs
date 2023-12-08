@@ -64,3 +64,6 @@ Learn how to deploy a multi-container container group with an Azure Resource Man
 
 > [!div class="nextstepaction"]
 > [Deploy a container group][resource-manager template]
+
+<!-- LINKS - Internal -->
+[resource-manager template]: container-instances-multi-container-group.md

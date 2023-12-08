@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with the Arkose Labs platform
 titleSuffix: Azure AD B2C
 description: Learn to configure Azure Active Directory B2C with the Arkose Labs platform to identify risky and fraudulent users
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 01/18/2023
 ms.author: gasinh

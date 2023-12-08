@@ -46,7 +46,7 @@ For more information of the Microsoft Entra elevation process, see [Elevate acce
 
 ## Request tenant-wide permissions when yours are insufficient
 
-When you navigate to Defender for Cloud, you may see a banner that alerts you to the fact that your view is limited. If you see this banner, select it to send a request to the global administrator for your organization. In the request, you can include the role you'd like to be assigned and the global administrator will make a decision about which role to grant. 
+When you navigate to Defender for Cloud, you might see a banner that alerts you to the fact that your view is limited. If you see this banner, select it to send a request to the global administrator for your organization. In the request, you can include the role you'd like to be assigned and the global administrator will make a decision about which role to grant. 
 
 It's the global administrator's decision whether to accept or reject these requests. 
 
