@@ -18,9 +18,9 @@ Use this article to get started using [Azure AI Studio](https://ai.azure.com) to
 
 GPT-4 Turbo with Vision and [Azure AI Vision](../../ai-services/computer-vision/overview.md) offer advanced functionality including:
 
-- Optical character recognition (OCR): Extracts text from images and combines it with the user's prompt and image to expand the context. 
-- Object visualization: Complements the GPT-4 Turbo with Vision text response with object grounding and outlines salient objects in the input images.
-- Video chat: GPT-4 Turbo with Vision can answer questions by retrieving the video frames most relevant to the user's prompt.
+- Optical Character Recognition (OCR): Extracts text from images and combines it with the user's prompt and image to expand the context. 
+- Object grounding: Complements the GPT-4 Turbo with Vision text response with object grounding and outlines salient objects in the input images.
+- Video prompts: GPT-4 Turbo with Vision can answer questions by retrieving the video frames most relevant to the user's prompt.
 
 Extra usage fees might apply for using GPT-4 Turbo with Vision and Azure AI Vision functionality.
 
@@ -32,8 +32,8 @@ Extra usage fees might apply for using GPT-4 Turbo with Vision and Azure AI Visi
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
 You need:
-- An [Azure OpenAI resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI) with the GPT-4 Turbo with Vision models deployed in one of the regions that support GPT-4 Turbo with Vision: Australia East, Switzerland North, Sweden Central, West US, and East US.
-- For enhanced image and video chat, you also need an [Azure AI Vision resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) in one of the regions that support GPT-4 Turbo with Vision: Australia East, Switzerland North, Sweden Central, West US, and East US.
+- An [Azure OpenAI resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI) with the GPT-4 Turbo with Vision models deployed in one of the regions that support GPT-4 Turbo with Vision: Australia East, Switzerland North, Sweden Central, and West US.
+- For enhanced image and video prompts, you also need an [Azure AI Vision resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) in one of the regions that support GPT-4 Turbo with Vision: Australia East, Switzerland North, Sweden Central, and West US.
 
 ## Start a chat session to analyze images or video
 
@@ -43,7 +43,7 @@ You need an image to complete the image quickstarts. You can use the following i
 
 You need a video up to three minutes in length to complete the video quickstart. 
 
-# [Image analysis chat](#tab/image-chat)
+# [Image prompts](#tab/image-chat)
 
 In this chat session, you instruct the assistant to aid in understanding images that you input. 
 
@@ -76,7 +76,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident-reply-insurance-long.png" alt-text="Screenshot of the chat playground with the assistant's follow-up reply for basic image analysis." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident-reply-insurance-long.png":::
  
-# [Enhanced image analysis chat](#tab/enhanced-image-chat)
+# [Image prompt enhancements](#tab/enhanced-image-chat)
 
 In this chat session, you instruct the assistant to aid in understanding images that you input. Try out the capabilities of the augmented vision model.  
 
@@ -113,7 +113,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident-follow-up-reply.png" alt-text="Screenshot of the chat playground with the assistant's follow-up reply for enhanced image analysis." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident-follow-up-reply.png":::
  
 
-# [Video analysis chat](#tab/video-chat)
+# [Video prompt enhancements](#tab/video-chat)
 
 In this chat session, you'll be instructing the assistant to aid in understanding videos that you input. The assistant extracts several frames from the video and uses them to answer your questions.
 
