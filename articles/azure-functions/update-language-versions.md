@@ -4,7 +4,7 @@ description: Learn how to update the version of the native language used by a fu
 ms.topic: how-to
 ms.custom: devx-track-extended-java
 ms.date: 12/06/2023
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Update language versions in Azure Functions 
@@ -120,7 +120,7 @@ az functionapp list-runtimes --os "windows" --query "[?runtime == 'dotnet-isolat
 az functionapp config set --net-framework-version "<VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
 ```
 ::: zone-end  
-::: zone pivot="programming-language-javascript" 
+::: zone pivot="programming-language-javascript,programming-language-typescript" 
 First, use the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported version values for your language stack (Node.js). Then, run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version of your function app:
 
 ```azurecli
@@ -136,7 +136,7 @@ az functionapp list-runtimes --os "windows" --query "[?runtime == 'powershell'].
 az functionapp config set --powershell-version "<VERSION>" --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot "staging"  
 ```  
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell"  
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
 In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of your function app and resource group, respectively. Also replace `<VERSION>` with the supported language version to which you're updating. If you aren't using a staging slot, remove the `--slot` parameter.
 ::: zone-end   
 ### [Linux](#tab/linux/azure-cli)
@@ -147,7 +147,7 @@ In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of yo
 ::: zone pivot="programming-language-java,programming-language-python,programming-language-powershell"
 Run the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting for your language version:
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-javascript"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript"
 Run the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command to view the supported [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting for your language stack version:
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
@@ -160,7 +160,7 @@ az functionapp list-runtimes --os linux --query "[?runtime == 'python'].{Version
 az functionapp list-runtimes --os linux --query "[?runtime == 'dotnet-isolated'].{Version:version, linuxFxVersion:linux_fx_version}" --output table
 ```
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
 ```azurecli
 az functionapp list-runtimes --os linux --query "[?runtime == 'node'].{Version:version, linuxFxVersion:linux_fx_version}" --output table
 ```
@@ -178,7 +178,7 @@ az functionapp list-runtimes --os linux --query "[?runtime == 'powershell'].{Ver
 ::: zone pivot="programming-language-java,programming-language-python,programming-language-powershell"  
 Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the site setting for the new language version of your function app: 
 ::: zone-end 
-::: zone pivot="programming-language-csharp,programming-language-javascript" 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript" 
 Run the [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the site setting for the new stack version of your function app: 
 ::: zone-end  
 ```azurecli
@@ -205,7 +205,7 @@ If you have been performing your code project deployment and updating settings i
 > [!div class="nextstepaction"]
 > [C# isolated worker process guide](./dotnet-isolated-process-guide.md)
 ::: zone-end 
-::: zone pivot="programming-language-javascript"   
+::: zone pivot="programming-language-javascript,programming-language-typescript"   
 > [!div class="nextstepaction"]
 > [Node.js developer guide](./functions-reference-node.md)
 ::: zone-end 
