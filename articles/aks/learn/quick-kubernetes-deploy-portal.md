@@ -53,7 +53,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
       - Leave the **Automatic upgrade** setting set to the recommended value, which is *Enabled with patch*.
       - Leave the **Authentication and authorization** setting set to *Local accounts with Kubernetes RBAC*.
 
-            :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal" lightbox="media/quick-kubernetes-deploy-portal/create-cluster-basics.png":::
+        :::image type="content" source="media/quick-kubernetes-deploy-portal/create-cluster-basics.png" alt-text="Screenshot showing how to configure an AKS cluster in Azure portal" lightbox="media/quick-kubernetes-deploy-portal/create-cluster-basics.png":::
 
 1. Select **Next**. On the **Node pools** tab, add a new node pool:
     - Select **Add node pool**.
