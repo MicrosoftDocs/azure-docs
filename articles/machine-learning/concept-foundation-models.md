@@ -15,11 +15,6 @@ ms.date: 12/04/2023
 
 # Foundation Models in Azure Machine Learning
 
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 This article describes Foundation Models and their benefits within Azure Machine Learning. You learn what Foundation Models are used for and how you can access and use then in Azure Machine Learning. 
 
 ## What is Foundation Models in Azure Machine Learning?
