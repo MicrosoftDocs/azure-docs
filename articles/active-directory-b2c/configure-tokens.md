@@ -28,7 +28,7 @@ You can configure the token lifetime, including:
 
 - **Access and ID token lifetimes (minutes)** - The lifetime of the OAuth 2.0 bearer token and ID tokens. The default is 60 minutes (1 hour). The minimum (inclusive) is 5 minutes. The maximum (inclusive) is 1,440 minutes (24 hours).
 - **Refresh token lifetime (days)** - The maximum time period before which a refresh token can be used to acquire a new access token, if your application had been granted the `offline_access` scope. The default is 14 days. The minimum (inclusive) is one day. The maximum (inclusive) 90 days.
-- **Refresh token sliding window lifetime** - The refresh token sliding window type. `Bounded` indicates that the refresh token can be extended as specify in the **Lifetime length (days)**. `No expiry` indicates that the refresh token sliding window lifetime never expires.
+- **Refresh token sliding window lifetime** - The refresh token sliding window type. `Bounded` indicates that the refresh token can be extended as specified in the **Lifetime length (days)**. `No expiry` indicates that the refresh token sliding window lifetime never expires.
 - **Lifetime length (days)** - After this time period elapses the user is forced to reauthenticate, irrespective of the validity period of the most recent refresh token acquired by the application. The value must be greater than or equal to the **Refresh token lifetime** value.
 
 The following diagram shows the refresh token sliding window lifetime behavior.

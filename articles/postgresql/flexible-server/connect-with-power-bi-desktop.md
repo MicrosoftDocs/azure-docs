@@ -4,7 +4,7 @@ description: This article shows how to build Power BI reports from data on your 
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: arianapadilla
+author: techieari
 ms.author: arianap
 ms.date: 04/26/2023
 ---

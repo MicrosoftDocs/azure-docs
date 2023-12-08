@@ -91,7 +91,7 @@ OS Provisioning states only apply to virtual machines created with a [generalize
 
 To troubleshoot specific VM state issues, see [Troubleshoot Windows VM deployments](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) and [Troubleshoot Linux VM deployments](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux).
 
-To troubleshoot hibernation, see [Troubleshoot VM hibernation](/hibernate-resume-troubleshooting.md).
+To troubleshoot hibernation, see [Troubleshoot VM hibernation](/azure/virtual-machines/hibernate-resume-troubleshooting).
 
 For other troubleshooting help visit [Azure Virtual Machines troubleshooting documentation](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 

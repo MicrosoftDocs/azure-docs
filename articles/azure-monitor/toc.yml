@@ -9,8 +9,6 @@ items:
       href: best-practices-multicloud.md
     - name: What's new?
       href: whats-new.md
-    - name: FAQ
-      href: overview.md#frequently-asked-questions
 - name: Getting started
   items:
   - name: Get started with Azure Monitor
@@ -410,8 +408,6 @@ items:
           href: vm/vminsights-enable-hybrid.md
         - name: Dependency Agent
           href: vm/vminsights-dependency-agent-maintenance.md
-        - name: Configure workspace 
-          href: vm/vminsights-configure-workspace.md
         - name: Migrate from deprecated VM insights policies 
           href: vm/vminsights-migrate-deprecated-policies.md          
       - name: Map dependencies
@@ -1147,12 +1143,6 @@ items:
         href: visualize/workbooks-move-region.md
       - name: Move Workbook templates to another region
         href: visualize/workbook-templates-move-region.md
-    - name: Transition from View Designer
-      items:
-      - name: Move from View Designer to Workbooks
-        href: visualize/workbooks-view-designer-conversion-overview.md
-      - name: Sample JSON to covert View Designer views
-        href: visualize/workbooks-view-designer-conversions.md 
     - name: Retrieve legacy workbooks
       href: visualize/workbooks-retrieve-legacy-workbooks.md
     - name: Access Troubleshooting guides

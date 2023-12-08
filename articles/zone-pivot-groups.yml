@@ -1885,6 +1885,15 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: mbullwin
+- id: openai-embeddings
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-powershell
+    title: PowerShell
 # Owner: aahi
 - id: openai-use-your-data
   title: Programming languages

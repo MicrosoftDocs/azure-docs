@@ -78,14 +78,14 @@ Test and resolve issues with VMs holding on to old SNAT IP addresses by:
 
 If you're still having trouble, open a support case for further troubleshooting.  
 
-### Virtual appliance UDRs and ExpressRoute override NAT gateway for routing outbound traffic 
+### UDRs for virtual network gateways and network appliances override NAT gateway for routing outbound traffic 
 
-When forced tunneling with a custom UDR is enabled to direct traffic to a virtual appliance or VPN through ExpressRoute, the UDR or ExpressRoute takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](../virtual-network/virtual-networks-udr-overview.md#custom-routes).  
+When forced tunneling with a custom UDR is enabled to direct traffic either to a network virtual appliance (NVA) or virtual network gateway such as VPN Gateway or ExpressRoute, the UDR takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](../virtual-network/virtual-networks-udr-overview.md#custom-routes).  
 
 The order of precedence for internet routing configurations is as follows:  
-Virtual appliance UDR / ExpressRoute >> NAT gateway >> instance level public IP addresses >> outbound rules on Load balancer >> default outbound access  
+UDR for NVA / VPN Gateway / ExpressRoute >> NAT gateway >> instance level public IP addresses >> outbound rules on Load balancer >> default outbound access  
 
-Test and resolve issues with a virtual appliance UDR or VPN ExpressRoute overriding your NAT gateway by:  
+Test and resolve issues with a virtual appliance UDR or virtual network gateway overriding your NAT gateway by:  
 
 1. [Testing that the NAT gateway public IP](./quickstart-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a custom UDR, follow the remaining steps on how to check for and remove custom UDRs. 
 

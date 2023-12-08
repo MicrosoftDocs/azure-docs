@@ -91,7 +91,7 @@ The Event Grid helps you build automation into your cloud infrastructure, create
 
 ## Redis console
 
-You can securely issue commands to your Azure Cache for Redis instances using the **Redis Console**, which is available in the Azure portal for all cache tiers.
+You can securely issue commands to your Azure Cache for Redis instances using the **Redis Console**, which is available in the Azure portal for Basic, Standard and Premium cache tiers.
 
 > [!IMPORTANT]
 >
