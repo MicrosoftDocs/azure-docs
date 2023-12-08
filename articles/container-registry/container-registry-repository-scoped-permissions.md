@@ -13,7 +13,7 @@ ms.devlang: azurecli
 
 This article describes how to create tokens and scope maps to manage access to repositories in your container registry. By creating tokens, a registry owner can provide users or services with scoped, time-limited access to repositories to pull or push images or perform other actions. A token provides more fine-grained permissions than other registry [authentication options](container-registry-authentication.md), which scope permissions to an entire registry.
 
-Common scenarios for creating a token includes:
+Common scenarios for creating a token include:
 
 * Allow IoT devices with individual tokens to pull an image from a repository.
 * Provide an external organization with permissions to a repository path.
