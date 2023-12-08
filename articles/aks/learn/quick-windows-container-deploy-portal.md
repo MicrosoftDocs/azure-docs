@@ -20,8 +20,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 - If you're unfamiliar with the Azure Cloud Shell, review [Overview of Azure Cloud Shell](/azure/cloud-shell/overview).
-- To learn more about creating a Linux node pool, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure portal](quick-kubernetes-deploy-portal.md).
-- The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
 ## Create an AKS cluster
 
