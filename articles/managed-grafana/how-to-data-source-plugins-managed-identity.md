@@ -125,7 +125,7 @@ az grafana data-source create --name <instance-name> --definition '{
 
 The content below shows how to configure some of the most popular data sources in Azure Managed Grafana: Azure Monitor and Azure Data Explorer. A similar process can be used to configure other types of data sources. For more information about a specific data source, refer to [Grafana's documentation](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources).
 
-### Azure Monitor configuration
+### Azure Monitor
 
 The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow the steps below in the Grafana portal of your Azure Managed Grafana instance or in the Azure CLI.
 
@@ -185,9 +185,9 @@ az grafana data-source update --data-source 'Azure Monitor' --name <instance-nam
 > [!NOTE]
 > User-assigned managed identity isn't currently supported.
 
-### Azure Data Explorer configuration
+### Azure Data Explorer
 
-To configure Azure Data Explorer using a graphical interface or the Azure CLI, go to [Configure Azure Data Explorer](how-to-connect-azure-data-explorer.md).
+To learn how to configure Azure Data Explorer, go to [Configure Azure Data Explorer](how-to-connect-azure-data-explorer.md).
 
 ## Remove a data source
 
