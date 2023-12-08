@@ -1,3 +1,11 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 12/08/2023
+ms.author: glenga
+---
+
 ::: zone pivot="programming-language-java"  
 Use the following steps to update the Java version:
  
@@ -20,7 +28,7 @@ Use the following steps to update the .NET version:
 
 1. Select **Save** and when notified about a restart select **Continue**.  
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
 Use the following steps to update the Node.js version:
 
 1. In the [Azure portal](https://portal.azure.com), locate your function app and select **Configuration** on the left-hand side. When using a staging slot, make sure to first select the specific slot.
