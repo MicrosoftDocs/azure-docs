@@ -106,7 +106,7 @@ resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
 Property value details:
 
 - `tags`: Deployment script tags. If the deployment script service creates the two supporting resources - a storage account and a container instance, the tags are passed to both resources, which can be used to identify them. Another way to identify these supporting resources is through their suffixes, which contain `azscripts`. For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-troubleshoot.md).
-- <a id='identity'></a>`identity`: For deployment script API version *2020-10-01* or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script or running deployment script in private network. For more information, see [Access private virtual network](#access-private-virtual-network). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identityin deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [configure the minimum permissions](./deployments-script-bicep.md#configure-the-mininum-permissions).
+- <a id='identity'></a>`identity`: For deployment script API version *2020-10-01* or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script or running deployment script in private network. For more information, see [Access private virtual network](./deployment-script-vnet.md). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity in deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [configure the minimum permissions](./deployment-script-bicep.md#configure-the-mininum-permissions).
 - `kind`: Specify the type of script, either **AzurePowerShell** or **AzureCLI**. You will also need to specify the `azPowerShellVersion` or `azCliVersion` property.
 - `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. For more information, see [Use an existing storage account](#use-existing-storage-account).
 - `containerSettings`: Customize the name of Azure Container Instance. For configuring the container group name, see [Configure container instance](#configure-container-instance). For configuring `subnetIds` to run deployment script in a private network, see [Access private virtual network](./deployment-script-vnet.md).
@@ -164,81 +164,6 @@ Property value details:
 - [Sample 4](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad): manually create a user-assigned managed identity and assign it permission to use the Microsoft Graph API to create Microsoft Entra applications; in the Bicep file, use a deployment script to create a Microsoft Entra application and service principal, and output the object IDs
 and client ID.
 
-## Configure identity
-
-*** jgao - create this new section either in this article or in the overview article.
-
-*** jgao - for connect to Azure, for vnet.
-
-## Use existing storage account
-
-For the script to run and allow for troubleshooting, a storage account and a container instance are required. You can either designate an existing storage account or let the script service create both the storage account and container instance automatically. The requirements for using an existing storage account:
-
-- The supported kids of storage account are:
-
-    | SKU             | Supported Kind     |
-    |-----------------|--------------------|
-    | Premium_LRS     | FileStorage        |
-    | Premium_ZRS     | FileStorage        |
-    | Standard_GRS    | Storage, StorageV2 |
-    | Standard_GZRS   | StorageV2          |
-    | Standard_LRS    | Storage, StorageV2 |
-    | Standard_RAGRS  | Storage, StorageV2 |
-    | Standard_RAGZRS | StorageV2          |
-    | Standard_ZRS    | StorageV2          |
-
-    These combinations support file shares. For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
-
-- Storage account firewall rules aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
-- Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares. For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
-
-To specify an existing storage account, add the following Bicep to the property element of `Microsoft.Resources/deploymentScripts`:
-
-```bicep
-param storageAccountName string = 'myStorageAccount'
-
-resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  ...
-  properties: {
-    ...
-    storageAccountSettings: {
-      storageAccountName: storageAccountName
-      storageAccountKey: listKeys(resourceId('Microsoft.Storage/storageAccounts', storageAccountName), '2023-01-01').keys[0].value
-    }
-  }
-}
-```
-
-See [Sample Bicep file](#sample-bicep-files) for a complete `Microsoft.Resources/deploymentScripts` definition sample.
-
-When an existing storage account is used, the script service creates a file share with a unique name. See [Clean up deployment script resources](#clean-up-deployment-script-resources) for how the script service cleans up the file share.
-
-## Configure container instance
-
-Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated. Additional configuration are required for creating this container instance. For more informaiton, see [configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
-
-You can also specify subnetIds for running the deployment script in a private network. For more information, see [Access private virtual network](./deployment-script-vnet.md).
-
-```bicep
-param containerGroupName string = 'mycustomaci'
-param subnetId string = '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
-
-resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
-  ...
-  properties: {
-    ...
-    containerSettings: {
-      containerGroupName: containerGroupName
-      subnetIds: [
-        {
-          id: subnetId
-        }
-      ]
-    }
-  }
-}
-```
-
 ## Inline vs external file
 
 Deployment script can reside within a Bicep file or be stored externally as a separate file.
@@ -290,7 +215,9 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 }
 ```
 
-You can control how Azure PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7.4#erroractionpreference) variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
+---
+
+You can control how Azure PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
 
 The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`. For more information, see [Troubleshoot deployment script](./deployment-script-troubleshoot.md).
 ---
@@ -358,6 +285,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 ```
 
 ---
+
 ### Use external scripts
 
 Apart from inline scripts, external script files are also supported. Only primary PowerShell scripts with the .ps1 extension are accepted. For CLI scripts, primary scripts can carry any valid bash script extensions or have no extension at all. To employ external script files, swap out 'scriptContent' with 'primaryScriptUri'.
@@ -464,7 +392,84 @@ Supporting script files can be called from both inline scripts and primary scrip
 
 The supporting files are copied to `azscripts/azscriptinput` at the runtime. Use relative path to reference the supporting files from inline scripts and primary script files.
 
+## Access Azure resources
 
+*** jgao - create this new section either in this article or in the overview article.
+
+*** jgao - for connect to Azure, for vnet.
+
+# [CLI](#tab/CLI)
+
+
+```bicep
+param identity string = '/subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourcegroups/jgaoidentity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/jgaouami'
+param location string = resourceGroup().location
+param utcValue string = utcNow()
+
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'listKV'
+  location: location
+  kind: 'AzureCLI'
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${identity}': {}
+    }
+  }
+  properties: {
+    azCliVersion: '2.52.0'
+    scriptContent: 'result=$(az keyvault list); echo $result | jq -c \'{Result: map({id: .id})}\' > $AZ_SCRIPTS_OUTPUT_PATH'
+    retentionInterval: 'P1D'
+    forceUpdateTag: utcValue
+  }
+}
+
+output result object = deploymentScript.properties.outputs
+
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```bicep
+param identity string = '/subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourcegroups/jgaoidentity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/jgaouami'
+param location string = resourceGroup().location
+param utcValue string = utcNow()
+
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'listKVPowerShell'
+  location: location
+  kind: 'AzurePowerShell'
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${identity}': {}
+    }
+  }
+  properties: {
+    azPowerShellVersion: '10.0'
+    scriptContent: '''
+      $kvs=Get-AzKeyVault
+
+      $output = @()
+      foreach($kv in $kvs){
+        $newKv = @{
+          id = $kv.resourceId
+        }
+        $output = $output + $newKv
+      }
+      $DeploymentScriptOutputs = @{}
+      $DeploymentScriptOutputs["kvs"] = $output
+    '''
+    retentionInterval: 'P1D'
+    forceUpdateTag: utcValue
+  }
+}
+
+output result object = deploymentScript.properties.outputs
+
+```
+
+---
 ## Work with outputs
 
 The approach to handling outputs varies based on the type of script you're using—whether it's Azure PowerShell or Azure CLI.
@@ -492,7 +497,7 @@ resource ds1 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 output text string = ds1.properties.outputs.text
 ```
 
-[jq](https://stedolan.github.io/jq/) is used in the preceding sample for constructing outputs. jq comes with the container images. See [Configure development environment](#configure-development-environment).
+[jq](https://stedolan.github.io/jq/) is used in the preceding sample for constructing outputs. jq comes with the container images. See [Configure development environment](./deployment-script-bicep-configure-dev.md).
 
 # [PowerShell](#tab/PowerShell)
 
@@ -625,7 +630,7 @@ The following table list the system-defined environment variables:
 |AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME|executionresult.json|executionresult.json|Y|
 |AZ_SCRIPTS_USER_ASSIGNED_IDENTITY|||N|
 
-For a sample of using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with outputs from CLI script](#work-with-outputs-from-cli-scripts).
+For a sample of using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with outputs from CLI script](#work-with-outputs).
 
 To access the environment variables:
 
@@ -676,6 +681,75 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 ```
 
 ---
+
+## Use existing storage account
+
+For the script to run and allow for troubleshooting, a storage account and a container instance are required. You can either designate an existing storage account or let the script service create both the storage account and container instance automatically. The requirements for using an existing storage account:
+
+- The supported kids of storage account are:
+
+    | SKU             | Supported Kind     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Storage, StorageV2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Storage, StorageV2 |
+    | Standard_RAGRS  | Storage, StorageV2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    These combinations support file shares. For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
+
+- Storage account firewall rules aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
+- Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares. For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
+
+To specify an existing storage account, add the following Bicep to the property element of `Microsoft.Resources/deploymentScripts`:
+
+```bicep
+param storageAccountName string = 'myStorageAccount'
+
+resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  ...
+  properties: {
+    ...
+    storageAccountSettings: {
+      storageAccountName: storageAccountName
+      storageAccountKey: listKeys(resourceId('Microsoft.Storage/storageAccounts', storageAccountName), '2023-01-01').keys[0].value
+    }
+  }
+}
+```
+
+See [Syntax](#syntax) for a complete `Microsoft.Resources/deploymentScripts` definition sample.
+
+When an existing storage account is used, the script service creates a file share with a unique name. See [Clean up deployment script resources](#clean-up-deployment-script-resources) for how the script service cleans up the file share.
+
+## Configure container instance
+
+Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated. Additional configuration are required for creating this container instance. For more informaiton, see [configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
+
+You can also specify subnetIds for running the deployment script in a private network. For more information, see [Access private virtual network](./deployment-script-vnet.md).
+
+```bicep
+param containerGroupName string = 'mycustomaci'
+param subnetId string = '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
+
+resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+  ...
+  properties: {
+    ...
+    containerSettings: {
+      containerGroupName: containerGroupName
+      subnetIds: [
+        {
+          id: subnetId
+        }
+      ]
+    }
+  }
+}
+```
 
 ## Run script more than once
 

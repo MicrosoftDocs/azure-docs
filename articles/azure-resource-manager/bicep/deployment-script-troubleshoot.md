@@ -242,7 +242,7 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 | DeploymentScriptContainerGroupContainsInvalidContainers | A container group created by the deployment script service got externally modified, and invalid containers got added. |
 | DeploymentScriptContainerGroupInNonterminalState | Two or more deployment script resources use the same Azure container instance name in the same resource group, and one of them hasn't finished its execution yet. |
 | DeploymentScriptStorageAccountInvalidKind | The existing storage account of the BlobBlobStorage or BlobStorage type doesn't support file shares, and can't be used. |
-| DeploymentScriptStorageAccountInvalidKindAndSku | The existing storage account doesn't support file shares. For a list of supported storage account kinds, see [Use existing storage account](#use-existing-storage-account). |
+| DeploymentScriptStorageAccountInvalidKindAndSku | The existing storage account doesn't support file shares. For a list of supported storage account kinds, see [Use existing storage account](./deployment-script-develop.md#use-existing-storage-account). |
 | DeploymentScriptStorageAccountNotFound | The storage account doesn't exist or has been deleted by an external process or tool. |
 | DeploymentScriptStorageAccountWithServiceEndpointEnabled | The storage account specified has a service endpoint. A storage account with a service endpoint isn't supported. |
 | DeploymentScriptStorageAccountInvalidAccessKey | Invalid access key specified for the existing storage account. |
@@ -251,7 +251,7 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 | DeploymentScriptInvalidOutputs | The deployment script output isn't a valid JSON object. |
 | DeploymentScriptContainerInstancesServiceLoginFailure | The user-assigned managed identity wasn't able to sign in after 10 attempts with 1-minute interval. |
 | DeploymentScriptContainerGroupNotFound | A Container group created by deployment script service got deleted by an external tool or process. |
-| DeploymentScriptDownloadFailure | Failed to download a supporting script. See [Use supporting script](#use-supporting-scripts).|
+| DeploymentScriptDownloadFailure | Failed to download a supporting script. See [Use supporting script](./deployment-script-develop.md#inline-vs-external-file).|
 | DeploymentScriptError | The user script threw an error. |
 | DeploymentScriptBootstrapScriptExecutionFailed | The bootstrap script threw an error. Bootstrap script is the system script that orchestrates the deployment script execution. |
 | DeploymentScriptExecutionFailed | Unknown error during the deployment script execution. |
