@@ -18,8 +18,6 @@ All data written to an Elastic SAN volume is automatically encrypted-at-rest wit
 
 This article shows how to configure encryption of an Elastic SAN volume group with customer-managed keys stored in an Azure Key Vault.
 
-To learn how to configure encryption with customer-managed keys stored in a managed HSM, see [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](elastic-san-encryption-configure-customer-managed-keys-hsm.md).
-
 ## Limitations
 
 [!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
@@ -115,7 +113,7 @@ AdminUpn="AdminUpn"
 
 You can use a new or existing key vault to store customer-managed keys. The encrypted resource and the key vault can be in different regions or subscriptions in the same Microsoft Entra ID tenant. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../../key-vault/general/overview.md) and [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md).
 
-Using customer-managed keys with encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and can't be disabled. You can enable purge protection either when you create the key vault or after it's created. Azure Elastic SAN encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096.
+Using customer-managed keys with encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and can't be disabled. You can enable purge protection either when you create the key vault or after it's created. Azure Elastic SAN encryption supports RSA keys of sizes 2048, 3072 and 4096.
 
 Azure Key Vault supports authorization with Azure RBAC via an Azure RBAC permission model. Microsoft recommends using the Azure RBAC permission model over key vault access policies. For more information, see [Grant permission to applications to access an Azure key vault using Azure RBAC](../../key-vault/general/rbac-guide.md).
 
@@ -184,7 +182,7 @@ To learn how to enable purge protection on an existing key vault with Azure CLI,
 
 Next, add a key to the key vault. Before you add the key, make sure that you have assigned to yourself the **Key Vault Crypto Officer** role.
 
-Azure Storage and Elastic SAN encryption support RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about supported key types, see [About keys](../../key-vault/keys/about-keys.md).
+Azure Storage and Elastic SAN encryption support RSA keys of sizes 2048, 3072 and 4096. For more information about supported key types, see [About keys](../../key-vault/keys/about-keys.md).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -643,7 +641,3 @@ When you manually update the key version, you need to update the volume group's 
 ## Next steps
 
 - [Manage customer keys for Azure Elastic SAN data encryption](elastic-san-encryption-manage-customer-keys.md)
-
-## See also
-
-- [Configure Elastic SAN data encryption with customer-managed keys stored in Azure Key Vault Managed HSM](elastic-san-encryption-configure-customer-managed-keys-hsm.md)
