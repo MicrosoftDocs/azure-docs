@@ -157,7 +157,7 @@ az role assignment create \
 
  At the dev center level, environment types define the environments that development teams can create, like dev, test, sandbox, preproduction, or production. 
 
-Create three new environment types: **Dev**, **Test**, and **Prod**.
+Create three new environment types: *Dev*, *Test*, and *Prod*.
 
 ```azurecli
 az devcenter admin environment-type create \
@@ -361,12 +361,12 @@ You can protect important branches by setting branch protection rules. Protectio
 
     | Variable name         | Variable value               |
     | --------------------- | ---------------------------- |
-    | AZURE_DEVCENTER       | <dev center name>              |
-    | AZURE_PROJECT         | <project name>                |
-    | AZURE_CATALOG         | Set to: _Environments_       |
-    | AZURE_CATALOG_ITEM    | Set to: _FunctionApp_        |
-    | AZURE_SUBSCRIPTION_ID | <Azure subscription ID>        |
-    | AZURE_TENANT_ID       | <Azure tenant ID>              |
+    | AZURE_DEVCENTER       | Your dev center name         |
+    | AZURE_PROJECT         | Your project name            |
+    | AZURE_CATALOG         | Set to "Environments"        |
+    | AZURE_CATALOG_ITEM    | Set to "FunctionApp"         |
+    | AZURE_SUBSCRIPTION_ID | Your Azure subscription ID   |
+    | AZURE_TENANT_ID       | Your Azure tenant ID         |
 
     :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-variables.png" alt-text="Screenshot showing the variables page with the variables table." lightbox="media/tutorial-deploy-environments-in-cicd-github/github-variables.png":::
 
