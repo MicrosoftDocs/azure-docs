@@ -67,3 +67,15 @@ Azure landing zones are the output of a multi-subscription Azure environment tha
 
 - **N-Tier Application Solutions**
 Patterns and Practices to relocate n-Tier Application in new regions. For information on relocation patterns for n-tier applications, see [CONTENT]()
+
+## Region relocation workload architectures
+
+Relocation workload architectures are classified into three types:  
+
+- **Multi-Site Active/Active.** Both regions are active at the same time, with one region ready to begin use immediately. This architecture is designed for workloads that needs near to zero downtime for the end-user perspective and near to zero data loss. This is a more suitable architecture when the relocation decision is associated with a change in region alone vs. a change in both region and subscription.
+- **Warm Standby:** Primary region active, secondary region has critical resources such as deployed models ready to start. Non-critical resources need to be deployed manually in the secondary region.
+- **Cold Standby:** Primary region active, secondary region has required Azure resources deployed, along with needed data. Resources such as models, model deployments, and pipelines need to be deployed manually in the secondary region.
+
+The implemented architecture in a particular service helps you to understand the downtime introduced by the relocation of a workload that includes that service. For example, CosmosDB has a replication capability to enable Warm Standby or Multi-Site Active Active architectures.
+
+For detailed information on relocation workload architectures, including how to choose one architecture over another, see [Azure region relocation workload architectures](./relocation-workload-architectures.md).

@@ -20,16 +20,17 @@ ms.custom:
 This article covers relocation for PostgreSQL across geographies, where read replicas and geo-restore aren't available. For an overview of the region pairs supported by native replication,  see
 [cross-region replication](../postgresql/concepts-read-replicas#cross-region-replication).
 
-The relocation process is based on the [relocation architectural patterns](relocation-overview.md#relocation-architectural-patterns). 
+The relocation process is based on the [Azure region relocation architectural patterns](relocation-overview.md#relocation-architectural-patterns). 
 
 ## Prerequisites
 
-To perform relocation, you must have a compute resource that runs the backup and restore tools. The examples in this guide use an Azure VM running Ubuntu 20.04 LTS. 
+To relocate PostgreSQL from one region to another, you must have an additional compute resource to run the backup and restore tools. The examples in this guide use an Azure VM running Ubuntu 20.04 LTS. 
 
 The compute resources must:
 
   - Have network access to both the source and the target server, either on a private network or by inclusion in the firewall rules.
-  - Be located in either the source or target region, and use Accelerated Networking (if available).
+  - Be located in either the source or target region.
+  - Use [Accelerated Networking](/azure/virtual-network/accelerated-networking-overview) (if available).
 
 
 ## Downtime
@@ -49,29 +50,7 @@ Depending on your Azure Database for PostgreSQL instance design, the following d
 
 ## Workload architectures types
 
-Workload architectures can be classified broadly into three types: Cold Standby,
-Warm Standby, and Multi-Site Active/Active. Ref -
-[Workload Architectures](/relocation-playbook/workload-architectures/)
-
-- Multi-Site Active/Active: Both regions are active at the same time, with one
-  region ready to begin use immediately. This architecture is designed for
-  workload that needs near to zero downtime for the end-user perspective, this
-  includes also near to zero data loss. This is a more suitable architecture
-  when the relocation decision is associated with a change in region alone vs a
-  change in region & subscription together.
-- Warm Standby: Primary region active, secondary region has critical resources
-  (for example, deployed models) ready to start. Non-critical resources would
-  need to be manually deployed in the secondary region.
-- Cold Standby: Primary region active, secondary region has required Azure
-  resources deployed, along with needed data. Resources such as models, model
-  deployments, or pipelines would need to be manually deployed.
-
-The implemented architecture helps you to understand the downtime introduced by
-the relocation. For example CosmosDB has a replication capability to enable Warm
-Standby or Multi-Site Active Active architectures. These capabilities might also
-be used for the relocation of Azure Database for PostgreSQL.
-
-To successfully relocate, the following options might be adapted.
+To successfully relocate Azure Database for PostgreSQL, the following options might be adapted.
 
 ### Migration over public endpoint
 
