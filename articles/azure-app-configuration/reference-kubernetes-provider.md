@@ -46,23 +46,23 @@ The `spec.auth` property isn't required if the connection string of your App Con
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal. The referenced secret should be located in the same namespace as the Kubernetes provider.|false|string|
+|servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal. The secret must be in the same namespace as the Kubernetes provider.|false|string|
 |workloadIdentity|The settings for using workload identity.|false|object|
-|managedIdentityClientId|The Client ID of user-assigned managed identity of virtual machine scale set.|false|string|
+|managedIdentityClientId|The client ID of user-assigned managed identity of virtual machine scale set.|false|string|
 
-The `spec.auth.workloadIdentity` property has the following child property. One of them should be specified.
-
-|Name|Description|Required|Type|
-|---|---|---|---|
-|managedIdentityClientId|The Client ID of the user-assigned managed identity associated with the workload identity.|alternative|string|
-|managedIdentityClientIdReference|The settings for getting managedIdentityClientId from the Kubernetes ConfigMap. The referenced configMap should be located in the same namespace as the Kubernetes provider.|alternative|object|
-
-The `spec.auth.workloadIdentity.managedIdentityClientIdReference` property has the following child property.
+The `spec.auth.workloadIdentity` property has the following child properties. One of them must be specified.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|configMap|The name of the Kubernetes ConfigMap that contains the managedIdentityClientId.|true|string|
-|key|The key name of the managedIdentityClientId in the ConfigMap.|true|string|
+|managedIdentityClientId|The client ID of the user-assigned managed identity associated with the workload identity.|alternative|string|
+|managedIdentityClientIdReference|The client ID of the user-assigned managed identity can be obtained from a ConfigMap. The ConfigMap must be in the same namespace as the Kubernetes provider.|alternative|object|
+
+The `spec.auth.workloadIdentity.managedIdentityClientIdReference` property has the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|configMap|The name of the ConfigMap where the client ID of a user-assigned managed identity can be found.|true|string|
+|key|The key name that holds the value for the client ID of a user-assigned managed identity.|true|string|
 
 The `spec.configuration` has the following child properties. 
   
