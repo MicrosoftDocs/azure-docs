@@ -118,7 +118,7 @@ items:
   - name: Security controls
     href: concept-security-controls.md
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+    href: /security/benchmark/azure/baselines/azure-spring-apps-security-baseline?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Azure Policy Security controls
     href: security-controls-policy.md
 - name: How-to guides
@@ -337,36 +337,6 @@ items:
         href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
       - name: Tomcat
         href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
-  - name: Standard consumption and dedicated plan
-    items:
-    - name: Provision a service instance
-      href: quickstart-provision-standard-consumption-service-instance.md
-    - name: Provision in an Azure Container Apps environment with VNet
-      href: quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
-    - name: Access apps in a VNet
-      href: quickstart-access-standard-consumption-within-virtual-network.md
-    - name: Set up autoscale
-      href: quickstart-apps-autoscale-standard-consumption.md
-    - name: Map a custom domain to Azure Spring Apps
-      href: quickstart-standard-consumption-custom-domain.md
-    - name: Analyze logs and metrics
-      href: quickstart-analyze-logs-and-metrics-standard-consumption.md
-    - name: Enable and disable Spring Cloud Config Server
-      href: quickstart-standard-consumption-config-server.md
-    - name: Enable and disable Eureka Server
-      href: quickstart-standard-consumption-eureka-server.md
-    - name: Use custom persistent storage with the Standard consumption and dedicated plan
-      href: how-to-custom-persistent-storage-with-standard-consumption.md
-    - name: Application Insights using Java In-Process Agent
-      href: how-to-application-insights.md
-    - name: Use Dynatrace Java OneAgent
-      href: how-to-dynatrace-one-agent-monitor.md
-    - name: New Relic Java in-process agent
-      href: how-to-new-relic-monitor.md
-    - name: AppDynamics in-process agent
-      href: how-to-appdynamics-java-agent-monitor.md
-    - name: Customer responsibilities for Standard consumption and dedicated plan in a virtual network
-      href: standard-consumption-customer-responsibilities.md
   - name: Basic/Standard plan
     items:
     - name: Provisioning
@@ -561,6 +531,36 @@ items:
         href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
       - name: Tomcat
         href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Standard consumption and dedicated plan
+    items:
+    - name: Provision a service instance
+      href: quickstart-provision-standard-consumption-service-instance.md
+    - name: Provision in an Azure Container Apps environment with VNet
+      href: quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
+    - name: Access apps in a VNet
+      href: quickstart-access-standard-consumption-within-virtual-network.md
+    - name: Set up autoscale
+      href: quickstart-apps-autoscale-standard-consumption.md
+    - name: Map a custom domain to Azure Spring Apps
+      href: quickstart-standard-consumption-custom-domain.md
+    - name: Analyze logs and metrics
+      href: quickstart-analyze-logs-and-metrics-standard-consumption.md
+    - name: Enable and disable Spring Cloud Config Server
+      href: quickstart-standard-consumption-config-server.md
+    - name: Enable and disable Eureka Server
+      href: quickstart-standard-consumption-eureka-server.md
+    - name: Use custom persistent storage with the Standard consumption and dedicated plan
+      href: how-to-custom-persistent-storage-with-standard-consumption.md
+    - name: Application Insights using Java In-Process Agent
+      href: how-to-application-insights.md
+    - name: Use Dynatrace Java OneAgent
+      href: how-to-dynatrace-one-agent-monitor.md
+    - name: New Relic Java in-process agent
+      href: how-to-new-relic-monitor.md
+    - name: AppDynamics in-process agent
+      href: how-to-appdynamics-java-agent-monitor.md
+    - name: Customer responsibilities for Standard consumption and dedicated plan in a virtual network
+      href: standard-consumption-customer-responsibilities.md
 - name: Architecture
   items:
   - name: Architecture design
@@ -568,7 +568,7 @@ items:
   - name: Landing zone accelerator
     href: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Deploy to multiple regions
-    href: /azure/architecture/reference-architectures/microservices/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+    href: /azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Reference
   items:
   - name: API breaking changes

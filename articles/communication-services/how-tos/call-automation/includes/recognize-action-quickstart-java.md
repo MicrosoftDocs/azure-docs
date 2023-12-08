@@ -5,7 +5,7 @@ services: azure-communication-services
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 08/11/2023
+ms.date: 11/20/2023
 ms.topic: include
 ms.author: kpunjabi
 ---
@@ -17,7 +17,7 @@ ms.author: kpunjabi
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
-### For AI features (Public preview)
+### For AI features
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 
@@ -69,13 +69,6 @@ Update your applications POM file to use Java 8 or higher.
 </properties>
 ```
 
-## Configure Azure SDK dev feed
-
-Since the Call Automation SDK version used in this quickstart isn't yet available in Maven Central Repository, we need to add an Azure Artifacts development feed, which contains the latest version of Call Automation SDK. 
-
-Add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the "Connect to Feed" button.
-
-
 ## Add package references
 
 In your POM file, add the following reference for the project
@@ -95,10 +88,8 @@ In your POM file, add the following reference for the project
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). You can also use the code snippet provided here to understand how to answer a call.
 
 ``` java
-AnswerCallOptions answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>");
-
-answerCallOptions.setCognitiveServicesEndpoint("https://sample-cognitive-service-resource.cognitiveservices.azure.com/"); //Optional step for Text-To-Speech 
-
+CallIntelligenceOptions callIntelligenceOptions = new CallIntelligenceOptions().setCognitiveServicesEndpoint("https://sample-cognitive-service-resource.cognitiveservices.azure.com/"); 
+answerCallOptions = new AnswerCallOptions("<Incoming call context>", "<https://sample-callback-uri>").setCallIntelligenceOptions(callIntelligenceOptions); 
 Response < AnswerCallResult > answerCallResult = callAutomationClient
   .answerCallWithResponse(answerCallOptions)
   .block();
@@ -132,7 +123,7 @@ log.info("Start recognizing result: " + recognizeResponse.getStatusCode());
 ```
 For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
 
-### Speech-to-Text Choices (Public Preview)
+### Speech-to-Text Choices 
 ``` java
 var choices = Arrays.asList(
   new RecognitionChoice()
@@ -162,7 +153,7 @@ var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnecti
   .block();
 ```
 
-### Speech-to-Text (Public Preview)
+### Speech-to-Text 
 
 ``` java
 String textToPlay = "Hi, how can I help you today?"; 
@@ -180,7 +171,7 @@ var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnecti
     .block(); 
 ```
 
-### Speech-to-Text or DTMF (Public Preview)
+### Speech-to-Text or DTMF 
 
 ``` java
 var maxTonesToCollect = 1; 

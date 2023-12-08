@@ -217,7 +217,7 @@ You can click on the **Job name** and navigate to see further details. On succes
 
 :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-output.png" alt-text="Screenshot showing how to view the run details and output."::: 
 
-## Next steps
+## Related content
 
 The pipeline in this sample triggers a Databricks Notebook activity and passes a parameter to it. You learned how to:
 

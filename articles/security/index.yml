@@ -185,7 +185,7 @@ additionalContent:
             - url: /defender-for-identity/what-is
               text: Overview
             - url: /defender-for-identity/deploy-defender-identity
-              text: Deploy Microsoft Defender for Identity with Microsoft 365 Defender
+              text: Deploy Microsoft Defender for Identity with Microsoft Defender XDR
             - url: /training/modules/defender-identity-defend-attacks/
               text: "Learn: Defend against attacks"
 
@@ -247,7 +247,7 @@ additionalContent:
             - url: /training/modules/secure-aad-users-with-mfa/
               text: "Learn: Secure Microsoft Entra users with Multi-Factor Authentication"
 
-        - title: Microsoft 365 Defender
+        - title: Microsoft Defender XDR
           summary: Security solutions that protect your enterprise across attack surfaces
           links: 
             - url: /microsoft-365/security/defender/microsoft-365-defender?view=o365-worldwide
