@@ -124,7 +124,7 @@ You're prompted for:
 - Private Link Scope: Provide the fully qualified resource ID of your Private Link Scope if you're utilizing private networking. You can find more information on Azure Private Link in the [Azure Private Link documentation](/azure/private-link/) article.
 
    > [!IMPORTANT]
-   > If you've configured Storage Mover to migrate your data over Private Link, you must provide the fully qualified resource ID of your Private Link Scope. For example, `/subscriptions/[GUID]/resourceGroups/myMoverRG/providers/Microsoft.HybridCompute/privateLinkScopes/myMoverPrivateLinkScope`. 
+   > If you've configured Storage Mover to migrate your data over Private Link, you must provide the fully qualified resource ID of your Private Link Scope. For example, `/subscriptions/[GUID]/resourceGroups/myGroup/providers/Microsoft.HybridCompute/privateLinkScopes/myScope`.
 
 After you've supplied these values, the agent will attempt registration. During the registration process, you're required to sign into Azure with credentials that have permissions to your subscription and storage mover resource.
 
