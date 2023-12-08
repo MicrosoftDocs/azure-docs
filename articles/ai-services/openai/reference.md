@@ -219,8 +219,8 @@ The request body consists of a series of messages. The model will generate a res
 | `content` | string or array | Yes | N/A | The content of the message. It must be a string, unless in a Vision-enabled scenario: If it's part of the `user` message, using the GPT-4 Turbo with Vision model, with the latest API version, then it can be an array of `contentPart` structures. |
 | `contentPart` | object | No | N/A | Part of a user's multi-modal message. It can be either text type or image type. If text, it will be a text string. If image, it will be a `contentPartImage` object. |
 | `contentPartImage` | object | No | N/A | Represents a user-uploaded image. It has a `url` property, which is either a URL of the image or the base 64 encoded image data. It also has a `detail` property which can be `auto`, `low`, or `high`.|
-| `enhancements` | object | No | N/A | Represents the Vision enhancements requested for the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection service.|
-| `dataSources` | object | No | N/A | Represents additional resource data. Computer Vision resource data is needed for enhanced Vision scenarios. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property which has an `endpoint` and `key` property. These strings should be set to the endpoint URL and access key of your Computer Vision resource.|
+| `enhancements` | object | No | N/A | Represents the Vision enhancement features requested for the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service.|
+| `dataSources` | object | No | N/A | Represents additional resource data. Computer Vision resource data is needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property which has an `endpoint` and `key` property. These strings should be set to the endpoint URL and access key of your Computer Vision resource.|
 
 #### Example request
 
