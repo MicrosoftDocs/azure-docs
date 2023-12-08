@@ -209,7 +209,7 @@ After ingesting your data, you can start chatting with the model on your data us
 * [Web app](#using-the-web-app)
 * [REST API](../reference.md#azure-cosmos-db-for-mongodb-vcore)
 
-# [URL/Web](#tab/ai-search)
+# [URL/Web](#tab/url-web)
 
 Currently, you can add your data from a URL/web address. Your data from a URL/web address needs to have the following characteristics to be properly ingested:
 
