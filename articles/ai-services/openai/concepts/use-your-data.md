@@ -223,7 +223,7 @@ Currently, you can add your data from a URL/web address. Your data from a URL/we
 
 You can use URL as a data source in both the Azure OpenAI Studio and the [ingestion API](../reference.md#start-an-ingestion-job). To use URL/web address as a data source, you need to have an Azure AI Search resource and an Azure Blob Storage resource. When using the Ingestion API you need to create a container first. Only one layer of nested links is supported. Only up to 20 links, on the web page will be fetched.
 
-    :::image type="content" source="../media/use-your-data/url.png" alt-text="A screenshot of the Azure OpenAI use your data url/webpage studio configuration page." lightbox="../media/use-your-data/url.png":::
+:::image type="content" source="../media/use-your-data/url.png" alt-text="A screenshot of the Azure OpenAI use your data url/webpage studio configuration page." lightbox="../media/use-your-data/url.png":::
 
 Once you have added the URL/web address for data ingestion, the web pages from your URL are fetched and saved to your Azure Blob Storage account with a container name: `webpage-<index name>`. Each URL will be saved into a different container within the account. Then the files are indexed into an Azure AI Search index, which is used for retrieval when you’re chatting with the model.
 
