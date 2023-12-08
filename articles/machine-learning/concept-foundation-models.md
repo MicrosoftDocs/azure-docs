@@ -47,7 +47,9 @@ The Model Catalog is a hub for discovering Foundation Models in Azure Machine Le
 Thousands of models from HuggingFace hub for real time inference with online endpoints. 
 
 > [!IMPORTANT]
-> Models in model catalog are covered by third party licenses. Understand the license of the models you plan to use and verify that license allows your use case. 
+> Models in model catalog are covered by third party licenses. Understand the license of the models you plan to use and verify that license allows your use case.
+> Some models in the model catalog are currently in preview.
+> For more information on preview, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Compare capabilities of models by collection
 
