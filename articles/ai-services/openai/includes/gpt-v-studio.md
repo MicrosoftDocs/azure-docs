@@ -36,7 +36,7 @@ For general help with assistant setup, chat sessions, settings, and panels, refe
 
 ## Start a chat session to analyze images or video
 
-#### [Image prompts](#tab/image)
+#### [GPT-4 Turbo with Vision](#tab/image)
 
 In this chat session, you're instructing the assistant to aid in understanding images that you input. 
 1. In the **Assistant setup** pane, provide this System Message to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the System Message to the image or scenario that you're uploading. 
@@ -46,7 +46,9 @@ In this chat session, you're instructing the assistant to aid in understanding i
 
 :::image type="content" source="../media/quickstarts/studio-vision.png" lightbox="../media/quickstarts/studio-vision.png" alt-text="Screenshot of OpenAI studio chat playground.":::
 
-#### [Enhanced image prompts](#tab/enhanced)
+#### [Enhancing images](#tab/enhanced)
+
+GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. When combined with Azure AI Vision, it enhances your chat experience by providing the chat model with more detailed information about visible text in the image and the locations of objects.
 
 In this chat session, you try out the capabilities of the enhanced Vision model. 
 1. To start, in the **Configuration** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancements** section.
@@ -58,7 +60,9 @@ In this chat session, you try out the capabilities of the enhanced Vision model.
 
 :::image type="content" source="../media/quickstarts/studio-vision-enhanced.png" lightbox="../media/quickstarts/studio-vision-enhanced.png" alt-text="Screenshot of OpenAI studio chat playground with Enhancements turned on and the Computer Vision resource selection box.":::
 
-#### [Video prompts](#tab/video)
+#### [Enhancing videos](#tab/video)
+
+GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. When combined with Azure AI Vision, it enables you to upload videos to the chat model and ask questions about the video content.
 
 In this chat session, you're instructing the assistant to aid in understanding videos that you input. Video prompts uses Azure AI Vision video retrieval to sample a set of frames from a video and create a transcript of the speech in the video. The frames and transcripts are added as context to the user's query.
 1. To start, in the **Configuration** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancements** section.

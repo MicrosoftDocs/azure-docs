@@ -17,7 +17,7 @@ keywords:
 
 GPT-4 Turbo with Vision is a large multimodal model (LMM) developed by OpenAI that can analyze images and provide textual responses to questions about them. It incorporates both natural language processing and visual understanding.
 
-The GPT-4 Turbo with Vision model answers general questions about what's present in the images. You can also show it video, if you use Vision enhancements.
+The GPT-4 Turbo with Vision model answers general questions about what's present in the images. You can also show it video if you use [Vision enhancement](#use-vision-enhancement).
 
 > [!TIP]
 > To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Vision model that you have deployed. If you're not familiar with the Chat Completion API, see the [GPT-4 Turbo & GPT-4 how-to guide](/azure/ai-services/openai/how-to/chatgpt?tabs=python&pivots=programming-language-chat-completions).
