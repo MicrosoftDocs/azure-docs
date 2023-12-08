@@ -67,7 +67,7 @@ In this chat session, you try out the capabilities of the enhanced Vision model.
 
 :::image type="content" source="../media/quickstarts/studio-vision-enhanced.png" lightbox="../media/quickstarts/studio-vision-enhanced.png" alt-text="Screenshot of OpenAI studio chat playground with Enhancements turned on and the Computer Vision resource selection box.":::
 
-#### [Enhanced video prompts](#tab/enhanced)
+#### [Enhanced video prompts](#tab/video)
 
 GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. The **video prompt** integration uses Azure AI Vision video retrieval to sample a set of frames from a video and create a transcript of the speech in the video. It enables the AI model to give summaries and answers about video content.
 

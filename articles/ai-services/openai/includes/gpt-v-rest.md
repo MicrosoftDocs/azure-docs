@@ -162,7 +162,7 @@ The **object grounding** integration brings a new layer to data analysis and use
     python quickstart.py
     ```
 
-#### [Enhanced video prompts](#tab/enhanced)
+#### [Enhanced video prompts](#tab/video)
 
 Video prompt integration is outside the scope of this quickstart. See the [GPT-4 Turbo with Vision how-to guide](../how-to/gpt-with-vision.md#use-vision-enhancement-with-video) for detailed instructions on setting up video prompts in chat completions programmatically.
 
