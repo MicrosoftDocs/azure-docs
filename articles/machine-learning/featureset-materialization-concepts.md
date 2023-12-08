@@ -14,9 +14,9 @@ ms.custom: template-concept
 
 # Feature set materialization concepts
 
-Materialization computes feature values from source data. Start time and end time values define a feature window, which handles materialization. Materialized feature values are then stored in an online or offline materialization store. After data materialization, all feature queries can then use those values from the materialization store.
+Materialization computes feature values from source data. Start time and end time values define a feature window. A materialization job computes features in this feature window. Materialized feature values are then stored in an online or offline materialization store. After data materialization, all feature queries can then use those values from the materialization store.
 
-Without materialization, a feature set offline query applies the transformations to the source on the fly, to compute the features before the query returns the values. This process works well in the prototyping phase. However, for training and inference operations, in a production environment, features should be materialized prior to training or inference. Materialization at that stage provides greater reliability and availability.
+Without materialization, a feature set offline query applies the transformations to the source on-the-fly, to compute the features before the query returns the values. This process works well in the prototyping phase. However, for training and inference operations, in a production environment, features should be materialized prior to training or inference. Materialization at that stage provides greater reliability and availability.
 
 ## Exploring feature materialization
 
@@ -30,7 +30,7 @@ In a feature window
 
 ### Data materialization status and data interval
 
-A data interval operates as a time window in which the feature set materializes its feature values to one of these statuses:
+A data interval is a time window in which the feature set materializes its feature values to one of these statuses:
 
 - Complete (green) - successful data materialization
 - Incomplete (red) - one or more canceled or failed materialization jobs for this *data interval*
@@ -43,7 +43,7 @@ As materialization jobs run for the feature set, they create or merge data inter
 
 When users select a feature window, they might see multiple data intervals in that window with different data materialization statuses. They might see multiple data intervals that are disjoint on the timeline. For example, the earlier snapshot has 16 *data intervals* for the defined *feature window* in the offline materialization store.
 
-At any given time, a feature set can have at most 2,000 *data intervals*. Once a feature set reaches that limit, no more materialization jobs can run. Users must then create a new feature set (version) with materialization. For the new feature set version, materialize the features in the offline and online stores from scratch.
+At any given time, a feature set can have at most 2,000 *data intervals*. Once a feature set reaches that limit, no more materialization jobs can run. Users must then create a new feature set version with materialization enabled. For the new feature set version, materialize the features in the offline and online stores from scratch.
 
 To avoid the limit, users should run backfill jobs in advance to [fill the gaps](#filling-the-gaps) in the data intervals. This merges the data intervals, and reduces the total count.
 
@@ -112,7 +112,7 @@ If both jobs complete successfully, the new data interval and materialization st
 |`2023-04-04T04:00:00.000`|`2023-04-05T04:00:00.000`|`Complete`|
 |`2023-04-05T04:00:00.000`|`2023-04-06T04:00:00.000`|`None`|
 
-One new data interval is created on day *2023-04-02*, because half of that day now has a different materialization status: Complete. Although a new materialization job ran for half of the day *2023-04-04* data, the data interval isn't changed (split) because the materialization status didn't change.
+One new data interval is created on day *2023-04-02*, because half of that day now has a different materialization status: `Complete`. Although a new materialization job ran for half of the day *2023-04-04*, the data interval isn't changed (split) because the materialization status didn't change.
 
 If the user makes a backfill request with only data materialization `data_status=[DataAvailabilityStatus.Complete, DataAvailabilityStatus.Incomplete]`, without setting the feature window start and end time, the request uses the default value of those parameters mentioned earlier in this section, and creates these jobs:
 
@@ -176,7 +176,7 @@ This example defines a daily job that triggers at 4 AM, starting on 4/15/2023. D
 
 ### Update materialization store
 
-- Before you update a feature store online or offline materialization store, all feature sets in that feature store should have the corresponding offline and/or online materialization disabled. The update operation fails as user failure, if some feature sets have materialization enabled.
+- Before you update a feature store online or offline materialization store, all feature sets in that feature store should have the corresponding offline and/or online materialization disabled. The update operation fails as `UserError`, if some feature sets have materialization enabled.
 - The materialization status of the data in the offline and/or online materialization store resets if offline and/or online materialization is disabled on a feature set. The reset renders materialized data unusable. If offline and/or online materialization on the feature set is enabled later, users must resubmit their materialization jobs.
 
 ### Online data bootstrap
@@ -205,7 +205,7 @@ In the materialization store, the materialized data might have gaps because
 1. a materialization job was never submitted for the feature window
 2. materialization jobs submitted for the feature window failed, or were canceled
 
-In this case, submit a materialization request in the feature window for `data_status=[DataAvailabilityStatus.NONE,DataAvailabilityStatus.Incomplete]` to fill. A single materialization request fills all the gaps in the feature window.
+In this case, submit a materialization request in the feature window for `data_status=[DataAvailabilityStatus.NONE,DataAvailabilityStatus.Incomplete]` to fill the gaps. A single materialization request fills all the gaps in the feature window.
 
 ## Next steps
 

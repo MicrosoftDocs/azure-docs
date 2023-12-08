@@ -12,7 +12,7 @@ ms.date: 12/06/2023
 ms.custom: template-concept
 ---
 
-# Offline Feature Retrieval using a Point-in-time Join
+# Offline feature retrieval using a point-in-time join
 
 ## Understanding the Point-in-time Join
 
@@ -62,7 +62,7 @@ A point-in-time join looks for previous feature values closest in time to the ti
 
 To prevent retrieval of feature values with time values that are too early, set the `temporal_join_lookback` parameter in the feature set specification. This parameter controls the earliest feature time values the point-in-time join accepts.
 
-With the same example, given `temporal_join_lookback`, event `L1` only gets joined with feature values in the past, up to t1 - the temporal_join_lookback.
+With the same example, given `temporal_join_lookback`, event `L1` only gets joined with feature values in the past, up to `t1 - temporal_join_lookback`.
 
 :::image type="content" source="media/offline-retrieval-point-in-time-join/point-in-time-join-temporal-lookback.png" lightbox="media/offline-retrieval-point-in-time-join/point-in-time-join-temporal-lookback.png" alt-text="Illustration that shows a point-in-time join with temporal lookback.":::
 

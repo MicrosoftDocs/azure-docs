@@ -102,7 +102,7 @@ feature_set_df = df2.filter(df2["timestamp"] >= feature_window_start_ts && df2["
 
 :::image type="content" source="media/featureset-specification-transformation-concepts/featureset-specification-example.png" lightbox="media/featureset-specification-transformation-concepts/illustration-source-lookback.png" alt-text="Illustration showing feature set specification and corresponding transformations applied on source data to produce feature dataframe.":::
 
-### Output schema of Feature transformer function
+### Output schema of the feature transformer function
 
 The transform function outputs a dataframe, which includes these values in its schema:
 - Index columns that match the `FeatureSetSpec` definition, both in name and type
@@ -113,7 +113,7 @@ The transform function outputs a dataframe, which includes these values in its s
 
 ###  Row-level Transformation
 
-In a row-level transformation, a feature value calculation on a specific row only uses column values of that row. Start with this example:
+In a row-level transformation, a feature value calculation on a specific row only uses column values of that row. Start with this source data:
 
 | `user_id` | `timestamp` | `total_spend` |
 |---|---|---|
@@ -153,7 +153,7 @@ Sliding window aggregation can help handle feature values that present statistic
 
 For each row, the `Window` object can look into both future and past. In the context of machine learning features, you should define the `Window` object to look only the past, for each row. Visit the [Best Practice](#prevent-data-leakage-in-feature-transformation) section for more details.
 
-Start with this example data:
+Start with this source data:
 
 | `user_id` | `timestamp` | `spend` |
 |---|---|---|
@@ -206,7 +206,7 @@ The feature value calculations use columns on the current row, combined with pre
 
 A tumbling window can aggregate data on time-series data. Group the data into fixed-size, nonoverlapping and continuous time windows, and then aggregate it. For example, users can define features based on daily or hourly aggregation. Use the `pyspark.sql.functions.window` function to define a tumbling window, for consistent results. The output feature `timestamp` should align with the end of each tumbling window.
 
-Start with this example data:
+Start with this source data:
 
 | `user_id` | `timestamp` | `spend` |
 |---|---|---|
