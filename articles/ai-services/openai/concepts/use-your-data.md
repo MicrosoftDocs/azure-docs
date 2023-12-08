@@ -37,7 +37,7 @@ Azure OpenAI on your data supports the following filetypes:
 
 * `.txt`
 * `.md`
-* `.html` 
+* `.html`
 * Microsoft Word files
 * Microsoft PowerPoint files
 * PDF
@@ -209,7 +209,7 @@ After ingesting your data, you can start chatting with the model on your data us
 * [Web app](#using-the-web-app)
 * [REST API](../reference.md#azure-cosmos-db-for-mongodb-vcore)
 
-# [URL/Web](#tab/url-web)
+# [URL/web address](#tab/url-web)
 
 Currently, you can add your data from a URL/web address. Your data from a URL/web address needs to have the following characteristics to be properly ingested:
 
@@ -219,7 +219,7 @@ Currently, you can add your data from a URL/web address. Your data from a URL/we
 
 * The size of content in each URL is smaller than 5MB.  
 
-* The website can be downloaded as one of the supported file types.
+* The website can be downloaded as one of the [supported file types](#data-formats-and-file-types).
 
 You can use URL as a data source in both the Azure OpenAI Studio and the [ingestion API](../reference.md#start-an-ingestion-job). To use URL/web address as a data source, you need to have an Azure AI Search resource and an Azure Blob Storage resource. When using the Ingestion API you need to create a container first. Only one layer of nested links is supported. Only up to 20 links, on the web page will be fetched.
 
@@ -227,7 +227,7 @@ You can use URL as a data source in both the Azure OpenAI Studio and the [ingest
 
 Once you have added the URL/web address for data ingestion, the web pages from your URL are fetched and saved to your Azure Blob Storage account with a container name: `webpage-<index name>`. Each URL will be saved into a different container within the account. Then the files are indexed into an Azure AI Search index, which is used for retrieval when you’re chatting with the model.
 
-When you want to reuse the same URL/web address, you can select “Azure AI Search” as your data source and select the index you created with your URL previously. Then you can use the already indexed files instead of having the system crawl your URL again. You can use the Azure AI Search index directly and delete the storage container to free up your storage space.
+When you want to reuse the same URL/web address, you can select [Azure AI Search](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search) as your data source and select the index you created with your URL previously. Then you can use the already indexed files instead of having the system crawl your URL again. You can use the Azure AI Search index directly and delete the storage container to free up your storage space.
 
 ---
 
