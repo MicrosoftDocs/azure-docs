@@ -14,6 +14,9 @@ ms.date: 12/08/2023
 > App attach is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+> [!NOTE]
+> App attach (preview) is gradually rolling out and you might not have access to it yet. If you don't have access, check back later. MSIX app attach is generally available.
+
 There are two features in Azure Virtual Desktop that enable you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop - *MSIX app attach* and *app attach (preview)*. *MSIX app attach* is generally available, but *app attach* is now available in preview, which improves the administrative experience and user experience. With both *MSIX app attach* and *app attach*, applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. 
 
 The following table compares MSIX app attach with app attach:
@@ -35,9 +38,6 @@ You can use the following application package types and file formats:
 | Appx and Appx bundle | `.appx`<br />`.appxbundle` | App attach only |
 
 MSIX and Appx are Windows application package formats that provide a modern packaging experience to Windows applications. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. MSIX and Appx are similar, where the main difference is that MSIX is a superset of Appx. MSIX supports all the features of Appx, plus other features that make it more suitable for enterprise use.
-
-> [!NOTE]
-> App attach (preview) is gradually rolling out and you might not have access to it yet. If you don't have access, check back later. MSIX app attach is generally available.
 
 > [!TIP]
 > Select a button at the top of this article to choose between *MSIX app attach* (current) and *app attach* (preview) to see the relevant documentation.
