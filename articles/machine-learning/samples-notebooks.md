@@ -52,7 +52,7 @@ These instructions install the base SDK packages necessary for the quickstart an
 
 The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
 
-1. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
+1. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 1. Download a workspace configuration file:
 
