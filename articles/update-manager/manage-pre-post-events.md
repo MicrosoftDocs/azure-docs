@@ -14,6 +14,17 @@ author: SnehaSudhirG
 
 Pre and post events allows you to execute user-defined actions before and after the schedule patch installation. This article describes on how to create, view, and cancel the pre and post events in Azure Update Manager.
 
+## Register your subscription for public preview
+
+To self-register your subscription for public preview in Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
+1. On the **All services** page, search for **Preview features**.
+1. On the **Preview Features** page, search and select **Pre and Post maintenance activity support for InGuest Patch**.
+1. Select the feature and then select **Register** to register the subscription.
+   
+   :::image type="content" source="./media/tutorial-using-functions/register-feature.png" alt-text="Screenshot that shows how to register the preview feature." lightbox="./media/tutorial-using-functions/register-feature.png"::: 
+
 ## Timeline of schedules for pre and post events
 
 We recommend you to go through the following table to understand the timeline of the schedule for pre and post events.
@@ -29,16 +40,6 @@ For example, if a maintenance schedule is set to start at **3:00 PM**, with the 
 |6:55 PM | The post event gets triggered after the defined maintenance window completes. If you have defined a shorter maintenance window of 2 hrs, the post maintenance event will trigger after 2 hours and if the maintenance schedule is completed before the stipulated time of 2 hours that is, in 1 hr 50 mins, the post event will start. </br></br> In this example, if the maintenance window is set to the maximum, then by 6:55 PM the patch installation process is complete and if you have a shorter maintenance window, the patch installation process is completed by 5:00 PM. |
 |7:15 PM| After the patch installation, the post event runs for 20 mins. </br>In this example, the post event is initiated at 6:55 PM and completed by 7:15 PM and if you have a shorter maintenance window, the post event is triggered at 5:00 PM and completed by 5:20 PM. |
 
-## Register your subscription for public preview
-
-To self-register your subscription for public preview in Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
-1. On the **All services** page, search for **Preview features**.
-1. On the **Preview Features** page, search and select **Pre and Post maintenance activity support for InGuest Patch**.
-1. Select the feature and then select **Register** to register the subscription.
-   
-   :::image type="content" source="./media/tutorial-using-functions/register-feature.png" alt-text="Screenshot that shows how to register the preview feature." lightbox="./media/tutorial-using-functions/register-feature.png"::: 
 
 ## Configure pre and post events on existing schedule
 
