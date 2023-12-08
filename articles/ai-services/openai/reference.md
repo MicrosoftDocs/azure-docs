@@ -544,8 +544,8 @@ curl -i -X PUT https://YOUR_RESOURCE_NAME.openai.azure.com/openai/extensions/on-
 
 **Body Parameters**
 
-| Parameter | Type | Required? |  Description |
-|--|--|--|--|
+|  Parameters | Type | Required? | Default | Description |
+|---|---|---|---|---|
 | `dataRefreshIntervalInMinutes` | string | Required | 0 | The data refresh interval in minutes. If you want to run a single ingestion job without a schedule, set this parameter to `0`. |
 | `completionAction` | string | Optional | `cleanUpAssets` | What should happen to the assets created during the ingestion process upon job completion. Valid values are `cleanUpAssets` or `keepAllAssets`. `keepAllAssets` leaves all the intermediate assets for users interested in reviewing the intermediate results, which can be helpful for debugging assets. `cleanUpAssets` removes the assets after job completion. |
 | `chunkSize` | int | Optional |1024 |This number defines the maximum number of tokens in each chunk produced by the ingestion flow. |
