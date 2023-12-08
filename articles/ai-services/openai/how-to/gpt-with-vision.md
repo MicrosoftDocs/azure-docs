@@ -57,12 +57,19 @@ The following is a sample request body. The format is the same as the chat compl
 } 
 ```
 
-## Use Vision enhancement
+## Use Vision enhancement with images
 
 GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. When combined with Azure AI Vision, it enhances your chat experience by providing the chat model with more detailed information about visible text in the image and the locations of objects.
 
+The **Optical character recognition (OCR)** integration allows the model to produce higher quality responses for dense text, transformed images, and number-heavy financial documents. It also covers a wider range of languages.
+
+The **object grounding** integration brings a new layer to data analysis and user interaction, as the feature can visually distinguish and highlight important elements in the images it processes.
+
 > [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource, and it must be in one of the Azure regions where GPT-4 Turbo with Vision is available.
+> To use Vision enhancement, you need a Computer Vision resource, and it must be in the same Azure region as your GPT-4 Turbo with Vision resource.
+
+> [!CAUTION]
+> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
 
 Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
 
@@ -113,6 +120,79 @@ The request body is the same as above, except you must include the `enhancements
 ```
 
 The chat responses you receive from the model should now include enhanced information about the image, such as object labels and bounding boxes, and OCR results.
+
+## Use Vision enhancement with video
+
+GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. The **video prompt** integration uses Azure AI Vision video retrieval to sample a set of frames from a video and create a transcript of the speech in the video. It enables the AI model to give summaries and answers about video content.
+
+> [!IMPORTANT]
+> To use Vision enhancement, you need a Computer Vision resource, and it must be in the same Azure region as your GPT-4 Turbo with Vision resource.
+
+> [!CAUTION]
+> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
+
+Follow these steps to set up a video retrieval system and integrate it with your AI chat model:
+1. Get an Azure AI Vision resource in the same region as the Azure OpenAI resource you're using.
+1. Follow the instructions in  [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval) to create a video retrieval index. Return to this guide once your index is created.
+1. Save the index name, the `documentId` values of your videos, and the blob storage SAS URLs of your videos to a temporary location. You'll need these values the next steps.
+1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+
+    - RESOURCE_NAME is the name of your Azure OpenAI resource 
+    - DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 
+        
+    **Required headers**: 
+    - `Content-Type`: application/json 
+    - `api-key`: {API_KEY} 
+1. Add the following JSON structure in the request body:
+    ```json
+    {
+        "enhancements": {
+                "video": {
+                  "enabled": true
+                }
+        },
+        "dataSources": [
+        {
+            "type": "AzureComputerVisionVideoIndex",
+            "parameters": {
+                "endpoint": "<your_computer_vision_endpoint>",
+                "key": "<your_computer_vision_key>",
+                "computerVisionBaseUrl": "<your_computer_vision_endpoint>",
+                "computerVisionApiKey": "<your_computer_vision_key>",
+                "indexName": "<name_of_your_index>",
+                "videoUrls": ["<your_video_SAS_URL>"]
+            }
+        }],
+        "messages": [ 
+            {
+                "role": "system", 
+                "content": "You are a helpful assistant." 
+            },
+            {
+                "role": "user",
+                "content": [
+                        {
+                            "type": "text",
+                            "text": "Describe this video:"
+                        }
+                    ]
+            },
+            {
+                "role": "user",
+                "content": [
+                        {
+                            "type": "acv_document_id",
+                            "acv_document_id": "<your_video_ID>"
+                        }
+                    ]
+            }
+        ]
+    } 
+    ```
+
+    The request includes the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVisionVideoIndex"` and a `parameters` property which contains your AI Vision and video information.
+1. Fill in all the `<placeholder>` fields above with your own information: enter the endpoint URLs and keys of your OpenAI and AI Vision resources where appropriate, and retrieve the video index information from the earlier step.
+1. Send the POST request to the API endpoint. It should contain your OpenAI and AI Vision credentials, the name of your video index, and the ID and SAS URL of a single video.
 
  ## Low or high fidelity image understanding
 
