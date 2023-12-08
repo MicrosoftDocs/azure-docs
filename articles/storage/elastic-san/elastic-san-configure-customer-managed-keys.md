@@ -50,17 +50,23 @@ Copy the sample code and replace all placeholder text with your own values. Use 
 # Define some variables
 # The name of the resource group where the resources will be deployed.
 $RgName          = "ResourceGroupName"
+
 # The name of the Elastic SAN that contains the volume group to be configured.
 $EsanName        = "ElasticSanName"
+
 # The name of the Elastic SAN volume group to be configured.
 $EsanVgName      = "ElasticSanVolumeGroupName"
+
 # The region where the new resources will be created.
 $Location        = "Location"
+
 # The name of the Azure Key Vault that will contain the KEK.
 $KvName          = "KeyVaultName"
+
 # The name of the Azure Key Vault key that is the KEK.
 $KeyName         = "KeyName"
-# The name of the user-assigned managed identity, [if applicable](#choose-a-managed-identity-to-authorize-access-to-the-key-vault).
+
+# The name of the user-assigned managed identity, if applicable.
 $ManagedUserName = "ManagedUserName"
 ```
 
@@ -77,21 +83,28 @@ To use the Azure CLI to configure Elastic SAN encryption:
 Copy the sample code and replace all placeholder text with your own values. Use the same variables in all of the examples in this article:
 
 ```azurecli
-# Define some variables.
+
 # The name of the resource group where the resources will be deployed.
 RgName="ResourceGroupName"
+
 # The name of the Elastic SAN that contains the volume group to be configured.
 EsanName="ElasticSanName"
+
 # The name of the Elastic SAN volume group to be configured.
 EsanVgName="ElasticSanVolumeGroupName"
+
 # The region where the new resources will be created.
 Location="Location"
+
 # The name of the Azure Key Vault that will contain the KEK.
 KvName="KeyVaultName"
+
 # The name of the Azure Key Vault key that is the KEK.
 KeyName="KeyName"
+
 # The name of the user-assigned managed identity, if applicable.
 ManagedUserName="ManagedUserName"
+
 # The User Principal Name (UPN) of the administrator (you) who will create the KEK in the vault.
 AdminUpn="AdminUpn"
 ```
@@ -280,8 +293,7 @@ When you configure customer-managed keys with a user-assigned managed identity, 
 
 A user-assigned managed identity is a standalone Azure resource. To learn more about user-assigned managed identities, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To learn how to create and manage a user-assigned managed identity, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
-The user-assigned managed identity must have permissions to access the key in the key vault. Assign the **Key Vault Crypto Service Encryption User** role to the user-assigned managed identity with key vault scope to grant these permissions.
-
+The user-assigned managed identity must have permissions to access the key in the key vault. You can either manually grant permissions to the identity, or assign a built-in role with key vault scope to grant these permissions.
 ### [PowerShell](#tab/azure-powershell)
 
 The following example shows how to:
@@ -325,13 +337,12 @@ The following example shows how to:
 > * Create a new user-assigned managed identity.
 > * Wait for the creation of the user-assigned identity to complete.
 > * Get the `PrincipalId` from the new identity.
-> * Assign the required RBAC role to the new identity, scoped to the key vault.
+> * Assign permissions to the identity, allowing it access to the key vault
 
 Use the same [variables you defined previously](#create-variables-to-be-used-in-the-powershell-samples-in-this-article) in this article.
 
 ```azurecli
-### 1. Create a user assigned identity and grant it the access to the key vault
-#### create a user assigned identity
+### Create a user assigned identity and grant it the access to the key vault
 uai=$(az identity create -g $rg -n $user_assigned_identity_name -o tsv --query id)
 
 #### Get the properties
@@ -349,7 +360,7 @@ az keyvault set-policy -n $kv_name --object-id $uai_principal_id --key-permissio
 #### create key
 az keyvault key create --vault-name $kv_name -n $key_name2 --protection software
 
-### 2. PUT a volume group with CMK
+### Create a volume group with customer-managed keys
 az elastic-san volume-group create -e $san_name -n $vg_name2 -g $rg --encryption EncryptionAtRestWithCustomerManagedKey --protocol-type Iscsi --identity "{type:UserAssigned,user-assigned-identity:'$uai_id'}" --encryption-properties "{key-vault-properties:{key-name:'$key_name2',key-vault-uri:'$vault_uri'},identity:{user-assigned-identity:'$uai_id'}}"
 az elastic-san volume create -g $rg -e $san_name -v $vg_name -n $volume_name --size-gib 2
 ```
@@ -489,7 +500,7 @@ az keyvault set-policy -n $kv_name --object-id $uai_principal_id --key-permissio
 #### create key
 az keyvault key create --vault-name $kv_name -n $key_name2 --protection software
 
-### 2. PUT a volume group with CMK
+### Create a volume group with customer-managed keys
 az elastic-san volume-group create -e $san_name -n $vg_name2 -g $rg \
     --encryption EncryptionAtRestWithCustomerManagedKey \
     --protocol-type Iscsi \
@@ -629,6 +640,7 @@ uai_2_id=$(az identity show --ids $uai_2 --query id -o tsv)
 
 #### set policy for key permission
 az keyvault set-policy -n $kv_name --object-id $uai_2_principal_id --key-permissions get wrapkey unwrapkey
+
 ### update the volume group with the new user assigned identity
 az elastic-san volume-group update -e $san_name -n $vg_name -g $rg --identity "{type:UserAssigned,user-assigned-identity:'$uai_2_id'}" --encryption-properties "{key-vault-properties:{key-name:'$key_name2',key-vault-uri:'$vault_uri'},identity:{user-assigned-identity:'$uai_2_id'}}" 
 ```
