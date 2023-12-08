@@ -21,7 +21,7 @@ There are potential issues associated with this type of connection handling. For
 
 ## Diagnosing common connectivity errors
 
-Whenever your instance of Azure Database for MySQL is experiencing connectivity issues, remember that problems can exist in any of the three layers involved: the client device, the network, or your Azure Database for MySQL server.
+Whenever your instance of Azure Database for MySQL flexible server is experiencing connectivity issues, remember that problems can exist in any of the three layers involved: the client device, the network, or your Azure Database for MySQL flexible server instance.
 
 As a result, whenever you’re diagnosing connectivity errors, be sure to consider full details of the:
 
@@ -45,11 +45,11 @@ Quick reference notes for some client-side error 2005 codes appear in the follow
 
 | **ERROR 2005 code** | **Notes** |
 |----------|----------|
-| **(11) "EAI_SYSTEM - system error"** | There's an error on the DNS resolution on the client side. Not an Azure MySQL issue. Use dig/nslookup on the client to troubleshoot. |
-| **(110) "ETIMEDOUT - Connection timed out"** | There was a timeout connecting to the client's DNS server. Not an Azure MySQL issue. Use dig/nslookup on the client to troubleshoot. |
-| **(0) "name unknown"** | The name specified wasn't resolvable by DNS. Check the input on the client. This is very likely not an issue with Azure Database for MySQL. |
+| **(11) "EAI_SYSTEM - system error"** | There's an error on the DNS resolution on the client side. Not an Azure Database for MySQL flexible server issue. Use dig/nslookup on the client to troubleshoot. |
+| **(110) "ETIMEDOUT - Connection timed out"** | There was a timeout connecting to the client's DNS server. Not an Azure Database for MySQL flexible server issue. Use dig/nslookup on the client to troubleshoot. |
+| **(0) "name unknown"** | The name specified wasn't resolvable by DNS. Check the input on the client. This is very likely not an issue with Azure Database for MySQL flexible server. |
 
-The second call in mysql is with socket connectivity and when looking at an error message like "ERROR 2003 (HY000): Can't connect to MySQL server on 'mysql-example.mysql.database.azure.com' (111)", the number in the end (99, 110, 111, 113, etc.).
+The second call in mysql is with socket connectivity and when looking at an error message like "ERROR 2003 (HY000): Can't connect to Azure Database for MySQL flexible server on 'mysql-example.mysql.database.azure.com' (111)", the number in the end (99, 110, 111, 113, etc.).
 
 ### Client-side error 2003 codes
 
@@ -57,9 +57,9 @@ Quick reference notes for some client-side error 2003 codes appear in the follow
 
 | **ERROR 2003 code** | **Notes** |
 |----------|----------|
-| **(99) "EADDRNOTAVAIL - Cannot assign requested address"** | This error isn’t caused by Azure Database for MySQL., rather it is on the client side. |
-| **(110) "ETIMEDOUT - Connection timed out"** | TThere was a timeout connecting to the IP address provided. Likely a security (firewall rules) or networking (routing) issue. Usually, this isn’t an issue with Azure Database for MySQL. Use `nc/telnet/TCPtraceroute` on the client device to troubleshoot. |
-| **(111) "ECONNREFUSED - Connection refused"** | While the packets reached the target server, the server rejected the connection. This might be an attempt to connect to the wrong server or the wrong port. This also might relate to the target service (Azure Database for MySQL) being down, recovering from failover, or going through crash recovery, and not yet accepting connections. This issue could be on either the client side or the server side. Use `nc/telnet/TCPtraceroute` on the client device to troubleshoot. |
+| **(99) "EADDRNOTAVAIL - Cannot assign requested address"** | This error isn’t caused by Azure Database for MySQL flexible server, rather it is on the client side. |
+| **(110) "ETIMEDOUT - Connection timed out"** | TThere was a timeout connecting to the IP address provided. Likely a security (firewall rules) or networking (routing) issue. Usually, this isn’t an issue with Azure Database for MySQL flexible server. Use `nc/telnet/TCPtraceroute` on the client device to troubleshoot. |
+| **(111) "ECONNREFUSED - Connection refused"** | While the packets reached the target server, the server rejected the connection. This might be an attempt to connect to the wrong server or the wrong port. This also might relate to the target service (Azure Database for MySQL flexible server) being down, recovering from failover, or going through crash recovery, and not yet accepting connections. This issue could be on either the client side or the server side. Use `nc/telnet/TCPtraceroute` on the client device to troubleshoot. |
 | **(113) "EHOSTUNREACH - Host unreachable"** | The client device’s routing table doesn’t include a path to the network on which the database server is located. Check the client device's networking configuration. |
 
 ### Other error codes
@@ -76,7 +76,7 @@ Quick reference notes for some other error codes related to issues that occur af
 | **ERROR 1129 "Host '1.2.3.4' is blocked because of many connection errors”** | Unblock with 'mysqladmin flush-hosts'" - all clients in a single machine will be blocked if one client of that machine attempts several times to use the wrong protocol to connect with MySQL (telnetting to the MySQL port is one example). As the error message says, the database’s admin user has to run `FLUSH HOSTS;` to clear the issue. |
 
 > [!NOTE]
-> For more information about connectivity errors, see the blog post [Investigating connection issues with Azure Database for MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/investigating-connection-issues-with-azure-database-for-mysql/ba-p/2121204).
+> For more information about connectivity errors, see the blog post [Investigating connection issues with Azure Database for MySQL flexible server](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/investigating-connection-issues-with-azure-database-for-mysql/ba-p/2121204).
 
 ## Next steps
 
