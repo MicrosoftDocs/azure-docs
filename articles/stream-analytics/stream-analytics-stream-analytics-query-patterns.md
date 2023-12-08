@@ -20,7 +20,7 @@ This article outlines solutions to several common query patterns based on real-w
 
 Azure Stream Analytics supports processing events in CSV, JSON, and Avro data formats.
 
-Both JSON and Avro may contain complex types such as nested objects (records) or arrays. For more information on working with these complex data types, see the [Parsing JSON and AVRO data](stream-analytics-parsing-json.md) article.
+Both JSON and Avro might contain complex types such as nested objects (records) or arrays. For more information on working with these complex data types, see the [Parsing JSON and AVRO data](stream-analytics-parsing-json.md) article.
 
 ## Send data to multiple outputs
 
@@ -28,6 +28,7 @@ Multiple **SELECT** statements can be used to output data to different output si
 
 **Input**:
 
+```
 | Make | Time |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |
@@ -35,9 +36,11 @@ Multiple **SELECT** statements can be used to output data to different output si
 | Make2 |2015-01-01T00:00:01.0000000Z |
 | Make2 |2015-01-01T00:00:02.0000000Z |
 | Make2 |2015-01-01T00:00:03.0000000Z |
+```
 
 **Output ArchiveOutput**:
 
+```
 | Make | Time |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |
@@ -45,12 +48,15 @@ Multiple **SELECT** statements can be used to output data to different output si
 | Make2 |2015-01-01T00:00:01.0000000Z |
 | Make2 |2015-01-01T00:00:02.0000000Z |
 | Make2 |2015-01-01T00:00:03.0000000Z |
+```
 
 **Output AlertOutput**:
 
+```
 | Make | Time | Count |
 | --- | --- | --- |
 | Make2 |2015-01-01T00:00:10.0000000Z |3 |
+```
 
 **Query**:
 
@@ -113,17 +119,21 @@ A simple pass-through query can be used to copy the input stream data into the o
 
 **Input**:
 
+```
 | Make | Time | Weight |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000Z |"2000" |
+```
 
 **Output**:
 
+```
 | Make | Time | Weight |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000Z |"2000" |
+```
 
 **Query**:
 
@@ -138,19 +148,23 @@ A **SELECT** * query projects all the fields of an incoming event and sends them
 
 **Input**:
 
+```
 | Make | Time | Weight |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |1000 |
 | Make1 |2015-01-01T00:00:02.0000000Z |2000 |
 | Make2 |2015-01-01T00:00:04.0000000Z |1500 |
+```
 
 **Output**:
 
+```
 | Make | Time |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |
 | Make1 |2015-01-01T00:00:02.0000000Z |
 | Make2 |2015-01-01T00:00:04.0000000Z |
+```
 
 **Query**:
 
@@ -167,18 +181,22 @@ FROM Input
 
 **Input**:
 
+```
 | Make | License_plate | Time |
 | --- | --- | --- |
 | Make1 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Make2 |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Make3 |ABC-369 |2015-01-01T00:00:03.0000000Z |
+```
 
 **Output**:
 
+```
 | Make | License_plate | Time |
 | --- | --- | --- |
 | Make2 |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Make3 |ABC-369 |2015-01-01T00:00:03.0000000Z |
+```
 
 **Query**:
 
@@ -199,16 +217,20 @@ The **LAG** function can be used to look at past events within a time window and
 
 **Input**:
 
+```
 | Make | Time |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |
 | Make2 |2015-01-01T00:00:02.0000000Z |
+```
 
 **Output**:
 
+```
 | Make | Time |
 | --- | --- |
 | Make2 |2015-01-01T00:00:02.0000000Z |
+```
 
 **Query**:
 
@@ -232,6 +254,7 @@ As events are consumed by the system in real time, there’s no function that ca
 
 **Input**:
 
+```
 | License_plate | Make | Time |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000Z |
@@ -241,13 +264,16 @@ As events are consumed by the system in real time, there’s no function that ca
 | VFE 1616 |Make2 |2015-07-27T00:09:31.0000000Z |
 | QYF 9358 |Make1 |2015-07-27T00:12:02.0000000Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000Z |
+```
 
 **Output**:
 
+```
 | License_plate | Make | Time |
 | --- | --- | --- |
 | VFE 1616 |Make2 |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000Z |
+```
 
 **Query**:
 
@@ -285,18 +311,22 @@ To compute information over a time window, data can be aggregated together. In t
 
 **Input**:
 
+```
 | Make | Time | Weight |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |1000 |
 | Make1 |2015-01-01T00:00:02.0000000Z |2000 |
 | Make2 |2015-01-01T00:00:04.0000000Z |1500 |
+```
 
 **Output**:
 
+```
 | Make | Count |
 | --- | --- |
 | Make1 | 2 |
 | Make2 | 1 |
+```
 
 **Query**:
 
@@ -323,6 +353,7 @@ In case of irregular or missing events, a regular interval output can be generat
 
 **Input**:
 
+```
 | Time | Value |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
@@ -331,9 +362,10 @@ In case of irregular or missing events, a regular interval output can be generat
 | "2014-01-01T06:01:15" |4 |
 | "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
-
+```
 **Output (first 10 rows)**:
 
+```
 | Window_end | Last_event.Time | Last_event.Value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
@@ -346,6 +378,7 @@ In case of irregular or missing events, a regular interval output can be generat
 | 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6 |
 | 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
 | 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
+```
 
 **Query**:
 
@@ -369,18 +402,22 @@ Correlating events in the same stream can be done by looking at past events usin
 
 **Input**:
 
+```
 | Make | License_plate | Time |
 | --- | --- | --- |
 | Make1 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Make1 |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Make2 |DEF-987 |2015-01-01T00:00:03.0000000Z |
 | Make1 |GHI-345 |2015-01-01T00:00:04.0000000Z |
+```
 
 **Output**:
 
+```
 | Make | Time | Current_car_license_plate | First_car_license_plate | First_car_time |
 | --- | --- | --- | --- | --- |
 | Make1 |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
+```
 
 **Query**:
 
@@ -407,16 +444,20 @@ The duration of an event can be computed by looking at the last Start event once
 
 **Input**:  
 
+```
 | User | Feature | Event | Time |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
+```
 
 **Output**:  
 
+```
 | User | Feature | Duration |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
+```
 
 **Query**:
 
@@ -441,6 +482,7 @@ The **LAST** function can be used to retrieve the last event within a specific c
 
 **Input**:
 
+```
 | Make | Time |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |
@@ -448,13 +490,16 @@ The **LAST** function can be used to retrieve the last event within a specific c
 | Make2 |2015-01-01T00:00:01.0000000Z |
 | Make2 |2015-01-01T00:00:02.0000000Z |
 | Make2 |2015-01-01T00:00:03.0000000Z |
+```
 
 **Output:**
 
+```
 | Count_make | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
+```
 
 **Query:**
 
@@ -476,6 +521,7 @@ For more information, see [**COUNT** aggregate function](/stream-analytics-query
 
 **Input**:
 
+```
 | License_plate | Make | Time |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000Z |
@@ -485,13 +531,16 @@ For more information, see [**COUNT** aggregate function](/stream-analytics-query
 | VFE 1616 |Make2 |2015-07-27T00:09:31.0000000Z |
 | QYF 9358 |Make1 |2015-07-27T00:12:02.0000000Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000Z |
+```
 
 **Output**:
 
+```
 | License_plate | Make | Time |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Make1 |2015-07-27T00:12:02.0000000Z |
+```
 
 **Query**:
 
@@ -510,6 +559,7 @@ WHERE
 
 **Output**:
 
+```
 | License_plate | Make | Time |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000Z |
@@ -517,6 +567,7 @@ WHERE
 | YHN 6970 |Make2 |2015-07-27T00:06:00.0000000Z |
 | QYF 9358 |Make1 |2015-07-27T00:12:02.0000000Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000Z |
+```
 
 **Query**:
 
@@ -539,6 +590,7 @@ When performing an operation such as calculating averages over events in a given
 
 **Input**:  
 
+```
 | DeviceId | Time | Attribute | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperature |50 |
@@ -547,13 +599,16 @@ When performing an operation such as calculating averages over events in a given
 | 1 |2018-07-27T00:00:05.0000000Z |Temperature |60 |
 | 2 |2018-07-27T00:00:05.0000000Z |Temperature |50 |
 | 1 |2018-07-27T00:00:10.0000000Z |Temperature |100 |
+```
 
 **Output**:  
 
+```
 | AverageValue | DeviceId |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
+```
 
 **Query**:
 
@@ -580,18 +635,22 @@ When the first statement executes, the duplicate records are combined into one a
 
 **Input**:
 
+```
 | Make | Time |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |
 | Make2 |2015-01-01T00:00:02.0000000Z |
 | Make2 |2015-01-01T00:00:03.0000000Z |
+```
 
 **Output**:
 
+```
 | Make |Dispatch_to_lane | Time |
 | --- | --- | --- |
 | Make1 |"A" |2015-01-01T00:00:01.0000000Z |
 | Make2 |"B" |2015-01-01T00:00:02.0000000Z |
+```
 
 **Solution**:
 
@@ -617,16 +676,20 @@ Data can be cast in real time using the **CAST** method. For example, car weight
 
 **Input**:
 
+```
 | Make | Time | Weight |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000Z |"2000" |
+```
 
 **Output**:
 
+```
 | Make | Weight |
 | --- | --- |
 | Make1 |3000 |
+```
 
 **Query**:
 
@@ -651,6 +714,7 @@ For conditions that span through multiple events the **LAG** function can be use
 
 **Input**:
 
+```
 | Make | Time | Weight |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000Z |2000 |
@@ -661,12 +725,15 @@ For conditions that span through multiple events the **LAG** function can be use
 | Make2 |2015-01-01T00:00:06.0000000Z |25000 |
 | Make1 |2015-01-01T00:00:07.0000000Z |26000 |
 | Make2 |2015-01-01T00:00:08.0000000Z |2000 |
+```
 
 **Output**:
 
+```
 | Start_fault | End_fault |
 | --- | --- |
 | 2015-01-01T00:00:02.000Z |2015-01-01T00:00:07.000Z |
+```
 
 **Query**:
 
@@ -699,6 +766,7 @@ For example, the device clock for *TollID* 2 is five seconds behind *TollID* 1, 
 
 **Input**:
 
+```
 | LicensePlate | Make | Time | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:01.0000000Z | 1 |
@@ -709,9 +777,11 @@ For example, the device clock for *TollID* 2 is five seconds behind *TollID* 1, 
 | RMV 8282 |Make1 |2015-07-27T00:00:03.0000000Z | 3 |
 | MDR 6128 |Make3 |2015-07-27T00:00:11.0000000Z | 2 |
 | YZK 5704 |Make4 |2015-07-27T00:00:07.0000000Z | 3 |
+```
 
 **Output**:
 
+```
 | TollID | Count |
 | --- | --- |
 | 1 | 2 |
@@ -720,6 +790,7 @@ For example, the device clock for *TollID* 2 is five seconds behind *TollID* 1, 
 | 3 | 1 |
 | 2 | 1 |
 | 3 | 1 |
+```
 
 **Query**:
 
@@ -744,6 +815,7 @@ For example, a user is interacting with a web page where the number of clicks is
 
 **Input**:
 
+```
 | User_id | Time | URL |
 | --- | --- | --- |
 | 0 | 2017-01-26T00:00:00.0000000Z | "www.example.com/a.html" |
@@ -751,13 +823,16 @@ For example, a user is interacting with a web page where the number of clicks is
 | 1 | 2017-01-26T00:00:55.0000000Z | "www.example.com/c.html" |
 | 0 | 2017-01-26T00:01:10.0000000Z | "www.example.com/d.html" |
 | 1 | 2017-01-26T00:01:15.0000000Z | "www.example.com/e.html" |
+```
 
 **Output**:
 
+```
 | User_id | StartTime | EndTime | Duration_in_seconds |
 | --- | --- | --- | --- |
 | 0 | 2017-01-26T00:00:00.0000000Z | 2017-01-26T00:01:10.0000000Z | 70 |
 | 1 | 2017-01-26T00:00:55.0000000Z | 2017-01-26T00:01:15.0000000Z | 20 |
+```
 
 **Query**:
 
@@ -783,19 +858,23 @@ Azure Stream Analytics query language can be extended with custom functions writ
 
 **Input**:
 
+```
 | Device_id | HexValue |
 | --- | --- |
 | 1 | "B4" |
 | 2 | "11B" |
 | 3 | "121" |
+```
 
 **Output**:
 
+```
 | Device_id | Decimal |
 | --- | --- |
 | 1 | 180 |
 | 2 | 283 |
 | 3 | 289 |
+```
 
 ```JavaScript
 function hex2Int(hexValue){
@@ -830,6 +909,7 @@ For example, an ATM is being monitored at real time for failures, during the ope
 
 **Input**:
 
+```
 | ATM_id | Operation_id | Return_Code | Time |
 | --- | --- | --- | --- |
 | 1 | "Entering Pin" | "Success" | 2017-01-26T00:10:00.0000000Z |
@@ -838,12 +918,15 @@ For example, an ATM is being monitored at real time for failures, during the ope
 | 1 | "Entering Withdraw Quantity" | "Success" | 2017-01-26T00:10:08.0000000Z |
 | 1 | "Opening Money Slot" | "Warning" | 2017-01-26T00:10:14.0000000Z |
 | 1 | "Printing Bank Balance" | "Warning" | 2017-01-26T00:10:19.0000000Z |
+```
 
 **Output**:
 
+```
 | ATM_id | First_Warning_Operation_id | Warning_Time |
 | --- | --- | --- |
 | 1 | "Opening Money Slot" | 2017-01-26T00:10:14.0000000Z |
+```
 
 ```SQL
 SELECT *
@@ -878,24 +961,30 @@ The manufacture would like to keep track of the location of those machines and b
 
 **Input**:
 
+```
 | Equipment_id | Equipment_current_location | Time |
 | --- | --- | --- |
 | 1 | "POINT(-122.13288797982818 47.64082002051315)" | 2017-01-26T00:10:00.0000000Z |
 | 1 | "POINT(-122.13307252987875 47.64081350934929)" | 2017-01-26T00:11:00.0000000Z |
 | 1 | "POINT(-122.13308862313283 47.6406508603241)" | 2017-01-26T00:12:00.0000000Z |
 | 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000Z |
+```
 
 **Reference Data Input**:
 
+```
 | Equipment_id | Equipment_lease_location |
 | --- | --- |
 | 1 | "POLYGON((-122.13326028450979 47.6409833866794,-122.13261655434621 47.6409833866794,-122.13261655434621 47.64061471602751,-122.13326028450979 47.64061471602751,-122.13326028450979 47.6409833866794))" |
+```
 
 **Output**:
 
+```
 | Equipment_id | Equipment_alert_location | Time |
 | --- | --- | --- |
 | 1 | "POINT(-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000Z |
+```
 
 ```SQL
 SELECT
