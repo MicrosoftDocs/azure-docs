@@ -47,6 +47,9 @@ When you sign in, the portal displays a list of the Azure Arc-enabled Kubernetes
 
 :::image type="content" source="media/howto-manage-assets-remotely/cluster-list.png" alt-text="Screenshot that shows the list of clusters in the Azure IoT Operations portal.":::
 
+> [!TIP]
+> You can use the filter box to search for clusters.
+
 ## Create an asset endpoint
 
 By default, an Azure IoT Operations deployment includes a built-in OPC PLC simulator. To create an asset endpoint that uses the built-in OPC PLC simulator:
@@ -54,6 +57,9 @@ By default, an Azure IoT Operations deployment includes a built-in OPC PLC simul
 1. Select **Asset endpoints** and then **Create asset endpoint**:
 
     :::image type="content" source="media/howto-manage-assets-remotely/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations portal.":::
+
+    > [!TIP]
+    > You can use the filter box to search for asset endpoints.
 
 1. Enter the following endpoint information:
 
@@ -108,6 +114,9 @@ To add an asset in the Azure IoT Operations portal:
 1. Select the **Assets** tab. If you haven't created any assets yet, you see the following screen:
 
     :::image type="content" source="media/howto-manage-assets-remotely/create-asset-empty.png" alt-text="Screenshot that shows an empty Assets tab in the Azure IoT Operations portal.":::
+
+    > [!TIP]
+    > You can use the filter box to search for assets.
 
     Select **Create asset**.
 
@@ -194,6 +203,9 @@ You can import up to 1000 OPC UA tags at a time from a CSV file:
 
 1. On the **Tags** page, select **Next** to go to the **Events** page.
 
+> [!TIP]
+> You can use the filter box to search for tags.
+
 ### Add individual events to an asset
 
 Now you can define the events associated with the asset. To add OPC UA events:
@@ -227,6 +239,9 @@ To export all the events from an asset to a CSV file, select **Export all** and 
 
 On the **Events** page, select **Next** to go to the **Review** page.
 
+> [!TIP]
+> You can use the filter box to search for events.
+
 ### Review your changes
 
 Review your asset and OPC UA tag and event details and make any adjustments you need:
@@ -235,7 +250,7 @@ Review your asset and OPC UA tag and event details and make any adjustments you 
 
 ## Update an asset
 
-Select the asset you created previously. Use the **Properties**, **Tags**, and **Events** tabs to make any changes:
+Find and select the asset you created previously. Use the **Properties**, **Tags**, and **Events** tabs to make any changes:
 
 :::image type="content" source="media/howto-manage-assets-remotely/asset-update-property-save.png" alt-text="A screenshot that shows how to update an existing asset in the Azure IoT Operations portal.":::
 
