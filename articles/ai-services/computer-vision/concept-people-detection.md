@@ -13,7 +13,7 @@ ms.date: 09/12/2022
 ms.author: pafarley
 ---
 
-# People detection (version 4.0 preview)
+# People detection (version 4.0)
 
 Version 4.0 of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. 
 
@@ -28,7 +28,7 @@ The following JSON response illustrates what the Analysis 4.0 API returns when d
 
 ```json
 {
-  "modelVersion": "2023-02-01-preview",
+  "modelVersion": "2023-10-01",
   "metadata": {
     "width": 300,
     "height": 231

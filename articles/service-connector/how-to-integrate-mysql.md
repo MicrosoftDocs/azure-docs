@@ -118,6 +118,15 @@ Reference the connection details and sample code in following tables, according 
 | `AZURE_MYSQL_USERNAME`          | Database username | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_SSLMODE`           | SSL option        | `required`                                 |
 
+#### [Other](#tab/none)
+| Default environment variable name | Description       | Example value                                |
+| --------------------------------- | ----------------- | -------------------------------------------- |
+| `AZURE_MYSQL_HOST`              | Database host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| `AZURE_MYSQL_USERNAME`              | Database username | `MySQL-DB-username`                        |
+| `AZURE_MYSQL_DATABASE`          | Database name     | `<database-name>`                          |
+| `AZURE_MYSQL_PORT`              | Port number       | `3306`                                     |
+| `AZURE_MYSQL_SSL`               | SSL option        | `true`                                     |
+
 ---
 
 #### Sample code
@@ -208,6 +217,16 @@ Refer to the steps and code below to connect to Azure Database for MySQL using a
 | `AZURE_MYSQL_SSLMODE`           | SSL option        | `required`                                 |
 | `AZURE_MYSQL_CLIENTID`          | Your client ID    | `<identity-client-ID>`                     |
 
+#### [Other](#tab/none)
+| Default environment variable name | Description       | Example value                                |
+| --------------------------------- | ----------------- | -------------------------------------------- |
+| `AZURE_MYSQL_HOST`              | Database host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| `AZURE_MYSQL_USERNAME`              | Database username | `MySQL-DB-username`                        |
+| `AZURE_MYSQL_DATABASE`          | Database name     | `<database-name>`                          |
+| `AZURE_MYSQL_PORT`              | Port number       | `3306`                                     |
+| `AZURE_MYSQL_SSL`               | SSL option        | `true`                                     |
+| `AZURE_MYSQL_CLIENTID`          | Your client ID     | `<identity-client-ID>`                     |
+
 ---
 
 #### Sample code
@@ -295,6 +314,16 @@ After created a `springboot` client type connection, Service Connector service w
 | `AZURE_MYSQL_PASSWORD`          | Database password | `<MySQL-DB-password>`                      |
 | `AZURE_MYSQL_SSLMODE`           | SSL option        | `required`                                 |
 
+#### [Other](#tab/none)
+| Default environment variable name | Description       | Example value                                |
+| --------------------------------- | ----------------- | -------------------------------------------- |
+| `AZURE_MYSQL_HOST`              | Database host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| `AZURE_MYSQL_USERNAME`          | Database username | `MySQL-DB-username`                        |
+| `AZURE_MYSQL_PASSWORD`          | Database password | `MySQL-DB-password`                        |
+| `AZURE_MYSQL_DATABASE`          | Database name     | `<database-name>`                          |
+| `AZURE_MYSQL_PORT`              | Port number       | `3306`                                     |
+| `AZURE_MYSQL_SSL`               | SSL option        | `true`                                     |
+
 ---
 
 #### Sample code
@@ -350,7 +379,7 @@ Refer to the steps and code below to connect to Azure Database for MySQL using a
 | --------------------------------- | ------------------ | -------------------------------------------- |
 | `AZURE_MYSQL_NAME`              | Database name      | `MySQL-DB-name`                            |
 | `AZURE_MYSQL_HOST`              | Database host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
-| `AZURE_MYSQL_USER `             | Database username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
+| `AZURE_MYSQL_USER`             | Database username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_CLIENTID`          | Your client ID     | `<client-ID>`                              |
 | `AZURE_MYSQL_CLIENTSECRET`      | Your client secret | `<client-secret>`                          |
 | `AZURE_MYSQL_TENANTID`          | Your tenant ID     | `<tenant-ID>`                              |
@@ -368,10 +397,10 @@ Refer to the steps and code below to connect to Azure Database for MySQL using a
 
 | Default environment variable name | Description        | Example value                                |
 | --------------------------------- | ------------------ | -------------------------------------------- |
-| `AZURE_MYSQL_HOST `             | Database host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
+| `AZURE_MYSQL_HOST`             | Database host URL  | `<MySQL-DB-name>.mysql.database.azure.com` |
 | `AZURE_MYSQL_USER`              | Database username  | `MySQL-DB-username`                        |
 | `AZURE_MYSQL_DATABASE`          | Database name      | `<database-name>`                          |
-| `AZURE_MYSQL_PORT `             | Port number        | `3306`                                     |
+| `AZURE_MYSQL_PORT`             | Port number        | `3306`                                     |
 | `AZURE_MYSQL_SSL`               | SSL option         | `true`                                     |
 | `AZURE_MYSQL_CLIENTID`          | Your client ID     | `<client-ID>`                              |
 | `AZURE_MYSQL_CLIENTSECRET`      | Your client secret | `<client-secret>`                          |
@@ -399,6 +428,18 @@ Refer to the steps and code below to connect to Azure Database for MySQL using a
 | `AZURE_MYSQL_USERNAME`          | Database username  | `<MySQL-DB-username>@<MySQL-DB-name>`      |
 | `AZURE_MYSQL_SSLMODE`           | SSL option         | `required`                                 |
 | `AZURE_MYSQL_CLIENTID`          | Your client ID     | `<client-ID>`                              |
+| `AZURE_MYSQL_CLIENTSECRET`      | Your client secret | `<client-secret>`                          |
+| `AZURE_MYSQL_TENANTID`          | Your tenant ID     | `<tenant-ID>`                              |
+
+#### [Other](#tab/none)
+| Default environment variable name | Description       | Example value                                |
+| --------------------------------- | ----------------- | -------------------------------------------- |
+| `AZURE_MYSQL_HOST`              | Database host URL | `<MySQL-DB-name>.mysql.database.azure.com` |
+| `AZURE_MYSQL_USERNAME`              | Database username | `MySQL-DB-username`                        |
+| `AZURE_MYSQL_DATABASE`          | Database name     | `<database-name>`                          |
+| `AZURE_MYSQL_PORT`              | Port number       | `3306`                                     |
+| `AZURE_MYSQL_SSL`               | SSL option        | `true`                                     |
+| `AZURE_MYSQL_CLIENTID`          | Your client ID     | `<identity-client-ID>`                     |
 | `AZURE_MYSQL_CLIENTSECRET`      | Your client secret | `<client-secret>`                          |
 | `AZURE_MYSQL_TENANTID`          | Your tenant ID     | `<tenant-ID>`                              |
 

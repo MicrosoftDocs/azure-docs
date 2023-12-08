@@ -56,7 +56,7 @@ To take advantage of the GPU capabilities of your lab VMs, ensure that the appro
 When you select **Install GPU drivers**, it ensures that recently released drivers are installed for the type of GPU and image that you selected.
 
 - When you select the Small GPU *(Compute)* size, your lab VMs are powered by the [NVIDIA Tesla V100 GPU](https://www.nvidia.com/en-us/data-center/v100/) GPU.  In this case, recent Compute Unified Device Architecture (CUDA) drivers are installed, which enables high-performance computing.
-- When you select the Small GPU *(Visualization)* size, your lab VMs are powered by the [AMD Radeon Instinct MI25 Accelerator GPU](https://www.amd.com/en/products/professional-graphics/instinct-mi25).  In this case, recent AMD GPU drivers are installed, which enables the use of graphics-intensive applications.
+- When you select the Small GPU *(Visualization)* size, your lab VMs are powered by the AMD Radeon Instinct MI25 Accelerator GPU.  In this case, recent AMD GPU drivers are installed, which enables the use of graphics-intensive applications.
 - When you select the Medium GPU *(Visualization)* size, your lab VMs are powered by the [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU and [GRID technology](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  In this case, recent GRID drivers are installed, which enables the use of graphics-intensive applications.
 
 > [!IMPORTANT]

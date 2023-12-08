@@ -166,9 +166,9 @@ Included in the user risk detection is a check whether the user's credentials ma
 
 <a name='integrate-microsoft-365-defender-with-azure-ad-identity-protection'></a>
 
-### Integrate Microsoft 365 Defender with Microsoft Entra ID Protection
+### Integrate Microsoft Defender XDR with Microsoft Entra ID Protection
 
-For Identity Protection to be able to perform the best risk detection possible, it needs to get as many signals as possible. It’s therefore important to integrate the complete suite of Microsoft 365 Defender services:
+For Identity Protection to be able to perform the best risk detection possible, it needs to get as many signals as possible. It’s therefore important to integrate the complete suite of Microsoft Defender XDR services:
 
 - Microsoft Defender for Endpoint
 - Microsoft Defender for Office 365
