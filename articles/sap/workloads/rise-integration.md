@@ -36,7 +36,7 @@ SAP RISE customers in Azure have the SAP landscape run by SAP in an Azure subscr
 As part of your RISE project, document the interfaces and transfer points between your own Azure environment, SAP workload managed by SAP RISE and on-premises. Such document needs to include network information such as address space, firewall(s) and routing, file shares, Azure services, DNS and others. Document ownership of any interface partner and where any resource is running, to access this information quickly in a troubleshooting and support situation. Contact SAPs support organization for services running in SAP's Azure subscriptions.
 
 > [!IMPORTANT]
-> For all details about RISE with SAP Enterprise Cloud Services and SAP S/4HANA Cloud private edition, contact your SAP representative.
+> For all details about RISE with SAP and SAP S/4HANA Cloud private edition, contact your SAP representative.
 
 ## RISE architecture
 
