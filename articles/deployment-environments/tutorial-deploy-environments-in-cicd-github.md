@@ -11,13 +11,13 @@ ms.date: 12/07/2023
 
 # Tutorial: Deploy environments in CI/CD by using GitHub and Azure Deployment Environments
 
-In this tutorial, you'll Learn how to integrate Azure Deployment Environments into your CI/CD pipeline. You can use any GitOps provider that supports CI/CD, like GitHub Actions, Azure Arc, GitLab, or Jenkins.
+In this tutorial, you'll learn how to integrate Azure Deployment Environments into your CI/CD pipeline. You can use any GitOps provider that supports CI/CD, like GitHub Actions, Azure Arc, GitLab, or Jenkins.
 
 Continuous integration and continuous delivery (CI/CD) is a software development approach that helps teams to automate the process of building, testing, and deploying software changes. CI/CD enables you to release software changes more frequently and with greater confidence. 
 
 You use a workflow that features three branches: main, dev, and test.
 
-- The  *main* branch is always considered production.
+- The *main* branch is always considered production.
 - You create feature branches from the *main* branch.
 - You create pull requests to merge feature branches into *main*.
 
@@ -361,12 +361,12 @@ You can protect important branches by setting branch protection rules. Protectio
 
     | Variable name         | Variable value               |
     | --------------------- | ---------------------------- |
-    | AZURE_DEVCENTER       | <devcenterName>              |
-    | AZURE_PROJECT         | <projectName>                |
+    | AZURE_DEVCENTER       | <dev center name>              |
+    | AZURE_PROJECT         | <project name>                |
     | AZURE_CATALOG         | Set to: _Environments_       |
     | AZURE_CATALOG_ITEM    | Set to: _FunctionApp_        |
-    | AZURE_SUBSCRIPTION_ID | <AzureSubscriptionId>        |
-    | AZURE_TENANT_ID       | <AzureTenantId>              |
+    | AZURE_SUBSCRIPTION_ID | <Azure subscription ID>        |
+    | AZURE_TENANT_ID       | <Azure tenant ID>              |
 
     :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-variables.png" alt-text="Screenshot showing the variables page with the variables table." lightbox="media/tutorial-deploy-environments-in-cicd-github/github-variables.png":::
 
