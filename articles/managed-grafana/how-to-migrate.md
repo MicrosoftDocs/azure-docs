@@ -3,7 +3,7 @@ title: Migrate a self-hosted Grafana to Azure Managed Grafana
 titlesuffix: Azure Managed Grafana
 description: Learn how to migrate a self-hosted Grafana to Azure Managed Grafana to reuse your already set-up data sources and dashboards.
 ms.service: managed-grafana
-ms.topic: tutorial
+ms.topic: how-to
 author: maud-lv
 ms.author: malev
 ms.date: 12/06/2023
@@ -11,21 +11,18 @@ ms.date: 12/06/2023
 # self-managed, self-hosted, Grafana Cloud
 --- 
 
-# Tutorial: Migrate a self-hosted Grafana workspace to Azure Managed Grafana
+# Migrate a self-hosted Grafana workspace to Azure Managed Grafana
 
-This tutorial shows how to migrate a self-managed Grafana workspace to Azure Managed Grafana, by moving your data sources and dashboards to your new workspace.
+This guide shows how to migrate a self-managed Grafana workspace to Azure Managed Grafana, by moving your data sources and dashboards to your new workspace.
 
-In this tutorial, you learn how to:
+This guide walks you through the process of exporting self-hosted Grafana dashboards, importing them into Azure Managed Grafana, adding data source plugins, and configuring your data sources in your new workspace.
 
-> [!div class="checklist"]
-> * Export self-hosted Grafana dashboards
-> * Import Grafana dashboards into Azure Managed Grafana
-> * Add data source plugins
-> * Configure your data sources
+> [!NOTE]
+> Some of the instructions presented in this tutorial vary slightly depending on the version of Grafana used. This tutorial uses Grafana 10.
 
 ## Prerequisites
 
-[An Azure Managed Grafana instance](./how-to-permissions.md)
+[An Azure Managed Grafana workspace](./how-to-permissions.md)
 
 ## Export your local Grafana dashboards
 
@@ -54,7 +51,7 @@ Create a new dashboard in Azure Managed Grafana by importing the JSON files you 
 
 1. Select **Import** to save the dashboard. Repeat this process for each dashboard you want to import.
 
-    :::image type="content" source="media/migration/import-json.png" alt-text="Screenshot of the Grafana UI in the Azure Managed Grafana workspace. The image shows the + and Import dashboard buttons at the top of the page.":::
+    :::image type="content" source="media/migration/import-json.png" alt-text="Screenshot of the Grafana UI in the Azure Managed Grafana workspace. The image shows the import option.":::
 
 For more information about how to create and edit dashboards, go to [Create a dashboard in Azure Managed Grafana](how-to-create-dashboard.md).
 
