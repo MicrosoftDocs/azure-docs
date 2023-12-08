@@ -6292,7 +6292,7 @@
         ,
         {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-onboard.md",
-            "redirect_url": "/azure/azure-monitor/containers/enable-kubernetes-monitoring",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
             "redirect_document_id": false
         },        
         {

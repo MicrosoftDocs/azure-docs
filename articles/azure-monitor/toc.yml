@@ -464,7 +464,7 @@ items:
         href: containers/kubernetes-monitoring-enable.md
       - name: Firewall requirements
         displayName: Container insights, Prometheus
-        href: containers/container-insights-firewall.md
+        href: containers/kubernetes-monitoring-firewall.md
       - name: Agent management
         href: containers/container-insights-manage-agent.md
       - name: Disable monitoring

@@ -9,7 +9,7 @@ ms.reviewer: viviandiec
 
 # Container insights overview
 
-Container insights is a feature of Azure Monitor that collects and analyzes container logs from [Azure Kubernetes clusters](../../aks/intro-kubernetes.md) or [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) clusters and their components.  You can analyze the collected data for the different components in your cluster with a collection of [views](container-insights-analyze.md) and pre-built [workbooks](container-insights-reports.md). Container insights works with [Azure Monitor managed service for Prometheus](../essentials/prometheus-metricds-overview.md) for complete monitoring of your Kubernetes environment.
+Container insights is a feature of Azure Monitor that collects and analyzes container logs from [Azure Kubernetes clusters](../../aks/intro-kubernetes.md) or [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) clusters and their components.  You can analyze the collected data for the different components in your cluster with a collection of [views](container-insights-analyze.md) and pre-built [workbooks](container-insights-reports.md). Container insights works with [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) for complete monitoring of your Kubernetes environment.
 
 
 > [!IMPORTANT]
