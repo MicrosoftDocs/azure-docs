@@ -215,12 +215,7 @@ sections:
       - question: |
           What are the known limitations of GPT-4 Turbo with Vision?
         answer: |
-          While GPT-4 Turbo with Vision is powerful and can be used in many situations, it is important to understand the limitations of the model. Here are some of the limitations we are aware of:
-          - If multiple images are uploaded in one message, Vision enhancement won't be available.
-          - Image type `image_hr` is no longer allowed in request payload.
-          - If you upload more than 9 high resolution or more than 20 low resolution images per chat, you may encounter errors.
-          - Max allowed size of input images is 4 MB.
-          - Although images provided as input to chat API are treated as high resolution images by default, GPT-4 Turbo with Vision will down-sample it to (2048, 2048) resolution. The high resolution feature might not work as expected if a very high resolution image exceeding (2048, 2048) is provided.
+          See the [limitations](./how-to/gpt-with-vision.md#limitations) section of the GPT-4 Turbo with Vision how-to guide.
 
   - name: Web app
     questions:
