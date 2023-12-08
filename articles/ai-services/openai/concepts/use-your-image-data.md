@@ -55,10 +55,10 @@ In the pane that appears after you select **Add a data source**, you'll see mult
 You have three different options to add your data for GPT-4V’s data source: 
 
 * Using [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)  
-* Using [Azure Cognitive Search](/azure/search/search-what-is-azure-search) 
+* Using [Azure AI Search](/azure/search/search-what-is-azure-search) 
 * Uploading your image files and image metadata 
 
-All three options use Azure Cognitive Search index to do image-to-image search and retrieve the top search results for your input prompt image. For Azure Blob Storage and Upload files options, Azure OpenAI will generate an image search index for you. For Azure Cognitive Search, you need to have an image search index. The following sections contain details on how to create the search index.  
+All three options use Azure AI Search index to do image-to-image search and retrieve the top search results for your input prompt image. For Azure Blob Storage and Upload files options, Azure OpenAI will generate an image search index for you. For Azure AI Search, you need to have an image search index. The following sections contain details on how to create the search index.  
 
 ## Add your data by uploading files
 
@@ -69,7 +69,7 @@ You can manually upload your image files and enter metadata of them manually, us
 1. If you have not enabled CORS yet, you might see this red notice asking you to turn on CORS. For Azure OpenAI to access your blob storage account, you need to turn on Cross-origin resource sharing (CORS). If [CORS](#turn-on-cors) isn't already turned on for your resource, you will see a warning. To fix the warning, select **Turn on CORS**. 
 
 
-1. Select your subscription. Select an Azure Blob storage to which your uploaded image files will be stored to. Select an Azure Cognitive Search resource in which your new image search index will be created. Enter the image search index name of your choice.
+1. Select your subscription. Select an Azure Blob storage to which your uploaded image files will be stored to. Select an Azure AI Search resource in which your new image search index will be created. Enter the image search index name of your choice.
 
     Once you have filled out all the fields, check the two boxes at the bottom acknowledging the incurring usage, and select **Next**.
 
@@ -125,36 +125,36 @@ After you have a blob storage populated with image files and at least one metada
 
 1. Navigate to the **Select a data source** button in Azure OpenAI as [described above](#add-your-data-source). Select **Azure Blob Storage**.
 
-1. Select your subscription, Azure Blob storage, and storage container. You'll also need to select an Azure Cognitive Search resource, as a new image search index will be created in this resource group. If you don't have an Azure Cognitive Search resource, you can create a new one using the link below the dropdown. If [CORS](#turn-on-cors) isn't already turned on for the Azure Blob storage resource, you will see a warning. To fix the warning, select **Turn on CORS**. 
+1. Select your subscription, Azure Blob storage, and storage container. You'll also need to select an Azure AI Search resource, as a new image search index will be created in this resource group. If you don't have an Azure AI Search resource, you can create a new one using the link below the dropdown. If [CORS](#turn-on-cors) isn't already turned on for the Azure Blob storage resource, you will see a warning. To fix the warning, select **Turn on CORS**. 
 
-1. Once you've selected an Azure Cognitive search resource, enter a name for the search index in the **Index name** field.   
+1. Once you've selected an Azure AI search resource, enter a name for the search index in the **Index name** field.   
 
     > [!NOTE]
     > The name of the index will be suffixed with `–v`, to indicate that this is an index with image vectors extracted from the images provided. The description filed in the metadata.json will be added as text metadata in the index.
 
-1. After you've filled in all fields, select the two checkboxes at the bottom asking you to acknowledge the charges incurred from using GPT-4V vector embeddings and Azure Cognitive Search. Select **Next**.
+1. After you've filled in all fields, select the two checkboxes at the bottom asking you to acknowledge the charges incurred from using GPT-4V vector embeddings and Azure AI Search. Select **Next**.
 
     :::image type="content" source="../media/use-your-image-data/data-source-fields-blob-storage.png" alt-text="A screenshot showing the data source selection fields for blob storage." lightbox="../media/use-your-image-data/data-source-fields-blob-storage.png":::
 
 1. Review the details, then select **Save and close**.
 
-## Add your data using Azure Cognitive Search
+## Add your data using Azure AI Search
 
-If you have an existing Azure Cognitive search index, you can use it as a data source. If you don't already have a search index created for your images, you can create one using the [Cognitive Search vector search repository on GitHub](https://github.com/Azure/cognitive-search-vector-pr), which provides you with scripts to create an index with your image files.
+If you have an existing Azure AI search index, you can use it as a data source. If you don't already have a search index created for your images, you can create one using the [AI Search vector search repository on GitHub](https://github.com/Azure/cognitive-search-vector-pr), which provides you with scripts to create an index with your image files.
 
-1. Navigate to the **Select a data source** button in Azure OpenAI as [described above](#add-your-data-source). Select **Azure Cognitive Search**. 
+1. Navigate to the **Select a data source** button in Azure OpenAI as [described above](#add-your-data-source). Select **Azure AI Search**. 
 
     > [!TIP]
     > You can select an image search index that you have created with the Azure Blob Storage or Upload files options.  
  
-1. Select your subscription, and the Azure Cognitive Search service you used to create the image search index.
+1. Select your subscription, and the Azure AI Search service you used to create the image search index.
 
-1. Select your Azure Cognitive Search index you have created with your images.
+1. Select your Azure AI Search index you have created with your images.
 
-1. After you have filled in all fields, select the two checkboxes at the bottom asking you to acknowledge the charges incurred from using GPT-4V vector embeddings and Azure Cognitive Search. Select **Next**. If [CORS](#turn-on-cors) isn't already turned on for the Cognitive Search resource, you will see a warning. To fix the warning, select **Turn on CORS**. 
+1. After you have filled in all fields, select the two checkboxes at the bottom asking you to acknowledge the charges incurred from using GPT-4V vector embeddings and Azure AI Search. Select **Next**. If [CORS](#turn-on-cors) isn't already turned on for the AI Search resource, you will see a warning. To fix the warning, select **Turn on CORS**. 
 
 
-    :::image type="content" source="../media/use-your-image-data/completed-data-source-cognitive-search.png" alt-text="A screenshot showing the completed fields for using an Azure Cognitive Search index." lightbox="../media/use-your-image-data/completed-data-source-cognitive-search.png":::
+    :::image type="content" source="../media/use-your-image-data/completed-data-source-cognitive-search.png" alt-text="A screenshot showing the completed fields for using an Azure AI Search index." lightbox="../media/use-your-image-data/completed-data-source-cognitive-search.png":::
 
 1. Review the details, then select **Save and close**.
 
