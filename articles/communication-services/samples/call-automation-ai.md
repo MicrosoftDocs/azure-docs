@@ -30,10 +30,10 @@ In this sample, we'll cover off what this sample does and what you need as pre-r
 [!INCLUDE [ACS Call Automation OpenAI java sample](./includes/call-automation-ai-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-java"
+::: zone pivot="programming-language-javascript"
 [!INCLUDE [ACS Call Automation OpenAI javascript sample](./includes/call-automation-ai-javascript.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-java"
+::: zone pivot="programming-language-python"
 [!INCLUDE [ACS Call Automation OpenAI python sample](./includes/call-automation-ai-python.md)]
 ::: zone-end
