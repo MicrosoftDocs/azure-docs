@@ -46,7 +46,7 @@ Azure AI Studio preview is currently not available in Azure Government regions o
 
 ## Speech capabilities
 
-Speech capabilities vary in availability by region due to underlying hardware availability. See [Speech service supported regions](../ai-services/speech-service/regions) for an overview.
+Speech capabilities vary in availability by region due to underlying hardware availability. See [Speech service supported regions](../../ai-services/speech-service/regions) for an overview.
 
 ## Next steps
 
