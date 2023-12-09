@@ -2,8 +2,7 @@
 title: Overview - Oracle Database@Azure 
 description: Learn about Oracle Database@Azure.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle
 ms.collection: linux
 ms.topic: article
 ms.date: 12/6/2023
@@ -14,7 +13,7 @@ ms.author: jacobjaygbay
 
 # Overview - Oracle Database@Azure 
 
-Oracle Database@Azure is an Oracle Database service available in your Azure environment. The service uses hardware colocated in Microsoft Azure data centers. colocation ensures that the Oracle Database@Azure service has the fastest possible access to Azure resources and applications.
+Oracle Database@Azure is an Oracle Database service available in your Azure environment. The service uses hardware collocated in Microsoft Azure data centers. colocation ensures that the Oracle Database@Azure service has the fastest possible access to Azure resources and applications.
 
 As an Azure customer, you subscribe to this service inside your Azure environment, as you do with other Azure services. Like other Azure services, Oracle Database@Azure systems use an Azure Virtual Network  for networking, managed within Azure. The service uses the Azure tenancy's identity management and authorization, which can be either the Azure identity service or a federated identity provider.
 
