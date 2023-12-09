@@ -14,7 +14,7 @@ ms.author: eur
 
 # Azure AI Studio feature availability across clouds regions
 
-In this article, you'll learn what Azure AI Studio features are available across cloud regions. 
+Azure AI Studio brings together various Azure AI capabilities that previously were only available as standalone Azure services. While we strive to make all features available in all regions where Azure AI Studio is supported at the same time, feature availability may vary by region. In this article, you'll learn what Azure AI Studio features are available across cloud regions.  
 
 ## Azure Public regions
 
@@ -43,6 +43,10 @@ Azure AI Studio is currently available in preview in the following Azure regions
 ## Azure Government regions   
 
 Azure AI Studio preview is currently not available in Azure Government regions or air-gap regions.
+
+## Speech capabilities
+
+Speech capabilities vary in availability by region due to underlying hardware availability. See [Speech service supported regions](../ai-services/speech-service/regions) for an overview.
 
 ## Next steps
 
