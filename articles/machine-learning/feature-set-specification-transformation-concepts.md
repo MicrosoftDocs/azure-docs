@@ -102,7 +102,7 @@ df2 = FeatureTransformer._transform(df1)
 feature_set_df = df2.filter(df2["timestamp"] >= feature_window_start_ts && df2["timestamp"] < feature_window_end_ts)
 ```
 
-:::image type="content" source="media/featureset-specification-transformation-concepts/featureset-specification-example.png" lightbox="media/featureset-specification-transformation-concepts/illustration-source-lookback.png" alt-text="Illustration showing feature set specification and corresponding transformations applied on source data to produce feature dataframe.":::
+:::image type="content" source="./media/feature-set-specification-transformation-concepts/feature-set-specification-example.png" lightbox="./media/feature-set-specification-transformation-concepts/feature-set-specification-example.png" alt-text="Illustration showing feature set specification and corresponding transformations applied on source data to produce feature dataframe.":::
 
 ### Output schema of the feature transformer function
 
@@ -114,7 +114,7 @@ The transform function outputs a dataframe, which includes these values in its s
 
 ## Implement feature transformer for common types of transformations
 
-### Row-level Transformation
+### Row-level transformation
 
 In a row-level transformation, a feature value calculation on a specific row only uses column values of that row. Start with this source data:
 
@@ -207,7 +207,7 @@ This shows its calculated feature values:
 
 The feature value calculations use columns on the current row, combined with preceding row columns within the range.
 
-### Tumbling Window Aggregation
+### Tumbling window aggregation
 
 A tumbling window can aggregate data on time-series data. Group the data into fixed-size, nonoverlapping and continuous time windows, and then aggregate it. For example, users can define features based on daily or hourly aggregation. Use the `pyspark.sql.functions.window` function to define a tumbling window, for consistent results. The output feature `timestamp` should align with the end of each tumbling window.
 
@@ -252,7 +252,7 @@ This shows its calculated feature values:
 | 1 | 2022-12-11 23:59:59 | 10.00 |
 | 2 | 2022-12-12 23:59:59 | 33.00 |
 
-### Stagger Window Aggregation
+### Stagger window aggregation
 
 Stagger window aggregation is a minor variant of the tumbling window aggregation. Stagger window aggregation groups the data into fixed-size windows. However, the windows can overlap each other. For this, use `pyspark.sql.functions.window`, with a `slideDuration` smaller than `windowDuration`.
 
@@ -331,7 +331,7 @@ Data leakage in the feature transformation definition can lead to these problems
 
 For time-series (sliding/tumbling/stagger window aggregation) data aggregations, properly set the `source_lookback` property. This diagram shows the relationship between the source data window and the feature window in the feature (set) calculation:
 
-:::image type="content" source="media/featureset-specification-transformation-concepts/illustration-source-lookback.png" lightbox="media/featureset-specification-transformation-concepts/illustration-source-lookback.png" alt-text="Illustration showing the concept of source_lookback.":::
+:::image type="content" source="./media/feature-set-specification-transformation-concepts/illustration-source-lookback.png" lightbox="./media/feature-set-specification-transformation-concepts/illustration-source-lookback.png" alt-text="Illustration showing the concept of source_lookback.":::
 
 Define `source_lookback` as a time delta value, which presents the range of source data needed for a feature value of a given timestamp. This example shows the recommended `source_lookback` values for the common transformation types:
 
@@ -346,4 +346,4 @@ Incorrect `source_lookback` settings can lead to incorrect calculated/materializ
 ## Next steps
 
 - [Tutorial 1: Develop and register a feature set with managed feature store](./tutorial-get-started-with-feature-store.md)
-- [GitHub Sample Repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/featurestore_sample)
+- [GitHub Sample Repository](~/azureml-examples-main/sdk/python/featurestore_sample)

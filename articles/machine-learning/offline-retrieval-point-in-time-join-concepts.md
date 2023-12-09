@@ -20,7 +20,7 @@ A *point-in-time*, or temporal, join helps address data leakage. In the model tr
 
 The next illustration explains how feature store point-in-time joins work:
 
-- The observation data has two labeled events, `L0` and `L1`. The two events occurred at times `t0` and `t1` respectively. 
+- The observation data has two labeled events, `L0` and `L1`. The two events occurred at times `t0` and `t1` respectively.
 - A training sample is created from this observation data with a point-in-time join. For each observation event, the feature value from its most recent previous event time (`t0` and `t1`) is joined with the event.
 
 :::image type="content" source="media/offline-retrieval-point-in-time-join/point-in-time-join.png" lightbox="media/offline-retrieval-point-in-time-join/point-in-time-join.png" alt-text="Illustration that shows a simple point-in-time join.":::
@@ -79,4 +79,4 @@ When `temporal_join_lookback` is set, set it duration time greater than `source_
 ## Next steps
 
 - [Tutorial 1: Develop and register a feature set with managed feature store](./tutorial-get-started-with-feature-store.md)
-- [GitHub Sample Repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/featurestore_sample)
+- [GitHub Sample Repository](~/azureml-examples-main/sdk/python/featurestore_sample)

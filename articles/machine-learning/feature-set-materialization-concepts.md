@@ -22,7 +22,7 @@ Without materialization, a feature set offline query applies the transformations
 
 The **Materialization jobs** UI shows the data materialization status in offline and online materialization stores, and a list of materialization jobs.
 
-:::image type="content" source="media/featureset-materialization-concepts/feature-set-materialization-ui.png" lightbox="media/featureset-materialization-concepts/feature-set-materialization-ui.png" alt-text="Screenshot showing the feature set materialization jobs user interface.":::
+:::image type="content" source="./media/feature-set-materialization-concepts/feature-set-materialization-ui.png" lightbox="./media/feature-set-materialization-concepts/feature-set-materialization-ui.png" alt-text="Screenshot showing the feature set materialization jobs user interface.":::
 
 In a feature window:
 
@@ -155,7 +155,7 @@ az ml feature-set backfill --by-job-id <JOB_ID_OF_FAILED_MATERIALIZATION_JOB> --
 ```
 ---
 
-You can submit a backfill job with the job ID of a failed or canceled materialization job. In this case, the *feature window* data status for the original failed or canceled materialization job should be `Incomplete`. If this condition isn't met, the backfill job by ID results in a user error. For example, a failed materialization job might have a *feature window* start time `2023-04-01T04:00:00.000` value, and an end time `2023-04-09T04:00:00.000` value. A backfill job submitted using the ID of this failed job succeeds only if the data status everywhere, in the time range `2023-04-01T04:00:00.000` to `2023-04-09T04:00:00.000`, is `Incomplete`.  
+You can submit a backfill job with the job ID of a failed or canceled materialization job. In this case, the *feature window* data status for the original failed or canceled materialization job should be `Incomplete`. If this condition isn't met, the backfill job by ID results in a user error. For example, a failed materialization job might have a *feature window* start time `2023-04-01T04:00:00.000` value, and an end time `2023-04-09T04:00:00.000` value. A backfill job submitted using the ID of this failed job succeeds only if the data status everywhere, in the time range `2023-04-01T04:00:00.000` to `2023-04-09T04:00:00.000`, is `Incomplete`.
 
 ## Guidance and best practices
 
@@ -163,7 +163,7 @@ You can submit a backfill job with the job ID of a failed or canceled materializ
 
 The `source_delay` property for the source data indicates the delay between the acquisition time of consumption-ready data, compared to the event time of data generation. An event that happened at time `t` lands in the source data table at time `t + x`, because of the upstream data pipeline latency. The `x` value is the source delay.
 
-:::image type="content" source="media/featureset-materialization-concepts/illustration-source-delay.png" lightbox="media/featureset-materialization-concepts/illustration-source-delay.png" alt-text="Illustration that shows the source_delay concept.":::
+:::image type="content" source="./media/feature-set-materialization-concepts/illustration-source-delay.png" lightbox="./media/feature-set-materialization-concepts/illustration-source-delay.png" alt-text="Illustration that shows the source_delay concept.":::
 
 For proper set-up, the recurrent materialization job schedule accounts for latency. The recurrent job produces features for the `[schedule_trigger_time - source_delay - schedule_interval, schedule_trigger_time - source_delay)` time window.
 
@@ -221,4 +221,4 @@ In this case, submit a materialization request in the feature window for `data_s
 ## Next steps
 
 - [Tutorial 1: Develop and register a feature set with managed feature store](./tutorial-get-started-with-feature-store.md)
-- [GitHub Sample Repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/featurestore_sample)
+- [GitHub Sample Repository](~/azureml-examples-main/sdk/python/featurestore_sample)
