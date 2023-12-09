@@ -24,7 +24,7 @@ This article explains how to deploy microservice applications to Azure Spring Ap
 
 The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on Azure Spring Apps enterprise plan.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-enterprise-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on Azure Spring Apps enterprise plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-enterprise-architecture.png" border="false":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-enterprise-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on Azure Spring Apps enterprise plan." border="false":::
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
@@ -45,7 +45,7 @@ The diagram shows the following architectural flows and relationships of the Pet
 
 The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on Azure Spring Apps standard plan.
 
-:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on Azure Spring Apps standard plan." lightbox="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" border="false":::
+:::image type="content" source="media/quickstart-deploy-microservice-apps/petclinic-standard-architecture.png" alt-text="Diagram showing the architecture of the PetClinic sample on Azure Spring Apps standard plan." border="false":::
 
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
