@@ -14,7 +14,7 @@ ms.date: 02/16/2023
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/Azure-database-for-mysql-flexible-server-abstract.md)]
+[!INCLUDE [azure-database-for-mysql-flexible-server-abstract](../includes/Azure-database-for-mysql-flexible-server-abstract.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,7 +26,7 @@ ms.date: 02/16/2023
 
 ## Create server with public access
 
-Create an **azuredeploy.json** file with the following content to create a server using public access connectivity method and also create a database on the server. Update the **firewallRules** default value if needed.
+Create an **azuredeploy.json** file with the following content to create an Azure Database for MySQL flexible server instance using public access connectivity method and also create a database on the server. Update the **firewallRules** default value if needed.
 
 ```json
 {
@@ -256,7 +256,7 @@ Create an **azuredeploy.json** file with the following content to create a serve
 
 ## Create a server with private access
 
-Create an **azuredeploy.json** file with the following content to create a server using private access connectivity method inside a virtual network.
+Create an **azuredeploy.json** file with the following content to create an Azure Database for MySQL flexible server instance using private access connectivity method inside a virtual network.
 
 ```json
 {
@@ -486,7 +486,7 @@ Create an **azuredeploy.json** file with the following content to create a serve
 
 ## Deploy the template
 
-Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+Deploy the JSON file using either Azure CLI or Azure PowerShell.
 
 # [CLI](#tab/CLI)
 
@@ -508,7 +508,7 @@ Follow the instructions to enter the parameter values. When the deployment finis
 
 ## Review deployed resources
 
-Follow these steps to verify if your server was created in the resource group.
+Follow these steps to verify if your Azure Database for MySQL flexible server instance was created in the resource group.
 
 # [CLI](#tab/CLI)
 

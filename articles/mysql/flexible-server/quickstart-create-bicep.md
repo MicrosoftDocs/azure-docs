@@ -14,7 +14,7 @@ ms.date: 02/16/2023
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
+[!INCLUDE [azure-database-for-mysql-flexible-server-abstract](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -26,7 +26,7 @@ ms.date: 02/16/2023
 
 ## Create server with public access
 
-Create a **main.bicep** file and a **CreateFirewallRules.bicep** file with the following content to create a server using public access connectivity method and also create a database on the server. Update the **firewallRules** default value if needed.
+Create a **main.bicep** file and a **CreateFirewallRules.bicep** file with the following content to create an Azure Database for MySQL flexible server instance using public access connectivity method and also create a database on the server. Update the **firewallRules** default value if needed.
 
 **main.bicep**
 
@@ -177,7 +177,7 @@ Save the two Bicep files in the same directly.
 
 ## Create a server with private access
 
-Create an **main.bicep** file with the following content to create a server using private access connectivity method inside a virtual network.
+Create an **main.bicep** file with the following content to create an Azure Database for MySQL flexible server instance using private access connectivity method inside a virtual network.
 
 ```bicep
 @description('Provide a prefix for creating resource names.')
@@ -345,7 +345,7 @@ Follow the instructions to enter the parameter values. When the deployment finis
 
 ## Review deployed resources
 
-Follow these steps to verify if your server was created in the resource group.
+Follow these steps to verify if your Azure Database for MySQL flexible server instance was created in the resource group.
 
 # [CLI](#tab/CLI)
 
@@ -381,7 +381,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
+For a step-by-step tutorial that guides you through the process of creating a Bicep template, see:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create Bicep files with Visual Studio Code](../../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md)
