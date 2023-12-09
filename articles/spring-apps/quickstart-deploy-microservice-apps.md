@@ -30,7 +30,7 @@ The diagram shows the following architectural flows and relationships of the Pet
 
 - Uses Azure Spring Apps to manage the frontend and backend apps, the frontend app is built with Node JS; the backend apps are built with Spring Boot and each app uses HSQLDB as the persistent store.
 - Uses the managed components on Azure Spring Apps, they are Service Registry, Application Configuration Service, Spring Cloud Gateway and Application Live View. The Application Configuration Service reads Git repository configuration.
-- Exposes the URL of Spring Cloud Gateway to load balance requests to backend service apps, and exposes the URL of the Application Live View to monitor the backend apps.
+- Exposes the URL of Spring Cloud Gateway to route request to backend service apps, and exposes the URL of the Application Live View to monitor the backend apps.
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
 
