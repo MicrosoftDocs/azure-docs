@@ -186,7 +186,7 @@ Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network 
 1. Use the *kubectl* command to verify the Layered Network Management operator is running.
 
     ```bash
-    kubectl get pods
+    kubectl get pods -n azure-iot-operations
     ```
 
     ```output
@@ -272,7 +272,7 @@ Create the Layered Network Management custom resource.
 1. View the Layered Network Management Kubernetes service:
 
     ```bash
-    kubectl get services
+    kubectl get services -n azure-iot-operations
     ```
 
     ```output

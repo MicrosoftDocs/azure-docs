@@ -558,29 +558,21 @@ When performing an operation such as calculating averages over events in a given
 **Query**:
 
 ```SQL
-With Temp AS (
-SELECT
-	COUNT(DISTINCT Time) AS CountTime,
-	Value,
-	DeviceId
-FROM
-	Input TIMESTAMP BY Time
-GROUP BY
-	Value,
-	DeviceId,
-	SYSTEM.TIMESTAMP()
+WITH Temp AS (
+	SELECT Value, DeviceId
+	FROM Input TIMESTAMP BY Time
+	GROUP BY Value, DeviceId, System.Timestamp()
 )
+ 
 
 SELECT
-    AVG(Value) AS AverageValue, DeviceId
+	AVG(Value) AS AverageValue, DeviceId
 INTO Output
 FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**COUNT(DISTINCT Time)** returns the number of distinct values in the Time column within a time window. The output of the first step can then be used to compute the average per device, by discarding duplicates.
-
-For more information, see [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics).
+In this example, the second statement projects columns that were referenced in the GROUP BY of the first statement except the time stamp window. 
 
 ## Specify logic for different cases/values (CASE statements)
 
