@@ -420,6 +420,13 @@ sections:
         answer: |
             The Copy API enables this scenario by allowing you to copy custom models from one Document Intelligence account or into others, which can exist in any supported geographical region. Follow [this document](disaster-recovery.md) for detailed instructions. The copy operation is limited to copying models within the specific cloud environment the model was trained in. For instance, copying models from the public cloud to the Azure Government clod isn't supported.
 
+      - question: |
+          Why was I charged for Layout when running custom training?
+        answer: |
+
+         Layout is required to generate lables for your dataset. If the data set you run custom training on does not have label files available, they will be auto-generated for you. 
+
+
   - name: Storage account
     questions:
       - question: |
