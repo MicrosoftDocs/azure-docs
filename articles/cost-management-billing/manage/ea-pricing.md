@@ -51,7 +51,21 @@ If you have an MCA, you must be the billing profile owner, contributor, reader, 
 1. If you want to see prices for the services in the selected invoice, select **Invoice price sheet**.
 1. If you want to see prices for all Azure services for the given billing period, select **Azure price sheet**.  
     :::image type="content" source="./media/ea-pricing/contextmenu-pricesheet01.png" alt-text="Screenshot that shows context menu with price sheets." lightbox="./media/ea-pricing/contextmenu-pricesheet01.png" :::
+1. Azure prepares the price sheet. When the file is ready, it downloads automatically.
 
+### Download usage and price sheet for the current billing period
+
+If you have an MCA, you can download pricing for the current billing period at the billing profile scope.
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Search for *Cost Management + Billing*.
+1. Select a billing profile. Depending on your access, you might need to select a billing account first.
+1. In the left navigation menu, select **Billing profiles**.
+1. On the Billing profiles page, select a billing profile.
+1. At the bottom of the page under **Shortcuts**, select **Download usage and prices**.
+1. On the Downloads page, select **Download Azure price sheet for *Month* *Year***.  
+    :::image type="content" source="./media/ea-pricing/download-price-sheet-month-year.png" alt-text="Screenshot that shows navigation to Download price sheet." lightbox="./media/ea-pricing/download-price-sheet-month-year.png":::
+1. Azure prepares the price sheet. When the file is ready, it downloads automatically.
 
 ## Estimate costs with the Azure pricing calculator
 
