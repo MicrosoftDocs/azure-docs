@@ -6,8 +6,8 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 05/04/2023
-ms.author: normesta
+ms.date: 12/08/2023
+ms.author: nachakra
 ms.custom: engagement-fy23
 ---
 
@@ -184,7 +184,7 @@ To disallow cross-tenant object replication for a storage account, set the **All
 
 If the storage account currently participates in one or more cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* isn't permitted. You must delete the existing cross-tenant policies before you can disallow cross-tenant replication.
 
-By default, the **AllowCrossTenantReplication** property is set false for a storage account created starting Dec 15, 2023. For storage accounts created prior to Dec 15, 2023, when the value of the **AllowCrossTenantReplication** property for a storage account is *null* or *true*, then authorized users can configure cross-tenant object replication policies with this account as the source or destination. For more information about how to configure cross-tenant policies, see [Configure object replication for block blobs](object-replication-configure.md).
+By default, the **AllowCrossTenantReplication** property is set to false for a storage account created starting Dec 15, 2023. For storage accounts created prior to Dec 15, 2023, when the value of the **AllowCrossTenantReplication** property for a storage account is *null* or *true*, then authorized users can configure cross-tenant object replication policies with this account as the source or destination. For more information about how to configure cross-tenant policies, see [Configure object replication for block blobs](object-replication-configure.md).
 
 You can use Azure Policy to audit a set of storage accounts to ensure that the **AllowCrossTenantReplication** property is set to prevent cross-tenant object replication. You can also use Azure Policy to enforce governance for a set of storage accounts. For example, you can create a policy with the deny effect to prevent a user from creating a storage account where the **AllowCrossTenantReplication** property is set to *true*, or from modifying an existing storage account to change the property value to *true*.
 
