@@ -346,4 +346,4 @@ Incorrect `source_lookback` settings can lead to incorrect calculated/materializ
 ## Next steps
 
 - [Tutorial 1: Develop and register a feature set with managed feature store](./tutorial-get-started-with-feature-store.md)
-- [GitHub Sample Repository](~/azureml-examples-main/sdk/python/featurestore_sample)
+- [GitHub Sample Repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/featurestore_sample)

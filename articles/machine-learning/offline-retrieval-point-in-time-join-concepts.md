@@ -55,7 +55,7 @@ This screenshot shows the output of the `get_offline_features` function that per
 
 :::image type="content" source="media/offline-retrieval-point-in-time-join/point-in-time-join-source-delay-output.png" lightbox="media/offline-retrieval-point-in-time-join/point-in-time-join-source-delay-output.png" alt-text="Illustration that shows output of a point-in-time join with source delay.":::
 
-If users don't set the `source_delay` value in the feature set specification, its default value is `0`. This means that no source delay is involved. The `source_delay` value is also considered in recurrent feature materialization. Visit [this](./featureset-materialization-concepts.md) resource for more details about feature set materialization.
+If users don't set the `source_delay` value in the feature set specification, its default value is `0`. This means that no source delay is involved. The `source_delay` value is also considered in recurrent feature materialization. Visit [this](./feature-set-materialization-concepts.md) resource for more details about feature set materialization.
 
 ### The `temporal_join_lookback`
 
@@ -79,4 +79,4 @@ When `temporal_join_lookback` is set, set it duration time greater than `source_
 ## Next steps
 
 - [Tutorial 1: Develop and register a feature set with managed feature store](./tutorial-get-started-with-feature-store.md)
-- [GitHub Sample Repository](~/azureml-examples-main/sdk/python/featurestore_sample)
+- [GitHub Sample Repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/featurestore_sample)

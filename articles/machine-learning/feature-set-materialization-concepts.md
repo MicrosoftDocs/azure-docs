@@ -58,7 +58,7 @@ Before you run a data materialization job, enable the offline and/or online data
 You can submit the data materialization jobs as a:
 
 - backfill job - a manually submitted batch materialization job
-- recurrent materialization job - an automatic materialization job [triggered on a scheduled interval](./featureset-materialization-concepts.md#set-proper-source_delay-and-recurrent-schedule).
+- recurrent materialization job - an automatic materialization job [triggered on a scheduled interval](./feature-set-materialization-concepts.md#set-proper-source_delay-and-recurrent-schedule).
 
 > [!WARNING]
 > Data already materialized in the offline and/or online materialization will no longer be usable if offline and/or online data materialization is disabled at the feature set level. The data materialization status in offline and/or online materialization store will be reset to `None`.
@@ -221,4 +221,4 @@ In this case, submit a materialization request in the feature window for `data_s
 ## Next steps
 
 - [Tutorial 1: Develop and register a feature set with managed feature store](./tutorial-get-started-with-feature-store.md)
-- [GitHub Sample Repository](~/azureml-examples-main/sdk/python/featurestore_sample)
+- [GitHub Sample Repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/featurestore_sample)
