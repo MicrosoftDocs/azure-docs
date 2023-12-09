@@ -153,6 +153,14 @@ In this chat session, you'll be instructing the assistant to aid in understandin
 1. You should receive a relevant response similar to what's shown here:
 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-video-reply-insurance.png" alt-text="Screenshot of the chat playground with the assistant's follow-up reply for video analysis." lightbox="../media/quickstarts/multimodal-vision/chat-car-video-reply-insurance.png":::
+
+Below are the known limitations of the video prompt enhancements.
+
+1. **Low Resolution:** The frames are analyzed using GPT-4 Turbo with Vision's "low resolution" setting, which may affect the accuracy of small object and text recognition in the video.
+2. **Video File Limits:** Both mp4 and mov file types are supported. In the Azure AI Playground, videos must be less than 3 minutes long. When using the API there is no such limitation.
+3. **Prompt Limits:** Video prompts only contain one video and no images. In Playground, you can clear the session to try with another video or images.
+4. **Limited Frame Selection:** Currently the system selects 20 frames from the entire video, which might not capture all critical moments or details. Frame selection can either be approximately evenly spread through the video or focused by a specific a Video Retrieval query, depending on the prompt.
+5. **Language Support:** Currently, the system primarily supports English for grounding with transcripts. Transcripts don't provide accurate information on lyrics from songs.
  
  ---
 
@@ -173,7 +181,7 @@ At any point in the chat session, you can select the **Show raw JSON** option to
 ]
 ```
 
-This has been a walkthrough of GPT-4 Turbo with Vision in the Azure AI Studio chat playground experience.  
+This has been a walkthrough of GPT-4 Turbo with Vision in the Azure AI Studio chat playground experience. 
 
 ## Clean up resources
 
