@@ -123,12 +123,22 @@
       href: how-to/evaluate-prompts-playground.md
     - name: View evaluation results in Azure AI Studio
       href: how-to/evaluate-flow-results.md
+  - name: Fine-tune models
+    items:
+    - name: Fine-tune Llama 2 family models
+      href: how-to/fine-tune-model-llama.md
   - name: Deploy and monitor
     items:
     - name: Deployments overview
       href: concepts/deployments-overview.md
-    - name: Deploy large language models
-      href: how-to/deploy-models.md
+    - name: Deploy Azure OpenAI models
+      href: how-to/deploy-models-openai.md
+    - name: Deploy Llama 2 family models
+      href: how-to/deploy-models-llama.md
+      displayName: maas, as a service
+    - name: Deploy open models
+      href: how-to/deploy-models-open.md
+      displayName: oss, open source
     - name: Monitor quality and safety of deployed applications
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring

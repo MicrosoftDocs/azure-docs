@@ -16,7 +16,7 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-This article describes how to create an Azure AI project in Azure AI studio. A project is used to organize your work and save state while building customized AI apps. 
+This article describes how to create an Azure AI project in Azure AI Studio. A project is used to organize your work and save state while building customized AI apps. 
 
 Projects are hosted by an Azure AI resource that provides enterprise-grade security and a collaborative environment. For more information about the Azure AI projects and resources model, see [Azure AI resources](../concepts/ai-resources.md).
 
