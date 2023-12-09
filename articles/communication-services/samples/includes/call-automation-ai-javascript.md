@@ -11,7 +11,7 @@ ms.custom: include file
 ms.author: kpunjabi
 ---
 
-## Download code 
+## Download code  
 Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/callautomation-openai-sample). You can download this code and run it locally to try it for yourself. 
 
 ## Overview 
@@ -37,7 +37,7 @@ Before running this sample, you need to set up the resources mentioned in the 'P
 
 ##### 1. Setup and host your Azure DevTunnel
 
-[Azure DevTunnels](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/get-started?tabs=windows) is an Azure service that enables you to share local web services hosted on the internet. Use the commands provided in this document to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We'll use this endpoint to notify your application of calling events from the ACS Call Automation service.
+[Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands provided in this document to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We'll use this endpoint to notify your application of calling events from the ACS Call Automation service.
 
 ```bash
 devtunnel create --allow-anonymous
@@ -66,7 +66,7 @@ Open the `.env` file to configure the following settings
 
 1. Open a new PowerShell window, cd into the `callautomation-openai-sample` folder and run `npm run dev`
 2. Browser should pop up with the below page. If not, navigate it to `http://localhost:8080/`
-3. Register an Event Grid Webhook for the IncomingCall Event that points to your DevTunnel URI. Instructions [here](https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/incoming-call-notification).
+3. Register an Event Grid Webhook for the IncomingCall Event that points to your DevTunnel URI. Instructions [here](/azure/communication-services/concepts/call-automation/incoming-call-notification).
 
 Once that's completed, you should have a running application. The best way to test this sample is to place a call to your Azure Communication Services phone number and talk to your intelligent agent.
 
