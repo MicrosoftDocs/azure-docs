@@ -10,6 +10,8 @@
     displayName: applied, cognitive, form recognizer
   - name: Azure AI FAQ
     href: faq.yml
+  - name: Region support
+    href: reference/reference-region-support.md
 - name: Quickstarts
   items:
   - name: Hear and speak with chat in the playground
