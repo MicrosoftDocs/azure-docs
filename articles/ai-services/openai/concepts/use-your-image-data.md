@@ -36,7 +36,7 @@ Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with c
 
 On the **Assistant setup** tile, select **Add your data (preview)** > **+ Add a data source**.
 
-:::image type="content" source="../media/quickstarts/chatgpt-playground-add-your-data.png" alt-text="A screenshot showing the button for adding your data in Azure OpenAI Studio." lightbox="../media/quickstarts/chatgpt-playground-add-your-data.png":::
+:::image type="content" source="../media/use-your-image-data/chatgpt-playground-add-your-data.png" alt-text="A screenshot showing the button for adding your data in Azure OpenAI Studio." lightbox="../media/use-your-image-data/chatgpt-playground-add-your-data.png":::
 
 In the pane that appears after you select **Add a data source**, you'll see multiple options to select a data source.
 
