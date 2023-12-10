@@ -46,7 +46,7 @@ To perform the procedures described in this article, make sure that you have:
 
 - Make sure that your firewall rules are configured as needed for the new version you're updating to.
 
-    For example, the new version may require a new or modified firewall rule to support sensor access to the Azure portal. From the **Sites and sensors** page, select **More actions > Download sensor endpoint details** for the full list of endpoints required to access the Azure portal.
+    For example, the new version might require a new or modified firewall rule to support sensor access to the Azure portal. From the **Sites and sensors** page, select **More actions > Download sensor endpoint details** for the full list of endpoints required to access the Azure portal.
 
     For more information, see [Networking requirements](networking-requirements.md) and [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
@@ -64,7 +64,7 @@ On-premises management software is backwards compatible, and can connect to sens
 
 Select the update method you want to use:
 
-# [Azure portal (Public preview)](#tab/portal)
+# [Azure portal (Preview)](#tab/portal)
 
 This procedure describes how to send a software version update to one or more OT sensors, and then run the updates remotely from the Azure portal. Bulk updates are supported for up to 10 sensors at a time.
 
@@ -88,7 +88,7 @@ This procedure describes how to send a software version update to one or more OT
 
 1. In the **Send package** pane that appears, check to make sure that you're sending the correct software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
-1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, which includes an update progress bar and estimated time remaining message, indicating that the process has started and lets you track its progress. 
+1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, which includes an update progress bar and estimated time remaining message, indicating that the process has started and lets you track its progress.
 
     When the transfer is complete, the **Sensor version** column changes to :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update**.
 
