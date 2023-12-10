@@ -88,7 +88,7 @@ This procedure describes how to send a software version update to one or more OT
 
 1. In the **Send package** pane that appears, check to make sure that you're sending the correct software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
-1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, which includes an update progress bar and estimated time remaining message, indicating that the process has started and lets you track its progress.
+1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, which includes an update progress bar and estimated time remaining message, indicating that the process has started and lets you track its progress. For example:
 
     :::image type="content" source="media/update-ot-software/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column" lightbox="media/update-ot-software/sensor-version-update-bar.png":::
 
@@ -112,7 +112,7 @@ Run the sensor update only when you see the :::image type="icon" source="media/u
 
     :::image type="content" source="media/update-ot-software/sensor-version-install-bar.png" alt-text="Screenshot of the install bar in the Sensor version column" lightbox="media/update-ot-software/sensor-version-install-bar.png":::
 
-    When completed the sensor value switches to the new sensor version number instead.
+    When completed, the sensor value switches to the new sensor version number instead.
 
 If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health) and [Sensor health message reference](sensor-health-messages.md).
 
