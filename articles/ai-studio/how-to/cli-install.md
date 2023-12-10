@@ -18,7 +18,7 @@ ms.author: eur
 
 The Azure AI command-line interface (CLI) is a cross-platform command-line tool to connect to Azure AI services and execute control-plane and data-plane operations without having to write any code. The Azure AI CLI allows the execution of commands through a terminal using interactive command-line prompts or via script. 
 
-You can easily use the Azure AI CLI to experiment with key Azure AI service features and see how they work with your use cases. Within minutes, you can set up all the required Azure resources needed, and build a customized Copilot using OpenAI's chat completions APIs and your own data. You can try it out interactively, or script larger processes to automate your own workflows and evaluations as part of your CI/CD system.
+You can easily use the Azure AI CLI to experiment with key Azure AI features and see how they work with your use cases. Within minutes, you can set up all the required Azure resources needed, and build a customized copilot using Azure OpenAI chat completions APIs and your own data. You can try it out interactively, or script larger processes to automate your own workflows and evaluations as part of your CI/CD system.
 
 ## Prerequisites
 
@@ -36,27 +36,50 @@ The following set of commands are provided for a few popular operating systems.
 
 # [Windows](#tab/windows)
 
-To install the .NET SDK, Azure CLI, and Azure AI CLI, run the following commands in a PowerShell terminal. Skip any that you don't need. 
+To install the .NET SDK, Azure CLI, and Azure AI CLI, run the following command. 
 
 ```bash
 dotnet tool install --prerelease --global Azure.AI.CLI
 ```
 
+To update the Azure AI CLI, run the following command:
+
+```bash
+dotnet tool update --prerelease --global Azure.AI.CLI
+```
+
 # [Linux](#tab/linux)
 
-On Debian and Ubuntu, run:
+To install the .NET SDK, Azure CLI, and Azure AI CLI on Debian and Ubuntu, run the following command:
 
 ```
 curl -sL https://aka.ms/InstallAzureAICLIDeb | bash
 ```
 
-# [macOS](#tab/macos)
-
-On macOS, you can use *homebrew* and *wget*. For example, run the following commands in a terminal:
-
+Alternatively, you can run the following command:
 
 ```bash
 dotnet tool install --prerelease --global Azure.AI.CLI
+```
+
+To update the Azure AI CLI, run the following command:
+
+```bash
+dotnet tool update --prerelease --global Azure.AI.CLI
+```
+
+# [macOS](#tab/macos)
+
+To install the .NET SDK, Azure CLI, and Azure AI CLI on macOS 10.14 or later, run the following command:
+
+```bash
+dotnet tool install --prerelease --global Azure.AI.CLI
+```
+
+To update the Azure AI CLI, run the following command:
+
+```bash
+dotnet tool update --prerelease --global Azure.AI.CLI
 ```
 
 ---
@@ -109,8 +132,8 @@ The following table describes the scenarios for each flow.
 
 | Scenario | Description |
 | --- | --- |
-| Initialize a new AI project | Choose if you don't have an existing AI project that you have been working with in the Azure AI Studio. `ai init` walks you through creating or attaching resources. |
-| Initialize an existing AI project | Choose if you have an existing AI project you want to work with. `ai init` checks your existing linked resources, and ask you to set anything that hasn't been set before. |
+| Initialize a new AI project | Choose if you don't have an existing AI project that you have been working with in the Azure AI Studio. The `ai init` command walks you through creating or attaching resources. |
+| Initialize an existing AI project | Choose if you have an existing AI project you want to work with. The `ai init` command checks your existing linked resources, and ask you to set anything that hasn't been set before. |
 | Initialize standalone resources| Choose if you're building a simple solution connected to a single AI service, or if you want to attach more resources to your development environment |
 
 Working with an AI project is recommended when using the Azure AI Studio and/or connecting to multiple AI services. Projects come with an AI Resource that houses related projects and shareable resources like compute and connections to services. Projects also allow you to connect code to cloud resources (storage and model deployments), save evaluation results, and host code behind online endpoints. You're prompted to create and/or attach Azure AI Services to your project.
@@ -151,11 +174,11 @@ The following resources can be initialized standalone, or attached to projects:
 
 ## Project connections
 
-When working the Azure AI CLI, you'll want to use your project's connections. Connections are established to attached resources and allow you to integrate services with your project. You can have project-specific connections, or connections shared at the Azure AI resource level. For more information, see [Azure AI resources](../concepts/ai-resources.md) and [connections](../concepts/connections.md).
+When working the Azure AI CLI, you want to use your project's connections. Connections are established to attached resources and allow you to integrate services with your project. You can have project-specific connections, or connections shared at the Azure AI resource level. For more information, see [Azure AI resources](../concepts/ai-resources.md) and [connections](../concepts/connections.md).
 
 When you run `ai init` your project connections get set in your development environment, allowing seamless integration with AI services. You can view these connections by running `ai service connection list`, and further manage these connections with `ai service connection` subcommands.
 
-Any updates you make to connections in the AI CLI will be reflected in the AI Studio, and vice versa.
+Any updates you make to connections in the Azure AI CLI is reflected in [Azure AI Studio](https://ai.azure.com), and vice versa.
 
 ## ai dev
 
