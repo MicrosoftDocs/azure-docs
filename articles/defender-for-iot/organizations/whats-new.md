@@ -16,6 +16,18 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## December 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Upgraded progress bar for cloud-based sensor update](#upgraded-progress-bar-for-cloud-based-sensor-update)|
+
+### Upgraded progress bar for cloud-based sensor update
+
+When remote updating a sensor using the Azure Defender for IoT portal a new progress bar and estimated time remaining message display in the **Sensor version** column during the sensor update process. The bar and time is continuously updated without requiring a manual refresh of the webpage<!-- what do we call the portal page/ table?--> so that the user knows that the process has begun correctly, is on going and the process is not stuck or has failed. For example: 
+
+<!-- add image --> :::image type="content" source="{source}" alt-text="{alt-text}" lightbox="":::
+
 ## November 2023
 
 |Service area  |Updates  |
