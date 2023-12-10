@@ -108,7 +108,9 @@ Run the sensor update only when you see the :::image type="icon" source="media/u
 
 1. In the **Update sensor** pane that appears, verify your update details.
 
-    When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing**, an update progress bar and estimated time remaining message appear<!-- add image of this here as well?-->, indicating that the process has started and lets you track progress until the update is complete.
+    When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing**, an update progress bar and estimated time remaining message appear, indicating that the process has started and lets you track progress until the update is complete.
+
+    :::image type="content" source="media/update-ot-software/sensor-version-install-bar.png" alt-text="Screenshot of the install bar in the Sensor version column" lightbox="media/update-ot-software/sensor-version-install-bar.png":::
 
     When completed the sensor value switches to the new sensor version number instead.
 
