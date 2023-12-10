@@ -90,7 +90,9 @@ This procedure describes how to send a software version update to one or more OT
 
 1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, which includes an update progress bar and estimated time remaining message, indicating that the process has started and lets you track its progress.
 
-    When the transfer is complete, the **Sensor version** column changes to :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update**.
+    :::image type="content" source="media/update-ot-software/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column" lightbox="media/update-ot-software/sensor-version-update-bar.png":::
+
+    When the transfer is complete, the **Sensor version** column changes to :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false" ::: **Ready to update**.
 
     Hover over the **Sensor version** value to see the source and target version for your update.
 

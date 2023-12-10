@@ -24,9 +24,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Upgraded progress bar for cloud-based sensor update
 
-When remote updating a sensor using the Azure Defender for IoT portal a new progress bar and estimated time remaining message display in the **Sensor version** column during the sensor update process. The bar and time is continuously updated without requiring a manual refresh of the webpage<!-- what do we call the portal page/ table?--> so that the user knows that the process has begun correctly, is on going and the process is not stuck or has failed. For example:
+When remote updating a sensor, using the Azure Defender for IoT portal, a new progress bar and estimated time remaining message display in the **Sensor version** column during the sensor update process. The bar and time is continuously updated without requiring a manual refresh of the webpage,<!-- what do we call the portal page/ table?--> so that the user knows that the process has begun correctly, is on going and the process is not stuck or has failed. For example:
 
-<!-- add image --> :::image type="content" source="{source}" alt-text="{alt-text}" lightbox="":::
+:::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column" lightbox="media/whats-new/sensor-version-update-bar.png":::
 
 ## November 2023
 
