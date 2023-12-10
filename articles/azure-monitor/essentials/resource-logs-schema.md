@@ -72,7 +72,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Digital Twins | [Set up Azure Digital Twins diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Azure Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Azure ExpressRoute | [Monitoring Azure ExpressRoute](../../expressroute/monitor-expressroute.md#collection-and-routing) |
-| Azure Firewall | [Logging for Azure Firewall](../../firewall/logs-and-metrics.md#diagnostic-logs) |
+| Azure Firewall | [Logging for Azure Firewall](../../firewall/diagnostic-logs.md) |
 | Azure Front Door | [Logging for Azure Front Door](../../frontdoor/front-door-diagnostics.md) |
 | Azure Functions | [Monitoring Azure Functions Data Reference Resource Logs](../../azure-functions/monitor-functions-reference.md#resource-logs) |
 | Azure IoT Hub | [IoT Hub operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |

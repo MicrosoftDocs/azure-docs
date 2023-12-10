@@ -1,15 +1,12 @@
 ---
-title: Azure Functions F# developer reference 
+title: Azure Functions F# script developer reference 
 description: Understand how to develop Azure Functions using F# script.
-author: sylvanc
-
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: syclebsc
 ms.devlang: fsharp
 ---
-# Azure Functions F# Developer Reference
+# Azure Functions F# script developer reference
 
 F# for Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. Data flows into your F# function via function arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens. 
 
