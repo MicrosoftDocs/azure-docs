@@ -149,7 +149,7 @@ Please follow the guidelines mentioned at https://github.com/microsoft/llmops-pr
 
 ### Set up authentication between Azure DevOps and Azure
 
-Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#set-up-authentication-with-azure-and-azure-devops to use the earlier created Service Principal and setup authentication between Azure DevOps and Azure Services. This step configures a new Azure DevOps Service Connection that stores the Service Principal information. The pipelines in the project can read the connection information using the connection name. This helps to configure Azure DevOps steps to connect to Azure automatically with basic configuration steps.
+Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#set-up-authentication-with-azure-and-azure-devops to use the earlier created Service Principal and setup authentication between Azure DevOps and Azure Services. This step configures a new Azure DevOps Service Connection that stores the Service Principal information. The pipelines in the project can read the connection information using the connection name. This helps to configure Azure DevOps pipeline steps to connect to Azure automatically.
 
 
 ### Create an Azure DevOps Variable Group
