@@ -113,8 +113,8 @@ Document Translation data residency depends on the Azure region where your Trans
 |----------------------------------|-----------------------|
 |**Any region within Europe (except Switzerland)**| Europe — North Europe, West Europe|
 |**Switzerland**|Switzerland — Switzerland North, Switzerland West|
-|**Any region within Asia Pacific and Australia**| Asia — Southeast Asia and Australia East|
-|**All other regions including Global, North America, and South America**  | US — East US and West US 2|
+|**Any region within Asia Pacific and Australia**| Asia — Southeast Asia, Australia East|
+|**All other regions including Global, North America, and South America**  | US — East US, West US 2|
 
 ## Next steps
 
