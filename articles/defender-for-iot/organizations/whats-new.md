@@ -28,7 +28,8 @@ When remote updating a sensor, using the Azure Defender for IoT portal, a new pr
 
 :::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column" lightbox="media/whats-new/sensor-version-update-bar.png":::
 
-For more information, see <add xref back to update sensors page>.
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
 ## November 2023
 
 |Service area  |Updates  |
