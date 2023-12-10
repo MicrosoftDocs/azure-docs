@@ -152,8 +152,8 @@ The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-N
 
 
 Example 
-    Install-VMInsights.ps1 -WorkspaceId <WorkspaceId> -WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId> -ResourceGroup <ResourceGroup> 
-    Install-VMInsights.ps1 -WorkspaceId <WorkspaceId> -WorkspaceKey <WorkspaceKey> -SubscriptionId <SubscriptionId> -ResourceGroup <ResourceGroup> -ReInstall 
+    Install-VMInsights.ps1 -WorkspaceId \<WorkspaceId\> -WorkspaceKey \<WorkspaceKey\> -SubscriptionId \<SubscriptionId\> -ResourceGroup \<ResourceGroup\> 
+    Install-VMInsights.ps1 -WorkspaceId \<WorkspaceId\> -WorkspaceKey \<WorkspaceKey\> -SubscriptionId \<SubscriptionId\> -ResourceGroup \<ResourceGroup\> -ReInstall 
      
 
 
