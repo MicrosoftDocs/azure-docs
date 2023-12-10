@@ -21,7 +21,7 @@ You can use guest attestation to:
 - Get evidence for a relying party that the confidential VM runs on confidential hardware
 
 > [!NOTE]
-> To perform guest attestation for preview VMs backed by Intel TDX, a [how-to](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/tdx-preview/tdx-attestation-app/ATTEST.md#performing-remote-attestation) guide is available in this repository.
+> To perform guest attestation for DCesv5 and ECesv5 VMs backed by Intel TDX, a how-to guide is available in [this repository](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/tdx-preview/tdx-attestation-app/ATTEST.md#performing-remote-attestation). Using Intel Trust Authority requires registration with Intel.
 
 ## Scenarios
 
