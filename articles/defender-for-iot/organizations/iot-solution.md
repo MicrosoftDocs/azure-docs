@@ -140,7 +140,7 @@ For more information, see [View alerts on the Defender for IoT portal](how-to-ma
 
 Defender for IoT alert data is streamed to the Microsoft Sentinel and stored in your Log Analytics workspace, in the [SecurityAlert]() table.
 
-Records in the **SecurityAlert** table are created updated each time an alert is generated or updated in Defender for IoT. Sometimes a single alert will have multiple records, such as when the alert was first created and then again when it was updated.
+Records in the **SecurityAlert** table are created each time an alert is generated or updated in Defender for IoT. Sometimes a single alert will have multiple records, such as when the alert was first created and then again when it was updated.
 
 In Microsoft Sentinel, use the following query to check the records added to the **SecurityAlert** table for a single alert:
 
@@ -151,9 +151,9 @@ SecurityAlert
 | sort by TimeGenerated desc
 ```
 
-Updates for alert status or severity generate new records in the **SecurityAlert** table immediately. 
+Updates for alert status or severity generate new records in the **SecurityAlert** table immediately.
 
-For the following types of updates, events are aggregated across 8-12 hours, depending on the alert type, and new records in the **SecurityAlert** table reflect only the latest change.
+Other types of updates are aggregated across 8-12 hours, depending on the alert type, and new records in the **SecurityAlert** table reflect only the latest change. Examples of aggregated updates include:
 
 - Updates in the last detection time, such as when the same alert is detected multiple times
 - A new device is added to an existing alert

@@ -24,7 +24,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Streamlined alert records in the SecurityAlert table
 
-When integrating with Microsoft Sentinel, the Microsoft Sentinel **SecurityAlert** table is now updated immediately only for changes in alert status and severity. Other changes in alerts, such as new devices added to an existing alert, are aggregated over several hours and display only the latest change made.
+When integrating with Microsoft Sentinel, the Microsoft Sentinel **SecurityAlert** table is now updated immediately only for changes in alert status and severity. Other changes in alerts, such as last detection of an existing alert, are aggregated over several hours and display only the latest change made.
 
 For more information, see [Understand multiple records per alert](iot-solution.md#understand-multiple-records-per-alert).
 
