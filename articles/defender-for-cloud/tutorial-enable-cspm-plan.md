@@ -80,6 +80,8 @@ Once the Defender CSPM plan is enabled on your subscription, you have the abilit
 
 1. Select **Continue**.
 
+For code to cloud contextualization capabilities and automated developer remediation workflows that come with your DCSPM plan at no additional cost, [connect your DevOps environments](defender-for-devops-introduction.md) to Defender for Cloud.
+
 ## Next steps
 
 [Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md)

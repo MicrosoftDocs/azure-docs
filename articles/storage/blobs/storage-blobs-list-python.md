@@ -133,7 +133,7 @@ Follow these steps to list blobs using asynchronous APIs:
 
     :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs-async.py" id="Snippet_create_client_async":::
 
-1. Add code to list the blobs. The following code example lists blobs using a flat listing. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `list_blobs` method.
+1. Add code to list the blobs. The following code example lists blobs using a flat listing. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and `async for` is used when calling the `list_blobs` method.
 
     :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs-async.py" id="Snippet_list_blobs_flat":::
 

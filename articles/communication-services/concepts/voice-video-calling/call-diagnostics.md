@@ -80,7 +80,8 @@ selected call.
 
 The search field allows you to search by callID. See our documentation to [access your client call ID.](../troubleshooting-info.md#access-your-client-call-id)
 
- <!-- (**insert image)** -->
+![Screenshot of the Call Diagnostics Call Search showing recent calls for your Azure Communications Services Resource.](media/cd-all-calls.png)
+
 
 > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
@@ -93,13 +94,10 @@ the participants in the call and key metrics for their call quality. You
 can select a participant to drill into their call timeline details
 directly or navigate to the Call Issues tab for further analysis.
 
-<!-- (**<u>TODO insert image)</u>** -->
+![Screenshot of the Call Diagnostics Call Overview tab which which shows you an overview of the call you selected in the previous Call Search view.](media/cd-call-overview.png)
 
-
-<!-- > [!NOTE]
-> You can explore information icons and links on each page within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
-
-<!-- (**insert image)** -->
+> [!NOTE]
+> You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
 
 ## Call Issues
 
@@ -112,11 +110,10 @@ failures during a call. If you want to explore a detected issue, select
 the highlighted item and you'll see a pre-populated view of the
 related events in the Timeline tab.
 
-<!-- (**<u>TODO insert image)</u>** -->
+![Screenshot of the Call Diagnostics Call Issues tab showing you the top issues detected in the call you selected.](media/cd-call-issues.png)
 
-
-<!-- > [!NOTE]
-> You can explore information icons and links on each page within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
+> [!NOTE]
+> You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips.
 
 ## Call Timeline
 
@@ -132,11 +129,11 @@ results and reduce complexity.
 
 You can view detailed call logs for each participant within a call. Call information may not be present, this can be due to various reasons such as privacy constraints between different calling resources. See frequently asked questions to learn more.
 
-<!-- (**<u>TODO insert image)</u>** -->
-
+![Screenshot of the Call Diagnostics Call Timeline tab showing you the detailed events in a timeline view for the call you selected.](media/cd-call-timeline.png)
 
 <!-- > [!NOTE]
-> You can explore information icons and links on each page within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
+> You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
+
 
 <!-- # Common issues
 
@@ -190,10 +187,10 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 
 ## Frequently asked questions:
 
--  How do I setup Call Diagnostics?
+-  How do I set up Call Diagnostics?
 
-    - Follow instructions to add diagnostic settings for your resource here [Enable logs via Diagnostic Settings in Azure Monitor.](../analytics/enable-logging.md) When prompted to select [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting) select "**allLogs**".
-    - If you have multiple Azure Communications Services Resource IDs you must enable these settings for each resource ID and query call details for participants within their respective Azure Communications Services Resource ID. Your data volume, retention, and CDC query usage in Log Analytics is billed through existing Azure data meters, monitor your data usage and retention policies for [cost considerations as needed](../../../azure-monitor/logs/cost-logs.md)
+    - Follow instructions to add diagnostic settings for your resource here [Enable logs via Diagnostic Settings in Azure Monitor.](../analytics/enable-logging.md) We recommend you initially collect all logs and then determine which logs you want to retain and for how long after you have an understanding of the capabilities in Azure Monitor. When adding your diagnostic setting you will be prompted to [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting), select "**allLogs**" to collect all logs. Your data volume, retention, and Call Diagnostics query usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. You should monitor your data usage and retention policies for [cost considerations as needed](../../../azure-monitor/logs/cost-logs.md). Also see: [Controlling costs.](../../../azure-monitor/essentials/diagnostic-settings.md#controlling-costs)
+    - If you have multiple Azure Communications Services Resource IDs you must enable these settings for each resource ID and query call details for participants within their respective Azure Communications Services Resource ID. 
 
 - If Azure Communication Services participants join from different Azure Communication Services Resources, how will they display in Call Diagnostics?
 
