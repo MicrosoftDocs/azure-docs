@@ -78,7 +78,7 @@ By adhering to this structured methodology, Prompt Flow empowers you to confiden
 
 LLMOps Prompt Flow template formalize this structured methodology using code-first approach and helps you build LLM-infused apps using Prompt Flow using tools and process relevant to Prompt Flow. It offers a range of features including Centralized Code Hosting, Lifecycle Management, Variant and Hyperparameter Experimentation, A/B Deployment, reporting for all runs and experiments and more.
 
-The code for this article is available at [LLMOps with Prompt flow template](https://github.com/microsoft/llmops-promptflow-template)
+The repository for this article is available at [LLMOps with Prompt flow template](https://github.com/microsoft/llmops-promptflow-template)
 
 ## LLMOps process Flow
 
@@ -93,7 +93,7 @@ The code for this article is available at [LLMOps with Prompt flow template](htt
 7. The PR is manually approved and code is merged to the release branch. After the PR is merged to the release branch, the CI pipeline for prod environment is executed. It executes both the experimentation and evaluation flows in sequence and registers the flows in Azure Machine Learning Registry apart from other steps in the pipeline. 
 8. After the completion of CI pipeline execution, a CD trigger ensures the execution of CD pipeline that deploys the standard flow from Azure Machine Learning Registry as an Azure Machine Learning online endpoint and executed integration and smoke tests on the deployed flow. 
 
-From here on, you can learn **LLMOps** with prompt flow** by following the end-to-end practice we provided, which help you build LLM-infused applications using prompt flow and Azure DevOps. Its primary objective is to provide assistance in the development of such applications, leveraging the capabilities of prompt flow and LLMOps.
+From here on, you can learn **LLMOps with prompt flow** by following the end-to-end samples we provided, which help you build LLM-infused applications using prompt flow and Azure DevOps. Its primary objective is to provide assistance in the development of such applications, leveraging the capabilities of prompt flow and LLMOps.
 
 > [!TIP]
 > We recommend you understand how we integrate [LLMOps with prompt flow](how-to-integrate-with-llm-app-devops.md).
@@ -109,7 +109,6 @@ From here on, you can learn **LLMOps** with prompt flow** by following the end-t
 - Git running on your local machine.
 - An [organization](/azure/devops/organizations/accounts/create-organization) in Azure DevOps. Organization in Azure DevOps helps to collaborate, Plan and track your work and code defects, issues and Set up continuous integration and deployment.
 - The [Terraform extension for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.custom-terraform-tasks) if you're using Azure DevOps + Terraform to spin up infrastructure
-
 
 
 > [!NOTE]
@@ -135,9 +134,9 @@ Runtimes can be created through Prompt Flow UI(https://learn.microsoft.com/en-us
 
 ## Setup Azure Service Principal
 
-An Azure service principal is a security identity that applications, services, and automation tools use to access Azure resources. It represents an application or service that needs to authenticate with Azure and access resources on your behalf. Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#create-azure-service-principal to create Service Principal in Azure. This Service Principal is later configured and used by Azure DevOps pipelines to authenticate and connect to Azure Services. The jobs executed in Prompt Flow for both experiment and evaluation runs are under the identity of the Service Principal. Moreover, both the compute and runtime are created using the same Service Principal.
+An Azure `service principal` is a security identity that applications, services, and automation tools use to access Azure resources. It represents an application or service that needs to authenticate with Azure and access resources on your behalf. Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#create-azure-service-principal to create Service Principal in Azure. This Service Principal is later  used to configure Azure DevOps Service connection and Azure DevOps pipelines to authenticate and connect to Azure Services. The jobs executed in Prompt Flow for both `experiment and evaluation runs` are under the identity of this Service Principal. Moreover, both the `compute` and `runtime` are created using the same Service Principal.
 
-The setup provides 'owner' permissions to the Service Principal. This is because the CD Pipeline automatically provides access to the newly provisioned Azure Machine Learning Endpoint access to Azure Machine Learning workspace for reading connections information. It also adds it to Azure Machine Learning Workspace associated key vault policy with 'get' and 'list' secret permissions. The owner permission can be changed to 'contributor' permissions by changing pipeline YAML code and removing the step related to permissions.
+The setup provides `owner` permissions to the Service Principal. This is because the CD Pipeline automatically provides access to the newly provisioned Azure Machine Learning Endpoint access to Azure Machine Learning workspace for reading connections information. It also adds it to Azure Machine Learning Workspace associated key vault policy with `get` and `list` secret permissions. The owner permission can be changed to `contributor` level permissions by changing pipeline YAML code and removing the step related to permissions.
 
 
 ## Set up Azure DevOps
@@ -160,59 +159,53 @@ Please follow the guidelines mentioned at https://github.com/microsoft/llmops-pr
 
 ### Configure Azure DevOps repository and pipelines
 
-This repo uses two branches - 'main' and 'development' for code promotions and execution of pipelines in lieu of changes to code in them. Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#configure-azure-devops-local-and-remote-repository to setup your own local as well as remote repository to use code from this repository.
+This repo uses two branches - `main` and `development` for code promotions and execution of pipelines in lieu of changes to code in them. Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#configure-azure-devops-local-and-remote-repository to setup your own local as well as remote repository to use code from this repository.
 
-The steps involves cloning both the 'main' and 'development' branches from the repository and associating the code to refer to the new Azure DevOps repository. Apart from code migration, pipelines - both PR and dev pipelines are configured such that they are executed automatically based on PR creation and merge triggers. The branch policy for development branch should also configured to execute PR pipeline for any PR raised on development branch from a feature branch. The 'dev' pipeline is executed when the PR is merged to the development branch. The 'dev' pipeline consists of both CI and CD phases.
+The steps involves cloning both the `main and development branches` from the repository and associating the code to refer to the new Azure DevOps repository. Apart from code migration, pipelines - both PR and dev pipelines are configured such that they are executed automatically based on PR creation and merge triggers. The branch policy for development branch should also configured to execute PR pipeline for any PR raised on development branch from a feature branch. The 'dev' pipeline is executed when the PR is merged to the development branch. The 'dev' pipeline consists of both CI and CD phases.
 
-There is also human in the loop implemented within the pipelines. After the CI phase in 'dev' pipeline is executed, the CD phase follows after manual approval. The approval should happen from Azure DevOps pipeline build execution UI. The default time-out is 60 minutes after which the pipeline will be rejected and CD phase will not execute. Manually approving the execution will lead to execution of the CD steps of the pipeline. The manual approval is configured to send notifications to 'replace@youremail.com'. It should be replaced with an appropriate email Id.
+There is also human in the loop implemented within the pipelines. After the CI phase in `dev` pipeline is executed, the CD phase follows after manual approval. The approval should happen from Azure DevOps pipeline build execution UI. The default time-out is 60 minutes after which the pipeline will be rejected and CD phase will not execute. Manually approving the execution will lead to execution of the CD steps of the pipeline. The manual approval is configured to send notifications to 'replace@youremail.com'. It should be replaced with an appropriate email Id.
 
 ## Test the pipelines
 
 Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#test-the-pipelines to test the pipelines. The steps are
 
-1. Raise a PR from a feature branch to development branch
-2. The PR pipeline should execute automatically as result of branch policy.
-3. The PR is merged to the development branch
-4. The 'dev' pipeline is executed. This will result in full CI and CD execution and result in provisioning or updation of existing Azure Endpoints. 
+1. Raise a PR(Pull Request) from a feature branch to development branch.
+2. The PR pipeline should execute automatically as result of branch policy configuration.
+3. The PR is then merged to the development branch.
+4. The associated 'dev' pipeline is executed. This will result in full CI and CD execution and result in provisioning or updation of existing Azure Machine Learning Endpoints. 
 
 The test outputs should be similar to ones shown at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#example-prompt-run-evaluation-and-deployment-scenario
 
 
 ## Local execution
 
-1. **Clone the Repository**: To harness the capabilities and local execution, you can get started by cloning the [example GitHub repository](https://github.com/microsoft/llmops-promptflow-template).
+To harness the capabilities of the **local execution**, follow these installation steps:
 
-    ```bash
-    git clone https://github.com/microsoft/llmops-promptflow-template.git
-    ```
+1. **Clone the Repository**: Begin by cloning the template's repository from its [GitHub repository](https://github.com/microsoft/llmops-promptflow-template.git).
 
-2. **Set up env file**: Create .env file at top folder level and provide information for items mentioned. 
-    1. Add **runtime** name created in [Set up runtime for prompt flow](#set-up-runtime-for-prompt-flow) step.
-    1. Add as many **connection** names as needed, which you have created in [Set up connections for prompt flow](#set-up-connections-for-prompt-flow) step:
-    ```bash
-    subscription_id=
-    resource_group_name=
-    workspace_name=
-    runtime_name=
-    experiment_name=
-    <<connection name>>={ 
-        "api_key": "",
-        "api_base": "",
-        "api_type": "azure",
-        "api_version": "2023-03-15-preview"
-    }
+```bash
+git clone https://github.com/microsoft/llmops-promptflow-template.git
+```
 
-    ```
-3. Prepare the **local conda or virtual environment** to install the dependencies.
-    ```bash
-    python -m pip install promptflow promptflow-tools promptflow-sdk jinja2 promptflow[azure] openai promptflow-sdk[builtins]
+2. **setup env file**: create .env file at top folder level and provide information for items mentioned. Add as many connection names as needed. All the flow examples in this repo uses AzureOpenAI connection named `aoai`. Add a line `aoai={"api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}` with updated values for api_key and api_base. If additional connections with different names are used in your flows, they should be added accordingly. Currently, flow with AzureOpenAI as provider as supported. 
 
-    ```
-4. Bring or write **your flows** into the template. To learn how, see [How to setup](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_setup.md).
+```bash
 
-5. Write Ipython scripts in notebooks folder similar to provided examples there.
+experiment_name=
+connection_name_1={ "api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}
+connection_name_2={ "api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}
+```
+3. Prepare the local conda or virtual environment to install the dependencies.
 
-More details on how to use the template can be found in the [GitHub repository](https://github.com/microsoft/llmops-promptflow-template).
+```bash
+
+python -m pip install promptflow promptflow-tools promptflow-sdk jinja2 promptflow[azure] openai promptflow-sdk[builtins] python-dotenv
+
+```
+
+4. Bring or write your flows into the template based on documentation [here](./docs/how_to_onboard_new_flows.md).
+
+5. Write python scripts similar to the provided examples in local_execution folder.
 
 ## Next steps
 * [LLMOps with Prompt flow template](https://github.com/microsoft/llmops-promptflow-template) on GitHub
