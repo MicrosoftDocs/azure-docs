@@ -5,8 +5,8 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 08/15/2023
-ms.custom: template-concept, ignite-2022
+ms.date: 12/10/2023
+ms.custom: template-concept
 ---
 
 # Learn about agentless scanning
@@ -36,6 +36,19 @@ After the necessary metadata is acquired from the disk, Defender for Cloud immed
 The scanning environment where disks are analyzed is regional, volatile, isolated, and highly secure. Disk snapshots and data unrelated to the scan aren't stored longer than is necessary to collect the metadata, typically a few minutes.
 
 :::image type="content" source="media/concept-agentless-data-collection/agentless-scanning-process.png" alt-text="Diagram of the process for collecting operating system data through agentless scanning.":::
+
+## Agentless malware scanning
+
+Defender for Cloud's agentless malware scanning for Virtual Machines (VM), utilizes Defender for Endpoint anti-virus engine to scan and detect malware and various threats. The agentless malware scanner triggers security alerts that allow you to investigate any detected threats.  
+
+| Benefits of agent-based malware scanning | Benefits of agentless malware scanning |
+|--|--|
+| Real time protection | Frictionless onboarding |
+| Behavioral analysis and response | Results within hours |
+| Remediation and response capabilities | No effect on performance |
+| - | No presence on the machine |
+
+By combining agent-based and agentless scanning, y
 
 ## Next steps
 
