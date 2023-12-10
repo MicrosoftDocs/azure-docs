@@ -57,8 +57,12 @@
         href: concepts/retrieval-augmented-generation.md
       - name: Create an index
         href: how-to/index-add.md
-    - name: Add and manage data
+    - name: Add and manage your data
+      items:
+    - name: Add data to your project
       href: how-to/data-add.md
+    - name: Add your image data for Azure OpenAI
+      href: how-to/data-image-add.md
     - name: Generate synthetic data
       items:
       - name: Generate samples from your dataset
