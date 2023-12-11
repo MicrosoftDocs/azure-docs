@@ -45,17 +45,17 @@ The intent of the table columns is explained by the following items:
 | [jQuery](https://jquery.com/) | `/` | n/a | n/a |
 | [KnockoutJS](https://knockoutjs.com/) | `dist` | n/a | n/a |
 | [LitElement](https://lit-element.polymer-project.org/) | `/` | n/a | n/a |
-| [Mithril](https://mithril.js.org/) | `dist` | n/a | n/a |
+| [Mithril](https://mithril.js.org/) | `/` | n/a | n/a |
 | [Next.js](https://nextjs.org/) (Static HTML Export) | `out` | n/a | n/a |
 | [Next.js](https://nextjs.org/) (Hybrid Rendering) | `/` | n/a | n/a |
 | [Nuxt 2](https://v2.nuxt.com/) | `/` | n/a | n/a |
 | [Nuxt 3](https://nuxt.com/) | `output/public` | `output/server` | n/a |
-| [Polymer](https://www.polymer-project.org/) | `build/default` | n/a | n/a |
-| [Preact](https://preactjs.com/) | `build` | n/a | n/a |
+| [Preact](https://preactjs.com/) | `dist` | n/a | n/a |
 | [React](https://reactjs.org/) | `build` | n/a | n/a |
 | [RedwoodJS](https://redwoodjs.com/) | `web/dist` | n/a | `yarn rw build web` |
+| [Solid](https://www.solidjs.com/) | `dist` | n/a | n/a |
 | [Stencil](https://stenciljs.com/) | `www` | n/a |  n/a |
-| [Svelte](https://svelte.dev/) | `public` | n/a | n/a |
+| [SvelteKit (static)](https://svelte.dev/) | `build` | n/a | n/a |
 | [SvelteKit](https://kit.svelte.dev/) | `build/static` | `build/server` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a | n/a |
 | [TypeScript](https://www.typescriptlang.org/) | `dist` | n/a | n/a |
