@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is AKS?
             url: intro-kubernetes.md
+          - text: Get started with AKS
+            url: /azure/architecture/reference-architectures/containers/aks-start-here
       - linkListType: whats-new
         links:
           - text: Reduce image pull time with Artifact Streaming on AKS (Preview)
@@ -119,13 +121,7 @@ landingContent:
           - text: Baseline for PCI-DSS 3.2.1
             url: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-intro?WT.mc_id=AKSDOCSPAGE
           - text: Baseline for multiregion
-            url: /azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster?WT.mc_id=AKSDOCSPAGE                 
-          - text: Day-2 operations guide
-            url: /azure/architecture/operator-guides/aks/day-2-operations-guide?WT.mc_id=AKSDOCSPAGE
-          - text: Best practices for cluster operators and developers
-            url: best-practices.md
-          - text: Other AKS solutions
-            url: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
+            url: /azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster?WT.mc_id=AKSDOCSPAGE
 
   # Card
   - title: Deployment guidance
@@ -152,6 +148,19 @@ landingContent:
             url: integrations.md#github-actions
   
   # Card
+  - title: Operations guidance
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Day-2 operations guide
+            url: /azure/architecture/operator-guides/aks/day-2-operations-guide?WT.mc_id=AKSDOCSPAGE
+          - text: Best practices for cluster operators and developers
+            url: best-practices.md
+          - text: Plan how to monitor AKS
+            url: monitor-aks.md
+          - text: Plan how to monitor AKS cluster networks
+            url: network-observability-overview.md 
+  # Card
   - title: Troubleshooting
     linkLists:
       - linkListType: how-to-guide
@@ -162,4 +171,3 @@ landingContent:
            url: /troubleshoot/azure/azure-kubernetes//troubleshoot-aks-cluster-creation-issues
          - text: Troubleshoot common issues 
            url: /troubleshoot/azure/azure-kubernetes/aks-common-issues-faq
-        
