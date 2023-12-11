@@ -137,7 +137,7 @@ Data outputs refer to the location where the results of a batch job should be pl
 
 ## Create jobs with data inputs
 
-The following examples show how to create jobs taking data inputs from [data assets](#input-data-from-a-data-asset), [data stores](#input-data-from-data-stores), and [Azure Storage Accounts](#input-data-from-azure-storage-accounts).
+The following examples show how to create jobs, taking data inputs from [data assets](#input-data-from-a-data-asset), [data stores](#input-data-from-data-stores), and [Azure Storage Accounts](#input-data-from-azure-storage-accounts).
 
 ### Input data from a data asset
 
@@ -238,8 +238,6 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
     # [Azure CLI](#tab/cli)
 
-    [!INCLUDE [batch-endpoint-invoke-inputs-cli](includes/batch-endpoint-invoke-inputs-cli.md)]
-
     Use the `--set` argument to specify the input:
 
     ```azurecli
@@ -247,8 +245,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $DATASET_ID
     ```
 
-    Alternatively, use the `--input` argument to specify the input if your endpoint serves a model deployment:
-
+    For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires ony one data input.
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $DATASET_ID
@@ -385,8 +382,6 @@ Data from Azure Machine Learning registered data stores can be directly referenc
 
     # [Azure CLI](#tab/cli)
 
-    [!INCLUDE [batch-endpoint-invoke-inputs-cli](includes/batch-endpoint-invoke-inputs-cli.md)]
-
     Use the `--set` argument to specify the input:
 
     ```azurecli
@@ -394,7 +389,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_PATH
     ```
 
-    Alternatively, use the `--input` argument to specify the input if your endpoint serves a model deployment:
+    For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires ony one data input.
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH --input-type uri_folder
@@ -530,8 +525,6 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
 
     # [Azure CLI](#tab/cli)
     
-    [!INCLUDE [batch-endpoint-invoke-inputs-cli](includes/batch-endpoint-invoke-inputs-cli.md)]
-
     Use the `--set` argument to specify the input:
 
     ```azurecli
@@ -539,7 +532,7 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_DATA
     ```
 
-    Alternatively, use the `--input` argument to specify the input if your endpoint serves a model deployment:
+    For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires ony one data input.
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_DATA --input-type uri_folder
