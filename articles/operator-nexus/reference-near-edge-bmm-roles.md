@@ -11,7 +11,7 @@ ms.custom: template-reference
 
 # BareMetal Machine roles
 
-MachineRoles helps identify the role(s) that BMM fulfills in the Nexus cluster. In other words, it allows for the identification of the Nexus platform Kubernetes control plane nodes, the management nodes where the platform software runs & compute/worker nodes that are reserved for tenant workloads.
+MachineRoles helps identify the role(s) that BMM fulfills in the Nexus cluster. In other words, it allows for the identification of the Nexus platform Kubernetes control plane nodes, the management nodes where the platform software runs & worker nodes that are reserved for tenant workloads.
 
 The following roles are assigned to BMM resources:
 
