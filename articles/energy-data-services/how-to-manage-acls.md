@@ -58,7 +58,7 @@ curl --location --request PUT 'https://osdu-ship.msft-osdu-test.org/api/storage/
 
 **Sample response**
 ```JSON
-    {
+{
     "recordCount": 1,
     "recordIds": [
         "opendes:master-data--Well:999736019023"
@@ -84,7 +84,7 @@ curl --location 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/ope
 **Sample response**
 
 ```JSON
-    {
+{
     "data": {
         "FacilityID": "Example External Facility Identifier",
         "Source": "Create Record test"
@@ -145,7 +145,7 @@ curl --location --request PATCH 'https://osdu-ship.msft-osdu-test.org/api/storag
 **Sample response**
 
 ```JSON
-    {
+{
       "recordCount": 1,
       "recordIds": [
           "opendes:master-data--Well:999736019023:1702017200855277"
@@ -153,7 +153,7 @@ curl --location --request PATCH 'https://osdu-ship.msft-osdu-test.org/api/storag
       "notFoundRecordIds": [],
       "failedRecordIds": [],
       "errors": []
-    }
+}
 ```
 
 
@@ -162,7 +162,7 @@ If you delete the last owner ACL from the data record, you get the error
 **Sample response**
 
 ```JSON
-    {
+{
     "recordCount": 0,
     "recordIds": [],
     "notFoundRecordIds": [],
