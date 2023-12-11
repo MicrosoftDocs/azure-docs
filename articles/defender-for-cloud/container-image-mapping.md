@@ -14,7 +14,7 @@ When a vulnerability is identified in a container image stored in a container re
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure DevOps](quickstart-onboard-devops.md) or [GitHub](quickstart-onboard-github.md) environment onboarded to Microsoft Defender for Cloud.
-- For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.md) installed on the Azure DevOps organization.
+- For Azure DevOps, [Microsoft DevOps Container Mapping Extension](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.ms-dfd-code-to-cloud&targetId=3c513bc1-65ec-459a-b7a9-eea03745bfb9&utm_source=vstsproduct&utm_medium=ExtHubManageList) installed on the Azure DevOps organization.
 - For GitHub, [Microsoft Security DevOps (MSDO) Action](github-action.md) configured in your GitHub repositories.
 - [Defender CSPM](tutorial-enable-cspm-plan.md) enabled.
 - The container images must be built using [Docker](https://www.docker.com/).
@@ -42,8 +42,7 @@ Below is an example of an advanced query that utilizes container image mapping. 
   :::image type="content" source="media/container-image-mapping/advanced-mapping-query.png" alt-text="Screenshot that shows basic container mapping results." lightbox="media/container-image-mapping/advanced-mapping-query.png":::
 
 > [!NOTE]
-> If your Azure DevOps organization had the MSDO extension installed prior to November 15, 2023, please navigate to **Organization settings** > **Extensions** and install the container image mapping decorator. If you do not see the extension shared with your organization, fill out the following [form](https://aka.ms/ContainerImageMappingForm).
-
+> If your Azure DevOps organization had the Azure DevOps connector created prior to November 15, 2023, please navigate to **Organization settings** > **Extensions > Shared** and install the container image mapping decorator. If you do not see the extension shared with your organization, fill out the following [form](https://aka.ms/ContainerImageMappingForm).
 ## Map your container image from GitHub workflows to the container registry
 
 1. Add the container image mapping tool to your MSDO workflow:
@@ -78,3 +77,4 @@ Below is an example of an advanced query that utilizes container image mapping. 
 ## Next steps
 
 - Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md).
+
