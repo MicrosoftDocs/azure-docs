@@ -81,9 +81,9 @@ A data that is a File (`uri_file`) type points to a *single file* on storage (fo
 
 # [Studio](#tab/azure-studio)
 
-These steps explain how to create a File typed data in the Azure AI studio:
+These steps explain how to create a File typed data in the Azure AI Studio:
 
-1. Navigate to [Azure AI studio](https://ai.azure.com/)
+1. Navigate to [Azure AI Studio](https://ai.azure.com/)
 
 1. From the collapsible menu on the left, select **Data** under **Components**. Select **Add Data**.
 :::image type="content" source="../media/data-add/add-data.png" alt-text="Screenshot highlights Add Data in the Data tab.":::
@@ -142,9 +142,9 @@ A data that is a Folder (`uri_folder`) type is one that points to a *folder* on 
 
 # [Studio](#tab/azure-studio)
 
-Use these steps to create a Folder typed data in the Azure AI studio:
+Use these steps to create a Folder typed data in the Azure AI Studio:
 
-1. Navigate to [Azure AI studio](https://ai.azure.com/)
+1. Navigate to [Azure AI Studio](https://ai.azure.com/)
 
 1. From the collapsible menu on the left, select **Data** under **Components**. Select **Add Data**.
 :::image type="content" source="../media/data-add/add-data.png" alt-text="Screenshot highlights Add Data in the Data tab.":::
