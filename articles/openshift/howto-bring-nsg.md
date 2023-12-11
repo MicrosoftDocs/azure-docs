@@ -29,11 +29,10 @@ During the cluster creation process, the ARO Resource Provider (RP) creates a cl
 -->
 
 
-
-
 ## Capabilities and limitations
 
-<!-->
+<!--
+
 This private preview introduces the first implementation of the BYO-NSG feature so you can provide feedback for enhancements. Some enhancements are already in-progress or are on the [ARO roadmap](https://github.com/Azure/OpenShift/projects/1). 
 
 1. You need to attach your BYO-NSG(s) to both master and worker subnets **before** you start cluster creation.
@@ -74,7 +73,7 @@ This private preview introduces the first implementation of the BYO-NSG feature 
     |None |BYO-NSG-1 |Failure |
     |None |None |Success, without BYO-NSG feature |
     
-<!-->
+<!--
 1. During the preview, cluster creation with the BYO-NSG feature won't be supported via the Azure Portal.
 
 1. When the BYO-NSG feature is declared generally available, your existing BYO-NSG enabled preview clusters will automatically become fully supported, and you'll be able to use it for production workloads without making any changes.
@@ -82,7 +81,7 @@ This private preview introduces the first implementation of the BYO-NSG feature 
 
 ## Deployment
 
-<!-->
+<!--
 ### Register the BYO-NSG feature in your subscription
 
 1. Set the subscription:
@@ -148,7 +147,7 @@ The SP will have a 1:1 association with the new cluster that you will create. **
     --client-secret CLUSTER_SERVICE_PRINCIPAL_SECRET
     ```
     
-1. Update the BYO-NSG(s) with rules as per your requirements while also considering the points mentioned in [Capabilities, limitations, and roadmap](#capabilities-limitations-and-roadmap).
+1. Update the BYO-NSG(s) with rules as per your requirements while also considering the points mentioned in [Capabilities and limitations](#capabilities-and-limitations).
 
     The following example has the Cluster Public Load-balancer as shown in screenshot/CLI output below:
     
