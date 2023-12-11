@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 11/22/2023
-ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder

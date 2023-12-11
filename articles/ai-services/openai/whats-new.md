@@ -8,6 +8,7 @@ ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.custom:
   - ignite-2023
+  - references_regions
 ms.topic: whats-new
 ms.date: 11/30/2023
 recommendations: false

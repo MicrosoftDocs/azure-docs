@@ -8,6 +8,7 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.custom:
   - ignite-2023
+  - references_regions
 ms.topic: conceptual
 ms.date: 12/06/2023
 ms.author: mbullwin
