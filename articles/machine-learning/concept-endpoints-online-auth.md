@@ -20,7 +20,7 @@ ms.date: 10/18/2023
 
 This article explains the concept of identity and permission in the context of online endpoints. 
 
-The _user identity_ is the identity that you can use to create the endpoint and deployment(s) under the endpoint, or interact with workspace. It would need proper permissions to perform control plane and data plane operations on the workspace.
+The _user identity_ is the identity that you can use to create the endpoint and deployment(s) under the endpoint, or interact with endpoints or workspaces. It would need proper permissions to perform control plane and data plane operations on the endpoints or workspace.
 
 The _endpoint identity_ is the identity that runs the user container in deployments. It would also need proper permissions for the user container to interact with resources as needed, for example, pulling images from Azure Container Registry or interacting with other Azure services using the identity.
 
