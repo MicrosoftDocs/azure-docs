@@ -6,9 +6,10 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 12/07/2023
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
+ROBOTS: NOINDEX
 ---
 
 # Upgrade from a basic public to standard public load balancer

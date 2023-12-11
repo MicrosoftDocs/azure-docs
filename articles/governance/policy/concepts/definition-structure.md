@@ -1029,6 +1029,8 @@ within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
 - dateTimeAdd()
+- dateTimeFromEpoch
+- dateTimeToEpoch
 - deployment()
 - environment()
 - extensionResourceId()
@@ -1046,7 +1048,6 @@ within a policy rule, except the following functions and user-defined functions:
 - subscriptionResourceId()
 - tenantResourceId()
 - tenant()
-- utcNow(format)
 - variables()
 
 > [!NOTE]

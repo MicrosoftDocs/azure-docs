@@ -17,6 +17,10 @@ implementations:
 
 For more information, see [Azure Automanage machine configuration](../../machine-configuration/overview.md).
 
+ >[!IMPORTANT]
+  > Azure Policy guest configuration only applies to Windows Server SKU and Azure Stack SKU. It does not apply to end user compute like Windows 10 and Windows 11 SKUs.
+
+
 ## Account Policies-Password Policy
 
 |Name<br /><sub>(ID)</sub> |Details |Expected value<br /><sub>(Type)</sub> |Severity |

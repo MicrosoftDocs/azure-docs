@@ -9623,6 +9623,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/update-java-versions.md",
+            "redirect_url": "/azure/azure-functions/update-language-versions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-government/documentation-government-k8.md",
             "redirect_url": "/azure/azure-government",
             "redirect_document_id": false
@@ -23448,6 +23453,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/lighthouse/how-to/partner-earned-credit.md",
+            "redirect_url": "/azure/cost-management-billing/manage/link-partner-id",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/service-fabric-mesh/index.yml",
             "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-overview",
             "redirect_document_id": false
@@ -25735,6 +25745,11 @@
         {
             "source_path": "articles/update-center/workbooks.md",
             "redirect_url": "/azure/update-manager/workbooks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/update-manager/whats-upcoming.md",
+            "redirect_url": "/azure/update-manager/whats-new",
             "redirect_document_id": false
         },
         {
