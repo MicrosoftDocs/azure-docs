@@ -236,13 +236,10 @@ If your function app is using the Python pickle library to load a Python object 
 If your function app is using the popular ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it's possible that multiple connections are open within a single function app. To avoid this issue, use the singleton pattern, and ensure that only one pyodbc connection is used across the function app.
 
 ---
+
 ## Sync triggers failed
 
-The error 'Sync triggers failed' could represent various issues, one possible cause is a conflict between customer-defined dependencies and Python's built-in modules.
-
-In an App Service Plan, customer-defined dependencies take precedence, potentially causing conflicts when using Python's built-in modules, like 'logging,' if they share the same names as directories in customer code. In a Consumption Plan, such conflicts are less likely, as customer dependencies are not prioritized by default. 
-
-To prevent such issues, it's recommended not to name directories the same as Python's native import modules. Additionally, avoid including Python native libraries in your 'requirements.txt' file.
+The error `Sync triggers failed` can be caused by several issues. One potential cause is a conflict between customer-defined dependencies and Python built-in modules when your functions run in an App Service plan. For more information, see [Package management](functions-reference-python.md#package-management).
 
 ---
 
