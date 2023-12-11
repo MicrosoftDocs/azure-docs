@@ -22,10 +22,10 @@ We support following types of runtimes:
 
 |Runtime type|Underlying compute type|Life cycle management|Customize environment              |
 |------------|----------------------|---------------------|---------------------|
-|Automatic runtime        |Serverless compute| Automatically | Customized by image + requirements.txt in `flow.dag.yaml`|
+|automatic runtime (preview)        |Serverless compute| Automatically | Customized by image + requirements.txt in `flow.dag.yaml`|
 |Compute instance runtime | Compute instance | Manually | Manually via Azure Machine Learning environment|
 
-For new users, we would recommend using the automatic runtime that can be used out of box, and you can easily customize the environment by adding packages in `requirements.txt` file in `flow.dag.yaml` in flow folder. For  users, who already familiar with Azure Machine Learning environment and compute instance, your can use existing compute instance and environment to build your compute instance runtime.
+For new users, we would recommend using the automatic runtime (preview) that can be used out of box, and you can easily customize the environment by adding packages in `requirements.txt` file in `flow.dag.yaml` in flow folder. For  users, who already familiar with Azure Machine Learning environment and compute instance, your can use existing compute instance and environment to build your compute instance runtime.
 
 ## Permissions/roles for runtime management
 
@@ -51,13 +51,13 @@ After deploying a prompt flow, the endpoint must be assigned the `AzureML Data S
 
 ### Create automatic runtime (preview) in flow page
 
-Automatic is the default option for runtime, you can start automatic runtime in runtime dropdown in flow page. 
+Automatic is the default option for runtime, you can start automatic runtime (preview) in runtime dropdown in flow page. 
 
 > [!IMPORTANT]
 > Automatic runtime is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Start creates automatic runtime using the environment defined in`flow.dag.yaml` in flow folder on the VM size you have quota in the workspace.
+1. Start creates automatic runtime (preview) using the environment defined in`flow.dag.yaml` in flow folder on the VM size you have quota in the workspace.
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow on the start automatic with default settings on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::    
 
@@ -112,19 +112,19 @@ When performing evaluation, you can use the original runtime in the flow or chan
 
 ### Update automatic runtime (preview) in flow page
 
-You can operation automatic runtime in flow page. Here are options you can use:
+You can operation automatic runtime (preview) in flow page. Here are options you can use:
 - Install packages, this triggers the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install.
 - Reset, will delete current runtime and create a new one with the same environment. If you encounter package conflict issue, you can try this option.
 - Edit, will open runtime config page, you can define the VM side and idle time for the runtime.
 - Stop, will delete current runtime. If there's no active runtime on underlining compute, compute resource will also be deleted.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions on automatic runtime on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions on automatic runtime (preview) on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
 
 You can also customize environment used to run this flow. 
 
 - You can easily customize the environment by adding packages in `requirements.txt` file in flow folder. After you add more packages in this file, you can choose either save and install or save only. Save and install will trigger the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install. Save only will only save the `requirements.txt` file, you can install the packages later by yourself.
 
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of save and install packages for automatic runtime on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
+    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of save and install packages for automatic runtime (preview) on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
 
 - By default, we'll use latest prompt flow image as base image. If you want to use a different base image, you can build custom base image learn more, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime), then you can use put it under `environment` in `flow.dag.yaml` file in flow folder. You need `reset` runtime to use the new base image, this takes several minutes as it pulls the new base image and install packages again.
 
