@@ -140,7 +140,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 ## Frequently asked questions
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
-- [How do I connect to an Azure Database for MySQL flexible server database that's secured behind a virtual network?](#how-do-i-connect-to-a-mysql-database-thats-secured-behind-a-virtual-network)
+- [How do I connect to an Azure Database for MySQL flexible server database that's secured behind a virtual network?](#how-do-i-connect-to-an-azure-database-for-mysql-flexible-server-database-thats-secured-behind-a-virtual-network)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [Why is the GitHub Actions deployment so slow?](#why-is-the-github-actions-deployment-so-slow)
 
