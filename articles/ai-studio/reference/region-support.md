@@ -5,7 +5,7 @@ description: This article lists Azure AI Studio feature availability across clou
 author: deeikele
 manager: nitinme
 ms.service: azure-ai-studio
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 12/11/2023
 ms.author: eur
 ms.custom: references_regions
