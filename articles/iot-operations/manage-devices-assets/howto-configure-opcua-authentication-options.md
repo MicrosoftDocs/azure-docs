@@ -46,7 +46,7 @@ OPC UA transport authentication requires you to configure the following items:
 
 In Azure IoT Digital Operations Experience, the first step to set up an asset endpoint requires you to configure the thumbprint of the transport certificate. The following code examples reference the certificate file *./secret/cert.der* and private key file *./secret/cert.pem*.
 
-[Create a self-signed certificate for transport authorization](#create-a-self-signed-certificate-for-transport-authorization) section contains steps for creating a sample demo self-signed certificate for transport authorization with *./secret/cert.der* and *./secret/cert.pem* files.
+To create a sample self-signed certificate for transport authorization with *./secret/cert.der* and *./secret/cert.pem* files, see [Create a self-signed certificate for transport authorization](#create-a-self-signed-certificate-for-transport-authorization).
 
 To complete the configuration of an asset endpoint in Operations Experience, do the following steps:
 

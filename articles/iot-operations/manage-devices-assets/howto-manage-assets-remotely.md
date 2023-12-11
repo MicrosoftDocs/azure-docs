@@ -78,7 +78,9 @@ When the OPC PLC simulator is running, data flows from the simulator, to the con
 
 ### Configure an asset endpoint to use a username and password
 
-The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password. To use the `UsernamePassword` authentication mode, complete the following steps:
+The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password.
+
+To use the `UsernamePassword` authentication mode, complete the following steps:
 
 1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-opc-ua-user-authentication-with-username-and-password) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
 2. In Azure IoT Operations portal, select **Username & password** for the **User authentication** field to configure the asset endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
