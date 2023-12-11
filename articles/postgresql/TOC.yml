@@ -38,12 +38,12 @@
       - name: Migrate from Oracle
         href: single-server/how-to-migrate-from-oracle.md
   - name: Versioning policy
-    href: single-server/concepts-version-policy.md
+    href: flexible-server/concepts-version-policy.md
     displayName: version, postgresql
   - name: Major version upgrades
     href: single-server/how-to-upgrade-using-dump-and-restore.md
   - name: Prepay for reserved capacity
-    href: single-server/concept-reserved-pricing.md
+    href: flexible-server/concept-reserved-pricing.md
   - name: Known issues & limitations
     href: single-server/concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql
@@ -92,7 +92,7 @@
     - name: Database deployment
       items:
       - name: GitHub Actions
-        href: how-to-deploy-github-action.md
+        href: flexible-server/how-to-deploy-github-action.md
       - name: Azure Pipelines
         href: flexible-server/azure-pipelines-deploy-database-task.md
   - name: Concepts
@@ -106,7 +106,7 @@
     - name: Scaling resources
       href: flexible-server/concepts-scaling-resources.md
     - name: Prepay for reserved capacity
-      href: concept-reserved-pricing.md
+      href: flexible-server/concept-reserved-pricing.md
     - name: Networking
       items:
       - name: Networking with Public Access (allowed IP addresses)
