@@ -115,7 +115,9 @@ Because Azure Resource Manager manages your configurations, you can automate cre
 
 ## Parameters
 
-To see all the parameters supported by Flux in Azure, see the [`az k8s-configuration` documentation](/cli/azure/k8s-configuration). The Azure implementation doesn't currently support every parameter that Flux supports. For information about available parameters and how to use them, see [GitOps (Flux v2) supported parameters](gitops-flux2-parameters.md).
+To see all the parameters supported by Flux in Azure, see the [`az k8s-configuration` documentation](/cli/azure/k8s-configuration). The Azure implementation doesn't currently support every parameter that Flux supports.
+
+For information about available parameters and how to use them, see [GitOps (Flux v2) supported parameters](gitops-flux2-parameters.md).
 
 ## Multi-tenancy
 
