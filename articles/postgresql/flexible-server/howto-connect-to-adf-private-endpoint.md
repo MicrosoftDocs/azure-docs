@@ -53,7 +53,7 @@ az resource create --id /subscriptions/<subscription_id>/resourceGroups/<resourc
 
 After above command is successfully executed you should ne able to view you private endpoint in Managed Private Endpoints blade in Data Factory Azure portal interface, as shown in the following example:
 
- :::image type="content" source="./media/howto-connect-to-adf-private-endpoint/managed-private-endpoints-screen.png" alt-text="Example screenshot of connection properties."  :::
+ :::image type="content" source="./media/howto-connect-to-adf-private-endpoint/managed-private-endpoints-screen.png" alt-text="Example screenshot of managed private endpoints screen."  :::
 
 
 ## Approve Private Endpoint 
