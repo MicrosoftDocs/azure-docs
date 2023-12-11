@@ -1,5 +1,5 @@
 ---
-title: Client negotiation
+title: Client negotiation in Azure SignalR service
 description: This article provides information about client negotiation in Azure SignalR service.
 author: JialinXin
 ms.author: jixin
@@ -10,11 +10,13 @@ ms.date: 12/08/2023
 
 # Client negotiation
 
+The first request between client and server is the negotiation request. When use self-host SignalR, the request is used to establish a connection between the client and the server. And when use Azure SignalR service, clients connect to the service instead of the application server. This article shares the concept about negotiation protocols and ways to customize negotiation endpoint.
+
 ## What is negotiation?
 
-The first request between client and server is the negotiation request. When use self-host SignalR, the request is used to establish a connection between the client and the server. The response to the `POST [endpoint-base]/negotiate` request contains one of three types of responses:
+The response to the `POST [endpoint-base]/negotiate` request contains one of three types of responses:
 
-1. A response that contains the `connectionId`, which is used to identify the connection on the server and the list of the transports supported by the server.
+* A response that contains the `connectionId`, which is used to identify the connection on the server and the list of the transports supported by the server.
 
    ```json
    {
@@ -46,7 +48,7 @@ The first request between client and server is the negotiation request. When use
    > [!NOTE]
    > Now Azure SignalR service supports negotiate `Version 0` only. And client with the `negotiateVersion` greater than zero will get a response with `negotiateVersion=0` by design. Please check [TransportProtocols](https://github.com/dotnet/aspnetcore/blob/main/src/SignalR/docs/specs/TransportProtocols.md) for protocol details. 
 
-1. A redirect response tells the client the URL and optionally access token to use as a result.
+* A redirect response tells the client the URL and optionally access token to use as a result.
 
    ```json
    {
@@ -60,7 +62,7 @@ The first request between client and server is the negotiation request. When use
    * The `url` is the URL the client should connect to.
    * The `accessToken` is an optional bearer token for accessing the specified url.
 
-1. A response that contains an `error` that should stop the connection attempt.
+* A response that contains an `error` that should stop the connection attempt.
 
    ```json
    {
@@ -211,7 +213,7 @@ public SignalRConnectionInfo Negotiate([HttpTrigger(AuthorizationLevel.Anonymous
 
 Then your clients can request to this function endpoint `https://<Your Function App Name>.azurewebsites.net/api/negotiate` to get the service url and accessToken. A full sample can be found [here](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat).
 
-## Next Steps
+## Next steps
 
 See the following articles to learn more about how to use Default and Serverless modes.
 
