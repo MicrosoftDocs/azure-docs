@@ -20,6 +20,28 @@ Within the SAP Deployment Automation Framework (SDAF), we recognize that there a
 
 This section describes how to troubleshoot issues that you can encounter when performing deployments using the SAP Deployment Automation Framework.
 
+### Unable to access keyvault: XXXXX error
+
+If you see an error similar to the following when running the deployment:
+
+```text
+Unable to access keyvault: XXXXYYYYDEP00userBEB                             
+Please ensure the key vault exists.
+```
+
+This error indicates that the specified key vault doesn't exist or that the deployment environment is unable to access it. 
+
+Depending on the deployment stage, you can resolve this issue in the following ways:
+
+You can either add the IP of the environment from which you are executing the deployment (recommended) or you can allow public access to the key vault. See [Allow public access to a key vault](/azure/key-vault/general/network-security#allow-public-access-to-a-key-vault) for more information.
+
+The following variables are used to configure the key vault access:
+
+```tfvars
+Agent_IP                      = "10.0.0.5"
+public_network_access_enabled = true
+```
+
 ### OverconstrainedAllocationRequest error
 If you see an error similar to the following when running the deployment:
 
