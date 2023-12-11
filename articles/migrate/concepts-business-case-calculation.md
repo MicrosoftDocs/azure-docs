@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 12/07/2023
+ms.date: 12/12/2023
 ms.custom: engagement-fy24
 ---
 
@@ -172,7 +172,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 |     | Azure App Service security cost | Defender for App Service | For web apps recommended for App Service or App Service containers, the Defender for App Service cost for that region is added. |
 | Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
-| Management | Azure Management Services | | Azure Monitor costs for each server is estimated at $6.9/month his assumes collection of logs ingestion for the guest operating system and one custom application is enabled for the server, totaling logs data of 3GB/month. <br/><br/> Azure Backup cost for each server/month is dynamically calculated  estimated based on the protected instance fee +Vault storage +Snapshot storage. <br/><br/> Azure Update Manager is free for Azure servers. |
+| Management | Azure Management Services | | Azure Monitor costs for each server is estimated at $6.9/month his assumes collection of logs ingestion for the guest operating system and one custom application is enabled for the server, totalling logs data of 3GB/month. <br/><br/> Azure Backup cost for each server/month is dynamically calculated  estimated based on the protected instance fee +Vault storage +Snapshot storage. <br/><br/> Azure Update Manager is free for Azure servers. |
 
 ### Year on Year costs
 
