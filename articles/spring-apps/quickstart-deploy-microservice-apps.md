@@ -29,7 +29,7 @@ The Pet Clinic sample demonstrates the microservice architecture pattern. The fo
 The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
 - Uses Azure Spring Apps to manage the frontend and backend apps. The backend apps are built with Spring Boot and each app uses HSQLDB as the persistent store. The reforged frontend app builds upon Pet Clinic API Gateway App with Node.js serving as a standalone frontend web application.
-- Uses the managed components on Azure Spring Apps, they are Service Registry, Application Configuration Service, Spring Cloud Gateway and Application Live View. The Application Configuration Service reads Git repository configuration.
+- Uses the managed components on Azure Spring Apps, including Service Registry, Application Configuration Service, Spring Cloud Gateway and Application Live View. The Application Configuration Service reads Git repository configuration.
 - Exposes the URL of Spring Cloud Gateway to route request to backend service apps, and exposes the URL of the Application Live View to monitor the backend apps.
 - Analyzes logs using the Log Analytics workspace.
 - Monitors performance with Application Insights.
