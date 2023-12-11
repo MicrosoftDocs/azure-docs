@@ -1,5 +1,5 @@
 ---
-title: 'Use your image data with Azure OpenAI Service'
+title: 'Use your image data with Azure OpenAI Service in Azure OpenAI studio'
 titleSuffix: Azure OpenAI
 description: Use this article to learn about using your image data for image generation in Azure OpenAI.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 11/02/2023
 recommendations: false
 ---
 
-# Azure OpenAI on your data with images using GPT-4 Turbo with Vision (preview)
+# Azure OpenAI on your data with images using GPT-4 Turbo with Vision (preview) in Azure OpenAI studio
 
 Use this article to learn how to provide your own image data for GPT-4 Turbo with Vision, Azure OpenAI’s vision model. GPT-4 Turbo with Vision on your data allows the model to generate more customized and targeted answers using Retrieval Augmented Generation based on your own images and image metadata. 
 
