@@ -4,7 +4,7 @@ description: View the Azure Monitor activity log and send it to Azure Monitor Lo
 author: guywi-ms
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/11/2024
+ms.date: 12/11/2023
 ms.author: guywild
 ms.reviewer: orens
 ---
