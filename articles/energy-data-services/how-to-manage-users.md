@@ -256,6 +256,9 @@ No output for a successful response
 Create a legal tag for your data partition.
 > [!div class="nextstepaction"]
 > [How to manage legal tags](how-to-manage-legal-tags.md)
+Manage ACL or data groups for your data.
+> [!div class="nextstepaction"]
+> [How to manage ACLs](how-to-manage-acls.md)
 
 Begin your journey by ingesting data into your Azure Data Manager for Energy instance.
 > [!div class="nextstepaction"]
