@@ -113,6 +113,10 @@ Because Azure Resource Manager manages your configurations, you can automate cre
 
 [Learn how to use the built-in policies for Flux v2](./use-azure-policy-flux-2.md).
 
+## Parameters
+
+To see all the parameters supported by Flux in Azure, see the [`az k8s-configuration` documentation](/cli/azure/k8s-configuration). The Azure implementation doesn't currently support every parameter that Flux supports. For information about available parameters and how to use them, see [GitOps (Flux v2) supported parameters](gitops-flux2-parameters.md).
+
 ## Multi-tenancy
 
 Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability is integrated into Azure GitOps with Flux v2.
