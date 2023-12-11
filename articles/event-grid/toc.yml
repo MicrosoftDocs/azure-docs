@@ -385,6 +385,18 @@ items:
               href: outlook-events.md
             - name: Microsoft Teams
               href: teams-events.md
+            - name: One Drive
+              href: one-drive-events.md
+            - name: SharePoint
+              href: share-point-events.md
+            - name: ToDo
+              href: to-do-events.md
+            - name: Security alerts
+              href: security-alert-events.md
+            - name: Cloud printing
+              href: cloud-printing-events.md
+            - name: Conversations
+              href: conversation-events.md
       - name: Event Domains
         href: event-domains.md
       - name: Event schema formats
