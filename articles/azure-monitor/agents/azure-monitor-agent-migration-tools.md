@@ -42,53 +42,43 @@ Use the DCR Config Generator tool to parse Log Analytics Agent configuration fro
 > [!NOTE]
 > DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-migration.md#migrate-additional-services-and-features) dependent on Log Analytics Agent.
 
-### Prerequisites
-To install DCR Config Generator, you need:
-
-1. PowerShell version 5.1 or higher. We recommend using PowerShell version 7.1.3 or higher.
-1. Read access for the specified workspace resources.
-1. The `Az Powershell` module to pull workspace agent configuration information. Make sure `Az.Accounts` and `Az.OperationalInsights` modules are installed.
-1. The Azure credentials for running `Connect-AzAccount` and `Select-AzContext`, which set the context for the script to run.
+### Prerequisites\Setup
+1. `Powershell version 7.1.3` or higher is recommended (minimum version 5.1)
+2. Uses `Az Powershell module` to pull workspace agent configuration information [Az Powershell module](https://learn.microsoft.com/powershell/azure/install-azps-windows?view=azps-11.0.0&tabs=powershell&pivots=windows-psgallery)
+3. User will need Read/Write access to the specified workspace resource
+4. Connect-AzAccount and Select-AzSubscription will be used to set the context for the script to run so proper Azure credentials will be needed
 
 To install DCR Config Generator:
 
 1. [Download the PowerShell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator).
+1. Run the script using the sample parameters below:
 
-1. Run the script:
+```powershell
+	.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -OutputFolder $outputFolderPath
+```
 
-    Option 1: Outputs **ready-to-deploy ARM template files** only, which creates the generated DCR in the specified subscription and resource group, when deployed.
+| Name                    | Required  | Description                                                                   |
+| ----------------------- |:---------:|:-----------------------------------------------------------------------------:|
+| `SubscriptionId`        | YES       | This is the subscription ID of the workspace                                  |
+| `ResourceGroupName`     | YES       | This is the resource Group of the workspace                                   |
+| `WorkspaceName`         | YES       | This is the name of the workspace (Azure resource ids are case insensitive)   |
+| `DCRName`               | YES       | The base name that will be used for each one the outputs DCRs                 |
+| `OutputFolder`          | NO        | The output folder path. If not provided, the working directory path is used   |
 
-    ```powershell
-    .\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath
-    ```
-    Option 2: Outputs **ready-to-deploy ARM template files** and **the DCR JSON files** separately for you to deploy via other means. You need to set the `GetDcrPayload` parameter.
+3. Outputs:
 
-    ```powershell
-    .\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath -GetDcrPayload
-    ```
+For each supported `DCR type`, the script produces a DCR ARM template (ready to be deployed) and a DCR payload (for users that don't need the arm template). This is the list of currently supported DCR types:
+  - **Windows** contains `WindowsPerfCounters` and `WindowsEventLogs` data sources only
+  - **Linux** contains `LinuxPerfCounters` and `Syslog` data sources only
+  - **Custom Logs** contains `logFiles` data sources only:
+  	- Each custom log get their own dcr arm template
+  - **IIS Logs** contains `iisLogs` data sources only
+  - **Extensions** contains `extensions` data sources only along with any associated perfCounters data sources
+    - `VMInsights` 
+    - If you would like to add support for a new extension type, please reach out to us.
 
-    **Parameters**
 
-    | Parameter | Required? | Description |
-    |------|------|------|
-    | `SubscriptionId` | Yes | ID of the subscription that contains the target workspace. |
-    | `ResourceGroupName` | Yes | Resource group that contains the target workspace. |
-    | `WorkspaceName` | Yes | Name of the target workspace. |
-    | `DCRName` | Yes | Name of the new DCR. |
-    | `Location` | Yes | Region location for the new DCR. |
-    | `GetDcrPayload` | No | When set, it generates additional DCR JSON files 
-    | `FolderPath` | No | Path in which to save the ARM template files and JSON files (optional). By default, Azure Monitor uses the current directory. |
-
-1. Review the output ARM template files. The script can produce two types of ARM template files, depending on the agent configuration in the target workspace:
-
-    - Windows ARM template and parameter files - if the target workspace contains Windows performance counters or Windows events.
-    - Linux ARM template and parameter files - if the target workspace contains Linux performance counters or Linux Syslog events.
-
-    If the Log Analytics workspace wasn't [configured to collect data](./log-analytics-agent.md#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but wasn't configured to send any data from the host machine.
-
-1. Deploy the generated ARM templates:
-    
-
+4. **Deploy the generated ARM templates:**
     ### [Portal](#tab/portal-1)
     1. In the portal's search box, type in *template* and then select **Deploy a custom template**.
     
