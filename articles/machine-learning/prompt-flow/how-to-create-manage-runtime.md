@@ -49,9 +49,13 @@ After deploying a prompt flow, the endpoint must be assigned the `AzureML Data S
 - Make `workspaceworkingdirectory` exist in the workspace. 
 - If you secure prompt flow with virtual network, follow [Network isolation in prompt flow](how-to-secure-prompt-flow.md) to learn more detail.
 
-### Create automatic runtime in flow page
+### Create automatic runtime (preview) in flow page
 
 Automatic is the default option for runtime, you can start automatic runtime in runtime dropdown in flow page. 
+
+> [!IMPORTANT]
+> Automatic runtime is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 1. Start creates automatic runtime using the environment defined in`flow.dag.yaml` in flow folder on the VM size you have quota in the workspace.
 
@@ -106,7 +110,7 @@ When performing evaluation, you can use the original runtime in the flow or chan
 
 ## Update runtime from UI
 
-### Update automatic runtime in flow page
+### Update automatic runtime (preview) in flow page
 
 You can operation automatic runtime in flow page. Here are options you can use:
 - Install packages, this triggers the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install.
