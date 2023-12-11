@@ -36,7 +36,7 @@ You can securely deploy the Exadata infrastructure and Oracle databases using yo
 
 You can migrate your Oracle Databases to Oracle Database@Azure with familiar Oracle tooling like Oracle Zero Downtime Migration, Data Guard or GoldenGate. Oracle Database@Azure is a fully OCI managed and supported offering in partnership with Azure. 
 
-For more information, see the [Oracle Database@Azure](oracle-db/database-overview) documentation.
+For more information, see the [Oracle Database@Azure](oracle-db/database-overview.md) documentation.
 
 Oracle Database@Azure offers [Oracle Exadata Database Service on Dedicated Infrastructure](https://docs.oracle.com/en/engineered-systems/exadata-cloud-service/ecscm/index.html). 
 
