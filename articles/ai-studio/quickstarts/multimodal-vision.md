@@ -157,7 +157,7 @@ Below are the known limitations of the video prompt enhancements.
 - **Low resolution:** The frames are analyzed using GPT-4 Turbo with Vision's "low resolution" setting, which may affect the accuracy of small object and text recognition in the video.
 - **Video file limits:** Both mp4 and mov file types are supported. In the Azure AI Playground, videos must be less than 3 minutes long. When using the API there is no such limitation.
 - **Prompt limits:** Video prompts only contain one video and no images. In Playground, you can clear the session to try with another video or images.
-- **Limited frame selection:** Currently the system selects 20 frames from the entire video, which might not capture all critical moments or details. Frame selection can either be approximately evenly spread through the video or focused by a specific a Video Retrieval query, depending on the prompt.
+- **Limited frame selection:** Currently the system selects 20 frames from the entire video, which might not capture all critical moments or details. Frame selection can either be approximately evenly spread through the video or focused by a specific Video Retrieval query, depending on the prompt.
 - **Language support:** Currently, the system primarily supports English for grounding with transcripts. Transcripts don't provide accurate information on lyrics from songs.
  
  ---
