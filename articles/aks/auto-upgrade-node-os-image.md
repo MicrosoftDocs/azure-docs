@@ -52,7 +52,7 @@ The default cadence means there's no planned maintenance window applied.
 |Channel|Updates Ownership|Default cadence|
 |---|---|
 | `Unmanaged`|OS driven security updates. AKS has no control over these updates.|Nightly around 6AM UTC for Ubuntu and Azure Linux. Monthly for Windows.|
-| `SecurityPatch`|AKS|Weekly.|
+| `SecurityPatch`|AKS- Tested, fully managed and with safe deployment practices. For more information refer to the [blog][Blog]. This channel is recommended for security updates over `Unmanaged`, for above reasons. |Weekly.|
 | `NodeImage`|AKS|Weekly.|
 
 ## SecurityPatch channel requirements
@@ -121,6 +121,16 @@ To view the status of your node OS auto upgrades, look up [activity logs][monito
 
  No. Currently, when you set the [cluster auto-upgrade channel][Autoupgrade] to `node-image`, it also automatically sets the node OS auto-upgrade channel to `NodeImage`. You can't change the node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to be able to change the node OS auto-upgrade channel values, make sure the [cluster auto-upgrade channel][Autoupgrade] isn't `node-image`.
 
+ * Why is `SecurityPatch` recommended over `Unmanaged` channel?
+ on `Unmanaged` channel, AKS has no control whatsoever on how and when the security updates are delivered. With `SecurityPatch` , the security updates are fully tested and follows safe deployment practices. `SecurityPatch` also honors maintenance windows. Read more on this in the [blog][Blog].
+
+ * How do i know if a `SecurityPatch` or `nodeimage` is applied on my node ?
+ Run the following command
+ ```azurecli-interactive
+kubectl get nodes --show-labels
+``
+The node image is returned for example as kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0. Here base node image version is AKSUbuntu-2204gen2containerd and the securitypatch version typically follows this if any , in the above example it is 202311.07.0.  The same can also be looked up in the Azure Portal under the node label view. 
+
 <!-- LINKS -->
 [planned-maintenance]: planned-maintenance.md
 [release-tracker]: release-tracker.md
@@ -135,3 +145,6 @@ To view the status of your node OS auto upgrades, look up [activity logs][monito
 [monitor-aks]: ./monitor-aks-reference.md
 [aks-eventgrid]: ./quickstart-event-grid.md
 [aks-upgrade]: ./upgrade-cluster.md
+
+<!-- LINKS - external -->
+[Blog]: https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/increased-security-and-resiliency-of-canonical-workloads-on/ba-p/3970623
