@@ -6,7 +6,7 @@ ms.author: kgremban
 # ms.subservice: orchestrator
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 11/15/2023
+ms.date: 12/06/2023
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -247,22 +247,19 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
 
 1. Select **Next: Automation**.
 
-1. On the **Automation** tab, select **Pick or create an Azure Key Vault**.
-
-   :::image type="content" source="./media/quickstart-deploy/install-extension-automation-1.png" alt-text="Screenshot of selecting your key vault in the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
-
-1. Provide the following information to connect a key vault:
+1. On the **Automation** tab, provide the following information:
 
    | Field | Value |
    | ----- | ----- |
    | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
-   | **Key vault** | Choose the key vault that you created in the previous section from the drop-down list. |
+   | **Azure Key Vault** | Use the **Select a key vault** drop-down menu to choose the key vault that you set up in the previous section. |
 
-1. Select **Select**.
+1. Once you select a key vault, the **Automation** tab populates Azure CLI commands with your deployment information. Copy the **Required** CLI command.
 
-1. On the **Automation** tab, the automation commands are populated based on your chosen cluster and key vault. Copy the **Required** CLI command.
+   >[!TIP]
+   >The **Required** CLI command configures your cluster with the information that it needs to communicate securely with Azure resources but does not deploy Azure IoT Operations. After running the configuration command, you'll deploy Azure IoT Operations on the **Summary** tab. The **Optional** CLI command does the same configuration tasks on your cluster and then also deploys Azure IoT Operations.
 
-   :::image type="content" source="./media/quickstart-deploy/install-extension-automation-2.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
+   :::image type="content" source="./media/quickstart-deploy/install-extension-automation.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
 
 1. Sign in to Azure CLI on your development machine or in your codespace terminal. To prevent potential permission issues later, sign in interactively with a browser here even if you've already logged in before.
 
@@ -277,6 +274,8 @@ az keyvault create --enable-rbac-authorization false --name "<your unique key va
    > * After you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
 1. Run the copied `az iot ops init` command on your development machine or in your codespace terminal.
+
+   Wait for the command to complete before continuing to the next step.
 
    >[!TIP]
    >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.

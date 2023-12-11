@@ -733,6 +733,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | applicationgroups | **Yes** | **Yes** | No |
 > | hostpools | **Yes** | **Yes** | No |
+> | scalingplans | **Yes** | **Yes** | No |
 > | workspaces | **Yes** | **Yes** | No |
 
 ## Microsoft.Devices

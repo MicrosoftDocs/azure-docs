@@ -13,7 +13,7 @@ ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---
 
-# Image tagging (version 4.0 preview)
+# Image tagging (version 4.0)
 
 Image Analysis can return content tags for thousands of recognizable objects, living beings, scenery, and actions that appear in images. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on. Tags are not organized as a taxonomy and do not have inheritance hierarchies. When tags are ambiguous or not common knowledge, the API response provides hints to clarify the meaning of the tag in context of a known setting.
 

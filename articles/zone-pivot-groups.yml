@@ -382,12 +382,12 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-typescript
-    title: TypeScript
   - id: programming-language-powershell
     title: PowerShell
   - id: programming-language-python
     title: Python
+  - id: programming-language-typescript
+    title: TypeScript
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -1934,6 +1934,15 @@ groups:
     title: PowerShell
   - id: rest-api
     title: REST (DALL-E 3)
+# Owner: pafarley
+- id: openai-quickstart-gpt-v
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: rest-api
+    title: REST
 # Owner: mbullwin
 - id: openai-whisper
   title: Programming languages
