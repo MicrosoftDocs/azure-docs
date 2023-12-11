@@ -333,11 +333,11 @@ Java applications running in App Service have the same set of [security best pra
 
 ### Authenticate users (Easy Auth)
 
-Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social sign-ins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory sign-in](configure-authentication-provider-aad.md) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md) article.
+Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Microsoft Entra ID or social sign-ins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Microsoft Entra sign-in](configure-authentication-provider-aad.md) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md) article.
 
 #### Java SE
 
-Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) to secure applications using familiar Spring Security annotations and APIs. Be sure to increase the maximum header size in your *application.properties* file. We suggest a value of `16384`.
+Spring Boot developers can use the [Microsoft Entra Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) to secure applications using familiar Spring Security annotations and APIs. Be sure to increase the maximum header size in your *application.properties* file. We suggest a value of `16384`.
 
 #### Tomcat
 
@@ -395,7 +395,6 @@ More configuration may be necessary for encrypting your JDBC connection with cer
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/ssl/)
 - [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption)
-- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 

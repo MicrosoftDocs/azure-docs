@@ -3,7 +3,7 @@ title: Concept - Integrate an Azure VMware Solution deployment in a hub and spok
 description: Learn about integrating an Azure VMware Solution deployment in a hub and spoke architecture on Azure.
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 2/8/2023
+ms.date: 11/30/2023
 ms.custom: engagement-fy23
 ---
 
@@ -92,7 +92,7 @@ A second level of traffic segmentation using the network security groups within 
 
 ### Application Gateway
 
-Azure Application Gateway V1 and V2 have been tested with web apps that run on Azure VMware Solution VMs as a backend pool. Application Gateway is currently the only supported method to expose web apps running on Azure VMware Solution VMs to the internet. It can also expose the apps to internal users securely.
+Azure Application Gateway V1 and V2 were tested with web apps that run on Azure VMware Solution VMs as a backend pool. Application Gateway is currently the only supported method to expose web apps running on Azure VMware Solution VMs to the internet. It can also expose the apps to internal users securely.
 
 For more information, see the Azure VMware Solution-specific article on [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md).
 
@@ -123,7 +123,7 @@ For Azure DNS resolution, there are two options available:
 
 The best approach is to combine both to provide reliable name resolution for Azure VMware Solution, on-premises, and Azure.
 
-As a general design recommendation, use the existing Active Directory-integrated DNS deployed onto at least two Azure VMs in the Hub virtual network and configured in the Spoke virtual networks to use those Azure DNS servers in the DNS settings.
+A general design recommendation: use the existing Active Directory-integrated DNS deployed onto at least two Azure VMs in the Hub virtual network and configured in the Spoke virtual networks to use those Azure DNS servers in the DNS settings.
 
 You can use Azure Private DNS, where the Azure Private DNS zone links to the virtual network.  The DNS servers are used as hybrid resolvers with conditional forwarding to on-premises or Azure VMware Solution running DNS using customer Azure Private DNS infrastructure.
 
@@ -137,7 +137,7 @@ For identity purposes, the best approach is to deploy at least one domain contro
 
 Additionally, deploy another domain controller on the Azure VMware Solution side to act as identity and DNS source within the vSphere environment.
 
-As a recommended best practice, integrate [AD domain with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
+As a recommended best practice, integrate [AD domain with Microsoft Entra ID](/azure/architecture/reference-architectures/identity/azure-ad).
 
 <!-- LINKS - external -->
 [Azure Architecture Center]: /azure/architecture/

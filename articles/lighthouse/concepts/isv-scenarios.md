@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Azure Lighthouse in ISV scenarios
 
-A typical scenario for [Azure Lighthouse](../overview.md) involves a service provider that manages resources in its customers' Azure Active Directory (Azure AD) tenants. However, the capabilities of Azure Lighthouse can also be used by Independent Software Vendors (ISVs) using SaaS-based offerings with their customers. Azure Lighthouse can be especially useful for ISVs who are offering managed services or support that require access to the subscription scope.
+A typical scenario for [Azure Lighthouse](../overview.md) involves a service provider that manages resources in its customers' Microsoft Entra tenants. However, the capabilities of Azure Lighthouse can also be used by Independent Software Vendors (ISVs) using SaaS-based offerings with their customers. Azure Lighthouse can be especially useful for ISVs who are offering managed services or support that require access to the subscription scope.
 
 ## Managed Service offers in Azure Marketplace
 
@@ -27,7 +27,7 @@ An additional scenario is where the ISV hosts resources in a subscription in the
 
 In this scenario, users in the customer’s tenant are essentially granted access as a "managing tenant", even though the customer is not managing the ISV's resources. Because they are accessing the ISV's tenant directly, it’s important to grant only the minimum permissions necessary, so that customers can't inadvertently make changes to the solution or other ISV resources.
 
-To enable this architecture, the ISV needs to obtain the object ID for a user group in the customer's Azure AD tenant, along with their tenant ID. The ISV then builds an ARM template granting this user group the appropriate permissions, and [deploys it on the ISV's subscription](../how-to/onboard-customer.md) that contains the resources that the customer will access.
+To enable this architecture, the ISV needs to obtain the object ID for a user group in the customer's Microsoft Entra tenant, along with their tenant ID. The ISV then builds an ARM template granting this user group the appropriate permissions, and [deploys it on the ISV's subscription](../how-to/onboard-customer.md) that contains the resources that the customer will access.
 
 ## Next steps
 

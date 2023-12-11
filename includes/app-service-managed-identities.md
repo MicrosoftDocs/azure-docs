@@ -6,7 +6,7 @@ ms.date: 04/20/2020
 ms.author: mahender
 ---
 
-A managed identity from Azure Active Directory (Azure AD) allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../articles/active-directory/managed-identities-azure-resources/overview.md).
+A managed identity from Microsoft Entra ID allows your app to easily access other Microsoft Entra protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../articles/active-directory/managed-identities-azure-resources/overview.md).
 
 Your application can be granted two types of identities:
 

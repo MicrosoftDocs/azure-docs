@@ -190,7 +190,7 @@ __Solution__: To understand what may be happening, go to __Outputs + Logs__ and 
 
 __Context__: When invoking a batch endpoint using its REST APIs.
 
-__Reason__: The access token used to invoke the REST API for the endpoint/deployment is indicating a token that is issued for a different audience/service. Azure Active Directory tokens are issued for specific actions.
+__Reason__: The access token used to invoke the REST API for the endpoint/deployment is indicating a token that is issued for a different audience/service. Microsoft Entra tokens are issued for specific actions.
 
 __Solution__: When generating an authentication token to be used with the Batch Endpoint REST API, ensure the `resource` parameter is set to `https://ml.azure.com`. Please notice that this resource is different from the resource you need to indicate to manage the endpoint using the REST API. All Azure resources (including batch endpoints) use the resource `https://management.azure.com` for managing them. Ensure you use the right resource URI on each case. Notice that if you want to use the management API and the job invocation API at the same time, you'll need two tokens. For details see: [Authentication on batch endpoints (REST)](how-to-authenticate-batch-endpoint.md?tabs=rest).
 

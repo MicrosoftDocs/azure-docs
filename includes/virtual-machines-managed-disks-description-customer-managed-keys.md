@@ -17,7 +17,7 @@ You must use one of the following Azure key stores to store your customer-manage
 
 You can either import [your RSA keys](../articles/key-vault/keys/hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. Azure managed disks handles the encryption and decryption in a fully transparent fashion using envelope encryption. It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. The Storage service generates data encryption keys and encrypts them with customer-managed keys using RSA encryption. The envelope encryption allows you to rotate (change) your keys periodically as per your compliance policies without impacting your VMs. When you rotate your keys, the Storage service re-encrypts the data encryption keys with the new customer-managed keys. 
 
-Managed Disks and the Key Vault or managed HSM must be in the same Azure region, but they can be in different subscriptions. They must also be in the same Azure Active Directory (Azure AD) tenant, unless you're using [Encrypt managed disks with cross-tenant customer-managed keys (preview)](../articles/virtual-machines/disks-cross-tenant-customer-managed-keys.md).
+Managed Disks and the Key Vault or managed HSM must be in the same Azure region, but they can be in different subscriptions. They must also be in the same Microsoft Entra tenant, unless you're using [Encrypt managed disks with cross-tenant customer-managed keys (preview)](../articles/virtual-machines/disks-cross-tenant-customer-managed-keys.md).
 
 #### Full control of your keys
 
@@ -28,16 +28,16 @@ You must grant access to managed disks in your Key Vault or managed HSM to use y
 > 
 > Generally, disk I/O (read or write operations) start to fail one hour after a key is either disabled, deleted, or expired.
 
-The following diagram shows how managed disks use Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
+The following diagram shows how managed disks use Microsoft Entra ID and Azure Key Vault to make requests using the customer-managed key:
 
-:::image type="content" source="media/virtual-machines-managed-disks-description-customer-managed-keys/customer-managed-keys-sse-managed-disks-workflow.png" alt-text="Managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The set is associated to a VM, which allows the disk to make use of Azure AD to authenticate":::
+:::image type="content" source="media/virtual-machines-managed-disks-description-customer-managed-keys/customer-managed-keys-sse-managed-disks-workflow.png" alt-text="Managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The set is associated to a VM, which allows the disk to make use of Microsoft Entra ID to authenticate":::
 
 The following list explains the diagram in more detail:
 
 1. An Azure Key Vault administrator creates key vault resources.
 1. The key vault admin either imports their RSA keys to Key Vault or generate new RSA keys in Key Vault.
 1. That administrator creates an instance of Disk Encryption Set resource, specifying an Azure Key Vault ID and a key URL. Disk Encryption Set is a new resource introduced for simplifying the key management for managed disks. 
-1. When a disk encryption set is created, a [system-assigned managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md) is created in Azure Active Directory (AD) and associated with the disk encryption set. 
+1. When a disk encryption set is created, a [system-assigned managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md) is created in Microsoft Entra ID and associated with the disk encryption set. 
 1. The Azure key vault administrator then grants the managed identity permission to perform operations in the key vault.
 1. A VM user creates disks by associating them with the disk encryption set. The VM user can also enable server-side encryption with customer-managed keys for existing resources by associating them with the disk encryption set. 
 1. Managed disks use the managed identity to send requests to the Azure Key Vault.

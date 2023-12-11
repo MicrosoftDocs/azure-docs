@@ -1,6 +1,6 @@
 ---
-title: Authentication - Data Lake Storage Gen1 with Azure AD
-description: Learn how to authenticate with Azure Data Lake Storage Gen1 using Azure Active Directory.
+title: Authentication - Data Lake Storage Gen1 with Microsoft Entra ID
+description: Learn how to authenticate with Azure Data Lake Storage Gen1 using Microsoft Entra ID.
 
 author: normesta
 ms.service: data-lake-store
@@ -9,15 +9,15 @@ ms.date: 05/29/2018
 ms.author: normesta
 
 ---
-# Authentication with Azure Data Lake Storage Gen1 using Azure Active Directory
+# Authentication with Azure Data Lake Storage Gen1 using Microsoft Entra ID
 
-Azure Data Lake Storage Gen1 uses Azure Active Directory for authentication. Before authoring an application that works with Data Lake Storage Gen1, you must decide how to authenticate your application with Azure Active Directory (Azure AD).
+Azure Data Lake Storage Gen1 uses Microsoft Entra ID for authentication. Before authoring an application that works with Data Lake Storage Gen1, you must decide how to authenticate your application with Microsoft Entra ID.
 
 ## Authentication options
 
 * **End-user authentication** - An end user's Azure credentials are used to authenticate with Data Lake Storage Gen1. The application you create to work with Data Lake Storage Gen1 prompts for these user credentials. As a result, this authentication mechanism is *interactive* and the application runs in the logged in user's context. For more information and instructions, see [End-user authentication for Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **Service-to-service authentication** - Use this option if you want an application to authenticate itself with Data Lake Storage Gen1. In such cases, you create an Azure Active Directory (AD) application and use the key from the Azure AD application to authenticate with Data Lake Storage Gen1. As a result, this authentication mechanism is *non-interactive*. For more information and instructions, see [Service-to-service authentication for Data Lake Storage Gen1](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Service-to-service authentication** - Use this option if you want an application to authenticate itself with Data Lake Storage Gen1. In such cases, you create a Microsoft Entra application and use the key from the Microsoft Entra application to authenticate with Data Lake Storage Gen1. As a result, this authentication mechanism is *non-interactive*. For more information and instructions, see [Service-to-service authentication for Data Lake Storage Gen1](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 The following table illustrates how end-user and service-to-service authentication mechanisms are supported for Data Lake Storage Gen1. Here's how you read the table.
 
@@ -36,7 +36,7 @@ The following table illustrates how end-user and service-to-service authenticati
 <i>* Click the <b>✔\*</b> symbol. It's a link.</i><br>
 <i>** MFA stands for multi-factor authentication</i>
 
-See  [Authentication Scenarios for Azure Active Directory](../active-directory/develop/authentication-vs-authorization.md) for more information on how to use Azure Active Directory for authentication.
+See  [Authentication Scenarios for Microsoft Entra ID](../active-directory/develop/authentication-vs-authorization.md) for more information on how to use Microsoft Entra ID for authentication.
 
 ## Next steps
 

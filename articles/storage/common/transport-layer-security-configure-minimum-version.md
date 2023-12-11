@@ -3,12 +3,12 @@ title: Enforce a minimum required version of Transport Layer Security (TLS) for 
 titleSuffix: Azure Storage
 description: Configure a storage account to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Storage.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/30/2022
-ms.author: akashdubey
+ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
@@ -88,7 +88,7 @@ StorageBlobLogs
 When you are confident that traffic from clients using older versions of TLS is minimal, or that it's acceptable to fail requests made with an older version of TLS, then you can begin enforcement of a minimum TLS version on your storage account. Requiring that clients use a minimum version of TLS to make requests against a storage account is part of a strategy to minimize security risks to your data.
 
 > [!IMPORTANT]
-> If you are using a service that connects to Azure Storage, make sure that that service is using the appropriate version of TLS to send requests to Azure Storage before you set the required minimum version for a storage account.
+> If you are using a service that connects to Azure Storage, make sure that service is using the appropriate version of TLS to send requests to Azure Storage before you set the required minimum version for a storage account.
 
 ### Configure the minimum TLS version for a storage account
 
@@ -374,14 +374,14 @@ To set the **MinimumTlsVersion** property for the storage account, a user must h
 - The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
 - The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
 
-These roles do not provide access to data in a storage account via Azure Active Directory (Azure AD). However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
+These roles do not provide access to data in a storage account via Microsoft Entra ID. However, they include the **Microsoft.Storage/storageAccounts/listkeys/action**, which grants access to the account access keys. With this permission, a user can use the account access keys to access all data in a storage account.
 
 Role assignments must be scoped to the level of the storage account or higher to permit a user to require a minimum version of TLS for the storage account. For more information about role scope, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
 
 Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## Network considerations
 

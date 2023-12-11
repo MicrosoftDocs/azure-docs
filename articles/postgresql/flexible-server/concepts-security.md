@@ -188,4 +188,4 @@ ALTER ROLE
 ## Next steps
 - Enable [firewall rules for IP addresses](concepts-firewall-rules.md) for public access networking.
 - Learn about [private access networking with Azure Database for PostgreSQL - Flexible Server](concepts-networking.md).
-- Learn about [Azure Active Directory authentication](../concepts-aad-authentication.md) in Azure Database for PostgreSQL.
+- Learn about [Microsoft Entra authentication](../concepts-aad-authentication.md) in Azure Database for PostgreSQL.

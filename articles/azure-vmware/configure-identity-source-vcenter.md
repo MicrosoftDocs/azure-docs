@@ -1,9 +1,10 @@
 ---
 title: Configure external identity source for vCenter Server
-description: Learn how to configure Azure Active Directory over LDAP or LDAPS for vCenter Server as an external identity source.
+description: Learn how to configure Microsoft Entra ID over LDAP or LDAPS for vCenter Server as an external identity source.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/21/2022
+ms.date: 12/06/2023
+ms.custom: engagement-fy23
 ---
 
 # Configure external identity source for vCenter Server
@@ -13,7 +14,7 @@ ms.date: 10/21/2022
 > [!NOTE]
 > Execute commands one at a time in the order provided.
 
-In this article, you'll learn how to:
+In this article, learn how to:
 
 > [!div class="checklist"]
 >
@@ -37,7 +38,7 @@ In this article, you'll learn how to:
 - For AD authentication with LDAPS:
 
     - Obtain access to the Active Directory Domain Controller(s) with Administrator permissions.
-    - Enable LDAPS on your Active Directory Domain Controller(s) with a valid certificate. You may obtain the certificate from an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party/public CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
+    - Enable LDAPS on your Active Directory Domain Controller(s) with a valid certificate. You can obtain the certificate from an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party/public CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
     - Follow the steps in [create a certificate for secure LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap) to obtain a valid certificate. Ensure the certificate meets the listed requirements.
     > [!NOTE]
     > Avoid using self-signed certificates in production environments.  
@@ -46,7 +47,7 @@ In this article, you'll learn how to:
 - Configure DNS resolution for Azure VMware Solution to your on-premises AD. Enable DNS Forwarder from the Azure portal. For more information, see [configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md).
 
 > [!NOTE]
-> Consult your security or identity management team for more information about LDAPS and certificate issuance.
+> For more information about LDAPS and certificate issuance, contact your security or identity management team.
 
 ## (Optional) Export the certificate for LDAPS authentication
 
@@ -120,7 +121,7 @@ To add AD over LDAP with SSL as an external identity source to use with SSO into
    | **BaseDNGroups**  | Location to search for groups. For example, **CN=group1, DC=avsldap,DC=local**. Base DN is required for LDAP Authentication.  |
    | **BaseDNUsers**  |  Location to search for valid users. For example, **CN=users,DC=avsldap,DC=local**. Base DN is required for LDAP Authentication.  |
    | **PrimaryUrl**  | Primary URL of the external identity source. For example, **ldaps://yourserver.avslab.local.:636**.  |
-   | **SecondaryURL**  | Secondary fallback URL if there is primary failure. For example, **ldaps://yourbackupldapserver.avslab.local:636**. |
+   | **SecondaryURL**  | Secondary fallback URL if there's primary failure. For example, **ldaps://yourbackupldapserver.avslab.local:636**. |
    | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source, typically in the **avsldap\** format.    |
    | **DomainName**  | The domain's FQDN. For example, **avslab.local**.  |
    | **Name**  | User-friendly name of the external identity source. For example,**avslab.local**. |
@@ -143,11 +144,11 @@ To add AD over LDAP as an external identity source to use with SSO into vCenter 
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Name**  | User-friendly name of the external identity source. For example, **avslab.local**. This name will be displayed in vCenter.  |
+   | **Name**  | User-friendly name of the external identity source. For example, **avslab.local**. This name is displayed in vCenter.  |
    | **DomainName**  | The domain's FQDN. For example, **avslab.local**.  |
    | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the AD domain's NetBIOS name as an alias of the identity source, typically in the **avsldap\** format.      |
    | **PrimaryUrl**  | Primary URL of the external identity source. For example, **ldap://yourserver.avslab.local:389**.  |
-   | **SecondaryURL**  | Secondary fallback URL in case of primary failure.  |
+   | **SecondaryURL**  | Secondary fallback URL if there is a primary failure.  |
    | **BaseDNUsers**  |  Location to search for valid users. For example, **CN=users,DC=avslab,DC=local**. Base DN is required for LDAP Authentication.  |
    | **BaseDNGroups**  | Location to search for groups. For example, **CN=group1, DC=avslab,DC=local**. Base DN is required for LDAP Authentication.  |
    | **Credential**  | The domain username and password for authentication with the AD source (not cloudadmin). The user must be in the **username@avslab.local** format.  |
@@ -213,11 +214,11 @@ After you've added an external identity over LDAP or LDAPS, you can assign vCent
 
     :::image type="content" source="media/run-command/ldaps-vcenter-permission-assignment-1.png" alt-text="Screenshot of the ACTIONS menu in vCenter Server with Add Permission option." lightbox="media/run-command/ldaps-vcenter-permission-assignment-1.png":::
 
-1. In the Add Permission prompt:
-    1. *Domain*: Select the previously added Active Directory.
-    1. *User/Group*: Enter the desired user or group name, find it, then select it.
-    1. *Role*: Choose the role to assign.
-    1. *Propagate to children*: Optionally, select the checkbox to propagate permissions to child resources.
+1. In the **Add Permission** prompt:
+    1. **Domain**: Select the previously added Active Directory.
+    1. **User/Group**: Enter the desired user or group name, find it, then select it.
+    1. **Role**: Choose the role to assign.
+    1. **Propagate to children**: Optionally, select the checkbox to propagate permissions to child resources.
     :::image type="content" source="media/run-command/ldaps-vcenter-permission-assignment-2.png" alt-text="Screenshot of the Add Permission prompt in vCenter Server." lightbox="media/run-command/ldaps-vcenter-permission-assignment-3.png":::
 
 1. Switch to the **Permissions** tab and verify the permission assignment was added.
@@ -279,7 +280,7 @@ To remove all existing external identity sources in bulk, run the `Remove-Extern
 
 ## Next steps
 
-Now that you've learned about how to configure LDAP and LDAPS, explore the following topics:
+Now that you learned about how to configure LDAP and LDAPS, explore the following articles:
 
 - [How to configure storage policy](configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. Learn how to assign a VM storage policy during an initial deployment of a VM or other VM operations, such as cloning or migrating.
 - [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter Server to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the cloudadmin role for vCenter Server and restricted administrator rights for NSX-T Manager.

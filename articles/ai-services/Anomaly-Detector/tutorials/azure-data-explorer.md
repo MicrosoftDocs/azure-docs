@@ -2,7 +2,7 @@
 title: "Tutorial: Use Univariate Anomaly Detector in Azure Data Explorer"
 titleSuffix: Azure AI services
 description: Learn how to use the Univariate Anomaly Detector with Azure Data Explorer.
-services: cognitive-services
+#services: cognitive-services
 author: jr-MS
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
@@ -12,6 +12,8 @@ ms.author: mbullwin
 ---
 
 # Tutorial: Use Univariate Anomaly Detector in Azure Data Explorer
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 ## Introduction
 

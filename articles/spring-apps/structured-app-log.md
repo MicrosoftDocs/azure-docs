@@ -53,17 +53,17 @@ To improve log query experience, an application log is required to be in JSON fo
 
 ## Limitations
 
-Each line of JSON logs may have at most **16K bytes**. If the JSON output of a single log record exceeds this limit, it will be forcibly broken into multiple lines, and each raw line will be collected into the `Log` column, without being parsed structurally.
+Each line of the JSON logs has at most 16 K bytes. If the JSON output of a single log record exceeds this limit, it's broken into multiple lines, and each raw line is collected into the `Log` column without being parsed structurally.
 
-Generally, this happens on exception logging with deep stacktrace, especially when the [AppInsights In-Process Agent](./how-to-application-insights.md) is enabled.  Apply limit settings to the stacktrace output (see the below configuration samples) to ensure the final output gets parsed properly.
+Generally, this situation happens on exception logging with deep stacktrace, especially when the [AppInsights In-Process Agent](./how-to-application-insights.md) is enabled. Apply limit settings to the stacktrace output (see the below configuration samples) to ensure the final output gets parsed properly.
 
 ## Generate schema-compliant JSON log
 
-For Spring applications, you can generate expected JSON log format using common [logging frameworks](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-configuration), such as [logback](http://logback.qos.ch/) and [log4j2](https://logging.apache.org/log4j/2.x/).
+For Spring applications, you can generate expected JSON log format using common [logging frameworks](https://docs.spring.io/spring-boot/docs/2.7.9/reference/html/features.html#features.logging.custom-log-configuration), such as [Logback](http://logback.qos.ch/) and [Log4j2](https://logging.apache.org/log4j/2.x/).
 
 ### Log with logback
 
-When using Spring Boot starters, logback is used by default. For logback apps, use [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) to generate JSON formatted log. This method is supported in Spring Boot version 2.1+.
+When using Spring Boot starters, Logback is used by default. For Logback apps, use [logstash-encoder](https://github.com/logstash/logstash-logback-encoder) to generate JSON formatted log. This method is supported in Spring Boot version 2.1 or later.
 
 The procedure:
 
@@ -239,7 +239,7 @@ The procedure:
 
 ## Analyze the logs in Log Analytics
 
-After your application is properly set up, your application console log will be streamed to Log Analytics. The structure enables efficient query in Log Analytics.
+After your application is properly set up, your application console log is streamed to Log Analytics. The structure enables efficient query in Log Analytics.
 
 ### Check log structure in Log Analytics
 

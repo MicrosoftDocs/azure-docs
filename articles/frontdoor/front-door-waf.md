@@ -6,6 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: tutorial
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 10/01/2020
 ms.author: duau
 ---

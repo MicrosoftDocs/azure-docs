@@ -29,6 +29,9 @@ Private cluster is available in public regions, Azure Government, and Microsoft 
 * To use a custom DNS server, add the Azure public IP address 168.63.129.16 as the upstream DNS server in the custom DNS server, and make sure to add this public IP address as the *first* DNS server. For more information about the Azure IP address, see [What is IP address 168.63.129.16?][virtual-networks-168.63.129.16]
   * The cluster's DNS zone should be what you forward to 168.63.129.16. You can find more information on zone names in [Azure services DNS zone configuration][az-dns-zone].
 
+> [!NOTE]
+> The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
+
 ## Limitations
 
 * IP authorized ranges can't be applied to the private API server endpoint, they only apply to the public API server
@@ -364,3 +367,4 @@ For associated best practices, see [Best practices for network connectivity and 
 [az-network-private-dns-link-vnet-create]: /cli/azure/network/private-dns/link/vnet#az_network_private_dns_link_vnet_create
 [az-network-vnet-peering-create]: /cli/azure/network/vnet/peering#az_network_vnet_peering_create
 [az-network-vnet-peering-list]: /cli/azure/network/vnet/peering#az_network_vnet_peering_list
+[intro-azure-linux]: ../azure-linux/intro-azure-linux.md

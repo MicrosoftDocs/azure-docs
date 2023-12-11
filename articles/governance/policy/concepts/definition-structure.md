@@ -215,7 +215,9 @@ A parameter has the following properties that are used in the policy definition:
     resource or scope.
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For oject-type parameters, the value must match the appropriate schema.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
-  assignment. Allowed value comparisons are case-sensitive. For oject-type parameters, the values must match the appropriate schema.
+  assignment.
+    - Case sensitivity: Allowed value comparisons are case-sensitive when assigning a policy, meaning that the selected parameter values in the assignment must match the casing of values in the `allowedValues` array in the definition. However, once values are selected for the assignment, evaluation of string comparisons may be case-insensitive depending on the [condition](#conditions) used. For example, if the parameter specifies `Dev` as an allowed tag value in an assignment, and this value is compared to an input string using the `equals` condition, then Azure Policy would later evaluate a tag value of `dev` as a match even though it is lowercase because `notEquals ` is case insensitive.
+    - For object-type parameters, the values must match the appropriate schema.
 - `schema`: (Optional) Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the [Json.NET Schema](https://www.newtonsoft.com/jsonschema) 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
 
 ### Sample Parameters
@@ -1017,26 +1019,6 @@ Policy:
 }
 ```
 
-### Effect
-
-Azure Policy supports the following types of effect:
-
-- **Append**: adds the defined set of fields to the request
-- **Audit**: generates a warning event in activity log but doesn't fail the request
-- **AuditIfNotExists**: generates a warning event in activity log if a related resource doesn't
-  exist
-- **Deny**: generates an event in the activity log and fails the request
-- **DeployIfNotExists**: deploys a related resource if it doesn't already exist
-- **Disabled**: doesn't evaluate resources for compliance to the policy rule
-- **Modify**: adds, updates, or removes the defined set of fields in the request
-- **EnforceOPAConstraint** (deprecated): configures the Open Policy Agent admissions controller with
-  Gatekeeper v3 for self-managed Kubernetes clusters on Azure
-- **EnforceRegoPolicy** (deprecated): configures the Open Policy Agent admissions controller with
-  Gatekeeper v2 in Azure Kubernetes Service
-
-For complete details on each effect, order of evaluation, properties, and examples, see
-[Understanding Azure Policy Effects](effects.md).
-
 ### Policy functions
 
 Functions can be used to introduce additional logic into a policy rule. They are resolved within the [policy rule](#policy-rule) of a policy definition and within [parameter values assigned to policy definitions in an initiative](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition).
@@ -1047,9 +1029,12 @@ within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
 - dateTimeAdd()
+- dateTimeFromEpoch
+- dateTimeToEpoch
 - deployment()
 - environment()
 - extensionResourceId()
+- [lambda()](../../../azure-resource-manager/templates/template-functions-lambda.md)
 - listAccountSas()
 - listKeys()
 - listSecrets()
@@ -1063,7 +1048,6 @@ within a policy rule, except the following functions and user-defined functions:
 - subscriptionResourceId()
 - tenantResourceId()
 - tenant()
-- utcNow(format)
 - variables()
 
 > [!NOTE]
@@ -1272,6 +1256,27 @@ array element to a target value. When used with [count](#count) expression, it's
 
 For more information and examples, see
 [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+
+### Effect
+
+Azure Policy supports the following types of effect:
+
+- **Append**: adds the defined set of fields to the request
+- **Audit**: generates a warning event in activity log but doesn't fail the request
+- **AuditIfNotExists**: generates a warning event in activity log if a related resource doesn't
+  exist
+- **Deny**: generates an event in the activity log and fails the request based on requested resource configuration
+- **DenyAction**: generates an event in the activity log and fails the request based on requested action
+- **DeployIfNotExists**: deploys a related resource if it doesn't already exist
+- **Disabled**: doesn't evaluate resources for compliance to the policy rule
+- **Modify**: adds, updates, or removes the defined set of fields in the request
+- **EnforceOPAConstraint** (deprecated): configures the Open Policy Agent admissions controller with
+  Gatekeeper v3 for self-managed Kubernetes clusters on Azure
+- **EnforceRegoPolicy** (deprecated): configures the Open Policy Agent admissions controller with
+  Gatekeeper v2 in Azure Kubernetes Service
+
+For complete details on each effect, order of evaluation, properties, and examples, see
+[Understanding Azure Policy Effects](effects.md).
 
 ## Next steps
 

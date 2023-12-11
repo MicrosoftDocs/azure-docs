@@ -28,10 +28,10 @@ Before you can access your resources, you'll need to meet the prerequisites:
   - Windows 10 IoT Enterprise
   - Windows Server 2019
   - Windows Server 2016
-  - Windows Server 2012 R2
    
    > [!IMPORTANT]
-   > Support for Windows 7 ended on January 10, 2023.
+   > - Support for Windows 7 ended on January 10, 2023.
+   > - Support for Windows Server 2012 R2 ended on October 10, 2023. For more information, view [SQL Server 2012 and Windows Server 2012/2012 R2 end of support](/lifecycle/announcements/sql-server-2012-windows-server-2012-2012-r2-end-of-support).
 
 - Download the Remote Desktop client installer, choosing the correct version for your device:
   - [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*

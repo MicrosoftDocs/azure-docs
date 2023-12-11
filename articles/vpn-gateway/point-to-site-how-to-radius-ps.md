@@ -19,7 +19,7 @@ A point-to-site VPN gateway lets you create a secure connection to your virtual 
 A P2S VPN connection is started from Windows and Mac devices. This article helps you configure a P2S configuration that uses a RADIUS server for authentication. If you want to authenticate using a different method, see the following articles:
 
 * [Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-* [Azure AD authentication](openvpn-azure-ad-tenant.md)
+* [Microsoft Entra authentication](openvpn-azure-ad-tenant.md)
 
 P2S connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), OpenVPN or IKEv2.
 

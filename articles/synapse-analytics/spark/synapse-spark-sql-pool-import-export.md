@@ -63,7 +63,7 @@ Review and setup following dependent Azure Resources:
 
 Connect to the Synapse Dedicated SQL Pool database and run following setup statements:
 
-* Create a database user that is mapped to the Azure Active Directory User Identity used to sign in to the Azure Synapse Workspace.
+* Create a database user that is mapped to the Microsoft Entra user Identity used to sign in to the Azure Synapse Workspace.
   
     ```sql
     CREATE USER [username@domain.com] FROM EXTERNAL PROVIDER;      
@@ -77,9 +77,11 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 ### Authentication
 
-#### Azure Active Directory based authentication
+<a name='azure-active-directory-based-authentication'></a>
 
-Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully sign in to the Azure Synapse Analytics Workspace.
+#### Microsoft Entra ID based authentication
+
+Microsoft Entra ID based authentication is an integrated authentication approach. The user is required to successfully sign in to the Azure Synapse Analytics Workspace.
 
 #### Basic authentication
 
@@ -149,7 +151,7 @@ To successfully bootstrap and orchestrate the read or write operation, the Conne
 
 Following is the list of configuration options based on usage scenario:
 
-* **Read using Azure AD based authentication**
+* **Read using Microsoft Entra ID based authentication**
   * Credentials are auto-mapped, and user isn't required to provide specific configuration options.
   * Three-part table name argument on `synapsesql` method is required to read from respective table in Azure Synapse Dedicated SQL Pool.
 * **Read using basic authentication**
@@ -159,7 +161,7 @@ Following is the list of configuration options based on usage scenario:
     * `Constants.PASSWORD` - SQL User Password.
   * Azure Data Lake Storage (Gen 2) End Point  - Staging Folders
     * `Constants.DATA_SOURCE` - Storage path set on the data source location parameter is used for data staging.
-* **Write using Azure AD based authentication**
+* **Write using Microsoft Entra ID based authentication**
   * Azure Synapse Dedicated SQL End Point
     * By default, the Connector infers the Synapse Dedicated SQL end point by using the database name set on the `synapsesql` method's three-part table name parameter.
     * Alternatively, users can use the `Constants.SERVER` option to specify the sql end point. Ensure the end point hosts the corresponding database with respective schema.
@@ -209,7 +211,9 @@ synapsesql(table_name: str="") -> org.apache.spark.sql.DataFrame
 ```
 ---
 
-#### Read from a table using Azure AD based authentication
+<a name='read-from-a-table-using-azure-ad-based-authentication'></a>
+
+#### Read from a table using Microsoft Entra ID based authentication
 
 ##### [Scala](#tab/scala1)
 
@@ -269,7 +273,9 @@ dfToReadFromTable.show()
 ```
 ---
 
-#### Read from a query using Azure AD based authentication
+<a name='read-from-a-query-using-azure-ad-based-authentication'></a>
+
+#### Read from a query using Microsoft Entra ID based authentication
 > [!Note]
 > Restrictions while reading from query:
 > * Table name and query cannot be specified at the same time.
@@ -591,7 +597,9 @@ synapsesql(table_name: str, table_type: str = Constants.INTERNAL, location: str 
 ```
 ---
 
-#### Write using Azure AD based authentication
+<a name='write-using-azure-ad-based-authentication'></a>
+
+#### Write using Microsoft Entra ID based authentication
 
 Following is a comprehensive code template that describes how to use the Connector for write scenarios:
 
@@ -710,7 +718,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
 
 #### Write using basic authentication
 
-Following code snippet replaces the write definition described in the [Write using Azure AD based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
+Following code snippet replaces the write definition described in the [Write using Microsoft Entra ID based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
 
 ##### [Scala](#tab/scala5)
 

@@ -1,36 +1,38 @@
 ---
-title: Cluster access control with AKS-managed Azure Active Directory integration
-description: Learn how to access clusters when integrating Azure AD in your Azure Kubernetes Service (AKS) clusters.
+title: Cluster access control with AKS-managed Microsoft Entra integration
+description: Learn how to access clusters when integrating Microsoft Entra ID in your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
 ms.date: 04/20/2023
 ms.custom: devx-track-azurecli
 ---
 
-# Cluster access control with AKS-managed Azure Active Directory integration
+# Cluster access control with AKS-managed Microsoft Entra integration
 
-When you integrate Azure AD with your AKS cluster, you can use [Conditional Access][aad-conditional-access] or Privileged Identity Management (PIM) for just-in-time requests to control access to your cluster. This article shows you how to enable Conditional Access and PIM on your AKS clusters.
+When you integrate Microsoft Entra ID with your AKS cluster, you can use [Conditional Access][aad-conditional-access] or Privileged Identity Management (PIM) for just-in-time requests to control access to your cluster. This article shows you how to enable Conditional Access and PIM on your AKS clusters.
 
 > [!NOTE]
-> Azure AD Conditional Access and Privileged Identity Management are Azure AD Premium capabilities requiring a Premium P2 SKU. For more on Azure AD SKUs, see the [pricing guide][aad-pricing].
+> Microsoft Entra Conditional Access and Privileged Identity Management are Microsoft Entra ID P1 or P2 capabilities requiring a Premium P2 SKU. For more on Microsoft Entra ID SKUs, see the [pricing guide][aad-pricing].
 
 ## Before you begin
 
-* See [AKS-managed Azure Active Directory integration](./managed-azure-ad.md) for an overview and setup instructions.
+* See [AKS-managed Microsoft Entra integration](./managed-azure-ad.md) for an overview and setup instructions.
 
-## Use Conditional Access with Azure AD and AKS
+<a name='use-conditional-access-with-azure-ad-and-aks'></a>
 
-1. In the Azure portal, go to the **Azure Active Directory** page and select **Enterprise applications**.
+## Use Conditional Access with Microsoft Entra ID and AKS
+
+1. In the Azure portal, go to the **Microsoft Entra ID** page and select **Enterprise applications**.
 2. Select **Conditional Access** > **Policies** > **New policy**.
 
     :::image type="content" source="./media/managed-aad/conditional-access-new-policy.png" alt-text="Screenshot of adding a Conditional Access policy." lightbox="./media/managed-aad/conditional-access-new-policy.png":::
 
 3. Enter a name for the policy, such as *aks-policy*.
 
-4. Under **Assignments**, select **Users and groups**. Choose the users and groups you want to apply the policy to. In this example, choose the same Azure AD group that has administrator access to your cluster.
+4. Under **Assignments**, select **Users and groups**. Choose the users and groups you want to apply the policy to. In this example, choose the same Microsoft Entra group that has administrator access to your cluster.
 
     :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Screenshot of selecting users or groups to apply the Conditional Access policy." lightbox="./media/managed-aad/conditional-access-users-groups.png":::
 
-5. Under **Cloud apps or actions** > **Include**, select **Select apps**. Search for **Azure Kubernetes Service** and select **Azure Kubernetes Service AAD Server**.
+5. Under **Cloud apps or actions** > **Include**, select **Select apps**. Search for **Azure Kubernetes Service** and select **Azure Kubernetes Service Microsoft Entra Server**.
 
     :::image type="content" source="./media/managed-aad/conditional-access-apps.png" alt-text="Screenshot of selecting Azure Kubernetes Service AD Server for applying the Conditional Access policy." lightbox="./media/managed-aad/conditional-access-apps.png":::
 
@@ -58,25 +60,27 @@ When you integrate Azure AD with your AKS cluster, you can use [Conditional Acce
     kubectl get nodes
     ```
 
-4. In the Azure portal, navigate to **Azure Active Directory** and select **Enterprise applications** > **Activity** > **Sign-ins**.
+4. In the Azure portal, navigate to **Microsoft Entra ID** and select **Enterprise applications** > **Activity** > **Sign-ins**.
 
 5. Under the **Conditional Access** column you should see a status of *Success*. Select the event and then select the **Conditional Access** tab. Your Conditional Access policy will be listed.
 
     :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Screenshot that shows failed sign-in entry due to Conditional Access policy." lightbox="./media/managed-aad/conditional-access-sign-in-activity.png":::
 
-## Configure just-in-time cluster access with Azure AD and AKS
+<a name='configure-just-in-time-cluster-access-with-azure-ad-and-aks'></a>
 
-1. In the Azure portal, go to **Azure Active Directory** and select **Properties**.
+## Configure just-in-time cluster access with Microsoft Entra ID and AKS
+
+1. In the Azure portal, go to **Microsoft Entra ID** and select **Properties**.
 
 2. Note the value listed under **Tenant ID**. It will be referenced in a later step as `<tenant-id>`.
 
-    :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="Screenshot of the Azure portal screen for Azure Active Directory with the tenant's ID highlighted." lightbox="./media/managed-aad/jit-get-tenant-id.png":::
+    :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="Screenshot of the Azure portal screen for Microsoft Entra ID with the tenant's ID highlighted." lightbox="./media/managed-aad/jit-get-tenant-id.png":::
 
 3. Select **Groups** > **New group**.
 
     :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Screenshot of the Azure portal Active Directory groups screen with the New Group option highlighted." lightbox="./media/managed-aad/jit-create-new-group.png":::
 
-4. Verify the group type **Security** is selected and specify a group name, such as *myJITGroup*. Under the option **Azure AD roles can be assigned to this group (Preview)**, select **Yes** and then select **Create**.
+4. Verify the group type **Security** is selected and specify a group name, such as *myJITGroup*. Under the option **Microsoft Entra roles can be assigned to this group (Preview)**, select **Yes** and then select **Create**.
 
     :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Screenshot of the new group creation screen in the Azure portal." lightbox="./media/managed-aad/jit-new-group-created.png":::
 
@@ -84,7 +88,7 @@ When you integrate Azure AD with your AKS cluster, you can use [Conditional Acce
 
     :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Screenshot of the Azure portal screen for the just-created group with the Object ID highlighted." lightbox="./media/managed-aad/jit-get-object-id.png":::
 
-6. Create the AKS cluster with AKS-managed Azure AD integration using the [`az aks create`][az-aks-create] command with the `--aad-admin-group-objects-ids` and `--aad-tenant-id parameters` and include the values noted in the steps earlier.
+6. Create the AKS cluster with AKS-managed Microsoft Entra integration using the [`az aks create`][az-aks-create] command with the `--aad-admin-group-objects-ids` and `--aad-tenant-id parameters` and include the values noted in the steps earlier.
 
     ```azurecli-interactive
     az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>

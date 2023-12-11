@@ -6,7 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 08/10/2023
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: fryu
 ---
@@ -17,7 +17,7 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 
 - **Hot tier** - An online tier optimized for storing data that is accessed or modified frequently. The hot tier has the highest storage costs, but the lowest access costs.
 - **Cool tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of **30** days. The cool tier has lower storage costs and higher access costs compared to the hot tier.
-- **Cold tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cold tier should be stored for a minimum of **90** days. The cold tier has lower storage costs and higher access costs compared to the cool tier.
+- **Cold tier** - An online tier optimized for storing data that is rarely accessed or modified, but still requires fast retrieval. Data in the cold tier should be stored for a minimum of **90** days. The cold tier has lower storage costs and higher access costs compared to the cool tier.
 - **Archive tier** - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of 180 days.
 
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
@@ -199,10 +199,8 @@ The cold tier is now generally available in all public and Azure Government regi
 
 ### Limitations and known issues
 
-- The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
 - [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
-- Setting the cold tier in a batch call is not yet supported (For example: using the [Blob Batch](/rest/api/storageservices/blob-batch) REST operation along with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) subrequest).
 
 ### Required versions of REST, SDKs, and tools
 

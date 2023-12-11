@@ -32,7 +32,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * The PowerShell [Az Module](/powershell/azure/install-azure-powershell) installed.
 
-* An Azure Active Directory service principal. Once you've created the service principal, be sure to retrieve the **application ID** and **authentication key** using the instructions in the linked article. You need these values later in this tutorial. Also, make sure the service principal is a member of the *Contributor* role of the subscription or the resource group in which the cluster is created. For instructions to retrieve the required values and assign the right roles, see [Create an Azure Active Directory service principal](../active-directory/develop/howto-create-service-principal-portal.md).
+* A Microsoft Entra service principal. Once you've created the service principal, be sure to retrieve the **application ID** and **authentication key** using the instructions in the linked article. You need these values later in this tutorial. Also, make sure the service principal is a member of the *Contributor* role of the subscription or the resource group in which the cluster is created. For instructions to retrieve the required values and assign the right roles, see [Create a Microsoft Entra service principal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Create preliminary Azure objects
 
@@ -256,8 +256,8 @@ In this section, you author two linked services within your data factory.
     | Azure Storage Linked Service | Select `HDIStorageLinkedService`. |
     | Cluster type | Select **hadoop** |
     | Time to live | Provide the duration for which you want the HDInsight cluster to be available before being automatically deleted.|
-    | Service principal ID | Provide the application ID of the Azure Active Directory service principal you created as part of the prerequisites. |
-    | Service principal key | Provide the authentication key for the Azure Active Directory service principal. |
+    | Service principal ID | Provide the application ID of the Microsoft Entra service principal you created as part of the prerequisites. |
+    | Service principal key | Provide the authentication key for the Microsoft Entra service principal. |
     | Cluster name prefix | Provide a value that will be prefixed to all the cluster types created by the data factory. |
     |Subscription |Select your subscription from the drop-down list.|
     | Select resource group | Select the resource group you created as part of the PowerShell script you used earlier.|

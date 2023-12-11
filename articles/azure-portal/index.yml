@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.service: azure-portal
   ms.collection: collection
-  ms.date: 03/27/2023
+  ms.date: 10/16/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -89,3 +89,14 @@ landingContent:
             url: supportability/how-to-create-azure-support-request.md
           - text: Manage an Azure support request
             url: supportability/how-to-manage-azure-support-request.md
+
+
+  # Card
+  - title: Azure mobile app
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is the Azure mobile app?
+            url: mobile-app/overview.md
+          - text: Azure mobile app Home
+            url: mobile-app/home.md

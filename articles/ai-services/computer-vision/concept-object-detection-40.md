@@ -2,7 +2,7 @@
 title: Object detection - Image Analysis 4.0
 titleSuffix: Azure AI services
 description: Learn concepts related to the object detection feature of the Image Analysis 4.0 API - usage and limits.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
@@ -13,7 +13,7 @@ ms.author: pafarley
 ms.custom: seodec18, ignite-2022
 ---
 
-# Object detection (version 4.0 preview)
+# Object detection (version 4.0)
 
 Object detection is similar to [tagging](concept-tag-images-40.md), but the API returns the bounding box coordinates (in pixels) for each object found in the image. For example, if an image contains a dog, cat and person, the object detection operation will list those objects with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine whether there are multiple instances of the same object in an image.
 
@@ -23,6 +23,9 @@ Try out the capabilities of object detection quickly and easily in your browser 
 
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
+
+> [!TIP]
+> You can use the Object detection feature through the [Azure OpenAI](/azure/ai-services/openai/overview) service. The **GPT-4 Turbo with Vision** model lets you chat with an AI assistant that can analyze the images you share, and the Vision Enhancement option uses Image Analysis to give the AI assistance more details (readable text and object locations) about the image. For more information, see the [GPT-4 Turbo with Vision quickstart](/azure/ai-services/openai/gpt-v-quickstart).
 
 ## Object detection example
 

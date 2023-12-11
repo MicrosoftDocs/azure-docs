@@ -6,7 +6,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 08/02/2023
+ms.date: 10/13/2023
 ms.author: allensu
 ms.custom: references_regions, template-concept, ignite-2022
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
@@ -66,7 +66,7 @@ A private-link resource is the destination target of a specified private endpoin
  
 | Private-link resource name | Resource type | Sub-resources |
 | ---------------------------| ------------- | ------------- |
-| Application Gateway | Microsoft.Network/applicationgateways | application gateway |
+| Application Gateway | Microsoft.Network/applicationgateways |Frontend IP Configuration name|
 | Azure AI services | Microsoft.CognitiveServices/accounts | account |
 | Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
@@ -77,7 +77,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
 | Azure Cache for Redis | Microsoft.Cache/Redis | redisCache |
 | Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
-| Azure Cognitive Search | Microsoft.Search/searchServices | searchService |
+| Azure AI Search | Microsoft.Search/searchServices | searchService |
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
 | Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
@@ -126,7 +126,7 @@ A private-link resource is the destination target of a specified private endpoin
 
 > [!NOTE]
 > You can create private endpoints only on a General Purpose v2 (GPv2) storage account.
- 
+
 ## Network security of private endpoints 
 
 When you use private endpoints, traffic is secured to a private-link resource. The platform validates network connections, allowing only those that reach the specified private-link resource. To access more subresources within the same Azure service, more private endpoints with corresponding targets are required. In the case of Azure Storage, for instance, you would need separate private endpoints to access the _file_ and _blob_ subresources.
@@ -183,7 +183,7 @@ The following information lists the known limitations to the use of private endp
 
 | Limitation | Description |
 | --------- | ------------ |
-| Static IP address configuration currently unsupported. | **Azure Kubernetes Service (AKS)** </br> **Azure Application Gateway** </br> **HD Insight**. |
+| Static IP address configuration currently unsupported. | **Azure Kubernetes Service (AKS)** </br> **Azure Application Gateway** </br> **HD Insight** </br> **Recovery Services Vaults** </br> **Third party Private Link services** |
 
 ### Network security group
 
@@ -194,7 +194,7 @@ The following information lists the known limitations to the use of private endp
 | No more than 50 members in an Application Security Group. | Fifty is the number of IP Configurations that can be tied to each respective ASG that's coupled to the NSG on the private endpoint subnet. Connection failures may occur with more than 50 members. |
 | Destination port ranges supported up to a factor of 250 K. | Destination port ranges are supported as a multiplication SourceAddressPrefixes, DestinationAddressPrefixes, and DestinationPortRanges. </br></br> Example inbound rule: </br> One source * one destination * 4K portRanges = 4K Valid </br>  10 sources * 10 destinations * 10 portRanges = 1 K Valid </br> 50 sources * 50 destinations * 50 portRanges = 125 K Valid </br> 50 sources * 50 destinations * 100 portRanges = 250 K Valid </br> 100 sources * 100 destinations * 100 portRanges = 1M Invalid, NSG has too many sources/destinations/ports. |
 | Source port filtering is interpreted as * | Source port filtering isn't actively used as valid scenario of traffic filtering for traffic destined to a private endpoint. |
-| Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast |
+| Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast </br> All Government regions </br> All China regions |
 
 ### NSG more considerations
 

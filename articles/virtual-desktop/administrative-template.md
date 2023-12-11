@@ -11,7 +11,7 @@ ms.author: daknappe
 
 We've created an administrative template for Azure Virtual Desktop to configure some features of Azure Virtual Desktop. You can use the template with:
 
-- Intune, which enables you to centrally configure session hosts that are enrolled in Intune and joined to Azure Active Directory (Azure AD) or hybrid Azure AD joined.
+- Intune, which enables you to centrally configure session hosts that are enrolled in Intune and joined to Microsoft Entra ID or Microsoft Entra hybrid joined.
 
 - Group Policy with Active Directory (AD), which enables you to centrally configure session hosts that are joined to an AD domain.
 

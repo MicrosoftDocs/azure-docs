@@ -8,4 +8,4 @@
 
 ---
 > [!NOTE]
-> The use of Azure Bastion with Azure Private DNS Zones is supported. However, there are certain restrictions. See the [Bastion FAQ](../articles/bastion/bastion-faq.md#dns) for more information.
+> The use of Azure Bastion with Azure Private DNS zones is supported. However, there are restrictions. For more information, see the [Azure Bastion FAQ](../articles/bastion/bastion-faq.md#dns).

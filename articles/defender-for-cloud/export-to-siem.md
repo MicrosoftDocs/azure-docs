@@ -73,7 +73,7 @@ Before you set up the Azure services for exporting alerts, make sure you have:
 - Azure resource group ([Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md))
 - **Owner** role on the alerts scope (subscription, management group or tenant), or these specific permissions:
   - Write permissions for event hubs and the Event Hub Policy
-  - Create permissions for [Azure AD applications](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app), if you aren't using an existing Azure AD application
+  - Create permissions for [Microsoft Entra applications](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app), if you aren't using an existing Microsoft Entra application
   - Assign permissions for policies, if you're using the Azure Policy 'DeployIfNotExist'
   <!-- - To export to a Log Analytics workspace:
     - if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`
@@ -100,9 +100,9 @@ You can set up your Azure environment to support continuous export using either:
     5. Enable continuous export of security alerts to the defined event hub.
     6. **If you're streaming alerts to QRadar** - Create a storage account, then copy and save the connection string to the account that you’ll use in QRadar.
     7. **If you're streaming alerts to Splunk**:
-        1. Create an Azure Active Directory (AD) application.
+        1. Create a Microsoft Entra application.
         2. Save the Tenant, App ID, and App password.
-        3. Give permissions to the Azure AD Application to read from the event hub you created before.
+        3. Give permissions to the Microsoft Entra Application to read from the event hub you created before.
 
     For more detailed instructions, see [Prepare Azure resources for exporting to Splunk and QRadar](export-to-splunk-or-qradar.md).
 

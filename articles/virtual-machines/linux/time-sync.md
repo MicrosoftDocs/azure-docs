@@ -102,6 +102,24 @@ This should return `hyperv`, meaning the Azure host.
 
 In some Linux VMs you may see multiple PTP devices listed. One example is for Accelerated Networking the Mellanox mlx5 driver also creates a /dev/ptp device. Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be `/dev/ptp0` or it might be `/dev/ptp1`, which makes it difficult to configure `chronyd` with the correct clock source. To solve this problem, the most recent Linux images have a `udev` rule that creates the symlink `/dev/ptp_hyperv` to whichever `/dev/ptp` entry corresponds to the Azure host. Chrony should always be configured to use the `/dev/ptp_hyperv` symlink instead of `/dev/ptp0` or `/dev/ptp1`.
 
+If you are having issues with the `/dev/ptp_hyperv` device not being created, you can use the `udev` rule and steps below to configure it:
+
+NOTE: Most Linux distributions should not need this udev rule as it has been implemented in newer versions of [systemd](https://github.com/systemd/systemd/commit/32e868f058da8b90add00b2958c516241c532b70)
+
+Create the `udev` rules file:
+````bash
+$ sudo cat > /etc/udev/rules.d/99-ptp_hyperv.rules << EOF
+ACTION!="add", GOTO="ptp_hyperv"
+SUBSYSTEM=="ptp", ATTR{clock_name}=="hyperv", SYMLINK += "ptp_hyperv"
+LABEL="ptp_hyperv"
+EOF
+````
+Reboot the Virtual Machine OR reload the `udev` rules with:
+````bash
+$ sudo udevadm control --reload
+$ sudo udevadm trigger --subsystem-match=ptp --action=add
+````
+
 ### chrony
 
 On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following statement:

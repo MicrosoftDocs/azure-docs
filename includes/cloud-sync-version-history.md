@@ -80,7 +80,7 @@ Release date: August 8, 2022
  - We fixed a memory leak due to not disposing HTTP client.
  - We fixed a bug in the code for granting the "logon as a service" right to the GMSA.
  - We refined the permissions on the GMSA for CloudHR.
- - We now uninstall the Cloud Sync agent when the bundle is uninstalled.
+ - We now uninstall the cloud sync agent when the bundle is uninstalled.
  - We fixed a bug that prevents deletion of the Service Principal if not all Jobs are deleted.
  - We fixed an issue with updating of the password of a user with 'User must change password at next logon'.
  - We fixed an issue with the agent GMSA folder permissions.

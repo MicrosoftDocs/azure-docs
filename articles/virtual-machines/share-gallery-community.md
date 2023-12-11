@@ -115,6 +115,26 @@ You can also use the following links to report issues, but the forms won't be pr
 ## Best practices
 
 - Images published to the community gallery should be [generalized](generalize.md) images that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific information for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
+- If you would like to block sharing images to Community at the organization level, create an Azure policy with the following policy rule to deny sharing to Community.
+```
+  "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/galleries"
+          },
+          {
+            "field": "Microsoft.Compute/galleries/sharingProfile.permissions",
+            "equals": "Community"
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+```
 ## FAQ
 
 **Q: What are the charges for using a gallery that is shared to the community?**

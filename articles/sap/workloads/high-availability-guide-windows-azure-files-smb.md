@@ -59,7 +59,7 @@ Distributing *transport*, *interface*, and *sapmnt* among separate storage accou
 Here are prerequisites for the installation of SAP NetWeaver HA systems on Azure Files premium SMB with Active Directory integration:
 
 * Join the SAP servers to an Active Directory domain.
-* Replicate the Active Directory domain that contains the SAP servers to Azure Active Directory (Azure AD) by using Azure AD Connect.
+* Replicate the Active Directory domain that contains the SAP servers to Microsoft Entra ID by using Microsoft Entra Connect.
 * Make sure that at least one Active Directory domain controller is in the Azure landscape, to avoid traversing Azure ExpressRoute to contact domain controllers on-premises.
 * Make sure that the Azure support team reviews the documentation for Azure Files SMB with [Active Directory integration](../../storage/files/storage-files-identity-auth-active-directory-enable.md#videos). The video shows extra configuration options, which were modified (DNS) and skipped (DFS-N) for simplification reasons. But these are valid configuration options.
 * Make sure that the user who's running the Azure Files PowerShell script has permission to create objects in Active Directory.
@@ -79,7 +79,7 @@ The Active Directory administrator should create, in advance, three domain users
 
 ### Check Synchronization Service Manager
 
-The Active Directory administrator or Azure administrator should check Synchronization Service Manager in Azure AD Connect. By default, it takes about 30 minutes to replicate to Azure AD.
+The Active Directory administrator or Azure administrator should check Synchronization Service Manager in Microsoft Entra Connect. By default, it takes about 30 minutes to replicate to Microsoft Entra ID.
 
 ### Create a storage account, private endpoint, and file share
 
@@ -117,8 +117,8 @@ The Azure administrator should complete the following tasks:
    This script creates either a computer account or a service account in Active Directory. It has the following requirements:
 
    * The user who's running the script must have permission to create objects in the Active Directory domain that contains the SAP servers. Typically, an organization uses a Domain Administrator account such as *SAPCONT_ADMIN@SAPCONTOSO.local*.
-   * Before the user runs the script, confirm that this Active Directory domain user account is synchronized with Azure AD. An example of this would be to open the Azure portal and go to Azure AD users, check that the user *SAPCONT_ADMIN@SAPCONTOSO.local* exists, and verify the Azure AD user account.
-   * Grant the Contributor role-based access control (RBAC) role to this Azure AD user account for the resource group that contains the storage account that holds the file share. In this example, the user *SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com* is granted the Contributor role to the respective resource group.
+   * Before the user runs the script, confirm that this Active Directory domain user account is synchronized with Microsoft Entra ID. An example of this would be to open the Azure portal and go to Microsoft Entra users, check that the user *SAPCONT_ADMIN@SAPCONTOSO.local* exists, and verify the Microsoft Entra user account.
+   * Grant the Contributor role-based access control (RBAC) role to this Microsoft Entra user account for the resource group that contains the storage account that holds the file share. In this example, the user *SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com* is granted the Contributor role to the respective resource group.
    * The user should run the script while logged on to a Windows Server instance by using an Active Directory domain user account with the permission as specified earlier.
   
    In this example scenario, the Active Directory administrator would log on to the Windows Server instance as *SAPCONT_ADMIN@SAPCONTOSO.local*. When the administrator is using the PowerShell command `Connect-AzAccount`, the administrator connects as user *SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com*. Ideally, the Active Directory administrator and the Azure administrator should work together on this task.
@@ -128,7 +128,7 @@ The Azure administrator should complete the following tasks:
    ![Screenshot of the Azure portal after successful PowerShell script execution.](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)
 
    > [!IMPORTANT]
-   > When a user is running the PowerShell script command `Connect-AzAccount`, we highly recommend entering the Azure AD user account that corresponds and maps to the Active Directory domain user account that was used to log on to a Windows Server instance. 
+   > When a user is running the PowerShell script command `Connect-AzAccount`, we highly recommend entering the Microsoft Entra user account that corresponds and maps to the Active Directory domain user account that was used to log on to a Windows Server instance. 
 
    After the script runs successfully, go to **Storage** > **File Shares** and verify that **Active Directory: Configured** appears.
 

@@ -33,7 +33,7 @@ In the managed service, you can't access the underlying data. This is to ensure 
 
 ### What identity provider do you support?
 
-We support Microsoft Azure Active Directory as the identity provider.
+We support Microsoft Entra ID as the identity provider.
 
 ### Can I use Azure AD B2C with the FHIR service?
 

@@ -2,7 +2,7 @@
 title: Install and run Docker containers for LUIS
 titleSuffix: Azure AI services
 description: Use the LUIS container to load your trained or published app, and gain access to its predictions on-premises.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
@@ -391,7 +391,7 @@ If you run the container with an output [mount](luis-container-configuration.md#
 
 ## Billing
 
-The LUIS container sends billing information to Azure, using a _Azure AI services_ resource on your Azure account.
+The LUIS container sends billing information to Azure, using an _Azure AI services_ resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

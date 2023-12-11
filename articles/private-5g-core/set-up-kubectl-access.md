@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Set up kubectl access
 
-This how-to guide explains how to obtain the necessary *kubeconfig* files as needed for other procedures. The read-only file is sufficient to view cluster configuration. The core namespace file is needed for operations such as modifying local or Azure Active Directory authentication, or for gathering packet capture.
+This how-to guide explains how to obtain the necessary *kubeconfig* files as needed for other procedures. The read-only file is sufficient to view cluster configuration. The core namespace file is needed for operations such as modifying local or Microsoft Entra authentication, or for gathering packet capture.
 
 ## Read-only access
 
@@ -27,7 +27,7 @@ The downloaded file is called *config.json*. This file has permission to describ
 
 ## Core namespace access
 
-The Azure Private 5G Core deployment uses the *core* namespace. For operations such as modifying local or Azure Active Directory authentication, or for gathering packet capture, you need a *kubeconfig* file with full access to the *core* namespace. To download this file set up a minishell session and run the necessary commands as directed in this section.
+The Azure Private 5G Core deployment uses the *core* namespace. For operations such as modifying local or Microsoft Entra authentication, or for gathering packet capture, you need a *kubeconfig* file with full access to the *core* namespace. To download this file set up a minishell session and run the necessary commands as directed in this section.
 
 You only need to perform this procedure once. If you've done this procedure before you can use the previously saved *kubeconfig* file.
 
@@ -92,4 +92,4 @@ For more information, see [Configure cluster access via Kubernetes RBAC](../data
 
 ## Next steps
 - Save the *kubeconfig* file so it's available to use if you need it in the future.
-- If you need the *kubeconfig* file as part of completing a different procedure (such as to set up Azure Active Directory authentication), return to that procedure and continue.
+- If you need the *kubeconfig* file as part of completing a different procedure (such as to set up Microsoft Entra authentication), return to that procedure and continue.

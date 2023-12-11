@@ -10,6 +10,8 @@ ms.date: 05/20/2021
 
 # Tutorial: Enable anomaly notification in Metrics Advisor 
 
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
+
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes, in customer-friendly language, 
 what the customer will learn, or do, or accomplish. Answer the fundamental “why 

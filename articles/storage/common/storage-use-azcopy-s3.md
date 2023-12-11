@@ -19,7 +19,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 ## Choose how you'll provide authorization credentials
 
-- To authorize with the Azure Storage, use Azure Active Directory (AD) or a Shared Access Signature (SAS) token.
+- To authorize with the Azure Storage, use Microsoft Entra ID or a Shared Access Signature (SAS) token.
 
 - To authorize with AWS S3, use an AWS access key and a secret access key.
 
@@ -28,7 +28,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy, and choose how you'll provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Azure AD account to authorize access to data in Blob storage.
+> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. AzCopy then uses your Microsoft Entra account to authorize access to data in Blob storage.
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command.
 >
@@ -202,4 +202,3 @@ See these articles to configure settings, optimize performance, and troubleshoot
 - [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
 - [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
 - [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
-

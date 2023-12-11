@@ -19,7 +19,7 @@ There are two versions of the management API for App Service authentication. The
 > [!WARNING]
 > Migration to V2 will disable management of the App Service Authentication/Authorization feature for your application through some clients, such as its existing experience in the Azure portal, Azure CLI, and Azure PowerShell. This cannot be reversed.
 
-The V2 API doesn't support creation or editing of Microsoft Account as a distinct provider as was done in V1. Rather, it uses the converged [Microsoft identity platform](../active-directory/develop/v2-overview.md) to sign-in users with both Azure AD and personal Microsoft accounts. When switching to the V2 API, the V1 Azure Active Directory (Azure AD) configuration is used to configure the Microsoft identity platform provider. The V1 Microsoft Account provider will be carried forward in the migration process and continue to operate as normal, but you should move to the newer Microsoft Identity Platform model. See [Support for Microsoft Account provider registrations](#support-for-microsoft-account-provider-registrations) to learn more.
+The V2 API doesn't support creation or editing of Microsoft Account as a distinct provider as was done in V1. Rather, it uses the converged [Microsoft identity platform](../active-directory/develop/v2-overview.md) to sign-in users with both Microsoft Entra ID and personal Microsoft accounts. When switching to the V2 API, the V1 Microsoft Entra configuration is used to configure the Microsoft identity platform provider. The V1 Microsoft Account provider will be carried forward in the migration process and continue to operate as normal, but you should move to the newer Microsoft identity platform model. See [Support for Microsoft Account provider registrations](#support-for-microsoft-account-provider-registrations) to learn more.
 
 The automated migration process will move provider secrets into application settings and then convert the rest of the configuration into the new format. To use the automatic migration:
 
@@ -41,7 +41,7 @@ The following steps will allow you to manually migrate the application to the V2
 
    In the resulting JSON payload, make note of the secret value used for each provider you've configured:
 
-   * Azure AD: `clientSecret`
+   * Microsoft Entra ID: `clientSecret`
    * Google: `googleClientSecret`
    * Facebook: `facebookAppSecret`
    * Twitter: `twitterConsumerSecret`
@@ -69,13 +69,13 @@ The following steps will allow you to manually migrate the application to the V2
 
 1. Add a property to `authsettings.json` that points to the application setting name you created earlier for each provider:
  
-   * Azure AD: `clientSecretSettingName`
+   * Microsoft Entra ID: `clientSecretSettingName`
    * Google: `googleClientSecretSettingName`
    * Facebook: `facebookAppSecretSettingName`
    * Twitter: `twitterConsumerSecretSettingName`
    * Microsoft Account: `microsoftAccountClientSecretSettingName`
 
-   An example file after this operation might look similar to the following, in this case only configured for Azure AD:
+   An example file after this operation might look similar to the following, in this case only configured for Microsoft Entra ID:
 
    ```json
    {
@@ -139,20 +139,20 @@ You've now migrated the app to store identity provider secrets as application se
 
 #### Support for Microsoft Account provider registrations
 
-If your existing configuration contains a Microsoft Account provider and doesn't contain an Azure AD provider, you can switch the configuration over to the Azure AD provider and then perform the migration. To do this:
+If your existing configuration contains a Microsoft Account provider and doesn't contain a Microsoft Entra provider, you can switch the configuration over to the Microsoft Entra provider and then perform the migration. To do this:
 
 1. Go to [**App registrations**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in the Azure portal and find the registration associated with your Microsoft Account provider. It may be under the "Applications from personal account" heading.
 1. Navigate to the "Authentication" page for the registration. Under "Redirect URIs", you should see an entry ending in `/.auth/login/microsoftaccount/callback`. Copy this URI.
 1. Add a new URI that matches the one you just copied, except instead have it end in `/.auth/login/aad/callback`. This will allow the registration to be used by the App Service Authentication / Authorization configuration.
 1. Navigate to the App Service Authentication / Authorization configuration for your app.
 1. Collect the configuration for the Microsoft Account provider.
-1. Configure the Azure AD provider using the "Advanced" management mode, supplying the client ID and client secret values you collected in the previous step. For the Issuer URL, use Use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (e.g., "https://login.microsoftonline.com" for global Azure), also replacing *\<tenant-id>* with your **Directory (tenant) ID**.
+1. Configure the Microsoft Entra provider using the "Advanced" management mode, supplying the client ID and client secret values you collected in the previous step. For the Issuer URL, use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (e.g., "https://login.microsoftonline.com" for global Azure), also replacing *\<tenant-id>* with your **Directory (tenant) ID**.
 1. Once you've saved the configuration, test the login flow by navigating in your browser to the `/.auth/login/aad` endpoint on your site and complete the sign-in flow.
-1. At this point, you've successfully copied the configuration over, but the existing Microsoft Account provider configuration remains. Before you remove it, make sure that all parts of your app reference the Azure AD provider through login links, etc. Verify that all parts of your app work as expected.
-1. Once you've validated that things work against the Azure AD provider, you may remove the Microsoft Account provider configuration.
+1. At this point, you've successfully copied the configuration over, but the existing Microsoft Account provider configuration remains. Before you remove it, make sure that all parts of your app reference the Microsoft Entra provider through login links, etc. Verify that all parts of your app work as expected.
+1. Once you've validated that things work against the Microsoft Entra provider, you may remove the Microsoft Account provider configuration.
 
 > [!WARNING]
-> It is possible to converge the two registrations by modifying the [supported account types](../active-directory/develop/supported-accounts-validation.md) for the Azure AD app registration. However, this would force a new consent prompt for Microsoft Account users, and those users' identity claims may be different in structure, `sub` notably changing values since a new App ID is being used. This approach is not recommended unless thoroughly understood. You should instead wait for support for the two registrations in the V2 API surface.
+> It is possible to converge the two registrations by modifying the [supported account types](../active-directory/develop/supported-accounts-validation.md) for the Microsoft Entra app registration. However, this would force a new consent prompt for Microsoft Account users, and those users' identity claims may be different in structure, `sub` notably changing values since a new App ID is being used. This approach is not recommended unless thoroughly understood. You should instead wait for support for the two registrations in the V2 API surface.
 
 #### Switching to V2
 

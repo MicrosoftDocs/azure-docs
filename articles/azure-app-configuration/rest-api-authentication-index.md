@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure App Configuration REST API - Authentication
 description: Reference pages for authentication using the Azure App Configuration REST API
 author: maud-lv
@@ -16,6 +16,8 @@ All HTTP requests must be authenticated. The following authentication schemes ar
 
 [HMAC authentication](./rest-api-authentication-hmac.md) uses a randomly generated secret to sign request payloads. Details on how requests using this authentication method are authorized can be found in the [HMAC authorization](./rest-api-authorization-hmac.md) section.
 
-## Azure Active Directory
+<a name='azure-active-directory'></a>
 
-[Azure Active Directory (Azure AD) authentication](../active-directory/authentication/overview-authentication.md) utilizes a bearer token that is obtained from Azure Active Directory to authenticate requests. Details on how requests using this authentication method are authorized can be found in the [Azure AD authorization](./rest-api-authorization-azure-ad.md) section.
+## Microsoft Entra ID
+
+[Microsoft Entra authentication](../active-directory/authentication/overview-authentication.md) utilizes a bearer token that is obtained from Microsoft Entra ID to authenticate requests. Details on how requests using this authentication method are authorized can be found in the [Microsoft Entra authorization](./rest-api-authorization-azure-ad.md) section.

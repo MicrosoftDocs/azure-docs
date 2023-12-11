@@ -258,12 +258,12 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     {
         "name": "DOCKER_REGISTRY_SERVER_URL",
         "slotSetting": false,
-        "value": "https://myml08024f78fd10.azurecr.io"
+        "value": "[server-name].azurecr.io"
     },
     {
         "name": "DOCKER_REGISTRY_SERVER_USERNAME",
         "slotSetting": false,
-        "value": "myml08024f78fd10"
+        "value": "[username]"
     },
     {
         "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
@@ -272,7 +272,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     },
     {
         "name": "DOCKER_CUSTOM_IMAGE_NAME",
-        "value": "DOCKER|myml08024f78fd10.azurecr.io/package:20190827195524"
+        "value": "DOCKER|[server-name].azurecr.io/package:20190827195524"
     }
     ]
     ```

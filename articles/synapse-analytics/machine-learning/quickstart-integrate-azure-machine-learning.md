@@ -78,7 +78,7 @@ This step will create a new Service Principal. If you want to use an existing Se
 
 1. Open Azure portal. 
 
-1. Go to **Azure Active Directory** -> **App registrations**.
+1. Go to **Microsoft Entra ID** -> **App registrations**.
 
 1. Click **New registration**. Then, follow instructions to register a new application.
 

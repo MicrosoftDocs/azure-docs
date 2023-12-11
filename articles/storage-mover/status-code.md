@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 08/07/2023
+ms.date: 09/25/2023
 ms.custom: template-how-to
 ---
 
@@ -40,19 +40,20 @@ Each of these scopes further divides statuses into categories and subcategories.
 
 |Error Code                       |Error Message | Details/Troubleshooting steps/Mitigation |
 |---------------------------------|--------------|------------------------------------------|
-| <a name="AZSM1001"></a>AZSM1001 |Failed to mount source path | Verify the provided server name or IP-address is valid, or the source location is correct. If using SMB, verify the provided username and password is correct. |
-| <a name="AZSM1002"></a>AZSM1002 |Encountered an error while scanning the source  | Retry or create a support ticket. |
-| <a name="AZSM1003"></a>AZSM1003 |Failed to access source folder due to permission issues | Verify that the agent has been granted permissions to the source file share. |
-| <a name="AZSM1004"></a>AZSM1004 |Source path provided is invalid | Create a new endpoint with a valid source share path and update the job definition and retry. |
-| <a name="AZSM1020"></a>AZSM1020 |Miscellaneous error while accessing source  | Retry or create a support ticket. |
-| <a name="AZSM1021"></a>AZSM1021 |Failed to access target folder due to permission issues  | Retry or create a support ticket. |
-| <a name="AZSM1022"></a>AZSM1022 |Target path provided is invalid | Create a new endpoint with a valid target container and path and update the job definition and retry. |
-| <a name="AZSM1023"></a>AZSM1023 |Lease expired for this agent on the target container  | Retry or create a support ticket. |
-| <a name="AZSM1024"></a>AZSM1024 |Authorization failure accessing the target location | The agent doesn't have sufficient permission to access the target location. RBAC (role-based access control) role assignments are performed automatically when resources are created using the Azure portal. If you're using the APIs, PowerShell cmdlets, or SDKs, manually create a role assignment for the agent's managed identity to access the target location. For NFS, use the *Storage Blob Data Contributor* role assignment. For SMB, use *Storage File Data Privileged Contributor*. The [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access) article may help resolve this issue. |
+| <a name="AZSM1001"></a>**AZSM1001** |Failed to mount source path | Verify the provided server name or IP-address is valid, or the source location is correct. If using SMB, verify the provided username and password is correct. |
+| <a name="AZSM1002"></a>**AZSM1002** |Encountered an error while scanning the source  | Retry or create a support ticket. |
+| <a name="AZSM1003"></a>**AZSM1003** |Failed to access source folder due to permission issues | Verify that the agent has been granted permissions to the source file share. |
+| <a name="AZSM1004"></a>**AZSM1004** |Source path provided is invalid | Create a new endpoint with a valid source share path and update the job definition and retry. |
+| <a name="AZSM1020"></a>**AZSM1020** |Miscellaneous error while accessing source  | Retry or create a support ticket. |
+| <a name="AZSM1021"></a>**AZSM1021** |Failed to access target folder due to permission issues  | Retry or create a support ticket. |
+| <a name="AZSM1022"></a>**AZSM1022** |Target path provided is invalid | Create a new endpoint with a valid target container and path and update the job definition and retry. |
+| <a name="AZSM1023"></a>**AZSM1023** |Lease expired for this agent on the target container  | Retry or create a support ticket. |
+| <a name="AZSM1024"></a>**AZSM1024** |Authorization failure accessing the target location | The agent doesn't have sufficient permission to access the target location. RBAC (role-based access control) role assignments are performed automatically when resources are created using the Azure portal. If you're using the APIs, PowerShell cmdlets, or SDKs, manually create a role assignment for the agent's managed identity to access the target location. For NFS, use the *Storage Blob Data Contributor* role assignment. For SMB, use *Storage File Data Privileged Contributor*. The [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access) article may help resolve this issue. |
 | <a name="AZSM1025"></a>**AZSM1025** |Authentication failure accessing the source location | Verify that the agent has been granted permissions to the source location. |
 | <a name="AZSM1026"></a>**AZSM1026** |Target type is not supported by the agent | This target type is unsupported by the current Storage Mover agent. |
 | <a name="AZSM1027"></a>**AZSM1027** |The target location is busy | The agent can't access the target location because an existing lease is active. This error may be caused by another agent writing to the location. Ensure no other job is running against the target. Retry or create support ticket. |
 | <a name="AZSM1028"></a>**AZSM1028** |Key Vault access failure | Verify that the agent has been granted permissions to the relevant Key Vault. |
+| <a name="AZSM1030"></a>**AZSM1030** |Cannot verify storage account type | Verify that the storage account and container exist, and that the agent has been granted permissions to them. |
 | <a name="AZSM1040"></a>**AZSM1040** |Miscellaneous error while accessing target  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
 | <a name="AZSM1041"></a>**AZSM1041** |Failed to send job progress  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
 | <a name="AZSM1042"></a>**AZSM1042** |Failed to create job  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |

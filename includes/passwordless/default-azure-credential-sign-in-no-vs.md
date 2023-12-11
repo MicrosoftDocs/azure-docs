@@ -10,7 +10,7 @@ ms.author: pauljewell
 ms.custom: include file
 ---
 
-Make sure you're authenticated with the same Azure AD account you assigned the role to. You can authenticate via Azure CLI, Visual Studio Code, or Azure PowerShell.
+Make sure you're authenticated with the same Microsoft Entra account you assigned the role to. You can authenticate via Azure CLI, Visual Studio Code, or Azure PowerShell.
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 

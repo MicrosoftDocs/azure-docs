@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/cosmos-db/intra-account-container-copy.md",
+      "redirect_url": "/azure/cosmos-db/container-copy",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance.md",
       "redirect_url": "/azure/cosmos-db/cassandra/choose-service",
       "redirect_document_id": true
@@ -6228,6 +6233,21 @@
     {
       "source_path_from_root": "/articles/cosmos-db/gremlin/quickstart-php.md",
       "redirect_url": "/azure/cosmos-db/gremlin/quickstart-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/postgresql/howto-create-users.md",
+      "redirect_url": "/azure/cosmos-db/postgresql/how-to-configure-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/migration-choices.md",
+      "redirect_url": "/azure/cosmos-db",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/vector-search.md",
+      "redirect_url": "/azure/cosmos-db/vector-database",
       "redirect_document_id": false
     }
   ]

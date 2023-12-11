@@ -2,7 +2,7 @@
 title: Run Anomaly Detector on IoT Edge
 titleSuffix: Azure AI services
 description: Deploy the Anomaly Detector module to IoT Edge. 
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
@@ -12,6 +12,8 @@ ms.author: mbullwin
 ---
 
 # Deploy an Anomaly Detector univariate module to IoT Edge
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 Learn how to deploy the Azure AI services [Anomaly Detector](../anomaly-detector-container-howto.md) module to an IoT Edge device. Once it's deployed into IoT Edge, the module runs in IoT Edge together with other modules as container instances. It exposes the exact same APIs as an Anomaly Detector container instance running in a standard docker container environment. 
 

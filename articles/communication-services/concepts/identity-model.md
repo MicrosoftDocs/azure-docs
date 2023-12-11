@@ -74,7 +74,7 @@ If you want to remove a user's ability to access specific functionality, revoke 
 
 In Azure Communication Services, a rotation of access keys revokes all active access tokens that were created by using a former access key. All identities lose access to Azure Communication Services, and they must issue new access tokens.
 
-We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is that issuing requires an access key or Azure AD authentication. Sharing secrets with the client's application isn't recommended for security reasons.
+We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is that issuing requires an access key or Microsoft Entra authentication. Sharing secrets with the client's application isn't recommended for security reasons.
 
 The client application should use a trusted service endpoint that can authenticate your clients. The endpoint should issue access tokens on their behalf. For more information, see [Client and server architecture](./client-and-server-architecture.md).
 

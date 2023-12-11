@@ -81,14 +81,14 @@ The first area of focus when deploying an Azure DevTest Labs solution is to esta
 1. Define **initial IP address ranges** that are assigned to the DevTest Labs subscription in Azure. This step requires forecasting the expected usage in number of VMs so that you can provide a large enough block for future expansion.
 2. Identify **methods of desired access** into the DevTest Labs (for example, external / internal access). A key point in this step is to determine whether virtual machines have public IP addresses (that is, accessible from the internet directly).
 3. Identify and establish **methods of connectivity** with the rest of the Azure cloud environment and on-premises. If the forced routing with Express Route is enabled, it’s likely that the virtual machines need appropriate proxy configurations to traverse the corporate firewall.
-4. If VMs are to be **domain joined**, determine whether they join a cloud-based domain (Entra Directory Services for example) or an on-premises domain. For on-premises, determine which organizational unit (OU) within active directory that the virtual machines join. In addition, confirm that users have access to join (or establish a service account that has the ability to create machine records in the domain)
+4. If VMs are to be **domain joined**, determine whether they join a cloud-based domain (Microsoft Entra Directory Services for example) or an on-premises domain. For on-premises, determine which organizational unit (OU) within active directory that the virtual machines join. In addition, confirm that users have access to join (or establish a service account that has the ability to create machine records in the domain)
 
 ### Milestone 2: Deploy the pilot lab
 Once the network topology is in place, the first/pilot lab can be created by taking the following the steps:
 
 1. Create an initial DevTest Labs environment.
 2. Determine allowable VM images and sizes for use with lab. Decide whether custom images can be uploaded into Azure for use with DevTest Labs.
-3. Secure access to the lab by creating initial Azure role-based access control (Azure RBAC) for the lab (lab owners and lab users). We recommend that you use synchronized active directory accounts with Azure Active Directory for identity with DevTest Labs.
+3. Secure access to the lab by creating initial Azure role-based access control (Azure RBAC) for the lab (lab owners and lab users). We recommend that you use synchronized active directory accounts with Microsoft Entra ID for identity with DevTest Labs.
 4. Configure DevTest Labs to use policies such as schedules, cost management, claimable VMs, custom images, or formulas.
 5. Establish an online repository such as Azure Repos/Git.
 6. Decide on the use of public or private repositories or combination of both. Organize JSON Templates for deployments and long-term sustainment.

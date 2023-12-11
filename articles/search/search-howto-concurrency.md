@@ -1,7 +1,7 @@
 ---
 title: How to manage concurrent writes to resources
-titleSuffix: Azure Cognitive Search
-description: Use optimistic concurrency to avoid mid-air collisions on updates or deletes to Azure Cognitive Search indexes, indexers, data sources.
+titleSuffix: Azure AI Search
+description: Use optimistic concurrency to avoid mid-air collisions on updates or deletes to Azure AI Search indexes, indexers, data sources.
 
 manager: nitinme
 author: HeidiSteen
@@ -9,14 +9,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
-# How to manage concurrency in Azure Cognitive Search
+# How to manage concurrency in Azure AI Search
 
-When managing Azure Cognitive Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed concurrently by different components of your application. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure Cognitive Search offers an *optimistic concurrency model*. There are no locks on a resource. Instead, there is an ETag for every resource that identifies the resource version so that you can formulate requests that avoid accidental overwrites.
+When managing Azure AI Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed concurrently by different components of your application. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure AI Search offers an *optimistic concurrency model*. There are no locks on a resource. Instead, there is an ETag for every resource that identifies the resource version so that you can formulate requests that avoid accidental overwrites.
 
 > [!Tip]
-> Conceptual code in a [sample C# solution](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explains how concurrency control works in Azure Cognitive Search. The code creates conditions that invoke concurrency control. Reading the [code fragment below](#samplecode) might be sufficient for most developers, but if you want to run it, edit appsettings.json to add the service name and an admin api-key. Given a service URL of `http://myservice.search.windows.net`, the service name is `myservice`.
+> Conceptual code in a [sample C# solution](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explains how concurrency control works in Azure AI Search. The code creates conditions that invoke concurrency control. Reading the [code fragment below](#samplecode) might be sufficient for most developers, but if you want to run it, edit appsettings.json to add the service name and an admin api-key. Given a service URL of `http://myservice.search.windows.net`, the service name is `myservice`.
 
 ## How it works
 
@@ -47,7 +49,7 @@ The following code demonstrates accessCondition checks for key update operations
 class Program
 {
     // This sample shows how ETags work by performing conditional updates and deletes
-    // on an Azure Cognitive Search index.
+    // on an Azure AI Search index.
     static void Main(string[] args)
     {
         IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -58,14 +60,14 @@ class Program
         Console.WriteLine("Deleting index...\n");
         DeleteTestIndexIfExists(serviceClient);
 
-        // Every top-level resource in Azure Cognitive Search has an associated ETag that keeps track of which version
+        // Every top-level resource in Azure AI Search has an associated ETag that keeps track of which version
         // of the resource you're working on. When you first create a resource such as an index, its ETag is
         // empty.
         Index index = DefineTestIndex();
         Console.WriteLine(
             $"Test index hasn't been created yet, so its ETag should be blank. ETag: '{index.ETag}'");
 
-        // Once the resource exists in Azure Cognitive Search, its ETag will be populated. Make sure to use the object
+        // Once the resource exists in Azure AI Search, its ETag will be populated. Make sure to use the object
         // returned by the SearchServiceClient! Otherwise, you will still have the old object with the
         // blank ETag.
         Console.WriteLine("Creating index...\n");
@@ -125,9 +127,9 @@ class Program
         serviceClient.Indexes.Delete("test", accessCondition: AccessCondition.GenerateIfExistsCondition());
 
         // This is slightly better than using the Exists method since it makes only one round trip to
-        // Azure Cognitive Search instead of potentially two. It also avoids an extra Delete request in cases where
+        // Azure AI Search instead of potentially two. It also avoids an extra Delete request in cases where
         // the resource is deleted concurrently, but this doesn't matter much since resource deletion in
-        // Azure Cognitive Search is idempotent.
+        // Azure AI Search is idempotent.
 
         // And we're done! Bye!
         Console.WriteLine("Complete.  Press any key to end application...\n");
@@ -166,7 +168,7 @@ class Program
 
 A design pattern for implementing optimistic concurrency should include a loop that retries the access condition check, a test for the access condition, and optionally retrieves an updated resource before attempting to re-apply the changes.
 
-This code snippet illustrates the addition of a synonymMap to an index that already exists. This code is from the [Synonym C# example for Azure Cognitive Search](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/v10/DotNetHowToSynonyms).
+This code snippet illustrates the addition of a synonymMap to an index that already exists. This code is from the [Synonym C# example for Azure AI Search](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/v10/DotNetHowToSynonyms).
 
 The snippet gets the "hotels" index, checks the object version on an update operation, throws an exception if the condition fails, and then retries the operation (up to three times), starting with index retrieval from the server to get the latest version.
 
@@ -215,4 +217,3 @@ Try modifying other samples to exercise ETags or AccessCondition objects.
 
 + [Common HTTP request and response headers](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 + [HTTP status codes](/rest/api/searchservice/http-status-codes)
-+ [Index operations (REST API)](/rest/api/searchservice/index-operations)

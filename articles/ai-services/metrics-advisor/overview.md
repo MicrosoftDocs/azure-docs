@@ -12,6 +12,8 @@ ms.author: mbullwin
 
 # What is Azure AI Metrics Advisor? 
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 [!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
 Metrics Advisor is a part of [Azure AI services](../../ai-services/what-are-ai-services.md) that uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predicative maintenance, and business monitor applications on top of the service. Use Metrics Advisor to:

@@ -1,6 +1,6 @@
 ---
-title: Regional availability of Azure Chaos Studio Preview
-description: Understand how Azure Chaos Studio Preview makes chaos experiments and chaos targets available in Azure regions.
+title: Regional availability of Azure Chaos Studio
+description: Understand how Azure Chaos Studio makes chaos experiments and chaos targets available in Azure regions.
 author: prasha-microsoft 
 ms.author: prashabora
 ms.service: chaos-studio
@@ -9,9 +9,9 @@ ms.date: 4/29/2022
 ms.custom: template-concept
 ---
 
-# Regional availability of Azure Chaos Studio Preview
+# Regional availability of Azure Chaos Studio
 
-This article describes the regional availability model for Azure Chaos Studio Preview. It explains the difference between a region where experiments can be deployed and one where resources can be targeted. It also provides an overview of the Chaos Studio high-availability model.
+This article describes the regional availability model for Azure Chaos Studio. It explains the difference between a region where experiments can be deployed and one where resources can be targeted. It also provides an overview of the Chaos Studio high-availability model.
 
 Chaos Studio is a regional Azure service, which means that the service is deployed and run within an Azure region. Chaos Studio has two regional components: the region where an experiment is deployed and the region where a resource is targeted.
 
@@ -42,6 +42,9 @@ Any target or capability metadata is deleted when a target is deleted.
 ## High availability with Chaos Studio
 
 Chaos Studio is a regional, zone-redundant service (in regions that support availability zones). If there's an availability zone outage, any chaos operation might fail, but experiment metadata, history, and details should remain available and the service shouldn't see a full outage.
+
+## Data Residency
+Azure Chaos Studio doesn't store customer data outside the region the customer deploys the service instance in.
 
 ## Next steps
 Now that you understand the region availability model for Chaos Studio, you're ready to:

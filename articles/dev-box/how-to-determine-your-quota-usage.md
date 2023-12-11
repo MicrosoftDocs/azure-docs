@@ -57,5 +57,5 @@ Keeping track of how your quota of VM cores is being used across your subscripti
 
 ## Related content 
 
-- Check the default quota for each resource type by subscription type: [Microsoft Dev Box limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#microsoft-dev-box-limits).
+- Check the default quota for each resource type by subscription type: [Microsoft Dev Box limits](../azure-resource-manager/management/azure-subscription-service-limits.md#microsoft-dev-box-limits).
 - To learn how to request a quota increase, see [Request a quota limit increase](./how-to-request-quota-increase.md). 

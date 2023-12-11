@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # McAfee ePolicy Orchestrator (ePO) connector for Microsoft Sentinel
 
-The McAfee ePolicy Orchestrator data connector provides the capability to ingest [McAfee ePO](https://www.mcafee.com/enterprise/en-us/products/epolicy-orchestrator.html) events into Microsoft Sentinel through the syslog. Refer to [documentation](https://docs.mcafee.com/bundle/epolicy-orchestrator-landing/page/GUID-0C40020F-5B7F-4549-B9CC-0E017BC8797F.html) for more information.
+The McAfee ePolicy Orchestrator data connector provides the capability to ingest [McAfee ePO](https://www.mcafee.com/enterprise/en-us/products/epolicy-orchestrator.html) events into Microsoft Sentinel through the syslog.
 
 ## Connector attributes
 
@@ -54,13 +54,6 @@ Configure the facilities you want to collect and their severities.
 1.  Under workspace advanced settings **Configuration**, select **Data** and then **Syslog**.
 2.  Select **Apply below configuration to my machines** and select the facilities and severities.
 3.  Click **Save**.
-
-
-3. Configure McAfee ePolicy Orchestrator event forwarding to Syslog server
-
-[Follow these instructions](https://docs.mcafee.com/bundle/epolicy-orchestrator-5.10.0-product-guide/page/GUID-5C5332B3-837A-4DDA-BE5C-1513A230D90A.html) to add register syslog server.
-
-
 
 ## Next steps
 

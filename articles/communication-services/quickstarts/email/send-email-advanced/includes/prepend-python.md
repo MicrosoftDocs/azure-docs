@@ -166,7 +166,9 @@ Instantiate an **EmailClient** with your connection string. Learn how to [manage
 email_client = EmailClient.from_connection_string(<connection_string>)
 ```
 
-#### [Azure Active Directory](#tab/aad)
+<a name='azure-active-directory'></a>
+
+#### [Microsoft Entra ID](#tab/aad)
 
 You can also use Active Directory authentication using [DefaultAzureCredential](../../../../concepts/authentication.md).
 

@@ -36,7 +36,7 @@ The CSI storage driver support on AKS allows you to natively use:
 
 CSI storage drivers support the following scenarios:
 
-* [Encrypted managed disks with customer-managed keys][encrypt-managed-disks-customer-managed-keys] using Azure Key Vaults stored in a different Azure Active Directory (Azure AD) tenant.
+* [Encrypted managed disks with customer-managed keys][encrypt-managed-disks-customer-managed-keys] using Azure Key Vaults stored in a different Microsoft Entra tenant.
 * Encrypt your Azure Storage disks hosting AKS OS and application data with [customer-managed keys][azure-disk-customer-managed-keys].
 
 ## Enable CSI storage drivers on an existing cluster

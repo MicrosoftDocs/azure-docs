@@ -1,32 +1,32 @@
 ---
-title: Authorize access with Azure Active Directory
-description: This article provides information on authorizing access to Event Hubs resources using Azure Active Directory. 
+title: Authorize access with Microsoft Entra ID
+description: This article provides information on authorizing access to Event Hubs resources using Microsoft Entra ID. 
 ms.topic: conceptual
 ms.date: 10/25/2022
 ---
 
-# Authorize access to Event Hubs resources using Azure Active Directory
-Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
+# Authorize access to Event Hubs resources using Microsoft Entra ID
+Azure Event Hubs supports using Microsoft Entra ID to authorize requests to Event Hubs resources. With Microsoft Entra ID, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
 
 ## Overview
-When a security principal (a user, or an application) attempts to access an Event Hubs resource, the request must be authorized. With Azure AD, access to a resource is a two-step process. 
+When a security principal (a user, or an application) attempts to access an Event Hubs resource, the request must be authorized. With Microsoft Entra ID, access to a resource is a two-step process. 
 
  1. First, the security principal’s identity is authenticated, and an OAuth 2.0 token is returned. The resource name to request a token is `https://eventhubs.azure.net/`, and it's the same for all clouds/tenants. For Kafka clients, the resource to request a token is `https://<namespace>.servicebus.windows.net`.
  1. Next, the token is passed as part of a request to the Event Hubs service to authorize access to the specified resource.
 
-The authentication step requires that an application request contains an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an Azure VM,  a virtual machine scale set, or an Azure Function app, it can use a managed identity to access the resources. To learn how to authenticate requests made by a managed identity to Event Hubs service, see [Authenticate access to Azure Event Hubs resources with Azure Active Directory and managed identities for Azure Resources](authenticate-managed-identity.md). 
+The authentication step requires that an application request contains an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an Azure VM,  a virtual machine scale set, or an Azure Function app, it can use a managed identity to access the resources. To learn how to authenticate requests made by a managed identity to Event Hubs service, see [Authenticate access to Azure Event Hubs resources with Microsoft Entra ID and managed identities for Azure Resources](authenticate-managed-identity.md). 
 
 The authorization step requires that one or more Azure roles be assigned to the security principal. Azure Event Hubs provides Azure roles that encompass sets of permissions for Event Hubs resources. The roles that are assigned to a security principal determine the permissions that the principal will have. For more information about Azure roles, see [Azure built-in roles for Azure Event Hubs](#azure-built-in-roles-for-azure-event-hubs). 
 
-Native applications and web applications that make requests to Event Hubs can also authorize with Azure AD. To learn how to request an access token and use it to authorize requests for Event Hubs resources, see [Authenticate access to Azure Event Hubs with Azure AD from an application](authenticate-application.md). 
+Native applications and web applications that make requests to Event Hubs can also authorize with Microsoft Entra ID. To learn how to request an access token and use it to authorize requests for Event Hubs resources, see [Authenticate access to Azure Event Hubs with Microsoft Entra ID from an application](authenticate-application.md). 
 
 ## Assign Azure roles for access rights
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure Event Hubs defines a set of Azure built-in roles that encompass common sets of permissions used to access event hub data and you can also define custom roles for accessing the data.
+Microsoft Entra authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure Event Hubs defines a set of Azure built-in roles that encompass common sets of permissions used to access event hub data and you can also define custom roles for accessing the data.
 
-When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Event Hubs namespace, or any resource under it. An Azure AD security principal may be a user, or an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Event Hubs namespace, or any resource under it. A Microsoft Entra security principal may be a user, or an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Azure built-in roles for Azure Event Hubs
-Azure provides the following Azure built-in roles for authorizing access to Event Hubs data using Azure AD and OAuth:
+Azure provides the following Azure built-in roles for authorizing access to Event Hubs data using Microsoft Entra ID and OAuth:
 
 | Role | Description | 
 | ---- | ----------- | 
@@ -67,13 +67,13 @@ For more information about how built-in roles are defined, see [Understand role 
 
 
 ## Next steps
-- Learn how to assign an Azure built-in role to a security principal, see [Authenticate access to Event Hubs resources using Azure Active Directory](authenticate-application.md).
+- Learn how to assign an Azure built-in role to a security principal, see [Authenticate access to Event Hubs resources using Microsoft Entra ID](authenticate-application.md).
 - Learn [how to create custom roles with Azure RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
-- Learn [how to use Azure Active Directory with EH](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
+- Learn [how to use Microsoft Entra ID with EH](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 See the following related articles:
 
-- [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
-- [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)
+- [Authenticate requests to Azure Event Hubs from an application using Microsoft Entra ID](authenticate-application.md)
+- [Authenticate a managed identity with Microsoft Entra ID to access Event Hubs Resources](authenticate-managed-identity.md)
 - [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
 - [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)

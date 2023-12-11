@@ -9,7 +9,7 @@ ms.date: 11/08/2022
 
 # Use policies to audit and manage Azure Lab Services
 
-When teams create and run labs on Azure Lab Services, they may face varying requirements to the configuration of resources. Administrators may look for options to control cost, provide customization through templates, or restrict user permissions.
+When teams create and run labs on Azure Lab Services, they might face varying requirements to the configuration of resources. Administrators might look for options to control cost, provide customization through templates, or restrict user permissions.
 
 As a platform administrator, you can use policies to lay out guardrails for teams to manage their own resources. [Azure Policy](../governance/policy/index.yml) helps audit and govern resource state. In this article, you learn about available auditing controls and governance practices for Azure Lab Services.
 
@@ -49,7 +49,7 @@ During policy assignment, lab administrators can choose the following effects:
 
 ### Lab Services requires non-admin user for labs 
 
-Use this policy to enforce using non-admin accounts while creating a lab. With the August 2022 Update, you can choose to add a non-admin account to the VM image.  This new feature allows you to keep separate credentials for VM admin and non-admin users. For more information to create a lab with a non-admin user, see [Tutorial: Create and publish a lab](tutorial-setup-lab.md#create-a-lab). The tutorial shows how to give a student a non-administrator account rather than default administrator account on the **Virtual machine credentials** page in the new lab wizard.
+Use this policy to enforce using non-admin accounts while creating a lab. With lab plans, you can choose to add a non-admin account to the VM image.  This new feature allows you to keep separate credentials for VM admin and non-admin users.
 
 During the policy assignment, the lab administrator can choose the following effects:
 

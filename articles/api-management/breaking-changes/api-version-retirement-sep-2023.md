@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: reference
-ms.date: 07/25/2022
+ms.date: 11/06/2023
 ms.author: danlep
 ---
 
@@ -30,9 +30,15 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
 
 ## Required action
 
+Update your tools, scripts, and programs using the details in the following section. 
+
+We also recommend setting the **Minimum API version** in your API Management instance.
+
+### Update your tools, scripts, and programs
+
 * **ARM, Bicep, or Terraform templates** - Update the template to use API version 2021-08-01 or later. 
 
-* **Azure CLI** - Run `az version` to check your version. If you're running version 2.38.0 or later, no action is required. Use the `az upgrade` command to upgrade the Azure CLI if necessary. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
+* **Azure CLI** - Run `az version` to check your version. If you're running version 2.42.0 or later, no action is required. Use the `az upgrade` command to upgrade the Azure CLI if necessary. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
 
 * **Azure PowerShell** - Run `Get-Module -ListAvailable -Name Az` to check your version. If you're running version 8.1.0 or later, no action is required. Use `Update-Module -Name Az -Repository PSGallery` to update the module if necessary. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
@@ -42,12 +48,24 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
     * Terraform azurerm provider: 3.0.0
     
 * **Azure SDKs** - Update the Azure API Management SDKs to the latest versions (or later): 
-
     * .NET: 8.0.0 
     * Go: 1.0.0 
     * Python: 3.0.0 
-    * JavaScript: 8.0.1 
+   - JavaScript: 8.0.1 
+   - Java: 1.0.0-beta3
 
+### Update Minimum API version setting on your API Management instance
+
+We recommend setting the **Minimum API version** for your API Management instance using the Azure portal. This setting limits control plane API calls to your instance with an API version equal to or newer than this value. Currently you can set this to **2019-12-01**.
+
+To set the **Minimum API version** in the portal:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, under **Deployment + infrastructure**, select **Management API**.
+1. Select the **Management API settings** tab.
+1. Under **Prevent users with read-only permissions from accessing service secrets**, select **Yes**. The **Minimum API version** appears.
+1. Select **Save**.
+   
 ## More information
 
 * [Azure CLI](/cli/azure/update-azure-cli)
@@ -57,6 +75,7 @@ After 30 September 2023, if you prefer not to update your tools, scripts, and pr
 * [Bicep](../../azure-resource-manager/bicep/overview.md)
 * [Microsoft Q&A](/answers/topics/azure-api-management.html)
 
-## Next steps
+## Related content
 
 See all [upcoming breaking changes and feature retirements](overview.md).
+

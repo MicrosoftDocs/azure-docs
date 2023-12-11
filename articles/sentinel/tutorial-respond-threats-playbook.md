@@ -43,7 +43,7 @@ For example, if you want to stop potentially compromised users from moving aroun
 
 1. The playbook waits until a response is received from the admins, then continues with its next steps.
 
-1. If the admins choose **Block**, it sends a command to Azure AD to disable the user, and one to the firewall to block the IP address.
+1. If the admins choose **Block**, it sends a command to Microsoft Entra ID to disable the user, and one to the firewall to block the IP address.
 
 1. If the admins choose **Ignore**, the playbook closes the incident in Microsoft Sentinel, and the ticket in ServiceNow.
 
@@ -253,9 +253,9 @@ To create an automation rule:
 1. **Trigger:** Select the appropriate trigger according to the circumstance for which you're creating the automation rule&mdash;**When incident is created**, **When incident is updated**, or **When alert is created**.
 
 1. **Conditions:**
-    1. Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md).
+    1. Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md).
     
-        If you selected one of the incident triggers and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively in Microsoft 365 Defender, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
+        If you selected one of the incident triggers and you want the automation rule to take effect only on incidents sourced in Microsoft Sentinel, or alternatively in Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition. (This condition will be displayed only if an incident trigger is selected.)
 
     1. For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition.
 
@@ -282,7 +282,7 @@ To create an automation rule:
        >      1. Click the **Configure permissions** button to open the **Manage permissions** panel mentioned above, and continue as described there.
        >
        > - If, in an **MSSP** scenario, you want to [run a playbook in a customer tenant](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture) from an automation rule created while signed into the service provider tenant, you must grant Microsoft Sentinel permission to run the playbook in ***both tenants***. In the **customer** tenant, follow the instructions for the multi-tenant deployment in the preceding bullet point. In the **service provider** tenant, you must add the **Azure Security Insights** app in your Azure Lighthouse onboarding template:
-       >    1. From the Azure Portal go to **Azure Active Directory**.
+       >    1. From the Azure Portal go to **Microsoft Entra ID**.
        >    1. Click on **Enterprise Applications**.
        >    1. Select **Application Type**  and filter on **Microsoft Applications**.
        >    1. In the search box type **Azure Security Insights**.
@@ -372,7 +372,7 @@ You can see the run history for playbooks on an incident by selecting the **Runs
 
 1. Select an entity in one of the following ways, depending on your originating context:
 
-    **If you're in an incident's details page (new version, now in Preview):**
+    **If you're in an incident's details page (new version):**
     1. In the **Entities** widget in the **Overview** tab, find an entity from the list (don't select it).
     1. Select the three dots to the right of the entity.
     1. Select **Run playbook (Preview)** from the pop-up menu and continue with step 2 below.  

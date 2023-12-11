@@ -14,9 +14,6 @@ The JSON WebSocket subprotocol, `json.reliable.webpubsub.azure.v1`, enables the 
 
 This document describes the subprotocol `json.reliable.webpubsub.azure.v1`.
 
-> [!NOTE]
-> Reliable protocols are still in preview. Some changes are expected in the future.
-
 When WebSocket client connections drop due to intermittent network issues, messages can be lost. In a pub/sub system, publishers are decoupled from subscribers and may not detect a subscribers' dropped connection or message loss. 
 
 To overcome intermittent network issues and maintain reliable message delivery, you can use the Azure WebPubSub `json.reliable.webpubsub.azure.v1` subprotocol to create a *Reliable PubSub WebSocket client*.  

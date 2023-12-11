@@ -25,7 +25,7 @@ This connection string should be stored in an application setting with a name ma
 
 ### Identity-based connections
 
-If you are using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-event-hubs.md?tabs=extensionv5), instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connection` property in the trigger and binding configuration.
+If you are using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-event-hubs.md?tabs=extensionv5), instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connection` property in the trigger and binding configuration.
 
 In this mode, the extension requires the following properties:
 

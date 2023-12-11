@@ -22,7 +22,7 @@ In this tutorial, you will learn how to:
 
 ## Prerequisites
 
-- Valid work/school [Azure Active Directory account](../active-directory/fundamentals/active-directory-whatis.md).
+- Valid work/school [Microsoft Entra account](../active-directory/fundamentals/active-directory-whatis.md).
 - Verified Microsoft Partner Network (MPN) account. If you don't have an MPN account, [join the partner network](https://partner.microsoft.com/) before you begin. 
 
 > [!NOTE] 

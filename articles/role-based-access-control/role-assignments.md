@@ -28,7 +28,7 @@ A role assignment has several components, including:
 For example, you can use Azure RBAC to assign roles like:
 
 - User Sally has owner access to the storage account *contoso123* in the resource group *ContosoStorage*.
-- Everybody in the Cloud Administrators group in Azure Active Directory has reader access to all resources in the resource group *ContosoStorage*.
+- Everybody in the Cloud Administrators group in Microsoft Entra ID has reader access to all resources in the resource group *ContosoStorage*.
 - The managed identity associated with an application is allowed to restart virtual machines within Contoso's subscription.
 
 The following shows an example of the properties in a role assignment when displayed using [Azure PowerShell](role-assignments-list-powershell.md):
@@ -80,8 +80,8 @@ The following table describes what the role assignment properties mean.
 | `Scope`<br />`scope` | The Azure resource identifier that the role assignment is scoped to. |
 | `RoleDefinitionId`<br />`roleDefinitionId` | The unique ID of the role. |
 | `RoleDefinitionName`<br />`roleDefinitionName` | The name of the role. |
-| `ObjectId`<br />`principalId` | The Azure Active Directory (Azure AD) object identifier for the principal who has the role assigned. |
-| `ObjectType`<br />`principalType` | The type of Azure AD object that the principal represents. Valid values include `User`, `Group`, and `ServicePrincipal`. |
+| `ObjectId`<br />`principalId` | The Microsoft Entra object identifier for the principal who has the role assigned. |
+| `ObjectType`<br />`principalType` | The type of Microsoft Entra object that the principal represents. Valid values include `User`, `Group`, and `ServicePrincipal`. |
 | `DisplayName` | For role assignments for users, the display name of the user. |
 | `SignInName`<br />`principalName` | The unique principal name (UPN) of the user, or the name of the application associated with the service principal. |
 | `Description`<br />`description` | The description of the role assignment. |
@@ -110,7 +110,7 @@ For more information about role definitions, see [Understand role definitions](r
 
 ## Principal
 
-Principals include users, security groups, managed identities, workload identities, and service principals. Principals are created and managed in your Azure Active Directory (Azure AD) tenant. You can assign a role to any principal. Use the Azure AD *object ID* to identify the principal that you want to assign the role to.
+Principals include users, security groups, managed identities, workload identities, and service principals. Principals are created and managed in your Microsoft Entra tenant. You can assign a role to any principal. Use the Microsoft Entra ID *object ID* to identify the principal that you want to assign the role to.
 
 When you create a role assignment by using Azure PowerShell, the Azure CLI, Bicep, or another infrastructure as code (IaC) technology, you specify the *principal type*. Principal types include *User*, *Group*, and *ServicePrincipal*. It's important to specify the correct principal type. Otherwise, you might get intermittent deployment errors, especially when you work with service principals and managed identities.
 
@@ -118,7 +118,7 @@ When you create a role assignment by using Azure PowerShell, the Azure CLI, Bice
 
 A role assignment's resource name must be a globally unique identifier (GUID).
 
-Role assignment resource names must be unique within the Azure Active Directory tenant, even if the scope of the role assignment is narrower.
+Role assignment resource names must be unique within the Microsoft Entra tenant, even if the scope of the role assignment is narrower.
 
 > [!TIP]
 > When you create a role assignment by using the Azure portal, Azure PowerShell, or the Azure CLI, the creation process gives the role assignment a unique name for you automatically.
@@ -127,7 +127,7 @@ Role assignment resource names must be unique within the Azure Active Directory 
 
 ### Resource deletion behavior
 
-When you delete a user, group, service principal, or managed identity from Azure AD, it's a good practice to delete any role assignments. They aren't deleted automatically. Any role assignments that refer to a deleted principal ID become invalid.
+When you delete a user, group, service principal, or managed identity from Microsoft Entra ID, it's a good practice to delete any role assignments. They aren't deleted automatically. Any role assignments that refer to a deleted principal ID become invalid.
 
 If you try to reuse a role assignment's name for another role assignment, the deployment will fail. This issue is more likely to occur when you use Bicep or an Azure Resource Manager template (ARM template) to deploy your role assignments, because you have to explicitly set the role assignment name when you use these tools. To work around this behavior, you should either remove the old role assignment before you recreate it, or ensure that you use a unique name when you deploy a new role assignment.
 

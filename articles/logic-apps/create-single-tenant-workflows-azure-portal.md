@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/20/2023
+ms.date: 10/10/2023
 ms.custom: ignite-fall-2021
 
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
@@ -122,7 +122,7 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The workflow state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
+   | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The workflow's state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
    | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <br><br>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <br><br>This example creates a storage account named **mystorageacct**. |
 
 1. On the **Networking** tab, you can leave the default options for this example.
@@ -402,22 +402,33 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 During workflow run, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
 
-If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
+If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app workflow. You can do so either when you create your logic app resource in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment. You can also optionally [enable enhanced telemetry in Application Insights for Standard workflows](enable-enhanced-telemetry-standard-workflows.md).
 
-To enable Application Insights on a deployed logic app or open the Application Insights dashboard if already enabled, follow these steps:
+### Enable Application Insights on a deployed logic app
 
 1. In the Azure portal, find your deployed logic app.
 
 1. On the logic app menu, under **Settings**, select **Application Insights**.
 
-1. If Application Insights isn't enabled, on the **Application Insights** pane, select **Turn on Application Insights**. After the pane updates, at the bottom, select **Apply** > **Yes**.
+1. On the **Application Insights** pane, select **Turn on Application Insights**.
 
-   If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
+1. After the pane updates, at the bottom, select **Apply** > **Yes**.
 
-After Application Insights opens, you can review various metrics for your logic app. For more information, review these topics:
+1. On the **Application Insights** pane, select **View Application Insights data**.
 
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
+   After the Application Insights dashboard opens, you can review metrics or logs for your logic app workflow. For example, to chart or query for data, on the Application Insights resource menu, under **Monitoring**, select **Metrics** or **Logs**.
+
+<a name="open-application-insights"></a>
+
+### Open Application Insights
+
+1. In the Azure portal, find your deployed logic app.
+
+1. On the logic app menu, under **Settings**, select **Application Insights**.
+
+1. On the **Application Insights** pane, select **View Application Insights data**.
+
+   After the Application Insights dashboard opens, you can review metrics or logs for your logic app workflow. For example, to chart or query for data, on the Application Insights resource menu, under **Monitoring**, select **Metrics** or **Logs**.
 
 <a name="view-connections"></a>
 

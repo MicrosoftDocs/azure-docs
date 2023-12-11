@@ -354,7 +354,7 @@ To deploy a template spec using a Bicep file, use a module. The module links to 
 
 ## Grant access
 
-If you want to let other users in your organization deploy your template spec, you need to grant them read access. You can assign the Reader role to an Azure AD group for the resource group that contains template specs you want to share. For more information, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
+If you want to let other users in your organization deploy your template spec, you need to grant them read access. You can assign the Reader role to a Microsoft Entra group for the resource group that contains template specs you want to share. For more information, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
 
 ## Update Bicep file
 

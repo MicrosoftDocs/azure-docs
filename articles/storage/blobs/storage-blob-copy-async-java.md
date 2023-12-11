@@ -41,7 +41,7 @@ The `beginCopy` method returns a [SyncPoller](/java/api/com.azure.core.util.poll
 
 ## Copy a blob from a source within Azure
 
-If you're copying a blob within the same storage account, the operation can complete synchronously. Access to the source blob can be authorized via Azure Active Directory (Azure AD), a shared access signature (SAS), or an account key. For an alterative synchronous copy operation, see [Copy a blob from a source object URL with Java](storage-blob-copy-url-java.md).
+If you're copying a blob within the same storage account, the operation can complete synchronously. Access to the source blob can be authorized via Microsoft Entra ID, a shared access signature (SAS), or an account key. For an alterative synchronous copy operation, see [Copy a blob from a source object URL with Java](storage-blob-copy-url-java.md).
 
 If the copy source is a blob in a different storage account, the operation can complete asynchronously. The source blob must either be public or authorized via SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
 
@@ -50,7 +50,7 @@ The following example shows a scenario for copying a source blob from a differen
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyAcrossStorageAccounts_CopyBlob":::
 
 > [!NOTE]
-> User delegation SAS tokens offer greater security, as they're signed with Azure AD credentials instead of an account key. To create a user delegation SAS token, the Azure AD security principal needs appropriate permissions. For authorization requirements, see [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key#authorization).
+> User delegation SAS tokens offer greater security, as they're signed with Microsoft Entra credentials instead of an account key. To create a user delegation SAS token, the Microsoft Entra security principal needs appropriate permissions. For authorization requirements, see [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key#authorization).
 
 ## Copy a blob from a source outside of Azure
 

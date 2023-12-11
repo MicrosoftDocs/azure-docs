@@ -953,7 +953,7 @@ Here is an example that provides the account name and access key for an Azure Bl
 
 After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-vs-authorization.md). For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
-Some connections support using an Azure Active Directory (Azure AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md) to authorize connections for a logic app that's [registered in Azure AD](../active-directory/develop/quickstart-register-app.md). For example, this Azure Data Lake connection resource definition shows how to reference the template parameters that handle the service principal's information and how the template declares these parameters:
+Some connections support using a Microsoft Entra [service principal](../active-directory/develop/app-objects-and-service-principals.md) to authorize connections for a logic app that's [registered in Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). For example, this Azure Data Lake connection resource definition shows how to reference the template parameters that handle the service principal's information and how the template declares these parameters:
 
 **Connection resource definition**
 
@@ -983,7 +983,7 @@ Some connections support using an Azure Active Directory (Azure AD) [service pri
 |-----------|-------------|
 | `token:clientId` | The application or client ID associated with your service principal |
 | `token:clientSecret` | The key value associated with your service principal |
-| `token:TenantId` | The directory ID for your Azure AD tenant |
+| `token:TenantId` | The directory ID for your Microsoft Entra tenant |
 | `token:grantType` | The requested grant type, which must be `client_credentials`. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). |
 |||
 

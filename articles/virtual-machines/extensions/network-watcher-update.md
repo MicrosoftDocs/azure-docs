@@ -6,7 +6,7 @@ ms.author: halkazwini
 ms.service: virtual-machines
 ms.topic: concept-article
 ms.date: 08/30/2023
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Update Azure Network Watcher extension to the latest version

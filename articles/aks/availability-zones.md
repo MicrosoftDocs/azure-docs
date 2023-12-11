@@ -3,7 +3,7 @@ title: Use availability zones in Azure Kubernetes Service (AKS)
 description: Learn how to create a cluster that distributes nodes across availability zones in Azure Kubernetes Service (AKS)
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli, devx-track-linux
 ms.topic: article
-ms.date: 02/22/2023
+ms.date: 12/06/2023
 ---
 
 # Create an Azure Kubernetes Service (AKS) cluster that uses availability zones
@@ -31,8 +31,20 @@ The following limitations apply when you create an AKS cluster using availabilit
 
 ### Azure disk availability zone support
 
- - Volumes that use Azure managed LRS disks aren't zone-redundant resources, attaching across zones and aren't supported. You need to co-locate volumes in the same zone as the specified node hosting the target pod.
- - Volumes that use Azure managed ZRS disks (supported by Azure Disk CSI driver v1.5.0 and later) are zone-redundant resources. You can schedule those volumes on all zone and non-zone agent nodes.
+ - Volumes that use Azure managed LRS disks aren't zone-redundant resources, attaching across zones isn't supported. You need to co-locate volumes in the same zone as the specified node hosting the target pod.
+ - Volumes that use Azure managed ZRS disks are zone-redundant resources. You can schedule those volumes on all zone and non-zone agent nodes, here's an example of how to create a storage class using the StandardSSD_ZRS disk:
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: managed-csi-zrs
+provisioner: disk.csi.azure.com
+parameters:
+  skuName: StandardSSD_ZRS  # or Premium_ZRS
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+```
 
 Kubernetes is aware of Azure availability zones since version 1.12. You can deploy a PersistentVolumeClaim object referencing an Azure Managed Disk in a multi-zone AKS cluster and [Kubernetes takes care of scheduling](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) any pod that claims this PVC in the correct availability zone.
 

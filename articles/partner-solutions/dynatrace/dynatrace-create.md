@@ -3,7 +3,7 @@ title: Create Azure Native Dynatrace Service resource
 description: This article describes how to use the Azure portal to create an instance of Dynatrace.
 
 ms.topic: quickstart
-ms.date: 02/02/2023
+ms.date: 10/16/2023
 
 ---
 
@@ -102,7 +102,7 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 
     - **Send Azure resource logs for all defined sources** - Azure resource logs provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
-   - **Send Azure Active Directory logs** – Azure Active Directory logs allow you to route the audit, sign-in, and provisioning logs to Dynatrace. The details are listed in [Azure AD activity logs in Azure Monitor](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md). The global administrator or security administrator for your Azure Active Directory (AAD) tenant can enable AAD logs.
+   - **Send Microsoft Entra logs** – Microsoft Entra logs allow you to route the audit, sign-in, and provisioning logs to Dynatrace. The details are listed in [Microsoft Entra activity logs in Azure Monitor](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md). The global administrator or security administrator for your Microsoft Entra tenant can enable Microsoft Entra logs.
 
 1. To send subscription level logs to Dynatrace, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Dynatrace.
 
@@ -120,13 +120,13 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 
 ### Configure single sign-on
 
-1. You can establish single sign-on to Dynatrace from the Azure portal when your organization uses Azure Active Directory as its identity provider. If your organization uses a different identity provider or you don't want to establish single sign-on at this time, you can skip this section.
+1. You can establish single sign-on to Dynatrace from the Azure portal when your organization uses Microsoft Entra ID as its identity provider. If your organization uses a different identity provider or you don't want to establish single sign-on at this time, you can skip this section.
 
      :::image type="content" source="media/dynatrace-create/dynatrace-single-sign-on.png" alt-text="Screenshot showing options for single sign-on.":::
 
-1. To establish single sign-on through Azure Active directory, select the checkbox for **Enable single sign-on through Azure Active Directory**.
+1. To establish single sign-on through Microsoft Entra ID, select the checkbox for **Enable single sign-on through Microsoft Entra ID**.
 
-   The Azure portal retrieves the appropriate Dynatrace application from Azure Active Directory. The app matches the Enterprise app you provided in an earlier step.
+   The Azure portal retrieves the appropriate Dynatrace application from Microsoft Entra ID. The app matches the Enterprise app you provided in an earlier step.
 
 ## Next steps
 

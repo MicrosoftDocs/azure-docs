@@ -56,7 +56,7 @@ landingContent:
             url: azure-netapp-files-quickstart-set-up-account-create-volumes.md 
 
   # Card
-  - title: Create
+  - title: Create & develop
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -70,11 +70,7 @@ landingContent:
             url: azure-netapp-files-create-volumes-smb.md
           - text: Create a dual-protocol volume
             url: create-volumes-dual-protocol.md
-
-  # Card          
-  - title: Develop
-    linkLists:
-      - linkListType: how-to-guide
+      - linkListType: reference
         links:
           - text: REST API
             url: azure-netapp-files-develop-with-rest-api.md

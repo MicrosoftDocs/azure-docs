@@ -1,31 +1,31 @@
 ---
-title: Send browser (web push) notifications with Azure Notification Hubs
+title: Send browser (web push) notifications with Azure Notification Hubs (preview)
 description: Learn about support for browser push notifications in Azure Notification Hubs.
 services: notification-hubs
-documentationcenter: .net
 author: sethmanheim
 manager: femila
-
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.topic: article
-ms.date: 09/29/2023
+ms.date: 12/06/2023
 ms.author: sethm
 ms.reviewer: heathertian
-ms.lastreviewed: 09/29/2023
+ms.lastreviewed: 12/06/2023
 ---
 
-# Web push notifications with Azure Notification Hubs
+# Web push notifications with Azure Notification Hubs (preview)
 
 This article describes how to send browser push notifications to single users through Azure Notification Hubs.
+
+> [!NOTE]
+> This feature is currently in preview. To access browser push features [on the Azure portal, use this link](https://portal.azure.com/?feature.browserpush=true).
 
 At a high level, the process is:
 
 1. [Set credentials](#set-credentials):
    - [In the Azure portal](#set-credentials-in-azure-portal)
    - [Using the REST API](#set-credentials-using-rest-api)
-   - Using the .NET SDK
 
 2. [Create registrations and installations](#create-registrations-and-installations).
 
@@ -86,7 +86,7 @@ To subscribe to browser push notifications on your web site, you can use VAPID k
 
 ### Set credentials in Azure portal
 
-You can set credentials for browser push in the Azure portal using the browser credentials.
+You can set credentials for browser push in the Azure portal using the browser credentials. For the preview, [use this link to access the Azure portal](https://portal.azure.com/?feature.browserpush=true) in order to manage browser push features.
 
 To set browser push credentials in the portal, follow these steps:
 
@@ -150,44 +150,6 @@ The following examples show the registration request body for a native registrat
 }   
 ```
 
-### Create native registrations with .NET SDK
-
-To create a native registration, use the following statement:
-
-```csharp
-await notificationHubClient.CreateBrowserNativeRegistrationAsync(subscriptionInfo, tagSet);
-```
-
-### Create template registrations with .NET SDK
-
-To create a template registration using the .NET SDK, use the following statement:
-
-```csharp
-await notificationHubClient.CreateBrowserTemplateRegistrationAsync(subscriptionInfo, template, tagSet);
-```
-
-### Create browser installation with .NET SDK
-
-To create a browser installation using the .NET SDK, enter the following code:
-
-```csharp
-var browserPushSubscription = new BrowserPushSubscription 
-            { 
-                Endpoint = "", 
-                P256DH = "", 
-                Auth = "", 
-            }; 
-var browserInstallation = new BrowserInstallation 
-            { 
-                InstallationId = installationId, 
-                Tags = tags, 
-                Subscription = browserPushSubscription, 
-                UserId = userId, 
-                ExpirationTime = DateTime.UtcNow.AddDays(1), 
-            }; 
-await notificationHubClient.CreateOrUpdateInstallationAsync(browserInstallation);
-```
-
 ## Send push notifications
 
 After you [set credentials for browser push](#set-credentials) and [create registrations and installations](#create-registrations-and-installations) for the devices, you're ready to create push notifications. This section describes how to create a notification for a [direct send|](#create-direct-sends), [audience send](#create-audience-sends), and [debug (test) send](#create-debugtest-sends).
@@ -217,18 +179,6 @@ To create a direct send notification, follow these steps:
    You can specify other fields in the body; for example, `icon`, to change the icon per message.
 
 1. Send the notification.
-
-   To create a direct send using the .NET SDK, use this code:
-
-   ```csharp
-   var browserSubscriptionEndpoint = "";
-          var browserPushHeaders = new Dictionary<string, string> 
-          {
-              { "P256DH", "" },
-              { "Auth", "" }, 
-          };
-          var directSendOutcome = await notificationHubClient.SendDirectNotificationAsync(new BrowserNotification("payload", browserPushHeaders), browserSubscriptionEndpoint);
-   ```
 
 ### Create audience sends
 

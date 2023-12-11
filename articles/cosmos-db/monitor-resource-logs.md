@@ -8,14 +8,14 @@ ms.reviewer: esarroyo
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/26/2023
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ---
 
 # Monitor Azure Cosmos DB data by using diagnostic settings in Azure
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-Diagnostic settings in Azure are used to collect resource logs. Resources emit Azure resource Logs and provide rich, frequent data about the operation of that resource. These logs are captured per request and they're also referred to as "data plane logs". Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
+Diagnostic settings in Azure are used to collect resource logs. Resources emit Azure resource Logs and provide rich, frequent data about the operation of that resource. These logs are captured per request and they're also referred to as "data plane logs." Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
 
 Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostic setting for Azure Cosmos DB accounts and send resource logs to the following sources:
 
@@ -42,9 +42,12 @@ Here, we walk through the process of creating diagnostic settings for your accou
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your Azure Cosmos DB account. Open the **Diagnostic settings** pane under the **Monitoring section**, and then select **Add diagnostic setting** option.
+1. Navigate to your Azure Cosmos DB account. Open the **Diagnostic settings** pane under the **Monitoring section** and then select the **Add diagnostic setting** option.
 
     :::image type="content" source="media/monitor/diagnostics-settings-selection.png" lightbox="media/monitor/diagnostics-settings-selection.png" alt-text="Sreenshot of the diagnostics selection page.":::
+
+    > [!IMPORTANT]
+    > You might see a prompt to "enable full-text query \[...\] for more detailed logging" if the **full-text query** feature is not enabled in your account. You can safely ignore this warning if you do not wish to enable this feature. For more information, see [enable full-text query](monitor-resource-logs.md#enable-full-text-query-for-logging-query-text).
 
 1. In the **Diagnostic settings** pane, fill the form with your preferred categories. Included here's a list of log categories.
 
@@ -55,7 +58,7 @@ Here, we walk through the process of creating diagnostic settings for your accou
     | **CassandraRequests** | API for Apache Cassandra | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Cassandra. When you enable this category, make sure to disable DataPlaneRequests. | `operationName`, `requestCharge`, `piiCommandText` |
     | **GremlinRequests** | API for Apache Gremlin | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Gremlin. When you enable this category, make sure to disable DataPlaneRequests. | `operationName`, `requestCharge`, `piiCommandText`, `retriedDueToRateLimiting` |
     | **QueryRuntimeStatistics** | API for NoSQL | This table details query operations executed against an API for NoSQL account. By default, the query text and its parameters are obfuscated to avoid logging personal data with full text query logging available by request. | `databasename`, `partitionkeyrangeid`, `querytext` |
-    | **PartitionKeyStatistics** | All APIs | Logs the statistics of logical partition keys by representing the estimated storage size (KB) of the partition keys. This table is useful when troubleshooting storage skews. This PartitionKeyStatistics log is only emitted if the following conditions are true: 1. At least 1% of the documents in the physical partition have same logical partition key. 2. Out of all the keys in the physical partition, the PartitionKeyStatistics log captures the top three keys with largest storage size. </li></ul> If the previous conditions aren't met, the partition key statistics data isn't available. It's okay if the above conditions aren't met for your account, which typically indicates you have no logical partition storage skew. **Note**: The estimated size of the partition keys is calculated using a sampling approach that assumes the documents in the physical partition are roughly the same size. If the document sizes aren't uniform in the physical partition, the estimated partition key size may not be accurate. | `subscriptionId`, `regionName`, `partitionKey`, `sizeKB` |
+    | **PartitionKeyStatistics** | All APIs | Logs the statistics of logical partition keys by representing the estimated storage size (KB) of the partition keys. This table is useful when troubleshooting storage skews. This PartitionKeyStatistics log is only emitted if the following conditions are true: 1. At least 1% of the documents in the physical partition have same logical partition key. 2. Out of all the keys in the physical partition, the PartitionKeyStatistics log captures the top three keys with largest storage size. </li></ul> If the previous conditions aren't met, the partition key statistics data isn't available. It's okay if the above conditions aren't met for your account, which typically indicates you have no logical partition storage skew. **Note**: The estimated size of the partition keys is calculated using a sampling approach that assumes the documents in the physical partition are roughly the same size. If the document sizes aren't uniform in the physical partition, the estimated partition key size might not be accurate. | `subscriptionId`, `regionName`, `partitionKey`, `sizeKB` |
     | **PartitionKeyRUConsumption** | API for NoSQL or API for Apache Gremlin | Logs the aggregated per-second RU/s consumption of partition keys. This table is useful for troubleshooting hot partitions. Currently, Azure Cosmos DB reports partition keys for API for NoSQL accounts only and for point read/write, query, and stored procedure operations. | `subscriptionId`, `regionName`, `partitionKey`, `requestCharge`, `partitionKeyRangeId` |
     | **ControlPlaneRequests** | All APIs | Logs details on control plane operations, which include, creating an account, adding or removing a region, updating account replication settings etc. | `operationName`, `httpstatusCode`, `httpMethod`, `region` |
     | **TableApiRequests** | API for Table | Logs user-initiated requests from the front end to serve requests to Azure Cosmos DB for Table. When you enable this category, make sure to disable DataPlaneRequests. | `operationName`, `requestCharge`, `piiCommandText` |

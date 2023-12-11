@@ -2,7 +2,7 @@
 title: Use the Azure Compute Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 11/09/2023
 ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-linux
 ---
@@ -32,18 +32,20 @@ Using a Shared Image configured for your scenario can provide several advantages
 ## Prerequisites
 
 > [!NOTE]
-> You need to authenticate using Azure AD. If you use shared-key-auth, you will get an authentication error.  
+> Currently, Azure Batch does not support the ‘TrustedLaunch’ feature. You must use the standard security type to create a custom image instead.
+> 
+> You need to authenticate using Microsoft Entra ID. If you use shared-key-auth, you will get an authentication error.  
 
 - **An Azure Batch account.** To create a Batch account, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
 - **an Azure Compute Gallery image**. To create a Shared Image, you need to have or create a managed image resource. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks.
 
 > [!NOTE]
-> If the Shared Image is not in the same subscription as the Batch account, you must [register the Microsoft.Batch resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for that subscription. The two subscriptions must be in the same Azure AD tenant.
+> If the Shared Image is not in the same subscription as the Batch account, you must [register the Microsoft.Batch resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for that subscription. The two subscriptions must be in the same Microsoft Entra tenant.
 >
 > The image can be in a different region as long as it has replicas in the same region as your Batch account.
 
-If you use an Azure AD application to create a custom image pool with an Azure Compute Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
+If you use a Microsoft Entra application to create a custom image pool with an Azure Compute Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
 
 ## Prepare a Shared Image
 
@@ -104,7 +106,7 @@ Once you have successfully created your managed image, you need to create an Azu
 To create a pool from your Shared Image using the Azure CLI, use the `az batch pool create` command. Specify the Shared Image ID in the `--image` field. Make sure the OS type and SKU matches the versions specified by `--node-agent-sku-id`
 
 > [!NOTE]
-> You need to authenticate using Azure AD. If you use shared-key-auth, you will get an authentication error.  
+> You need to authenticate using Microsoft Entra ID. If you use shared-key-auth, you will get an authentication error.  
 
 > [!IMPORTANT]
 > The node agent SKU id must align with the publisher/offer/SKU in order for the node to start.

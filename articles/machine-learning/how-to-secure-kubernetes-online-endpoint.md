@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 10/10/2022
 ms.topic: how-to
-ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022, devx-track-azurecli
 ---
 
 # Configure a secure online endpoint with TLS/SSL

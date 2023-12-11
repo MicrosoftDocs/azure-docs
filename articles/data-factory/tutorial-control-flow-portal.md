@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Branching and chaining activities in an Azure Data Factory pipeline using the Azure portal
@@ -332,7 +332,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 
     :::image type="content" source="./media/tutorial-control-flow-portal/activity-run-error.png" alt-text="Activity run error":::
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial:
 
 > [!div class="checklist"]

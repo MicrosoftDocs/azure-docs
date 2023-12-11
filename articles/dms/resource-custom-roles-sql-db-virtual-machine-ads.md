@@ -7,6 +7,8 @@ ms.author: kirepko
 ms.date: 05/02/2022
 ms.service: dms
 ms.topic: conceptual
+ms.custom:
+  - sql-migration-content
 ---
 
 # Custom roles for SQL Server to Azure Virtual Machines migrations using ADS

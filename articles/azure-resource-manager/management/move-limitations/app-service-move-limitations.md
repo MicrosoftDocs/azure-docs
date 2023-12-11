@@ -3,7 +3,7 @@ title: Move Azure App Service resources across resource groups or subscriptions
 description: Use Azure Resource Manager to move App Service resources to a new resource group or subscription.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 08/17/2023
+ms.date: 10/17/2023
 ---
 
 # Move App Service resources to a new resource group or subscription
@@ -28,6 +28,7 @@ When you move a Web App across subscriptions, the following guidance applies:
     - If you need to move a Web App and App Service plan to a new App Service Environment, you'll need to recreate these resources in your new App Service Environment. Consider using the [backup and restore feature](../../../app-service/manage-backup.md) as way of recreating your resources in a different App Service Environment.
 - You can move a certificate bound to a web without deleting the TLS bindings, as long as the certificate is moved with all other resources in the resource group. However, you can't move a free App Service managed certificate. For that scenario, see [Move with free managed certificates](#move-with-free-managed-certificates).
 - App Service apps with private endpoints cannot be moved. Delete the private endpoint(s) and recreate it after the move.
+- App Service apps with virtual network integration cannot be moved. Remove the virtual network integration and reconnect it after the move.
 - App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, move it back to its original resource group. Then, move the resource across subscriptions. For help with finding the original resource group, see the next section.
 
 ## Find original resource group
