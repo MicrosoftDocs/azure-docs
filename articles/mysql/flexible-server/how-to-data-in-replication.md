@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # How to configure Azure Database for MySQL - Flexible Server data-in replication
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article describes how to set up [Data-in replication](concepts-data-in-replication.md) in Azure Database for MySQL flexible server by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
