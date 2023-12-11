@@ -298,6 +298,9 @@ When the application runs, a Kubernetes service exposes the application front en
     > [!NOTE]
     > If you receive a connection timeout when trying to load the page, you should verify the sample app is ready using the `kubectl get pods --watch` command. Sometimes, the Windows container isn't started by the time your external IP address is available.
 
+> [!NOTE]
+> This sample application is only for demo purposes and doesn't represent all the best practices for Kubernetes applications.
+
 ## Delete resources
 
 If you don't plan on going through the following tutorials, you should delete your cluster to avoid incurring Azure charges.

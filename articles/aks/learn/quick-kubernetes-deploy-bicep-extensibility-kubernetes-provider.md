@@ -14,9 +14,6 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Deploy an AKS cluster using the Bicep extensibility Kubernetes provider (preview).
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
-> [!NOTE]
-> This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
-
 :::image type="content" source="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png":::
 
 > [!IMPORTANT]
@@ -385,6 +382,9 @@ It takes a few minutes to create the AKS cluster. Wait for the cluster successfu
 5. Open a web browser to the external IP address of your service to see the Azure Store app in action.
 
     :::image type="content" source="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png":::
+
+> [!NOTE]
+> This sample application is only for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 ## Delete the cluster
 

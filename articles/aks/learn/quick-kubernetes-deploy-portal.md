@@ -15,9 +15,6 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 - Deploy an AKS cluster using the Azure portal.
 - Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
-> [!NOTE]
-> This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
-
 ## Before you begin
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
@@ -432,6 +429,9 @@ When the application runs, a Kubernetes service exposes the application front en
 1. Open a web browser to the external IP address of your service to see the Azure Store app in action.
 
     :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-portal/aks-store-application.png":::
+
+> [!NOTE]
+> This sample application is only for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 ## Delete the cluster
 

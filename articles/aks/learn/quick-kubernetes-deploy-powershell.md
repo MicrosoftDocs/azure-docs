@@ -14,9 +14,6 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Deploy an AKS cluster using Azure PowerShell.
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
-> [!NOTE]
-> This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
-
 :::image type="content" source="media/quick-kubernetes-deploy-powershell/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-powershell/aks-store-application.png":::
 
 ## Before you begin
@@ -370,6 +367,9 @@ To deploy the application, you use a manifest file to create all the objects req
     deployment.apps/store-front created
     service/store-front created
     ```
+
+> [!NOTE]
+> This sample application is only for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 ## Test the application
 

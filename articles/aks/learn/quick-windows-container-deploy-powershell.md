@@ -2,7 +2,7 @@
 title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using PowerShell
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 ms.topic: article
-ms.date: 11/30/2023
+ms.date: 12/11/2023
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
@@ -12,17 +12,17 @@ ms.custom: devx-track-azurepowershell
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you use Azure PowerShell to deploy an AKS cluster that runs Windows Server containers. You also deploy an
 `ASP.NET` sample application in a Windows Server container to the cluster.
 
-:::image type="content" source="media/quick-windows-container-deploy-powershell/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application.":::
+## Before you begin
 
 This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-## Prerequisites
+- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- For ease of use, try the PowerShell environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 
-* If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-* Use the PowerShell environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
-* The identity you use to create your cluster must have the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
-* If you choose to use PowerShell locally, you need to install the [`Az PowerShell`](/powershell/azure/new-azureps-module-az) module and connect to your Azure account using the [`Connect-AzAccount`](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information, see [Install Azure PowerShell][install-azure-powershell].
-* If you have multiple Azure subscriptions, select and set the appropriate subscription ID in which the resources should be billed using the [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) cmdlet.
+    If you choose to use PowerShell locally, you need to install the [`Az PowerShell`](/powershell/azure/new-azureps-module-az) module and connect to your Azure account using the [`Connect-AzAccount`](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information, see [Install Azure PowerShell][install-azure-powershell].
+
+- Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- If you have more than one Azure subscription, set the subscription that you wish to use for the quickstart by calling the [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ## Create a resource group
 
@@ -243,6 +243,9 @@ When the application runs, a Kubernetes service exposes the application front en
 
     > [!NOTE]
     > If you receive a connection timeout when trying to load the page, you should verify the sample app is ready using the `kubectl get pods --watch` command. Sometimes, the Windows container isn't started by the time your external IP address is available.
+
+> [!NOTE]
+> This sample application is only for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 ## Delete resources
 
