@@ -50,6 +50,8 @@
           href: howto-generate-client-access-url.md
         - name: Configure event handler
           href: howto-develop-eventhandler.md
+        - name: Develop with local tunnel tool
+          href: howto-awps-tunnel.md
         - name: Send client events to Event Hubs
           href: howto-develop-event-listener.md
         - name: Use server SDK with Azure Identity
@@ -124,8 +126,6 @@
       items:
         - name: Debug event handlers locally
           href: howto-local-debug-event-handler.md
-        - name: Use local tunnel tool
-          href: concept-awps-tunnel.md
         - name: Collect network trace
           href: howto-troubleshoot-network-trace.md
         - name: Capture resource logs
