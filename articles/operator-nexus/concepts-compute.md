@@ -89,7 +89,7 @@ The following properties reflect the operational state of a BMM:
   - `Management plane`: The BMM runs the Nexus platform agents including controllers and extensions.
   - `Compute plane`: The BMM responsible for running actual tenant workloads including Nexus Kubernetes Clusters and Virtual Machines.
   
-  Refer this [link](reference-near-edge-bmm-roles.md) for more details on Machine Roles.
+  Refer this [link](reference-near-edge-baremetal-machine-roles.md) for more details on Machine Roles.
 
 ## BMM operations
 
