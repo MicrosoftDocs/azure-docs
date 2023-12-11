@@ -33,4 +33,4 @@ Oracle Database@Azure offers [Oracle Exadata Database Service on Dedicated Infra
 - [Onboarding with Oracle Database@Azure](oracle-db/onboarding-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](oracle-db/provision-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-db/oracle-database-support.md)
-- [Network planning for Oracle Database@Azure](oracle-db/oracle-database-solution-design.md)
+- [Network planning for Oracle Database@Azure](oracle-db/oracle-database-network-plan.md)

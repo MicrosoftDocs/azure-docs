@@ -4,7 +4,8 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 description: Learn about topologies and constraints for Oracle Database@Azure. 
 ms.topic: conceptual
-ms.service: oracle
+ms.service: virtual-machines
+ms.subservice: oracle
 ms.custom: engagement-fy23
 ms.date: 12/6/2023
 ---
