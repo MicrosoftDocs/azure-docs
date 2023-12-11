@@ -9,7 +9,7 @@ ms.date: 08/19/2022
 ms.custom: template-how-to
 ---
 
-# How to manage users
+# How to manage ACLs of the data record
 In this article, you learn how to add or remove ACLs from the data record in your Azure Data Manager for Energy instance.
 
 ## Create a record with ACLs
