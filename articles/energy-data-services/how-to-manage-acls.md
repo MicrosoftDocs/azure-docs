@@ -72,7 +72,6 @@ curl --location --request PUT 'https://osdu-ship.msft-osdu-test.org/api/storage/
 Note the recordId from the response for future references.
 
 ## Get created record with ACLs
-Use the recordId for the get call.
 
 **Request format**
 
@@ -160,7 +159,6 @@ curl --location --request PATCH 'https://osdu-ship.msft-osdu-test.org/api/storag
 
 If you delete the last owner ACL from the data record, you get the error
 
-```
 **Sample response**
 
 ```JSON
