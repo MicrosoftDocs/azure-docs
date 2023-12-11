@@ -131,7 +131,7 @@ You can also customize environment used to run this flow.
 
 We regularly update our base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable`) to include the latest features and bug fixes. We recommend that you update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list) if possible.
 
-Every time you open the runtime details page, we check whether there are new versions of the runtime. If there are new versions available, you see a notification at the top of the page. You can also manually check the latest version by clicking the **check version** button.
+Every time you open the runtime details page, we check whether there are new versions of the runtime. If there are new versions available, you see a notification at the top of the page. You can also manually check the latest version by selecting the **check version** button.
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-update-env-notification.png" alt-text="Screenshot of the runtime detail page with checkout version highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-update-env-notification.png":::
 
