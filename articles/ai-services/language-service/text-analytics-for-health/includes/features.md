@@ -38,6 +38,7 @@ Entity linking is used to disambiguate the extracted entities by associating the
 * Certainty
 * Conditionality
 * Association
+* Temporality
 
 > [!div class="mx-imgBorder"]
 > ![Text Analytics for health negation](../media/call-api/assertions.png)
