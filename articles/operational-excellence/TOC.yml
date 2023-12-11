@@ -26,7 +26,8 @@
         href: not-yet.md
       - name: Azure Monitor - Log Analytics
         href: not-yet.md
-        
+      - name: Azure Public IP
+        href: relocation-public-ip.md    
 - name: Resources
   items:
   - name: Operational Excellence in Microsoft Azure Well-Architected Framework

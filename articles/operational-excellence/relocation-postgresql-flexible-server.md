@@ -17,10 +17,11 @@ ms.custom:
 
 # Relocation guidance for Azure Database for PostgreSQL
 
-This article covers relocation for PostgreSQL across geographies, where read replicas and geo-restore aren't available. For an overview of the region pairs supported by native replication,  see
-[cross-region replication](../postgresql/concepts-read-replicas#cross-region-replication).
+This article covers relocation guidance for Azure Database for PostgreSQL, Single Server and Flexible Servers across geographies, where region pairs aren't available for replication and geo-restore. 
 
-The relocation process is based on the [Azure region relocation architectural patterns](relocation-overview.md#relocation-architectural-patterns). 
+For an overview of the region pairs supported by native replication, see [cross-region replication](../postgresql/concepts-read-replicas#cross-region-replication).
+
+The relocation process is based on [Azure region relocation architectural patterns](relocation-overview.md#relocation-architectural-patterns). 
 
 ## Prerequisites
 
@@ -35,14 +36,14 @@ The compute resources must:
 
 ## Downtime
 
-Relocation for Azure Database for PostgreSQL is based on logical backup and restore, performed using native tools. Backup and restore times may introduce noticeable downtime.
+Relocation for Azure Database for PostgreSQL is based on logical backup and restore and requires the use of native tools. As a result you can expect noticeable downtime during restoration.
 
 ## Dependencies
 
 Depending on your Azure Database for PostgreSQL instance design, the following dependent resources may need to be created in the target region prior to re-location:
 
-- [Public IP address]()
-- [Azure Private Endpoint]()
+- [Public IP address](./relocation-public-ip.md)
+- [Azure Private Link]()
 - [Azure Service Endpoint]()
 - [Virtual Network]()
 - Network Peering
