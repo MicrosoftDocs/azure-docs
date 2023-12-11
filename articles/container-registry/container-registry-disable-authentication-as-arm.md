@@ -98,7 +98,7 @@ Azure Container Registry has two built-in policy definitions to disable authenti
 
    1. Select **Review+Create**.
 
-         :::image type="content" source="media/container-registry-enable-conditional-policy/06-enable-policy.png" alt-text="Screenshot to activate a Conditional Access policy":::
+         :::image type="content" source="media/container-registry-enable-conditional-policy/06-enable-policy.png" alt-text="Screenshot to activate a Conditional Access policy.":::
 
 
 ## Next steps
