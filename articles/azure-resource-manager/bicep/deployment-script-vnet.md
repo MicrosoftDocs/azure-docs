@@ -19,7 +19,7 @@ With Microsoft.Resources/deploymentScripts version `2023-08-01`, you can run dep
     1. From the left menu, under **Security + networking**, select **Networking**, and then select **Firewalls and virtual networks**.
     1. Select **Enabled from selected virtual networks and IP addresses**.
 
-        :::image type="content" source="./media/deployment-script-bicep/resource-manager-deployment-script-access-vnet-config-storage.png" alt-text="Screenshot of configuring storage account for accessing private network.":::
+        :::image type="content" source="./media/deployment-script-vnet/bicep-deployment-script-access-vnet-config-storage.png" alt-text="Screenshot of configuring storage account for accessing private network.":::
 
     1. Under **Virtual networks**, add a subnet. On the screenshot, the subnet is called *dspvnVnet*.
     1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this storage account**.

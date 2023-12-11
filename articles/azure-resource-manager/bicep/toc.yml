@@ -391,14 +391,12 @@
       displayName: module registry,private module registry
     - name: Deployment script
       items:
-      - name: deploy deployment script resource
+      - name: Deploy deployment script
         href: deployment-script-bicep.md
-      - name: create development environment
+      - name: Create script development environments
         href: deployment-script-bicep-configure-dev.md
-      - name: create deployment script resource
+      - name: Create deployment script
         href: deployment-script-develop.md
-      - name: Troubleshoot deployment script
-        href: deployment-script-troubleshoot.md
       - name: Access private virtual networks
         href: deployment-script-vnet.md
     - name: Template specs

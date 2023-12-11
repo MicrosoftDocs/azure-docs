@@ -101,7 +101,7 @@ resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
 Property value details:
 
 - `tags`: Deployment script tags. If the deployment script service creates the two supporting resources - a storage account and a container instance, the tags are passed to both resources, which can be used to identify them. Another way to identify these supporting resources is through their suffixes, which contain `azscripts`. For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-troubleshoot.md).
-- <a id='identity'></a>`identity`: For deployment script API version *2020-10-01* or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script ( See [Access Azure resources](#access-azure-resources) or running deployment script in private network (See [Access private virtual network](./deployment-script-vnet.md)). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity in deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-mininum-permissions).
+- <a id='identity'></a>`identity`: For deployment script API version *2020-10-01* or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script ( See [Access Azure resources](#access-azure-resources) or running deployment script in private network (See [Access private virtual network](./deployment-script-vnet.md)). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity in deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
 - `kind`: Specify the type of script, either **AzurePowerShell** or **AzureCLI**. You will also need to specify the `azPowerShellVersion` or `azCliVersion` property.
 - `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. For more information, see [Use an existing storage account](#use-existing-storage-account).
 - `containerSettings`: Customize the name of Azure Container Instance. For configuring the container group name, see [Configure container instance](#configure-container-instance). For configuring `subnetIds` to run deployment script in a private network, see [Access private virtual network](./deployment-script-vnet.md).
@@ -174,7 +174,7 @@ param name string = '\\"John Dole\\"'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'simpleCliInline'
+  name: 'inlineCLI'
   location: location
   kind: 'AzureCLI'
   properties: {
@@ -193,7 +193,7 @@ param name string = '\\"John Dole\\"'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'simplePowerShellInline'
+  name: 'inlinePS'
   location: location
   kind: 'AzurePowerShell'
   properties: {
@@ -236,7 +236,7 @@ param name string = '\\"John Dole\\"'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'simpleCliLoadTextContent'
+  name: 'loadTextContentCLI'
   location: location
   kind: 'AzureCLI'
   properties: {
@@ -265,7 +265,7 @@ param name string = '\\"John Dole\\"'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'simplePowerShellInline'
+  name: 'loadTextContentPS'
   location: location
   kind: 'AzurePowerShell'
   properties: {
@@ -290,7 +290,7 @@ param name string = '\\"John Dole\\"'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'simpleCLIExternalScript'
+  name: 'externalScriptCLI'
   location: location
   kind: 'AzureCLI'
   properties: {
@@ -309,7 +309,7 @@ param name string = '\\"John Dole\\"'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'simplePowerShellExternalScript'
+  name: 'externalScriptPS'
   location: location
   kind: 'AzurePowerShell'
   properties: {
@@ -339,7 +339,7 @@ param name string = '\\"John Dole\\"'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'simpleCliSupportingScript'
+  name: 'supportingScriptCLI'
   location: location
   kind: 'AzureCLI'
   properties: {
@@ -356,11 +356,12 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 
 # [PowerShell](#tab/PowerShell)
 
+```bicep
 param name string = '\\"John Dole\\"'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'simplePowerShellSupportingScript'
+  name: 'supportingScriptPS'
   location: location
   kind: 'AzurePowerShell'
   properties: {
@@ -378,7 +379,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     retentionInterval: 'P1D'
   }
 }
-
+```
 ---
 
 Supporting script files can be called from both inline scripts and primary script files. Supporting script files have no restrictions on the file extension.
@@ -400,7 +401,7 @@ param identity string
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'listKV'
+  name: 'listKvCLI'
   location: location
   kind: 'AzureCLI'
   identity: {
@@ -427,7 +428,7 @@ param identity string
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'listKVPowerShell'
+  name: 'listKvPS'
   location: location
   kind: 'AzurePowerShell'
   identity: {
@@ -472,8 +473,8 @@ Azure CLI deployment script utilizes an environment variable named `AZ_SCRIPTS_O
 param name string = 'John Dole'
 param location string = resourceGroup().location
 
-resource ds1 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'cliOutputDemo1'
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'outputCLI'
   location: location
   kind: 'AzureCLI'
   properties: {
@@ -484,7 +485,7 @@ resource ds1 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   }
 }
 
-output text string = ds1.properties.outputs.text
+output text string = deploymentScript.properties.outputs.text
 ```
 
 [jq](https://stedolan.github.io/jq/) is used in the preceding sample for constructing outputs. jq comes with the container images. See [Configure development environment](./deployment-script-bicep-configure-dev.md).
@@ -499,8 +500,8 @@ The following Bicep file shows how to pass values between two `deploymentScripts
 param name string = 'John Dole'
 param location string = resourceGroup().location
 
-resource ds1 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'psOutputDemo1'
+resource deploymentScript1 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'outputPS1'
   location: location
   kind: 'AzurePowerShell'
   properties: {
@@ -516,13 +517,13 @@ resource ds1 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   }
 }
 
-resource ds2 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'psOutputDemo2'
+resource deploymentScript2 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'outputPS2'
   location: location
   kind: 'AzurePowerShell'
   properties: {
     azPowerShellVersion: '10.0'
-    arguments: '-textToEcho \\"${ds1.properties.outputs.text}\\"'
+    arguments: '-textToEcho \\"${deploymentScript1.properties.outputs.text}\\"'
     scriptContent: '''
       param([string] $textToEcho)
       Write-Output $textToEcho
@@ -534,7 +535,8 @@ resource ds2 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 
 ---
 
-## Environment variables
+## Use environment variables
+
 
 ### Pass secured strings to deployment script
 
@@ -548,8 +550,8 @@ The max allowed size for environment variables is 64 KB.
 ```bicep
 param location string = resourceGroup().location
 
-resource ds 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'passEnvVariables'
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'passEnvVariablesCLI'
   location: location
   kind: 'AzureCLI'
   properties: {
@@ -575,8 +577,8 @@ resource ds 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 ```bicep
 param location string = resourceGroup().location
 
-resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'runBashWithOutputs'
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'passEnvVariablesPS'
   location: location
   kind: 'AzurePowerShell'
   properties: {
@@ -630,7 +632,7 @@ To access the environment variables:
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'listEnvironmentVariablesCLI'
+  name: 'listEnvVariablesCLI'
   location: location
   kind: 'AzureCLI'
   properties: {
@@ -647,7 +649,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
-  name: 'listEnvironmentVariablesPowerShell'
+  name: 'listEnvVariablesPS'
   location: location
   kind: 'AzurePowerShell'
   properties: {
@@ -699,7 +701,7 @@ To specify an existing storage account, add the following Bicep to the property 
 ```bicep
 param storageAccountName string = 'myStorageAccount'
 
-resource runDeploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   ...
   properties: {
     ...
@@ -725,7 +727,7 @@ You can also specify subnetIds for running the deployment script in a private ne
 param containerGroupName string = 'mycustomaci'
 param subnetId string = '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
 
-resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
   ...
   properties: {
     ...
@@ -784,3 +786,7 @@ In this article, you learned how to use deployment scripts. To walk through a Le
 
 > [!div class="nextstepaction"]
 > [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)
+> [Create script development environments](./deployment-script-bicep-configure-dev.md)
+> [Create deployment scripts](./deployment-script-develop.md)
+> [Troubleshoot deployment script](./deployment-script-troubleshoot.md)
+> [Access private virtual network](./deployment-script-vnet.md)
