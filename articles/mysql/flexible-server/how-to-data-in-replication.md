@@ -1,6 +1,6 @@
 ---
-title: Configure Data-in replication - Azure Database for MySQL - Flexible Server
-description: This article describes how to set up Data-in replication for Azure Database for MySQL - Flexible Server.
+title: Configure data-in replication
+description: This article describes how to set up data-in replication for Azure Database for MySQL - Flexible Server.
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan

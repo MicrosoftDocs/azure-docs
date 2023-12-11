@@ -1,6 +1,6 @@
 ---
-title: Manage server - Azure portal - Azure Database for MySQL - Flexible Server
-description: Learn how to manage an Azure Database for MySQL - Flexible Server from the Azure portal.
+title: Manage server - Azure portal
+description: Learn how to manage Azure Database for MySQL - Flexible Server from the Azure portal.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -9,9 +9,9 @@ author: mksuni
 ms.date: 9/21/2020
 ---
 
-# Manage an Azure Database for MySQL - Flexible Server using Azure portal
-[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+# Manage Azure Database for MySQL - Flexible Server using the Azure portal
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article shows you how to manage your Azure Database for MySQL flexible server instances. Management tasks include compute and storage scaling, resetting the server administrator password, and deleting your server.
 

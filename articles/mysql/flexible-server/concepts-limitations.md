@@ -1,6 +1,6 @@
 ---
-title: Limitations - Azure Database for MySQL flexible server
-description: This article describes Limitations in Azure Database for MySQL flexible server, such as number of connection and storage engine options.
+title: Limitations
+description: This article describes limitations in Azure Database for MySQL - Flexible Server, such as number of connection and storage engine options.
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan

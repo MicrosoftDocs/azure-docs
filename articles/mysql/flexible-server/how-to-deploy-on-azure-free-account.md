@@ -1,6 +1,6 @@
 ---
-title: Use an Azure free account to try Azure Database for MySQL - Flexible Server for free
-description: Guidance on how to deploy an Azure Database for MySQL - Flexible Server for free using an Azure Free Account.
+title: Try out with an Azure free account
+description: Guidance on how to deploy Azure Database for MySQL - Flexible Server for free by using an Azure Free Account.
 author: shreyaaithal 
 ms.author: shaithal 
 ms.service: mysql

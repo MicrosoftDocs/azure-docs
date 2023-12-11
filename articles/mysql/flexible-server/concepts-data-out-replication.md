@@ -1,6 +1,6 @@
 ---
-title: Data-out replication - Azure Database for MySQL - Flexible Server
-description: Learn about the concepts of data-out replication out of Azure Database for MySQL flexible server to another MySQL server.
+title: Data-out replication
+description: Learn about the concepts of data-out replication out of Azure Database for MySQL - Flexible Server to another MySQL server.
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan

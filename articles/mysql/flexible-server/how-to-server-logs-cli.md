@@ -1,6 +1,6 @@
 ---
-title: 'Monitoring - List and Download Server logs using Azure CLI'
-description: This article describes how to download and list server logs using Azure CLI.
+title: List and download server logs with Azure CLI
+description: This article describes how to list and download Azure Database for MySQL - Flexible Server logs by using the Azure CLI.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
@@ -9,7 +9,7 @@ author: code-sidd
 ms.author: sisawant
 ms.date: 08/05/2022
 ---
-# List and Download Server logs using Azure CLI
+# List and download Azure Database for MySQL - Flexible Server logs by using the Azure CLI
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

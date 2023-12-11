@@ -1,6 +1,6 @@
 ---
-title: Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server
-description: Learn how to set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server
+title: Set up Microsoft Entra authentication
+description: Learn how to set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server.
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan

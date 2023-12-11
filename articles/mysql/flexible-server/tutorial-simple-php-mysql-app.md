@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Build a PHP app with Azure Database for MySQL - Flexible Server'
-description: This tutorial explains how to build a PHP app with flexible server and deploy it on Azure App Service.
+title: 'Tutorial: Build a PHP app'
+description: This tutorial explains how to build a PHP app with Azure Database for MySQL - Flexible Server and deploy it on Azure App Service.
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
@@ -11,7 +11,7 @@ ms.date: 8/11/2022
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Tutorial: Deploy a PHP and MySQL - Flexible Server app on Azure App Service
+# Tutorial: Deploy a PHP and Azure Database for MySQL - Flexible Server app on Azure App Service
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

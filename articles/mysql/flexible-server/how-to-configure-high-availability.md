@@ -1,5 +1,5 @@
 ---
-title: Manage zone redundant high availability - Azure portal - Azure Database for MySQL - Flexible Server
+title: Manage zone redundant high availability - Azure portal
 description: This article describes how to enable or disable zone redundant high availability in Azure Database for MySQL - Flexible Server through the Azure portal.
 ms.service: mysql
 ms.subservice: flexible-server
@@ -10,7 +10,7 @@ ms.custom: references_regions, event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 
-# Manage zone redundant high availability in Azure Database for MySQL - Flexible Server 
+# Manage zone redundant high availability in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Minimal-downtime migration - Azure Database for MySQL
-description: This article describes how to perform a minimal-downtime migration of a MySQL database to Azure Database for MySQL.
+title: Minimal-downtime migration
+description: This article describes how to perform a minimal-downtime migration of a MySQL database to Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 author: SudheeshGH
@@ -10,7 +10,7 @@ ms.custom:
 ms.date: 06/20/2022
 ---
 
-# Minimal-downtime migration to Azure Database for MySQL
+# Minimal-downtime migration to Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 

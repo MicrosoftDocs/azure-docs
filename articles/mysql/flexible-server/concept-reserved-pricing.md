@@ -1,6 +1,6 @@
 ---
-title: Prepay for compute with reserved capacity - Azure Database for MySQL - Flexible Server
-description: Prepay for Azure Database for MySQL flexible server compute resources with reserved capacity
+title: Prepay for compute
+description: Prepay for Azure Database for MySQL - Flexible Server compute resources with reserved capacity.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual

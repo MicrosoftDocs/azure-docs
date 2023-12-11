@@ -1,6 +1,6 @@
 ---
-title: Move Azure regions - Azure portal - Azure Database for MySQL - Flexible Server
-description: Move an Azure Database for MySQL - Flexible Server from one Azure region to another using the Azure portal.
+title: Move Azure regions - Azure portal
+description: Move an Azure Database for MySQL - Flexible Server instance from one Azure region to another by using the Azure portal.
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ---
 
-# Move an Azure Database for MySQL - Flexible Server to another region by using the Azure portal
+# Move an Azure Database for MySQL - Flexible Server instance to another region by using the Azure portal
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

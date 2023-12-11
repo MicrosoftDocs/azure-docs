@@ -1,6 +1,6 @@
 ---
-title: What's new in Azure Database for MySQL - Flexible Server
-description: Learn about recent updates to Azure Database for MySQL flexible server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
+title: What's new
+description: Learn about recent updates to Azure Database for MySQL - Flexible Server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan

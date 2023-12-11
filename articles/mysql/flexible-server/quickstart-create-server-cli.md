@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a server - Azure CLI - Azure Database for MySQL - Flexible Server'
-description: This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL - Flexible Server in an Azure resource group.
+title: 'Quickstart: Create with Azure CLI'
+description: This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL - Flexible Server instance in an Azure resource group.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -11,7 +11,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 ms.date: 9/21/2020
 ---
 
-# Quickstart: Create an Azure Database for MySQL - Flexible Server using Azure CLI
+# Quickstart: Create an Azure Database for MySQL - Flexible Server instance using Azure CLI
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

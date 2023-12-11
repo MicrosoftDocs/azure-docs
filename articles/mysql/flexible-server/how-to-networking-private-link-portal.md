@@ -1,6 +1,6 @@
 ---
-title: Private Link using the Azure portal - Azure Database for MySQL
-description: Learn how to configure private link for Azure Database for MySQL - Flexible Server from the Azure portal
+title: Configure Private Link by using the Azure portal
+description: Learn how to use the Azure portal to configure Private Link for Azure Database for MySQL - Flexible Server.
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
