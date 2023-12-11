@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Query Performance Insight for Azure Database for MySQL - Flexible Server'
-description: 'This article shows you the tools to help visualize Query Performance Insight for Azure Database for MySQL - Flexible Server.'
+title: 'Tutorial: Query Performance Insight'
+description: This article shows you the tools to help visualize Query Performance Insight for Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
@@ -11,6 +11,7 @@ ms.date: 10/01/2021
 ---
 
 # Tutorial: Query Performance Insight for Azure Database for MySQL - Flexible Server
+
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Query Performance Insight proposes to provide intelligent query analysis for databases. The most preferred insights are the workload patterns and the longer-running queries. Understanding these insights can help you find which queries to optimize to improve overall performance and to use your available resources efficiently. 

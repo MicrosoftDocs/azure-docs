@@ -1,6 +1,6 @@
 ---
-title: "Connect to Azure Database for MySQL - Flexible Server with private access in the Azure portal"
-description: This article walks you through using the Azure portal to create and connect to an Azure Database for MySQL - Flexible Server in private access.
+title: Connect with private access in the Azure portal
+description: This article walks you through using the Azure portal to create and connect to an Azure Database for MySQL - Flexible Server instance with private access.
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan

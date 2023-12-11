@@ -1,6 +1,6 @@
 ---
-title: Azure Database for MySQL Migration Partners | Microsoft Docs
-description: Lists of third-party migration partners with solutions that support Azure Database for MySQL.
+title: Migration partners
+description: Lists of third-party migration partners with solutions that support Azure Database for MySQL - Flexible Server.
 author: HJToland3
 ms.author: jtoland
 ms.service: mysql
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/01/2023
 ---
 
-# Azure Database for MySQL migration partners
+# Azure Database for MySQL - Flexible Server migration partners
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 

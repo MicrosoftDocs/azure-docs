@@ -1,6 +1,6 @@
 ---
-title: Networking overview - Azure Database for MySQL - Flexible Server
-description: Connectivity and networking concepts for Azure Database for MySQL flexible server.
+title: Networking overview
+description: Connectivity and networking concepts for Azure Database for MySQL - Flexible Server.
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan

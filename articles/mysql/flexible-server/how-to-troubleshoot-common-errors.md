@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot common errors - Azure Database for MySQL
-description: Learn how to troubleshoot common migration errors encountered by users new to the Azure Database for MySQL service
+title: Troubleshoot common errors
+description: Learn how to troubleshoot common migration errors encountered by users new to Azure Database for MySQL - Flexible Server.
 author: sudheeshgh
 ms.author: sunaray
 ms.service: mysql
@@ -10,7 +10,7 @@ ms.topic: troubleshooting
 ms.date: 06/20/2022
 ---
 
-# Troubleshoot errors commonly encountered during or post migration to Azure Database for MySQL
+# Troubleshoot errors commonly encountered during or post migration to Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 

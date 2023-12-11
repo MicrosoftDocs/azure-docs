@@ -1,6 +1,6 @@
 ---
-title: Create a Power Automate flow with Azure Database for MySQL - Flexible Server
-description: Create a Power Automate flow with Azure Database for MySQL - Flexible Server
+title: Create a Power Automate flow
+description: Create a Power Automate flow with Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart

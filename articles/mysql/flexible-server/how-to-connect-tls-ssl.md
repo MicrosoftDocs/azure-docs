@@ -1,5 +1,5 @@
 ---
-title: Encrypted connectivity using TLS/SSL in Azure Database for MySQL - Flexible Server
+title: Encrypted connectivity using TLS/SSL
 description: Instructions and information on how to connect using TLS/SSL in Azure Database for MySQL - Flexible Server.
 author: SudheeshGH
 ms.author: sunaray

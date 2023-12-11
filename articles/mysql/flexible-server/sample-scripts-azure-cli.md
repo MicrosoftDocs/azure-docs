@@ -1,5 +1,5 @@
 ---
-title: Azure CLI samples - Azure Database for MySQL - Flexible Server 
+title: Azure CLI samples
 description: This article lists the Azure CLI code samples available for interacting with Azure Database for MySQL - Flexible Server.
 author: shreyaaithal
 ms.author: shaithal

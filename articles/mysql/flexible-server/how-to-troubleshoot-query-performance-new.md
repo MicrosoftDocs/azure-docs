@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot query performance in Azure Database for MySQL 
-description: Learn how to troubleshoot query performance in Azure Database for MySQL.
+title: Troubleshoot query performance
+description: Learn how to troubleshoot query performance in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 author: SudheeshGH
@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 10/20/2023
 ---
 
-# Troubleshoot query performance in Azure Database for MySQL
+# Troubleshoot query performance in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 

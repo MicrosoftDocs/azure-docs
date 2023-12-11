@@ -1,6 +1,6 @@
 ---
-title: Create a Power app with Azure Database for MySQL Flexible Server
-description: Create a Power app with Azure Database for MySQL Flexible Server
+title: Create a Power app
+description: Create a Power app with Azure Database for MySQL - Flexible Server.
 author: mksuni
 ms.author: sumuth
 ms.reviewer: maghan
@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 ---
 
-# Tutorial: Create a Power app with Azure Database for MySQL Flexible Server
+# Tutorial: Create a Power app with Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

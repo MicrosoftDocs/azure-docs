@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure audit logs by using Azure Database for MySQL - Flexible Server'
+title: 'Tutorial: Configure audit logs'
 description: 'This tutorial shows you how to configure audit logs by using Azure Database for MySQL - Flexible Server.'
 ms.service: mysql
 ms.subservice: flexible-server

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot connection issues - Azure Database for MySQL - Flexible Server
+title: Troubleshoot connection issues
 description: Learn how to troubleshoot connection issues to Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
