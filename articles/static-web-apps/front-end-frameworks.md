@@ -45,7 +45,6 @@ The intent of the table columns is explained by the following items:
 | [jQuery](https://jquery.com/) | `/` | n/a | n/a |
 | [KnockoutJS](https://knockoutjs.com/) | `dist` | n/a | n/a |
 | [LitElement](https://lit-element.polymer-project.org/) | `/` | n/a | n/a |
-| [Marko](https://markojs.com/) | `public` | n/a | n/a |
 | [Meteor](https://www.meteor.com/) | `bundle` | n/a | n/a |
 | [Mithril](https://mithril.js.org/) | `dist` | n/a | n/a |
 | [Next.js](https://nextjs.org/) (Static HTML Export) | `out` | n/a | n/a |
