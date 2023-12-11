@@ -25795,7 +25795,7 @@
             "redirect_document_id": false  
         },
         {
-            "source_path_from_root": "articles/container-registry/container-registry-configure-conditional-access.md",
+            "source_path_from_root": "/articles/container-registry/container-registry-configure-conditional-access.md",
             "redirect_url": "https://learn.microsoft.com/en-us/azure/container-registry/container-registry-enable-conditional-access-policy",
             "redirect_document_id": false 
         }
