@@ -103,9 +103,9 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
 ## Create a cluster
 There are three ways to create an Azure HDInsight on AKS cluster from the Azure portal:
-1.	Search and create “Azure HDInsight on AKS cluster” from the marketplace.
-1.	Search and select “Azure HDInsight on AKS clusters” in the Azure portal to create cluster from the page listing all HDInsight on AKS clusters.
-1.	Create cluster by selecting New in the Overview page of an existing cluster pool. In this option you have two ways of creating clusters.
+- Search and create “Azure HDInsight on AKS cluster” from the marketplace.
+- Search and select “Azure HDInsight on AKS clusters” in the Azure portal to create cluster from the page listing all HDInsight on AKS clusters.
+- Create cluster by selecting New in the Overview page of an existing cluster pool. In this option you have two ways of creating clusters.
     -	Create cluster by providing minimum number of inputs by not using advanced configuration. This option prefills the prerequisite configuration fields with smart defaults and autocreates mandatory resources.
 
         Virtual Machine SKU size is prefilled with the least costing recommended SKU. In the absence of any recommended SKU, it is prefilled with the SKU with the least vCores and maximum quota available at the time of cluster creation. The cluster would be created with a default constant number of five nodes. Flink and Trino clusters would have two head nodes while Spark clusters would have three head nodes. 
