@@ -85,6 +85,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
 
+
 ## Azure Cloud Services limits
 
 [!INCLUDE [azure-cloud-services-limits](../../../includes/azure-cloud-services-limits.md)]
@@ -112,6 +113,10 @@ To learn more about limits on a more granular level, such as document size, quer
 ## Azure AI services limits
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
+
+## Azure Chaos Studio limits
+
+For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](../../chaos-studio/chaos-studio-service-limits.md).
 
 ## Azure Communications Gateway limits
 
