@@ -493,9 +493,7 @@ Other context fields for Azure container registry vulnerability assessment
 
 | **Name**             | **Type**                                     | **Description**               |
 | -------------------- | -------------------------------------------- | ----------------------------- |
-| assessedResourceType | string: AzureContainerRegistryVulnerability /| Subassessment resource type   |
-|                      |         AwsContainerRegistryVulnerability /  |                               |
-|                      |         GcpContainerRegistryVulnerability    |                               |
+| assessedResourceType | string: <br> AzureContainerRegistryVulnerability<br> AwsContainerRegistryVulnerability <br> GcpContainerRegistryVulnerability | Subassessment resource type   |
 | cvssV30Score         | Numeric                                      | CVSS V3 Score                 |
 | vulnerabilityDetails | VulnerabilityDetails                         |                               |
 | artifactDetails      | ArtifactDetails                              |                               |
@@ -660,7 +658,7 @@ Security subassessment on a resource
 | properties.id              | string                                                       | Vulnerability ID                                    |
 | properties.impact          | string                                                       | Description of the impact of this subassessment    |
 | properties.remediation     | string                                                       | Information on how to remediate this subassessment |
-| properties.resourceDetails | ResourceDetails:     [AzureResourceDetails](/rest/api/defenderforcloud/sub-assessments/list#azureresourcedetails) | Details of the resource that was assessed           |
+| properties.resourceDetails | ResourceDetails: <br> [Azure Resource Details](/rest/api/defenderforcloud/sub-assessments/list#azureresourcedetails) <br> [AWS/GCP Resource Details](/rest/api/defenderforcloud/sub-assessments/list#ResourceDetailsAwsGcp) | Details of the resource that was assessed           |
 | properties.status          | [SubAssessmentStatus](/rest/api/defenderforcloud/sub-assessments/list#subassessmentstatus) | Status of the subassessment                        |
 | properties.timeGenerated   | string                                                       | The date and time the subassessment was generated  |
 | type                       | string                                                       | Resource type                                       |
