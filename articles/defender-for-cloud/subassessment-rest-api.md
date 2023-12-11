@@ -643,6 +643,27 @@ Details of the Aws/Gcp resource that was assessed
 | resourceName                | string          | The assessed resource name                       |
 | hierarchyId                 | string          | Account ID (Aws) / Project ID (Gcp)              |
 
+### SubAssessmentStatus
+
+Status of the sub-assessment
+
+| **Name** | **Type** | **Description**|
+| --------------------------- | --------------- | ------------------------------------------------ |
+| cause | String | 	Programmatic code for the cause of the assessment status |
+| code | SubAssessmentStatusCode | Programmatic code for the status of the assessment
+| description | string | Human readable description of the assessment status |
+| severity | severity | The sub-assessment severity level |
+
+### SubAssessmentStatusCode
+
+Programmatic code for the status of the assessment 
+
+| **Name** | **Type** | **Description**|
+| --------------------------- | --------------- | ------------------------------------------------ |
+| Healthy	| string | The resource is healthy |
+| NotApplicable	| string | Assessment for this resource did not happen |
+| Unhealthy | string | The resource has a security issue that needs to be addressed |
+
 ### SecuritySubAssessment
 
 Security subassessment on a resource
@@ -658,8 +679,8 @@ Security subassessment on a resource
 | properties.id              | string                                                       | Vulnerability ID                                    |
 | properties.impact          | string                                                       | Description of the impact of this subassessment    |
 | properties.remediation     | string                                                       | Information on how to remediate this subassessment |
-| properties.resourceDetails | ResourceDetails: <br> [Azure Resource Details](/rest/api/defenderforcloud/sub-assessments/list#azureresourcedetails) <br> [AWS/GCP Resource Details](/rest/api/defenderforcloud/sub-assessments/list#ResourceDetailsAwsGcp) | Details of the resource that was assessed           |
-| properties.status          | [SubAssessmentStatus](/rest/api/defenderforcloud/sub-assessments/list#subassessmentstatus) | Status of the subassessment                        |
+| properties.resourceDetails | ResourceDetails: <br> [Azure Resource Details](/azure/defender-for-cloud/subassessment-rest-api##resourcedetails---azure) <br> [AWS/GCP Resource Details](/azure/defender-for-cloud/subassessment-rest-api##resourcedetails---azure) | Details of the resource that was assessed           |
+| properties.status          | [SubAssessmentStatus](/azure/defender-for-cloud/subassessment-rest-api#azureresourcedetails) | Status of the subassessment                        |
 | properties.timeGenerated   | string                                                       | The date and time the subassessment was generated  |
 | type                       | string                                                       | Resource type                                       |
 
