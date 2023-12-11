@@ -51,6 +51,6 @@ To modify the data type for columns in your data flow, add columns to "Cast sett
 	),
 	errors: true) ~> <castTransformationName<>
 ```
-## Next steps
+## Related content
 
 Modify existing columns and new columns using the [derived column transformation](data-flow-derived-column.md).

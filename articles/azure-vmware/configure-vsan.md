@@ -3,7 +3,8 @@ title: Configure VMware vSAN
 description:  Learn how to configure VMware vSAN
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 2/5/2023
+ms.date: 12/07/2023
+ms.custom: engagement-fy23
 
 #Customer intent: As an Azure service administrator, I want to configure VMware vSAN.
 
@@ -11,7 +12,7 @@ ms.date: 2/5/2023
 
 # Configure VMware vSAN
 
-VMware vSAN has additional capabilities that are set w/ every Azure VMware Solution deployment.  Each cluster has their own VMware vSAN Datastore.
+VMware vSAN has more capabilities that are set with every Azure VMware Solution deployment.  Each cluster has their own VMware vSAN Datastore.
 Azure VMware Solution defaults with the following configurations per cluster:
 
    | **Field** | **Value** |
@@ -22,7 +23,7 @@ Azure VMware Solution defaults with the following configurations per cluster:
 > [!NOTE]
 > Run commands are executed one at a time in the order submitted.
 
-In this how-to, you learn how to:
+In this article, learn how to:
 
 > [!div class="checklist"]
 > * Enable or Disable vSAN TRIM/UNMAP
@@ -31,7 +32,7 @@ In this how-to, you learn how to:
 
 ## Set VMware vSAN TRIM/UNMAP
 
-You'll run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UNMAP.
+Run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UNMAP.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -45,7 +46,7 @@ You'll run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UN
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Name**  | Cluster name as defined in vCenter Server. Comma delimit to target only certain clusters. (Blank will target all clusters) |
+   | **Name**  | Cluster name as defined in vCenter Server. Comma delimit to target only certain clusters. (Blank targets all clusters) |
    | **Enable**  | True or False. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name, for example, **Disable vSAN TRIMUNMAP**.  |
@@ -53,7 +54,7 @@ You'll run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UN
 
 1. Check **Notifications** to see the progress.
    >[!NOTE]
-   >After vSAN TRIM/UNMAP is Enabled, below lists additional requirements for it to function as intended. Once enabled, there are several prerequisites that must be met for TRIM/UNMAP to successfully reclaim no longer used capacity.
+   >After vSAN TRIM/UNMAP is Enabled, the following lists additional requirements for it to function as intended. Once enabled, there are several prerequisites that must be met for TRIM/UNMAP to successfully reclaim no longer used capacity.
    >- Prerequisites -  VM Level
    >- A minimum of virtual machine hardware version 11 for Windows
    >- A minimum of virtual machine hardware version 13 for Linux.
@@ -64,7 +65,7 @@ You'll run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UN
 
 ## Set VMware vSAN Space Efficiency
 
-You'll run the `Set-vSANCompressDedupe` cmdlet to set preferred space efficiency model.
+Run the `Set-vSANCompressDedupe` cmdlet to set preferred space efficiency model.
    >[!NOTE]
    >Changing this setting will cause a vSAN resync and performance degradation while disks are reformatted.
    >Assure enough space is available when changing to new configuration.  25% free space or greater is recommended in general.
@@ -78,7 +79,7 @@ You'll run the `Set-vSANCompressDedupe` cmdlet to set preferred space efficiency
    | **Field** | **Value** |
    | --- | --- |
    | **Compression**  | True or False. |
-   | **Deduplication**  | True or False. (Enabling this, enables both dedupe and compression) |
+   | **Deduplication**  | True or False. (Enabling deduplication, enables both dedupe and compression) |
    | **ClustersToChange**  | Cluster name as defined in vCenter Server. Comma delimit to target multiple clusters. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name, for example, **set cluster-1 to compress only**.  |
@@ -95,9 +96,8 @@ You'll run the `Set-vSANCompressDedupe` cmdlet to set preferred space efficiency
 
 ## Next steps
 
-Now that you've learned how to configure VMware vSAN, you can learn more about:
+Now that you learned how to configure VMware vSAN, learn more about:
 
 - [How to configure storage policies](configure-storage-policy.md) - Create and configure storage policies for your Azure VMware Solution virtual machines.
-
 
 - [How to configure external identity for vCenter Server](configure-identity-source-vcenter.md) - vCenter Server has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter Server as an external identity source.

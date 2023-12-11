@@ -30,7 +30,24 @@ You must provide following information to execute a full backup:
 - HSM name or URL
 - Storage account name
 - Storage account blob storage container
-- Storage container SAS token with permissions `crdw`
+- Storage container SAS token with permissions `crdw` (if storage account is not behind a private endpoint)
+
+#### Prerequisites if the storage account is behind a private endpoint (preview):
+
+1. Ensure you have the Azure CLI version 2.54.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+2. Create a user assigned managed identity.
+3. Create a storage account (or use an existing storage account).
+4. Enable Trusted service bypass on the storage account in the “Networking” tab, under “Exceptions.”
+   
+6. Provide ‘storage blob data contributor’ role access to the user assigned managed identity created in step#2. Do this by going to the “Access Control” tab on the portal -> Add Role Assignment. Then select “managed identity” and select the managed identity created in step#2 -> Review + Assign
+7. Create the Managed HSM and associate the managed identity with below command.
+   ```azurecli-interactive
+   az keyvault create --hsm-name mhsmdemo2 –g mhsmrgname –l mhsmlocation -- retention-days 7 --administrators "initialadmin" --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
+   ```
+8. If you have an existing Managed HSM, associate the managed identity by updating the MHSM with the below command. 
+  ```azurecli-interactive
+   az keyvault update-hsm --hsm-name mhsmdemo2 –g mhsmrgname --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
+   ```
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -40,9 +57,11 @@ Backup is a long running operation but will immediately return a Job ID. You can
 
 While the backup is in progress, the HSM might not operate at full throughput as some HSM partitions will be busy performing the backup operation.
 
-> [!IMPORTANT]
-> Public internet access must **not** be blocked from the storage accounts being used to backup or restore resources.
-
+### Backup HSM when storage account is behind a private endpoint (preview)
+```azurecli-interactive
+az keyvault backup start --use-managed-identity true --hsm-name mhsmdemo2 -- storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer
+  ```
+### Backup HSM when storage account is not behind a private endpoint
 
 ```azurecli-interactive
 # time for 500 minutes later for SAS token expiry
@@ -64,6 +83,7 @@ sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-nam
 # Backup HSM
 
 az keyvault backup start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --subscription 361da5d4-a47a-4c79-afdd-d66f684f4070
+
 ```
 
 ## Full restore
@@ -79,13 +99,19 @@ You must provide the following information to execute a full restore:
 - HSM name or URL
 - Storage account name
 - Storage account blob container
-- Storage container SAS token with permissions `rl`
+- Storage container SAS token with permissions `rl` (if storage account is not behind a private endpoint)
 - Storage container folder name where the source backup is stored
 
 Restore is a long running operation but will immediately return a Job ID. You can check the status of the restore process using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane command (except check restore status) are disabled.
 
+### Restore HSM when storage account is behind a private endpoint (preview)
 ```azurecli-interactive
-#### time for 500 minutes later for SAS token expiry
+az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup--blob-container-name mhsmdemobackupcontainer --backup-folder mhsm-backup-foldername --use-managed-identity true
+  ```
+### Restore HSM when storage account is not behind a private endpoint
+
+```azurecli-interactive
+# time for 500 minutes later for SAS token expiry
 
 end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
@@ -96,11 +122,9 @@ skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mh
 # Generate a container sas token
 
 sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name mhsmdemobackup --permissions rl --expiry $end --account-key $skey -o tsv --subscription a1ba9aaa-b7f6-4a33-b038-6e64553a6c7b)
-```
 
-## Restore HSM
+# Restore HSM
 
-```
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860
 ```
 
@@ -108,6 +132,12 @@ az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemoba
 
 Selective key restore allows you to restore one individual key with all its key versions from a previous backup to an HSM.
 
+### Selective key restore when storage account is behind a private endpoint (preview)
+```
+az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --backup-folder mhsm-backup-foldername --use-managed-identity true --key-name rsa-key2
+  ```
+
+### Selective key restore when storage account is not behind a private endpoint
 ```
 az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860 -–key-name rsa-key2
 ```

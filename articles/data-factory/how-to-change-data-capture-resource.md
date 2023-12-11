@@ -194,6 +194,6 @@ Before you begin the procedures in this article, make sure that you have these r
   
    :::image type="content" source="media/adf-cdc/change-data-capture-resource-92.png" alt-text="Screenshot of a detailed breakdown of each mapping in a change data capture artifact." lightbox="media/adf-cdc/change-data-capture-resource-92.png":::
   
-## Next steps
+## Related content
 
 * [Learn more about the CDC resource](concepts-change-data-capture-resource.md)
