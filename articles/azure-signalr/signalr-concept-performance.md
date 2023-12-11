@@ -234,7 +234,7 @@ In the following diagram, 5 through 8 (red highlighted traffic) are in a loop. T
 
 The behavior of **echo** determines that the maximum inbound bandwidth is equal to the maximum outbound bandwidth. For details, see the following table.
 
-| Echo                               | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | [Unit 200](#premium-p2-details) | [Unit 500](#premium-p2-details) | [Unit 1000](#premium-p2-details) |
+| Echo                               | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200| Unit 500 | Unit 1000 |
 |------------------------------------|-------|-------|--------|--------|---------|---------|----------------------------------|-----------------------------------|
 | Connections                        | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000                          | 1,000,000                         |
 | Inbound/outbound messages per second | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000                          | 1,000,000                         |
