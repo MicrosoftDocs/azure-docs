@@ -46,7 +46,7 @@ OPC UA transport authentication requires you to configure the following items:
 
 In Azure IoT Digital Operations Experience, the first step to set up an asset endpoint requires you to configure the thumbprint of the transport certificate. The following code examples reference the certificate file *./secret/cert.der* and private key file *./secret/cert.pem*.
 
-Steps for creating a sample demo self-signed certificate for transport authorization with *./secret/cert.der* and *./secret/cert.pem* files are described [below](#create-a-self-signed-certificate-for-transport-authorization).
+[Create a self-signed certificate for transport authorization](#create-a-self-signed-certificate-for-transport-authorization) section contains steps for creating a sample demo self-signed certificate for transport authorization with *./secret/cert.der* and *./secret/cert.pem* files.
 
 To complete the configuration of an asset endpoint in Operations Experience, do the following steps:
 
@@ -54,7 +54,7 @@ To complete the configuration of an asset endpoint in Operations Experience, do 
 
     To configure the transport certificate, run the following commands:
 
-    
+
     ```bash
     # Upload cert.der Application certificate as secret to Azure Key Vault
     az keyvault secret set \
@@ -63,7 +63,7 @@ To complete the configuration of an asset endpoint in Operations Experience, do 
       --file ./secret/cert.der \
       --encoding hex \
       --content-type application/pkix-cert
-    
+
     # Upload cert.pem private key as secret to Azure Key Vault
     az keyvault secret set \
       --name "aio-opc-opcua-connector-pem" \
@@ -72,8 +72,8 @@ To complete the configuration of an asset endpoint in Operations Experience, do 
       --encoding hex \
       --content-type application/x-pem-file
     ```
-    
-1. Configure the secret provider class `aio-opc-ua-broker-client-certificate` custom resource (CR) in the connected cluster. Use a K8s client such as kubectl to configure the secrets `aio-opc-opcua-connector-der` and `aio-opc-opcua-connector-pem` in the SPC object array in the connected cluster. 
+
+2. Configure the secret provider class `aio-opc-ua-broker-client-certificate` custom resource (CR) in the connected cluster. Use a K8s client such as kubectl to configure the secrets `aio-opc-opcua-connector-der` and `aio-opc-opcua-connector-pem` in the SPC object array in the connected cluster.
 
     The following example shows a complete SPC CR after you added the secret configurations:
 
