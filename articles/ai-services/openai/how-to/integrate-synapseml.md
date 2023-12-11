@@ -35,9 +35,9 @@ This tutorial shows how to apply large language models at a distributed scale by
    - To install SynapseML for your Apache Spark cluster, see [Install SynapseML](#install-synapseml).
 
 > [!NOTE]
-> This article is designed to work with the [Azure OpenAI Service legacy models](/azure/ai-services/openai/concepts/legacy-models) like `Text-Davinci-003`, which support prompt-based completions. Newer models like the current `GPT-3.5 Turbo` and `GPT-4` model series are designed to work with the new chat completion API that expects a specially formatted array of messages as input. 
+> The [OpenAICompletion()] transformer is designed to work with the [Azure OpenAI Service legacy models](/azure/ai-services/openai/concepts/legacy-models) like `Text-Davinci-003`, which supports prompt-based completions. Newer models like the current `GPT-3.5 Turbo` and `GPT-4` model series are designed to work with the new chat completion API that expects a specially formatted array of messages as input. If you working with embeddings or chat completion models, please check the [Chat Completion](#chat-completion) and [Generating Text Embeddings](generating-text-embeddings) sections bellow.
 > 
-> The Azure OpenAI SynapseML integration supports the latest models via the [OpenAIChatCompletion()](https://github.com/microsoft/SynapseML/blob/0836e40efd9c48424e91aa10c8aa3fbf0de39f31/cognitive/src/main/scala/com/microsoft/azure/synapse/ml/cognitive/openai/OpenAIChatCompletion.scala#L24) transformer, which isn't demonstrated in this article. After the [release of the GPT-3.5 Turbo Instruct model](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/announcing-updates-to-azure-openai-service-models/ba-p/3866757), the newer model will be the preferred model to use with this article.
+> The Azure OpenAI SynapseML integration supports the latest models via the [OpenAIChatCompletion()](https://github.com/microsoft/SynapseML/blob/0836e40efd9c48424e91aa10c8aa3fbf0de39f31/cognitive/src/main/scala/com/microsoft/azure/synapse/ml/cognitive/openai/OpenAIChatCompletion.scala#L24) transformer.
 
 We recommend that you [create an Azure Synapse workspace](../../../synapse-analytics/get-started-create-workspace.md). However, you can also use Azure Databricks, Azure HDInsight, Spark on Kubernetes, or the Python environment with the `pyspark` package.
 
@@ -187,14 +187,86 @@ The following image shows example output with completions in Azure Synapse Analy
 
 Here are some other use cases for working with Azure OpenAI Service and large datasets.
 
-### Improve throughput with request batching
+### Generating Text Embeddings
+
+In addition to completing text, we can also embed text for use in downstream algorithms or vector retrieval architectures. Creating embeddings allows you to search and retrieve documents from large collections and can be used when prompt engineering isn't sufficient for the task. For more information on using [OpenAIEmbedding](https://mmlspark.blob.core.windows.net/docs/0.11.1/pyspark/_modules/synapse/ml/cognitive/openai/OpenAIEmbedding.html), see our [embedding guide](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/OpenAI/Quickstart%20-%20OpenAI%20Embedding/).
+
+from synapse.ml.services.openai import OpenAIEmbedding
+
+```python
+embedding = (
+    OpenAIEmbedding()
+    .setSubscriptionKey(key)
+    .setDeploymentName(deployment_name_embeddings)
+    .setCustomServiceName(service_name)
+    .setTextCol("prompt")
+    .setErrorCol("error")
+    .setOutputCol("embeddings")
+)
+
+display(embedding.transform(df))
+```
+
+### Chat Completion
+Models such as ChatGPT and GPT-4 are capable of understanding chats instead of single prompts. The [OpenAIChatCompletion](https://mmlspark.blob.core.windows.net/docs/0.11.1/pyspark/_modules/synapse/ml/cognitive/openai/OpenAIChatCompletion.html) transformer exposes this functionality at scale.
+
+```python
+from synapse.ml.services.openai import OpenAIChatCompletion
+from pyspark.sql import Row
+from pyspark.sql.types import *
+
+
+def make_message(role, content):
+    return Row(role=role, content=content, name=role)
+
+
+chat_df = spark.createDataFrame(
+    [
+        (
+            [
+                make_message(
+                    "system", "You are an AI chatbot with red as your favorite color"
+                ),
+                make_message("user", "Whats your favorite color"),
+            ],
+        ),
+        (
+            [
+                make_message("system", "You are very excited"),
+                make_message("user", "How are you today"),
+            ],
+        ),
+    ]
+).toDF("messages")
+
+chat_completion = (
+    OpenAIChatCompletion()
+    .setSubscriptionKey(key)
+    .setDeploymentName(deployment_name)
+    .setCustomServiceName(service_name)
+    .setMessagesCol("messages")
+    .setErrorCol("error")
+    .setOutputCol("chat_completions")
+)
+
+display(
+    chat_completion.transform(chat_df).select(
+        "messages", "chat_completions.choices.message.content"
+    )
+)
+```
+
+### Improve throughput with request batching from OpenAICompletion
 
 You can use Azure OpenAI Service with large datasets to improve throughput with request batching. In the previous example, you make several requests to the service, one for each prompt. To complete multiple prompts in a single request, you can use batch mode.
 
-In the `OpenAICompletion` object definition, you specify the `"batchPrompt"` value to configure the dataframe to use a **batchPrompt** column. Create the dataframe with a list of prompts for each row.
+In the [OpenAItCompletion](https://mmlspark.blob.core.windows.net/docs/0.11.1/pyspark/_modules/synapse/ml/cognitive/openai/OpenAICompletion.html) object definition, you specify the `"batchPrompt"` value to configure the dataframe to use a **batchPrompt** column. Create the dataframe with a list of prompts for each row.
 
 > [!NOTE]
 > There's currently a limit of 20 prompts in a single request and a limit of 2048 tokens, or approximately 1500 words.
+
+> [!NOTE]
+> Currently, request batching is not supported by the `OpenAIChatCompletion()` transformer.
 
 ```python
 batch_df = spark.createDataFrame(
@@ -226,9 +298,6 @@ In the call to `transform`, one request is made per row. Because there are multi
 completed_batch_df = batch_completion.transform(batch_df).cache()
 display(completed_batch_df)
 ```
-
-> [!NOTE]
-> There's currently a limit of 20 prompts in a single request and a limit of 2048 tokens, or approximately 1500 words.
 
 ### Use an automatic mini-batcher
 
