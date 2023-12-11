@@ -57,7 +57,7 @@ The following script demonstrates how to set up an Azure environment with PowerS
  
 ### Create HDInsight On AKS cluster pool
 
-Copy the following code to Powershell
+Copy the following code to PowerShell
 ```
 $clusterPoolName="<your cluster pool name>"; 
 

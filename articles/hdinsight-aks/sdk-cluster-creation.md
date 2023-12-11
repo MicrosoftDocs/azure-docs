@@ -11,7 +11,7 @@ This article describes how you can create and manage cluster in Azure HDInsight 
  
 The HDInsight .NET SDK provides .NET client libraries, so that it's easier to work with HDInsight clusters from .NET. 
 
-## Prerequisites: 
+## Prerequisites
 
 - Visual Studio 
 - Create a Resource group in your Azure Subscription 
