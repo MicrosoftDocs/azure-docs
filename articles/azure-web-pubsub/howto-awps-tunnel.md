@@ -74,6 +74,8 @@ export WebPubSubConnectionString="<your connection string>"
 SET WebPubSubConnectionString=<your connection string>
 ```
 
+---
+
 ### Using Azure Identity
 
 1. In your Web PubSub service portal, go to Access control tab, and add role `Web PubSub Service Owner` to your identity.
