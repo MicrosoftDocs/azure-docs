@@ -16,7 +16,7 @@ ms.date: 11/10/2020
 
 You can manage Azure Database for MySQL flexible server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.
 
-This article describes how to view and configure server parameters by using the Azure portal. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameters. The non-modifiable server parameters are greyed out.
+This article describes how to view and configure server parameters by using the Azure portal. The server parameter blade on Azure portal shows both the modifiable and nonmodifiable server parameters. The nonmodifiable server parameters are greyed out.
 
 >[!Note]
 > Server parameters can be updated globally at the server-level, use the [Azure CLI](./how-to-configure-server-parameters-cli.md) or [Azure portal](./how-to-configure-server-parameters-portal.md).
@@ -30,14 +30,14 @@ This article describes how to view and configure server parameters by using the 
 [:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Enumerate drop down":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
 4. Click  **Save** to save your changes.
 [:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="Save or Discard changes":::](./media/how-to-server-parameters/4-save-parameters.png#lightbox)
-5. The static parameters are the one which require server reboot to take in effect. If you are modifying the static parameter, you will be prompted to **Restart now** or **Restart later**.
+5. Static parameters are ones that require server reboot to take effect. If you're modifying a static parameter, you're prompted to **Restart now** or **Restart later**.
 [:::image type="content" source="./media/how-to-server-parameters/5-save-parameter.png" alt-text="Restart on static parameter save":::](./media/how-to-server-parameters/5-save-parameter.png#lightbox)
-6. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
+6. If you saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
 [:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="Reset all to default":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
 
-## Setting non-modifiable server parameters
+## Setting nonmodifiable server parameters
 
-If the server parameter you want to update is non-modifiable, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server.
+If the server parameter you want to update is nonmodifiable, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server.
 
 1. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL flexible server instance.
 2. Search for `init_connect`
@@ -53,13 +53,13 @@ If the server parameter you want to update is non-modifiable, you can optionally
 
 ### Setting the global level time zone
 
-The global level time zone can be set from the **Server parameters** page in the Azure portal. The below sets the global time zone to the value "US/Pacific".
+The global level time zone can be set from the **Server parameters** page in the Azure portal. The following example sets the global time zone to the value "US/Pacific".
 
 [:::image type="content" source="./media/how-to-server-parameters/timezone.png" alt-text="Set time zone parameter":::](./media/how-to-server-parameters/timezone.png#lightbox)
 
 ### Setting the session level time zone
 
-The session level time zone can be set by running the `SET time_zone` command from a tool like the MySQL command line or MySQL Workbench. The example below sets the time zone to the **US/Pacific** time zone.
+The session level time zone can be set by running the `SET time_zone` command from a tool like the MySQL command line or MySQL Workbench. The following example sets the time zone to the **US/Pacific** time zone.
 
 ```sql
 SET time_zone = 'US/Pacific';

@@ -15,9 +15,9 @@ ms.date: 05/24/2022
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
-The article describes how you can enable or disable zone redundant high availability configuration at the time of server creation in your Azure Database for MySQL flexible server instance. You can disable zone redundant high availability after server creation too. Enabling zone redundant high availability after server creation is not supported.
+The article describes how you can enable or disable zone redundant high availability configuration at the time of server creation in your Azure Database for MySQL flexible server instance. You can disable zone redundant high availability after server creation too. Enabling zone redundant high availability after server creation isn't supported.
 
-High availability feature provisions physically separate primary and standby replica in different zones. For more information, see [high availability concepts documentation](./concepts/../concepts-high-availability.md). Enabling or disabling high availability does not change your other settings including VNET configuration, firewall settings, and backup retention. Disabling of high availability does not impact your application connectivity and operations.
+High availability feature provisions physically separate primary and standby replica in different zones. For more information, see [high availability concepts documentation](./concepts/../concepts-high-availability.md). Enabling or disabling high availability doesn't change your other settings including VNET configuration, firewall settings, and backup retention. Disabling of high availability doesn't impact your application connectivity and operations.
 
 > [!IMPORTANT]
 > Zone redundant high availability is available in limited set of regions. Please review the supported regions [here](./overview.md#azure-regions).
@@ -28,7 +28,7 @@ High availability feature provisions physically separate primary and standby rep
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Install or upgrade Azure CLI to the latest version. See [Install Azure CLI](/cli/azure/install-azure-cli).
-- Login to Azure account using [az login](/cli/azure/reference-index#az-login) command. Note the **id** property, which refers to **Subscription ID** for your Azure account.
+- Sign in to your Azure account using [az login](/cli/azure/reference-index#az-login). Note the **id** property, which refers to the **Subscription ID** for your Azure account.
 
     ```azurecli-interactive
     az login
