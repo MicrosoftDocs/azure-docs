@@ -106,7 +106,7 @@ There are 3 ways to create an Azure HDInsight on AKS cluster from the Azure port
 1.	Search and create “Azure HDInsight on AKS cluster” from the marketplace.
 1.	Search and select “Azure HDInsight on AKS clusters” in the Azure portal to create cluster from the page listing all HDInsight on AKS clusters.
 1.	Create cluster by selecting New in the Overview page of an existing cluster pool. In this option you have 2 ways of creating clusters.
-    1.	Create cluster by providing minimum number of inputs by not using advanced configuration. This option prefills the pre-requisite configuration fields with smart defaults and auto-creates mandatory resources.
+    -	Create cluster by providing minimum number of inputs by not using advanced configuration. This option prefills the pre-requisite configuration fields with smart defaults and auto-creates mandatory resources.
 
         Virtual Machine SKU size is pre-filled with the least costing recommended SKU. In the absence of any recommended SKU, it will be pre-filled with the SKU with the least vCores and maximum quota available at the time of cluster creation. The cluster would be created with a default constant number of 5 nodes. Flink and Trino clusters would have 2 head nodes while Spark clusters would have 3 head nodes. 
         
@@ -114,7 +114,7 @@ There are 3 ways to create an Azure HDInsight on AKS cluster from the Azure port
     
         :::image type="content" source="./media/quickstart-create-cluster/basic-mode.png" alt-text="Diagram showing basic mode of cluster creation." border="true" lightbox="./media/quickstart-create-cluster/basic-mode.png":::
 
-    1.	If you wish to have more flexibility to customize the cluster configurations, toggle “Use advanced configuration” to On.
+    -	If you wish to have more flexibility to customize the cluster configurations, toggle “Use advanced configuration” to On.
 
 > [!IMPORTANT]
 > For creating a cluster in a new cluster pool, assign AKS agentpool MSI "Managed Identity Operator" role on the user-assigned managed identity created as part of resource prerequisites.
