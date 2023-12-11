@@ -286,6 +286,63 @@ public static WebPubSubConnection Run(
 }
 ```
 
+# [C#](#tab/csharp)
+
+> [!NOTE]
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for C#](https://learn.microsoft.com/dotnet/api/overview/azure/messaging.webpubsub-readme?view=azure-dotnet).
+> ```cs
+> [FunctionName("WebPubSubConnectionCustomRoles")]
+> public static async Task<Uri> Run(
+>     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req)
+> {
+>     var serviceClient = new WebPubSubServiceClient(new Uri(endpoint), "<hub>", "<web-pubsub-connection-string>");
+>     var userId = req.Query["userid"].FirstOrDefault();
+>     // your method to get custom roles.
+>     var roles = GetRoles(userId);
+>     return await serviceClient.GetClientAccessUriAsync(TimeSpan.FromMinutes(5), userId, roles);
+> }
+> ```
+
+# [JavaScript](#tab/javascript)
+
+> [!NOTE]
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/web-pubsub?view=azure-node-latest).
+> 
+> Define input bindings in `function.json`.
+> 
+> ```json
+> {
+>   "disabled": false,
+>   "bindings": [
+>     {
+>       "authLevel": "anonymous",
+>       "type": "httpTrigger",
+>       "direction": "in",
+>       "name": "req"
+>     },
+>     {
+>       "type": "http",
+>       "direction": "out",
+>       "name": "res"
+>     }
+>   ]
+> }
+> ```
+> 
+> Define function in `index.js`.
+> 
+> ```js
+> const { WebPubSubServiceClient } = require('@azure/web-pubsub');
+>
+> module.exports = async function (context, req) {
+>   const serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, "<hub>");
+>   token = await serviceClient.getAuthenticationToken({ userId: req.query.userid, roles: ["webpubsub.joinLeaveGroup", "webpubsub.sendToGroup"] });
+>   context.res = { body: token.url };
+>   context.done();
+> };
+> ```
+
+
 ### Example - `WebPubSubContext`
 
 The following example shows a C# function that acquires Web PubSub upstream request information using the input binding under `connect` event type and returns it over HTTP.
