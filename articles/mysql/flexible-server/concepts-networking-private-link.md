@@ -1,6 +1,6 @@
 ---
-title: Private Link with Azure Database for MySQL - Flexible Server
-description: Learn how Private Link works for Azure Database for MySQL flexible server.
+title: Private Link
+description: Learn how Private Link works for Azure Database for MySQL - Flexible Server.
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan

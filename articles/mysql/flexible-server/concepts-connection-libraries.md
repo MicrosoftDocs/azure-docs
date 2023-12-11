@@ -1,6 +1,6 @@
 ---
-title: Connection libraries - Azure Database for MySQL - Flexible Server
-description: This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL flexible server.
+title: Connection libraries
+description: This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual

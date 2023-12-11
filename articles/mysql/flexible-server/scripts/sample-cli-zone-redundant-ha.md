@@ -1,6 +1,6 @@
 ---
-title: CLI script - Configure zone-redundant high availability in an Azure Database for MySQL - Flexible Server
-description: This Azure CLI sample script shows how to configure Zone-Redundant high availability in an Azure Database for MySQL - Flexible Server.
+title: CLI script - Configure zone-redundant high availability
+description: This Azure CLI sample script shows how to configure zone-redundant high availability in an Azure Database for MySQL - Flexible Server instance.
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
@@ -11,7 +11,7 @@ ms.custom: mvc, devx-track-azurecli, event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 
-# Configure zone-redundant high availability in an Azure Database for MySQL - Flexible Server using Azure CLI
+# Configure zone-redundant high availability in an Azure Database for MySQL - Flexible Server instance using Azure CLI
 
 [!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)]
 

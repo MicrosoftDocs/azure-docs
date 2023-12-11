@@ -1,6 +1,6 @@
 ---
-title: Accelerated logs - Azure Database for MySQL - Flexible Server
-description: This article describes the accelerated logs feature for Azure Database for MySQL flexible server.
+title: Accelerated logs
+description: This article describes the accelerated logs feature for Azure Database for MySQL - Flexible Server.
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan

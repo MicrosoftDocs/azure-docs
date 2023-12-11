@@ -1,6 +1,6 @@
 ---
-title: Audit logs - Azure Database for MySQL - Flexible Server
-description: Describes the audit logs available in Azure Database for MySQL flexible server.
+title: Audit logs
+description: Describes the audit logs available in Azure Database for MySQL - Flexible Server.
 author: code-sidd
 ms.author: sisawant
 ms.reviewer:

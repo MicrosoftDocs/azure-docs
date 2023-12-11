@@ -1,6 +1,6 @@
 ---
-title: Overview of business continuity - Azure Database for MySQL - Flexible Server
-description: Learn about the concepts of business continuity with Azure Database for MySQL flexible server.
+title: Overview of business continuity
+description: Learn about the concepts of business continuity with Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
