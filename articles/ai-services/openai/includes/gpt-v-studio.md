@@ -15,15 +15,14 @@ Start exploring GPT-4 Turbo with Vision capabilities with a no-code approach thr
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription. Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue. 
-- An Azure OpenAI Service resource. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about resource creation, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource). 
-- For Vision enhancement (optional): An Azure Computer Vision resource in the same region as your Azure OpenAI resource.
+- An Azure OpenAI Service resource. The resource must be in the `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, or `AustraliaEast` Azure region. For more information about resource creation, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 
 
 ## Go to Azure OpenAI Studio
 
 Browse to [Azure OpenAI Studio](https://oai.azure.com/) and sign in with the credentials associated with your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
-Under the **Management** section select **Deployments** and create a `gpt-4v` deployment. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).  
+Under **Management** select **Deployments** and **Create** a GPT-4 Turbo with Vision deployment by selecting model name: **"gpt-4"** and model version **"vision-preview"**. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).  
 
 Under the **Playground** section select **Chat**.
 
@@ -39,7 +38,8 @@ For general help with assistant setup, chat sessions, settings, and panels, refe
 #### [Image prompts](#tab/image)
 
 In this chat session, you're instructing the assistant to aid in understanding images that you input. 
-1. In the **Assistant setup** pane, provide this System Message to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the System Message to the image or scenario that you're uploading. 
+1. To start, select your GPT-4 Turbo with Vision deployment from the dropdown.
+2. In the **Assistant setup** pane, provide this System Message to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the System Message to the image or scenario that you're uploading. 
 1. Save your changes, and when prompted to confirm updating the system message, select **Continue**.
 1. In the **Chat session** pane, enter a text prompt like "Describe this image," and upload an image with the attachment button. You can use a different text prompt for your use case. Then select **Send**. 
 1. Observe the output provided. Consider asking follow-up questions related to the analysis of your image to learn more.
@@ -57,8 +57,9 @@ The **object grounding** integration brings a new layer to data analysis and use
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
 
-In this chat session, you try out the capabilities of the enhanced Vision model. 
-1. To start, in the **Configuration** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancements** section.
+In this chat session, you try out the capabilities of the enhanced Vision model.
+1. To start, select your GPT-4 Turbo with Vision deployment from the dropdown.
+1. In the **Configuration** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancements** section.
 1. You're required to select a Computer Vision resource to try the enhanced Vision API. Select your resource, and **Save**. 
 1. Provide this System Message to guide the assistant: "You are an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you're uploading. 
 1. Save your changes, and when prompted to confirm updating the system message, select **Continue**.
@@ -74,7 +75,8 @@ GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored 
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
 
-1. To start, in the **Configuration** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancements** section.
+1. To start, select your GPT-4 Turbo with Vision deployment from the dropdown.
+1. In the **Configuration** tab on the right side of the chat experience, turn on the option for **Vision** under the **Enhancements** section.
 1. You're required to select a Computer Vision resource to try the enhanced Vision API. Select your resource, and **Save**. 
 1. Provide this System Message to guide the assistant: "You are an AI assistant that summarizes video, paying attention to important events, people, and objects in the video." You can tailor the prompt the image or scenario that you're uploading. 
 1. Save your changes, and when prompted to confirm updating the system message, select **Continue**.
