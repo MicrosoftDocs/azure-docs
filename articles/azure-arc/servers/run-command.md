@@ -19,7 +19,7 @@ Run Command on Azure Arc-enabled servers (Public Preview) uses the Connected Mac
 
 - **Cost:** Run Command is free of charge, however storage of scripts in Azure may incur billing.
 
-- **Configuration:** Run Command does not require additional configuration or the deployment of any extensions. The
+- **Configuration:** Run Command doesn't require more configuration or the deployment of any extensions. The
 Connected Machine agent version must be or higher. 
 
 ## Run Command operations
@@ -28,15 +28,15 @@ Run Command on Azure Arc-enabled servers supports the following operations:
 
 |Operation  |Description  |
 |---------|---------|
-|[Create](/rest/api/hybridcompute/machine-run-commands?view=rest-hybridcompute-2023-10-03-preview) |The operation to create a run command. This will run the run command. |
-|[Delete](/rest/api/hybridcompute/machine-run-commands/delete?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to delete a run command. If it is running, delete will also stop the run command. |
+|[Create](/rest/api/hybridcompute/machine-run-commands?view=rest-hybridcompute-2023-10-03-preview) |The operation to create a run command. This runs the run command. |
+|[Delete](/rest/api/hybridcompute/machine-run-commands/delete?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to delete a run command. If it's running, delete will also stop the run command. |
 |[Get](/rest/api/hybridcompute/machine-run-commands/get?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to get a run command. |
 |[List](/rest/api/hybridcompute/machine-run-commands/list?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to get all the run commands of an Azure Arc-enabled server. |
-|[Update](/rest/api/hybridcompute/machine-run-commands/update?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to update the run command. This will stop the previous run command. |
+|[Update](/rest/api/hybridcompute/machine-run-commands/update?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to update the run command. This stops the previous run command. |
  
 ## Example scenarios
 
-Suppose you have an Azure Arc-enabled server called “2012DatacenterServer1” in resource group “ContosoRG” with Subscription ID “aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa”. Consider a scenario where you need to provide remote access to an endpoint for Windows Server 2012 / R2 servers. Access to Extended Security Updates enabled by Azure Arc requires access to the endpoint `microsoft.com/pkiops/certs`. You'll need to remotely configure a firewall rule that allows access to this endpoint. Use Run Command in order to whitelist this endpoint. 
+Suppose you have an Azure Arc-enabled server called “2012DatacenterServer1” in resource group “ContosoRG” with Subscription ID “aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa”. Consider a scenario where you need to provide remote access to an endpoint for Windows Server 2012 / R2 servers. Access to Extended Security Updates enabled by Azure Arc requires access to the endpoint `microsoft.com/pkiops/certs`. You need to remotely configure a firewall rule that allows access to this endpoint. Use Run Command in order to allow connectivity to this endpoint.
 
 ### Example 1: Endpoint access with Run Command
 
