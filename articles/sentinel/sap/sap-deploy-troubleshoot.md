@@ -209,13 +209,11 @@ If you see errors that you're missing a required SAP change request, make sure y
 
 For more information, see [ValidateSAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps).
 
-### No records/ records are always few hours behind for SAP audit log and change log
+### No records / late records
 
-The agent relies on time zone information to be correct.  Check if SAP report TZCUSTHELP presents any errors. Follow [SAP note 481835 for more detials] (<https://me.sap.com/notes/481835/E>).
+The agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check if SAP report TZCUSTHELP presents any errors. Follow [SAP note 481835 for more detials] (<https://me.sap.com/notes/481835/E>).
 
-If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system.
 
-For more information, see [ValidateSAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps).
 
 ### Network connectivity issues
 
