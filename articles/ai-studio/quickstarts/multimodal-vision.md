@@ -106,7 +106,7 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
 1. The assistant should reply with a description of the image with objects highlighted both in the text and in the image.
 
-    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-image-upload-image.png" alt-text="Screenshot of the chat playground with the model output where objects are highlighted in the text and image." lightbox="../media/quickstarts/multimodal-vision/chat-image-upload-image.png":::
+    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-image-object-grounding.png" alt-text="Screenshot of the chat playground with the model output where objects are highlighted in the text and image." lightbox="../media/quickstarts/multimodal-vision/chat-image-object-grounding.png":::
    
 1. Ask a follow-up question related to the analysis of your image. Enter "What should I highlight about this image to my insurance company" and then select the right arrow icon to send.
 1. You should receive a relevant response similar to what's shown here:
