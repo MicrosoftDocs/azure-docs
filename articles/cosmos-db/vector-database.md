@@ -2,8 +2,7 @@
 title: Vector database
 titleSuffix: Azure Cosmos DB
 description: Vector database extension and retrieval augmented generation (RAG) implementation.
-author: jacodel
-ms.author: wmwxwa
+author: wangwmwx
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/02/2023
@@ -74,7 +73,7 @@ Implement RAG patterns with Azure Cosmos DB for NoSQL and Azure AI Search. This 
 
 > [!div class="nextstepaction"]
 > [30-day Free Trial](https://azure.microsoft.com/try/cosmosdb/)
-> [90-day Free Trial with Azure AI Advantage](https://learn.microsoft.com/azure/cosmos-db/ai-advantage)
+> [90-day Free Trial with Azure AI Advantage](../ai-advantage.md)
 
 ## Related content
 
