@@ -18,7 +18,7 @@ Use this article to learn which natural languages are supported by Text Analytic
 
 ## Hosted API Service
 
-The hosted API service supports the English, Spanish, French, German, Italian, Portuguese and Hebrew languages.
+The hosted API service supports the English, Spanish, French, German, Italian, and Portuguese languages.
 
 When structuring the API request, the relevant language tags must be added for these languages: 
 
@@ -29,7 +29,6 @@ French  - “fr”
 German – “de”
 Italian – “it”
 Portuguese – “pt”
-Hebrew – “he”
 ```
 ```json
 json
@@ -112,17 +111,6 @@ json
     ]
 }
 ```
-## Details of the supported container tags:
-
-
-| Language Code       |  Featured Tag | Specific Tag |
-|:--------------------|:-------------------:|:------------------:|
-| `en`                  |      latest         |   3.0.59413252-onprem-amd64    | 
-| `en`, `es`, `it`, `fr`, `de`, `pt`   |      latin         |   3.0.60903415-latin-onprem-amd64    | 
-| `he`                  |      semitic         |   3.0.60903415-semitic-onprem-amd64   | 
-
-
-
 
 
 
