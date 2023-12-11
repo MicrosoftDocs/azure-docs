@@ -71,7 +71,7 @@
         displayName: flux, deploy, configuration
         href: conceptual-gitops-flux2.md
       - name: GitOps (Flux v2) parameters
-        href: gitops-flux-parameters.md
+        href: gitops-flux2-parameters.md
       - name: CI/CD workflow using GitOps
         displayName: flux, pipeline
         href: conceptual-gitops-flux2-ci-cd.md
