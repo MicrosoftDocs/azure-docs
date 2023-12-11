@@ -10,11 +10,6 @@ ms.date: 12/07/2023
 
 Learn how to develop [deployment script](./deployment-script-bicep.md). Note that deployment script resources might have a deployment duration. For efficient development and testing of these scripts, consider establishing a dedicated development environment, such as an Azure container instance or a Docker instance. For more information, see [Create development environment](./deployment-script-bicep-configure-dev.md).
 
-
-*** jgao: add a new section talking about configuring permissions to allow accessing Azure resources.
-
-*** jgao: reduce the length of retentionInterval?
-
 *** jgao: review the deployment script resource symbolic name and resource name.
 
 ## Syntax
@@ -106,7 +101,7 @@ resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
 Property value details:
 
 - `tags`: Deployment script tags. If the deployment script service creates the two supporting resources - a storage account and a container instance, the tags are passed to both resources, which can be used to identify them. Another way to identify these supporting resources is through their suffixes, which contain `azscripts`. For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-troubleshoot.md).
-- <a id='identity'></a>`identity`: For deployment script API version *2020-10-01* or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script or running deployment script in private network. For more information, see [Access private virtual network](./deployment-script-vnet.md). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity in deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [configure the minimum permissions](./deployment-script-bicep.md#configure-the-mininum-permissions).
+- <a id='identity'></a>`identity`: For deployment script API version *2020-10-01* or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script ( See [Access Azure resources](#access-azure-resources) or running deployment script in private network (See [Access private virtual network](./deployment-script-vnet.md)). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity in deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-mininum-permissions).
 - `kind`: Specify the type of script, either **AzurePowerShell** or **AzureCLI**. You will also need to specify the `azPowerShellVersion` or `azCliVersion` property.
 - `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. For more information, see [Use an existing storage account](#use-existing-storage-account).
 - `containerSettings`: Customize the name of Azure Container Instance. For configuring the container group name, see [Configure container instance](#configure-container-instance). For configuring `subnetIds` to run deployment script in a private network, see [Access private virtual network](./deployment-script-vnet.md).
@@ -215,13 +210,11 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 }
 ```
 
----
-
 You can control how Azure PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
 
 The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`. For more information, see [Troubleshoot deployment script](./deployment-script-troubleshoot.md).
----
 
+---
 
 ### Load script file
 
@@ -394,17 +387,17 @@ The supporting files are copied to `azscripts/azscriptinput` at the runtime. Use
 
 ## Access Azure resources
 
-*** jgao - create this new section either in this article or in the overview article.
+To access Azure resources from deployment script, you must configure the `identity` element. The following Bicep file shows how to list Azure key vaults. To run the script successfully, you also need to give the user-assignment management identity the permission to access the key vault.
 
-*** jgao - for connect to Azure, for vnet.
+
+To access Azure resources, you must configure the `identity`` element. The following Bicep file demonstrates how to retrieve a list of Azure key vaults. Additionally, granting the user-assignment management identity permission to access the key vault is necessary.
 
 # [CLI](#tab/CLI)
 
 
 ```bicep
-param identity string = '/subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourcegroups/jgaoidentity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/jgaouami'
+param identity string
 param location string = resourceGroup().location
-param utcValue string = utcNow()
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   name: 'listKV'
@@ -420,7 +413,6 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     azCliVersion: '2.52.0'
     scriptContent: 'result=$(az keyvault list); echo $result | jq -c \'{Result: map({id: .id})}\' > $AZ_SCRIPTS_OUTPUT_PATH'
     retentionInterval: 'P1D'
-    forceUpdateTag: utcValue
   }
 }
 
@@ -431,9 +423,8 @@ output result object = deploymentScript.properties.outputs
 # [PowerShell](#tab/PowerShell)
 
 ```bicep
-param identity string = '/subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourcegroups/jgaoidentity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/jgaouami'
+param identity string
 param location string = resourceGroup().location
-param utcValue string = utcNow()
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   name: 'listKVPowerShell'
@@ -461,7 +452,6 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
       $DeploymentScriptOutputs["kvs"] = $output
     '''
     retentionInterval: 'P1D'
-    forceUpdateTag: utcValue
   }
 }
 
@@ -787,7 +777,6 @@ The two automatically created supporting resources can never outlive the `deploy
 ## Troubleshoot deployment script
 
 *** jgao: deployment script error codes are listed in a different article.
-
 
 ## Next steps
 
