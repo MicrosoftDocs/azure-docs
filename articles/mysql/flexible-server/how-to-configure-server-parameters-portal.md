@@ -35,7 +35,7 @@ This article describes how to view and configure server parameters by using the 
 6. If you saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
 [:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="Reset all to default":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
 
-## Setting nonmodifiable server parameters
+## Setting non-modifiable server parameters
 
 If the server parameter you want to update is nonmodifiable, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server.
 
