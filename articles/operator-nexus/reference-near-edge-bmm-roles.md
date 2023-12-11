@@ -25,7 +25,7 @@ Appropriate Kubernetes labels get applied to the BMM resources to identify the r
 
 ## How do I infer what role(s) a BMM is assigned to?
 
-In any standard Nexus multi-rack instance with 4+ racks, there will be 3 powered on control plane nodes and one node that is powered off but available. The new machineRole field is used in addition to the `powerState` and `detailedStatus` fields to determine the spare control plane node in a Nexus instance. 
+In any standard Nexus multi-rack instance with 3 or more compute racks, there will be 3 powered on control plane nodes and one node that is powered off but available. The new machineRole field is used in addition to the `powerState` and `detailedStatus` fields to determine the spare control plane node in a Nexus instance. 
  
 This command lists the control plane servers along with their power states and statuses:
 
