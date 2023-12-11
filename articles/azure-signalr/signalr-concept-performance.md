@@ -135,7 +135,7 @@ Every tier has its own maximum inbound bandwidth and outbound bandwidth. A smoot
 
 Do *not* exceed the highlighted values in the following two tables.
 
-|       Echo                        | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
+|       Echo                        | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 | 
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|---------|
 | Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | **Inbound bandwidth** | **2 MBps**    | **4 MBps**    | **20 MBps**    | **100 MBps**    | **200 MBps**    | **400 MBps**    | **1,000 MBps**   | **2,000 MBps**    |
@@ -143,7 +143,7 @@ Do *not* exceed the highlighted values in the following two tables.
 
 
 
-| Broadcast                | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 |
+| Broadcast                | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 |
 |--------------------------|-------|-------|--------|--------|---------|---------|---------|----------|
 | Connections              | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000|
 | Inbound bandwidth        | 4 KBps| 4 KBps| 4 KBps | 4 KBps | 4 KBps  | 4 KBps  | 4 KBps  | 4 KBps   |
@@ -175,7 +175,7 @@ Do *not* exceed the highlighted values in the following two tables.
 
 ##### Bigger message size or different sending rate
 
-The real use case is more complicated. It might send a message larger than 2,048 bytes, or the sending message rate isn't one message per second. Let's take Unit100's broadcast as an example to find how to evaluate its performance.
+The real use case is more complicated. It might send a message larger than 2,048 bytes, or the sending message rate isn't one message per second. Let's take Unit 100's broadcast as an example to find how to evaluate its performance.
 
 The following table shows a real use case of **broadcast**. But the message size, connection count, and message sending rate are different from what we assumed in the previous section. The question is how we can deduce any of those items (message size, connection count, or message sending rate) if we know only two of them.
 
@@ -190,7 +190,7 @@ The following formula is easy to infer based on the previous formula:
 outboundConnections = outboundBandwidth * sendInterval / messageSize
 ```
 
-For Unit100, the maximum outbound bandwidth is 400 MB from the previous table. For a 20-KB message size, the maximum outbound connections should be 400 MB \* 5 / 20 KB =
+For Unit 100, the maximum outbound bandwidth is 400 MB from the previous table. For a 20-KB message size, the maximum outbound connections should be 400 MB \* 5 / 20 KB =
 100,000, which matches the real value.
 
 ##### Mixed use cases
@@ -234,7 +234,7 @@ In the following diagram, 5 through 8 (red highlighted traffic) are in a loop. T
 
 The behavior of **echo** determines that the maximum inbound bandwidth is equal to the maximum outbound bandwidth. For details, see the following table.
 
-| Echo                               | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | [Unit200](#premium-p2-details) | [Unit500](#premium-p2-details) | [Unit1000](#premium-p2-details) |
+| Echo                               | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | [Unit 200](#premium-p2-details) | [Unit 500](#premium-p2-details) | [Unit 1000](#premium-p2-details) |
 |------------------------------------|-------|-------|--------|--------|---------|---------|----------------------------------|-----------------------------------|
 | Connections                        | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000                          | 1,000,000                         |
 | Inbound/outbound messages per second | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000                          | 1,000,000                         |
@@ -255,7 +255,7 @@ In this use case, every client invokes the hub defined in the app server. The hu
 Even for this simple hub, the traffic pressure on the app server is prominent as the **echo** inbound message load increases. This traffic pressure requires many app servers for large SKU tiers. The following table lists the app server count for every tier.
 
 
-|    Echo          | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
+|    Echo          | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 | 
 |------------------|-------|-------|-------|--------|--------|--------|---------|---------|
 | Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | App server count | 1     | 1     | 1      | 5     | 10      | 20      | 50     | 100      |
@@ -273,7 +273,7 @@ A small number of clients are broadcasting. The inbound message bandwidth is sma
 
 The following table summarizes maximum client connections, inbound/outbound message count, and bandwidth.
 
-| Broadcast                        | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 |
+| Broadcast                        | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 |
 |----------------------------------|-------|-------|--------|--------|---------|---------|---------|----------|
 | Connections                      | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000|
 | Inbound messages per second      | 2     | 2     | 2      | 2      | 2       | 2       | 2       | 2        |
@@ -284,7 +284,7 @@ The following table summarizes maximum client connections, inbound/outbound mess
 
 The broadcasting clients that post messages are no more than four. They need fewer app servers compared with **echo** because the inbound message amount is small. Two app servers are enough for both SLA and performance considerations. But you should increase the default server connections to avoid imbalance, especially for Unit larger than 50.
 
-|   Broadcast      |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
+|   Broadcast      |  Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 | 
 |------------------|-------|-------|-------|--------|--------|--------|---------|---------|
 | Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | App server count | 1     | 1     | 1      | 2      | 2       |  4      | 10      | 20       |
@@ -304,18 +304,18 @@ Group member and group count are two factors that affect performance. To
 simplify the analysis, we define two kinds of groups:
 
 * **Small group**: Every group has 10 connections. The group number is equal to (max
-connection count) / 10. For example, for Unit1, if there are 1,000 connection counts, then we have 1000 / 10 = 100 groups.
+connection count) / 10. For example, for Unit 1, if there are 1,000 connection counts, then we have 1000 / 10 = 100 groups.
 
 * **Big group**: The group number is always 10. The group member count is equal to (max
-connection count) / 10. For example, for Unit1, if there are 1,000 connection counts, then every group has 1000 / 10 = 100 members.
+connection count) / 10. For example, for Unit 1, if there are 1,000 connection counts, then every group has 1000 / 10 = 100 members.
 
 **Send to group** brings a routing cost to Azure SignalR Service because it has to find the target connections through a distributed data structure. As the sending connections increase, the cost increases.
 
 ##### Small group
 
-The routing cost is significant for sending message to many small groups. Currently, the Azure SignalR Service implementation hits the routing cost limit at Unit50. Adding more CPU and memory doesn't help, so Unit100 can't improve further by design. If you need more inbound bandwidth, contact customer support.
+The routing cost is significant for sending message to many small groups. Currently, the Azure SignalR Service implementation hits the routing cost limit at Unit 50. Adding more CPU and memory doesn't help, so Unit 100 can't improve further by design. If you need more inbound bandwidth, contact customer support.
 
-|   Send to small group     |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
+|   Send to small group     |  Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 | 
 |---------------------------|-------|-------|-------|--------|--------|--------|---------|---------|
 | Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Group member count        | 10    | 10    | 10     | 10     | 10     | 10     | 10   | 10  |
@@ -327,7 +327,7 @@ The routing cost is significant for sending message to many small groups. Curren
 
 Many client connections are calling the hub, so the app server number is also critical for performance. The following table lists the suggested app server counts.
 
-|  Send to small group   |  Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
+|  Send to small group   |  Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 | 
 |------------------|-------|-------|-------|--------|--------|--------|---------|---------|
 | Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | App server count | 1     | 1     | 1      | 5     | 10      | 20      | 50     | 100      |
@@ -341,7 +341,7 @@ Many client connections are calling the hub, so the app server number is also cr
 
 For **send to big group**, the outbound bandwidth becomes the bottleneck before hitting the routing cost limit. The following table lists the maximum outbound bandwidth, which is almost the same as that for **broadcast**.
 
-| Send to big group           | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 |
+| Send to big group           | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 |
 |-----------------------------|-------|-------|--------|--------|---------|---------|---------|----------|
 | Connections                 | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000|
 | Group member count          | 100   | 200   | 500    | 1,000  | 2,000   | 5,000   | 10,000  | 20,000   |
@@ -355,7 +355,7 @@ For **send to big group**, the outbound bandwidth becomes the bottleneck before 
 The sending connection count is no more than 40. The burden on the app server is small, so the suggested number of web apps is small.
 
 
-|   Send to big group   | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
+|   Send to big group   | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 | 
 |------------------|-------|-------|-------|--------|--------|--------|---------|---------|
 | Connections                       | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | App server count | 1     | 1     | 2      | 2      | 2       |  4      | 10      | 20       |
@@ -373,22 +373,22 @@ In the **send to connection** use case, when clients establish the connections t
 
 The routing cost for **send to connection** is similar to the cost for **send to small group**.
 
-As the number of connections increases, routing cost becomes a critical factor limiting overall performance. Notably, Unit20 marks the threshold where the service hits the routing bottlececk. Further increases in unit count do not yield performance improvements unless there's a shift to Premium_P2(unit >=100), which enhances routing capabilities.
+As the number of connections increases, routing cost becomes a critical factor limiting overall performance. Notably, Unit 20 marks the threshold where the service hits the routing bottleneck. Further increases in unit count do not yield performance improvements unless there's a shift to Premium_P2(unit >=100), which enhances routing capabilities.
 
 The following table is a statistical summary after many rounds of running the **send to connection** benchmark.
 
-|   Send to connection   | Unit1 | Unit2 | Unit20 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 | 
+|   Send to connection   | Unit 1 | Unit 2 | Unit 20 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 | 
 |------------------------------------|-------|-------|-------|--------|--------|--------|---------|---------|
 | Connections                       | 1,000 | 2,000 | 20,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000 |
 | Inbound/outbound messages per second | 1,000 | 2,000 | 20,000 | 20,000  | 20,000  | 40,000 | 100,000 | 200,000 |
 | Inbound/outbound bandwidth | 2 MBps    | 4 MBps    | 40 MBps   | 40 MBps    | 40 MBps    | 80 MBps       | 200 MBps       | 400 MBps |
 
 > [!NOTE]
-> Despite the stagnation in inbound/outbound messages per second after Unit20, the capacity for more connections continues to grow. In real business scenarios, it's often the count of connections, not their concurrent message-sending activity, that forms the bottleneck. It's uncommon for all connections to be actively sending messages at such high frequencies as the benchmark test does.
+> Despite the stagnation in inbound/outbound messages per second after Unit 20, the capacity for more connections continues to grow. In real business scenarios, it's often the count of connections, not their concurrent message-sending activity, that forms the bottleneck. It's uncommon for all connections to be actively sending messages at such high frequencies as the benchmark test does.
 
 
 This use case requires high load on the app server side. See the suggested app server count in the following table.
-| Send to connection | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 |
+| Send to connection | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 |
 |--------------------|-------|-------|--------|--------|---------|---------|---------|----------|
 | Connections        | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000|
 | App server count   | 1     | 1     | 1      | 5      | 10      | 20      | 50      | 100      |
@@ -410,7 +410,7 @@ Sending high-density messages through the REST API isn't as efficient as using W
 #### Broadcast through REST API
 All clients establish WebSocket connections with Azure SignalR Service. Then some clients start broadcasting through the REST API. The message sending (inbound) is all through HTTP Post, which isn't efficient compared with WebSocket.
 
-| Broadcast through REST API | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 |
+| Broadcast through REST API | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 |
 |----------------------------|-------|-------|--------|--------|---------|---------|---------|----------|
 | Connections                | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000|
 | Inbound messages per second| 2     | 2     | 2      | 2      | 2       | 2       | 2       | 2        |
@@ -423,7 +423,7 @@ All clients establish WebSocket connections with Azure SignalR Service. Then som
 #### Send to user through REST API
 The benchmark assigns usernames to all of the clients before they start connecting to Azure SignalR Service. After the clients establish WebSocket connections with Azure SignalR Service, they start sending messages to others through HTTP Post.
 
-| Send to user through REST API | Unit1 | Unit2 | Unit10 | Unit50 | Unit100 | Unit200 | Unit500 | Unit1000 |
+| Send to user through REST API | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 |
 |-------------------------------|-------|-------|--------|--------|---------|---------|---------|----------|
 | Connections                   | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000|
 | Inbound/Outbound messages per second   | 200   | 400   | 2,000  | 10,000 | 20,000  | 40,000  | 100,000 | 200,000  |
