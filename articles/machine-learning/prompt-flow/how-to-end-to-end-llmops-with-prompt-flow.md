@@ -14,7 +14,7 @@ ms.reviewer: lagayhar
 ms.date: 09/12/2023
 ---
 
-# Set up end-to-end LLMOps with prompt flow and GitHub (preview)
+# LLMOps with prompt flow and GitHub (preview)
 
 Large Language Operations, or **LLMOps**, has become the cornerstone of efficient prompt engineering and LLM-infused application development and deployment. As the demand for LLM-infused applications continues to soar, organizations find themselves in need of a cohesive and streamlined process to manage their end-to-end lifecycle.
 
@@ -80,7 +80,7 @@ The repository for this article is available at [LLMOps with Prompt flow templat
 
 ## LLMOps process Flow
 
-    :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/llmops-pf-process.png" alt-text="LLMOps Prompt Flow Process." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/llmops-pf-process.png":::
+:::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/llmops-prompt-flow-process.png" alt-text="LLMOps Prompt Flow Process." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/llmops-prompt-flow-process.png":::
 
 1. This is the initialization stage. Here, flows are developed, data is prepared and curated and LLMOps related configuration files are updated.
 2. After local development using Visual Studio Code along with Prompt Flow extension, a pull request is raised from feature branch to development branch. This results in executed the Build validation pipeline. It also executes the experimentation flows.
@@ -122,18 +122,39 @@ Prompt Flow uses connections resource to connect to endpoints like Azure OpenAI,
 
 ### Set up connections for prompt flow
 
-Connections can be created through Prompt Flow UI(https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/concept-connections?view=azureml-api-2) or using the REST API. Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#setup-connections-for-prompt-flow to create connections for Prompt Flow. The sample flows use 'aoai' connection and connection named 'aoai' should be created to execute them.
+Connections can be created through **prompt flow portal UI** or using the **REST API**. Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#setup-connections-for-prompt-flow) to create connections for prompt flow. 
 
-### Setup compute and runtime for Prompt flow
+Click on the link to know more about [connections](./concept-connections.md). 
 
-Runtimes can be created through Prompt Flow UI(https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/concept-runtime?view=azureml-api-2) or using the REST API. Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#setup-runtime-for-prompt-flow to setup compute and runtime for Prompt Flow. The same runtime name should be used in the LLMOps_config.json file explained later.
+> [!NOTE]
+>
+> The sample flows use 'aoai' connection and connection named 'aoai' should be created to execute them.
+
+
+### Setup compute and runtime for prompt flow
+
+Runtime can be created through **prompt flow portal UI** or using the **REST API**. Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#setup-runtime-for-prompt-flow) to setup compute and runtime for prompt flow. 
+
+Click on the link to know more about [runtime](./concept-runtime.md).
+
+> [!NOTE]
+>
+> The same runtime name should be used in the LLMOps_config.json file explained later.
 
 
 ## Setup Azure Service Principal
 
-An Azure `service principal` is a security identity that applications, services, and automation tools use to access Azure resources. It represents an application or service that needs to authenticate with Azure and access resources on your behalf. Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#create-azure-service-principal to create Service Principal in Azure. This Service Principal is later  used to configure GitHub Secret and GitHub Workflows to authenticate and connect to Azure Services. The jobs executed in Prompt Flow for both `experiment and evaluation runs` are under the identity of this Service Principal. Moreover, both the `compute` and `runtime` are created using the same Service Principal.
+An **Azure Service Principal** is a security identity that applications, services, and automation tools use to access Azure resources. It represents an application or service that needs to authenticate with Azure and access resources on your behalf. Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#create-azure-service-principal) to create Service Principal in Azure. 
 
-The setup provides `owner` permissions to the Service Principal. This is because the CD Pipeline automatically provides access to the newly provisioned Azure Machine Learning Endpoint access to Azure Machine Learning workspace for reading connections information. It also adds it to Azure Machine Learning Workspace associated key vault policy with `get` and `list` secret permissions. The owner permission can be changed to `contributor` level permissions by changing pipeline YAML code and removing the step related to permissions.
+This Service Principal is later used to configure Azure DevOps Service connection and Azure DevOps pipelines to authenticate and connect to Azure Services. The jobs executed in Prompt Flow for both `experiment and evaluation runs` are under the identity of this Service Principal. Moreover, both the `compute` and `runtime` are created using the same Service Principal.
+
+> [!TIP]
+>
+>The setup provides `owner` permissions to the Service Principal. 
+>    * This is because the CD Pipeline automatically provides access to the newly provisioned Azure Machine Learning Endpoint access to Azure Machine Learning workspace for reading connections information. 
+>    * It also adds it to Azure Machine Learning Workspace associated key vault policy with `get` and `list` secret permissions. 
+>
+>The owner permission can be changed to `contributor` level permissions by changing pipeline YAML code and removing the step related to permissions.
 
 
 ## Set up GitHub Repository
@@ -142,28 +163,32 @@ There are multiple steps that should be undertaken for setting up LLMOps process
 
 ### Fork and configure the repo
 
-Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#set-up-github-repo to create a forked repo in your GitHub organization. This repo uses two branches - `main` and `development` for code promotions and execution of pipelines in lieu of changes to code in them.
+Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#set-up-github-repo) to create a forked repo in your GitHub organization. This repo uses two branches - `main` and `development` for code promotions and execution of pipelines in lieu of changes to code in them.
 
 ### Set up authentication between GitHub and Azure
 
-Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#set-up-authentication-with-azure-and-github to use the earlier created Service Principal and setup authentication between GitHub repository and Azure Services. This step configures a Github Secret that stores the Service Principal information. The workflows in the repository can read the connection information using the secret name. This helps to configure Github workflow steps to connect to Azure automatically.
+Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#set-up-authentication-with-azure-and-github) to use the earlier created Service Principal and setup authentication between GitHub repository and Azure Services. 
+
+This step configures a Github Secret that stores the Service Principal information. The workflows in the repository can read the connection information using the secret name. This helps to configure Github workflow steps to connect to Azure automatically.
 
 
 ### Cloning the repo
 
-Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#cloning-the-repo to create a new local repository. This will help us create a new feature branch from development branch and incorporate changes.
+Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#cloning-the-repo) to create a new local repository. 
+
+This will help us create a new feature branch from development branch and incorporate changes.
 
 
 ## Test the pipelines
 
-Please follow the guidelines mentioned at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#cloning-the-repos to test the pipelines. The steps are
+Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#cloning-the-repos) to test the pipelines. The steps are
 
 1. Raise a PR(Pull Request) from a feature branch to development branch.
 2. The PR pipeline should execute automatically as result of branch policy configuration.
 3. The PR is then merged to the development branch.
-4. The associated 'dev' pipeline is executed. This will result in full CI and CD execution and result in provisioning or updation of existing Azure Machine Learning Endpoints. 
+4. The associated 'dev' pipeline is executed. This will result in full CI and CD execution and result in provisioning or updating of existing Azure Machine Learning Endpoints. 
 
-The test outputs should be similar to ones shown at https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#example-prompt-run-evaluation-and-deployment-scenario
+The test outputs should be similar to ones shown at [here](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#example-prompt-run-evaluation-and-deployment-scenario).
 
 
 ## Local execution
@@ -192,7 +217,7 @@ python -m pip install promptflow promptflow-tools promptflow-sdk jinja2 promptfl
 
 ```
 
-4. Bring or write your flows into the template based on documentation [here](./docs/how_to_onboard_new_flows.md).
+4. Bring or write your flows into the template based on documentation [here](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_onboard_new_flows.md).
 
 5. Write python scripts similar to the provided examples in local_execution folder.
 

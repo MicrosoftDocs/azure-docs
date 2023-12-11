@@ -16,7 +16,7 @@ ms.custom:
   - ignite-2023
 ---
 
-# Set up end-to-end LLMOps with prompt flow and Azure DevOps (preview)
+# LLMOps with prompt flow and Azure DevOps (preview)
 
 Large Language Operations, or **LLMOps**, has become the cornerstone of efficient prompt engineering and LLM-infused application development and deployment. As the demand for LLM-infused applications continues to soar, organizations find themselves in need of a cohesive and streamlined process to manage their end-to-end lifecycle.
 
@@ -232,7 +232,7 @@ python -m pip install promptflow promptflow-tools promptflow-sdk jinja2 promptfl
 
 ```
 
-4. Bring or write your flows into the template based on documentation [here](./docs/how_to_onboard_new_flows.md).
+4. Bring or write your flows into the template based on documentation [here](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_onboard_new_flows.md).
 
 5. Write python scripts similar to the provided examples in local_execution folder.
 
