@@ -114,7 +114,6 @@ Join-AzStorageAccount `
         -SamAccountName $SamAccountName `
         -DomainAccountType $DomainAccountType `
         -OrganizationalUnitDistinguishedName $OuDistinguishedName `
-        -EncryptionType $EncryptionType
 
 # You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration 
 # with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on 
