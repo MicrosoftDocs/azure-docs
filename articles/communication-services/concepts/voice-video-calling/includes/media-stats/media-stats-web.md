@@ -15,7 +15,7 @@ ms.subservice: calling
 ## Media quality statistics for an ongoing call
 
 > [!IMPORTANT]
-> There's an API update on media quality statistics in the SDK, beginning with version 1.20.1
+> There's an interface update on media quality statistics in the SDK, beginning with the SDK version 1.20.1
 
 Media quality statistics is an extended feature of the core `Call` API. You first need to obtain the `mediaStatsFeature` API object:
 
@@ -24,8 +24,11 @@ const mediaStatsFeature = call.feature(Features.MediaStats);
 ```
 
 To receive the media statistics data, you can subscribe `sampleReported` event or `summaryReported` event.
+
 `sampleReported` event triggers every second. It is suitable as a data source for UI display or your own data pipeline.
+
 `summaryReported` event contains the aggregated values of the data over intervals, which is useful when you just need a summary.
+
 If you want control over the interval of the `summaryReported` event, you need to define `mediaStatsCollectorOptions` of type `MediaStatsCollectorOptions`.
 Otherwise, the SDK uses default values.
 
@@ -62,6 +65,7 @@ The `MediaStatsCollectorOptions` is optional, and there are two optional fields 
 - `dataPointsPerAggregation` defines how many data points each aggregation event has. The default value is 6.
 
 These two values determine the frequency at which the SDK emits `summaryReported` event and the number of aggregated data points included in the report.
+
 The `summaryReported` event raised every `aggregationInterval * dataPointsPerAggregation` seconds.
 
 For example, if you set the following values:
@@ -85,7 +89,9 @@ If you want to collect the data for offline inspection, we recommend that you co
 In either `sampleReported` event or `summaryReported` event, the media statistics data are not just a simple key-value mapping.
 
 Here is the type declaration of the event data reported by `sampleReported` event.
-`export interface MediaStatsReportSample {
+
+```typescript
+export interface MediaStatsReportSample {
     audio: {
         send: OutgoingAudioMediaStats<number, string>[];
         receive: IncomingAudioMediaStats<number, string>[];
@@ -103,6 +109,7 @@ Here is the type declaration of the event data reported by `sampleReported` even
 
 ```
 The event data provide the statistics data for each media stream in the call, including both send and receive directions.
+
 It is recommended that you print out the event using the `console.log` to observe its layout and value changes, so you can find a proper way to display or process the data according to your usage scenario.
 
 ### Audio send metrics
