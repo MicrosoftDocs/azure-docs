@@ -78,11 +78,10 @@ When the OPC PLC simulator is running, data flows from the simulator, to the con
 
 ### Configure an asset endpoint to use a username and password
 
-The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password. If you want to use the `UsernamePassword` authentication mode, you must configure the asset endpoint accordingly.
+The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password. To use the `UsernamePassword` authentication mode, complete the following steps:
 
-At first, follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-opc-ua-user-authentication-with-username-and-password) to add secrets for username and password in Azure Key Vault and project them into Kubernetes cluster.
-
-To configure the asset endpoint to use these secrets, select **Username & password** for the **User authentication** field. Then enter the following values for the **Username reference** and **Password reference** fields:
+1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-opc-ua-user-authentication-with-username-and-password) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
+2. In Azure IoT Operations portal, select **Username & password** for the **User authentication** field to configure the asset endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
 
 | Field | Value |
 | --- | --- |
@@ -91,9 +90,10 @@ To configure the asset endpoint to use these secrets, select **Username & passwo
 
 ### Configure an asset endpoint to use a transport authentication certificate
 
-If you want to configure the asset endpoint to use a transport authentication certificate, first follow the steps in [Configure OPC UA transport authentication](howto-configure-opcua-authentication-options.md#configure-opc-ua-transport-authentication) to add a transport certificate and private key to Azure Key Vault and project them into Kubernetes cluster.
+To configure the asset endpoint to use a transport authentication certificate, complete the following steps:
 
-Then in Azure IoT Operations portal, select **Use transport authentication certificate** for the **Transport authentication** field and enter the certificate thumbprint.
+1. Follow the steps in [Configure OPC UA transport authentication](howto-configure-opcua-authentication-options.md#configure-opc-ua-transport-authentication) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
+2. In Azure IoT Operations portal, select **Use transport authentication certificate** for the **Transport authentication** field and enter the certificate thumbprint.
 
 ## Add an asset, tags, and events
 
