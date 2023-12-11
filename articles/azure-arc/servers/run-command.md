@@ -28,7 +28,7 @@ Run Command on Azure Arc-enabled servers supports the following operations:
 
 |Operation  |Description  |
 |---------|---------|
-|[Create](/rest/api/hybridcompute/machine-run-commands?view=rest-hybridcompute-2023-10-03-preview) |The operation to create a run command. This runs the run command. |
+|[Create](https://review.learn.microsoft.com/en-us/rest/api/hybridcompute/machine-run-commands/create-or-update?view=rest-hybridcompute-2023-10-03-preview&branch=main&tabs=HTTP) |The operation to create a run command. This runs the run command. |
 |[Delete](/rest/api/hybridcompute/machine-run-commands/delete?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to delete a run command. If it's running, delete will also stop the run command. |
 |[Get](/rest/api/hybridcompute/machine-run-commands/get?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to get a run command. |
 |[List](/rest/api/hybridcompute/machine-run-commands/list?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to get all the run commands of an Azure Arc-enabled server. |
