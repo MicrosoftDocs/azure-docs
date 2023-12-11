@@ -8,6 +8,7 @@ ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.author: eur
+ms.custom: references_regions
 ---
 
 # Azure AI Studio feature availability across clouds regions
