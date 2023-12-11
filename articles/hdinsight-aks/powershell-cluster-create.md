@@ -3,14 +3,14 @@ title: Manage HDInsight on AKS clusters using PowerShell (Preview)
 description: Manage HDInsight on AKS clusters using PowerShell.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 11/30/2023
+ms.date: 12/11/2023
 ---
 # Manage HDInsight on AKS clusters using PowerShell
 
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Microsoft Azure. This document provides information about how to create a HDInsight on AKS cluster by using Azure PowerShell. It also includes an example script. 
 
  
-## Prerequisites: 
+## Prerequisites
 
 To create an HDInsight on AKS cluster by using Azure PowerShell, you must complete the following procedures: 
 - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)  
@@ -56,9 +56,9 @@ The following script demonstrates how to set up an Azure environment with PowerS
 - [HDInsight on AKS VM list](/azure/hdinsight-aks/virtual-machine-recommendation-capacity-planning)
  
 ### Create HDInsight On AKS cluster pool
-```
-Copy the following code to Powershell
 
+Copy the following code to Powershell
+```
 $clusterPoolName="<your cluster pool name>"; 
 
 $resourceGroupName="<your resource group name>"; 
@@ -66,9 +66,9 @@ $resourceGroupName="<your resource group name>";
 $location="West US 2"; 
 
 $vmSize="Standard_E4s_v3" 
-
+```
 **Get the available cluster pool version**
-
+```
 $clusterPoolVersion=Get-AzHdInsightOnAksAvailableClusterPoolVersion -Location $location 
 
 Write-Output "Start to create cluster pool..." 
@@ -83,9 +83,10 @@ Write-Output "Created cluster pool with name $($clusterPoolResult.Name) successf
 Here, we are going to create cluster under the cluster pool created in the previous step 
  
 Run the following code in PowerShell: 
- 
+
+**Create Trino Cluster**
 ```
-# Create Trino Cluster
+
 
 $clusterPoolName=$“{Cluster Pool Name}”;  
 
@@ -95,16 +96,16 @@ $location=“{Region Name}”;
 
 $clusterType="{Trino}"; 
 
-**Get available cluster version based the command Get-AzHdInsightOnAksAvailableClusterVersion** 
+Get available cluster version based the command Get-AzHdInsightOnAksAvailableClusterVersion
 
 $clusterVersion= (Get-AzHdInsightOnAksAvailableClusterVersion -Location $location | Where-Object {$_.ClusterType -eq $clusterType})[0] 
 $msiResourceId="<your user msi resource id>"; 
 $msiClientId="<your user msi client id>"; 
 $msiObjectId="<your msi object id>"; 
 $userId="<your Microsoft Entra user id>"; 
-
+```
 **Create node profile**
-
+```
 $vmSize="Standard_D8d_v5"; // {Mention the SKU name} 
 $workerCount=5; // {Mention the SKU count} 
 $nodeProfile = New-AzHdInsightOnAksNodeProfileObject -Type Worker -Count $workerCount -VMSize $vmSize 
@@ -140,6 +141,7 @@ $clusterResult=New-AzHdInsightOnAksCluster -Name $clusterName `
 Write-Output "Created cluster with name $($clusterResult.Name) successfully" 
 
 **Get the cluster with cluster name:**
+
 ```
 Get-AzHdInsightOnAksCluster -ResourceGroupName $resourceGroupName -PoolName $clusterPoolName -Name $clusterName 
 ```
@@ -161,8 +163,8 @@ Remove-AzHdInsightOnAksCluster -Name $clusterName -PoolName $clusterpoolName -Re
 Now you created an HDInsight on AKS cluster, use the following resources to learn how to work with your cluster.
 
 To customize and manage your HDInsight on AKS cluster, refer the following documentation: 
-1. Az.HdInsightOnAks module is available in PowerShell gallery: [https://www.powershellgallery.com/packages/Az.HdInsightOnAks/0.1.0](https://www.powershellgallery.com/packages/Az.HdInsightOnAks/0.1.0 )
-1. Publicly available [HDInsight On AKS PowerShell module](/powershell/module/az.hdinsightonaks/#hdinsightonaks) doc
+- Az.HdInsightOnAks module is available in PowerShell gallery: [https://www.powershellgallery.com/packages/Az.HdInsightOnAks/0.1.0](https://www.powershellgallery.com/packages/Az.HdInsightOnAks/0.1.0 )
+- Publicly available [HDInsight On AKS PowerShell module](/powershell/module/az.hdinsightonaks/#hdinsightonaks) doc
 
  
 
