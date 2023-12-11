@@ -6,7 +6,7 @@
   items:
   - name: Overview
     href: relocation-overview.md
-  - name: Relocation strategies
+  - name: Relocation methods
     items:
     - name: Resource Mover
       href: relocation-strategy-resource-mover.md
@@ -26,8 +26,14 @@
         href: not-yet.md
       - name: Azure Monitor - Log Analytics
         href: not-yet.md
+      - name: Azure Private Endpoint
+        href: not-yet.md 
+      - name: Azure Private Link
+        href: relocation-private-link.md 
       - name: Azure Public IP
         href: relocation-public-ip.md    
+      - name: Azure Virtual Network
+        href: relocation-virtual-network.md    
 - name: Resources
   items:
   - name: Operational Excellence in Microsoft Azure Well-Architected Framework

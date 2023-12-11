@@ -6,7 +6,8 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 12/11/2023
-ms.service: postgresql
+ms.service: virtual-network
+ms.subservice: ip-services
 ms.topic: conceptual
 ms.custom:
   - references_regions
