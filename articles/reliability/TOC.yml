@@ -224,18 +224,6 @@
         href: reliability-defender-devops.md
       - name: Microsoft Fabric
         href: reliability-fabric.md  
-  - name: Test reliability
-    items: 
-    - name: Chaos engineering
-      href: /azure/well-architected/resiliency/chaos-engineering?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Chaos Studio overview
-      href: ../chaos-studio/chaos-studio-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Create and run a chaos experiment
-      href: ../chaos-studio/chaos-studio-quickstart-azure-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Resource types
-      href: ../chaos-studio/chaos-studio-fault-providers.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Fault library
-      href: ../chaos-studio/chaos-studio-fault-library.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name:  Azure Service Manager retirement
     items:
     - name: Overview
@@ -292,6 +280,8 @@
   items:
   - name: Azure Reliability feature page
     href: https://azure.microsoft.com/explore/reliability/#overview
+  - name: Reliability testing - Chaos engineering
+    href: /azure/well-architected/resiliency/chaos-engineering?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Reliability in Microsoft Azure Well-Architected Framework
     href: /azure/well-architected/
   - name: Reliability terminology
