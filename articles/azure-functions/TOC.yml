@@ -568,8 +568,9 @@
           items:
             - name: Migrate to model v4.x
               href: functions-node-upgrade-v4.md
-        - name: Update Java versions
-          href: update-java-versions.md  
+        - name: Update language versions
+          href: update-language-versions.md  
+          displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
         - name: Monitor function apps with Azure Monitor

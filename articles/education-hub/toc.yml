@@ -48,8 +48,14 @@
     href: navigate-costs.md
 - name: Tutorials
   items:
-  - name: Find IDs required for calling Azure Education Hub APIs
-    href: find-ids.md
+  - name: Azure for Students
+    items:
+    - name: Deploy resources with Azure for Students
+      href: deploy-resources-azure-for-students.md
+  - name: Azure Classroom
+    items:
+    - name: Find IDs required for calling Azure Education Hub APIs
+      href: find-ids.md
 - name: Troubleshooting
   items:
   - name: Login errors
