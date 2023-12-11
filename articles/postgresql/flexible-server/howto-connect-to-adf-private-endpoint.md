@@ -53,7 +53,7 @@ az resource create --id /subscriptions/<subscription_id>/resourceGroups/<resourc
 
 After above command is successfully executed you should ne able to view you private endpoint in Managed Private Endpoints blade in Data Factory Azure portal interface, as shown in the following example:
 
- :::image type="content" source="./media/howto-connect-to-adf-private-endpoint/managed-private-endpoints-screen.png" alt-text="Example screenshot of connection properties."  lightbox="./media/howto-connect-to-adf-private-endpoint/managed-private-endpoints-screen.png":::
+ :::image type="content" source="./media/howto-connect-to-adf-private-endpoint/managed-private-endpoints-screen.png" alt-text="Example screenshot of connection properties."  :::
 
 
 ## Approve Private Endpoint 
@@ -66,7 +66,7 @@ Once the private endpoint is provisioned, we can follow the ‘Manage approvals 
 When both provisioning succeeded and the endpoint are approved, we can finally create connection to PGFlex using “Azure Database for PostgreSQL” ADF connector.
 1. After following previous steps, when selecting the server for which we created the private endpoint, the private endpoint gets selected automatically as well. 
 2. Next, you may select database, enter username/password and be sure to select ‘SSL’ as encryption method, as shown in the following example:
-   :::image type="content" source="./media/howto-connect-to-adf-private-endpoint/data-factory-data-source-connection.png" alt-text="Example screenshot of connection properties."  lightbox="/media/howto-connect-to-adf-private-endpoint/data-factory-data-source-connection.png":::
+   :::image type="content" source="./media/howto-connect-to-adf-private-endpoint/data-factory-data-source-connection.png" alt-text="Example screenshot of connection properties."  :::
 1. Select test connection. You should see "Connection Successful" message next to test connection button.
     
 ## Next steps
