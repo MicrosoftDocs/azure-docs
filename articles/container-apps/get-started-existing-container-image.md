@@ -195,7 +195,7 @@ New-AzContainerApp @ContainerAppArgs
 
 ---
 
-Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full name the public container registry location, including the registry path and tag. For example, a valid container name is `mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`.
+Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full name the public container registry location, including the registry path and tag. For example, a valid container name is `mcr.microsoft.com/k8se/quickstart:latest`.
 
 ::: zone-end
 
