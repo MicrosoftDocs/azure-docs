@@ -115,7 +115,7 @@ Because Azure Resource Manager manages your configurations, you can automate cre
 
 ## Multi-tenancy
 
-Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability has been integrated into Azure GitOps with Flux v2.
+Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability is integrated into Azure GitOps with Flux v2.
 
 > [!NOTE]
 > For the multi-tenancy feature, you need to know if your manifests contain any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects, or [if you use a Kubernetes version less than 1.20.6](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). To prepare:
@@ -166,7 +166,7 @@ spec:
   url: https://charts.bitnami.com/bitnami
 ```
 
-By default, the Flux extension will deploy the `fluxConfigurations` by impersonating the **flux-applier** service account that is deployed only in the **cluster-config** namespace. Using the above manifests, when multi-tenancy is enabled the HelmRelease would be blocked. This is because the HelmRelease is in the **nginx** namespace and is referencing a HelmRepository in the **flux-system** namespace. Also, the Flux helm-controller cannot apply the HelmRelease, because there is no **flux-applier** service account in the **nginx** namespace.
+By default, the Flux extension deploys the `fluxConfigurations` by impersonating the **flux-applier** service account that is deployed only in the **cluster-config** namespace. Using the above manifests, when multi-tenancy is enabled the HelmRelease would be blocked. This is because the HelmRelease is in the **nginx** namespace and is referencing a HelmRepository in the **flux-system** namespace. Also, the Flux helm-controller can't apply the HelmRelease, because there is no **flux-applier** service account in the **nginx** namespace.
 
 To work with multi-tenancy, the correct approach is to deploy all Flux objects into the same namespace as the `fluxConfigurations`. This approach avoids the cross-namespace reference issue, and allows the Flux controllers to get the permissions to apply the objects. Thus, for a GitOps configuration created in the **cluster-config** namespace, these example manifests would change as follows:
 
@@ -223,13 +223,13 @@ az k8s-extension update --configuration-settings multiTenancy.enforce=false -c C
 
 ## Migrate from Flux v1
 
-If you are still using Flux v1, we recommend migrating to Flux v2 as soon as possible.
+If you're still using Flux v1, we recommend migrating to Flux v2 as soon as possible.
 
-To migrate to using Flux v2 in the same clusters where you've been using Flux v1, you must first delete all Flux v1 `sourceControlConfigurations` from the clusters. Because Flux v2 has a fundamentally different architecture, the `microsoft.flux` cluster extension won't install if there are Flux v1 `sourceControlConfigurations` resources in a cluster. The process of removing Flux v1 configurations and deploying Flux v2 configurations should not take more than 30 minutes.
+To migrate to using Flux v2 in the same clusters where you've been using Flux v1, you must first delete all Flux v1 `sourceControlConfigurations` from the clusters. Because Flux v2 has a fundamentally different architecture, the `microsoft.flux` cluster extension won't install if there are Flux v1 `sourceControlConfigurations` resources in a cluster. The process of removing Flux v1 configurations and deploying Flux v2 configurations shouldn't take more than 30 minutes.
 
-Removing Flux v1 `sourceControlConfigurations` doesn't stop any applications that are running on the clusters. However, during the period when Flux v1 configuration is removed and Flux v2 extension is not yet fully deployed:
+Removing Flux v1 `sourceControlConfigurations` doesn't stop any applications that are running on the clusters. However, during the period when Flux v1 configuration is removed and Flux v2 extension isn't yet fully deployed:
 
-* If there are new changes in the application manifests stored in a Git repository, these are not pulled during the migration, and the application version deployed on the cluster will be stale.
+* If there are new changes in the application manifests stored in a Git repository, these changes aren't pulled during the migration, and the application version deployed on the cluster will be stale.
 * If there are unintended changes in the cluster state and it deviates from the desired state specified in source Git repository, the cluster won't be able to self-heal.
 
 We recommend testing your migration scenario in a development environment before migrating your production environment.
@@ -251,7 +251,7 @@ Use the Azure portal or Azure CLI to [apply Flux v2 configurations](tutorial-use
 
 ### Flux v1 retirement information
 
-The open-source project of Flux v1 has been archived, and feature development has been stopped indefinitely. For more information, see the [fluxcd project](https://fluxcd.io/docs/migration/).
+The open-source project of Flux v1 has been archived, and [feature development has stopped indefinitely](https://fluxcd.io/docs/migration/).
 
 Flux v2 was launched as the upgraded open-source project of Flux. It has a new architecture and supports more GitOps use cases. Microsoft launched a version of an extension using Flux v2 in May 2022. Since then, customers have been advised to move to Flux v2 within three years, as support for using Flux v1 is scheduled to end in May 2025.
 
