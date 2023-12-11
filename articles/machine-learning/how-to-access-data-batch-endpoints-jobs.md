@@ -245,7 +245,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $DATASET_ID
     ```
 
-    For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires ony one data input.
+    For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires only one data input.
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $DATASET_ID
@@ -389,7 +389,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_PATH
     ```
 
-    For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires ony one data input.
+    For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires only one data input.
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH --input-type uri_folder
@@ -532,7 +532,7 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_DATA
     ```
 
-    For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires ony one data input.
+    For an endpoint that serves a model deployment, you can use the `--input` argument to specify the data input, since a model deployment always requires only one data input.
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_DATA --input-type uri_folder
