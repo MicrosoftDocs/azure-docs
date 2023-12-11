@@ -18,7 +18,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.37 - December 2023
 
-Download for [Windows]() or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/b/3/2/b3220316-13db-4f1f-babf-b1aab33b364f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -32,6 +32,7 @@ Download for [Windows]() or [Linux](manage-agent.md#installing-a-specific-versio
 - The installation script for Linux now automatically approves the request to import the packages.microsoft.com signing key to ensure a silent installation experience
 - Agent installation and upgrades apply more restrictive permissions to the agent's data directories on Windows
 - Improved reliability when detecting Azure Stack HCI as a cloud provider
+- Removed the log zipping feature introduced in version 1.37 for extension manager and machine configuration agent logs. Log files will still be rotated automatically.
 
 ## Version 1.36 - November 2023
 
