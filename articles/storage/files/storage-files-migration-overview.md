@@ -1,37 +1,44 @@
 ---
-title: Migrate to Azure file shares
-description: Learn how to migrate to Azure file shares and find your migration guide.
+title: Migrate to SMB Azure file shares
+description: Learn how to migrate to SMB Azure file shares and find your migration guide.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 11/28/2023
+ms.date: 12/11/2023
 ms.author: kendownie
 ---
 
-# Migrate to Azure file shares
+# Migrate to SMB Azure file shares
 
-This article covers the basic aspects of a migration to Azure file shares and contains a table of migration guides. These guides help you move your files into Azure file shares. The guides are organized based on where your data is and what deployment model (cloud-only or hybrid) you're moving to.
+This article covers the basic aspects of a migration to SMB Azure file shares and contains a table of migration guides. These guides help you move your files into Azure file shares. The guides are organized based on where your data is and what deployment model (cloud-only or hybrid) you're moving to.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Migration basics
 
-Azure has multiple available types of cloud storage. A fundamental aspect of file migrations to Azure is determining which Azure storage option is right for your data.
+Azure offers different types of cloud storage. A fundamental aspect of file migrations to Azure is determining which Azure storage option is right for your data.
 
-[Azure file shares](storage-files-introduction.md) are suitable for general-purpose file data. This data includes anything you use an on-premises SMB or NFS share for. With [Azure File Sync](../file-sync/file-sync-planning.md), you can cache the contents of several Azure file shares on servers running Windows Server on-premises.
+[Azure file shares](storage-files-introduction.md) are suitable for general-purpose file data. This data includes anything you use an on-premises SMB share for. With [Azure File Sync](../file-sync/file-sync-planning.md), you can cache the contents of several Azure file shares on servers running Windows Server on-premises.
 
 For an app that currently runs on an on-premises server, storing files in an Azure file share might be a good choice. You can move the app to Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/managed-disks-overview.md) for this scenario.
 
 Some cloud apps don't depend on SMB or on machine-local data access or shared access. For those apps, object storage like [Azure blobs](../blobs/storage-blobs-overview.md) is often the best choice.
 
-The key in any migration is to capture all the applicable file fidelity when moving your files from their current storage location to Azure. How much fidelity the Azure storage option supports and how much your scenario requires also helps you pick the right Azure storage. 
+The key in any migration is to capture all the applicable file fidelity when moving your files from their current storage location to Azure. How much fidelity the Azure storage option supports and how much your scenario requires also helps you pick the right Azure storage.
 
 Here are the two basic components of a file:
 
 - **Data stream**: The data stream of a file stores the file content.
 - **File metadata**: Unlike object storage in Azure blobs, an Azure file share can natively store file metadata. General-purpose file data traditionally depends on file metadata. App data might not. The file metadata has these subcomponents:
-   * File attributes like read-only
-   * File permissions, which can be referred to as *NTFS permissions* or *file and folder ACLs*
-   * Timestamps, most notably the creation and last-modified timestamps
-   * An alternative data stream, which is a space to store larger amounts of nonstandard properties. This alternative data stream can't be stored on a file in an Azure file share. It's preserved on-premises when Azure File Sync is used.
+  - File attributes like read-only
+  - File permissions, which can be referred to as *NTFS permissions* or *file and folder ACLs*
+  - Timestamps, most notably the creation and last-modified timestamps
+  - An alternative data stream, which is a space to store larger amounts of nonstandard properties. This alternative data stream can't be stored on a file in an Azure file share. It's preserved on-premises when Azure File Sync is used.
 
 File fidelity in a migration can be defined as the ability to:
 
@@ -98,18 +105,18 @@ A scenario without a link doesn't yet have a published migration guide. Check th
 
 There are several file-copy tools available from Microsoft and others. To select the right tool for your migration scenario, consider these fundamental questions:
 
-* Does the tool support the source and target locations for your file copy?
+- Does the tool support the source and target locations for your file copy?
 
-* Does the tool support your network path or available protocols (such as REST, SMB, or NFS) between the source and target storage locations?
+- Does the tool support your network path or available protocols (such as REST or SMB) between the source and target storage locations?
 
-* Does the tool preserve the necessary file fidelity supported by your source and target locations?
+- Does the tool preserve the necessary file fidelity supported by your source and target locations?
 
     In some cases, your target storage doesn't support the same fidelity as your source. If the target storage is sufficient for your needs, the tool must match only the target's file-fidelity capabilities.
 
-* Does the tool have features that let it fit into your migration strategy?
+- Does the tool have features that let it fit into your migration strategy?
 
     For example, consider whether the tool lets you minimize your downtime.
-    
+
     When a tool supports an option to mirror a source to a target, you can often run it multiple times on the same source and target while the source stays accessible.
 
     The first time you run the tool, it copies the bulk of the data. This initial run might last a while. It often lasts longer than you want for taking the data source offline for your business processes.
