@@ -221,7 +221,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
     :::image type="content" source="./media/custom-event-to-function/monitor-page-invocations.png" alt-text="Screenshot showing the Invocations tab of the Monitor page.":::
 2. Select the invocation to see the details. 
 
-    :::image type="content" source="./media/custom-event-to-function/invocation-details-page.png" alt-text="Screenshot showing the Invocations tab of the Monitor page.":::
+    :::image type="content" source="./media/custom-event-to-function/invocation-details-page.png" alt-text="Screenshot showing the Invocation details.":::
 3. You can also use the **Logs** tab in the right pane to see the logged messages when you post events to the topic's endpoint. 
 
     :::image type="content" source="./media/custom-event-to-function/successful-function.png" lightbox="./media/custom-event-to-function/successful-function.png" alt-text="Image showing the Monitor view of the Azure function with a log.":::
