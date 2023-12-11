@@ -18,7 +18,7 @@ ms.reviewer: mjbrown
 > [!div class="op_single_selector"]
 > * [.NET SDK Examples](samples-dotnet.md)
 > * [Java V4 SDK Examples](samples-java.md)
-> * [Spring Data V3 SDK Examples](samples-java-spring-data.md)
+> * [Spring Data V5 SDK Examples](samples-java-spring-data.md)
 > * [Node.js Examples](samples-nodejs.md)
 > * [Python Examples](samples-python.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
