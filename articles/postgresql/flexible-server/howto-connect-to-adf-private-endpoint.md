@@ -14,7 +14,7 @@ ms.date: 12/11/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-In this quickstart, you will connect your Azure Database for PostgreSQL - Flexible Server to Azure hosted Data Factory pipeline via Private Link. 
+In this quickstart, you connect your Azure Database for PostgreSQL - Flexible Server to Azure hosted Data Factory pipeline via Private Link. 
 
 
 ## Azure hosed Data Factory with private (VNET) networking
@@ -37,8 +37,8 @@ In this quickstart, you will connect your Azure Database for PostgreSQL - Flexib
 ## Create Private Endpoint in Azure Data Factory
 
 Unfortunately at this time using Azure Database for PostgreSQL connector in ADF you may get an error when trying to connect to privately networked Azure Database for PostgreSQL - Flexible Server, as connector supports **public connectivity only**.
-To work around this limitation, we can use Azure CLI to create a private endpoint first and then use the Data Factory user interface with Azure Database for PostgreSQL connector to create  connection between privately networked Azure Database for PostgreSQL - FLexible Server and Azure Data Factory in managed virtual network. 
-Example below creates private endpoint in Azure data factory, you will substitute with your own values placeholders for *subscription_id,resource_group_name, azure_data_factory_name,endpoint_name,flexible_server_name*:
+To work around this limitation, we can use Azure CLI to create a private endpoint first and then use the Data Factory user interface with Azure Database for PostgreSQL connector to create  connection between privately networked Azure Database for PostgreSQL - Flexible Server and Azure Data Factory in managed virtual network. 
+Example below creates private endpoint in Azure data factory, you substitute with your own values placeholders for *subscription_id,resource_group_name, azure_data_factory_name,endpoint_name,flexible_server_name*:
 
 ```azurecli
 az resource create --id /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.DataFactory/factories/<azure_data_factory_name>/managedVirtualNetworks/default/managedPrivateEndpoints/<endpoint_name> --properties '
@@ -51,23 +51,25 @@ az resource create --id /subscriptions/<subscription_id>/resourceGroups/<resourc
 > [!NOTE]
 > Alternative command to create private endpoint in data factory using Azure CLI is [az datafactory managed-private-endpoint create](https://learn.microsoft.com/cli/azure/datafactory/managed-private-endpoint?view=azure-cli-latest#az-datafactory-managed-private-endpoint-create)
 
-After above command is successfully executed you should ne able to view you private endpoint in Managed Private Endpoints blade in Data Factory Azure portal interface, as shown in example below:
+After above command is successfully executed you should ne able to view you private endpoint in Managed Private Endpoints blade in Data Factory Azure portal interface, as shown in the following example:
 
  :::image type="content" source="./media/howto-connect-to-adf-private-endpoint/managed-private-endpoints-screen.png" alt-text="Example screenshot of connection properties."  lightbox="./media/howto-connect-to-adf-private-endpoint/managed-private-endpoints-screen.png":::
 
 
 ## Approve Private Endpoint 
 
-Once the private endpoint is provisioned, we can follow the ‘Manage approvals In Azure Portal’ link in the Private Endpoint details screen to approve the private endpoint. It will take several minutes for ADF to discover that it is now approved. 
+Once the private endpoint is provisioned, we can follow the ‘Manage approvals In Azure portal’ link in the Private Endpoint details screen to approve the private endpoint. It takes several minutes for ADF to discover that it's now approved. 
 
 
 ## Adding PostgreSQL Flexible Server networked server data source in data factory.
 
-When both provisioning succeeded and the endpoint is approved, we can finally create connection to PGFlex using “Azure Database for PostgreSQL” ADF connector.
+When both provisioning succeeded and the endpoint are approved, we can finally create connection to PGFlex using “Azure Database for PostgreSQL” ADF connector.
 1. After following previous steps, when selecting the server for which we created the private endpoint, the private endpoint gets selected automatically as well. 
-2. Next, you may select database, enter username/password and be sure to select ‘SSL’ as encryption method, as shown in the example below:
+2. Next, you may select database, enter username/password and be sure to select ‘SSL’ as encryption method, as shown in the following example:
    :::image type="content" source="./media/howto-connect-to-adf-private-endpoint/data-factory-data-source-connection.png" alt-text="Example screenshot of connection properties."  lightbox="/media/howto-connect-to-adf-private-endpoint/data-factory-data-source-connection.png":::
-1. Click test connection. You should see "Connection Successful" message next to test connection button.
+1. Select test connection. You should see "Connection Successful" message next to test connection button.
     
+## Next steps
 
+- Learn more about [networking with Private Link in Azure Database for PostgreSQL - Flexible Server](./concepts-networking-private-link.md).
 
