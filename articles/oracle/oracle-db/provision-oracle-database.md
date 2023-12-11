@@ -158,4 +158,4 @@ Consent Tab of the Create Oracle Exadata Virtual Machine Cluster Flow.
 - [Overview - Oracle Database@Azure](database-overview.md)
 - [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-database-support.md)
-- [Network planning for Oracle Database@Azure](oracle-database-solution-design.md)
+- [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
