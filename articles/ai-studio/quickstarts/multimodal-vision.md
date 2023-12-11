@@ -82,7 +82,8 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
-1. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
+1. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown. 
+1. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-turn-on-enhancement.png" alt-text="Screenshot of the vision enhancement settings in the chat playground." lightbox="../media/quickstarts/multimodal-vision/chat-video-turn-on-enhancement.png":::
 
@@ -119,7 +120,8 @@ In this chat session, you'll be instructing the assistant to aid in understandin
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
-1. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
+1. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown. 
+1. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-turn-on-enhancement.png" alt-text="Screenshot of the vision enhancement settings for video analysis in the chat playground." lightbox="../media/quickstarts/multimodal-vision/chat-video-turn-on-enhancement.png":::
 
