@@ -211,7 +211,7 @@ For more information, see [ValidateSAP environment validation steps](prerequisit
 
 ### No records / late records
 
-The agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check if SAP report TZCUSTHELP presents any errors. Follow [SAP note 481835 for more detials](<https://me.sap.com/notes/481835/E>).
+The agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check if SAP report TZCUSTHELP presents any errors. Follow [SAP note 481835](<https://me.sap.com/notes/481835/E>) for more details.
 
 
 
