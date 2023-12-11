@@ -1,5 +1,5 @@
 ---
-title: Set up end-to-end LLMOps with prompt flow and GitHub
+title: LLMOps with prompt flow and GitHub
 titleSuffix: Azure Machine Learning
 description: Learn about using Azure Machine Learning to set up an end-to-end LLMOps pipeline that runs a web classification flow that classifies a website based on a given URL.
 services: machine-learning
@@ -80,7 +80,7 @@ The repository for this article is available at [LLMOps with Prompt flow templat
 
 ## LLMOps process Flow
 
-:::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/llmops-prompt-flow-process.png" alt-text="LLMOps Prompt Flow Process." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/llmops-prompt-flow-process.png":::
+:::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/large-language-model-operations-prompt-flow-process.png" alt-text="Screenshot of LLMOps prompt flow Process." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/large-language-model-operations-prompt-flow-process.png":::
 
 1. This is the initialization stage. Here, flows are developed, data is prepared and curated and LLMOps related configuration files are updated.
 2. After local development using Visual Studio Code along with Prompt Flow extension, a pull request is raised from feature branch to development branch. This results in executed the Build validation pipeline. It also executes the experimentation flows.
@@ -116,7 +116,7 @@ From here on, you can learn **LLMOps with prompt flow** by following the end-to-
 >The CLI commands in this article were tested using Bash. If you use a different shell, you may encounter errors.
 
 
-## Setup Prompt Flow
+## Set up Prompt Flow
 
 Prompt Flow uses connections resource to connect to endpoints like Azure OpenAI, OpenAI or Azure AI Search and uses runtime for the execution of the flows. These resources should be created before executing the flows in Prompt Flow.
 
@@ -131,31 +131,15 @@ Click on the link to know more about [connections](./concept-connections.md).
 > The sample flows use 'aoai' connection and connection named 'aoai' should be created to execute them.
 
 
-### Setup compute and runtime for prompt flow
+### Set up compute and runtime for prompt flow
 
-Runtime can be created through **prompt flow portal UI** or using the **REST API**. Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#setup-runtime-for-prompt-flow) to setup compute and runtime for prompt flow. 
+Runtime can be created through **prompt flow portal UI** or using the **REST API**. Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#setup-runtime-for-prompt-flow) to set up compute and runtime for prompt flow. 
 
 Click on the link to know more about [runtime](./concept-runtime.md).
 
 > [!NOTE]
 >
 > The same runtime name should be used in the LLMOps_config.json file explained later.
-
-
-## Setup Azure Service Principal
-
-An **Azure Service Principal** is a security identity that applications, services, and automation tools use to access Azure resources. It represents an application or service that needs to authenticate with Azure and access resources on your behalf. Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#create-azure-service-principal) to create Service Principal in Azure. 
-
-This Service Principal is later used to configure Azure DevOps Service connection and Azure DevOps pipelines to authenticate and connect to Azure Services. The jobs executed in Prompt Flow for both `experiment and evaluation runs` are under the identity of this Service Principal. Moreover, both the `compute` and `runtime` are created using the same Service Principal.
-
-> [!TIP]
->
->The setup provides `owner` permissions to the Service Principal. 
->    * This is because the CD Pipeline automatically provides access to the newly provisioned Azure Machine Learning Endpoint access to Azure Machine Learning workspace for reading connections information. 
->    * It also adds it to Azure Machine Learning Workspace associated key vault policy with `get` and `list` secret permissions. 
->
->The owner permission can be changed to `contributor` level permissions by changing pipeline YAML code and removing the step related to permissions.
-
 
 ## Set up GitHub Repository
 
@@ -167,9 +151,9 @@ Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-te
 
 ### Set up authentication between GitHub and Azure
 
-Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#set-up-authentication-with-azure-and-github) to use the earlier created Service Principal and setup authentication between GitHub repository and Azure Services. 
+Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#set-up-authentication-with-azure-and-github) to use the earlier created Service Principal and set up authentication between GitHub repository and Azure Services. 
 
-This step configures a Github Secret that stores the Service Principal information. The workflows in the repository can read the connection information using the secret name. This helps to configure Github workflow steps to connect to Azure automatically.
+This step configures a GitHub Secret that stores the Service Principal information. The workflows in the repository can read the connection information using the secret name. This helps to configure GitHub workflow steps to connect to Azure automatically.
 
 
 ### Cloning the repo
@@ -201,7 +185,7 @@ To harness the capabilities of the **local execution**, follow these installatio
 git clone https://github.com/microsoft/llmops-promptflow-template.git
 ```
 
-2. **setup env file**: create .env file at top folder level and provide information for items mentioned. Add as many connection names as needed. All the flow examples in this repo uses AzureOpenAI connection named `aoai`. Add a line `aoai={"api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}` with updated values for api_key and api_base. If additional connections with different names are used in your flows, they should be added accordingly. Currently, flow with AzureOpenAI as provider as supported. 
+2. **Set up env file**: create .env file at top folder level and provide information for items mentioned. Add as many connection names as needed. All the flow examples in this repo use AzureOpenAI connection named `aoai`. Add a line `aoai={"api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}` with updated values for api_key and api_base. If additional connections with different names are used in your flows, they should be added accordingly. Currently, flow with AzureOpenAI as provider as supported. 
 
 ```bash
 
