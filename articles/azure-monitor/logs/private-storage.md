@@ -63,9 +63,10 @@ To configure your Azure Storage account to use CMKs with Key Vault, use the [Azu
 ## Link storage accounts to your Log Analytics workspace
 
 > [!NOTE]
-> - When linking storage account for privacy and compliance typically, saved queries and log alerts are deleted from workspace permanently and can't be restored. To prevent lose of existing saved queries and log alerts, copy saved queries and log alerts using a template as described in [Workspace move procedure](./move-workspace-region.md). 
-> - A single storage account can be linked for custom log and IIS logs, query, and alert.
-> - When linking storage account for custom log and IIS logs ingestion, you might need to consider linking more storage accounts depending on the ingestion rate. You can link up to five storage accounts to a workspace.
+> - When linking Storage Account for query, existing saved queries in workspace are deleted permanently. You can existing saved queries using a template as described in [Workspace move procedure](./move-workspace-region.md).
+> - Saved queries are stored in table storage and can be encrypted using Customer-managed key when configured at Storage Account creation.
+> - Log alerts are saved in blob storage, and you can configure Customer-managed key encryption at Storage Account creation, or update later.
+> - You can use a single Storage Account for query and alert. Linking storage for custom log and IIS logs might require more Storage Accounts depending on the ingestion rate and storage limits. You can link up to five Storage Accounts to a workspace.
 
 ### Use the Azure portal
 On the Azure portal, open your workspace menu and select **Linked storage accounts**. A pane shows the linked storage accounts by the use cases previously mentioned (ingestion over Private Link, applying CMKs to saved queries or to alerts).
