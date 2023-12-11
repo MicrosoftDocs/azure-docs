@@ -2771,6 +2771,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/container-registry/container-registry-configure-conditional-access.md",
+            "redirect_url": "/azure/container-registry/container-registry-enable-conditional-access-policy",
+            "redirect_document_id": false 
+        },
+        {
             "source_path": "articles/site-recovery/vmware-physical-secondary-disaster-recovery.md",
             "redirect_url": "/azure/site-recovery/vmware-physical-secondary-architecture",
             "redirect_document_id": false
@@ -25793,11 +25798,7 @@
             "source_path_from_root": "/articles/aks/ai-toolchain-operator.md",
             "redirect_url": "https://azure.microsoft.com/updates/preview-ai-toolchain-operator-addon-for-aks/",
             "redirect_document_id": false  
-        },
-        {
-            "source_path_from_root": "/azure/container-registry/container-registry-enable-conditional-access-policy",
-            "redirect_url": "/articles/container-registry/container-registry-configure-conditional-access.md",
-            "redirect_document_id": false 
         }
+        
     ]
 }
