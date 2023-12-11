@@ -91,6 +91,9 @@ EsanName="ElasticSanName"
 # The name of the Elastic SAN volume group to be configured.
 EsanVgName="ElasticSanVolumeGroupName"
 
+# The name of the Elastic SAN volume to be created
+volume_name="ElasticSanVolumeName"
+
 # The region where the new resources will be created.
 Location="Location"
 
@@ -103,8 +106,6 @@ KeyName="KeyName"
 # The name of the user-assigned managed identity, if applicable.
 ManagedUserName="ManagedUserName"
 
-# The User Principal Name (UPN) of the administrator (you) who will create the KEK in the vault.
-AdminUpn="AdminUpn"
 ```
 
 ---
@@ -209,15 +210,15 @@ To add a key with Azure CLI, call [az keyvault key create](/cli/azure/keyvault/k
 
 ```azurecli
 #### Get vault_url
-vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
+vault_uri=$(az keyvault show --name $KvName --resource-group $RgName --query "properties.vaultUri" -o tsv)
 
 #### Find your object id and set key policy
 objectId=$(az ad user show --id YOUREMAIL@HERE.COM --query id -o tsv)
 
-az keyvault set-policy -n $kv_name --object-id $objectId --key-permissions backup create delete get import get list update restore
+az keyvault set-policy -n $KvName --object-id $objectId --key-permissions backup create delete get import get list update restore
 
 #### Create key
-az keyvault key create --vault-name $kv_name -n $key_name --protection software
+az keyvault key create --vault-name $KvName -n $KeyName --protection software
 ```
 
 ---
@@ -239,7 +240,7 @@ Azure Elastic SAN can automatically update the customer-managed key that is used
 
 > [!IMPORTANT]
 >
-> If the Elastic SAN volume group was configured for manual updating of the key version and you want to change it to update automatically, you might need to explicitly change the key version to an empty string. For more information on manually changing the key version, see [Automatically update the key version](elastic-san-encryption-manage-customer-keys.md#automatically-update-the-key-version).
+> If the Elastic SAN volume group was configured for manual updating of the key version and you want to change it to update automatically, change the key version to an empty string. For more information on manually changing the key version, see [Automatically update the key version](elastic-san-encryption-manage-customer-keys.md#automatically-update-the-key-version).
 
 ### Manual key version rotation
 
@@ -326,7 +327,7 @@ Use the same [variables you defined previously](#create-variables-to-be-used-in-
 
 ```azurecli
 ### Create a user assigned identity and grant it the access to the key vault
-uai=$(az identity create -g $rg -n $user_assigned_identity_name -o tsv --query id)
+uai=$(az identity create -g $RgName -n $ManagedUserName -o tsv --query id)
 
 #### Get the properties
 uai_principal_id=$(az identity show --ids $uai --query principalId -o tsv)
@@ -334,18 +335,18 @@ uai_id=$(az identity show --ids $uai --query id -o tsv)
 uai_client_id=$(az identity show --ids $uai --query clientId -o tsv)
 
 #### create a keyvault and get the vault url
-az keyvault create --name $kv_name --resource-group $rg --location eastus2 --enable-purge-protection --retention-days 7
-vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
+az keyvault create --name $KvName --resource-group $RgName --location eastus2 --enable-purge-protection --retention-days 7
+vault_uri=$(az keyvault show --name $KvName --resource-group $RgName --query "properties.vaultUri" -o tsv)
 
 #### set policy for key permission
-az keyvault set-policy -n $kv_name --object-id $uai_principal_id --key-permissions get wrapkey unwrapkey
+az keyvault set-policy -n $KvName --object-id $uai_principal_id --key-permissions get wrapkey unwrapkey
 
 #### create key
-az keyvault key create --vault-name $kv_name -n $key_name2 --protection software
+az keyvault key create --vault-name $KvName -n $KeyName --protection software
 
 ### Create a volume group with customer-managed keys
-az elastic-san volume-group create -e $san_name -n $vg_name2 -g $rg --encryption EncryptionAtRestWithCustomerManagedKey --protocol-type Iscsi --identity "{type:UserAssigned,user-assigned-identity:'$uai_id'}" --encryption-properties "{key-vault-properties:{key-name:'$key_name2',key-vault-uri:'$vault_uri'},identity:{user-assigned-identity:'$uai_id'}}"
-az elastic-san volume create -g $rg -e $san_name -v $vg_name -n $volume_name --size-gib 2
+az elastic-san volume-group create -e $EsanName -n $EsanVgName -g $RgName --encryption EncryptionAtRestWithCustomerManagedKey --protocol-type Iscsi --identity "{type:UserAssigned,user-assigned-identity:'$uai_id'}" --encryption-properties "{key-vault-properties:{key-name:'$KeyName',key-vault-uri:'$vault_uri'},identity:{user-assigned-identity:'$uai_id'}}"
+az elastic-san volume create -g $RgName -e $EsanName -v $EsanVgName -n $volume_name --size-gib 2
 ```
 
 ---
@@ -405,7 +406,7 @@ PrincipalId=$(az elastic-san volume-group show --name $EsanVgName \
 
 az role assignment create --assignee-object-id $PrincipalId \
     --role "Key Vault Crypto Service Encryption User" \
-    --scope $KvResourceId
+    --scope $vault_uri
 ```
 
 ---
@@ -472,47 +473,47 @@ Use the following samples and [the same variables you created previously in this
 #### Managed identity
 
 ```azurecli
-vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
+vault_uri=$(az keyvault show --name $KvName --resource-group $RgName --query "properties.vaultUri" -o tsv)
 
 #### set policy for key permission
-az keyvault set-policy -n $kv_name --object-id $uai_principal_id --key-permissions get wrapkey unwrapkey
+az keyvault set-policy -n $KvName --object-id $uai_principal_id --key-permissions get wrapkey unwrapkey
 
 #### create key
-az keyvault key create --vault-name $kv_name -n $key_name2 --protection software
+az keyvault key create --vault-name $KvName -n $KeyName --protection software
 
 ### Create a volume group with customer-managed keys
-az elastic-san volume-group create -e $san_name -n $vg_name2 -g $rg \
+az elastic-san volume-group create -e $EsanName -n $EsanVgName -g $RgName \
     --encryption EncryptionAtRestWithCustomerManagedKey \
     --protocol-type Iscsi \
     --identity "{type:UserAssigned,user-assigned-identity:'$uai_id'}" \
-    --encryption-properties "{key-vault-properties:{key-name:'$key_name2',key-vault-uri:'$vault_uri'},identity:{user-assigned-identity:'$uai_id'}}"
+    --encryption-properties "{key-vault-properties:{key-name:'$KeyName',key-vault-uri:'$vault_uri'},identity:{user-assigned-identity:'$uai_id'}}"
 
-az elastic-san volume update -g $rg -e $san_name -v $vg_name -n $volume_name --size-gib 2     
+az elastic-san volume update -g $RgName -e $EsanName -v $EsanVgName -n $volume_name --size-gib 2     
 ```
 
 #### System assigned identity
 
 ```azurecli
 #### Get vault_url
-vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
+vault_uri=$(az keyvault show --name $KvName --resource-group $RgName --query "properties.vaultUri" -o tsv)
 
 #### Find your object id and set key policy
 objectId=$(az ad user show --id YOUREMAIL@HERE.COM --query id -o tsv)
-az keyvault set-policy -n $kv_name --object-id $objectId --key-permissions backup create delete get import get list update restore
+az keyvault set-policy -n $KvName --object-id $objectId --key-permissions backup create delete get import get list update restore
 
 #### Create key
-az keyvault key create --vault-name $kv_name -n $key_name --protection software
+az keyvault key create --vault-name $KvName -n $KeyName --protection software
 
 ### Create a volume group with platform-managed keys and a system assigned identity with it
 #### Get the system identity's principalId from the response of PUT volume group request.
-vg_identity_principal_id=$(az elastic-san volume-group create -e $san_name -n $vg_name -g $rg --encryption EncryptionAtRestWithPlatformKey --protocol-type Iscsi --identity '{type:SystemAssigned}' --query "identity.principalId" -o tsv)
+vg_identity_principal_id=$(az elastic-san volume-group create -e $EsanName -n $EsanVgName -g $RgName --encryption EncryptionAtRestWithPlatformKey --protocol-type Iscsi --identity '{type:SystemAssigned}' --query "identity.principalId" -o tsv)
 
 ### Grant access to  the system assigned identity to the key vault created in step1
 #### (key permissions: Get, Unwrap Key, Wrap Key)
-az keyvault set-policy -n $kv_name --object-id $vg_identity_principal_id --key-permissions backup create delete get import get list update restore
+az keyvault set-policy -n $KvName --object-id $vg_identity_principal_id --key-permissions backup create delete get import get list update restore
 
 ### Update the volume group with the key created earlier
-az elastic-san volume-group update -e $san_name -n $vg_name -g $rg --encryption EncryptionAtRestWithCustomerManagedKey --encryption-properties "{key-vault-properties:{key-name:'$key_name',key-vault-uri:'$vault_uri'}}"
+az elastic-san volume-group update -e $EsanName -n $EsanVgName -g $RgName --encryption EncryptionAtRestWithCustomerManagedKey --encryption-properties "{key-vault-properties:{key-name:'$KeyName',key-vault-uri:'$vault_uri'}}"
 ```
 
 ### [Existing volume group](#tab/existing-vg/azure-powershell)
@@ -609,22 +610,14 @@ Use the following samples  [the same variables you created previously in this ar
 #### Managed identity
 
 ```azurecli
-
-#### Get the properties
-uai_2_principal_id=$(az identity show --ids $uai_2 --query principalId -o tsv)
-uai_2_id=$(az identity show --ids $uai_2 --query id -o tsv)
-
-#### set policy for key permission
-az keyvault set-policy -n $kv_name --object-id $uai_2_principal_id --key-permissions get wrapkey unwrapkey
-
 ### update the volume group with the new user assigned identity
-az elastic-san volume-group update -e $san_name -n $vg_name -g $rg --identity "{type:UserAssigned,user-assigned-identity:'$uai_2_id'}" --encryption-properties "{key-vault-properties:{key-name:'$key_name2',key-vault-uri:'$vault_uri'},identity:{user-assigned-identity:'$uai_2_id'}}" 
+az elastic-san volume-group update -e $EsanName -n $EsanVgName -g $RgName --identity "{type:UserAssigned,user-assigned-identity:'$uai_id'}" --encryption EncryptionAtRestWithCustomerManagedKey --encryption-properties "{key-vault-properties:{key-name:'$KeyName',key-vault-uri:'$vault_uri'},identity:{user-assigned-identity:'$uai_id'}}"
 ```
 
 #### System assigned identity
 
 ```azurecli
-az elastic-san volume-group update -e $san_name -n $vg_name -g $rg --identity '{type:SystemAssigned}'
+az elastic-san volume-group update -e $EsanName -n $EsanVgName -g $RgName --identity '{type:SystemAssigned}' --encryption EncryptionAtRestWithCustomerManagedKey --encryption-properties "{key-vault-properties:{key-name:'$KeyName',key-vault-uri:'$vault_uri'}}"
 ```
 
 When you manually update the key version, you need to update the volume group's encryption settings to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az-keyvault-show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Then call `az elastic-san volume-group update` to update the volume group's encryption settings to use the new version of the key, as shown in the previous example.
