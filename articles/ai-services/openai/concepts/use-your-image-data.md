@@ -168,7 +168,7 @@ After you connect your data source, It will take some time for the ingestion pro
 
 If CORS isn't already turned on for your data source, you will see the following message appear.
 
-:::image type="content" source="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png" alt-text="A screenshot showing an error stating that CORS has not been enabled." lightbox="../media/use-your-image-data/cors-requirement.png":::
+:::image type="content" source="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png" alt-text="A screenshot showing an error stating that CORS has not been enabled." lightbox="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png":::
 
 If you see this message, select **Turn on CORS** when you connect your data source. 
 
