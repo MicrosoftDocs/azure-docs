@@ -2771,8 +2771,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/container-registry/container-registry-configure-conditional-access.md",
-            "redirect_url": "/azure/container-registry/container-registry-enable-conditional-access-policy",
+            "source_path_from_root": "/articles/container-registry/container-registry-enable-conditional-access-policy.md",
+            "redirect_url": "/azure/container-registry/container-registry-configure-conditional-access.md",
             "redirect_document_id": false 
         },
         {
