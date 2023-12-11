@@ -32,7 +32,7 @@ This command lists the control plane servers along with their power states and s
 ```azurecli
 az networkcloud baremetalmachine list -g <resource-group> --sub <subscription> --query "sort_by([].{name:name,readyState:readyState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, powerState:powerState, machineRoles:machineRoles | join(', ', @)}, &name)" --output table
 ``` 
-### Sample Output:
+### Sample output:
 
 | Name           | ReadyState | DetailedStatus  | DetailedStatusMessage                    | PowerState |  MachineRoles | Notes |
 | -------------- | ---------- | --------------  | --------------------------------------- | -----------  |------------------------------------------------ | -------------------------- |
