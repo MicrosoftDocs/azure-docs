@@ -60,6 +60,8 @@
       items:
         - name: Manage users
           href: how-to-manage-users.md
+        - name: Manage ACLs
+          href: how-to-manage-acls.md
         - name: Manage legal tags
           href: how-to-manage-legal-tags.md
         - name: Manage data partitions
