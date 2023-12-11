@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 12/12/2023
 ---
 
 # Exchange EDIFACT messages using workflows in Azure Logic Apps
@@ -119,7 +119,7 @@ This action performs the following tasks:
 
   | Logic app workflow | Link required? |
   |--------------------|----------------|
-  | Consumption | Connection to integration account required, but no link required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
+  | Consumption | Connection and [link to integration account](/enterprise-integration/create-integration-account.md?tabs=azure-portal%2Cconsumption#link-to-logic-app) are required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
   | Standard | Connection to integration account required, but no link required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
 
 * The logic app resource and workflow where you want to use the EDIFACT operations.
