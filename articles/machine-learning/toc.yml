@@ -902,7 +902,7 @@
               href: how-to-access-resources-from-endpoints-managed-identities.md
     - name: Batch endpoints
       items:
-        - name: Batch endpoints for inferencing
+        - name: Batch endpoints
           href: concept-endpoints-batch.md
         - name: Create jobs and input data for batch endpoints
           href: how-to-access-data-batch-endpoints-jobs.md
