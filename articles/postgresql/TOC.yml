@@ -340,6 +340,8 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-manage-virtual-network-private-endpoint-portal.md
+        - name: Connect to managed data factory via Private Endpoint
+          href: flexible-server/howto-connect-to-data-factory-private-endpoint.md
       - name: Public access (allowed IP addresses)
         items:
         - name: Azure portal
