@@ -24,8 +24,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
->* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) version 2.40.0 or later. To find the version, run `az --version`.
->* Sign in to the [Azure portal](https://portal.azure.com).
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) version 2.40.0 or later. To find the version, run `az --version`.
+* Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Disable authentication-as-arm in ACR - Azure CLI
 
@@ -61,8 +61,8 @@ You can enable registry's Conditional Access policy in the [Azure portal](https:
 
 Azure Container Registry has two built-in policy definitions to disable authentication-as-arm, as below:
 
->* `Container registries should have ARM audience token authentication disabled.` - This policy will report, block any non-compliant resources, and also sends a request to update non-compliant to compliant.
->* `Configure container registries to disable ARM audience token authentication.` - This policy offers remediation and updates non-compliant to compliant resources.
+* `Container registries should have ARM audience token authentication disabled.` - This policy will report, block any non-compliant resources, and also sends a request to update non-compliant to compliant.
+* `Configure container registries to disable ARM audience token authentication.` - This policy offers remediation and updates non-compliant to compliant resources.
 
 
    1. Sign in to the [Azure portal](https://portal.azure.com).

@@ -29,8 +29,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
->* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) version 2.40.0 or later. To find the version, run `az --version`.
->* Sign in to the [Azure portal](https://portal.azure.com).
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) version 2.40.0 or later. To find the version, run `az --version`.
+* Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create and configure a Conditional Access policy - Azure portal
 
@@ -97,5 +97,5 @@ Create a Conditional Access policy and assign your test group of users as follow
 
 > [!div class="nextstepaction"]
 > [Azure Policy definitions](../governance/policy/concepts/definition-structure.md) and [effects](../governance/policy/concepts/effects.md).
->[common access concerns that Conditional Access policies can help with](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
+>[Common access concerns that Conditional Access policies can help with](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 > [Conditional Access policy components](../active-directory/conditional-access/concept-conditional-access-policies.md).
