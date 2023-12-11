@@ -33,7 +33,7 @@ The intent of the table columns is explained by the following items:
 | [Astro](https://astro.build) | `dist` | n/a  | n/a |
 | [Aurelia](https://aurelia.io/) | `dist` | n/a |  n/a |
 | [Backbone.js](https://backbonejs.org/) | `/` | n/a | n/a |
-| [Blazor (WASM)](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) | `/` | `wwwroot` | n/a |
+| [Blazor (WASM)](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) | `wwwroot` | `n/a` | n/a |
 | [Ember](https://emberjs.com/) | `dist` | n/a | n/a |
 | [Flutter](https://flutter.dev/) | `build/web` | n/a | `flutter build web` |
 | [Framework7](https://framework7.io/) | `www` | n/a | `npm run build-prod` |
