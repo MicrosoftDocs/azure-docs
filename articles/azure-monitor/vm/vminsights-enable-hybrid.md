@@ -4,14 +4,14 @@ description: This article describes how you enable VM insights for a hybrid clou
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 09/28/2023
+ms.date: 12/11/2023
+# Customer-intent: As a cloud administrator, I want to enable VM insights on virtual machines in a hybrid cloud environment without using Azure Arc, so that I can monitor the performance and dependencies of my virtual machines.
 
 ---
 
 # Enable VM insights for a hybrid virtual machine
-This article describes how to enable VM insights for a virtual machine outside of Azure, including on-premises and other cloud environments.
 
-To enable hybrid VMs, first enable [Azure Arc for servers](../../azure-arc/servers/overview.md) so that the VMs can be enabled for VM insights by using processes similar to Azure VMs. This article describes how to onboard hybrid VMs if you choose not to use Azure Arc.
+If you're using [Azure Arc for servers](../../azure-arc/servers/overview.md), onboard virtual machines outside of Azure to VM insights in the same way you [enable VM insights on Azure VMs](vminsights-enable-portal.md). This article describes how to enable VM insights on a virtual machine outside of Azure, including on-premises and other cloud environments, without using Azure Arc.
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-vminsights-agent.md)]
 
@@ -21,14 +21,20 @@ To enable hybrid VMs, first enable [Azure Arc for servers](../../azure-arc/serve
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported.
 
 ## Overview
-Virtual machines outside of Azure require the same Log Analytics agent and Dependency agent that are used for Azure VMs. Because you can't use VM extensions to install the agents, you must manually install them in the guest operating system or have them installed through some other method.
 
-For information on how to deploy the Log Analytics agent, see [Connect Windows computers to Azure Monitor](../agents/agent-windows.md) or [Connect Linux computers to Azure Monitor](../agents/agent-linux.md). Details for the Dependency agent are provided in this article.
+To enable VM insights on virtual machines outside of Azure, install the agents manually or through some other method on the guest operating system: 
+
+- On a Windows machine: [install Azure Monitor Agent](../agents/azure-monitor-agent-windows-client.md) and the [Dependency agent](#install-the-dependency-agent-on-windows) on the machine.
+- On a Linux virtual machine: [install the legacy Log Analytics agent](../agents/agent-linux.md) and the [Dependency agent](#install-the-dependency-agent-on-linux). 
+
 
 ## Firewall requirements
-Firewall requirements for the Log Analytics agent are provided in [Log Analytics agent overview](../agents/log-analytics-agent.md#network-requirements). The VM insights Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports.
 
-The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service. Data is transmitted either directly or through the [Operations Management Suite gateway](../../azure-monitor/agents/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+- For Azure Monitor Agent firewall requirements, see [Define Azure Monitor Agent network settings](../agents/azure-monitor-agent-data-collection-endpoint.md#firewall-requirements). 
+- For Log Analytics agent firewall requirements, see [Log Analytics agent overview](../agents/log-analytics-agent.md#network-requirements). 
+- The VM insights Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports.
+
+Azure Monitor Agent and Log Analytics agent transmit data to the Azure Monitor service directly or through the [Operations Management Suite gateway](../../azure-monitor/agents/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
 ## Dependency agent
 
@@ -72,7 +78,6 @@ The Dependency agent is installed on Linux servers from *InstallDependencyAgent-
 
 >[!NOTE]
 > Root access is required to install or configure the agent.
->
 
 | Parameter | Description |
 |:--|:--|
@@ -153,13 +158,13 @@ If your Dependency agent installation succeeded but you don't see your computer 
 
 1. Are you on the [Free pricing tier of Log Analytics](/previous-versions/azure/azure-monitor/insights/solutions)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
 
-1. Is the computer sending log and perf data to Azure Monitor Logs? Perform the following query for your computer:
+1. Is the computer sending log and performance data to Azure Monitor Logs? Run this query for your computer:
 
     ```Kusto
     Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-    Did it return one or more results? Is the data recent? If so, your Log Analytics agent is operating correctly and communicating with the service. If not, check the agent on your server. See [Log Analytics agent for Windows troubleshooting](../agents/agent-windows-troubleshoot.md) or [Log Analytics agent for Linux troubleshooting](../agents/agent-linux-troubleshoot.md).
+    Did it return one or more results? Is the data recent? If so, your the agent is operating correctly and communicating with the service. If not, check the agent on your server. See [Troubleshooting Azure Monitor Agent on Windows virtual machines and scale sets](../agents/azure-monitor-agent-troubleshoot-windows-vm.md) or [Log Analytics agent for Linux troubleshooting](../agents/agent-linux-troubleshoot.md).
 
 #### Computer appears on the map but has no processes
 
