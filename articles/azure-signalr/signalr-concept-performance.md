@@ -166,6 +166,11 @@ Do *not* exceed the highlighted values in the following two tables.
 
 * *Connections*: The committed maximum threshold for Azure SignalR Service for every tier. If the connection number is increased further, it suffers from connection throttling.
 
+
+> [!NOTE]
+> You need to scale up to SKU [Premium_P2](./signalr-howto-scale-signalr.md#enhanced-large-instance-support-with-premium_p2-sku) to have unit size larger than 100.
+
+
 #### Evaluation for complex use cases
 
 ##### Bigger message size or different sending rate
