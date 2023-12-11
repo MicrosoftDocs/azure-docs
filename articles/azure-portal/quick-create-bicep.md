@@ -74,7 +74,7 @@ and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-pas
 
     ---
 
-AFter the deployment finishes, you should see a message indicating the deployment succeeded.
+After the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
