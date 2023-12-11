@@ -289,7 +289,7 @@ public static WebPubSubConnection Run(
 # [C#](#tab/csharp)
 
 > [!NOTE]
-> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for C#](https://learn.microsoft.com/dotnet/api/overview/azure/messaging.webpubsub-readme?view=azure-dotnet).
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme?view=azure-dotnet).
 > ```cs
 > [FunctionName("WebPubSubConnectionCustomRoles")]
 > public static async Task<Uri> Run(
@@ -306,7 +306,7 @@ public static WebPubSubConnection Run(
 # [JavaScript](#tab/javascript)
 
 > [!NOTE]
-> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/web-pubsub?view=azure-node-latest).
+> Limited to the binding parameter types don't support a way to pass list nor array, the `WebPubSubConnection` is not fully supported with all the parameters server SDK has, especially `roles`, and also includes `groups` and `expiresAfter`. In the case customer needs to add roles or delay build the access token in the function, it's suggested to work with [server SDK for JavaScript](/javascript/api/overview/azure/web-pubsub?view=azure-node-latest).
 > 
 > Define input bindings in `function.json`.
 > 
