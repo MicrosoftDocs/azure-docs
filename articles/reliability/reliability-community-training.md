@@ -1,6 +1,6 @@
 ---
-title: Reliability in Community Training
-description: Find out about reliability in Community Training 
+title: Reliability in Azure Community Training
+description: Find out about reliability in Azure Community Training.
 author: atulsoni87AI
 ms.author: anaharris
 ms.topic: reliability-article
