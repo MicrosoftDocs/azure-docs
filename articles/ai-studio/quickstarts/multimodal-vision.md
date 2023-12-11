@@ -82,16 +82,13 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
-1. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
+1. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
 
-    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident-enhanced-settings.png" alt-text="Screenshot of the vision enhancement settings in the chat playground." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident-enhanced-settings.png":::
+    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-turn-on-enhancement.png" alt-text="Screenshot of the vision enhancement settings in the chat playground." lightbox="../media/quickstarts/multimodal-vision/chat-video-turn-on-enhancement.png":::
 
-    > [!NOTE]
-    > You might need to select **Vision** enhancement button again to apply the changes.
+1. Make sure that **Chat** is selected from the **Mode** dropdown. Under the chat session text box, you should see the option to select a file.
 
-1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
-
-    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-multi-modal-image-select.png" alt-text="Screenshot of the chat playground with mode and deployment and upload image button highlighted." lightbox="../media/quickstarts/multimodal-vision/chat-multi-modal-image-select.png":::
+    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-image-upload-image.png" alt-text="Screenshot of the chat playground with mode and deployment and upload image button highlighted." lightbox="../media/quickstarts/multimodal-vision/chat-image-upload-image.png":::
 
 1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You're an AI assistant that helps people find information." You can tailor the prompt the image or scenario that you're uploading. 
 1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
@@ -106,7 +103,10 @@ In this chat session, you instruct the assistant to aid in understanding images 
 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident-prompt-stop.png" alt-text="Screenshot of the chat playground with the square stop button visible." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident-prompt-stop.png":::
 
-1. The assistant should reply with a description of the image.
+1. The assistant should reply with a description of the image with objects highlighted both in the text and in the image.
+
+    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-image-upload-image.png" alt-text="Screenshot of the chat playground with the model output where objects are highlighted in the text and image." lightbox="../media/quickstarts/multimodal-vision/chat-image-upload-image.png":::
+   
 1. Ask a follow-up question related to the analysis of your image. Enter "What should I highlight about this image to my insurance company" and then select the right arrow icon to send.
 1. You should receive a relevant response similar to what's shown here:
 
@@ -119,11 +119,11 @@ In this chat session, you'll be instructing the assistant to aid in understandin
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
-1. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
+1. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-turn-on-enhancement.png" alt-text="Screenshot of the vision enhancement settings for video analysis in the chat playground." lightbox="../media/quickstarts/multimodal-vision/chat-video-turn-on-enhancement.png":::
 
-1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
+1. Make sure that **Chat** is selected from the **Mode** dropdown. Under the chat session text box, you should now see the option to select a video file.
 
     :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-upload-video.png" alt-text="Screenshot of the chat playground with mode and deployment and upload video button highlighted." lightbox="../media/quickstarts/multimodal-vision/chat-video-upload-video.png":::
 
