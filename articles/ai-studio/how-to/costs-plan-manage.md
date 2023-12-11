@@ -16,7 +16,7 @@ ms.author: eur
 
 This article describes how you plan for and manage costs for Azure AI Studio. First, you use the Azure pricing calculator to help plan for Azure AI Studio costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. 
 
-You use Azure AI services in Azure AI Studio. Costs for Azure AI services are only a portion of the monthly costs in your Azure bill. Although this article only explains how to plan for and manage costs for Azure AI services, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
+You use Azure AI services in Azure AI Studio. Costs for Azure AI services are only a portion of the monthly costs in your Azure bill. You're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ When you create resources for an Azure AI resource, resources for other Azure se
 | --- | --- | 
 | [Azure AI services](https://azure.microsoft.com/pricing/details/cognitive-services/) | You pay to use services such as Azure OpenAI, Speech, Content Safety, Vision, Document Intelligence, and Language. Costs vary for each service and for some features within each service. | 
 | [Azure AI Search](https://azure.microsoft.com/pricing/details/search/) | An example use case is to store data in a vector search index. |
-| [Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) | Compute instances are needed to run Visual Studio Code (Web) and prompt flow via Azure AI Studio.<br/><br/>When you create a compute instance, the VM stays on so it is available for your work.<br/><br/>Enable idle shutdown to save on cost when the VM has been idle for a specified time period.<br/><br/>Or set up a schedule to automatically start and stop the compute instance to save cost when you aren't planning to use it. | 
+| [Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) | Compute instances are needed to run Visual Studio Code (Web) and prompt flow via Azure AI Studio.<br/><br/>When you create a compute instance, the virtual machine (VM) stays on so it's available for your work.<br/><br/>Enable idle shutdown to save on cost when the VM is idle for a specified time period.<br/><br/>Or set up a schedule to automatically start and stop the compute instance to save cost when you aren't planning to use it. | 
 | [Azure Virtual Machine](https://azure.microsoft.com/pricing/details/virtual-machines/) | Azure Virtual Machines gives you the flexibility of virtualization for a wide range of computing solutions with support for Linux, Windows Server, SQL Server, Oracle, IBM, SAP, and more. |
 | [Azure Container Registry Basic account](https://azure.microsoft.com/pricing/details/container-registry) | Provides storage of private Docker container images, enabling fast, scalable retrieval, and network-close deployment of container workloads on Azure. |
 | [Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/) | Can be used to store Azure AI project files. |
@@ -58,16 +58,16 @@ When you create resources for an Azure AI resource, resources for other Azure se
 
 ### Costs might accrue before resource deletion
 
-Before you delete an Azure AI resource in the Azure portal or with Azure CLI, the following sub resources are common costs that accumulate even when you are not actively working in the workspace. If you are planning on returning to your Azure AI resource at a later time, these resources might continue to accrue costs: 
+Before you delete an Azure AI resource in the Azure portal or with Azure CLI, the following sub resources are common costs that accumulate even when you aren't actively working in the workspace. If you're planning on returning to your Azure AI resource at a later time, these resources might continue to accrue costs: 
 - Azure AI Search (for the data)
 - Virtual machines
 - Load Balancer
 - Virtual Network
 - Bandwidth
 
-Each VM is billed per hour it is running. Cost depends on VM specifications. VMs that are running but not actively working on a dataset will still be charged via the load balancer. For each compute instance, one load balancer will be billed per day. Every 50 nodes of a compute cluster will have one standard load balancer billed. Each load balancer is billed around $0.33/day. To avoid load balancer costs on stopped compute instances and compute clusters, delete the compute resource.
+Each VM is billed per hour it's running. Cost depends on VM specifications. VMs that are running but not actively working on a dataset will still be charged via the load balancer. For each compute instance, one load balancer is billed per day. Every 50 nodes of a compute cluster will have one standard load balancer billed. Each load balancer is billed around $0.33/day. To avoid load balancer costs on stopped compute instances and compute clusters, delete the compute resource.
 
-Compute instances also incur P10 disk costs even in stopped state. This is because any user content saved there is persisted across the stopped state similar to Azure VMs. We are working on making the OS disk size/ type configurable to better control costs. For virtual networks, one virtual network will be billed per subscription and per region. Virtual networks cannot span regions or subscriptions. Setting up private endpoints in vNet setups might also incur charges. Bandwidth is charged by usage; the more data transferred, the more you are charged.
+Compute instances also incur P10 disk costs even in stopped state. This is because any user content saved there's persisted across the stopped state similar to Azure VMs. We're working on making the OS disk size/ type configurable to better control costs. For virtual networks, one virtual network will be billed per subscription and per region. Virtual networks can't span regions or subscriptions. Setting up private endpoints in vNet setups might also incur charges. Bandwidth is charged by usage; the more data transferred, the more you are charged.
 
 ### Costs might accrue after resource deletion
 
@@ -100,6 +100,49 @@ In the preceding example, you see the current cost for the service. Costs by Azu
 
 For more information, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
+## Monitor costs for models offered through the Azure Marketplace
+
+Models deployed as a service using pay-as-you-go are offered through the Azure Marketplace. The model publishers might apply different costs depending on the offering. Each project in Azure AI Studio has its own subscription with the offering, which allows you to monitor the costs and the consumption happening on that project. Use Azure Cost Management to monitor the costs:
+
+1. Go to [Azure portal](https://portal.azure.com).
+
+1. On the left navigation area, select **Cost Management + Billing** and then, on the same menu, select **Cost Management**.
+
+1. On the left navigation area, under the section **Cost Management**, select now **Cost Analysis**.
+
+1. Select a view such as **Resources**. The cost associated with each resource is displayed.
+
+    :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-analysis.png" alt-text="A screenshot of the Cost Analysis tool displaying how to show cost per resource.":::
+
+1. On the **Type** column, select the filter icon to filter all the resources of type **microsoft.saas/resources**. This type corresponds to resources created from offers from the Azure Marketplace. For convenience, you can filter by resource types containing the string **SaaS**. 
+
+    :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-filter.png" alt-text="A screenshot of how to filter by resource type containing the string 'SaaS'.":::
+
+1. One resource is displayed for each model offer per project. Naming of those resources is `[Model offer name]-[GUID]`.
+
+1. Select to expand the resource details to get access to each of the costs meters associated with the resource. 
+
+    - **Tier** represents the offering.
+    - **Product** is the specific product inside the offering. 
+    
+    Some model providers might use the same name for both.
+
+    :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters.":::
+
+    > [!TIP]
+    > Remember that one resource is created per each project, per each plan your project subscribes to.
+
+1. When expanding the details, costs are reported per each of the meters associated with the offering. Each meter may track different sources of costs like inferencing, or fine tuning. The following meters will be displayed (when some cost is associated with them):
+
+    | Meter | Group | Description |
+    |-----|-----|-----|
+    | `paygo-inference-input-tokens` | Base model | Costs associated with the tokens used as input for inference of a base model. |
+    | `paygo-inference-output-tokens` | Base model | Costs associated with the tokens generated as output for the inference of base model.|
+    | `paygo-finetuned-model-inference-hosting` | Fine-tuned model | Costs associated with the hosting of an inference endpoint for a fine-tuned model. This isn't the cost of hosting the model, but the cost of having an endpoint serving it. |
+    | `paygo-finetuned-model-inference-input-tokens`  | Fine-tuned model | Costs associated with the tokens used as input for inference of a fine tuned model. |
+    | `paygo-finetuned-model-inference-output-tokens` | Fine-tuned model | Costs associated with the tokens generated as output for the inference of a fine tuned model. |
+
+
 ## Create budgets
 
 You can create [budgets](../../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](../../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. 
@@ -113,12 +156,12 @@ You can also [export your cost data](../../cost-management-billing/costs/tutoria
 
 ## Understand the full billing model for Azure AI services
 
-Azure AI services run on Azure infrastructure that accrues costs along with Azure AI when you deploy the new resource. It's important to understand that additional infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources.
+Azure AI services run on Azure infrastructure that accrues costs along with Azure AI when you deploy the new resource. It's important to understand that extra infrastructure might accrue cost. You need to manage that cost when you make changes to deployed resources.
 
 When you create or use Azure AI services resources, you might get charged based on the services that you use. There are two billing models available for Azure AI services: 
 
-- Pay-as-you-go: Pay-As-You-Go pricing, you are billed according to the Azure AI services offering you use, based on its billing information.
-- Commitment tiers: With commitment tier pricing, you commit to using several service features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload. You are billed according to the plan you choose. See [Quickstart: purchase commitment tier pricing](../../ai-services/commitment-tier.md) for information on available services, how to sign up, and considerations when purchasing a plan.
+- Pay-as-you-go: Pay-as-you-go pricing, you're billed according to the Azure AI services offering that you use, based on its billing information.
+- Commitment tiers: With commitment tier pricing, you commit to using several service features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload. You're billed according to the plan you choose. See [Quickstart: purchase commitment tier pricing](../../ai-services/commitment-tier.md) for information on available services, how to sign up, and considerations when purchasing a plan.
 
 > [!NOTE]
 > If you use the resource above the quota provided by the commitment plan, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you purchase a commitment plan. 
