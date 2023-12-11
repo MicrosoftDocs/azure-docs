@@ -483,7 +483,7 @@ export const clickPluginConfigWithUseDefaultContentNameOrId = {
 
 <div className="test1" data-id="test1parent">
       <div>Test1</div>
-      <div><small>with id, data-id, parent data-id defined</small></div>
+      <div>with id, data-id, parent data-id defined</div>
       <Button id="id1" data-id="test1id" variant="info" onClick={trackEvent}>Test1</Button>
 </div>
 ```
@@ -508,7 +508,7 @@ export const clickPluginConfigWithParentDataTag = {
 
   <div className="test2" data-group="buttongroup1" data-id="test2parent">
        <div>Test2</div>
-       <div><small>with data-id, parentid, parent data-id defined</small></div>
+       <div>with data-id, parentid, parent data-id defined</div>
        <Button data-id="test2id" data-parentid = "parentid2" variant="info" onClick={trackEvent}>Test2</Button>
    </div>
 ```
@@ -533,7 +533,7 @@ export const clickPluginConfigWithParentDataTag = {
 
 <div className="test6" data-group="buttongroup1" data-id="test6grandparent">
   <div>Test6</div>
-  <div><small>with data-id, grandparent data-group defined, parent data-id defined</small></div>
+  <div>with data-id, grandparent data-group defined, parent data-id defined</div>
   <div data-id="test6parent">
     <Button data-id="test6id" variant="info" onClick={trackEvent}>Test6</Button>
   </div>

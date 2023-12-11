@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Hear and speak with chat models in the Azure AI Studio playground.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
@@ -39,7 +39,7 @@ The speech to text and text to speech features can be used together or separatel
 
 Before you can start a chat session, you need to configure the playground to use the speech to text and text to speech features.
 
-1. Sign in to [Azure AI Studio](https://aka.ms/aistudio).
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
 1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed chat model from the **Deployment** dropdown. 
 

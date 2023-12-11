@@ -2,7 +2,7 @@
 title: "Quickstart: Optical character recognition REST API"
 titleSuffix: "Azure AI services"
 description: In this quickstart, get started with the Optical character recognition REST API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision

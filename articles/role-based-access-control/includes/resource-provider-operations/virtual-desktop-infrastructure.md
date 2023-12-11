@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -20,6 +20,8 @@ Azure service: [Azure Virtual Desktop](../../../virtual-desktop/index.yml)
 > | --- | --- |
 > | Microsoft.DesktopVirtualization/unregister/action | Action on unregister |
 > | Microsoft.DesktopVirtualization/register/action | Register subscription |
+> | Microsoft.DesktopVirtualization/appattachpackages/read | Read the appattachpackages to see packages present. |
+> | Microsoft.DesktopVirtualization/appattachpackages/write | Update the appattachpackages to save changes. |
 > | Microsoft.DesktopVirtualization/applicationgroups/read | Read applicationgroups |
 > | Microsoft.DesktopVirtualization/applicationgroups/write | Write applicationgroups |
 > | Microsoft.DesktopVirtualization/applicationgroups/delete | Delete applicationgroups |
@@ -44,6 +46,8 @@ Azure service: [Azure Virtual Desktop](../../../virtual-desktop/index.yml)
 > | Microsoft.DesktopVirtualization/hostpools/retrieveRegistrationToken/action | Retrieve registration token for host pool |
 > | Microsoft.DesktopVirtualization/hostpools/move/action | Move a hostpools to another resource group |
 > | Microsoft.DesktopVirtualization/hostpools/expandmsiximage/action | Expand an expandmsiximage to see MSIX Packages present |
+> | Microsoft.DesktopVirtualization/hostpools/doNotUseInternalAPI/action | Internal operation that is not meant to be called by customers. This will be removed in a future version. Do not use it. |
+> | Microsoft.DesktopVirtualization/hostpools/activeSessionhostconfigurations/read | Read the appattachpackages to see configurations present. |
 > | Microsoft.DesktopVirtualization/hostpools/msixpackages/read | Read hostpools/msixpackages |
 > | Microsoft.DesktopVirtualization/hostpools/msixpackages/write | Write hostpools/msixpackages |
 > | Microsoft.DesktopVirtualization/hostpools/msixpackages/delete | Delete hostpools/msixpackages |
@@ -63,9 +67,17 @@ Azure service: [Azure Virtual Desktop](../../../virtual-desktop/index.yml)
 > | Microsoft.DesktopVirtualization/hostpools/sessionhostconfigurations/read | Read hostpools/sessionhostconfigurations |
 > | Microsoft.DesktopVirtualization/hostpools/sessionhostconfigurations/write | Write hostpools/sessionhostconfigurations |
 > | Microsoft.DesktopVirtualization/hostpools/sessionhostconfigurations/delete | Delete hostpools/sessionhostconfigurations |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhostconfigurations/operationresults/read | Read the operationresults to see results present. |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhostconfigurations/operationstatuses/read | Read the operationstatuses to see statuses present. |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhostmanagements/controlSessionHostUpdate/action | Action on controlSessionHostUpdate. |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhostmanagements/initiateSessionHostUpdate/action | Action on initiateSessionHostUpdate. |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhostmanagements/read | Read sessionhostmanagements. |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhostmanagements/write | Write to sessionhostmanagements to update. |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhostmanagements/operationstatuses/read | Read operationstatuses to get statuses. |
 > | Microsoft.DesktopVirtualization/hostpools/sessionhosts/read | Read hostpools/sessionhosts |
 > | Microsoft.DesktopVirtualization/hostpools/sessionhosts/write | Write hostpools/sessionhosts |
 > | Microsoft.DesktopVirtualization/hostpools/sessionhosts/delete | Delete hostpools/sessionhosts |
+> | Microsoft.DesktopVirtualization/hostpools/sessionhosts/retryprovisioning/action | Action on retryprovisioning. |
 > | Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read | Read hostpools/sessionhosts/usersessions |
 > | Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/write | Write hostpools/sessionhosts/usersessions |
 > | Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete | Delete hostpools/sessionhosts/usersessions |
@@ -86,6 +98,7 @@ Azure service: [Azure Virtual Desktop](../../../virtual-desktop/index.yml)
 > | Microsoft.DesktopVirtualization/scalingplans/pooledSchedules/read | Read scalingplans/pooledSchedules |
 > | Microsoft.DesktopVirtualization/scalingplans/pooledSchedules/write | Write scalingplans/pooledSchedules |
 > | Microsoft.DesktopVirtualization/scalingplans/pooledSchedules/delete | Delete scalingplans/pooledSchedules |
+> | Microsoft.DesktopVirtualization/skus/read | Read skus. |
 > | Microsoft.DesktopVirtualization/workspaces/read | Read workspaces |
 > | Microsoft.DesktopVirtualization/workspaces/write | Write workspaces |
 > | Microsoft.DesktopVirtualization/workspaces/delete | Delete workspaces |
@@ -103,4 +116,5 @@ Azure service: [Azure Virtual Desktop](../../../virtual-desktop/index.yml)
 > | Microsoft.DesktopVirtualization/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting |
 > | Microsoft.DesktopVirtualization/workspaces/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs |
 > | **DataAction** | **Description** |
+> | Microsoft.DesktopVirtualization/appattachpackages/useapplications/action | Allow user permissioning on app attach packages in an application group |
 > | Microsoft.DesktopVirtualization/applicationgroups/useapplications/action | Use ApplicationGroup |

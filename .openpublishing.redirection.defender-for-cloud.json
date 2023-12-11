@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-cloud/prevent-misconfigurations.md",
+            "redirect_url": "/azure/defender-for-cloud/manage-mcsb",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/tutorial-security-policy.md",
             "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
             "redirect_document_id": false
@@ -883,6 +888,11 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-storage-exclude.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-storage-classic-enable#exclude-a-storage-account-from-a-protected-subscription-in-the-per-transaction-plan",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/attack-path-reference.md",
+            "redirect_url": "/azure/defender-for-cloud/how-to-manage-attack-path",
             "redirect_document_id": true
         }
     ]

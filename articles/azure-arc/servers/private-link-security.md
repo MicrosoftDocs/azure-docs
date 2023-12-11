@@ -189,7 +189,7 @@ Your on-premises machines or servers need to be able to resolve the private link
 
 If you set up private DNS zones for Azure Arc-enabled servers and Guest Configuration when creating the private endpoint, your on-premises machines or servers need to be able to forward DNS queries to the built-in Azure DNS servers to resolve the private endpoint addresses correctly. You need a DNS forwarder in Azure (either a purpose-built VM or an Azure Firewall instance with DNS proxy enabled), after which you can configure your on-premises DNS server to forward queries to Azure to resolve private endpoint IP addresses.
 
-The private endpoint documentation provides guidance for configuring [on-premises workloads using a DNS forwarder](../../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
+The private endpoint documentation provides guidance for configuring [on-premises workloads using a DNS forwarder](../../private-link/private-endpoint-dns-integration.md#on-premises-workloads-using-a-dns-forwarder).
 
 ### Manual DNS server configuration
 

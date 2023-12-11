@@ -28,7 +28,7 @@ This Snowflake connector is supported for the following capabilities:
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 |[Script activity](transform-data-using-script.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For the Copy activity, this Snowflake connector supports the following functions:
 
@@ -565,6 +565,6 @@ By setting the pipeline Logging Level to None, we exclude the transmission of in
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by Copy activity, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,12 +1,12 @@
 ---
 title: Policy keys overview - Azure Active Directory B2C
 description: Learn about the types of encryption policy keys that can be used in Azure Active Directory B2C for signing and validating tokens, client secrets, certificates, and passwords.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: conceptual
 ms.date: 09/20/2021
 ms.author: kengaderdus

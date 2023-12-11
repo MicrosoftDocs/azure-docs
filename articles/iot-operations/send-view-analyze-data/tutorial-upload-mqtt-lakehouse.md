@@ -1,11 +1,12 @@
 ---
 title: Upload MQTT data to Microsoft Fabric lakehouse
-# titleSuffix: Azure IoT MQ
+titleSuffix: Azure IoT MQ
 description: Learn how to upload MQTT data from the edge to a Fabric lakehouse
 author: PatAltimore
+ms.subservice: mq
 ms.author: patricka
 ms.topic: how-to
-ms.date: 11/13/2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an operator, I want to learn how to send MQTT data from the edge to a lakehouse in the cloud.
 ---
