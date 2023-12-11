@@ -10,7 +10,7 @@ ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ---
-# Azure Cosmos DB for NoSQL: Spring Data Azure Cosmos DB v3 examples
+# Azure Cosmos DB for NoSQL: Spring Data Azure Cosmos DB v5 examples
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
