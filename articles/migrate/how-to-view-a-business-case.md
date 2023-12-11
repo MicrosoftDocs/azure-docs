@@ -64,7 +64,7 @@ This card shows a static percentage of maximum savings you could get with Azure 
 ### Savings with Extended security updates
 It shows the potential savings with respect to extended security update license. It is the cost of extended security update license required to run Windows Server and SQL Server securely after the end of support of its licenses on-premises. Extended security updates are offered at no additional cost on Azure.
 
-### Savings with Security and Management
+### Savings with security and management
 
 It shows the potential savings with respect to securing your migration with Microsoft Defender for Cloud and Azure Management services including Azure Monitor, Azure Backup and Azure Update Manager for streamlining your operations.
 
