@@ -14,21 +14,15 @@ ms.author: lajanuar
 
 Translator Service is a cloud-based neural machine translation service that is part of the [Azure AI services](../what-are-ai-services.md) family and can be used with any operating system. Translator powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
 
-Translator documentation contains the following article types:
-
-* [**Quickstarts**](quickstart-text-rest-api.md). Getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](translator-text-apis.md). Instructions for accessing and using the service in more specific or customized ways.
-* [**Reference articles**](reference/v3-0-reference.md). REST API documentation and programming language-based content.
-
 ## Translator features and development options
 
 Translator service supports the following features. Use the links in this table to learn more about each feature and browse the API references.
 
 | Feature | Description | Development options |
 |----------|-------------|--------------------------|
-| [**Text Translation**](text-translation-overview.md) | Execute text translation between supported source and target languages in real time. | <ul><li>[**REST API**](reference/rest-api-guide.md) </li><li>[Text translation Docker container](containers/translator-how-to-install-container.md).</li></ul> |
-| [**Document Translation**](document-translation/overview.md) | Translate batch and complex files while preserving the structure and format of the original documents. | <ul><li>[**REST API**](document-translation/reference/rest-api-guide.md)</li><li>[**Client-library SDK**](document-translation/quickstarts/document-translation-sdk.md)</li></ul> |
-| [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology, and style. | <ul><li>[**Custom Translator portal**](https://portal.customtranslator.azure.ai/)</li></ul> |
+| [**Text Translation**](text-translation-overview.md) | Execute text translation between supported source and target languages in real time. | &bull; [**REST API**](reference/rest-api-guide.md) </br>&bull; [**Text translation Docker container**](containers/translator-how-to-install-container.md). Create a [dynamic dictionary](dynamic-dictionary.md) and learn how to [prevent translations](prevent-translation.md) uring the Translator API.
+| [**Document Translation**](document-translation/overview.md) | Translate batch and complex files while preserving the structure and format of the original documents. [Create a glossary](document-translation/how-to-guides/create-use-glossaries.md) to use with document translation.| &bull; [**REST API**](document-translation/reference/rest-api-guide.md)</br>&bull; [**Client-library SDK**](document-translation/quickstarts/document-translation-sdk.md) |
+| [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology, and style. [Create a dictionary (phrase or sentence)](custom-translator/concepts/dictionaries.md) for custom translations. | &bull; [**Custom Translator portal**](https://portal.customtranslator.azure.ai/)|
 
 For detailed information regarding Azure AI Translator Service request limits, *see* [**Text translation request limits**](service-limits.md#text-translation).
 

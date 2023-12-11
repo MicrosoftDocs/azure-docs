@@ -26,9 +26,9 @@ A phrase dictionary is case-sensitive. It's an exact find-and-replace operation.
 
 The [dynamic dictionary](../../dynamic-dictionary.md) feature allows you to customize translations for specific terms or phrases. You define custom translations for your unique context, language, or specific needs.
 
-## Neural dictionary
+## Neural phrase dictionary
 
-The neural dictionary extends our [dynamic dictionary](#dynamic-dictionary) and [phrase dictionary](#phrase-dictionary) features. Dynamic and phrase dictionaries allow you to customize the translation output by providing your own translations for specific terms or phrases. The neural dictionary improves translation quality for sentences that include one or more term translations by letting the machine translation model adjust both the term and the context. This adjustment produces more fluent translations. At the same time, it preserves high-term translation accuracy.
+The [neural phrase dictionary](../../neural-dictionary.md) extends our [dynamic dictionary](#dynamic-dictionary) and [standard phrase dictionary](#phrase-dictionary) features. Dynamic and phrase dictionaries allow you to customize the translation output by providing your own translations for specific terms or phrases. The dynamic dictionary feature is used with the Translator API while the neural phrase dictionary is enabled using Custom Translator. The neural phrase dictionary improves translation quality for sentences that include one or more term translations by letting the machine translation model adjust both the term and the context. This adjustment produces more fluent translations. At the same time, it preserves high-term translation accuracy.
 
 ## Sentence dictionary
 
@@ -43,7 +43,7 @@ You can train a model using only dictionary data. To do so, select only the dict
 
 ## Recommendations
 
-- Dictionaries aren't a substitute for training a model using training data. For better results, we recommended letting the system learn from your training data. However, when sentences or compound nouns must be translated verbatim, use a dictionary.
+- Dictionaries aren't a substitute for training a model using training data. For better results, we recommended letting the system learn from your training data. However, when sentences or compound nouns must be translated verbatim, use a phrase dictionary.
 
 - The phrase dictionary should be used sparingly. When a phrase within a sentence is replaced, the context of that sentence is lost or limited for translating the rest of the sentence. The result is that, while the phrase or word within the sentence is translated according to the provided dictionary, the overall translation quality of the sentence often suffers.
 
@@ -57,10 +57,12 @@ You can train a model using only dictionary data. To do so, select only the dict
   - When you request translation of a sentence that includes the same phrase but **doesn't** match what is in your source file, such as _sql server_, _sql Server_ or _SQL Server_, it **won't** return a match from your dictionary.
   - The translation follows the rules of the target language as specified in your phrase dictionary.
 
+- For more information about neural phrase dictionary, _see_ [neural dictionary guidance and recommendations](../../neural-dictionary.md#guidance-and-recommendations).
+
 - If you're using a sentence dictionary, end-of-sentence punctuation is ignored.
 
   **Example**
-  
+
   - If your source dictionary contains "_This sentence ends with punctuation!_", then any translation requests containing "_This sentence ends with punctuation_" matches.
 
 - Your dictionary should contain unique source lines. If a source line (a word, phrase, or sentence) appears more than once in a dictionary file, the system always uses the **last entry** provided and return the target when a match is found.

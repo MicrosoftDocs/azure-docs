@@ -17,7 +17,7 @@ The neural dictionary is an extension to our [dynamic dictionary](dynamic-dictio
 
 ## Neural dictionary key features
 
-* Greater translation accuracy in comparison to verbatim dictionaries that rely on an exact find-and-replace method.
+* Greater translation accuracy in comparison to phrase dictionaries that rely on an exact find-and-replace method.
 
 * More fluent translations for sentences that include one or more term translations.
 
