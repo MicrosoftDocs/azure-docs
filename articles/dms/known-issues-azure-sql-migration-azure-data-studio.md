@@ -286,9 +286,6 @@ This article provides a list of known issues and troubleshooting steps associate
      CREATE USER testuser from login testuser;
      EXEC sp_addRoleMember 'dbmanager', 'testuser';
      EXEC sp_addRoleMember 'loginmanager', 'testuser';
-     CREATE USER testuser FROM LOGIN testlogin;
-     EXEC sp_addRoleMember 'dbmanager', 'testuser';
-     EXEC sp_addRoleMember 'loginmanager', 'testuser';
      ```
 
 - **Message**: `Failed to get service token from ADF service.`
