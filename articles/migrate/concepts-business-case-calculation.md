@@ -151,8 +151,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 |     |    | Other Management software | This is the cost of the management software for third party management products. |
 |     | Management cost other than software | Monitoring cost | Specify costs other than monitoring software. Default is USD 430 per year per server. This is multiplied with the number of servers. The default used is the cost associated with a monitoring administrator. |
 |     |    | Patch Management cost | Specify costs other than patch management software. Default is USD 430 per year per server. This is multiplied with the number of servers. Default is the cost associated with a patch management administrator. |
-|     |    | Backup cost | Specify costs other than backup software. Default is USD 580 per year per server. This is multiplied with the number of servers. Default used is the cost associated with a backup administrator and storage. |
-
+|     |    | Backup cost | Specify costs other than backup software. Default is USD 580 per year per server. This is multiplied with the number of servers. Default used includes the cost per server for a backup administrator and storage required locally for backup. |
 
 
 #### Azure cost
@@ -172,7 +171,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 |     | Azure App Service security cost | Defender for App Service | For web apps recommended for App Service or App Service containers, the Defender for App Service cost for that region is added. |
 | Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
-| Management | Azure Management Services | | Azure Monitor costs for each server is estimated at $6.9/month his assumes collection of logs ingestion for the guest operating system and one custom application is enabled for the server, totalling logs data of 3GB/month. <br/><br/> Azure Backup cost for each server/month is dynamically calculated  estimated based on the protected instance fee +Vault storage +Snapshot storage. <br/><br/> Azure Update Manager is free for Azure servers. |
+| Management | Azure Management Services | | Azure Monitor costs for each server is estimated at $6.9/month his assumes collection of logs ingestion for the guest operating system and one custom application is enabled for the server, totalling logs data of 3GB/month. <br/><br/> Azure Backup cost for each server/month is dynamically  estimated based on the Azure Backup Pricing, which includes a protected instance fee, snapshot storage and recovery services vault storage. <br/><br/> Azure Update Manager is free for Azure servers. |
 
 ### Year on Year costs
 
