@@ -11,7 +11,7 @@ ms.date: 12/08/2023
 ms.custom: template-how-to-pattern 
 ---
 
-# Add HSR third site to HANA Pacemaker cluster on SUSE
+# Add HSR third site to HANA Pacemaker cluster
 
 This article describes requirements and setup of a third HANA replication site to complement an existing Pacemaker cluster. Both SUSE Linux Enterprise Server (SLES) and RedHat Enterprise Linux (RHEL) specifics are covered.
 
@@ -105,7 +105,7 @@ Example of a multi-target system replication system. For more information, see [
 
 ## HANA scale-out: Add HANA multi-target system replication for DR purposes
 
-With SAP HANA HA provider [SAPHanaSrMultiTarget](./sap-hana-high-availability-scale-out-hsr-suse.md#implement-hana-ha-hooks-saphanasrmultitarget-and-suschksrv), you can add a third HANA scale-out site. This third site is often used for disaster recovery (DR) in another Azure region. The Pacemaker environment is aware of a HANA multi-target DR setup.
+With SAP HANA HA provider [SAPHanaSrMultiTarget](./sap-hana-high-availability-scale-out-hsr-suse.md#implement-hana-ha-hooks-saphanasrmultitarget-and-suschksrv), you can add a third HANA scale-out site. This third site is often used for disaster recovery (DR) in another Azure region. The Pacemaker environment is aware of a HANA multi-target DR setup. Note - this section is only applicable to systems running Pacemaker on SUSE only, see prerequisites section in this document for details.
 
 Failure of the third node won't trigger any cluster action. Cluster detects the replication status of connected sites and the monitored attribute for third site can change between SOK and SFAIL state. Any takeover tests to third/DR site or executing your DR exercise process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
 
