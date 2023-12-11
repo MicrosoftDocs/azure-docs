@@ -50,10 +50,10 @@ resource cluster 'Microsoft.DocumentDB/mongoClusters@2022-10-15-preview' = {
   properties: {
     administratorLogin: adminUsername
     administratorLoginPassword: adminPassword
-    nodeGroupSpecs: [
+    shardGroupSpecs: [
         {
             kind: 'Shard'
-            nodeCount: 1
+            shardCount: 1
             sku: 'M40'
             diskSizeGB: 128
             enableHa: false
