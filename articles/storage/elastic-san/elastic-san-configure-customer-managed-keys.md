@@ -212,7 +212,7 @@ To add a key with Azure CLI, call [az keyvault key create](/cli/azure/keyvault/k
 vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
 
 #### Find your object id and set key policy
-objectId=$(az ad user show --id YOUREMAIL@HERE.COM --query objectId -o tsv)
+objectId=$(az ad user show --id YOUREMAIL@HERE.COM --query id -o tsv)
 
 az keyvault set-policy -n $kv_name --object-id $objectId --key-permissions backup create delete get import get list update restore
 
@@ -497,7 +497,7 @@ az elastic-san volume update -g $rg -e $san_name -v $vg_name -n $volume_name --s
 vault_uri=$(az keyvault show --name $kv_name --resource-group $rg --query "properties.vaultUri" -o tsv)
 
 #### Find your object id and set key policy
-objectId=$(az ad user show --id YOUREMAIL@HERE.COM --query objectId -o tsv)
+objectId=$(az ad user show --id YOUREMAIL@HERE.COM --query id -o tsv)
 az keyvault set-policy -n $kv_name --object-id $objectId --key-permissions backup create delete get import get list update restore
 
 #### Create key
