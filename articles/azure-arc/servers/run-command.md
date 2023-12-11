@@ -91,7 +91,7 @@ PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
   "location": "eastus2",
   "properties": {
     "source": {
-      "scriptUri": "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/ newnetfirewallrule.ps1"
+      "scriptUri": "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/newnetfirewallrule.ps1"
     },
     "parameters": [
       {
