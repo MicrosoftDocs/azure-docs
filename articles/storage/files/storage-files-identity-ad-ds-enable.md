@@ -4,7 +4,7 @@ description: Learn how to enable Active Directory Domain Services authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 12/11/2023
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
 recommendations: false
@@ -28,7 +28,10 @@ To enable AD DS authentication over SMB for Azure file shares, you need to regis
 
 ## Option one (recommended): Use AzFilesHybrid PowerShell module
 
-The AzFilesHybrid PowerShell module provides cmdlets for deploying and configuring Azure Files. It includes cmdlets for domain joining storage accounts to your on-premises Active Directory and configuring your DNS servers. The cmdlets make the necessary modifications and enable the feature for you. Because some parts of the cmdlets interact with your on-premises AD DS, we explain what the cmdlets do, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. Although we recommend using AzFilesHybrid module, if you're unable to do so, we provide [manual steps](#option-two-manually-perform-the-enablement-actions).
+The AzFilesHybrid PowerShell module provides cmdlets for deploying and configuring Azure Files. It includes cmdlets for domain joining storage accounts to your on-premises Active Directory and configuring your DNS servers. The cmdlets make the necessary modifications and enable the feature for you. Because some parts of the cmdlets interact with your on-premises AD DS, we explain what the cmdlets do, so you can determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. Although we recommend using the AzFilesHybrid module, if you're unable to do so, we provide [manual steps](#option-two-manually-perform-the-enablement-actions).
+
+> [!IMPORTANT]
+> AES-256 Kerberos encryption is now the only encryption method supported by the AzFilesHybrid module. If you prefer to use RC4 encryption, see [Option two: Manually perform the enablement actions](#option-two-manually-perform-the-enablement-actions). If you previously enabled the feature with an old AzFilesHybrid version (below v0.2.2) that used RC4 as the default encryption method and want to update to support AES-256, see [troubleshoot Azure Files SMB authentication](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
 
 ### Prerequisites
 
@@ -38,7 +41,7 @@ The AzFilesHybrid PowerShell module provides cmdlets for deploying and configuri
 
 ### Download AzFilesHybrid module
 
-[Download and unzip the latest version of the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases). Note that AES-256 Kerberos encryption is supported on v0.2.2 or above, and is the default encryption method beginning in v0.2.5. If you've enabled the feature with an AzFilesHybrid version below v0.2.2 and want to update to support AES-256 Kerberos encryption, see [troubleshoot Azure Files SMB authentication](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
+[Download and unzip the latest version of the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases).
 
 ### Run Join-AzStorageAccount
 
@@ -90,8 +93,7 @@ $DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as
 # If you don't provide the OU name as an input parameter, the AD identity that represents the 
 # storage account is created under the root directory.
 $OuDistinguishedName = "<ou-distinguishedname-here>"
-# Specify the encryption algorithm used for Kerberos authentication. Using AES256 is recommended.
-$EncryptionType = "<AES256|RC4|AES256,RC4>"
+# Encryption method is AES-256 Kerberos.
 
 # Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId $SubscriptionId 
