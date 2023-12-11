@@ -60,6 +60,8 @@ ZRS is only available in France Central, North Europe, West Europe and West US 2
 |Maximum total IOPS     |500,000         |500,000        |500,000        |500,000        |
 |Maximum total throughput (MB/s)    |8,000         |8,000        |8,000        |8,000        |
 
+#### Quota Increases
+To increase quota, raise a support ticket with the subscription ID and region information to request for an increase in quota for the “Maximum number of Elastic SAN that can be deployed per subscription per region”.
 
 ## Volume group
 

@@ -35,7 +35,7 @@ To generate manual evaluation results, you need to have the following ready:
 
 * A test dataset in one of these formats: csv or jsonl. If you don't have a dataset available, we also allow you to input data manually from the UI.   
 
-* A deployment of one of these models: GPT 3.5 models, GPT 4 models, or Davinci models. Learn more about how to create a deployment [here](./deploy-models.md).   
+* A deployment of one of these models: GPT 3.5 models, GPT 4 models, or Davinci models. Learn more about how to create a deployment [here](./deploy-models-openai.md).   
 
 ## Generate your manual evaluation results 
 
