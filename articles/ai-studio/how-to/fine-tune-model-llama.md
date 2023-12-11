@@ -62,7 +62,7 @@ Here are some example datasets on Hugging Face that you can use to fine-tune you
 
 - [SetFit/mrpc](https://huggingface.co/datasets/SetFit/mrpc)
 
-    :::image type="content" source="../media/how-to/fine-tune/dataset-setfit-mrpc.png" alt-text="Screenshot of example mrpc data on Hugging Face." lightbox="../media/how-to/fine-tune/dataset-setfit-mrpc.png":::
+    :::image type="content" source="../media/how-to/fine-tune/dataset-setfit-mrpc.png" alt-text="Screenshot of example Microsoft Research Paraphrase Corpus (MRPC) data on Hugging Face." lightbox="../media/how-to/fine-tune/dataset-setfit-mrpc.png":::
 
 Single text classification requires the training data to include at least two fields such as `text1` and `label`. Text pair classification requires the training data to include at least three fields such as `text1`, `text2`, and `label`. 
 

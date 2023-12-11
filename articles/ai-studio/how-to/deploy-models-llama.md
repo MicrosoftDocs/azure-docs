@@ -49,13 +49,13 @@ To create a deployment:
 
 1. On the detail page, select **Deploy** and then **Pay-as-you-go**.
 
-    :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go.png" alt-text="An screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go.png":::
+    :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go.png":::
 
 1. Select the project where you want to create a deployment.
 
 1. On the deployment wizard, you see the option to explore the more terms and conditions applied to the selected model and its pricing. Select **Azure Marketplace Terms** to learn about it.
 
-    :::image type="content" source="../media/deploy-monitor/llama/deploy-marketplace-terms.png" alt-text="An screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/llama/deploy-marketplace-terms.png":::
+    :::image type="content" source="../media/deploy-monitor/llama/deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/llama/deploy-marketplace-terms.png":::
 
 1. If this is the first time you deployed the model in the project, you have to sign up your project for the particular offering from the Azure Marketplace. Each project has its own connection to the marketplace's offering, which, allows you to control and monitor spending per project. Select **Subscribe and Deploy**.
 
@@ -64,11 +64,11 @@ To create a deployment:
 
 1. Once you sign up the project for the offering, subsequent deployments don't require signing up (neither subscription-level permissions). If this is your case, select **Continue to deploy**.
 
-    :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go-project.png" alt-text="An screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go-project.png":::
+    :::image type="content" source="../media/deploy-monitor/llama/deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/llama/deploy-pay-as-you-go-project.png":::
 
 1. Give the deployment a name. Such name is part of the deployment API URL, which requires to be unique on each Azure region.
 
-    :::image type="content" source="../media/deploy-monitor/llama/deployment-name.png" alt-text="An screenshot showing how to indicate the name of the deployment you want to create." lightbox="../media/deploy-monitor/llama/deployment-name.png":::
+    :::image type="content" source="../media/deploy-monitor/llama/deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="../media/deploy-monitor/llama/deployment-name.png":::
 
 1. Select **Deploy**.
 
@@ -433,13 +433,11 @@ For reference about how to invoke Llama 2 models deployed to real-time endpoints
 
 ### Considerations for Llama 2 models deployed as a service
 
-Llama models deployed as a service are offered by Meta through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying or [fine-tuning the models](./fine-tune-model-llama.md). The following prices are shown only as an example of where you can see the pricing for a particular model:
-
-:::image type="content" source="../media/cost-management/marketplace/deploy-maas-costs.png" alt-text="A screenshot showing where you can find pricing for a particular offering."  lightbox="../media/cost-management/marketplace/deploy-maas-costs.png":::
+Llama models deployed as a service are offered by Meta through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying or [fine-tuning the models](./fine-tune-model-llama.md). 
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine tuning, However, multiple meters are available to track each scenario independently. See [monitor costs for models offered throughout the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
 
-:::image type="content" source="../media/cost-management/marketplace/costs-maas-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/deploy-maas-costs.png":::
+:::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/deploy-model-as-service-cost-details.png":::
 
 Quota is managed per deployment. Each deployment has a rate limit of 20,000 tokens per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits don’t suffice your scenarios.
 

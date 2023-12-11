@@ -112,11 +112,11 @@ Models deployed as a service using pay-as-you-go are offered through the Azure M
 
 1. Select a view such as **Resources**. The cost associated with each resource is displayed.
 
-    :::image type="content" source="../media/cost-management/marketplace/costs-maas-cost-analysis.png" alt-text="A screenshot of the Cost Analysis tool displaying how to show cost per resource.":::
+    :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-analysis.png" alt-text="A screenshot of the Cost Analysis tool displaying how to show cost per resource.":::
 
 1. On the **Type** column, select the filter icon to filter all the resources of type **microsoft.saas/resources**. This type corresponds to resources created from offers from the Azure Marketplace. For convenience, you can filter by resource types containing the string **SaaS**. 
 
-    :::image type="content" source="../media/cost-management/marketplace/costs-maas-cost-filter.png" alt-text="A screenshot of how to filter by resource type containing the string 'SaaS'":::
+    :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-filter.png" alt-text="A screenshot of how to filter by resource type containing the string 'SaaS'.":::
 
 1. One resource is displayed for each model offer per project. Naming of those resources is `[Model offer name]-[GUID]`.
 
@@ -127,7 +127,7 @@ Models deployed as a service using pay-as-you-go are offered through the Azure M
     
     Some model providers might use the same name for both.
 
-    :::image type="content" source="../media/cost-management/marketplace/costs-maas-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters.":::
+    :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters.":::
 
     > [!TIP]
     > Remember that one resource is created per each project, per each plan your project subscribes to.
