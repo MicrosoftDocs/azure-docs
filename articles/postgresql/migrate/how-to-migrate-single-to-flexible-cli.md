@@ -118,17 +118,13 @@ az postgres flexible-server migration create --subscription 11111111-1111-1111-1
 > [!NOTE]  
 > The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in select regions - India Central, India South, Australia Southeast and South East Asia.
 
-For Online migration, in case replication has not been setup at the source, it can be enabled using the below command. Please note that this command restarts the source Single server.
+If **Online** migration is selected, it requires Logical replication to be turned on in the source Single server. If it is not turned on, the migration tool automatically turns on logical replication at the source Single server. Replication can also be setup manually at the source using the below command. Please note that either approach of turning on logical replication will restart the source Single server.
 
 For example:
 
 ```azurecli-interactive
 az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name CLIMigrationExample --setup-replication
 ```
-
-This command is required to advance the migration when the flexible server is waiting in the `WaitingForLogicalReplicationSetupRequestOnSourceDB` state.
-
-:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png" alt-text="Screenshot of Azure Command Line Interface Setup Logical replication." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png":::
 
 To perform Online migration in any of the above regions, use:
 
