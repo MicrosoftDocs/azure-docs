@@ -21,7 +21,7 @@ To maximize the [performance](firewall-performance.md) of your Azure Firewall an
 
 - **High traffic throughput**
 
-    Azure Firewall Standard supports up to 30 Gbps, while Premium supports up to 100 Gbps. For more information, see the [throughput limitations](firewall-performance.md#performance-data). You can monitor your throughput or data processing in Azure Firewall metrics. For more information, see [Azure Firewall metrics](logs-and-metrics.md#metrics).
+    Azure Firewall Standard supports up to 30 Gbps, while Premium supports up to 100 Gbps. For more information, see the [throughput limitations](firewall-performance.md#performance-data). You can monitor your throughput or data processing in Azure Firewall metrics. For more information, see [Azure Firewall metrics and alerts](metrics.md).
 
 - **High Number of Connections**
 
@@ -67,7 +67,7 @@ Use the following best practices for testing and monitoring:
 - **Identify rule hits and performance spikes**
    - Look for spikes in network performance or latency. Correlate rule hit timestamps, such as application rules hit count and network rules hit count, to determine if rule processing is a significant factor contributing to performance or latency issues. By analyzing these patterns, you can identify specific rules or configurations that you might need to optimize.
 - **Add alerts to key metrics**
-   - In addition to regular monitoring, it's crucial to set up alerts for key firewall metrics. This ensures that you're promptly notified when specific metrics surpass predefined thresholds. To configure alerts, see [Azure Firewall logs and metrics](logs-and-metrics.md#alert-on-azure-firewall-metrics) for detailed instructions about setting up effective alerting mechanisms. Proactive alerting enhances your ability to respond swiftly to potential issues and maintain optimal firewall performance.
+   - In addition to regular monitoring, it's crucial to set up alerts for key firewall metrics. This ensures that you're promptly notified when specific metrics surpass predefined thresholds. To configure alerts, see [Azure Firewall logs and metrics](metrics.md#alert-on-azure-firewall-metrics) for detailed instructions about setting up effective alerting mechanisms. Proactive alerting enhances your ability to respond swiftly to potential issues and maintain optimal firewall performance.
 
 ## Next steps
 

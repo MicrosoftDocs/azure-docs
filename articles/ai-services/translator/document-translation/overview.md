@@ -99,37 +99,22 @@ Document Translation supports the following glossary file types:
 
 Document Translation data residency depends on the Azure region where your Translator resource was created:
 
-* Translator resources **created** in any region in Europe are **processed** at data center in West Europe and North Europe.
-* Translator resources **created** in any region in Asia or Australia are **processed** at data center in Southeast Asia and Australia East.
-* Translator resource **created** in all other regions including Global, North America and South America are **processed** at data center in East US and West US 2.
-
-### Text Translation data residency
-
-✔️ Feature: **Translator Text** </br>
-✔️ Region where resource created: **Any**
-
-| Service endpoint | Request processing data center |
-|------------------|--------------------------|
-|**Global (recommended):**</br>**`api.cognitive.microsofttranslator.com`**|Closest available data center.|
-|**Americas:**</br>**`api-nam.cognitive.microsofttranslator.com`**|East US &bull; South Central US &bull; West Central US &bull; West US 2|
-|**Europe:**</br>**`api-eur.cognitive.microsofttranslator.com`**|North Europe &bull; West Europe|
-| **Asia Pacific:**</br>**`api-apc.cognitive.microsofttranslator.com`**|Korea South &bull; Japan East &bull; Southeast Asia &bull; Australia East|
-|
+* Translator resources **created** in any region in Europe (except Switzerland) are **processed** at data center in North Europe and West Europe.
+* Translator resources **created** in any region in Switzerland are **processed** at data center in Switzerland North and Switzerland West
+* Translator resources **created** in any region in Asia Pacific or Australia are **processed** at data center in Southeast Asia and Australia East.
+* Translator resource **created** in all other regions including Global, North America, and South America are **processed** at data center in East US and West US 2.
 
 ### Document Translation data residency
 
 ✔️ Feature: **Document Translation**</br>
 ✔️ Service endpoint:  **Custom:** &#8198;&#8198;&#8198; **`<name-of-your-resource.cognitiveservices.azure.com/translator/text/batch/v1.1`**
 
- |Resource region| Request processing data center |
+|Resource region| Request processing data center |
 |----------------------------------|-----------------------|
-|**Global and any region in the Americas**  | East US &bull; West US 2|
-|**Any region in Europe**| North Europe &bull; West Europe|
-|**Any region in Asia Pacific**| Southeast Asia &bull; Australia East|
-
-
-### Document Translation data residency
-
+|**Any region within Europe (except Switzerland)**| Europe — North Europe &bull; West Europe|
+|**Switzerland**|Switzerland — Switzerland North &bull; Switzerland West|
+|**Any region within Asia Pacific and Australia**| Asia — Southeast Asia &bull; Australia East|
+|**All other regions including Global, North America, and South America**  | US — East US &bull; West US 2|
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Data Security Dashboard | Defender for Cloud in the Field 
 description: Learn about Defender for Cloud's data security dashboard.
 ms.topic: reference
-ms.date: 12/06/2023
+ms.date: 12/07/2023
 ---
 
 # Data security dashboard in Defender for Cloud
@@ -34,4 +34,4 @@ ms.date: 12/06/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [New AWS Connector in Microsoft Defender for Cloud](episode-thirty-nine.md)
