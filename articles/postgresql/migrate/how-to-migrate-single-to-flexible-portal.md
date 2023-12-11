@@ -149,11 +149,11 @@ As soon as the validation or migration is created, it moves to the **InProgress*
 
 Let us look at how to monitor migrations for each of the **Migration Option**.
 
-### Validate 
+### Validate
 
-After the **PerformingPreRequisiteSteps** substate is completed, the validation moves to the substate of **Validation in Progress** where checks are done on the source and target server to assess the readiness for migration. 
+After the **PerformingPreRequisiteSteps** substate is completed, the validation moves to the substate of **Validation in Progress** where checks are done on the source and target server to assess the readiness for migration.
 
-The validation moves to the **Succeeded** state if all validations are either in **Succeeded** or **Warning** state. 
+The validation moves to the **Succeeded** state if all validations are either in **Succeeded** or **Warning** state.
 
 :::image type="content" source="./media/concepts-single-to-flexible/validation-successful.png" alt-text="Screenshot of the validation grid." lightbox="./media/concepts-single-to-flexible/validation-successful.png":::
 
@@ -170,7 +170,7 @@ The validation moves to **Validation Failed** state if there are any errors in t
 
 :::image type="content" source="./media/concepts-single-to-flexible/validation-failed.png" alt-text="Screenshot of the validation grid with failed status." lightbox="./media/concepts-single-to-flexible/validation-failed.png":::
 
-### Migrate 
+### Migrate
 
 After the **PerformingPreRequisiteSteps** substate is completed, the migration moves to the substate of **Migrating Data** when the Cloning/Copying of the databases takes place.  The time for migration to complete depends on the size and shape of databases that you are migrating. If the data is mostly evenly distributed across all the tables, the migration is quick. Skewed table sizes take a relatively longer time.
 
@@ -197,6 +197,28 @@ You can see the results of validation under the **Validation** tab and monitor t
 :::image type="content" source="./media/concepts-single-to-flexible/validate-and-migrate-1.png" alt-text="Screenshot showing validations tab in details page." lightbox="./media/concepts-single-to-flexible/validate-and-migrate-1.png":::
 
 :::image type="content" source="./media/concepts-single-to-flexible/validate-and-migrate-2.png" alt-text="Screenshot showing migrations tab in details page." lightbox="./media/concepts-single-to-flexible/validate-and-migrate-2.png":::
+
+### Online migration
+
+> [!NOTE]  
+> Support for **Online** migrations is currently available in select regions - India Central, India South, Australia Southeast and South East Asia.
+
+In case of both **Migrate** as well as **Validate and Migrate**, completion of the Online migration requires an additional step - a Cutover action is required from the user. After the copy/clone of the base data is complete, the migration moves to `WaitingForUserAction` state and `WaitingForCutoverTrigger` substate. In this state, user can trigger cutover from the portal by selecting the migration.
+
+Before initiating cutover it is important to ensure that:
+
+- Writes to the source are stopped -`Latency (minutes)` parameter is 0 or close to 0
+The `Latency (minutes)` information can be obtained from the migration details screen as shown below:
+
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-cutover.png" alt-text="Screenshot showing migration ready for cutover." lightbox="./media/concepts-single-to-flexible/flexible-migration-cutover.png":::
+
+`Latency (minutes)` parameter indicates when the target last synced up with the source. For example, for the Orders Database above, it is 0.33333. It means that the changes that have occurred in the last ~0.3 minutes at the source are yet to be synced to the target, for the Orders Database. At this point, writes to the source can be stopped and cutover initiated. In case there is heavy traffic at the source, it is recommended to stop writes first so that `Latency (minutes)` can come close to 0 and then cutover is initiated. The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with **non-zero Latency**, the replication will stop until that point in time. All the data on source until the cutover point is then applied on the target. Say a latency was 15 minutes at cutover point, so all the change data in the last 15 minutes will be applied on the target. Time taken will depend on the backlog of changes occurred in the last 15 minutes. Hence, it is recommended that the latency goes to zero or near zero, before triggering the cutover.
+
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-click-cutover.png" alt-text="Screenshot showing click cutover." lightbox="./media/concepts-single-to-flexible/flexible-migration-click-cutover.png":::
+
+The migration moves to the `Succeeded` state as soon as the `Migrating Data` substate or the cutover (in case of Online migration) finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
+
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-progress-online-dbsuccess.png" alt-text="Screenshot showing cutover success." lightbox="./media/concepts-single-to-flexible/flexible-migration-progress-online-dbsuccess.png":::
 
 After the migration has moved to the **Succeeded** state, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#post-migration).
 

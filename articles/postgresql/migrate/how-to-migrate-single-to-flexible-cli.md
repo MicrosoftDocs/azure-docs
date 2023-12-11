@@ -115,6 +115,27 @@ For example:
 az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON" --migration-mode offline
 ```
 
+> [!NOTE]  
+> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in select regions - India Central, India South, Australia Southeast and South East Asia.
+
+For Online migration, in case replication has not been setup at the source, it can be enabled using the below command. Please note that this command restarts the source Single server.
+
+For example:
+
+```azurecli-interactive
+az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name CLIMigrationExample --setup-replication
+```
+
+This command is required to advance the migration when the flexible server is waiting in the `WaitingForLogicalReplicationSetupRequestOnSourceDB` state.
+
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png" alt-text="Screenshot of Azure Command Line Interface Setup Logical replication." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png":::
+
+To perform Online migration in any of the above regions, use:
+
+```azurecli-interactive
+az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON" --migration-mode online
+```
+
 The `migration-name` argument used in the `create` command will be used in other CLI commands, such as `update`, `delete`, and `show.` In all those commands, it uniquely identifies the migration attempt in the corresponding actions.
 
 Finally, the `create` command needs a JSON file to be passed as part of its `properties` argument.
@@ -231,6 +252,38 @@ The following tables describe the migration states and substates.
 | `MigratingData` | Data migration is in progress. |
 | `CompletingMigration` | Migration cutover is in progress. |
 | `Completed` | Cutover was successful, and migration is complete. |
+
+### Cutover the migration
+
+In case of Online migrations, after the base data migration is complete, the migration task moves to `WaitingForCutoverTrigger` substate. In this state, user can trigger cutover from the portal by selecting the migration name in the migration grid or through CLI using the command below.
+
+For example:
+
+```azurecli-interactive
+az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name CLIMigrationExample --cutover
+```
+
+Before initiating cutover it is important to ensure that:
+- Writes to the source are stopped
+-`latency` parameter decreases to 0 or close to 0
+
+`latency` parameter indicates when the target last synced up with the source. For example, here it is 201 and 202 for the two databases as shown in the picture below, it means that the changes that have occurred in the last ~200 seconds at the source are yet to be synced to the target. At this point, writes to the source can be stopped and cutover initiated.In case there is heavy traffic at the source, it is recommended to stop writes first so that `Latency` can come close to 0 and then cutover is initiated. The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with non-zero `Latency`, the replication will stop until that point in time. All the data on source until the cutover point is then applied on the target. Say a latency was 15 minutes at cutover point, so all the change data in the last 15 minutes will be applied on the target. Time taken will depend on the backlog of changes occurred in the last 15 minutes. Hence, it is recommended that the latency goes to zero or near zero, before triggering the cutover.
+The `latency` information can be obtained using the [migration show command](#monitor-the-migration).
+Here's a snapshot of the migration before initiating the cutover:
+
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-cutover.png" alt-text="Screenshot of Azure Command Line Interface check for cutover." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-cutover.png":::
+
+After cutover is initiated, pending data captured during CDC is written to the target and migration is now complete.
+
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-cutover-success.png" alt-text="Screenshot of Azure Command Line Interface complete cutover." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-cutover-success.png":::
+
+If the cutover is not successful, the migration moves to `Failed` state.
+
+For more information about this command, use the `help` parameter:
+
+```azurecli-interactive
+ az postgres flexible-server migration update -- help
+ ```
 
 ## Cancel the migration
 
