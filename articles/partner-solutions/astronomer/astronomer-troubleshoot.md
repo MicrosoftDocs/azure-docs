@@ -5,7 +5,8 @@ description: This article provides information about getting support and trouble
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/13/2023
+ms.date: 11/29/2023
+
 ---
 
 # Troubleshooting Astro (Preview) integration with Azure
@@ -54,6 +55,10 @@ If SSO isn't working for the Astronomer portal, verify you're using the correct 
 > If you are seeing an Admin consent screen along with the User consent during your first-time login using the SSO Url, then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent?pivots=portal).
 
 For more information, see the [single sign-on guidance](astronomer-manage.md#single-sign-on).
+
+### Unable to install Astro using a personal email
+
+Installing Apache Airflow on Astro from the Azure Marketplace using a personal email from a generic domain isn't supported. To install this service, use an email address with a unique domain, such as an email address associated with work or school, or start by creating a new user in Azure and make this user a subscription owner. For more information, see [Install Astro from the Azure Marketplace using a personal email](https://docs.astronomer.io/astro/install-azure#install-astro-from-the-azure-marketplace-using-a-personal-email).
 
 ## Next steps
 

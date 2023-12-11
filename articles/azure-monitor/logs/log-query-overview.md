@@ -72,9 +72,10 @@ Although Azure Monitor uses the same KQL as Azure Data Explorer, there are some 
 ### Other operators in Azure Monitor
 The following operators support specific Azure Monitor features and aren't available outside of Azure Monitor:
 
-* [app()](../logs/app-expression.md)
-* [resource()](./resource-expression.md)
-* [workspace()](../logs/workspace-expression.md)
+* [workspace()](../logs/cross-workspace-query.md#query-across-log-analytics-workspaces-using-workspace)
+* [app()](../logs/cross-workspace-query.md#query-across-classic-application-insights-applications-using-app)
+* [resource()](../logs/cross-workspace-query.md#correlate-data-between-resources-using-resource)
+
 
 ## Next steps
 - Walk through a [tutorial on writing queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).

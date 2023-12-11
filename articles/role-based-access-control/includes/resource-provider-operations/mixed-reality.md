@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -20,6 +20,8 @@ Azure service: [Azure Spatial Anchors](../../../spatial-anchors/index.yml)
 > | --- | --- |
 > | Microsoft.MixedReality/register/action | Registers a subscription for the Mixed Reality resource provider. |
 > | Microsoft.MixedReality/unregister/action | Unregisters a subscription for the Mixed Reality resource provider. |
+> | Microsoft.MixedReality/register/action | Register the subscription for Microsoft.MixedReality |
+> | Microsoft.MixedReality/unregister/action | Unregister the subscription for Microsoft.MixedReality |
 > | Microsoft.MixedReality/locations/checknameavailability/read | Checks for name availability |
 > | Microsoft.MixedReality/ObjectAnchorsAccounts/delete | Delete an Object Anchors account |
 > | Microsoft.MixedReality/ObjectAnchorsAccounts/listkeys/action | List the keys an Object Anchors account |
@@ -46,6 +48,12 @@ Azure service: [Azure Spatial Anchors](../../../spatial-anchors/index.yml)
 > | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for Microsoft.MixedReality/spatialAnchorsAccounts |
 > | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for Microsoft.MixedReality/spatialAnchorsAccounts |
 > | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Microsoft.MixedReality/spatialAnchorsAccounts |
+> | Microsoft.MixedReality/spatialMapsAccounts/read | List Spatial Anchors Accounts by Subscription |
+> | Microsoft.MixedReality/spatialMapsAccounts/read | Returns list of spatialMapsAccounts. |
+> | Microsoft.MixedReality/spatialMapsAccounts/read | Returns spatialMapsAccounts resource for a given name. |
+> | Microsoft.MixedReality/spatialMapsAccounts/write | Create or update spatialMapsAccounts resource. |
+> | Microsoft.MixedReality/spatialMapsAccounts/delete | Deletes a spatialMapsAccounts resource for a given name. |
+> | Microsoft.MixedReality/spatialMapsAccounts/write | Update spatialMapsAccounts details. |
 > | **DataAction** | **Description** |
 > | Microsoft.MixedReality/ObjectAnchorsAccounts/ingest/action | Create model Ingestion Job |
 > | Microsoft.MixedReality/ObjectAnchorsAccounts/ingest/read | Get model Ingestion Job Status |
@@ -69,3 +77,6 @@ Azure service: [Azure Spatial Anchors](../../../spatial-anchors/index.yml)
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of spatial anchors |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate spatial anchors |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit diagnostics data to help improve the quality of the Azure Spatial Anchors service |
+> | Microsoft.MixedReality/spatialMapsAccounts/read | Returns spatialMapsAccounts data for a given name. |
+> | Microsoft.MixedReality/spatialMapsAccounts/write | Create or update spatialMapsAccounts data. |
+> | Microsoft.MixedReality/spatialMapsAccounts/delete | Deletes a spatialMapsAccounts data for a given name. |

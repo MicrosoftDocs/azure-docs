@@ -214,7 +214,7 @@ Next, download the SAP installation media to the VM using a script.
 
 1. Where `BOM_directory_path` is the absolute path to **SAP-automation-samples/SAP**. e.g. */home/loggedinusername/SAP-automation-samples/SAP*
 
-1. Where `orchestration_ansible_user` is the user with **admin** privileges like (e.g. root).
+1. Where `orchestration_ansible_user` is the user with **admin** privileges, e.g. *root*.
 
 
 Now you can [install the SAP software](install-software.md) through Azure Center for SAP solutions.
@@ -311,8 +311,6 @@ Next, upload the SAP software files to the storage account:
     1. For S/4HANA 2022 ISS 00:
 
         1. [S42022SPS00_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S42022SPS00_v0001ms/S42022SPS00_v0001ms.yaml)
-
-        1. [HANA_2_00_071_v0001ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/HANA_2_00_071_v0001ms/HANA_2_00_071_v0001ms.yaml)
 
 1. Depending on your SAP version, go to the folder **S41909SPS03_v0011ms** or **S42020SPS03_v0003ms** or **S4HANA_2021_ISS_v0001ms** or **S42022SPS00_v0001ms**.
 
@@ -437,8 +435,6 @@ Next, upload the SAP software files to the storage account:
     1. For S/4HANA 2022 ISS 00:
 
         1. [S42022SPS00_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/S42022SPS00_v0001ms/S42022SPS00_v0001ms.yaml)
-    
-        1. [HANA_2_00_071_v0001ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/HANA_2_00_071_v0001ms/HANA_2_00_071_v0001ms.yaml)
     
 1. Repeat the previous step for the main and dependent BOM files.
 

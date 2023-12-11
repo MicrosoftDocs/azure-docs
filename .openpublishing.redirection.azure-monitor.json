@@ -426,6 +426,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-view-designer-conversion-overview.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/workbooks-view-designer-conversion-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-view-designer-conversions.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/workbooks-view-designer-conversions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-service-manager-script.md",
             "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
@@ -476,6 +486,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-create-new-alert-rule.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-metric-alert-rule",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-page.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-manage-alert-instances",
             "redirect_document_id": false
@@ -492,17 +507,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-metric-alert-rule",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-log-alert-rule",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-activity-log.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-activity-log-alert-rule",
             "redirect_document_id": false
         },
         {
@@ -2601,22 +2616,22 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/quick-alerts-classic-metric-portal.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-metric",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-metric-alert-rule",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/monitoring-and-diagnostics/alert-metric.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-metric",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-metric-alert-rule",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-metric",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-metric-alert-rule",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-create-templates",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-rule-cli-powershell-arm",
             "redirect_document_id": true
         },
         {
@@ -2631,7 +2646,7 @@
         },
         {
             "source_path_from_root": "/articles/monitoring-and-diagnostics/alert-metric-overview.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-overview",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-types",
             "redirect_document_id": true
         },
         {
@@ -4001,17 +4016,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-metric",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-metric-alert-rule",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-create-templates.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-create-templates",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-rule-cli-powershell-arm",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric-create-templates.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-rule-cli-powershell-arm",
             "redirect_document_id": false
         },
         {
@@ -4021,7 +4036,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log-create-templates.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-rule-cli-powershell-arm",
             "redirect_document_id": false
         },
         {
@@ -6432,6 +6447,26 @@
         {
             "source_path_from_root": "/articles/azure-monitor/faq.yml",
             "redirect_url": "/azure/azure-monitor/overview#frequently-asked-questions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/app-expression.md",
+            "redirect_url": "/azure/azure-monitor/logs/cross-workspace-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/workspace-expression.md",
+            "redirect_url": "/azure/azure-monitor/logs/cross-workspace-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/resource-expression.md",
+            "redirect_url": "/azure/azure-monitor/logs/cross-workspace-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-configure-workspace.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-enable-overview",
             "redirect_document_id": false
         }
     ]

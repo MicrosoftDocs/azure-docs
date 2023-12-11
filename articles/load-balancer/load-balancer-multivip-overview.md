@@ -7,7 +7,7 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/19/2022
+ms.date: 12/04/2023
 ms.author: mbender
 ms.custom: template-concept, seodec18
 ---
@@ -109,7 +109,7 @@ The following table shows the complete mapping in the load balancer:
 
 The destination of the inbound flow is now the frontend IP address on the loopback interface in the VM. Each rule must produce a flow with a unique combination of destination IP address and destination port. Port reuse is possible on the same VM by varying the destination IP address to the frontend IP address of the flow. Your service is exposed to the load balancer by binding it to the frontend’s IP address and port of the respective loopback interface. 
 
-You'll notice the destination port doesn't change in the example. In floating IP scenarios, Azure Load Balancer also supports defining a load balancing rule to change the backend destination port and to make it different from the frontend destination port.
+You notice the destination port doesn't change in the example. In floating IP scenarios, Azure Load Balancer also supports defining a load balancing rule to change the backend destination port and to make it different from the frontend destination port.
 
 The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [Configure one or more Always On availability group listeners](/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure) configuration. Over time, we'll document more of these scenarios.
 

@@ -20,7 +20,6 @@ To prepare a Kubernetes cluster on Ubuntu:
 
     ```bash
     mkdir ~/.kube
-    cp ~/.kube/config ~/.kube/config.back
     sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
     mv ~/.kube/merged ~/.kube/config
     chmod  0600 ~/.kube/config

@@ -84,7 +84,7 @@ items:
     items:
     - name: Embeddings basics
       href: ./how-to/embeddings.md
-    - name: Getting started with embeddings (Python)
+    - name: Getting started with embeddings
       href: ./tutorials/embeddings.md
   - name: Fine-tuning
     items:
@@ -104,6 +104,8 @@ items:
         href: encrypt-data-at-rest.md
       - name: Manage identity
         href: ./how-to/managed-identity.md
+      - name: Use Azure OpenAI on your data securely
+        href: ./how-to/use-your-data-securely.md
   - name: Service management
     items:
       - name: Resource creation & model deployment
