@@ -36,7 +36,7 @@ keywords:
 
 Create a new Gradle project.
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
 
 ```console
 mkdir myapp && cd myapp
