@@ -9,11 +9,11 @@ ms.custom: template-concept
 
 # Agentless container posture in Defender CSPM
 
+The Defender for Cloud Security Posture Management (CSPM) plan in Defender for Cloud provides container posture capabilities for Azure AKS and AWS EKS. For requirements and support, see the [Containers support matrix in Defender for Cloud](support-matrix-defender-for-containers.md).
+
 Agentless container posture provides easy and seamless visibility into your Kubernetes assets and security posture, with contextual risk analysis that empowers security teams to prioritize remediation based on actual risk behind security issues, and proactively hunt for posture issues.
 
 ## Capabilities
-
-For support and prerequisites for agentless containers posture, see [Support and prerequisites for agentless containers posture](support-matrix-defender-for-containers.md).
 
 Agentless container posture provides the following capabilities:
 

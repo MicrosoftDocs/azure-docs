@@ -24,7 +24,14 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
+| December 13 | [Agentless Container Posture in Defender AWS and (Preview)](#agentless-container-posture-in-defender-aws-preview)
 | December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account)
+
+### Agentless Container Posture in Defender AWS (Preview)
+
+December 13, 2023
+
+The new Agentless Container Posture (Preview) capabilities are available for AWS. For more information, see [Agentless container posture in Defender CSPM](concept-agentless-containers.md) and [Agentless capabilities in Defender for Containers](defender-for-containers-introduction.md#agentless-capabilities).
 
 ### Defender for Storage alert released for preview: malicious blob was downloaded from a storage account
 
