@@ -157,7 +157,7 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
       --name my-app-credentials \
       --role contributor \
       --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/my-container-app-rg \
-      --sdk-auth \
+      --json-auth \
       --output json
     ```
 

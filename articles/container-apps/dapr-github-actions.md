@@ -165,7 +165,7 @@ az ad sp create-for-rbac \
   --name <SERVICE_PRINCIPAL_NAME> \
   --role "contributor" \
   --scopes /subscriptions/$SUBSCRIPTION_ID \
-  --sdk-auth
+  --json-auth
 ```
 
 # [PowerShell](#tab/powershell)

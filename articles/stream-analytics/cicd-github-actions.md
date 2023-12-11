@@ -50,7 +50,7 @@ You need to create at least 3 GitHub secrets for deploying a Stream Analytics jo
     
         ```powershell
         az login 
-        az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth 
+        az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --json-auth 
         ```
 
         :::image type="content" source="./media/cicd-github-actions/powershell-run-az.png" alt-text="Screenshot of the PowerShell running az command." lightbox= "./media/cicd-github-actions/powershell-run-az.png" :::

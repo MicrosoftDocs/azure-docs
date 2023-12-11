@@ -68,7 +68,7 @@ Use [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service p
 az ad sp create-for-rbac \
   --scope $groupId \
   --role Contributor \
-  --sdk-auth
+  --json-auth
 ```
 
 Output is similar to:

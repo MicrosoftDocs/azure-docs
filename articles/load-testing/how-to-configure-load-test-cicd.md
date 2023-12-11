@@ -111,7 +111,7 @@ Create a service principal in the Azure subscription and assign the Load Test Co
 
     az ad sp create-for-rbac --name "my-load-test-cicd" --role "Load Test Contributor" \
                              --scopes $loadtest \
-                             --sdk-auth
+                             --json-auth
     ```
 
     The output is a JSON object that represents the service principal. You use this information to authenticate with Azure in the GitHub Actions workflow.
