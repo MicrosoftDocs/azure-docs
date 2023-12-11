@@ -153,7 +153,7 @@ SecurityAlert
 
 Updates for alert status or severity generate new records in the **SecurityAlert** table immediately.
 
-Other types of updates are aggregated across 8-12 hours and new records in the **SecurityAlert** table reflect only the latest change. Examples of aggregated updates include:
+Other types of updates are aggregated across up to 12 hours, and new records in the **SecurityAlert** table reflect only the latest change. Examples of aggregated updates include:
 
 - Updates in the last detection time, such as when the same alert is detected multiple times
 - A new device is added to an existing alert
