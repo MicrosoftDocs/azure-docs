@@ -23,12 +23,16 @@ To successfully make a call against Azure OpenAI, you need the following variabl
 
 ### Environment variables
 
+> [!NOTE]
+> Spring AI defaults the model name to `gpt-35-turbo`. It's only necessary to provide the `SPRING_AI_AZURE_OPENAI_MODEL` value if you've deployed a model with a different name.
+
 ```bash
 export SPRING_AI_AZURE_OPENAI_ENDPOINT=REPLACE_WITH_YOUR_AOAI_ENDPOINT_VALUE_HERE
 export SPRING_AI_AZURE_OPENAI_API_KEY=REPLACE_WITH_YOUR_AOAI_KEY_VALUE_HERE
 export SPRING_AI_AZURE_COGNITIVE_SEARCH_ENDPOINT=REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_VALUE_HERE
 export SPRING_AI_AZURE_COGNITIVE_SEARCH_API_KEY=REPLACE_WITH_YOUR_AZURE_SEARCH_RESOURCE_KEY_VALUE_HERE
 export SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX=REPLACE_WITH_YOUR_INDEX_NAME_HERE
+export SPRING_AI_AZURE_OPENAI_MODEL="REPLACE_WITH_YOUR_MODEL_NAME_HERE"
 ```
 
 > [!div class="nextstepaction"]
