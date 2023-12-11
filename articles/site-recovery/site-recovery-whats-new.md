@@ -24,14 +24,31 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 69](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | NA | 9.56.6879.1 / NA  | 9.56.6879.1 | 5.23.1101.10 (VMware) | 2.0.9263.0 (VMware)
 [Rollup 68](https://support.microsoft.com/topic/a81c2d22-792b-4cde-bae5-dc7df93a7810) | 9.55.6765.1 | 9.55.6765.1 / 5.1.8095.0  | 9.55.6765.1 | 5.23.0720.4 (VMware) & 5.1.8095.0 (Hyper-V) | 2.0.9261.0 (VMware) & 2.0.9260.0 (Hyper-V)
 [Rollup 67](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f) | 9.54.6682.1 | 9.54.6682.1 / 5.1.8095.0  | 9.54.6682.1 | 5.23.0428.1 (VMware) & 5.1.8095.0 (Hyper-V) | 2.0.9261.0 (VMware) & 2.0.9260.0 (Hyper-V)
 [Rollup 66](https://support.microsoft.com/en-us/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) | 9.53.6615.1 | 9.53.6615.1 / 5.1.8095.0  | 9.53.6615.1 | 5.1.8103.0 (Modernized VMware), 5.1.8095.0 (Hyper-V) & 5.23.0210.5 (Classic VMware) | 2.0.9260.0
 [Rollup 65](https://support.microsoft.com/topic/update-rollup-65-for-azure-site-recovery-kb5021964-15db362f-faac-417d-ad71-c22424df43e0) | 9.52.6522.1 | 9.52.6522.1 / 5.1.7870.0 | 9.52.6522.1 | 5.1.7870.0 (VMware) & 5.1.7882.0 (Hyper-V) | 2.0.9259.0
-[Rollup 64](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) | 9.51.6477.1 | 9.51.6477.1 / 5.1.7802.0 | 9.51.6477.1 | 5.1.7802.0 | 2.0.9257.0
 
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (December 2023)
+
+### Update Rollup 69
+
+> [!Note]
+> - The 9.56 version only has updates for Azure-to-Azure and Modernized VMware-to-Azure protection scenarios. 
+
+[Update rollup 69](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros. <br><br/> Added support for Windows 11 servers. 
+**VMware VM/physical disaster recovery to Azure** | Added support for Rocky Linux 8.7, Rocky Linux 9.0, Rocky Linux 9.1 and SUSE Linux Enterprise Server 15 SP5 Linux distros. 
+
 
 ## Updates (November 2023)
 
