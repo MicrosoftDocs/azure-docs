@@ -50,9 +50,9 @@ Use the Provisioning API for Azure Communications Gateway to:
 
 ## Configure users in Zoom with the test numbers for integration testing
 
-Upload the numbers for integration testing to Zoom. When you upload numbers, you can optionally configure Zoom to add a header with custom contents to SIP INVITEs. You can use this header to identify the Zoom account for the number or indicate that these numbers are test numbers. For more information on this header, see Zoom's _Zoom Phone Provider Exchange Solution Reference Guide_.
+Upload the numbers for integration testing to Zoom. When you upload numbers, you can optionally configure Zoom to add a header containing custom contents to SIP INVITEs. You can use this header to identify the Zoom account for the number or indicate that these numbers are test numbers. For more information on this header, see Zoom's _Zoom Phone Provider Exchange Solution Reference Guide_.
 
-Use [https://support.zoom.us/hc/en-us/articles/360020808292-Managing-phone-numbers](https://support.zoom.us/hc/en-us/articles/360020808292-Managing-phone-numbers) to assign the numbers for integration testing to the user accounts that you'll use for testing when you prepare for live traffic.
+Use [https://support.zoom.us/hc/en-us/articles/360020808292-Managing-phone-numbers](https://support.zoom.us/hc/en-us/articles/360020808292-Managing-phone-numbers) to assign the numbers for integration testing to the user accounts that you need to use for integration testing. Integration testing is part of preparing for live traffic.
 
 > [!IMPORTANT]
 > Do not assign the service verification numbers to Zoom user accounts. In the next step, you will ask your Zoom representative to configure the service verification numbers for you.

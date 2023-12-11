@@ -72,7 +72,7 @@ If Microsoft 365 prompts you to verify the domain name:
 1. Select **Next**, and note the TXT value that Microsoft 365 provides.
 1. Provide the TXT value to your onboarding team as part of [Provide additional information to your onboarding team](#provide-additional-information-to-your-onboarding-team).
 
-Don't try to finish verifying the domain name until your onboarding team confirm that DNS records with the TXT value have been set up.
+Don't try to finish verifying the domain name until your onboarding team confirms that DNS records with the TXT value have been set up.
 
 ## Provide additional information to your onboarding team
 
@@ -88,7 +88,7 @@ If you don't already have an onboarding team, contact azcog-enablement@microsoft
 > [!NOTE]
 > If Microsoft 365 did not prompt you to verify the domain in [Register the base domain name for Azure Communications Gateway in your tenant](#register-the-base-domain-name-for-azure-communications-gateway-in-your-tenant), skip this step.
 
-After your onboarding team confirm the DNS records have been set up, finish verifying the base domain name in the Microsoft 365 admin center.
+After your onboarding team confirms that the DNS records have been set up, finish verifying the base domain name in the Microsoft 365 admin center.
 
 1. Sign into the Microsoft 365 admin center as a Global Administrator.
 1. Select **Settings** > **Domains**.
