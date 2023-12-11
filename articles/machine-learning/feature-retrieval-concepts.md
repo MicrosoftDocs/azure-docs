@@ -218,10 +218,6 @@ The `output_data` is the only output component. The output data is a data asset 
 
 To use the component, reference its component ID in a pipeline job YAML file, or drag and drop the component in the pipeline designer to create the pipeline. This built-in retrieval component is published in the Azure Machine Learning registry. Its current version is 1.0.0 (`azureml://registries/azureml/components/feature_retrieval/versions/1.0.0`).
 
-
-
-Visit the **3. Enable recurrent materialization and run batch inference.ipynb** notebook, hosted at [this resource](~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_only), for a detailed code snippet.
-
 Review these notebooks for examples of the built-in component, both hosted at [this resource](~/azureml-examples/sdk/python/featurestore_sample/notebooks/sdk_only):
 
  - **2. Experiment and train models using features.ipynb**
