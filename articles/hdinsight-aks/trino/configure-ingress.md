@@ -3,14 +3,14 @@ title: Expose Superset to the internet
 description: Learn how to expose Superset to the internet
 ms.service: hdinsight-aks
 ms.topic: how-to 
-ms.date: 08/2/2023
+ms.date: 12/11/2023
 ---
 
 # Expose Apache Superset to Internet
 
 This article describes how to expose Apache Superset to the Internet.
 
-## Hostname Selection
+## Hostname selection
 
 1. Decide on a hostname for Superset.
 
@@ -20,7 +20,7 @@ This article describes how to expose Apache Superset to the Internet.
 
 1. Get a TLS certificate for the hostname and place it into your Key Vault and call it `aks-ingress-tls`. Learn how to put a certificate into an [Azure Key Vault](/azure/key-vault/certificates/certificate-scenarios).
 
-## Setup Ingress
+## Setup ingress
 
 The following instructions add a second layer of authentication in the form of an Oauth authorization proxy using Oauth2Proxy. This layer means that no unauthorized clients reach the Superset application.
 
@@ -53,9 +53,8 @@ The following instructions add a second layer of authentication in the form of a
     ```
 
     For detailed instructions, see [Azure instructions here](/azure/aks/ingress-basic?tabs=azure-cli#basic-configuration).
-
-> [!NOTE] 
-> The ingress nginx controller steps use Kubernetes namespace `ingress-basic`. This needs to be modified use the `default` namespace. e.g. `NAMESPACE=default`
+   > [!NOTE]
+   > The ingress nginx controller steps use Kubernetes namespace `ingress-basic`. This needs to be modified use the `default` namespace. e.g. `NAMESPACE=default`
 
 1. Create TLS Secret Provider Class.
 
@@ -272,12 +271,12 @@ The following instructions add a second layer of authentication in the form of a
 
     1. Find the Public IP address with these tags: 
 
-      ```json
-      {
-        "k8s-azure-cluster-name": "kubernetes",
-        "k8s-azure-service": "default/ingress-nginx-controller"
-      }
-      ```
+         ```json
+         {
+           "k8s-azure-cluster-name": "kubernetes",
+           "k8s-azure-service": "default/ingress-nginx-controller"
+         }
+         ```
 
     1. Select "Configuration" from the Public IP left navigation.
 
@@ -343,7 +342,7 @@ The following instructions add a second layer of authentication in the form of a
 
     Open `https://{{superset_hostname}}/` in your browser.
 
-### Troubleshooting Ingress
+### Troubleshooting ingress
 
 > [!TIP] 
 > To reset the ingress deployment, execute these commands:
