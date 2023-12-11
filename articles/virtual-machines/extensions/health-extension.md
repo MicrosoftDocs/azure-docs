@@ -304,6 +304,18 @@ The extension.json file content.
   "requestPath": "</requestPath>"
 }
 ```
+
+# [Azure Portal](#tab/azure-portal)
+
+The following example adds the Application Health extension to an existing virtual machine on [Azure portal](https://portal.azure.com).
+
+1.	Navigate to your existing Virtual Machine
+2.	On the left sidebar, go to the **Health monitoring** blade
+3.	Click on **Enable application health monitoring**, select **Binary** for Health States. Configure your protocol, port, and more to set up the health probes. 
+4.	Click **Save** to save your settings
+
+:::image type="content" source="media/application-health-monitoring/existingVM-binaryhealth.png" alt-text="VM Health Monitoring Blade from Azure Portal":::
+```
 ---
 
 ### Rich Health States
@@ -388,6 +400,17 @@ The extension.json file content.
   "gracePeriod": <healthExtensionGracePeriod>
 }
 ```
+# [Azure Portal](#tab/azure-portal)
+
+The following example adds the Application Health extension to an existing virtual machine on [Azure portal](https://portal.azure.com).
+
+1.	Navigate to your existing Virtual Machine
+2.	On the left sidebar, go to the **Health monitoring** blade
+3.	Click on **Enable application health monitoring**, select **Rich (advanced)** for Health States. Configure your protocol, port, and more to set up the health probes. 
+4.	Click **Save** to save your settings
+
+:::image type="content" source="media/application-health-monitoring/existingVM-richhealth.png" alt-text="VM Health Monitoring Blade from Azure Portal":::
+```
 ---
 ## Troubleshoot
 ### View VMHealth
@@ -419,6 +442,15 @@ Get-AzVM
 # [Azure CLI 2.0](#tab/azure-cli)
 ```azurecli-interactive
 az vm get-instance-view --name <vmName> --resource-group <rgName>
+```
+
+# [Azure Portal](#tab/azure-portal)
+
+1.	Navigate to your existing Virtual Machine
+2.	On the left sidebar, go to the **Overview** blade
+3.	Your application health can be observed under the **Health State** field
+
+:::image type="content" source="media/application-health-monitoring/portal-healthstate.png" alt-text="VM Overview blade showing VM Health State.":::
 ```
 ---
 ### Extension execution output log
