@@ -251,7 +251,7 @@ The following tables describe the migration states and substates.
 
 ### Cutover the migration
 
-In case of Online migrations, after the base data migration is complete, the migration task moves to `WaitingForCutoverTrigger` substate. In this state, user can trigger cutover from the portal by selecting the migration name in the migration grid or through CLI using the command below.
+In case of Online migrations, after the base data migration is complete, the migration task moves to `WaitingForCutoverTrigger` substate. In this state, user can trigger cutover through CLI using the command below. The cutover can also be triggered from the portal by selecting the migration name in the migration grid.
 
 For example:
 
@@ -269,7 +269,7 @@ Here's a snapshot of the migration before initiating the cutover:
 
 :::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-cutover.png" alt-text="Screenshot of Azure Command Line Interface check for cutover." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-cutover.png":::
 
-After cutover is initiated, pending data captured during CDC is written to the target and migration is now complete.
+After cutover is initiated, all transactions that happened during the base copy is copied sequentially to the target, and migration is completed.
 
 :::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-cutover-success.png" alt-text="Screenshot of Azure Command Line Interface complete cutover." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-cutover-success.png":::
 

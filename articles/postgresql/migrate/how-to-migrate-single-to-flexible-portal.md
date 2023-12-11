@@ -95,7 +95,7 @@ It is always a good practice to choose **Validate** or **Validate and Migrate** 
 
 **Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option. Online migration is currently supported in limited regions - India Central, India South, Australia Southeast and South East Asia.
 
-If **Online** migration is selected, it requires Logical replication to be turned on in the source Single server. If it is not turned on, the migration tool automatically turns on logical replication at the source Single server. Replication can also be setup manually under **Replication** tab in the Single server side pane. Note that either approaches will restart the source single server.
+If **Online** migration is selected, it requires Logical replication to be turned on in the source Single server. If it is not turned on, the migration tool automatically turns on logical replication at the source Single server. Replication can also be setup manually under **Replication** tab in the Single server side pane by setting the Azure replication support level to **Logical**. Note that either approaches will restart the source single server.
 
 Select the **Next** button.
 
