@@ -29,7 +29,7 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
 1. Select ![Download icon.](./media/ea-pricing/download-icon.png) **Download** for the month.
 1. On the Download Usage + Charges page, under Price Sheet, select **Prepare document**. It could take a while to prepare your file.  
     :::image type="content" source="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png" alt-text="Screenshot shows the Download Usage + Charges options." lightbox="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png":::
-1. When the file is ready to download, select **Download file**.
+1. When the file is ready to download, select **Download Azure price sheet**.
 
 For billing periods January 2023 onwards, a new version of the Azure price sheet is available for download. The new version features a new schema. It's a .ZIP file to support large amounts of data.
 
