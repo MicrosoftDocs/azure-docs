@@ -120,16 +120,12 @@ In this chat session, you'll be instructing the assistant to aid in understandin
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Build** from the top menu and then select **Playground** from the collapsible left menu.
 1. In the **Configuration** pane on the right side of the chat experience, turn on the option for **Vision** under **Enhancements**.
-1. In the **Vision enhancements settings** dialog, select an Azure AI Vision resource and then select **Save**. 
 
-    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident-enhanced-settings.png" alt-text="Screenshot of the vision enhancement settings for video analysis in the chat playground." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident-enhanced-settings.png":::
-
-    > [!NOTE]
-    > You might need to select **Vision** enhancement button again to apply the changes.
+    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-turn-on-enhancement.png" alt-text="Screenshot of the vision enhancement settings for video analysis in the chat playground." lightbox="../media/quickstarts/multimodal-vision/chat-video-turn-on-enhancement.png":::
 
 1. Make sure that **Chat** is selected from the **Mode** dropdown. Select your deployed GPT-4 Turbo with Vision model from the **Deployment** dropdown. Under the chat session text box, you should now see the option to select a file.
 
-    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-multi-modal-video-select.png" alt-text="Screenshot of the chat playground with mode and deployment and upload video button highlighted." lightbox="../media/quickstarts/multimodal-vision/chat-multi-modal-video-select.png":::
+    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-upload-video.png" alt-text="Screenshot of the chat playground with mode and deployment and upload video button highlighted." lightbox="../media/quickstarts/multimodal-vision/chat-video-upload-video.png":::
 
 1. In the **System message** text box on the **Assistant setup** pane, provide this prompt to guide the assistant: "You're a car insurance and accident expert. Extract detailed information about the car's make, model, damage extent, license plate, airbag deployment status, mileage, and any other observations" You can tailor the prompt for the video or scenario. 
 1. Select **Apply changes** to save your changes, and when prompted to see if you want to update the system message, select **Continue**. 
@@ -141,7 +137,7 @@ In this chat session, you'll be instructing the assistant to aid in understandin
 
 1. The square icon replaces the right arrow icon. If you select the square icon, the assistant stops processing your request. For this quickstart, let the assistant finish its reply. Don't select the square icon.
 
-    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-accident-prompt-stop.png" alt-text="Screenshot of the chat playground with the stop button highlighted." lightbox="../media/quickstarts/multimodal-vision/chat-car-accident-prompt-stop.png":::
+    :::image type="content" source="../media/quickstarts/multimodal-vision/check-box.png" alt-text="Screenshot of the chat playground with the stop button highlighted." lightbox="../media/quickstarts/multimodal-vision/check-box.png":::
 
 1. The assistant should reply with a description of the video.
 
@@ -152,7 +148,7 @@ In this chat session, you'll be instructing the assistant to aid in understandin
 
 1. You should receive a relevant response similar to what's shown here:
 
-    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-video-reply-insurance.png" alt-text="Screenshot of the chat playground with the assistant's follow-up reply for video analysis." lightbox="../media/quickstarts/multimodal-vision/chat-car-video-reply-insurance.png":::
+    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-output.png" alt-text="Screenshot of the chat playground with the assistant's follow-up reply for video analysis." lightbox="../media/quickstarts/multimodal-vision/chat-video-output.png":::
 
 Below are the known limitations of the video prompt enhancements.
 
