@@ -3,7 +3,7 @@ title: Deploy disaster recovery using JetStream DR
 description: Learn how to implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads. 
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/08/2023
+ms.date: 12/11/2023
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -84,7 +84,7 @@ To install JetStream DR in the on-premises data center and in the Azure VMware S
 
 ### Ransomware recovery 
 
-Recovering from ransomware can be a daunting task. Specifically, it can be hard for IT organizations to pinpoint what the “safe point of return is,”. After that safe point is determined, how to ensure that recovered workloads are safeguarded from the attacks reoccurring by sleeping malware or through vulnerable applications. 
+Recovering from ransomware can be a daunting task. It can be hard for IT organizations to pinpoint what the 'safe point of return' is and how to ensure that recovered workloads are safeguarded from the attacks reoccurring by sleeping malware or through vulnerable applications. 
 
 JetStream DR for Azure VMware Solution together with Azure NetApp Files datastores can address these concerns by allowing organizations to recover from an available point-in-time. It ensures workloads are recovered to a functional and isolated network if necessary. It allows the applications to function and communicate with each other without exposing them to any North-South traffic. It also gives security teams a safe place to perform forensics, and conduct other recovery measures. 
 
@@ -110,7 +110,7 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
    >[!NOTE]
    >The **Enable hierarchical namespace** option on the blob isn't supported.   
 
-- An NSX-T network segment configured on Azure VMware Solution private cloud with DHCP enabled on the segment for the transient JetStream Virtual appliances employed during recovery or failover.  
+- An NSX-T network segment configured on Azure VMware Solution private cloud with DHCP enabled on the segment for the transient JetStream Virtual appliances is employed during recovery or failover.  
 
 - A DNS server configured to resolve the IP addresses of Azure VMware Solution vCenter Server, Azure VMware Solution ESXi hosts, Azure Storage account, and the JetStream Marketplace service for the JetStream virtual appliances. 
 
@@ -159,7 +159,7 @@ You can follow these steps for both supported scenarios.
    >The default CloudAdmin user in Azure VMware Solution doesn't have sufficient privileges to install JetStream DR.  Azure VMware Solution enables simplified and automated installation of JetStream DR by invoking the Azure VMware Solution Run command for JetStream DR.  
  
 
-1. Run the **Invoke-PreflightJetDRInstall** cmdlet, which checks if the prerequisites for installing JetStream DR have been met. For example, it validates the required number of hosts, cluster names, and unique VM names. 
+1. Run the **Invoke-PreflightJetDRInstall** cmdlet, which checks if the prerequisites for installing JetStream DR are met. For example, it validates the required number of hosts, cluster names, and unique VM names. 
 
 1. Provide the required values or change the default values, and then select **Run**.
 
