@@ -23,6 +23,9 @@ To successfully make a call against Azure OpenAI, you need the following variabl
 
 ### Environment variables
 
+**NOTE** Spring AI defaults the model name to `gpt-35-turbo`; it is only necessary to provide the SPRING_AI_AZURE_OPENAI_MODEL if you
+have deployed a model with a different name.
+
 # [Command Line](#tab/command-line)
 
 ```CMD
@@ -40,7 +43,9 @@ setx SPRING_AI_AZURE_COGNITIVE_SEARCH_API_KEY REPLACE_WITH_YOUR_AZURE_SEARCH_RES
 ```CMD
 setx SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX REPLACE_WITH_YOUR_INDEX_NAME_HERE
 ```
-
+```CMD
+setx SPRING_AI_AZURE_OPENAI_MODEL "REPLACE_WITH_YOUR_MODEL_NAME_HERE" 
+```
 
 # [PowerShell](#tab/powershell)
 
@@ -64,6 +69,10 @@ setx SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX REPLACE_WITH_YOUR_INDEX_NAME_HERE
 [System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX', 'REPLACE_WITH_YOUR_INDEX_NAME_HERE', 'User')
 ```
 
+```powershell
+[System.Environment]::SetEnvironmentVariable('SPRING_AI_AZURE_OPENAI_MODEL', 'REPLACE_WITH_YOUR_MODEL_NAME_HERE', 'User')
+```
+
 # [Bash](#tab/bash)
 
 ```Bash
@@ -81,6 +90,10 @@ export SPRING_AI_AZURE_COGNITIVE_SEARCH_API_KEY=REPLACE_WITH_YOUR_AZURE_SEARCH_R
 ```Bash
 export SPRING_AI_AZURE_COGNITIVE_SEARCH_INDEX=REPLACE_WITH_YOUR_INDEX_NAME_HERE
 ```
+```Bash
+echo export SPRING_AI_AZURE_OPENAI_MODEL="REPLACE_WITH_YOUR_MODEL_NAME_HERE" >> /etc/environment && source /etc/environment
+```
+
 ---
 
 > [!div class="nextstepaction"]
