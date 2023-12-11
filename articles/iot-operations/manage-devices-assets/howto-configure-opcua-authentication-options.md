@@ -42,15 +42,17 @@ The following table shows the feature support level for authentication in the cu
 ## Configure OPC UA transport authentication
 OPC UA transport authentication requires you to configure the following items:
 - The OPC UA X.509 client transport certificate to be used for transport authentication and encryption.  Currently, this certificate is an application certificate used for all transport in OPC UA Broker.
-- The private key to be used for the authentication and encryption.  Currently, password protected private key files aren't supported. 
+- The private key to be used for the authentication and encryption.  Currently, password protected private key files aren't supported.
 
-In Azure IoT Digital Operations Experience, the first step to set up an asset endpoint requires you to configure the thumbprint of the transport certificate. The following code examples reference the certificate file *./secret/cert.der*.  
+In Azure IoT Digital Operations Experience, the first step to set up an asset endpoint requires you to configure the thumbprint of the transport certificate. The following code examples reference the certificate file *./secret/cert.der* and private key file *./secret/cert.pem*.
+
+Steps for creating a sample demo self-signed certificate for transport authorization with *./secret/cert.der* and *./secret/cert.pem* files are described [below](#create-a-self-signed-certificate-for-transport-authorization).
 
 To complete the configuration of an asset endpoint in Operations Experience, do the following steps:
 
-1. Configure the transport certificate and private key in Azure Key Vault. In the following example, the file *./secret/cert.der* contains the transport certificate and the file *./secret/cert.pem* contains the private key. 
+1. Configure the transport certificate and private key in Azure Key Vault. In the following example, the file *./secret/cert.der* contains the transport certificate and the file *./secret/cert.pem* contains the private key.
 
-    To configure the transport certificate, run the following commands: 
+    To configure the transport certificate, run the following commands:
 
     
     ```bash
@@ -185,10 +187,18 @@ Before you can configure secrets for the username and password, you need to comp
 
     ```bash
     # Create username Secret in Azure Key Vault
-      az keyvault secret set --name "username" --vault-name <azure-key-vault-name> --value "user1" --content-type "text/plain"
-        
+      az keyvault secret set \
+        --name "username" \
+        --vault-name <azure-key-vault-name> \
+        --value "user1" \
+        --content-type "text/plain"
+
     # Create password Secret in Azure Key Vault
-      az keyvault secret set --name "password" --vault-name <azure-key-vault-name> --value "password" --content-type "text/plain"
+      az keyvault secret set \
+        --name "password" \
+        --vault-name <azure-key-vault-name> \
+        --value "password" \
+        --content-type "text/plain"
     ```
 
 1. Configure the secret provider class `aio-opc-ua-broker-user-authentication` custom resource (CR) in the connected cluster. Use a K8s client such as kubectl to configure the secrets (`username` and `password`, in the following example) in the SPC object array in the connected cluster.
