@@ -16,7 +16,7 @@ ms.custom: mvc, engagement-fy24
 
 ## Update (December 2023)
 
-- Envision cost savings with Azure Management services including Azure Monitor, Azure Backup and Azure Update Manager. 
+- Envision cost savings from Azure Management Services (Azure Backup, Azure Monitor and Azure Update Manager) using Azure Migrate Business case. 
 
 ## Update (November 2023)
 - Public Preview: Assess your ASP.NET web apps for migration to Azure Kubernetes Service (AKS). Using this feature, you get insights such as app readiness, cluster rightsizing and cost of running these web apps on AKS. [Learn more](tutorial-assess-aspnet-aks.md).
