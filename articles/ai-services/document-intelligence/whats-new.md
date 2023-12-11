@@ -24,11 +24,19 @@ ms.custom:
 
 Document Intelligence service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
+# December 2023
+
+The [Document Intelligence SDKs](sdk-overview-v4-0.md) targeting REST API **2023-10-31-preview** are now available for use!
+
 ## November 2023
 
-Document Intelligence **2023-10-31-preview**
+The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available. This preview API introduces new and updated capabilities:
 
-The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available for use! This preview API introduces new and updated capabilities:
+* Public preview version [**2023-10-31-preview**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) is currently only available in the following Azure regions:
+
+  * **East US**
+  * **West US2**
+  * **West Europe**
 
 * [Read model](concept-contract.md)
   * Language Expansion for Handwriting: Russian(`ru`), Arabic(`ar`), Thai(`th`).
