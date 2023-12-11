@@ -174,3 +174,5 @@ If you delete the last owner ACL from the data record, you get the error
     ]
 }
 ```
+
+[How to manage legal tags](how-to-manage-legal-tags.md)
