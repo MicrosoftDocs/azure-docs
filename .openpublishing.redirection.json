@@ -15398,6 +15398,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/ai-studio/how-to/deploy-models.md",
+            "redirect_URL": "/azure/ai-studio/concepts/deployments-overview",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
             "redirect_url": "/azure/machine-learning/samples-notebooks",
             "redirect_document_id": false
