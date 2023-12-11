@@ -83,6 +83,7 @@ ACI Spot containers allow customers to run interruptible, containerized workload
 For more information, see [spot container groups](container-instances-spot-containers-overview.md).
 
 ## Considerations
+Do not pass credentials directly through command line arguments. The credentials that are passed through command line arguements will be visible in the backend, exposing it to anyone with access. To prevent any security risks due to this, instead you can store the credential in an environment variable and the credential will not show up as plaintext in the backend.
 
 There are default limits that require quota increases. Not all quota increases may be approved: [Resource availability & quota limits for ACI - Azure Container Instances | Microsoft Learn](./container-instances-resource-and-quota-limits.md)
 
