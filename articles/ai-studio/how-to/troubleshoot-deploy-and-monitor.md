@@ -30,7 +30,7 @@ For the general deployment error code reference, you can go to the [Azure Machin
 **Question:** I got an "out of quota" error message. What should I do?
 
 **Answer:**  For more information about managing quota, see:
--  [Quota for deploying and inferencing a model](../concepts/deployments-overview.md#quota-for-deploying-and-inferencing-a-model)
+-  [Quota for deploying and inferencing a model](../how-to/deploy-models-openai.md#quota-for-deploying-and-inferencing-a-model)
 -  [Manage Azure OpenAI Service quota documentation](/azure/ai-services/openai/how-to/quota?tabs=rest)
 - [Manage and increase quotas for resources with Azure AI Studio](quota.md)
 

@@ -10,7 +10,7 @@ ms.date: 10/09/2023
 
 # Integrate with Azure Communications Gateway's Provisioning API (preview)
 
-This article explains when you need to integrate with Azure Communications Gateway's Provisioning API (preview) and provides a high-level overview of getting started. It's aimed at software developers working for telecommunications providers.
+This article explains when you need to integrate with Azure Communications Gateway's Provisioning API (preview) and provides a high-level overview of getting started. It's aimed at software developers working for telecommunications operators.
 
 The Provisioning API allows you to configure Azure Communications Gateway with the details of your customers and the numbers that you have assigned to them. It's a REST API.
 

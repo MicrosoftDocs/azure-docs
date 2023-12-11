@@ -59,10 +59,10 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
     DeploymentName = "gpt-35-turbo", //This must match the custom deployment name you chose for your model
     Messages =
     {
-        new ChatMessage(ChatRole.System, "You are a helpful assistant."),
-        new ChatMessage(ChatRole.User, "Does Azure OpenAI support customer managed keys?"),
-        new ChatMessage(ChatRole.Assistant, "Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatMessage(ChatRole.User, "Do other Azure AI services support this too?"),
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("Does Azure OpenAI support customer managed keys?"),
+        new ChatRequestAssistantMessage("Yes, customer managed keys are supported by Azure OpenAI."),
+        new ChatRequestUserMessage("Do other Azure AI services support this too?"),
     },
     MaxTokens = 100
 };
@@ -106,10 +106,10 @@ var chatCompletionsOptions = new ChatCompletionsOptions()
     DeploymentName= "gpt-35-turbo", //This must match the custom deployment name you chose for your model
     Messages =
     {
-        new ChatMessage(ChatRole.System, "You are a helpful assistant."),
-        new ChatMessage(ChatRole.User, "Does Azure OpenAI support customer managed keys?"),
-        new ChatMessage(ChatRole.Assistant, "Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatMessage(ChatRole.User, "Do other Azure AI services support this too?"),
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("Does Azure OpenAI support customer managed keys?"),
+        new ChatRequestAssistantMessage("Yes, customer managed keys are supported by Azure OpenAI."),
+        new ChatRequestUserMessage("Do other Azure AI services support this too?"),
     },
     MaxTokens = 100
 };
