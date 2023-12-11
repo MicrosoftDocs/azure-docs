@@ -342,6 +342,7 @@ public static WebPubSubConnection Run(
 > };
 > ```
 
+---
 
 ### Example - `WebPubSubContext`
 
