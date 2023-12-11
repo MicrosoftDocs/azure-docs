@@ -20,7 +20,7 @@ GPT-4 Turbo with Vision is a large multimodal model (LMM) developed by OpenAI th
 The GPT-4 Turbo with Vision model answers general questions about what's present in the images. You can also show it video if you use [Vision enhancement](#use-vision-enhancement-with-video).
 
 > [!TIP]
-> To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Vision model that you have deployed. If you're not familiar with the Chat Completion API, see the [GPT-4 Turbo & GPT-4 how-to guide](/azure/ai-services/openai/how-to/chatgpt?tabs=python&pivots=programming-language-chat-completions).
+> To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Turbo with Vision model that you have deployed. If you're not familiar with the Chat Completion API, see the [GPT-4 Turbo & GPT-4 how-to guide](/azure/ai-services/openai/how-to/chatgpt?tabs=python&pivots=programming-language-chat-completions).
 
 ## Call the Chat Completion APIs
 
@@ -29,7 +29,7 @@ The following REST command shows the most basic way to use the GPT-4 Turbo with 
 Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-12-01-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
-- DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 
+- DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
 
 **Required headers**: 
 - `Content-Type`: application/json 
@@ -74,7 +74,7 @@ The **object grounding** integration brings a new layer to data analysis and use
 Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
-- DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 
+- DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
 
 **Required headers**: 
 - `Content-Type`: application/json 
