@@ -10,6 +10,9 @@ ms.custom: template-how-to
 ---
 
 # How to manage users
+In this article, you learn how to add or remove ACLs from the data record in your Azure Data Manager for Energy instance.
+
+## Create a record with ACLs
 
 **Request format**
 
