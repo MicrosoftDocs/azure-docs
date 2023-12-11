@@ -42,7 +42,7 @@ This guide covers the following replication scenarios:
 
 ## Protect VMs
 
-1. Log into **vSphere Client** on the source site and access **HCX plugin**.
+1. Sign in to **vSphere Client** on the source site and access **HCX plugin**.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="Screenshot shows the VMware HCX option in the vSphere Client." border="true":::
 
@@ -94,7 +94,7 @@ This guide covers the following replication scenarios:
 
 ## Complete a test recover of VMs
 
-1. Log into **vSphere Client** on the remote site, which is the Azure VMware Solution private cloud. 
+1. Sign in to **vSphere Client** on the remote site, which is the Azure VMware Solution private cloud. 
 1. Within the **HCX plugin**, in the Disaster Recovery area, select the vertical ellipses on any VM to display the operations menu and then select **Test Recover VM**.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="Screenshot shows the Test Recovery VM menu option." border="true":::
@@ -115,7 +115,7 @@ This guide covers the following replication scenarios:
 
 ## Recover VMs
 
-1. Log into **vSphere Client** on the remote site, which is the Azure VMware Solution private cloud, and access the **HCX plugin**.
+1. Sign in to **vSphere Client** on the remote site, which is the Azure VMware Solution private cloud, and access the **HCX plugin**.
 
    For the recovery scenario, a group of VMs used for this example.
 
@@ -131,7 +131,7 @@ This guide covers the following replication scenarios:
 
 ## Complete a reverse replication on VMs
 
-1. Log into **vSphere Client** on your Azure VMware Solution private cloud, and access **HCX plugin**.
+1. Sign in to **vSphere Client** on your Azure VMware Solution private cloud, and access **HCX plugin**.
    
    >[!NOTE]
    > Ensure the original VMs on the source site are powered off before you start the reverse replication. The operation fails if the VMs aren't powered off.
