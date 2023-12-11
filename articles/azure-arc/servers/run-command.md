@@ -36,18 +36,17 @@ Run Command on Azure Arc-enabled servers supports the following operations:
  
 ## Example scenarios
 
-Let’s suppose we have an Azure Arc-enabled server called “2012DatacenterServer1” in resource group “ContosoRG” with Subscription ID “aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa”. Consider a scenario where we need to provide remote access to an endpoint for Windows Server 2012 / R2 servers. Access to Extended Security Updates enabled by Azure Arc, requires access to the endpoint microsoft.com/pkiops/certs. We want to remotely configure a firewall rule that allows access to this endpoint. We can use Run Command in order to whitelist this endpoint. 
+Suppose you have an Azure Arc-enabled server called “2012DatacenterServer1” in resource group “ContosoRG” with Subscription ID “aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa”. Consider a scenario where you need to provide remote access to an endpoint for Windows Server 2012 / R2 servers. Access to Extended Security Updates enabled by Azure Arc requires access to the endpoint `microsoft.com/pkiops/certs`. You'll need to remotely configure a firewall rule that allows access to this endpoint. Use Run Command in order to whitelist this endpoint. 
 
 ### Example 1: Endpoint access with Run Command
 
-Let’s start off by creating a Run Command script to provide endpoint access to the “microsoft.com/pkiops/certs” endpoint on our target Arc-enabled server using the PUT operation.
+Start off by creating a Run Command script to provide endpoint access to the `microsoft.com/pkiops/certs` endpoint on your target Arc-enabled server using the PUT operation.
 
-To directly provide the script in line, we would use the following operation:
-
-PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
-
+To directly provide the script in line, use the following operation:
 
 ```
+PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
+
 {
   "location": "eastus2",
   "properties": {
@@ -83,12 +82,11 @@ PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
 }
 ```
 
-To instead link to the script file, you can use the Run Command operation’s ScriptURI option. For this we assume, you have prepared a newnetfirewallrule.ps1 file containing the in-line script and uploaded this script to blob storage.
-
-PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
-
+To instead link to the script file, you can use the Run Command operation’s ScriptURI option. For this it's assumed you have prepared a `newnetfirewallrule.ps1` file containing the in-line script and uploaded this script to blob storage.
 
 ```
+PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
+
 {
   "location": "eastus2",
   "properties": {
@@ -130,7 +128,7 @@ Output and error blobs must be the AppendBlob type and their SAS URLs must provi
 
 ### Example 2: Get Run Command details
 
-Suppose we want to verify that we’ve correctly provisioned the Run Command; we can use the GET command to retrieve details on the provisioned Run Command.
+To verify that you've correctly provisioned the Run Command, use the GET command to retrieve details on the provisioned Run Command:
 
 ```
 GET https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
@@ -138,12 +136,12 @@ GET https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
 
 ### Example 3: Update the Run Command
 
-Let’s suppose we want to open up access to an additional endpoint `*.waconazure.com` for connectivity to Windows Admin Center. We can update the existing Run Command with new parameters.
+Let’s suppose you want to open up access to an additional endpoint `*.waconazure.com` for connectivity to Windows Admin Center. You can update the existing Run Command with new parameters:
 
+
+```
 PATCH https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
 
-
-```bash
 {
   "location": "eastus2",
   "properties": {
@@ -178,9 +176,10 @@ PATCH https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaa
 }
 ```
 
+
 ### Example 4: List Run Commands
 
-Ahead of deleting the Run Command for Endpoint Access, we want to make sure that there are no other Run Commands for the Arc-enabled server. We can use the list command to get all of the Run Commands. 
+Ahead of deleting the Run Command for Endpoint Access, make sure there are no other Run Commands for the Arc-enabled server. You can use the list command to get all of the Run Commands:
 
 ```
 LIST https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/
@@ -188,7 +187,7 @@ LIST https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaa
 
 ### Example 5: Delete a Run Command
 
-Suppose that we no longer need the Run Command extension, we can delete using the following command.
+If you no longer need the Run Command extension, you can delete it using the following command:
 
 ```
 DELETE https://management.azure.com/subscriptions/ aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
