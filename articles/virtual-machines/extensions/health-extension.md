@@ -315,7 +315,7 @@ The following example adds the Application Health extension to an existing virtu
 4.	Click **Save** to save your settings
 
 :::image type="content" source="media/application-health-monitoring/existingVM-binaryhealth.png" alt-text="VM Health Monitoring Blade from Azure Portal with Binary Health States enabled":::
-```
+
 ---
 
 ### Rich Health States
@@ -410,7 +410,7 @@ The following example adds the Application Health extension to an existing virtu
 4.	Click **Save** to save your settings
 
 :::image type="content" source="media/application-health-monitoring/existingVM-richhealth.png" alt-text="VM Health Monitoring Blade from Azure Portal with Rich Health States enabled":::
-```
+
 ---
 ## Troubleshoot
 ### View VMHealth
@@ -451,7 +451,7 @@ az vm get-instance-view --name <vmName> --resource-group <rgName>
 3.	Your application health can be observed under the **Health State** field
 
 :::image type="content" source="media/application-health-monitoring/portal-healthstate.png" alt-text="VM Overview blade showing VM Health State.":::
-```
+
 ---
 ### Extension execution output log
 Extension execution output is logged to files found in the following directories:
