@@ -66,13 +66,13 @@ Both connection string and Microsoft Entra ID are supported.
 1. Set the connection string to your local environment variable and start `awps-tunnel`.
 
 # [Linux or macOS](#tab/bash)
-    ```bash
-    export WebPubSubConnectionString="<your connection string>"
-    ```
+```bash
+export WebPubSubConnectionString="<your connection string>"
+```
 # [Windows](#tab/cmd)
-    ```cmd
-    SET WebPubSubConnectionString=<your connection string>
-    ```
+```cmd
+SET WebPubSubConnectionString=<your connection string>
+```
 
 ### Using Azure Identity
 
@@ -80,7 +80,7 @@ Both connection string and Microsoft Entra ID are supported.
 
 1. In your local terminal, use [Azure CLI](/cli/azure/authenticate-azure-cli) `az login` to sign in to your identity.
 
-1. Alternatively, you could set account information via [defined environment variables](/javascript/api/overview/azure/identity-readme?view=azure-node-latest#environment-variables), or use [Managed identity authentication](/entra/identity/managed-identities-azure-resources/overview#which-operations-can-i-perform-on-managed-identities) directly for supported Azure services.
+1. Alternatively, you could set account information via [defined environment variables](/javascript/api/overview/azure/identity-readme#environment-variables), or use [Managed identity authentication](/entra/identity/managed-identities-azure-resources/overview#which-operations-can-i-perform-on-managed-identities) directly for supported Azure services.
 
 ## Run
 1. In your Web PubSub service portal, go to Settings tab, specify the event handler URL template to start with `tunnel:///` to allow tunnel connection.
@@ -89,10 +89,10 @@ Both connection string and Microsoft Entra ID are supported.
 
 1. Run the tool with the hub you set before, for example, connect to an endpoint `https://<awps-host-name>.webpubsub.azure.com` with hub `chat`:
     ```bash
-    awps-tunnel run --hub chat --endpoint https:///<awps-host-name>.webpubsub.azure.com
+    awps-tunnel run --hub chat --endpoint https://<awps-host-name>.webpubsub.azure.com
     ```
 
-    You could also use `awps-tunnel bind --hub chat --endpoint https:///<awps-host-name>.webpubsub.azure.com` to save the configuration and then `awps-tunnel run`.
+    You could also use `awps-tunnel bind --hub chat --endpoint https://<awps-host-name>.webpubsub.azure.com` to save the configuration and then `awps-tunnel run`.
 
 1. You see output like `Open webview at: http://127.0.0.1:4000`, open the link in your browser and you could see the tunnel status and the workflow.
 
