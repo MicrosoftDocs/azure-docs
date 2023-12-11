@@ -116,7 +116,6 @@ You can then use the Azure Database for MySQL flexible server servername (FQDN) 
 - Public endpoint (or public IP or DNS) - An Azure Database for MySQL flexible server instance deployed to a virtual network can't have a public endpoint.
 - After the Azure Database for MySQL flexible server instance is deployed to a virtual network and subnet, you can't move it to another virtual network or subnet. You can't move the virtual network into another resource group or subscription.
 - Subnet size (address spaces) can't be increased once resources exist in the subnet.
-- Azure Database for MySQL flexible server doesn't support Private Link. Instead, it uses VNet injection to make an Azure Database for MySQL flexible server instance available within a VNet.
 
 ## Next steps
 
