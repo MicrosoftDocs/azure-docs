@@ -429,12 +429,10 @@ The benchmark assigns usernames to all of the clients before they start connecti
 | Inbound/Outbound messages per second   | 200   | 400   | 2,000  | 10,000 | 20,000  | 40,000  | 100,000 | 200,000  |
 | Inbound/Outbound bandwidth             | 400 KBps| 800 KBps| 4 MBps| 20 MBps| 40 MBps | 80 MBps | 200 MBps| 400 MBps|
 
-## Premium P2 
-Units greater than 200 are only available in tier Premium_P2.
 
 ## Performance test environments
 
-For all use cases listed earlier, we conducted the performance tests in an Azure environment. At most, we used 50 client VMs and 20 app server VMs. Here are some details:
+For all use cases listed above, we conducted the performance tests in an Azure environment. At most, we used 200 client VMs and 100 app server VMs. Here are some details:
 
 - Client VM size: StandardDS2V2 (2 vCPU, 7G memory)
 
