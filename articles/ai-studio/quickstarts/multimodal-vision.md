@@ -141,14 +141,14 @@ In this chat session, you'll be instructing the assistant to aid in understandin
 
 1. The assistant should reply with a description of the video.
 
-    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-car-reply.png" alt-text="Screenshot of the chat playground with the assistant's reply for video analysis." lightbox="../media/quickstarts/multimodal-vision/chat-video-car-reply.png":::
+    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-output.png" alt-text="Screenshot of the chat playground with the assistant's reply for video analysis." lightbox="../media/quickstarts/multimodal-vision/chat-video-output.png":::
 
 1. Ask a follow-up question related to the analysis of your video. Enter "What should I highlight about this video to my insurance company" and then select the right arrow icon to send.
 
 
 1. You should receive a relevant response similar to what's shown here:
 
-    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-video-output.png" alt-text="Screenshot of the chat playground with the assistant's follow-up reply for video analysis." lightbox="../media/quickstarts/multimodal-vision/chat-video-output.png":::
+    :::image type="content" source="../media/quickstarts/multimodal-vision/chat-car-video-reply-insurance.png" alt-text="Screenshot of the chat playground with the assistant's follow-up reply for video analysis." lightbox="../media/quickstarts/multimodal-vision/chat-car-video-reply-insurance.png":::
 
 Below are the known limitations of the video prompt enhancements.
 
