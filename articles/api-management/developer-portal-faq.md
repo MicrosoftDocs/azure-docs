@@ -149,7 +149,7 @@ The call failure may also be caused by an TLS/SSL certificate, which is assigned
 | Microsoft Internet Explorer | No              |
 | Mozilla Firefox             | Yes<sup>1</sup> |
 
- <small><sup>1</sup> Supported in the two latest production versions.</small>
+ <sup>1</sup> Supported in the two latest production versions.
 
 ## Local development of my self-hosted portal is no longer working
 

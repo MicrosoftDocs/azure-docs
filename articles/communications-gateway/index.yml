@@ -30,6 +30,8 @@ landingContent:
         links:
           - text: Your network and Azure Communications Gateway
             url: role-in-network.md
+          - text: Connectivity
+            url: connectivity.md
           - text: Reliability
             url: reliability-communications-gateway.md
           - text: Security

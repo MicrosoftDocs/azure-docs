@@ -96,6 +96,8 @@
           href: tutorial-enable-recurrent-materialization-run-batch-inference.md
         - name: Enable online materialization and run online inference
           href: tutorial-online-materialization-inference.md
+        - name: Develop a feature set with a custom source
+          href: tutorial-develop-feature-set-with-custom-source.md
         - name: Network isolation with feature store
           href: tutorial-network-isolation-for-feature-store.md
     # v1
@@ -918,6 +920,8 @@
               href: how-to-image-processing-batch.md
             - name: Deploy language models with batch model deployments
               href: how-to-nlp-processing-batch.md
+            - name: Run OpenAI models in batch endpoints to compute embeddings
+              href: how-to-use-batch-model-openai-embeddings.md
         - name: Deploy pipeline components
           items:
             - name: Deploy pipelines with batch endpoints
@@ -970,7 +974,7 @@
           href: ./v1/how-to-deploy-local-container-notebook-vm.md
         - name: GPU inference
           href: ./v1/how-to-deploy-inferencing-gpus.md
-        - name: Azure Cognitive Search
+        - name: Azure AI Search
           href: ./v1/how-to-deploy-model-cognitive-search.md
         - name: FPGA inference
           href: ./v1/how-to-deploy-fpga-web-service.md

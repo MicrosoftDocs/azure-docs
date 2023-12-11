@@ -3,7 +3,7 @@ title:  Microsoft Copilot for Azure (preview) capabilities
 description: Learn about the things you can do with Microsoft Copilot for Azure (preview).
 ms.date: 11/15/2023
 ms.topic: conceptual
-ms.service: azure
+ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
   - ignite-2023-copilotinAzure
@@ -14,6 +14,8 @@ author: JnHs
 # Microsoft Copilot for Azure (preview) capabilities
 
 Microsoft Copilot for Azure (preview) amplifies your impact with AI-enhanced operations.
+
+[!INCLUDE [preview-note](includes/preview-note.md)]
 
 ## Perform tasks
 
@@ -34,6 +36,7 @@ Use Microsoft Copilot for Azure (preview) to perform many basic tasks. There are
   - [Discover performance recommendations with Code Optimizations](optimize-code-application-insights.md)
   - [Author API Management policies](author-api-management-policies.md)
   - [Generate Kubernetes YAML files](generate-kubernetes-yaml.md)
+  - [Troubleshoot apps faster with App Service](troubleshoot-app-service.md)
 
 ## Get information
 

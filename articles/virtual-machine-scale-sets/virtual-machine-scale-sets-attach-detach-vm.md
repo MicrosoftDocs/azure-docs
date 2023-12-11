@@ -5,6 +5,7 @@ author: fitzgeraldsteele
 ms.author: fisteele 
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
+ms.custom: devx-track-azurecli
 ms.date: 05/05/2023
 ms.reviewer: jushiman
 ---

@@ -434,6 +434,6 @@ $RunId = Invoke-AzDataFactoryV2Pipeline `
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](includes/data-factory-quickstart-verify-output-cleanup.md)]
 
-## Next steps
+## Related content
 
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios.

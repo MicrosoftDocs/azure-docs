@@ -47,7 +47,7 @@ Azure Virtual Desktop for Azure Stack HCI supports the same [Remote Desktop clie
 - Windows Server 2022
 - Windows Server 2019
 
-You must license and activate the virtual machines you use for your session hosts on Azure Stack HCI before you use them with Azure Virtual Desktop. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, you need to enable [Azure Benefits on Azure Stack HCI](/azure-stack/hci/manage/azure-benefits). Once Azure Benefits is enabled on Azure Stack HCI 23H2, Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition are activated automatically. For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
+You must license and activate the virtual machines you use for your session hosts on Azure Stack HCI before you use them with Azure Virtual Desktop. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
 
 ## Licensing and pricing
 

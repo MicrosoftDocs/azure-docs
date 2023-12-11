@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: This article provides instructions on how to get started with the Azure AI SDK.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
@@ -127,4 +127,4 @@ The Azure AI code samples in GitHub Codespaces help you quickly get started with
 
 - [Get started building a sample copilot application](https://github.com/azure/aistudio-copilot-sample)
 - [Try the Azure AI CLI from Azure AI Studio in a browser](vscode-web.md)
-- [Azure SDK for Python reference documentation](/python/api/overview/azure)
+- [Azure SDK for Python reference documentation](/python/api/overview/azure/ai)

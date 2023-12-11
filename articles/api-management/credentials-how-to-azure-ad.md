@@ -132,8 +132,8 @@ On the **Connection** tab, complete the steps for your connection to the provide
         <inbound>
             <base />
             <get-authorization-context provider-id="MicrosoftEntraID-01" authorization-id="first-connection" context-variable-name="auth-context" identity-type="managed" ignore-error="false" />
-           <set-header name="credential" exists-action="override">
-               <value>@("Bearer " + ((credential)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
+           <set-header name="Authorization" exists-action="override">
+               <value>@("Bearer " + ((Authorization)context.Variables.GetValueOrDefault("auth-context"))?.AccessToken)</value>
            </set-header>
         </inbound>
         <backend>

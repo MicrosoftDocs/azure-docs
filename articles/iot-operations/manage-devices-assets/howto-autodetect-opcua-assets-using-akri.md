@@ -3,11 +3,11 @@ title: Discover OPC UA data sources using Azure IoT Akri
 description: How to discover OPC UA data sources by using Azure IoT Akri Preview
 author: timlt
 ms.author: timlt
-# ms.subservice: akri
+ms.subservice: akri
 ms.topic: how-to 
 ms.date: 11/14/2023
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to autodetect and create OPC UA data sources in my  
+# CustomerIntent: As an industrial edge IT or operations user, I want to discover and create OPC UA data sources in my  
 # industrial edge environment so that I can reduce manual configuration overhead. 
 ---
 
@@ -148,6 +148,8 @@ To configure the custom OPC UA discovery handler with asset detection, first you
     ```bash
     kubectl get akrii -n azure-iot-operations
     ```
+
+    Note that it may take a few minutes for the instance to show up.
 
     You can inspect the instance custom resource by using an editor such as OpenLens, under `CustomResources/akri.sh/Instance`.
 

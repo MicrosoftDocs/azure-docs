@@ -51,7 +51,7 @@ Array functions perform transformations on data structures that are arrays. Thes
 | [union](data-flow-expressions-usage.md#union) | Returns a union set of distinct items from 2 arrays.|
 |||
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [cached lookup functions](data-flow-cached-lookup-functions.md).

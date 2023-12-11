@@ -2,6 +2,7 @@
 title: Azure Service Bus - messaging exceptions | Microsoft Docs
 description: This article provides a list of Azure Service Bus messaging exceptions and suggested actions to taken when the exception occurs.
 ms.topic: article
+ms.custom: devx-track-dotnet
 ms.date: 02/17/2023
 ---
 

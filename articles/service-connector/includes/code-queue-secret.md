@@ -37,7 +37,7 @@ ms.author: wchi
         .connectionString(connectionString)
         .buildClient();
     ```
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 Refer to [Spring Cloud Azure Storage Queue Operation Code Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/storage/spring-cloud-azure-starter-storage-queue/storage-queue-client) to set up your Spring application. Two sets of configuration properties are provided depending on the version of Spring Cloud Azure (below 4.0 and above 4.0). For more information, check [Azure Storage Queue SDK Configuration Changes](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#configuration-spring-cloud-azure-starter-integration-storage-queue).
 
 ### [Python](#tab/python)
