@@ -253,10 +253,8 @@ No output for a successful response
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-Create a legal tag for your data partition.
 > [!div class="nextstepaction"]
 > [How to manage legal tags](how-to-manage-legal-tags.md)
-Manage ACL or data groups for your data.
 > [!div class="nextstepaction"]
 > [How to manage ACLs](how-to-manage-acls.md)
 
