@@ -2,21 +2,21 @@
   href: ./index.yml
 - name: Overview 
   items:
-    - name: Azure for Students
-      items:
-      - name: What is Azure for Students?
+  - name: Azure for Students
+    items:
+    - name: What is Azure for Students?
       href: about-azure-for-students.md
-    - name: Azure for Students Starter
-      items:
-      - name: What is Azure for Students Starter?
+  - name: Azure for Students Starter
+    items:
+    - name: What is Azure for Students Starter?
       href: about-azure-for-students-starter.md
-    - name: Education Hub
-      items:
+  - name: Education Hub
+    items:
     - name: What is the Education Hub?
       href: about-education-hub.md
-    - name: Azure Dev Tools for Teaching
-      items:
-     - name: What is Azure Dev Tools for Teaching?
+  - name: Azure Dev Tools for Teaching
+    items:
+    - name: What is Azure Dev Tools for Teaching?
       href: azure-dev-tools-teaching/about-program.md
 - name: Quickstarts
   items:
