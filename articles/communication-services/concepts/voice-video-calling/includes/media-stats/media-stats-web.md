@@ -130,7 +130,7 @@ It is recommended that you print out the event using the `console.log` to observ
 
 ### Audio receive metrics
 
-In the SDK versions ealier than 1.20.1, `jitterBufferDelayInMs` existed as `jitterBufferInMs` in other stats.
+In the SDK versions ealier than 1.20.1, `jitterBufferDelayInMs` existed as `jitterBufferInMs`.
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
@@ -177,7 +177,7 @@ Staring from SDK version 1.20.1, the video send metrics included the `altLayouts
 
 ### Video receive metrics
 
-In the SDK versions ealier than 1.20.1, `jitterBufferDelayInMs` existed as `jitterBufferInMs` in other stats.
+In the SDK versions ealier than 1.20.1, `jitterBufferDelayInMs` existed as `jitterBufferInMs`.
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
@@ -215,8 +215,11 @@ Currently, statistics fields are the same as *video receive metrics*.
 ### Transport metrics
 
 The transport related metrics were separated out after ACS Web SDK 1.20.1.
-In previous versions, `rttInMs` existed as `pairRttInMs` in the stats for audio, video, and screenShare..
+
+In earlier versions, `rttInMs` existed as `pairRttInMs` in the stats for audio, video, and screenShare.
+
 `availableIncomingBitrate` was `availableBitrate` in the receive stats for audio, video, and screenShare.
+
 `availableOutgoingBitrate` was `availableBitrate` in the send stats for audio, video, and screenShare.
 
 | Metric name | Description | Comments |
