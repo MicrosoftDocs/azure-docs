@@ -80,7 +80,7 @@ public static void Run(
 }
 ```
 
-`WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event, when server can check and deny the client request, or send messages to the caller directly. `Connect` event respects `ConnectEventResponse` and `EventErrorResponse`, and user event respects `UserEventResponse` and `EventErrorResponse`, rest types not matching current scenario will be ignored. And if `EventErrorResponse` is returned, service will drop the client connection.
+`WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event, when server can check and deny the client request, or send messages to the caller directly. `Connect` event respects `ConnectEventResponse` and `EventErrorResponse`, and user event respects `UserEventResponse` and `EventErrorResponse`, rest types not matching current scenario is ignored. And if `EventErrorResponse` is returned, service drops the client connection.
 
 ```cs
 [FunctionName("WebPubSubTriggerReturnValueFunction")]
@@ -121,7 +121,7 @@ module.exports = function (context, data) {
 }
 ```
 
-`WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event, when server can check and deny the client request, or send message to the request client directly. In JavaScript weakly typed language, it will be deserialized regarding the object keys. And `EventErrorResponse` will have the highest priority compare to rest objects, that if `code` is in the return, then it will be parsed to `EventErrorResponse` and client connection will be dropped.
+`WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event, when server can check and deny the client request, or send message to the request client directly. In JavaScript weakly typed language, it's deserialized regarding the object keys. And `EventErrorResponse` has the highest priority compare to rest objects, that if `code` is in the return, then it's parsed to `EventErrorResponse` and client connection is dropped.
 
 ```js
 module.exports = async function (context) {
@@ -164,20 +164,20 @@ The following table explains the binding configuration properties that you set i
 | **hub** | Hub | Required - the value must be set to the name of the Web PubSub hub for the function to be triggered. We support set the value in attribute as higher priority, or it can be set in app settings as a global value. |
 | **eventType** | WebPubSubEventType | Required - the value must be set as the event type of messages for the function to be triggered. The value should be either `user` or `system`. |
 | **eventName** | EventName | Required - the value must be set as the event of messages for the function to be triggered. </br> For `system` event type, the event name should be in `connect`, `connected`, `disconnected`. </br> For user-defined subprotocols, the event name is `message`. </br> For system supported subprotocol `json.webpubsub.azure.v1.`, the event name is user-defined event name. |
-| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value will be used for signature validation. And the value will be auto resolved with app settings "WebPubSubConnectionString" by default. And `null` means the validation is not needed and will always succeed. |
+| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for signature validation. And the value is auto resolved with app settings "WebPubSubConnectionString" by default. And `null` means the validation is not needed and always succeed. |
 
 ### Usages
 
 In C#, `WebPubSubEventRequest` is type recognized binding parameter, rest parameters are bound by parameter name. Check table below of available parameters and types.
 
-In weakly typed language like JavaScript, `name` in `function.json` will be used to bind the trigger object regarding below mapping table. And will respect `dataType` in `function.json` to convert message accordingly when `name` is set to `data` as the binding object for trigger input. All the parameters can be read from `context.bindingData.<BindingName>` and will be `JObject` converted. 
+In weakly typed language like JavaScript, `name` in `function.json` is used to bind the trigger object regarding below mapping table. And respect `dataType` in `function.json` to convert message accordingly when `name` is set to `data` as the binding object for trigger input. All the parameters can be read from `context.bindingData.<BindingName>` and is `JObject` converted. 
 
 | Binding Name | Binding Type | Description | Properties |
 |---------|---------|---------|---------|
 |request|`WebPubSubEventRequest`|Describes the upstream request|Property differs by different event types, including derived classes `ConnectEventRequest`, `ConnectedEventRequest`, `UserEventRequest` and `DisconnectedEventRequest` |
 |connectionContext|`WebPubSubConnectionContext`|Common request information| EventType, EventName, Hub, ConnectionId, UserId, Headers, Origin, Signature, States |
 |data|`BinaryData`,`string`,`Stream`,`byte[]`| Request message data from client in user `message` event | -|
-|dataType|`WebPubSubDataType`| Request message dataType, supports `binary`, `text`, `json` | -|
+|dataType|`WebPubSubDataType`| Request message dataType, which supports `binary`, `text`, `json` | -|
 |claims|`IDictionary<string, string[]>`|User Claims in system `connect` request | -|
 |query|`IDictionary<string, string[]>`|User query in system `connect` request | -|
 |subprotocols|`IList<string>`|Available subprotocols in system `connect` request | -|
@@ -189,7 +189,7 @@ In weakly typed language like JavaScript, `name` in `function.json` will be used
 
 ### Return response
 
-`WebPubSubTrigger` will respect customer returned response for synchronous events of `connect` and user event. Only matched response will be sent back to service, otherwise, it will be ignored. Besides, `WebPubSubTrigger` return object supports users to `SetState()` and `ClearStates()` to manage the metadata for the connection. And the extension will merge the results from return value with the original ones from request `WebPubSubConnectionContext.States`. Value in existing key will be overwrite and value in new key will be added.
+`WebPubSubTrigger` respects customer returned response for synchronous events of `connect` and user event. Only matched response is sent back to service, otherwise, it's ignored. Besides, `WebPubSubTrigger` return object supports users to `SetState()` and `ClearStates()` to manage the metadata for the connection. And the extension merges the results from return value with the original ones from request `WebPubSubConnectionContext.States`. Value in existing key is overwrite and value in new key is added.
 
 | Return Type | Description | Properties |
 |---------|---------|---------|
@@ -438,7 +438,7 @@ The following table explains the binding configuration properties that you set i
 | **type** | n/a | Must be set to `webPubSubContext`. |
 | **direction** | n/a | Must be set to `in`. |
 | **name** | n/a | Variable name used in function code for input Web PubSub request. |
-| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value will be used for [Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) and Signature validation. The value will be auto resolved with "WebPubSubConnectionString" by default. And `null` means the validation is not needed and will always succeed. |
+| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for [Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) and Signature validation. The value is auto resolved with "WebPubSubConnectionString" by default. And `null` means the validation is not needed and always succeed. |
 
 ### Usage
 
@@ -489,7 +489,7 @@ For `WebPubSubEventRequest`, it's deserialized to different classes that provide
 | `DisconnectedEventRequest` | Used in system `Disconnected` event type | Reason |
 
 > [!NOTE]
-> Though the `WebPubSubContext` is a input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge is not supported. The return response will still be respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.
+> Though the `WebPubSubContext` is a input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge is not supported. The return response is still respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.
 
 ## Output binding
 
