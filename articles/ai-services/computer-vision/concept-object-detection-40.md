@@ -24,6 +24,9 @@ Try out the capabilities of object detection quickly and easily in your browser 
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
+> [!TIP]
+> You can use the Object detection feature through the [Azure OpenAI](/azure/ai-services/openai/overview) service. The **GPT-4 Turbo with Vision** model lets you chat with an AI assistant that can analyze the images you share, and the Vision Enhancement option uses Image Analysis to give the AI assistance more details (readable text and object locations) about the image. For more information, see the [GPT-4 Turbo with Vision quickstart](/azure/ai-services/openai/gpt-v-quickstart).
+
 ## Object detection example
 
 The following JSON response illustrates what the Analysis 4.0 API returns when detecting objects in the example image. 
