@@ -123,7 +123,7 @@ If you don't already have a search index created for your images:
 
 1. Enter your data source details:
 
-    :::image type="content" source="../media/data-add/use-your-image-data/add-image-data-ai-search.png" alt-text="A screenshot showing the azure ai search index selection." lightbox="../media/data-add/use-your-image-data/add-image-data-ai-search.png":::
+    :::image type="content" source="../media/data-add/use-your-image-data/add-image-data-ai-search.png" alt-text="A screenshot showing the Azure AI search index selection." lightbox="../media/data-add/use-your-image-data/add-image-data-ai-search.png":::
 
     - **Subscription**: Select the Azure subscription that contains the Azure OpenAI resource you want to use.
     - **Azure AI Search service**: Select your Azure AI Search service resource that has an image search index.
@@ -133,7 +133,7 @@ If you don't already have a search index created for your images:
 
 1. Review the details you entered. 
 
-    :::image type="content" source="../media/data-add/use-your-image-data/add-your-data-ai-search-review-finish.png" alt-text="Screenshot of the review and finish page for adding data via azure ai search." lightbox="../media/data-add/use-your-image-data/add-your-data-ai-search-review-finish.png":::
+    :::image type="content" source="../media/data-add/use-your-image-data/add-your-data-ai-search-review-finish.png" alt-text="Screenshot of the review and finish page for adding data via Azure AI search." lightbox="../media/data-add/use-your-image-data/add-your-data-ai-search-review-finish.png":::
 
 1. Select **Save and close**.
 
@@ -179,7 +179,7 @@ After you have a blob storage populated with image files and at least one metada
     >
     > When adding data to the selected storage account for the first time in Azure AI Studio, you might be prompted to turn on [cross-origin resource sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services). Azure AI Studio and Azure OpenAI need access your Azure Blob storage account.  
 
-    :::image type="content" source="../media/data-add/use-your-image-data/add-image-data-blob.png" alt-text="A screenshot showing the azure storage account and azure ai search index selection." lightbox="../media/data-add/use-your-image-data/add-image-data-blob.png":::
+    :::image type="content" source="../media/data-add/use-your-image-data/add-image-data-blob.png" alt-text="A screenshot showing the Azure storage account and Azure AI search index selection." lightbox="../media/data-add/use-your-image-data/add-image-data-blob.png":::
 
     - **Subscription**: Select the Azure subscription that contains the Azure OpenAI resource you want to use.
     - **Storage resource** and **Storage container**: Select the Azure Blob storage resource where the image files and metadata are already stored. 
@@ -190,7 +190,7 @@ After you have a blob storage populated with image files and at least one metada
 
 1. Review the details you entered. 
 
-    :::image type="content" source="../media/data-add/use-your-image-data/add-your-data-blob-review-finish.png" alt-text="Screenshot of the review and finish page for adding data via azure blob storage." lightbox="../media/data-add/use-your-image-data/add-your-data-blob-review-finish.png":::
+    :::image type="content" source="../media/data-add/use-your-image-data/add-your-data-blob-review-finish.png" alt-text="Screenshot of the review and finish page for adding data via Azure blob storage." lightbox="../media/data-add/use-your-image-data/add-your-data-blob-review-finish.png":::
 
 1. Select **Save and close**. 
 
@@ -211,9 +211,9 @@ After you add your image data as described in the [previous section](#add-your-i
     
     :::image type="content" source="../media/data-add/use-your-image-data/chat-with-data.png" alt-text="Screenshot of the assistant's reply with grounding data." lightbox="../media/data-add/use-your-image-data/chat-with-data.png":::
 
-## Additional Tips
+## Additional tips
 
-### Adding and Removing Data Sources 
+### Adding and removing data sources 
 Azure OpenAI currently allows only one data source to be used per a chat session. If you would like to add a new data source, you must remove the existing data source first. This can be done by selecting **Remove data source** under your data source information.
 
 When you remove a data source, you'll see a warning message. Removing a data source clears the chat session and resets all playground settings.
