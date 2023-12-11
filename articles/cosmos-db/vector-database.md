@@ -2,6 +2,8 @@
 title: Vector database
 titleSuffix: Azure Cosmos DB
 description: Vector database extension and retrieval augmented generation (RAG) implementation.
+author: jacodel
+ms.author: sidandrews
 ms.author: wangwmwx
 ms.service: cosmos-db
 ms.topic: conceptual
