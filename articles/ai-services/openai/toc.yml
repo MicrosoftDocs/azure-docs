@@ -144,6 +144,8 @@ items:
       href: /legal/cognitive-services/openai/code-of-conduct?context=/azure/ai-services/openai/context/context
     - name: Data, privacy, and security
       href: /legal/cognitive-services/openai/data-privacy?context=/azure/ai-services/openai/context/context
+    - name: Customer Copyright Commitment
+      href: /legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context
 - name: Reference
   items:
     - name: Azure Resource Manager/Bicep/Terraform
