@@ -10,7 +10,7 @@ author: asudbring
 #Customer intent: As a cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---
 
-# Limit Network Traffic with Azure Firewall in Azure Kubernetes Service (AKS) 
+# Limit network traffic with Azure Firewall in Azure Kubernetes Service (AKS) 
 
 Learn how to use the [Outbound network and FQDN rules for AKS clusters][outbound-fqdn-rules] to control egress traffic using the Azure Firewall in AKS. To simplify this configuration, Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) Fully Qualified Domain Name (FQDN) tag that restricts outbound traffic from the AKS cluster. This article shows how you can configure your AKS Cluster traffic rules through Azure firewall.
 
@@ -143,12 +143,12 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
   >
   > If you use secure access to the AKS API server with [authorized IP address ranges](./api-server-authorized-ip-ranges.md), you need to add the firewall public IP into the authorized IP range.
 
-### Create a UDR with a hop to Azure Firewall
+### Create a route with a hop to Azure Firewall
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you can create a route table.
 
 > [!IMPORTANT]
-> Outbound type of UDR requires a route for 0.0.0.0/0 and a next hop destination of NVA in the route table.
+> Outbound type of UDR (`userDefinedRouting`) requires a route for 0.0.0.0/0 and a next hop destination of NVA in the route table.
 > The route table already has a default 0.0.0.0/0 to the Internet. Without a public IP address for Azure to use for Source Network Address Translation (SNAT), simply adding this route won't provide you outbound Internet connectivity. AKS validates that you don't create a 0.0.0.0/0 route pointing to the Internet but instead to a gateway, NVA, etc.
 > When using an outbound type of UDR, a load balancer public IP address for **inbound requests** isn't created unless you configure a service of type *loadbalancer*. AKS never creates a public IP address for **outbound requests** if you set an outbound type of UDR.
 > For more information, see [Outbound rules for Azure Load Balancer](../load-balancer/outbound-rules.md#scenario6out).
