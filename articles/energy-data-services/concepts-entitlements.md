@@ -60,6 +60,11 @@ A full list of entitlements API endpoints can be found in [OSDU entitlement serv
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-> [!div class="nextstepaction"]
-> [How to manage users](how-to-manage-users.md)
+As the next step, you can do the following:
+1. [How to manager users](how-to-manage-users.md)
+2. [How to manage legal tags](how-to-manage-legal-tags.md)
+3. [How to manage ACLs](how-to-manage-acls.md)
+
+You can also ingest data into your Azure Data Manager for Energy instance with
+1. [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md)
+2. [Tutorial on manifest ingestion](tutorial-manifest-ingestion.md)
