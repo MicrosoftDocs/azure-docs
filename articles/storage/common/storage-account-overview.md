@@ -8,7 +8,7 @@ author: akashdubey-ms
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 12/06/2023
 ms.author: akashdubey
 ---
 
@@ -121,6 +121,20 @@ To learn how to create a storage account with Azure DNS Zone endpoints, see [Cre
 The Azure DNS zone endpoints preview is available in all public regions. The preview is not available in any government cloud regions.
 
 To register for the preview, follow the instructions provided in [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md#register-preview-feature). Specify `PartitionedDnsPublicPreview` as the feature name and `Microsoft.Storage` as the provider namespace.
+
+### CNAME records, subdomains and IP addresses
+
+Each storage account endpoint points to a chain of DNS CNAME records which eventually point to a DNS A record. The number of records and the subdomains that are associated with each record can vary between accounts and can depend on the storage account type and how the account is configured.
+
+The storage account endpoint is stable and does not change. However, the CNAME records in a given chain can change and you won't be notified when a change occurs. If you host a private DNS service in Azure, then these changes can impact your configuration. 
+
+Consider the following guidelines:
+
+- The CNAME chain associated with a storage account endpoint can change without notice. Applications and environments should not take a dependency on the number of of CNAME records or the sub-domains that are associated with those CNAME records.
+
+- The A record's IP address that is returned by the DNS resolution of a storage account endpoint can change frequently.
+
+- The applications and operating systems should always honor the time-to-live (TTL) associated with the CNAME record. Caching the the value of the CNAME record beyond the TTL could lead to unintended behavior.
 
 ## Migrate a storage account
 

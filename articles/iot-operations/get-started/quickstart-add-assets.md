@@ -21,6 +21,8 @@ An _asset_ is a physical device or logical entity that represents a device, a ma
 
 _OPC UA servers_ are software applications that communicate with assets. _OPC UA tags_ are data points that OPC UA servers expose. OPC UA tags can provide real-time or historical data about the status, performance, quality, or condition of assets.
 
+In this quickstart, you use the Azure IoT Operations portal to create your assets. You can also use the [Azure CLI to complete some of these tasks](/cli/azure/iot/ops/asset).
+
 ## Prerequisites
 
 Complete [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](quickstart-deploy.md) before you begin this quickstart.
@@ -33,7 +35,7 @@ The data that OPC UA servers expose can have a complex structure and can be diff
 
 ## Sign into the Azure IoT Operations portal
 
-To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign with your Microsoft Entra ID credentials.
+To create asset endpoints, assets and subscribe to OPC UA tags and events, use the Azure IoT Operations (preview) portal. Navigate to the [Azure IoT Operations](https://iotoperations.azure.com) portal in your browser and sign in with your Microsoft Entra ID credentials.
 
 > [!IMPORTANT]
 > You must use a work or school account to sign in to the Azure IoT Operations portal. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#azure-iot-operations-preview-portal).
@@ -68,9 +70,19 @@ To add an asset endpoint:
 
 1. To save the definition, select **Create**.
 
-This configuration deploys a new module called `opc-ua-connector-0` to the cluster. After you define an asset, an OPC UA connector pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server.
+    This configuration deploys a new asset endpoint called `opc-ua-connector-0` to the cluster. You can use `kubectl` to view the asset endpoints:
 
-When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
+    ```console
+    kubectl get assetendpointprofile -n azure-iot-operations
+    ```
+
+    After you define an asset, an OPC UA connector pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server. You can use `kubectl` to view the discovery pod that was created when you added the asset endpoint. The pod name looks like `aio-opc-opc.tcp-1-8f96f76-kvdbt`:
+
+    ```console
+    kubectl get pods -n azure-iot-operations
+    ```
+
+    When the OPC PLC simulator is running, data flows from the simulator, to the connector, to the OPC UA broker, and finally to the MQ broker.
 
 To enable the asset endpoint to use an untrusted certificate:
 
@@ -264,6 +276,8 @@ To verify the configuration, run the following command to view the Akri instance
 ```console
 kubectl get akrii -n azure-iot-operations
 ```
+
+Note that it may take a few minutes for the instance to show up.
 
 The output from the previous command looks like the following example. You may need to wait for a few seconds for the Akri instance to be created:
 
