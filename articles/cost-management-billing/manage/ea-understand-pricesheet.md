@@ -17,7 +17,7 @@ This article applies to an Azure billing account for an Enterprise Agreement (EA
 
 Depending on the policies set for your organization by the Enterprise Admin, only certain administrative roles provide access to your organization's EA pricing information. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
 
-Starting January 2023 and later, a new version of the Azure Price Sheet is available for download. The new version features a new schema. It's a .ZIP file to support large amounts of data.
+For billing periods January 2023 onwards, a new version of the Azure price sheet is available for download. The new version features a new schema. It's a .ZIP file to support large amounts of data.
 
 Azure reservation pricing is available in the Azure Price Sheet for the current billing period. If you want to maintain an ongoing record of Azure reservation pricing, we recommend that you download your Azure Price Sheet for each billing period.
 
