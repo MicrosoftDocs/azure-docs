@@ -1,16 +1,16 @@
 ---
-title: Get started using GPT-4 Turbo with Vision on your images and video with the Azure AI Studio 
+title: Get started using GPT-4 Turbo with Vision on your images and videos in Azure AI Studio 
 titleSuffix: Azure AI Studio
-description: Get started using GPT-4 Turbo with Vision on your images and video with the Azure AI Studio.
+description: Get started using GPT-4 Turbo with Vision on your images and videos in Azure AI Studio.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.topic: quickstart
 ms.date: 12/11/2023
 ms.author: eur
 ---
 
-# Quickstart: Get started using GPT-4 Turbo with Vision on your images and video with the Azure AI Studio 
+# Quickstart: Get started using GPT-4 Turbo with Vision on your images and videos in Azure AI Studio 
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
@@ -31,9 +31,7 @@ Extra usage fees might apply for using GPT-4 Turbo with Vision and Azure AI Visi
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-You need:
-- An [Azure OpenAI resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_openai_tip#create/Microsoft.CognitiveServicesOpenAI) with the GPT-4 Turbo with Vision models deployed in one of the regions that support GPT-4 Turbo with Vision: Australia East, Switzerland North, Sweden Central, and West US.
-- For enhanced image and video prompts, you also need an [Azure AI Vision resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) in one of the regions that support GPT-4 Turbo with Vision: Australia East, Switzerland North, Sweden Central, and West US.
+- An [Azure AI resource](../how-to/create-azure-ai-resource.md) with a GPT-4 Turbo with Vision model deployed in one of the regions that support GPT-4 Turbo with Vision: Australia East, Switzerland North, Sweden Central, and West US. When you deploy from your project's **Deployments** page, select: `gpt-4` as the model name and `vision-preview` as the model version.
 
 ## Start a chat session to analyze images or video
 
