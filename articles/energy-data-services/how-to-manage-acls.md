@@ -73,6 +73,7 @@ Note the recordId from the response for future references.
 
 ## Get created record with ACLs
 Use the recordId for the get call.
+
 **Request format**
 
 ```bash
@@ -101,7 +102,7 @@ curl --location 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/ope
         ],
         "owners": [
             "data.default.owners@opendes.contoso.com",
-            " data.wellbore1.owner@opendes.contoso.com "
+            "data.wellbore1.owner@opendes.contoso.com"
         ]
     },
     "legal": {
@@ -115,5 +116,63 @@ curl --location 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/ope
     },
     "createUser": "preshipping@azureglobal1.onmicrosoft.com",
     "createTime": "2023-12-08T06:33:21.338Z"
+}
+```
+
+## Delete ACLs from the data record
+
+**Request format**
+
+```bash
+curl --location --request PATCH 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/' \
+--header 'data-partition-id: opendes' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer <token>’\
+--header 'Content-Type: application/json-patch+json' \
+--data '
+{
+    "query": {
+        "ids": ["opendes:master-data--Well:999736019023"]
+    },
+    "ops": [
+        { 
+          "op": "remove", 
+          "path": "/acl/owners/0"
+        }
+      ]
+}
+```
+
+**Sample response**
+
+```JSON
+    {
+      "recordCount": 1,
+      "recordIds": [
+          "opendes:master-data--Well:999736019023:1702017200855277"
+      ],
+      "notFoundRecordIds": [],
+      "failedRecordIds": [],
+      "errors": []
+    }
+```
+
+
+If you delete the last owner ACL from the data record, you get the error
+
+```
+**Sample response**
+
+```JSON
+    {
+    "recordCount": 0,
+    "recordIds": [],
+    "notFoundRecordIds": [],
+    "failedRecordIds": [
+        "opendes:master-data--Well: 999736019023"
+    ],
+    "errors": [
+        "Patch operation for record: opendes:master-data--Well:999512152273 aborted. Potentially empty value of legaltags or acl/owners or acl/viewers"
+    ]
 }
 ```
