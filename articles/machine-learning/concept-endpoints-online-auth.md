@@ -48,15 +48,16 @@ __Authorization for control plane operations__
 
 For control plane operations, your identity of choice needs to have a proper Azure role-based access control (Azure RBAC) allowed for access to your resources. Specifically, for CRUD operations on online endpoints and deployments, you need the identity to have the role assigned with the following actions:
 
-| <div style="width:150px">Operation</div> | Required Azure RBAC action | On the scope of |
+[!div class="mx-tdCol2BreakAll"]
+| Operation | Required Azure RBAC action | On the scope of |
 | -- | -- | -- |
-| Create/update operations on online endpoints and deployments | <div style="width:250px">Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/write`</div> | workspace |
-| Delete operations on online endpoints and deployments | <div style="width:250px">Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/delete`</div> | workspace |
-| Create/update/delete operations on online endpoints and deployments via the Azure Machine Learning studio | <div style="width:250px">Owner, contributor, or any role allowing `Microsoft.Resources/deployments/write`</div> | resource group where the workspace belongs |
-| Read operations on online endpoints and deployments | <div style="width:250px">Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/read`</div> | workspace |
-| Fetch an Azure Machine Learning token (`aml_token`) for invoking online endpoints (both managed and Kubernetes) from the workspace | <div style="width:250px">Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action`</div> | endpoint |
-| Fetch a key for invoking online endpoints (both managed and Kubernetes) from the workspace | <div style="width:250px">Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listKeys/action`</div> | endpoint |
-| Regenerate keys for online endpoints (both managed and Kubernetes) | <div style="width:250px">Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/regenerateKeys/action`</div> | endpoint |
+| Create/update operations on online endpoints and deployments | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/write` | workspace |
+| Delete operations on online endpoints and deployments | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/delete` | workspace |
+| Create/update/delete operations on online endpoints and deployments via the Azure Machine Learning studio | Owner, contributor, or any role allowing `Microsoft.Resources/deployments/write` | resource group where the workspace belongs |
+| Read operations on online endpoints and deployments | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/read` | workspace |
+| Fetch an Azure Machine Learning token (`aml_token`) for invoking online endpoints (both managed and Kubernetes) from the workspace | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` | endpoint |
+| Fetch a key for invoking online endpoints (both managed and Kubernetes) from the workspace | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listKeys/action` | endpoint |
+| Regenerate keys for online endpoints (both managed and Kubernetes) | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/regenerateKeys/action` | endpoint |
 | Fetch a Microsoft Entra token (`aad_token`) for invoking _managed_ online endpoints | - |
 
 > [!NOTE]
@@ -94,11 +95,14 @@ __Authorization for data plane operations__
 
 For data plane operations, your identity of choice needs to have a proper Azure role-based access control (Azure RBAC) allowed for access to your resources, only if the endpoint is set to use Microsoft Entra token (`aad_token`). Specifically, for data plane operations on online endpoints and deployments, you need the identity to have the role assigned with the following actions:
 
-| <div style="width:150px">Operation</div> | Required Azure RBAC action | On the scope of |
+[!div class="mx-tdCol2BreakAll"]
+| Operation | Required Azure RBAC action | On the scope of |
 | -- | -- | -- |
-| Invoke _managed_ online endpoints with Microsoft Entra token (`aad_token`). | <div style="width:250px">Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`</div> | the endpoint |
+| Invoke _managed_ online endpoints with Microsoft Entra token (`aad_token`). | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action` | endpoint |
+| Invoke _managed_ online endpoints with key or Azure Machine Learning token (`aml_token`). | - | - |
 | Invoke _Kubernetes_ online endpoints with Microsoft Entra token (`aad_token`). | Not supported | - |
-| Invoke online endpoints with key or Azure Machine Learning token (`aml_token`). | - | - |
+| Invoke _Kubernetes_ online endpoints with key. | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`, `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action`, `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listKeys/action` | endpoint |
+| Invoke _Kubernetes_ online endpoints with Azure Machine Learning token (`aml_token`). | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action` or `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` | endpoint |
 
 
 ## Permissions needed for endpoint identity
@@ -133,7 +137,7 @@ __Examples for user identity__
 - You might use a built-in role `AzureML Data Scientist` that includes the permission action `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*/actions` if you want to control all operations listed in the previous tables for control plane operations and data plane operations altogether.
 - You might use the scope `/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>/onlineEndpoints/<endpointName>` if you want to control the operations for a specific endpoint. You can also use the scope `/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.MachineLearningServices/workspaces/<workspaceName>` if you want to control the operations for all endpoints in a workspace.
 
-__Example for endpoint identity__
+__Examples for endpoint identity__
 
 - You might use a built-in role `Storage Blob Data Reader` that includes the permission data action `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` if you want to allow the user container to read blobs.
 
