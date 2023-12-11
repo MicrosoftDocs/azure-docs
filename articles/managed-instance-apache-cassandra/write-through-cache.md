@@ -1,5 +1,5 @@
 ---
-title: Write-Through Cache
+title: Write-Through Cache in Azure Managed Instance for Apache Cassandra
 description: Write-Through Cache in Azure Managed Instance for Apache Cassandra
 author: IriaOsara
 ms.author: iriaosara
@@ -21,57 +21,57 @@ Azure Managed Instance for Apache Cassandra now has write-through caching (Publi
 
 ## Benefits of using Write-Through Cache
 
-1. **Tail Latency Minimization Focus**: This implementation focuses on minimizing tail latencies to enhance user experience, particularly in time-sensitive applications, by reducing delays in read operations.
+-  **Tail Latency Minimization Focus**: This implementation focuses on minimizing tail latencies to enhance user experience, particularly in time-sensitive applications, by reducing delays in read operations.
 
-1. **Read-Intensive Workload Optimization**: It's for scenarios with heavy read workloads, the design specifically targets and improves read performance, acknowledging the demands of applications where frequent read operations are the norm.
+-  **Read-Intensive Workload Optimization**: It's for scenarios with heavy read workloads, the design specifically targets and improves read performance, acknowledging the demands of applications where frequent read operations are the norm.
 
-1. **Localized Disk Empowerment**: The designated SKUs feature locally attached disks, a key element that empowers architecture with increased IOPS for read operations. This design choice aims to optimize data retrieval efficiency and responsiveness. 
+-  **Localized Disk Empowerment**: The designated SKUs feature locally attached disks, a key element that empowers architecture with increased IOPS for read operations. This design choice aims to optimize data retrieval efficiency and responsiveness. 
 
-1. **IOPS Increase and Tail Latency Reduction**: Locally attached NVMe disks  to boost IOPS for reads and tail latency reduction, this implementation seeks to provide a comprehensive solution that addresses performance bottlenecks for read-intensive workloads.
+-  **IOPS Increase and Tail Latency Reduction**: Locally attached NVMe disks  to boost IOPS for reads and tail latency reduction, this implementation seeks to provide a comprehensive solution that addresses performance bottlenecks for read-intensive workloads.
 
 ## How to access L-series VM SKUs
 
 For already existing Azure Managed Instance for Apache Cassandra clusters, you can access L-series SKUs by adding a new datacenter.
 
-- Select the add button in the **Data Center** pane
+1. Select the add button in the **Data Center** pane
+ 
+    :::image type="content" source="./media/write-through-cache/add-datacenter-page-1.png" alt-text="Screenshot of adding new datacenter." lightbox="./media/write-through-cache/add-datacenter-page-1.png" border="true":::
 
- :::image type="content" source="./media/write-through-cache/add-datacenter-page1.png" alt-text="Add new datacenter." lightbox="./media/write-through-cache/add-datacenter-page1.png" border="true":::
+1. From the `SKU Size` dropdown, select your preferred L-series SKUs
+    :::image type="content" source="./media/write-through-cache/add-datacenter-page-2.png" alt-text="Screenshot of the requirements for new datacenter." lightbox="./media/write-through-cache/add-datacenter-page-2.png" border="true":::
 
-- From the `SKU Size` dropdown, select your preferred L-series SKUs
+    > [!NOTE]
+    > You can access new features of Auto replication when adding a new data center. [Learn more](create-cluster-portal.md#turnkey-replication)
 
- :::image type="content" source="./media/write-through-cache/add-datacenter-page2.png" alt-text="Fill in the requirements for new datacenter." lightbox="./media/write-through-cache/add-datacenter-page2.png" border="true":::
+1. Once the new datacenter is created, you should be able to see it along other existing datacenter(s).
 
-> [!NOTE]
-> You can access new features of Auto replication when adding a new data center. [Learn more](create-cluster-portal.md#turnkey-replication)
-
-- Once the new datacenter is created, you should be able to see it along other existing datacenter(s).
-
- :::image type="content" source="./media/write-through-cache/new-datacenter-page.png" alt-text="The newly created datacenter." lightbox="./media/write-through-cache/new-datacenter-page.png" border="true":::
+     :::image type="content" source="./media/write-through-cache/new-datacenter.png" alt-text="Screenshot of the newly created datacenter." lightbox="./media/write-through-cache/new-datacenter.png" border="true":::
 
 ### Read Intensive Scenario with Write-Through Cache
 
-In this analysis, we explore a sample test designed to compare the IOPs and latency between NVMe and premium managed disks. Through a detailed examination of performance metrics in this comparison, we derive valuable insights into the effectiveness of write-through cache for locally attached NVMe disks.
+In this analysis, we explore a sample test designed to compare the IOPs and latency between NVMe and premium managed disks for reads. Through a detailed examination of performance metrics in this comparison, we derive valuable insights into the effectiveness of write-through cache for locally attached NVMe disks.
 
 #### IOPS local NVMe disks and Premium managed disk
 
 The screenshot shows IOPS of Raid 0 array with four premium managed disks(present day configuration)
 
-:::image type="content" source="./media/write-through-cache/premium-disk-iops.png" alt-text="IOPS test screenshot using premium disks." lightbox="./media/write-through-cache/premium-disk-iops.png" border="true":::
+:::image type="content" source="./media/write-through-cache/premium-disk-iops.png" alt-text="screenshot of IOPS test using premium disks." lightbox="./media/write-through-cache/premium-disk-iops.png" border="true":::
+
 
 IOPS with RAID 1 array of local NVMe disks and Premium managed disks
 
-:::image type="content" source="./media/write-through-cache/nvme-disk-iops.png" alt-text="IOPS test screenshot using locally NVMe disks." lightbox="./media/write-through-cache/nvme-disk-iops.png" border="true":::
+:::image type="content" source="./media/write-through-cache/nvme-disk-iops.png" alt-text="screenshot of IOPS test using locally NVMe disks." lightbox="./media/write-through-cache/nvme-disk-iops.png" border="true":::
 
 We see a better read performance of 248 K IOPS using locally attached NVMe disk.
 
 #### Latency local NVMe disks and Premium managed disk
 Throughput of Raid 0 array with four premium managed disks (present day configuration)
 
-:::image type="content" source="./media/write-through-cache/premium-disk-throughput.png" alt-text="latency test screenshot using premium disks." lightbox="./media/write-through-cache/premium-disk-throughput.png" border="true":::
+:::image type="content" source="./media/write-through-cache/premium-disk-throughput.png" alt-text="screenshot of latency test using premium disks." lightbox="./media/write-through-cache/premium-disk-throughput.png" border="true":::
 
 Throughput with RAID 1 array of local NVMe disks and Premium managed disks
 
-:::image type="content" source="./media/write-through-cache/nvme-disk-throughput.png" alt-text="throughput test screenshot using NVMe disks." lightbox="./media/write-through-cache/nvme-disk-throughput.png" border="true":::
+:::image type="content" source="./media/write-through-cache/nvme-disk-throughput.png" alt-text="screenshot of throughput test using NVMe disks." lightbox="./media/write-through-cache/nvme-disk-throughput.png" border="true":::
 
 We see a higher through put capacity performance of 14.9 GB/s using locally attached NVMe disk.
 
