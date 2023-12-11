@@ -20,6 +20,12 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 ## November 2023
 
+## Analyze Image 4.0 GA
+
+The Analyze 4.0 REST API is now in General Availability. Follow the [Analyze Image 4.0 quickstart](./quickstarts-sdk/image-analysis-client-library-40.md) to get started.
+
+The other features of Image Analysis, such as model customization, background removal, and multi-modal embeddings, remain in public preview. 
+
 ### Face client-side SDK for liveness detection
 
 The Face Liveness SDK supports liveness detection on your users' mobile or edge devices. It's available in Java/Kotlin for Android and Swift/Objective-C for iOS.

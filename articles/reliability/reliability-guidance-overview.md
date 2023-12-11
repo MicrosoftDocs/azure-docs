@@ -96,6 +96,8 @@ Azure reliability guidance contains the following:
 |[Azure Storage Mover](./reliability-azure-storage-mover.md)|
 |[Community Training](reliability-community-training.md) |
 |[Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|
+| [Microsoft Fabric](reliability-fabric.md) |
+
 
 ## Azure Service Manager Retirement
 
