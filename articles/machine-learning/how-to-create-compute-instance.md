@@ -635,6 +635,7 @@ Access the custom applications that you set up in studio:
 :::image type="content" source="media/how-to-create-compute-instance/custom-service-access.png" alt-text="Screenshot shows studio access for your custom applications.":::
 > [!NOTE]
 > It might take a few minutes after setting up a custom application until you can access it via the links. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
+> If your custom image is stored in an Azure Container Registry, you also need to assign the **Contributor** role to users of the application. For information on assigning roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 ## Next steps
 
