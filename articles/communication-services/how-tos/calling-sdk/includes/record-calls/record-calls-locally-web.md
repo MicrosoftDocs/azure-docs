@@ -37,7 +37,7 @@ You can also get a list of local recordings by using the `recordings` property o
 const recordings = localCallRecordingApi.recordings;
 
 recordings.forEach(r => {
-    console.log("MRI: ${r.initiatorIdentifier?.microsoftTeamsUserId}, State: ${r.state});
+    console.log("Microsoft 365 user ID: ${r.initiatorIdentifier?.microsoftTeamsUserId}, State: ${r.state});
 ```
 
 You can subscribe to recording changes:
