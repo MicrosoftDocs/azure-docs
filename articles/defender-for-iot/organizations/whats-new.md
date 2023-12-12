@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 11/01/2023
+ms.date: 12/06/2023
 ms.custom: enterprise-iot
 ---
 
@@ -15,6 +15,18 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## December 2023
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Streamlined alert records in the SecurityAlert table](#streamlined-alert-records-in-the-securityalert-table)|
+
+### Streamlined alert records in the SecurityAlert table
+
+When integrating with Microsoft Sentinel, the Microsoft Sentinel **SecurityAlert** table is now updated immediately only for changes in alert status and severity. Other changes in alerts, such as last detection of an existing alert, are aggregated over several hours and display only the latest change made.
+
+For more information, see [Understand multiple records per alert](iot-solution.md#understand-multiple-records-per-alert).
 
 ## November 2023
 

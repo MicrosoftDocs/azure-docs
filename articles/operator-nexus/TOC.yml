@@ -132,8 +132,8 @@
       items:
         - name: Set up Defender for Cloud security
           href: howto-set-up-defender-for-cloud-security.md
-        - name: Use Azure Policy for AKS Clusters
-          href: howto-use-azure-policy-for-aks-cluster-security.md
+        - name: Use Azure Policy with Operator Nexus resources
+          href: howto-use-azure-policy.md
         - name: MDE Runtime Protection
           href: howto-use-mde-runtime-protection.md
 

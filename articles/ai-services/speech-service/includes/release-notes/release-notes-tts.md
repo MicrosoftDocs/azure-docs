@@ -6,6 +6,12 @@ ms.date: 02/28/2023
 ms.author: eur
 ---
 
+### December 2023 release
+
+#### Custom neural voice
+
+The newly trained voice models now support 48 kHz sample rate, irrespective of the model version. For previously trained voice models, it's necessary to [upgrade the engine version](../../how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model) to at least **2023.11.13.0** version to enhance the sample rate to 48 kHz.
+
 ### November 2023 release
 
 #### Personal voice
