@@ -175,13 +175,15 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 
 ### Get connection string for Service Bus namespace
 
+To create a connection when you add a Service Bus trigger or action, you need to have the connection string for your Service Bus namespace.
+
 1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
 
 1. On the namespace menu, under **Settings**, select **Shared access policies**.
 
 1. On the **Shared access policies** pane, select **RootManageSharedAccessKey**.
 
-1. Next to your primary connection string, select the copy button.
+1. Next to the primary or secondary connection string, select the copy button.
 
    ![Screenshot showing the Service Bus namespace connection string and the copy button selected.](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
@@ -197,13 +199,13 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 
 ### Get endpoint URL for Service Bus namespace
 
+If you use the Service Bus managed connector, you need this endpoint URL if you select either authentication type for **Microsoft Entra integrated** or **Logic Apps Managed Identity**.
+
 1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
 
-1. On the namespace menu, under **Settings**, select **Shared access policies**.
+1. On the namespace menu, under **Settings**, select **Properties**.
 
-1. Under **Policy**, select **RootManageSharedAccessKey**.
-
-1. On the pane that opens, under either **Primary Connection String** or **Secondary Connection String**, copy the connection string, and save for later use.
+1. Under **Properties**, nex to **Service bus endpoint**, copy the endpoint URL, and save for later use when you have to provide the service bus endpoint URL.
 
 <a name="get-fully-qualified-namespace"></a>
 
