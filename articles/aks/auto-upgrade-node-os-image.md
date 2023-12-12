@@ -52,7 +52,7 @@ The default cadence means there's no planned maintenance window applied.
 |Channel|Updates Ownership|Default cadence|
 |---|---|
 | `Unmanaged`|OS driven security updates. AKS has no control over these updates.|Nightly around 6AM UTC for Ubuntu and Azure Linux. Monthly for Windows.|
-| `SecurityPatch`|AKS- Tested, fully managed and with safe deployment practices. For more information refer to the [blog][Blog]. This channel is recommended for security updates over `Unmanaged`, for above reasons.|Weekly.|
+| `SecurityPatch`|AKS-tested, fully managed, and applied with safe deployment practices. For more information, refer to [Increased security and resiliency of Canonical workloads on Azure][Blog].|Weekly.|
 | `NodeImage`|AKS|Weekly.|
 
 ## SecurityPatch channel requirements
@@ -122,17 +122,28 @@ To view the status of your node OS auto upgrades, look up [activity logs][monito
  No. Currently, when you set the [cluster auto-upgrade channel][Autoupgrade] to `node-image`, it also automatically sets the node OS auto-upgrade channel to `NodeImage`. You can't change the node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to be able to change the node OS auto-upgrade channel values, make sure the [cluster auto-upgrade channel][Autoupgrade] isn't `node-image`.
 
  * Why is `SecurityPatch` recommended over `Unmanaged` channel?
- on `Unmanaged` channel, AKS has no control whatsoever on how and when the security updates are delivered. With `SecurityPatch` , the security updates are fully tested and follows safe deployment practices. `SecurityPatch` also honors maintenance windows. Read more on this in the [blog][Blog].
 
- * How do i know if a `SecurityPatch` or `nodeimage` is applied on my node ?
- Run the following command
- ```azurecli-interactive
+On the `Unmanaged` channel, AKS has no control over how and when the security updates are delivered. With `SecurityPatch`, the security updates are fully tested and follows safe deployment practices. `SecurityPatch` also honors maintenance windows. For more details, see [Increased security and resiliency of Canonical workloads on Azure][Blog].
+
+ * How do I know if a `SecurityPatch` or `NodeImage` upgrade is applied on my node?
+ 
+ Run the following command to obtain node labels:
+ 
+```azurecli-interactive
 kubectl get nodes --show-labels
 ```
-The node image is returned for example as kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0. Here base node image version is AKSUbuntu-2204gen2containerd and the securitypatch version typically follows this if any , in the above example it is 202311.07.0.  
-The same can also be looked up in the Azure Portal under the node label view as illustrated below. 
 
-:::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png" alt-text="The screenshot of the nodes blade for an AKS cluster in the Azure portal. The label for nodeimage version clearly shows the base node image as well as the securitypatch latest applied on that node with dates.":::
+Among the labels in the output, you will see a line similar to the following:
+
+```output
+kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0
+```
+
+Here, the base node image version is `AKSUbuntu-2204gen2containerd`. If applicable, the security patch version typically follows. In the above example it is `202311.07.0`.  
+
+The same details also be looked up in the Azure Portal under the node label view as illustrated below. 
+
+:::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch-inline.png" alt-text="A screenshot of the nodes page for an AKS cluster in the Azure portal. The label for node image version clearly shows the base node image as well as the latest applied security patch date." lightbox="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png":::
 
 
 <!-- LINKS -->
