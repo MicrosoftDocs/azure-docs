@@ -7,6 +7,7 @@ ms.author: shriramm
 ms.reviewer: maghan
 ms.date: 03/31/2023
 ms.service: postgresql
+ms.custom: references_regions
 ms.topic: conceptual
 ---
 
@@ -28,7 +29,7 @@ In this article, we provide compelling reasons for single server customers to mi
 
 - **[Cost Savings](../flexible-server/how-to-deploy-on-azure-free-account.md)** – Flexible server allows you to stop and start server on-demand to lower your TCO. Your compute tier billing is stopped immediately, which allows you to have significant cost savings during development, testing and for time-bound predictable production workloads.
 
-- **[Support for new PG versions](../flexible-server/concepts-supported-versions.md)** - Flexible server currently supports PG version 11 and onwards till version 15. Newer community versions of PostgreSQL will be supported only in flexible server.
+- **[Support for new PG versions](../flexible-server/concepts-supported-versions.md)** - Flexible server currently supports PG version 11 and onwards till version 15. Newer community versions of PostgreSQL are supported only in flexible server.
 
 - **Minimized Latency** – You can collocate your flexible server in the same availability zone as the application server that results in a minimal latency. This option isn't available in Single server.
 
@@ -69,13 +70,13 @@ The following table lists the different tools available for performing the migra
 | Tool | Mode | Pros | Cons |
 | :--- | :--- | :--- | :--- |
 | Single to Flex Migration tool (**Recommended**) | Offline | - Managed migration service.<br />- No complex setup/pre-requisites required<br />- Simple to use portal-based migration experience<br />- Fast offline migration tool<br />- No limitations in terms of size of databases it can handle. | Downtime to applications. |
-| pg_dump and pg_restore | Offline | - Tried and tested tool that has been in use for long time<br />- Suited for databases of size less than 10 GB<br />| - Need prior knowledge of setting up and using this tool<br />- Slow when compared to other tools<br />Significant downtime to your application. |
+| pg_dump and pg_restore | Offline | - Tried and tested tool that is in use for a long time<br />- Suited for databases of size less than 10 GB<br />| - Need prior knowledge of setting up and using this tool<br />- Slow when compared to other tools<br />Significant downtime to your application. |
 | Azure DMS | Online | - Minimal downtime to your application<br />- Free of cost | - Complex setup<br />- High chances of migration failures<br />- Can't handle database of sizes > 1 TB<br />- Can't handle write-intensive workload |
 
 The next section of the document gives an overview of the Single to Flex Migration tool, its implementation, limitations, and the experience that makes it the recommended tool to perform migrations from single to flexible server.
 
 > [!NOTE]  
-> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is available in select regions - India Central, India South, Australia Southeast and South East Asia.
+> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in select regions - India Central, India South, Australia Southeast and South East Asia.
 
 ## Single to Flexible Migration tool - Overview
 
@@ -102,7 +103,7 @@ The following table shows the time for performing offline migrations for databas
 > In order to perform faster migrations, pick a higher SKU for your flexible server. You can always change the SKU to match the application needs post migration.
 
 ## Pre-migration validations
-We have noticed many migrations fail due to setup issues on source and target server. Most of the issues can be categorized into the following buckets: 
+We noticed many migrations fail due to setup issues on source and target server. Most of the issues can be categorized into the following buckets: 
 * Issues related to authentication/permissions for the migration user on source and target server.  
 * [Prerequisites](#migration-prerequisites) not being taken care of, before running the migration.
 * Unsupported features/configurations between the source and target. 
@@ -123,7 +124,7 @@ The result of the Validate option can be
 
 	Plan your migrations better by performing pre-migration validations in advance to know the potential issues you might encounter while performing migrations. 
 
-* **Migrate** - Use this option to kickstart the migration without going through validation process. It's recommended to perform validation before triggering a migration to increase the chances for a successful migration. Once validation is done, you can use this option to start the migration process. 
+* **Migrate** - Use this option to kickstart the migration without going through validation process. It's recommended to perform validation before triggering a migration to increase the chances for a successful migration. Once validation is done, you can use this option to start the migration process.
 
 * **Validate and Migrate** - In this option, validations are performed and then migration gets triggered if all checks are in **succeeded** or **warning** state. Validation failures don't start the migration between source and target servers.
 
@@ -156,7 +157,7 @@ Along with data migration, the tool automatically provides the following built-i
 > [!NOTE]  
 > The following limitations are applicable only for flexible servers on which the migration of users/roles functionality is enabled.
 
-- Azure Active Directory users present on your source server won't be migrated to target server. To mitigate this limitation, manually create all Azure Active Directory users on your target server using this [link](../flexible-server/how-to-manage-azure-ad-users.md) before triggering a migration. If Azure Active Directory users aren't created on target server, migration fails with appropriate error message.
+- Azure Active Directory users present on your source server are not migrated to the target server. To mitigate this limitation, manually create all Azure Active Directory users on your target server using this [link](../flexible-server/how-to-manage-azure-ad-users.md) before triggering a migration. If Azure Active Directory users aren't created on target server, migration fails with appropriate error message.
 - If the target flexible server uses SCRAM-SHA-256 password encryption method, connection to flexible server using the users/roles on single server fails since the passwords are encrypted using md5 algorithm. To mitigate this limitation, choose the option **MD5** for **password_encryption** server parameter on your flexible server.
 ## Experience
 
@@ -269,7 +270,7 @@ The next phase of planning involves downtime incurred by applications for perfor
 
 In most cases, the non-prod servers (dev, UAT, test, staging) are migrated using offline migrations. Since these servers have less data than the production servers, the migration completes fast. For migration of production server, you need to know the time it would take to complete the migration to plan for it in advance.
 
-The time taken for an offline migration to complete is dependent on several factors that includes the number of databases, size of databases, number of tables inside each database, number of indexes, and the distribution of data across tables. It also depends on the SKU of the source and target server, and the IOPS available on the source and target server. Given the many factors that can affect the migration time, it's hard to estimate the total time for the offline migration to complete. The best approach would be to try it on a server restored from the primary server.
+The time taken for an offline migration to complete depends on several factors. It includes the number of databases, size of databases, number of tables inside each database, number of indexes, and the distribution of data across tables. It also depends on the SKU of the source and target server, and the IOPS available on the source and target server. Given the many factors that can affect the migration time, it's hard to estimate the total time for the offline migration to complete. The best approach would be to try it on a server restored from the primary server.
 
 For calculating the total downtime to perform offline migration of production server, the following phases are considered.
 
@@ -287,7 +288,7 @@ For calculating the total downtime to perform offline migration of production se
 
 - **Migration of server settings** - The server parameters, firewall rules (if applicable), tags, alerts need to be manually copied from single server to flexible server.
 
-- **Changing connection strings** - Post successful validation, application should change their connection strings to point to flexible server. This activity is coordinated with the application team to make changes to all the references of connection strings pointing to single server. In the flexible server the user parameter in the connection string no longer needs to be in the **username@servername** format. You should just use the **user=username** format for this parameter in the connection string
+- **Changing connection strings** - Post successful validation, application should change their connection strings to point to flexible server. This activity is coordinated with the application team to make changes to all the references of connection strings pointing to single server. In the flexible server, the user parameter in the connection string no longer needs to be in the **username@servername** format. You should just use the **user=username** format for this parameter in the connection string
 For example
 Psql -h **mysingleserver**.postgres.database.azure.com -u **user1@mysingleserver** -d db1
 should now be of the format
@@ -313,7 +314,7 @@ Trigger the migration of your production databases using the **Migrate** or **Va
 
 In general, a powerful SKU is recommended for the target as the migration tool runs out of a container on the Flexible server. A powerful SKU enables a greater number of tables to be migrated in parallel. You can scale the SKU back to your preferred configuration after the migration. This section contains steps to improve the migration speed in case the data distribution among the tables is skewed and/or a more powerful SKU doesn't have a significant impact on the migration speed.
 
-If the data distribution on the source is highly skewed, with most of the data present in one table, the allocated compute for migration isn't fully utilized and it creates a bottleneck. So, we split large tables into smaller chunks, which are then migrated in parallel. This is applicable to tables that have more than 10000000 (10m) tuples. Splitting the table into smaller chunks is possible if one of the following conditions is satisfied.  
+If the data distribution on the source is highly skewed, with most of the data present in one table, the allocated compute for migration isn't fully utilized and it creates a bottleneck. So, we split large tables into smaller chunks, which are then migrated in parallel. This feature is applicable to tables that have more than 10000000 (10 m) tuples. Splitting the table into smaller chunks is possible if one of the following conditions is satisfied.  
 
 1. The table must have a column with a simple (not composite) primary key or unique index of type int or big int.
 
@@ -337,12 +338,12 @@ If any of the above conditions are satisfied, the table is migrated in multiple 
 ##### How it works
 
 - The migration tool looks up the maximum and minimum integer value of the Primary key/Unique index of that table that must be split up and migrated in parallel.
-- If the difference between the minimum and maximum value is more than 10000000 (10m), then the table is split into multiple parts and each part is migrated separately, in parallel.
+- If the difference between the minimum and maximum value is more than 10000000 (10 m), then the table is split into multiple parts and each part is migrated separately, in parallel.
 
 In summary, the Single to Flexible migration tool migrates a table in parallel threads and reduce the migration time if:
 
 1. The table has a column with a simple primary key or unique index of type int or big int.
-2. The table has at least 10000000 (10m) rows so that the difference between the minimum and maximum value of the primary key is more than 10000000 (10m).
+2. The table has at least 10000000 (10 m) rows so that the difference between the minimum and maximum value of the primary key is more than 10000000 (10 m).
 3. The SKU used has idle cores, which can be used for migrating the table in parallel.
 
 ### Post migration
@@ -350,7 +351,7 @@ In summary, the Single to Flexible migration tool migrates a table in parallel t
 - Once the migration is complete, verify the data on your flexible server and make sure it's an exact copy of the single server.
 - Post verification, enable HA option as needed on your flexible server.
 - Change the SKU of the flexible server to match the application needs. This change needs a database server restart.
-- If you've changed any server parameters from their default values in single server, copy those server parameter values in flexible server.
+- If you change any server parameters from their default values in single server, copy those server parameter values in flexible server.
 - Copy other server settings like tags, alerts, firewall rules (if applicable) from single server to flexible server.
 - Make changes to your application to point the connection strings to flexible server.
 - Monitor the database performance closely to see if it requires performance tuning.

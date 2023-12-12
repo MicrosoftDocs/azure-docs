@@ -244,8 +244,8 @@ Possible migration substates include:
 
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration that's in the **Succeeded** or **Failed** state.
 
-Canceling a validation stops any further validation activity and the validation moves to a **Cancelled** state.
-Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server involved in a canceled migration.
+Canceling a validation stops any further validation activity and the validation moves to a **Canceled** state.
+Canceling a migration stops further migration activity on your target server and moves to a **Canceled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server involved in a canceled migration.
 
 ## Migration best practices
 

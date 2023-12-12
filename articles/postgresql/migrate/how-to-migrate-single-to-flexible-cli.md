@@ -7,7 +7,7 @@ ms.author: hariramt
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 02/02/2023
-ms.custom: seo-lt-2023, devx-track-azurecli
+ms.custom: seo-lt-2023, devx-track-azurecli, references_regions
 ---
 
 # Tutorial: Migrate Azure Database for PostgreSQL - Single Server to Flexible Server by using the Azure CLI
@@ -263,7 +263,7 @@ Before initiating cutover it is important to ensure that:
 - Writes to the source are stopped
 -`latency` parameter decreases to 0 or close to 0
 
-`latency` parameter indicates when the target last synced up with the source. For example, here it is 201 and 202 for the two databases as shown in the picture below, it means that the changes that have occurred in the last ~200 seconds at the source are yet to be synced to the target. At this point, writes to the source can be stopped and cutover initiated.In case there is heavy traffic at the source, it is recommended to stop writes first so that `Latency` can come close to 0 and then cutover is initiated. The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with non-zero `Latency`, the replication will stop until that point in time. All the data on source until the cutover point is then applied on the target. Say a latency was 15 minutes at cutover point, so all the change data in the last 15 minutes will be applied on the target. Time taken will depend on the backlog of changes occurred in the last 15 minutes. Hence, it is recommended that the latency goes to zero or near zero, before triggering the cutover.
+`latency` parameter indicates when the target last synced up with the source. For example, here it is 201 and 202 for the two databases as shown in the picture below, it means that the changes that have occurred in the last ~200 seconds at the source are yet to be synced to the target. At this point, writes to the source can be stopped and cutover initiated. In case there is heavy traffic at the source, it is recommended to stop writes first so that `Latency` can come close to 0 and then cutover is initiated. The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with non-zero `Latency`, the replication will stop until that point in time. All the data on source until the cutover point is then applied on the target. Say a latency was 15 minutes at cutover point, so all the change data in the last 15 minutes will be applied on the target. Time taken will depend on the backlog of changes occurred in the last 15 minutes. Hence, it is recommended that the latency goes to zero or near zero, before triggering the cutover.
 The `latency` information can be obtained using the [migration show command](#monitor-the-migration).
 Here's a snapshot of the migration before initiating the cutover:
 
