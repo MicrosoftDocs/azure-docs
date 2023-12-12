@@ -8,6 +8,8 @@
   - name: What are AI services?
     href: ../ai-services/what-are-ai-services.md?context=/azure/ai-studio/context/context
     displayName: applied, cognitive, form recognizer
+  - name: Region support
+    href: reference/region-support.md
   - name: Azure AI FAQ
     href: faq.yml
 - name: Quickstarts

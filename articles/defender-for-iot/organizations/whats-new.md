@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Updated security stack integration guidance](#updated-security-stack-integration-guidance)|
+| **OT networks** | [Streamlined alert records in the SecurityAlert table](#streamlined-alert-records-in-the-securityalert-table)|
 
 ### Streamlined alert records in the SecurityAlert table
 
