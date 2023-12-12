@@ -568,8 +568,9 @@
           items:
             - name: Migrate to model v4.x
               href: functions-node-upgrade-v4.md
-        - name: Update Java versions
-          href: update-java-versions.md  
+        - name: Update language versions
+          href: update-language-versions.md  
+          displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
         - name: Monitor function apps with Azure Monitor
@@ -998,7 +999,15 @@
           - name: AZFD0005
             href: errors-diagnostics/diagnostic-events/azfd0005.md
           - name: AZFD0006
-            href: errors-diagnostics/diagnostic-events/azfd0006.md            
+            href: errors-diagnostics/diagnostic-events/azfd0006.md        
+          - name: AZFD0007
+            href: errors-diagnostics/diagnostic-events/azfd0007.md 
+          - name: AZFD0008
+            href: errors-diagnostics/diagnostic-events/azfd0008.md  
+          - name: AZFD0009
+            href: errors-diagnostics/diagnostic-events/azfd0009.md     
+          - name: AZFD0010
+            href: errors-diagnostics/diagnostic-events/azfd0010.md            
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference

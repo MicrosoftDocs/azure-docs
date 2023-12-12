@@ -1,6 +1,6 @@
 ---
 title: Confidential VM solutions
-description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD processors backed by SEV-SNP technology and on Intel processors backed by Trust Domain Extensions technology.
+description: Azure Confidential Computing offers multiple options for confidential virtual machines on AMD and Intel processors. 
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mattmcinnes
@@ -12,22 +12,28 @@ ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-# Azure Confidential VM options on AMD and Intel
+# Azure Confidential VM options
 
-Azure Confidential Computing offers multiple options for confidential VMs that run on AMD and Intel processors. AMD processors backed by [AMD Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) technology. Intel Processors are backed by [Intel Trust Domain Extensions](https://www.intel.com/content/dam/develop/external/us/en/documents/tdx-whitepaper-v4.pdf) technology.
+Azure offers multiple confidential VMs options leveraging Trusted Execution Environments (TEE) technologies from both AMD and Intel to harden the virtualization environment. These technologies enable you to provision confidential computing environments with excellent price-to-performance without code changes. 
 
-
+AMD confidential VMs leverage [Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) which was introduced with 3rd Gen AMD EPYC™ processors. Intel confidential VMs use [Trust Domain Extensions (TDX)](https://www.intel.com/content/dam/develop/external/us/en/documents/tdx-whitepaper-v4.pdf) which was introduced with 4th Gen Intel® Xeon® processors.
 
 ## Sizes
 
 You can create confidential VMs in the following size families:
 
-| Size family          | Description                                                                         |
-| ------------------ | ----------------------------------------------------------------------------------- |
-| **DCasv5-series**/**DCesv5-series**| Confidential VM with remote storage only. No local temporary disk.                  |
-| **DCadsv5-series**/**DCedsv5-series** | Confidential VM with a local temporary disk.                                        |
-| **ECasv5-series**/**ECesv5-series** | Memory-optimized confidential VM with remote storage only. No local temporary disk. |
-| **ECadsv5-series**/**ECedsv5-series** | Memory-optimized confidential VM with a local temporary disk.                       |
+| Size Family          | TEE | Description                                                                         |
+| ------------------ | ------------ | ----------------------------------------------------------------------------------- |
+| **DCasv5-series** | AMD SEV-SNP | General purpose CVM with remote storage. No local temporary disk.                  |
+| **DCesv5-series** | Intel TDX | General purpose CVM with remote storage. No local temporary disk.                  |
+| **DCadsv5-series** | AMD SEV-SNP | General purpose CVM with local temporary disk.                                        |
+| **DCedsv5-series** | Intel TDX | General purpose CVM with local temporary disk.                                        |
+| **ECasv5-series** | AMD SEV-SNP | Memory-optimized CVM with remote storage. No local temporary disk. |
+| **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |
+| **ECadsv5-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
+| **ECedsv5-series** | Intel TDX | Memory-optimized CVM with local temporary disk. |
+| **ECiesv5-series** | Intel TDX | Isolated memory-optimized CVM with local temporary disk.                      |
+| **ECiedsv5-series** | Intel TDX | Isolated memory-optimized CVM with local temporary disk. |
 
 > [!NOTE]
 > Memory-optimized confidential VMs offer double the ratio of memory per vCPU count.

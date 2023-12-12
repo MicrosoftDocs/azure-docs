@@ -3,7 +3,7 @@ title: Publish applications with RemoteApp in Azure Virtual Desktop portal - Azu
 description: How to publish applications with RemoteApp in Azure Virtual Desktop using the Azure portal and Azure PowerShell.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 12/08/2023
 ms.author: daknappe
 ---
 
@@ -323,6 +323,8 @@ Here's how to publish a Microsoft Store application using the Windows user inter
    ----
    myappgroup/Microsoft Paint
    ```
+
+---
 
 ## Publish Windows Sandbox
 

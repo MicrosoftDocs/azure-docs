@@ -181,7 +181,7 @@ $AzCopy = (Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\' -PassThr
 
 #### Escape special characters in SAS tokens
 
-In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an extra `%` character next to existing `%` characters in the SAS token string.
+In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an extra `%` character next to existing `%` characters in the SAS token string. The resulting character sequence appears as `%%`. Make sure to add an extra `^` before each `&` character to create the character sequence `^&`.
 
 #### Run scripts by using Jenkins
 
