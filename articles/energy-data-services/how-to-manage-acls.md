@@ -69,7 +69,7 @@ curl --location --request PUT 'https://osdu-ship.msft-osdu-test.org/api/storage/
     ]
 }
 ```
-Note the recordId from the response for future references.
+Keep the recordId from the response handy for future references.
 
 ## Get created record with ACLs
 
