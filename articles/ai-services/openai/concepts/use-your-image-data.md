@@ -167,6 +167,8 @@ Once the data source has finished being ingested, you will see your data source 
 
 :::image type="content" source="../media/use-your-image-data/tent-chat-example.png" alt-text="A screenshot showing a chat example with tent image." lightbox="../media/use-your-image-data/tent-chat-example.png":::
 
+## Turn on CORS
+
 If CORS isn't already turned on for your data source, you will see the following message appear.
 
 :::image type="content" source="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png" alt-text="A screenshot showing an error stating that CORS has not been enabled." lightbox="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png":::
