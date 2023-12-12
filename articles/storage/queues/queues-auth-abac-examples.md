@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: pauljewell
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell
-ms.date: 12/01/2023
+ms.date: 12/12/2023
 #Customer intent: As a dev, devops, or IT admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
