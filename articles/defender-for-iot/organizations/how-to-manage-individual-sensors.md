@@ -437,7 +437,7 @@ View data for each protocol monitored by your sensor using the **Protocols DPI (
 
     - To limit the protocols monitored by your sensor, select the **Enable/Disable** toggle for each plugin as needed.
 
-    - To monitor plugin performance, view the data shown on the **Protocols DPI (Horizon Plugins)** page for each plugin. To help locate a specific plugin, use the **Search** box to enter part of all of a plugin name.
+    - To monitor plugin performance, view the data shown on the **Protocols DPI (Horizon Plugins)** page for each plugin. To help locate a specific plugin, use the **Search** box to enter part or all of a plugin name.
 
 The **Protocols DPI (Horizon Plugins)** lists the following data per plugin:
 
