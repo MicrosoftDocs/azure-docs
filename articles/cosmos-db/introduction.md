@@ -35,10 +35,7 @@ If you are an existing Azure AI or GitHub Copilot customer, you can try Azure Co
 > [!div class="nextstepaction"]
 > [90-day Free Trial with Azure AI Advantage](ai-advantage.md)
 
-You can also try Azure Cosmos DB for free without an Azure subscription, free of charge and commitments or use the [Azure Cosmos DB free tier](free-tier.md) to get an account with the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
-
-> [!div class="nextstepaction"]
-> [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/)
+You can also [try Azure Cosmos DB for free for 30 days](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription or commitments, or [use the Azure Cosmos DB free tier indefinitely](free-tier.md) to get an account with the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
 
 > [!TIP]
 > To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
