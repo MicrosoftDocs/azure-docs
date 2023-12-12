@@ -14,7 +14,7 @@ ms.date: 12/11/2023
 
 [!INCLUDE[NoSQL, MongoDB vCore, PostgreSQL](includes/appliesto-nosql-mongodbvcore-postgresql.md)]
 
-With Azure Cosmos DB, you can augment your applications with large language models (LLMs) and vector databases that can access your own data through retrieval-augmented generation (RAG)?
+You can augment your applications with large language models (LLMs) and vector databases that can access your own data through retrieval-augmented generation (RAG).
 
 This approach allows you to:
 
