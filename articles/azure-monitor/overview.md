@@ -58,16 +58,6 @@ The diagram depicts the Azure Monitor system components:
 
 - Interoperability options are shown in the **integrate** section.  Not all services integrate at all levels. SCOM MI only integrates with Power BI.  
 
-## Monitoring, observability, and artificial intelligence for IT operations
-
-**Observability** is the ability to assess an internal system’s state based on the data it produces. An observability solution analyzes output data, provides an assessment of the system’s health, and offers actionable insights for addressing problems across your IT infrastructure.
-
-Observability wouldn’t be possible without monitoring. Monitoring is the collection and analysis of data pulled from IT systems. When a system is observable, a user can identify the root cause of a performance problem by looking at the data it produces without additional testing or coding. 
-
-The pillars of observability are the different kinds of data that a monitoring tool must collect and analyze to provide sufficient observability of a monitored system. Metrics, logs, and distributed traces are commonly referred to as the pillars of observability. Azure Monitor adds "changes" to these pillars.
-
-Azure Monitor achieves observability by correlating data from multiple pillars and aggregating data across the entire set of monitored resources.
-
 ## Data sources
 
 Azure Monitor can collect [data from multiple sources](data-sources.md). 
