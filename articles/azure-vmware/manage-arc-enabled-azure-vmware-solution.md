@@ -16,7 +16,7 @@ In this article, learn how to update the Arc appliance credentials, upgrade the 
 
 When **cloud admin** credentials are updated, use the following steps to update the credentials in the appliance store. 
 
-1. Sign in to the jumpbox VM from where the onboard process was performed. Change the directory to **onboarding directory**.
+1. Sign in to the Management VM from where the onboard process was performed. Change the directory to **onboarding directory**.
 1. Run the following command:
 	For Windows-based jumpbox VM.
     
@@ -57,23 +57,6 @@ Arc resource bridge can be manually upgraded from the management machine. The [m
 
 Arc resource bridges, on a supported [private cloud provider](https://review.learn.microsoft.com/azure/azure-arc/resource-bridge/upgrade?branch=main#private-cloud-providers) with an appliance version 1.0.15 or higher, are automatically opted in to [cloud-managed upgrade](https://review.learn.microsoft.com/azure/azure-arc/resource-bridge/upgrade?branch=main#cloud-managed-upgrade).  
 
-> [!NOTE]
-> To upgrade the Arc resource bridge VM to the latest version, you need to perform onboarding again with the **same resource IDs**. When you perform onboarding it will cause some downtime as operations that are performed through Arc during this time could fail.
-
-Use the following steps to perform a manual upgrade for Arc appliance virtual machine (VM). 
-
-1. Sign in to vCenter Server. 
-1. Locate the Arc appliance VM, which should be in the resource pool that was configured during onboarding. 
-1. Power off the VM. 
-1. Delete the VM. 
-1. Delete the download template corresponding to the VM. 
-1. Delete the resource bridge **Azure Resource Manager** resource. 
-1. Get the previous script `Config_avs` file and add the following configuration item: 
-
-	`"register":false`
-
-1. Download the latest version of the Azure VMware Solution [onboarding script](/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows#onboard-process-to-deploy-azure-arc). 
-1. Run the new onboarding script with the previous `config_avs.json` from the jump box VM, without changing other config items. 
 
 ## Collect logs from the Arc resource bridge
 
