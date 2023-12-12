@@ -11,7 +11,7 @@ ms.author: rogarana
 ms.reviewer: jaylansdaal
 ---
 
-# Learn how to manage keys for Elastic SAN Preview
+# Manage customer-managed keys for Azure Elastic SAN Preview
 
 All data written to an Elastic SAN volume is automatically encrypted-at-rest with a data encryption key (DEK). Azure DEKs are always *platform-managed* (managed by Microsoft). Azure uses [envelope encryption](../../security/fundamentals/encryption-atrest.md#envelope-encryption-with-a-key-hierarchy), also referred to as wrapping, which involves using a Key Encryption Key (KEK) to encrypt the DEK. By default, the KEK is platform-managed, but you can create and manage your own KEK. [Customer-managed keys](elastic-san-encryption-overview.md#customer-managed-keys) offer greater flexibility to manage access controls and can help you meet your organization security and compliance requirements.
 

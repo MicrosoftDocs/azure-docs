@@ -12,7 +12,7 @@ ms.date: 12/12/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Configure customer-managed keys for An Azure Elastic SAN using Azure Key Vault
+# Configure customer-managed keys for an Azure Elastic SAN
 
 All data written to an Elastic SAN volume is automatically encrypted-at-rest with a data encryption key (DEK). Azure uses *[envelope encryption](../../security/fundamentals/encryption-atrest.md#envelope-encryption-with-a-key-hierarchy)* to encrypt the DEK using a Key Encryption Key (KEK). By default, the KEK is platform-managed (managed by Microsoft), but you can create and manage your own.
 

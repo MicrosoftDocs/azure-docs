@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.service: azure-elastic-san-storage
 ---
 
-# Encrypt an Azure Elastic SAN Preview
+# Learn about encryption for an Azure Elastic SAN Preview
 
 Azure Elastic SAN uses server-side encryption (SSE) to automatically encrypt data stored in an Elastic SAN. SSE protects your data and helps you meet your organizational security and compliance requirements.
 
