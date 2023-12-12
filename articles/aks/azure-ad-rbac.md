@@ -91,7 +91,7 @@ In production environments, you can use existing users and groups within a Micro
 4. Create a second example group for SREs named *opssre*.
 
     ```azurecli-interactive
-    OPSSRE_ID=$(az ad group create --display-name opssre --mail-nickname opssre --query objectId -o tsv)
+    OPSSRE_ID=$(az ad group create --display-name opssre --mail-nickname opssre --query id -o tsv)
     ```
 
 5. Create an Azure role assignment to grant members of the group the *Azure Kubernetes Service Cluster User* Role.
