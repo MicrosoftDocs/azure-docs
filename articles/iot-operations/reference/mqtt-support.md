@@ -32,7 +32,7 @@ Azure IoT MQ supports the following MQTT features and control packets:
 | CONNECT Authentication Data | | |
 | CONNECT Authentication Method | | |
 | CONNECT Session Present flag (Persistent session) | Supported | Supported |
-| CONNECT Server Generated Client Id | Supported | Supported |
+| CONNECT Server Generated Client ID | Supported | Supported |
 | AUTH | | |
 | PUBLISH QoS0 Delivery | Supported | Supported |
 | PUBLISH QoS1 Delivery | Supported | Supported |
