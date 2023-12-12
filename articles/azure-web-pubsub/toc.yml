@@ -50,6 +50,8 @@
           href: howto-generate-client-access-url.md
         - name: Configure event handler
           href: howto-develop-eventhandler.md
+        - name: Develop with local tunnel tool
+          href: howto-web-pubsub-tunnel-tool.md
         - name: Send client events to Event Hubs
           href: howto-develop-event-listener.md
         - name: Use server SDK with Azure Identity
