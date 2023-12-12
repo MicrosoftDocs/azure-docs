@@ -61,7 +61,7 @@ const localRecordingsUpdateddHandler = (args: { added: SDK.LocalRecordingInfo[],
 
                         console.log('Local recording stopped by: ');
                         args.removed?.forEach(r => {
-                            console.log('UserMRI: ${r.initiatorIdentifier?.microsoftTeamsUserId});
+                            console.log('Microsoft 365 user ID: ${r.initiatorIdentifier?.microsoftTeamsUserId});
                         });
                     };
 localCallRecordingApi.on('localRecordingsUpdated', localRecordingsUpdateddHandler);
