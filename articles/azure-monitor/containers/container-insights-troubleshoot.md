@@ -243,6 +243,11 @@ If the first option isn't convenient because of query changes involved, you can 
 
 Here's the scenario: You enabled Container insights for an Azure Kubernetes Service cluster. Then you deleted the Log Analytics workspace where the cluster was sending its data. Now when you attempt to upgrade the cluster, it fails. To work around this issue, you must disable monitoring and then reenable it by referencing a different valid workspace in your subscription. When you try to perform the cluster upgrade again, it should process and complete successfully.
 
+
+## Not collecting logs on Azure Stack HCI cluster
+If you registered your cluster and/or configured HCI Insights before November 2023, features that use the Azure Monitor agent on HCI, such as Arc for Servers Insights, VM Insights, Container Insights, Defender for Cloud, or Microsoft Sentinel might not be collecting logs and event data properly. See [Repair AMA agent for HCI](/azure-stack/hci/manage/monitor-hci-single?tabs=22h2-and-later#repair-ama-for-azure-stack-hci) for steps to reconfigure the agent and HCI Insights.
+
+
 ## Next steps
 
 When monitoring is enabled to capture health metrics for the AKS cluster nodes and pods, these health metrics are available in the Azure portal. To learn how to use Container insights, see [View Azure Kubernetes Service health](container-insights-analyze.md).

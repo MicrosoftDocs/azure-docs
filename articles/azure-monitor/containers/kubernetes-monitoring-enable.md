@@ -38,6 +38,8 @@ Using the Azure portal, you can enable all of the features at the same time. You
   - If you previously installed monitoring for AKS, ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install.
   - If you previously installed monitoring on this cluster using script without cluster extensions, follow the instructions at [Disable Container insights on your hybrid Kubernetes cluster](container-insights-optout-hybrid.md) to delete this Helm chart.
 
+
+
 ## Workspaces
 
 Each of the features requires a workspace. You can create each workspace as part of the onboarding process or use an existing workspace. 
@@ -603,7 +605,7 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
 
 
 ## Verify deployment
-You can verify that the agent is deployed properly using the [kubectl command line tool](../../aks/learn/quick-kubernetes-deploy-cli.md#connect-to-the-cluster).
+Use the [kubectl command line tool](../../aks/learn/quick-kubernetes-deploy-cli.md#connect-to-the-cluster) to verify that the agent is deployed properly.
 
 
 **Verify that the DaemonSets were deployed properly on the Linux node pools**
@@ -659,7 +661,7 @@ NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
 ama-logs-rs   1         1         1            1            3h
 ```
 
-**Verify that the two ReplicaSets were deployed nfor Prometheus**
+**Verify that the two ReplicaSets were deployed for Prometheus**
 
 ```
 kubectl get rs --namespace=kube-system
@@ -674,10 +676,9 @@ ama-metrics-5c974985b8          1         1         1       11h
 ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 ```
 
+**View configuration with CLI**
 
-## View configuration with CLI
-
-Use the `aks show` command to find out whether the solution is enabled or not, what the Log Analytics workspace resource ID is, and summary information about the cluster.
+Use the `aks show` command to find out whether the solution is enabled, the Log Analytics workspace resource ID, and summary information about the cluster.
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
@@ -688,40 +689,35 @@ The command will return JSON-formatted information about the solution. The `addo
 ```output
 "addonProfiles": {
     "omsagent": {
-      "config": {
-        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
-      },
-      "enabled": true
-    }
-  }
+        "config": {
+            "logAnalyticsWorkspaceResourceID": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
+            "useAADAuth": "true"
+        },
+        "enabled": true,
+        "identity": null
+    },
+}
 ```
 
 
 ## Resources provisioned
 
-When you enable metrics addon, the following resources are provisioned:
+When you enable monitoring, the following resources are created in your subscription:
 
 | Resource Name | Resource Type | Resource Group | Region/Location | Description |
-    |:---|:---|:---|:---|:---|
-    | `MSCI-<aksclusterregion>-<clustername>` | **Data Collection Rule** | Same Resource group as AKS cluster resource | Same region as Azure Monitor Workspace | This data collection rule is for log collection by Azure Monitor agent, which uses the Log Analytics workspace as destination, and is associated to the AKS cluster resource. |
-    | `MSPROM-<aksclusterregion>-<clustername>` | **Data Collection Rule** | Same Resource group as AKS cluster resource | Same region as Azure Monitor Workspace | This data collection rule is for prometheus metrics collection by metrics addon, which has the chosen Azure monitor workspace as destination, and also it is associated to the AKS cluster resource |
-    | `MSPROM-<aksclusterregion>-<clustername>` | **Data Collection endpoint** | Same Resource group as AKS cluster resource | Same region as Azure Monitor Workspace | This data collection endpoint is used by the above data collection rule for ingesting Prometheus metrics from the metrics addon|
+|:---|:---|:---|:---|:---|
+| `MSCI-<aksclusterregion>-<clustername>` | **Data Collection Rule** | Same as cluster | Same as Log Analytics workspace | This data collection rule is for log collection by Azure Monitor agent, which uses the Log Analytics workspace as destination, and is associated to the AKS cluster resource. |
+| `MSPROM-<aksclusterregion>-<clustername>` | **Data Collection Rule** | Same as cluster | Same as Azure Monitor workspace | This data collection rule is for prometheus metrics collection by metrics addon, which has the chosen Azure monitor workspace as destination, and also it is associated to the AKS cluster resource |
+| `MSPROM-<aksclusterregion>-<clustername>` | **Data Collection endpoint** | Same as cluster | Same as Azure Monitor workspace | This data collection endpoint is used by the above data collection rule for ingesting Prometheus metrics from the metrics addon|
     
 When you create a new Azure Monitor workspace, the following additional resources are created as part of it
 
 | Resource Name | Resource Type | Resource Group | Region/Location | Description |
-    |:---|:---|:---|:---|:---|
-    | `<azuremonitor-workspace-name>` | **System Data Collection Rule** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same region as Azure Monitor Workspace | This is **system** data collection rule that customers can use when they use OSS Prometheus server to Remote Write to Azure Monitor Workspace |
-    | `<azuremonitor-workspace-name>` | **System Data Collection endpoint** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same region as Azure Monitor Workspace | This is **system** data collection endpoint that customers can use when they use OSS Prometheus server to Remote Write to Azure Monitor Workspace |
+|:---|:---|:---|:---|:---|
+| `<azuremonitor-workspace-name>` | **Data Collection Rule** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same as Azure Monitor Workspace | DCR created when you use OSS Prometheus server to Remote Write to Azure Monitor Workspace. |
+| `<azuremonitor-workspace-name>` | **Data Collection Endpoint** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same as Azure Monitor Workspace | DCE created when you use OSS Prometheus server to Remote Write to Azure Monitor Workspace.|
     
 
-
-
-
-## Limitations
-
-- Dependency on DCR/DCRA for region availability. For new AKS region, there might be chances that DCR is still not supported in the new region. In that case, onboarding Container Insights with MSI will fail. One workaround is to onboard to Container Insights through CLI with the old way (with the use of Container Insights solution)
-- You must be on a machine on the same private network to access live logs from a private cluster.
 
 ## Differences between Windows and Linux clusters
 
@@ -740,10 +736,6 @@ The containerized Linux agent (replicaset pod) makes API calls to all the Window
 
 If you have a Kubernetes cluster with Windows nodes, review and configure the network security group and network policies to make sure the Kubelet secure port (:10250) is open for both inbound and outbound in the cluster's virtual network.
 
-
-
-## Troubleshooting
-If you registered your cluster and/or configured HCI Insights before November 2023, features that use the AMA agent on HCI, such as Arc for Servers Insights, VM Insights, Container Insights, Defender for Cloud or Sentinel might not be collecting logs and event data properly. See [Repair AMA agent for HCI](/azure-stack/hci/manage/monitor-hci-single?tabs=22h2-and-later) for steps to reconfigure the AMA agent and HCI Insights.
 
 
 ## Next steps
