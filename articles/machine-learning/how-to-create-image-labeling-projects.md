@@ -51,6 +51,8 @@ Image data can be any file that has one of these file extensions:
 
 Each file is an item to be labeled.
 
+You can also use an MLTable data asset as input to an image labeling project, as long as the images in the table are one of the above formats. For more information, see [How to use MLTable data assets](./how-to-mltable.md).
+
 ## Prerequisites
 
 You use these items to set up image labeling in Azure Machine Learning:
@@ -87,10 +89,24 @@ You use these items to set up image labeling in Azure Machine Learning:
 
 ## Specify the data to label
 
-If you already created a dataset that contains your data, select the dataset in the **Select an existing dataset** dropdown. You can also select **Create a dataset** to use an existing Azure datastore or to upload local files.
+If you already created a dataset that contains your data, select the dataset in the **Select an existing dataset** dropdown.
+
+You can also select **Create a dataset** to use an existing Azure datastore or to upload local files.
 
 > [!NOTE]
 > A project can't contain more than 500,000 files. If your dataset exceeds this file count, only the first 500,000 files are loaded.
+
+### Data column mapping
+
+If you select an MLTable data asset, an additional **Data Column Mapping** step appears for you to specify the column that contains the image URLs.  
+
+[!INCLUDE [mapping](includes/machine-learning-data-labeling-mapping.md)]
+
+### Import options
+
+ When you include a Category column, an additional step appears for import options.
+
+[!INCLUDE [mapping](includes/machine-learning-data-labeling-mapping.md)]
 
 ### Create a dataset from an Azure datastore
 
@@ -202,127 +218,10 @@ After a machine learning model is trained on your manually labeled data, the mod
 
 [!INCLUDE [initialize](includes/machine-learning-data-labeling-initialize.md)]
 
-## Run and monitor the project
 
-[!INCLUDE [run](includes/machine-learning-data-labeling-run.md)]
-
-### Dashboard
-
-The **Dashboard** tab shows the progress of the labeling task.
-
-:::image type="content" source="./media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Screenshot that shows the data labeling dashboard.":::
-
-The progress charts show how many items have been labeled, skipped, need review, or aren't yet complete. Hover over the chart to see the number of items in each section.
-
-A distribution of the labels for completed tasks is shown below the chart. In some project types, an item can have multiple labels. The total number of labels can exceed the total number of items.
-
-A distribution of labelers and how many items they've labeled also are shown.
-
-The middle section shows a table that has a queue of unassigned tasks. When ML-assisted labeling is off, this section shows the number of manual tasks that are awaiting assignment.
-
-When ML-assisted labeling is on, this section also shows:
-
-* Tasks that contain clustered items in the queue.
-* Tasks that contain pre-labeled items in the queue.
-
-Additionally, when ML-assisted labeling is enabled, you can scroll down to see the ML-assisted labeling status. The **Jobs** sections give links for each of the machine learning runs.
-
-* **Training**: Trains a model to predict the labels.
-* **Validation**: Determines whether item pre-labeling uses the prediction of this model.
-* **Inference**: Prediction run for new items.
-* **Featurization**: Clusters items (only for image classification projects).
-
-### Data tab
-
-On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see data that's incorrectly labeled, select it and choose **Reject** to remove the labels and return the data to the unlabeled queue.
-
-If your project uses consensus labeling, review images that have no consensus:
-
-1. Select the **Data** tab.
-1. On the left menu, select  **Review labels**.
-1. On the command bar above **Review labels**, select **All filters**.
-
-    :::image type="content" source="media/how-to-create-labeling-projects/select-filters.png" alt-text="Screenshot that shows how to select filters to review consensus label problems." lightbox="media/how-to-create-labeling-projects/select-filters.png":::
-
-1. Under **Labeled datapoints**, select **Consensus labels in need of review** to show only images for which the labelers didn't come to a consensus.
-
-    :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot that shows how to select labels in need of review.":::
-
-1. For each image to review, select the **Consensus label** dropdown to view the conflicting labels.
-
-    :::image type="content" source="media/how-to-create-labeling-projects/consensus-dropdown.png" alt-text="Screenshot that shows the Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-labeling-projects/consensus-dropdown.png":::
-
-1. Although you can select an individual labeler to see their labels, to update or reject the labels, you must use the top choice, **Consensus label (preview)**.
-
-### Details tab
-
-View and change details of your project. On this tab, you can:
-
-* View project details and input datasets.
-* Set or clear the **Enable incremental refresh at regular intervals** option, or request an immediate refresh.
-* View details of the storage container that's used to store labeled outputs in your project.
-* Add labels to your project.
-* Edit instructions you give to your labels.
-* Change settings for ML-assisted labeling and kick off a labeling task.
-
-### Vision Studio tab
-
-If your project was created from [Vision Studio](../ai-services/computer-vision/how-to/model-customization.md), you'll also see a **Vision Studio** tab.  Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you will be able to import your labeled data.
-
-### Access for labelers
-
-[!INCLUDE [access](includes/machine-learning-data-labeling-access.md)]
-
-## Add new labels to a project
-
-[!INCLUDE [add-label](includes/machine-learning-data-labeling-add-label.md)]
-
-## Start an ML-assisted labeling task
-
-[!INCLUDE [start-ml-assist](includes/machine-learning-data-labeling-start-ml-assist.md)]
-
-## Export the labels
-
-To export the labels, on the **Project details** page of your labeling project, select the **Export** button. You can export the label data for Machine Learning experimentation at any time.
-
-If your project type is Semantic segmentation (Preview), an [Azure MLTable data asset](./how-to-mltable.md) is created.
-
-For all other project types, you can export an image label as:
-
-:::moniker range="azureml-api-1"
-* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
-* A [COCO format](http://cocodataset.org/#format-data) file. Azure Machine Learning creates the COCO file in a folder inside *Labeling/export/coco*. 
-* An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md).
-:::moniker-end
-:::moniker range="azureml-api-2"
-* A CSV file. Azure Machine Learning creates the CSV file in a folder inside *Labeling/export/csv*.
-* A [COCO format](http://cocodataset.org/#format-data) file. Azure Machine Learning creates the COCO file in a folder inside *Labeling/export/coco*. 
-* An [Azure MLTable data asset](./how-to-mltable.md).
-:::moniker-end
-
-When you export a CSV or COCO file, a notification appears briefly when the file is ready to download. Select the **Download file** link to download your results. You'll also find the notification in the **Notification** section on the top bar:
-
-:::image type="content" source="media/how-to-create-labeling-projects/download-file.png" alt-text="Screenshot that shows the notification for the file download.":::
-
-Access exported Azure Machine Learning datasets and data assets in the **Data** section of Machine Learning. The data details page also provides sample code you can use to access your labels by using Python.
-
-:::image type="content" source="media/how-to-create-labeling-projects/exported-dataset.png" alt-text="Screenshot that shows an example of the dataset details page in Machine Learning.":::
-
-:::moniker range="azureml-api-1"
-After you export your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models that are trained on your labeled data. Learn more at [Set up AutoML to train computer vision models by using Python](how-to-auto-train-image-models.md).
-:::moniker-end
-
-## Troubleshoot issues
-
-[!INCLUDE [troubleshooting](includes/machine-learning-data-labeling-troubleshooting.md)]
-
-### Troubleshoot object detection
-
-|Issue  |Resolution  |
-|---------|---------|
-|If you select the Esc key when you label for object detection, a zero-size label is created and label submission fails.|To delete the label, select the **X** delete icon next to the label.|
 
 ## Next steps
 
 <!-- * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md). -->
-* [How to tag images](how-to-label-data.md)
+* [Manage labeling projects](how-to-manage-labeling-projects.md)
+* [How to tag text](how-to-label-data.md#label-text)
