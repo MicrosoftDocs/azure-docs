@@ -175,7 +175,7 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 
 ### Get connection string for Service Bus namespace
 
-To create a connection when you add a Service Bus trigger or action, you need to have the connection string for your Service Bus namespace.
+To create a connection when you add a Service Bus trigger or action, you need to have the connection string for your Service Bus namespace. The connection string starts with the **sb://** prefix.
 
 1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
 
@@ -199,7 +199,7 @@ To create a connection when you add a Service Bus trigger or action, you need to
 
 ### Get endpoint URL for Service Bus namespace
 
-If you use the Service Bus managed connector, you need this endpoint URL if you select either authentication type for **Microsoft Entra integrated** or **Logic Apps Managed Identity**.
+If you use the Service Bus managed connector, you need this endpoint URL if you select either authentication type for **Microsoft Entra integrated** or **Logic Apps Managed Identity**. The endpoint URL starts with the **https://** prefix.
 
 1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
 
