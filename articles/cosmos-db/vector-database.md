@@ -85,5 +85,9 @@ Implement RAG patterns with Azure Cosmos DB for NoSQL and Azure AI Search. This 
 
 > [!div class="nextstepaction"]
 > [90-day Free Trial with Azure AI Advantage](ai-advantage.md)
+
+> [!div class="nextstepaction"]
 > [30-day Free Trial without Azure Subscription](https://azure.microsoft.com/try/cosmosdb/)
+
+> [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB Free Tier Indefinitely](free-tier.md) 
