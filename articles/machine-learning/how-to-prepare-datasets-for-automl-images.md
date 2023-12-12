@@ -43,7 +43,7 @@ It helps to create, manage, and monitor data labeling tasks for
 + Object detection (bounding box)
 + Instance segmentation (polygon)
 
-If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure Machine Learning Dataset](how-to-create-image-labeling-projects.md#export-the-labels) and then access the dataset under 'Datasets' tab in Azure Machine Learning Studio. This exported dataset can then be passed as an input using `azureml:<tabulardataset_name>:<version>` format. Here is an example on how to pass existing dataset as input for training computer vision models.
+If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure Machine Learning Dataset](how-to-manage-labeling-projects.md#export-the-labels) and then access the dataset under 'Datasets' tab in Azure Machine Learning Studio. This exported dataset can then be passed as an input using `azureml:<tabulardataset_name>:<version>` format. Here is an example on how to pass existing dataset as input for training computer vision models.
 
 # [Azure CLI](#tab/cli)
 
