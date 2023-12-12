@@ -475,7 +475,7 @@ securityresources
 | Name                        | Description                                                  |
 | --------------------------- | ------------------------------------------------------------ |
 | ResourceDetails             | Details of  the Azure resource that was assessed             |
-| AzureContainerRegistryVulnerability      | More  context fields for container registry Vulnerability assessment |
+| ContainerRegistryVulnerability      | More  context fields for container registry Vulnerability assessment |
 | CVE                         | CVE Details                                                  |
 | CVSS                        | CVSS Details                                                 |
 | SecuritySubAssessment       | Security  subassessment on a resource                       |
@@ -490,7 +490,7 @@ securityresources
 | VulnerabilityReference      | Reference  links to vulnerability                            |
 | ExploitabilityAssessment    | Reference  links to an example exploit                       |
 
-### AzureContainerRegistryVulnerability (MDVM)
+### ContainerRegistryVulnerability (MDVM)
 
 Other context fields for Azure container registry vulnerability assessment
 
