@@ -15,6 +15,8 @@ items:
     href: oracle-db/onboard-oracle-database.md
   - name: Network planning for Oracle Database@Azure
     href: oracle-db/oracle-database-network-plan.md
+  - name: Groups and roles for Oracle Database@Azure
+    href: oracle-db/oracle-database-groups-roles.md
   - name: Provision and manage Oracle Database@Azure
     href: oracle-db/provision-oracle-database.md
   - name: Support for Oracle Database@Azure

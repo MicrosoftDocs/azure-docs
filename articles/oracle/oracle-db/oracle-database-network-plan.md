@@ -37,7 +37,7 @@ The following table describes the network topologies supported by each network f
 |On-premises connectivity via Secured HUB(Az PowerShell module Firewall NVA) | No|
 |Connectivity from Oracle database cluster on Oracle Database@Azure nodes to Azure resources|Yes|
 
-You can overcome this limitation by setting Site-to-Site VPN.
+* You can overcome this limitation by setting Site-to-Site VPN.
 
 ## Constraints
 
@@ -60,3 +60,4 @@ The following table describes the configuration of supported network features:
 - [Onboard with Oracle Database@Azure](onboard-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-database-support.md)
+- [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md)

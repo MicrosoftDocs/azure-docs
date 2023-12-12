@@ -43,7 +43,9 @@ landingContent:
           - text: Onboard with Oracle Database@Azure
             url: oracle-db/onboard-oracle-database.md
           - text: Network planning for Oracle Database@Azure
-            url: oracle-db/oracle-database-network-plan.md          
+            url: oracle-db/oracle-database-network-plan.md
+          - text: Groups and roles for Oracle Database@Azure
+            url: oracle-db/oracle-database-groups-roles.md          
           - text: Provision and manage Oracle Database@Azure
             url: oracle-db/provision-oracle-database.md
           - text: Support for Oracle Database@Azure

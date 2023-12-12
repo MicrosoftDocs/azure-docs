@@ -38,11 +38,11 @@ You can migrate your Oracle Databases to Oracle Database@Azure with familiar Ora
 
 For more information, see the [Oracle Database@Azure](oracle-db/database-overview.md) documentation.
 
-Oracle Database@Azure offers [Oracle Exadata Database Service on Dedicated Infrastructure](https://docs.oracle.com/en/engineered-systems/exadata-cloud-service/ecscm/index.html). 
 
 ## Next steps
  
-- [Onboarding with Oracle Database@Azure](oracle-db/onboarding-oracle-database.md)
+- [Onboard with Oracle Database@Azure](oracle-db/onboard-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](oracle-db/provision-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-db/oracle-database-support.md)
 - [Network planning for Oracle Database@Azure](oracle-db/oracle-database-network-plan.md)
+- [Oracle Exadata Database Service on Dedicated Infrastructure](https://docs.oracle.com/en/engineered-systems/exadata-cloud-service/ecscm/index.html)
