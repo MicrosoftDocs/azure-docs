@@ -10,7 +10,7 @@ ms.topic: overview
 ms.date: 06/06/2023
 ---
 
-# API Release notes - Azure Database for PostgreSQL - Flexible Server
+# API release notes - Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

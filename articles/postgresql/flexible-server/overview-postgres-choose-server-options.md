@@ -10,7 +10,7 @@ ms.custom: mvc, ignite-2022
 ms.date: 03/27/2023
 ---
 
-# Choose the right PostgreSQL server option in Azure
+# Choose the right Azure Database for PostgreSQL - Flexible Server option in Azure
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

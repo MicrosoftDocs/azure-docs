@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 8/2/2023
 ---
 
-# Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
+# Comparison chart - Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

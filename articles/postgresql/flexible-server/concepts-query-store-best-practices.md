@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 7/1/2023
 ---
 
-# Best practices for Query Store - Flexible Server
+# Best practices for Query Store - Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

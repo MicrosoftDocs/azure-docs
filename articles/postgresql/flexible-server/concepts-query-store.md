@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
-# Monitor Performance with Query Store
+# Monitor performance with Query Store
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

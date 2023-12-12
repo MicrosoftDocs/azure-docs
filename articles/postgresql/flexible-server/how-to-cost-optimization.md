@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 4/13/2023
 ---
 
-# How to optimize costs in Azure Database for Postgres Flexible Server
+# How to optimize costs in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

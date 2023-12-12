@@ -9,7 +9,7 @@ author: assaff
 ms.date: 03/23/2023
 ---
 
-# Troubleshoot connection issues to Azure Database for PostgreSQL - flexible Server
+# Troubleshoot connection issues to Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

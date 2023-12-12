@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/30/2021
 ---
 
-# Scale operations in Flexible Server
+# Scale operations in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

@@ -9,7 +9,7 @@ ms.topic:        conceptual
 ms.date:         12/04/2023
 ---
 
-# Scaling Resources in Azure Database for PostgreSQL - Flexible Server
+# Scaling resources in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

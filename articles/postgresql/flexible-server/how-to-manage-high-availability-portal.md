@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 06/23/2022
 ---
 
-# Manage high availability in Flexible Server
+# Manage high availability in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

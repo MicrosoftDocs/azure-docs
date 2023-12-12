@@ -10,7 +10,7 @@ author: kabharati
 ms.date: 06/24/2022
 ---
 
-# Storage Autogrow using  Azure portal in Azure Database for PostgreSQL - Flexible Server
+# Storage autogrow using Azure portal in Azure Database for PostgreSQL - Flexible Server
 
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]

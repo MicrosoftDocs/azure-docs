@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Optimize Azure Database for PostgreSQL Flexible Server by using pg_repack
+# Optimize Azure Database for PostgreSQL - Flexible Server by using pg_repack
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

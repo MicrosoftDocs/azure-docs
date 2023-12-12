@@ -9,7 +9,7 @@ author: assaff
 ms.date: 03/23/2023
 ---
 
-# Optimize query statistics collection on an Azure Database for PostgreSQL - flexible Server
+# Optimize query statistics collection on Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

@@ -12,7 +12,7 @@ ms.custom:
 ms.topic: conceptual
 ---
 
-# Azure Database for PostgreSQL Flexible Server Azure Storage Extension - Preview
+# Azure Database for PostgreSQL - Flexible Server Azure Storage Extension - Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

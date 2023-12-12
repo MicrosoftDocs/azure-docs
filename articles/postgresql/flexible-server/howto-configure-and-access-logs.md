@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 4/3/2023
 ---
 
-# Configure and Access Logs in Azure Database for PostgreSQL - Flexible Server
+# Configure and access logs in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

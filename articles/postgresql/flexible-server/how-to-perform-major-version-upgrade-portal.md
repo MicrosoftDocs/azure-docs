@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 02/13/2023
 ---
 
-# Major Version Upgrade of a Flexible Server
+# Major version upgrade of Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

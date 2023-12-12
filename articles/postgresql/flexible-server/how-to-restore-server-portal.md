@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/30/2021
 ---
 
-# Point-in-time restore of a flexible server
+# Point-in-time restore of an Azure Database for PostgreSQL - Flexible Server instance
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

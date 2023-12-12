@@ -12,7 +12,7 @@ ms.devlang: java
 ms.date: 11/07/2022
 ---
 
-# Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server
+# Quickstart: Use Java and JDBC with Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

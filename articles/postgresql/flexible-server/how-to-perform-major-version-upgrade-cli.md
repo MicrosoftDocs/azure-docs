@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 02/13/2023
 ---
 
-#  Major Version Upgrade of a flexible server - Flexible Server with Azure CLI
+#  Major version upgrade of Azure Database for PostgreSQL - Flexible Server with Azure CLI
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

@@ -11,7 +11,7 @@ ms.custom:
 ms.topic: conceptual
 ---
 
-# Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL Flexible Server (Preview)
+# Generate vector embeddings with Azure OpenAI on Azure Database for PostgreSQL - Flexible Server (Preview)
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

@@ -12,7 +12,7 @@ ms.custom:
 ms.topic: conceptual
 ---
 
-# Azure Database for PostgreSQL - Flexible Server Data Encryption with a Customer-managed Key 
+# Azure Database for PostgreSQL - Flexible Server data encryption with a customer-managed key 
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

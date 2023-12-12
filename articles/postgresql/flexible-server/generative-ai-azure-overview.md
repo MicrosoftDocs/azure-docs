@@ -11,7 +11,7 @@ ms.custom:
 ms.topic: conceptual
 ---
 
-# Azure Database for PostgreSQL Flexible Server Azure AI Extension (Preview)
+# Azure Database for PostgreSQL - Flexible Server Azure AI Extension (Preview)
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

@@ -12,7 +12,7 @@ ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Tutorial: Create an Azure Database for PostgreSQL - Flexible Server with App Services Web App in Virtual network
+# Tutorial: Create an Azure Database for PostgreSQL - Flexible Server instance with App Services Web App in virtual network
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

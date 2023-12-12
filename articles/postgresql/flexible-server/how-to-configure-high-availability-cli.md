@@ -11,7 +11,7 @@ ms.date: 6/16/2022
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Manage high availability in Azure Database for PostgreSQL Flexible Server with Azure CLI
+# Manage high availability in Azure Database for PostgreSQL - Flexible Server with Azure CLI
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

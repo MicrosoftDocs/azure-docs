@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/30/2021
 ---
 
-# Point-in-time restore of an Azure Database for PostgreSQL - Flexible Server with Azure CLI
+# Point-in-time restore of an Azure Database for PostgreSQL - Flexible Server instance with Azure CLI
 
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]

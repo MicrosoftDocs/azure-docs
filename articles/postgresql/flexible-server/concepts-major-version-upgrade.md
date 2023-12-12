@@ -11,7 +11,7 @@ ms.custom: references_regions
 ms.topic: conceptual
 ---
 
-# Major Version Upgrade for PostgreSQL Flexible Server 
+# Major version upgrade for Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 

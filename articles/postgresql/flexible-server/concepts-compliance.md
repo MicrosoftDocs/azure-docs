@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 10/20/2022
 ---
 
-# Security and Compliance Certifications in Azure Database for PostgreSQL - Flexible Server
+# Security and compliance certifications in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

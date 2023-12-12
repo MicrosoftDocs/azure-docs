@@ -10,7 +10,7 @@ ms.reviewer: maghan
 ms.date: 09/30/2023
 ---
 
-# Cross Subscription and Cross Resource Group Restore in Azure Database for PostgreSQL Flexible Server
+# Cross subscription and cross resource group restore in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 

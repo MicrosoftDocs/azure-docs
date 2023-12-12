@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 11/30/2021
 ---
 
-# Connect Azure Database for PostgreSQL Flexible Server with the private access connectivity method
+# Connect Azure Database for PostgreSQL - Flexible Server with the private access connectivity method
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

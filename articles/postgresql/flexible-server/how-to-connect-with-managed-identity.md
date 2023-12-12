@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ---
 
-# Connect with Managed Identity to Azure Database for PostgreSQL Flexible Server
+# Connect with managed identity to Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 

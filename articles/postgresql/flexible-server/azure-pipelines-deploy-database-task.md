@@ -10,7 +10,7 @@ ms.custom: seodec18, mode-other
 ms.date: 11/30/2021
 ---
 
-# Azure Pipelines task
+# Azure Pipelines task - Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

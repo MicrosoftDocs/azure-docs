@@ -10,7 +10,7 @@ ms.reviewer: maghan
 ms.date: 10/04/2023
 ---
 
-# Cross subscription and cross resource group  restore in Azure Database for PostgreSQL Flexible Server using Azure REST API
+# Cross subscription and cross resource group restore in Azure Database for PostgreSQL - Flexible Server using Azure REST API
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 In this article, you learn how to restore a flexible server to a different subscription or resource group using the REST API [Azure REST API](/rest/api/azure/). To learn more about backup and restore see the [overview](concepts-backup-restore.md).

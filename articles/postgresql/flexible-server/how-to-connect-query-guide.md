@@ -11,7 +11,7 @@ ms.reviewer: ""
 ms.date: 11/30/2021
 ---
 
-# Connect and query overview for Azure database for PostgreSQL- Flexible Server
+# Connect and query overview for Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

@@ -12,7 +12,7 @@ ms.custom:
 ms.topic: conceptual
 ---
 
-# Secure connectivity with TLS and SSL
+# Secure connectivity with TLS and SSL in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

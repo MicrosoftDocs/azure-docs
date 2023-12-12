@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/30/2021
 ---
 
-# Manage an Azure Database for PostgreSQL - Flexible Server by using the Azure CLI
+# Manage Azure Database for PostgreSQL - Flexible Server by using the Azure CLI
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

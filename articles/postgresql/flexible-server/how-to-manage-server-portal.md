@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 ms.custom: mvc
 ---
 
-# Manage an Azure Database for PostgreSQL - Flexible Server using the Azure portal
+# Manage Azure Database for PostgreSQL - Flexible Server using the Azure portal
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

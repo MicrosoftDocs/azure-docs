@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 12/01/2021
 ---
 
-# Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal
+# Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance in the Azure portal
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

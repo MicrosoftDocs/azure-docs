@@ -10,7 +10,7 @@ ms.author: nathanwisner
 ms.date: 11/16/2021
 ---
 
-# Azure Advisor for PostgreSQL - Flexible Server
+# Azure Advisor for Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

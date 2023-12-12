@@ -9,7 +9,7 @@ author: rkniyer999
 ms.date: 08/30/2023
 ---
 
-# Connection pooling strategy for PostgreSQL Using PgBouncer
+# Connection pooling strategy for Azure Database for PostgreSQL - Flexible Server using PgBouncer
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

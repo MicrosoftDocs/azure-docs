@@ -10,7 +10,7 @@ ms.author: jgao
 ms.date: 09/21/2022
 ---
 
-# Quickstart: Use a Bicep file to create an Azure Database for PostgreSQL - Flexible Server
+# Quickstart: Use a Bicep file to create an Azure Database for PostgreSQL - Flexible Server instance
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

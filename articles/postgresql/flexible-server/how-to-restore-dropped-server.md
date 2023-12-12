@@ -10,7 +10,7 @@ ms.reviewer: maghan
 ms.date: 06/15/2023
 ---
 
-# Restore a dropped Azure Database for PostgreSQL Flexible server
+# Restore a dropped Azure Database for PostgreSQL - Flexible Server instance
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 

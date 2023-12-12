@@ -10,7 +10,7 @@ ms.date: 09/14/2022
 ms.custom: fasttrack-edit, ignite-2022
 ---
 
-# Azure Database for PostgreSQL versioning policy
+# Azure Database for PostgreSQL - Flexible Server versioning policy
 
 [!INCLUDE [applies-to-postgresql-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 

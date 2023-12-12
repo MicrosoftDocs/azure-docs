@@ -10,7 +10,7 @@ ms.reviewer:
 ms.date: 7/25/2023
 ---
 
-# Scheduled maintenance in Azure Database for PostgreSQL – Flexible Server
+# Scheduled maintenance in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
  
