@@ -76,7 +76,7 @@ Ocp-Apim-Subscription-Key: {your-cognitive-services-api-key}
 }
 
 ```
-
+You can also find a full view on the [request parameters here](/rest/api/cognitiveservices/healthinsights/trial-matcher/create-job)
 
 The response includes the operation-location in the response header. The value looks similar to the following URL:
 ```https://eastus.api.cognitive.microsoft.com/healthinsights/trialmatcher/jobs/b58f3776-c6cb-4b19-a5a7-248a0d9481ff?api_version=2022-01-01-preview```
@@ -176,6 +176,7 @@ An example response:
 }
 ```
 
+You can also find a full view on the [respone parameters here](/rest/api/cognitiveservices/healthinsights/trial-matcher/get-job)
 
 ## Data limits
 

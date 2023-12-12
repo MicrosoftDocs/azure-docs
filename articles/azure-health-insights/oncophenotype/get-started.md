@@ -24,7 +24,7 @@ Once deployment is complete, you use the Azure portal to navigate to the newly c
 
 ## Example request and results
 
-To send an API request, you need your Azure AI services account endpoint and key. You can also find a full view on the [request parameters here](../request-info.md)
+To send an API request, you need your Azure AI services account endpoint and key. You can also find a full view on the [request parameters here](/rest/api/cognitiveservices/healthinsights/onco-phenotype/create-job)
 
 ![Screenshot of the Keys and Endpoints for the Onco-Phenotype.](../media/keys-and-endpoints.png) 
 
@@ -137,7 +137,7 @@ GET http://{cognitive-services-account-endpoint}/healthinsights/oncophenotype/jo
 }
 ```
 
-More information on the [response information can be found here](../response-info.md)
+More information on the [response information can be found here](/rest/api/cognitiveservices/healthinsights/onco-phenotype/get-job)
 
 ## Request validation
 
