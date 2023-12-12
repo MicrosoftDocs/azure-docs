@@ -7,11 +7,11 @@ ms.date: 09/19/2023
 
 # Deploy hybrid or air-gapped OT sensor management
 
-Microsoft Defender for IoT helps organizations achieve and maintain compliance by providing a comprehensive solution for threat detection and management, including coverage across parallel networks. Defender for IoT supports organizations across the industrial, energy, and utility fields, and compliance organizations like NERC CIP or IEC62443.
+Microsoft Defender for IoT helps organizations achieve and maintain compliance of their OT environment by providing a comprehensive solution for threat detection and management, including coverage across parallel networks. Defender for IoT supports organizations across the industrial, energy, and utility fields, and compliance organizations like NERC CIP or IEC62443.
 
-Many organizations, especially in the fields of government, military, financial services, nuclear power, and industrial manufacturing, maintain air-gapped networks. Air-gapped networks are physically separated from other, unsecured networks like the internet. Defender for IoT helps these organizations comply with global standards for threat detection and management, network segmentation, and more.
+Certain industries, such as governmental organizations, financial services, nuclear power operators, and industrial manufacturing, maintain air-gapped networks. Air-gapped networks are physically separated from other, unsecured networks like the internet. Defender for IoT helps these organizations comply with global standards for threat detection and management, network segmentation, and more.
 
-While digital transformation has helped businesses to streamline their operations and improve their bottom lines, they often face friction with air-gapped networks. The isolation in air-gapped networks provides security but also complicates digital transformation. For example, measures like a zero-trust architecture and multi-factor authentication are challenging to apply across  for air-gapped networks.
+While digital transformation has helped businesses to streamline their operations and improve their bottom lines, they often face friction with air-gapped networks. The isolation in air-gapped networks provides security but also complicates digital transformation. For example, architectural designs such as Zero Trust, which include the use of multi-factor authentication, are challenging to apply across air-gapped networks.
 
 Air-gapped networks are often used to store sensitive data or control cyber physical systems that are not connected to the internet, making them less vulnerable to cyberattacks. However, air-gapped networks are not completely secure and can still be breached. It's therefore imperative to monitor air-gapped networks to detect and respond to any potential threats.
 
@@ -48,10 +48,10 @@ Use the following steps to deploy a Defender for IoT system in an air-gapped or 
         - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
         - [Forward on-premises OT alert information](../how-to-forward-alert-information-to-partners.md)
 
-##  Transitioning from a legacy on-premises management console
+## Transitioning from a legacy on-premises management console
 
 > [!IMPORTANT]
-> The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) won't be supported or available for download after January 1st, 2025. Until then, we recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs.
+> The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) won't be supported or available for download after January 1st, 2025. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date.
 >
 
 Our [current architecture guidance](#architecture-recommendations) is designed to be more efficient, secure, and reliable than using the legacy on-premises management console. The updated guidance has fewer components, which makes it easier to maintain and troubleshoot. The smart sensor technology used in the new architecture allows for on-premises processing, reducing the need for cloud resources, and improving security, performance, and reliability. The updated guidance supports any needs to keep data within your own network for better better security than in cloud computing.
@@ -87,7 +87,7 @@ If you're an existing customer using an on-premises management console to manage
 
 The on-premises management console deprecation includes the following details:
 
-- Sensor versions released after **January 1, 2024** won't be able to be managed by an on-premises management console.
+- Sensor versions released after **January 1, 2025** won't be able to be managed by an on-premises management console.
 - Sensor software versions released between **January 1st, 2024 – January 1st, 2025** will continue to support an on-premises management console release.
 - Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console or using REST APIs.
 
