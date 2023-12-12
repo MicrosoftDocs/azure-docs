@@ -52,7 +52,7 @@ The default cadence means there's no planned maintenance window applied.
 |Channel|Updates Ownership|Default cadence|
 |---|---|
 | `Unmanaged`|OS driven security updates. AKS has no control over these updates.|Nightly around 6AM UTC for Ubuntu and Azure Linux. Monthly for Windows.|
-| `SecurityPatch`|AKS- Tested, fully managed and with safe deployment practices. For more information refer to the [blog][Blog]. This channel is recommended for security updates over `Unmanaged`, for above reasons.|Weekly.|
+| `SecurityPatch`|AKS-tested, fully managed, and applied with safe deployment practices. For more information, refer to [Increased security and resiliency of Canonical workloads on Azure][Blog].|Weekly.|
 | `NodeImage`|AKS|Weekly.|
 
 ## SecurityPatch channel requirements
