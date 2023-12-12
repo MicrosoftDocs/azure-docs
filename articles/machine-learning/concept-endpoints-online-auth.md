@@ -48,7 +48,6 @@ __Authorization for control plane operations__
 
 For control plane operations, your identity of choice needs to have a proper Azure role-based access control (Azure RBAC) allowed for access to your resources. Specifically, for CRUD operations on online endpoints and deployments, you need the identity to have the role assigned with the following actions:
 
-[!div class="mx-tdBreakAll"]
 | Operation | Required Azure RBAC action | On the scope of |
 | -- | -- | -- |
 | Create/update operations on online endpoints and deployments | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/write` | workspace |
@@ -95,7 +94,6 @@ __Authorization for data plane operations__
 
 For data plane operations, your identity of choice needs to have a proper Azure role-based access control (Azure RBAC) allowed for access to your resources, only if the endpoint is set to use Microsoft Entra token (`aad_token`). Specifically, for data plane operations on online endpoints and deployments, you need the identity to have the role assigned with the following actions:
 
-[!div class="mx-tdBreakAll"]
 | Operation | Required Azure RBAC action | On the scope of |
 | -- | -- | -- |
 | Invoke online endpoints with key or Azure Machine Learning token (`aml_token`). | - | - |
