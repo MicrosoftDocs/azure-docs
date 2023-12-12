@@ -15,7 +15,7 @@ ms.date: 12/12/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT MQ supports the following MQTT features and control packets:
+Azure IoT MQ currently supports the following MQTT features and control packets.
 
 | Feature or control packet | MQTT v3.1.1 | MQTT v5 |
 |---|:---:|:---:|
