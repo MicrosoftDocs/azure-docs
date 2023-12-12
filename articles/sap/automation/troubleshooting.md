@@ -20,6 +20,28 @@ Within the SAP Deployment Automation Framework (SDAF), we recognize that there a
 
 This section describes how to troubleshoot issues that you can encounter when performing deployments using the SAP Deployment Automation Framework.
 
+### Unable to access keyvault: XXXXX error
+
+If you see an error similar to the following when running the deployment:
+
+```text
+Unable to access keyvault: XXXXYYYYDEP00userBEB                             
+Please ensure the key vault exists.
+```
+
+This error indicates that the specified key vault doesn't exist or that the deployment environment is unable to access it. 
+
+Depending on the deployment stage, you can resolve this issue in the following ways:
+
+You can either add the IP of the environment from which you're executing the deployment (recommended) or you can allow public access to the key vault. See [Allow public access to a key vault](/azure/key-vault/general/network-security#allow-public-access-to-a-key-vault) for more information.
+
+The following variables are used to configure the key vault access:
+
+```tfvars
+Agent_IP                      = "10.0.0.5"
+public_network_access_enabled = true
+```
+
 ### OverconstrainedAllocationRequest error
 If you see an error similar to the following when running the deployment:
 
@@ -40,7 +62,7 @@ The client 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' with object id 'yyyyyyyy-yyyy-
 authorization or an ABAC condition not fulfilled to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEV-WEEU-SAP01-X00/providers/Microsoft.Storage/storageAccounts/....
 ```
 
-The error indicates that the deployment credential does not have 'User Access Administrator' role on the resource group. To resolve this issue, assign the 'User Access Administrator' role to the deployment credential on the resource group or the subscription (if feasible).
+The error indicates that the deployment credential doesn't have 'User Access Administrator' role on the resource group. To resolve this issue, assign the 'User Access Administrator' role to the deployment credential on the resource group or the subscription (if feasible).
 
 ## Configuration
 
@@ -54,7 +76,7 @@ If you see an error similar to the following message when running the deployment
 ERROR! this task 'ansible.builtin.command' has extra params, which is only allowed in the following modules: set_fact, shell, include_tasks, win_shell, import_tasks, import_role, include, win_command, command, include_role, meta, add_host, script, group_by, raw, include_vars
 ```
 
-This error indicates that the task is not supported by the version of Ansible that is installed. To resolve this issue, upgrade to the latest version of Ansible on the agent virtual machine.
+This error indicates that the task isn't supported by the version of Ansible that is installed. To resolve this issue, upgrade to the latest version of Ansible on the agent virtual machine.
 
 ## Software download
 
@@ -62,7 +84,7 @@ This section describes how to troubleshoot issues that you can encounter when do
 
 ### "HTTP Error 404: Not Found"
 
-This error indicates that the software version is no longer available for download. Please open a GitHub issue [New Issue](https://github.com/Azure/SAP-automation-samples/issues/new/choose)to request an update to the Bill of Materials file, or update the Bill of Materials file yourself and submit a pull request.
+This error indicates that the software version is no longer available for download. Open a GitHub issue [New Issue](https://github.com/Azure/SAP-automation-samples/issues/new/choose)to request an update to the Bill of Materials file, or update the Bill of Materials file yourself and submit a pull request.
 
 ## Azure DevOps
 

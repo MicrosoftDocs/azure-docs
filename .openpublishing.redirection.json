@@ -2771,6 +2771,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/container-registry/container-registry-enable-conditional-access-policy.md",
+            "redirect_url": "/azure/container-registry/container-registry-configure-conditional-access.md",
+            "redirect_document_id": false 
+        },
+        {
             "source_path": "articles/site-recovery/vmware-physical-secondary-disaster-recovery.md",
             "redirect_url": "/azure/site-recovery/vmware-physical-secondary-architecture",
             "redirect_document_id": false
@@ -3101,8 +3106,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "active-directory/authentication/concept-mfa-plan.md",
-            "redirect_url": "active-directory/authentication/howto-mfa-getstarted",
+            "source_path": "articles/active-directory/authentication/concept-mfa-plan.md",
+            "redirect_url": "/entra/identity/authentication/howto-mfa-getstarted",
             "redirect_document_id": false
         },
         {
@@ -9623,6 +9628,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/update-java-versions.md",
+            "redirect_url": "/azure/azure-functions/update-language-versions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-government/documentation-government-k8.md",
             "redirect_url": "/azure/azure-government",
             "redirect_document_id": false
@@ -15391,6 +15401,11 @@
             "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group.md",
             "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/deploy-models.md",
+            "redirect_URL": "/azure/ai-studio/concepts/deployments-overview",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
@@ -25784,5 +25799,6 @@
             "redirect_url": "https://azure.microsoft.com/updates/preview-ai-toolchain-operator-addon-for-aks/",
             "redirect_document_id": false  
         }
+        
     ]
 }
