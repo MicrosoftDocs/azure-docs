@@ -17,7 +17,9 @@ In this article, you learn how to manage a dev box pool in Microsoft Dev Box by 
 
 A dev box pool is the collection of dev boxes that have the same settings, such as the dev box definition and network connection. A dev box pool is associated with a Microsoft Dev Box project.
 
-Developers that have access to the project in the dev center, can then choose to create a dev box from a dev box pool.
+Dev box pools define the location of the dev boxes through the network connection. You can choose to deploy dev boxes to a Microsoft-hosted network or to a network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). Organizations that support developers in multiple geographical locations can create dev box pools for each location by specifying a nearby region.
+
+Developers that have access to the project in the dev center, can then create a dev box from a dev box pool.
 
 ## Permissions
 
@@ -33,7 +35,7 @@ In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manag
 
 The following steps show you how to create a dev box pool associated with a project. You use an existing dev box definition and network connection in the dev center to configure the pool.
 
-If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure Microsoft Dev Box ](quickstart-configure-dev-box-service.md) to create them.
+If you don't have an available dev center with an existing dev box definition and network connection, follow the steps in [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md) to create them.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -55,16 +57,16 @@ If you don't have an available dev center with an existing dev box definition an
    |----|----|
    |**Name**|Enter a name for the pool. The pool name is visible to developers to select when they're creating dev boxes. It must be unique within a project.|
    |**Dev box definition**|Select an existing dev box definition. The definition determines the base image and size for the dev boxes that are created in this pool.|
-   |**Network connection**|Select an existing network connection. The network connection determines the region of the dev boxes that are created in this pool.|
+   |**Network connection**|1. Select **Deploy to a Microsoft hosted network**, or use an existing network connection. </br>2. Select the region where the dev boxes should be deployed. Choose a region close to  dev box users for best user experience.|
    |**Dev box Creator Privileges**|Select **Local Administrator** or **Standard User**.|
    |**Enable Auto-stop**|**Yes** is the default. Select **No** to disable an auto-stop schedule. You can configure an auto-stop schedule after the pool is created.|
    |**Stop time**| Select a time to shut down all the dev boxes in the pool.|
    |**Time zone**| Select the time zone that the stop time is in.|
    |**Licensing**| Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
-   :::image type="content" source="./media/how-to-manage-dev-box-pools/dev-box-pool-create.png" alt-text="Screenshot of the pane for creating a dev box pool.":::
+   :::image type="content" source="./media/how-to-manage-dev-box-pools/create-pool-details.png" alt-text="Screenshot of the pane for creating a dev box pool.":::
 
-1. Select **Add**.
+1. Select **Create**.
 
 1. Verify that the new dev box pool appears in the list. You might need to refresh the screen.
 
@@ -122,5 +124,5 @@ To delete a dev box pool in the Azure portal:
 ## Related content
 
 - [Provide access to projects for project admins](./how-to-project-admin.md)
-- [3. Create a dev box definition](quickstart-configure-dev-box-service.md#3-create-a-dev-box-definition)
+- [2. Create a dev box definition](quickstart-configure-dev-box-service.md#2-create-a-dev-box-definition)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)

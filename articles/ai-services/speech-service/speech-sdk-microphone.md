@@ -58,11 +58,11 @@ The performance of the microphone array when integrated into a device will diffe
 
 | Parameter          | Recommended                                        |
 | ------------------ | -------------------------------------------------- |
-| SNR                | \> 63 dB (1 kHz signal 94 dBSPL, A-weighted noise) |
+| SNR                | \>= 64 dB (1 kHz signal 94 dBSPL, A-weighted noise) |
 | Output Sensitivity | -26 dBFS/Pa @ 1 kHz (recommended)                  |
 | Amplitude Matching | ± 2 dB, 200-8000 Hz                                |
-| THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5th Order             |
-| Frequency Response | ± 6 dB, 200-8000 Hz Floating Mask\*\*              |
+| THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL            |
+| Frequency Response | ± 6 dB, 200-12000 Hz Floating Mask\*\*              |
 
 \*\*_A low distortion speaker is required to measure THD (e.g. Neumann KH120)_
 
