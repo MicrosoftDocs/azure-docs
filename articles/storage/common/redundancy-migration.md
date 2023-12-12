@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/21/2023
+ms.date: 12/11/2023
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions
@@ -23,7 +23,7 @@ This article describes the process of changing replication setting(s) for an exi
 
 Four aspects of the redundancy configuration of a storage account determine how your data is replicated and accessible:
 
-- **Local redundancy**: - your data is always replicated three times within the local or primary region (LRS)
+- **Local redundancy** - your data is always replicated three times within the local or primary region (LRS)
 - **Zone redundancy** - whether your data is replicated between different zones within the primary region (LRS vs. ZRS)
 - **Geo-redundancy** - replication within a single "local" region or between a primary and a secondary region (LRS vs. GRS)
 - **Read access (RA)** - read access to the secondary region when geo-redundancy is used (GRS vs. RA-GRS)
@@ -334,7 +334,7 @@ You can't convert storage accounts to zone-redundancy (ZRS, GZRS or RA-GZRS) if 
 
 After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). [Initiate the failover](storage-initiate-account-failover.md#initiate-the-failover).
 
-If you performed a customer-managed account failover to recover from an outage for your GRS or RA-GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported. This is true even in the case of so-called failback operations. For example, if you perform an account failover from RA-GRS to LRS in the secondary region, and then configure it again as RA-GRS, it remains LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it remains LRS again in the original primary. In this case, you can't perform a conversion to ZRS, GZRS or RA-GZRS in the primary region. Instead, perform a manual migration to add zone-redundancy.
+If you performed a customer-managed account failover to recover from an outage for your GRS or RA-GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported, even in the case of so-called failback operations. For example, if you perform an account failover from RA-GRS to LRS in the secondary region, and then configure it again as RA-GRS, it remains LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it remains LRS again in the original primary. In this case, you can't perform a conversion to ZRS, GZRS or RA-GZRS in the primary region. Instead, perform a manual migration to add zone-redundancy.
 
 ## Downtime requirements
 
@@ -353,7 +353,7 @@ After a zone-redundancy conversion, you must wait at least 72 hours before chang
 
 ## Costs associated with changing how data is replicated
 
-Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS, where LRS is the least expensive and RA-GZRS is the most expensive.
+Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS, ordered by price where LRS is the least expensive and RA-GZRS is the most expensive.
 
 The costs associated with changing how data is replicated in your storage account depend on which [aspects of your redundancy configuration](#options-for-changing-the-replication-type) you change. A combination of data storage and egress bandwidth pricing determines the cost of making a change. For details on pricing, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
