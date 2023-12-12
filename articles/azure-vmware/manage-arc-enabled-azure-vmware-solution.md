@@ -3,7 +3,7 @@ title: Manage Arc-enabled Azure VMware private cloud
 description: Learn how to manage your Arc-enabled Azure VMware private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 12/11/2023
+ms.date: 12/12/2023
 ms.custom: references_regions, engagement-fy23
 ---
 
