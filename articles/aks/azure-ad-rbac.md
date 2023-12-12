@@ -73,7 +73,7 @@ In production environments, you can use existing users and groups within a Micro
 2. Create the first example group in Microsoft Entra ID for the application developers using the [`az ad group create`][az-ad-group-create] command. The following example creates a group named *appdev*:
 
     ```azurecli-interactive
-    APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query Id -o tsv)
+    APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query id -o tsv)
     ```
 
 3. Create an Azure role assignment for the *appdev* group using the [`az role assignment create`][az-role-assignment-create] command. This assignment lets any member of the group use `kubectl` to interact with an AKS cluster by granting them the *Azure Kubernetes Service Cluster User* Role.
@@ -91,7 +91,7 @@ In production environments, you can use existing users and groups within a Micro
 4. Create a second example group for SREs named *opssre*.
 
     ```azurecli-interactive
-    OPSSRE_ID=$(az ad group create --display-name opssre --mail-nickname opssre --query objectId -o tsv)
+    OPSSRE_ID=$(az ad group create --display-name opssre --mail-nickname opssre --query id -o tsv)
     ```
 
 5. Create an Azure role assignment to grant members of the group the *Azure Kubernetes Service Cluster User* Role.
