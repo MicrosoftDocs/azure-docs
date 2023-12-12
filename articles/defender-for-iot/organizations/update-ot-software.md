@@ -86,7 +86,7 @@ This procedure describes how to send a software version update to one or more OT
 
     :::image type="content" source="media/update-ot-software/remote-update-step-1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/remote-update-step-1.png":::
 
-1. In the **Send package** pane that appears, check to make sure that you're sending the correct software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
+1. In the **Send package** pane that appears, check to make sure that you're sending the software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
 1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, which includes an update progress bar and estimated time remaining message, indicating that the process has started and lets you track its progress. For example:
 

@@ -22,21 +22,19 @@ Features released earlier than nine months ago are described in the [What's new 
 |---------|---------|
 | **OT networks** | - [Upgraded progress bar for cloud-based sensor update](#upgraded-progress-bar-for-cloud-based-sensor-update) <br> - [Updated security stack integration guidance](#updated-security-stack-integration-guidance)|
 
-### Upgraded progress bar for cloud-based sensor update
+### Live statuses for cloud-based sensor updates
 
-When running a sensor update from the Azure portal, a new progress bar and estimated time remaining message now show in the **Sensor version** column during the update process. The bar and time message are automatically updated, without needing to refresh the page so that the user knows that the process has begun correctly, is ongoing, and that the process is not stuck or has failed. For example:
+When running a sensor update from the Azure portal, a new progress bar and estimated time remaining message now show in the **Sensor version** column during the update process. The bar and time message are automatically updated as the task progresses, so that the user knows that the process is ongoing, and that the process is not stuck or has failed. For example:
 
 :::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column" lightbox="media/whats-new/sensor-version-update-bar.png":::
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
-
 
 ### Streamlined alert records in the SecurityAlert table
 
 When integrating with Microsoft Sentinel, the Microsoft Sentinel **SecurityAlert** table is now updated immediately only for changes in alert status and severity. Other changes in alerts, such as last detection of an existing alert, are aggregated over several hours and display only the latest change made.
 
 For more information, see [Understand multiple records per alert](iot-solution.md#understand-multiple-records-per-alert).
-
 
 ## November 2023
 
