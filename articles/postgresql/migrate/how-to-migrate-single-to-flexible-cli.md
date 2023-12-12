@@ -32,7 +32,7 @@ In this tutorial, you learn about:
 To complete this tutorial, you need to:
 
 1. Use an existing instance of Azure Database for PostgreSQL – Single Server (the source server)
-2. Allowlist extensions whose libraries need to be loaded at server start, by following the steps mentioned in this [doc](./concepts-single-to-flexible.md#allow-list-required-extensions). It is important to allowlist these extensions before you initiate a migration using this tool.
+2. Allowlist extensions whose libraries need to be loaded at server start, by following the steps mentioned in this [doc](./concepts-single-to-flexible.md#allowlist-required-extensions). It is important to allowlist these extensions before you initiate a migration using this tool.
 
 >[!NOTE]
 > If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
@@ -64,7 +64,7 @@ To complete this tutorial, you need to:
 ## Migration CLI commands
 
 The migration tool comes with easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  `az postgres flexible-server migration`.
-Allowlist all required extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It's important to allowlist the extensions before you initiate a migration using this tool.
+Allowlist all required extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allowlist-required-extensions). It's important to allowlist the extensions before you initiate a migration using this tool.
 For help with understanding the options associated with a command and with framing the right syntax, you can use the `help` parameter:
 
 ```azurecli-interactive
@@ -187,7 +187,7 @@ Note these important points for the command response:
 - The migration moves to the `Succeeded` state as soon as the `Migrating Data` substate finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
 
 >[!NOTE]
-> Gentle reminder to [allow-list the extensions](./concepts-single-to-flexible.md#allow-list-required-extensions) before you execute **Create** in case it is not yet done. It's important to allow-list the extensions before you initiate a migration using this tool.
+> Gentle reminder to [allowlist the extensions](./concepts-single-to-flexible.md#allowlist-required-extensions) before you execute **Create** in case it is not yet done. It's important to allow-list the extensions before you initiate a migration using this tool.
 
 ### List the migration(s)
 
