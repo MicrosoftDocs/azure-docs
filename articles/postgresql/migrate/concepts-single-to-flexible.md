@@ -205,9 +205,9 @@ The following table summarizes the list of networking scenarios supported by the
 - If your single server is public access (case #1 and case #2 in the above table), there's nothing needed from your end. The single to flex migration tool automatically establishes connection between single and flexible server and the migration goes through.
 - If your single server is in private access, then the only supported scenario is when your Flexible server is inside a VNet. If your flexible server is deployed in the same VNet as the private end point of your Single server, connections between single server and flexible server should automatically work provided there's no network security group(NSGs) blocking the connectivity between subnets. If flexible server is deployed in another VNet, [peering should be established between the VNets](../../virtual-network/tutorial-connect-virtual-networks-portal.md) for the connection to work between Single and Flexible server.
 
-##### Allow list required extensions
+##### Allowlist required extensions
 
-The migration tool automatically allows lists all extensions used by your single server databases on your flexible server except for the ones whose libraries need to be loaded at the server start. 
+The migration tool automatically allowlists all extensions used by your single server databases on your flexible server except for the ones whose libraries need to be loaded at the server start. 
 
 Use the following select command to list all the extensions used on your Single server databases.
 
@@ -240,7 +240,7 @@ Use the **Save and Restart** option and wait for the flexible server to restart.
 > [!NOTE]  
 > If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server, please raise a support request since the migration tool does not handle these extensions.
 
-##### Create AAD users on target server
+##### Create Azure Active Directory users on target server
 > [!NOTE]  
 > This pre-requisite is applicable only for flexible servers on which the migration of users/roles functionality is enabled.
 
