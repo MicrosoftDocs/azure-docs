@@ -33,7 +33,7 @@ Azure Private Link Service enables you to access Azure Key Vault and Azure hoste
 ## TLS and HTTPS
 
 - The Key Vault front end (data plane) is a multi-tenant server. This means that key vaults from different customers can share the same public IP address. In order to achieve isolation, each HTTP request is authenticated and authorized independently of other requests.
-- The HTTPS protocol allows the client to participate in TLS negotiation. **Clients can enforce the version of TLS**, and whenever a client does so, the entire connection will use the corresponding level protection. Key Vaut supports TLS 1.2 and 1.3. 
+- The HTTPS protocol allows the client to participate in TLS negotiation. **Clients can enforce the version of TLS**, and whenever a client does so, the entire connection will use the corresponding level protection. Key Vault supports TLS 1.2 and 1.3 protocol versions. 
 
 > [!NOTE]
 > You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
