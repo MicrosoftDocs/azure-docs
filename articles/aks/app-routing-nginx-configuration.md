@@ -480,10 +480,10 @@ spec:
 
 ### URL rewriting
 
-In some scenarios, the exposed URL in the backend service differs from the specified path in the Ingress rule. Without a rewrite any request returns 404. This is particularly useful with [path based routing](https://kubernetes.github.io/ingress-nginx/user-guide/ingress-path-matching/). You can set path expected by the service using the annotation:
+In some scenarios, the exposed URL in the backend service differs from the specified path in the Ingress rule. Without a rewrite any request returns 404. This is particularly useful with [path based routing](https://kubernetes.github.io/ingress-nginx/user-guide/ingress-path-matching/) where you can serve two different web applications under the same domain. You can set path expected by the service using the annotation:
 
 ```yml
-nginx.ingress.kubernetes.io/rewrite-target": /
+nginx.ingress.kubernetes.io/rewrite-target": /$2
 ```
 
 Here's an example ingress configuration using this annotation:
@@ -499,20 +499,28 @@ metadata:
   name: aks-helloworld
   namespace: hello-web-app-routing
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target": /
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   ingressClassName: <IngressClassName>
   rules:
   - host: <Hostname>
     http:
       paths:
-      - backend:
+      - path: /app-one(/|$)(.*)
+        pathType: Prefix 
+        backend:
           service:
-            name: aks-helloworld
+            name: app-one
             port:
               number: 80
-        path: /
-        pathType: Prefix
+      - path: /app-two(/|$)(.*)
+        pathType: Prefix 
+        backend:
+          service:
+            name: app-two
+            port:
+              number: 80
 ```
 
 ## Next steps
