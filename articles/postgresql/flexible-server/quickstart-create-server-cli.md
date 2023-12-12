@@ -69,7 +69,7 @@ The server created has the following attributes:
 If you'd like to change any defaults, please refer to the Azure CLI reference for [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-create).
 
 > [!NOTE]
-> Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432. Notice that if you enable [PgBouncer](./concepts-pgbouncer) on your instance of Flexible Server and want to connect through it, because it runs on port 6432, it is that port that your IT department must open for outbound traffic.
+> Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432. Notice that if you enable [PgBouncer](./concepts-pgbouncer.md) on your instance of Flexible Server and want to connect through it, because it runs on port 6432, it is that port that your IT department must open for outbound traffic.
 
 ## Get the connection information
 
