@@ -23,11 +23,11 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 ### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
 
 | Product| Availability zone guide | Disaster recovery guide | 
-|  --- | --- | --- |
+|---|---|---|
 |Azure Cosmos DB|[Achieve high availability](../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Configure multi-region writes](../cosmos-db/nosql/how-to-multi-master?tabs=api-async) |
 |Azure Event Hubs| [Availability Zones](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md) |
 |Azure ExpressRoute| [Designing for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md)|
-|Azure Key Vault|[Azure Key Vault failover within a region](../key-vault/general/disaster-recovery-guidance.md#failover-within-a-region?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md#failover-across-regions) |
+|Azure Key Vault|[Azure Key Vault failover within a region](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#failover-within-a-region)| [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md#failover-across-regions) |
 |Azure Load Balancer|[Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Create a cross-region Azure Load Balancer](../load-balancer/tutorial-cross-region-portal.md) |
 |Azure Public IP|[Azure Public IP - Availability zones](../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone)| [Azure Public IP: Cross-region overview](../load-balancer/cross-region-overview.md) |
 |Azure Service Bus|[Azure Service Bus - Availability zones](../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Azure Service Bus Geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md) |
@@ -104,7 +104,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
 
 | Product| Availability zone guide | Disaster recovery guide | 
-|  --- | --- | --- |
+|---|---|---|
 |Azure Community Training|[Reliability in Community Training](reliability-community-training.md) |[Reliability in Community Training](reliability-community-training.md) |
 |Azure Cosmos DB for MongoDB vCore||[Failover for business continuity and disaster recovery with Azure Cosmos DB for MongoDB vCore](../cosmos-db/mongodb/vcore/failover-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) ||
 |Azure Databox| |[Microsoft Azure Data Box Disk FAQ](../databox/data-box-disk-faq.yml?#how-can-i-recover-my-data-if-an-entire-region-fails-) |
