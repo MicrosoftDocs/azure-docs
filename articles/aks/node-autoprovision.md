@@ -12,7 +12,7 @@ When deploying workloads onto AKS, you need to make a decision about the node po
 
 Node autoprovision (NAP) decides based on pending pod resource requirements the optimal VM configuration to run those workloads in the most efficient and cost effective manner.
 
-NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and the AKS provider is also Open Source.  NAP automatically deploys and configures and manages Karpenter on your AKS clusters.
+NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and the [AKS provider](https://github.com/Azure/karpenter) is also Open Source.  NAP automatically deploys and configures and manages Karpenter on your AKS clusters.
 
 
 ## Before you begin
@@ -61,7 +61,7 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
     ```
 
 ## Limitations
-* NAP isn't available yet in  WestUS, WestUS2, EastUS, EastUS2, SouthCentralUS, WestEurope regions.  
+* NAP isn't yet available in  WestUS, WestUS2, EastUS, EastUS2, SouthCentralUS, WestEurope regions.  
 * Windows and Azure Linux node pools aren't supported
 * Kubelet configuration through Node pool configuration is not supported
 * NAP can only be enabled on new clusters
@@ -69,9 +69,63 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 ## Enable Node autoprovisioning
 To enable node autoprovisioning, create a new cluster using the az aks create command and set --node-provisioning-mode to "Auto". You'll also need to use overlay networking and the cilium network policy.  
 
+
+### [Azure CLI](#tab/azure-cli)
+
 ```azure-cli
 az aks create --name karpuktest --resource-group karpuk --node-provisioning-mode Auto --network-plugin azure --network-plugin-mode overlay --network-dataplane cilium
 
+```
+
+### [Azure ARM](#tab/azure-arm)
+```azure-cli
+az deployment group create --resource-group napcluster --template-file ./nap.json  
+```
+
+```arm
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {},
+  "parameters": {},
+  "resources": [
+    {
+      "type": "Microsoft.ContainerService/managedClusters",
+      "apiVersion": "2023-09-02-preview",
+      "sku": {
+        "name": "Base",
+        "tier": "Standard"
+      },
+      "name": "napcluster",
+      "location": "uksouth",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "networkProfile": {
+            "networkPlugin": "azure",
+            "networkPluginMode": "overlay",
+            "networkPolicy": "cilium",
+            "networkDataplane":"cilium",
+            "loadBalancerSku": "Standard"
+        },
+        "dnsPrefix": "napcluster",
+        "agentPoolProfiles": [
+          {
+            "name": "agentpool",
+            "count": 3,
+            "vmSize": "standard_d2s_v3",
+            "osType": "Linux",
+            "mode": "System"
+          }
+        ],
+        "nodeProvisioningProfile": {
+          "mode": "Auto"
+        },
+      }
+    }
+  ]
+}
 ```
 
 ## Node Pools
