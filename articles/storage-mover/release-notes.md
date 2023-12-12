@@ -51,6 +51,23 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent cannot update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
 
+## 2023 December 1
+
+Major refresh release notes for:
+
+- Service version: December 1, 2023
+- Agent version: 3.0.412
+
+### Agent
+
+- Extended support to the SMB 2.0 protocol (vs. previously SMB 2.1+)
+- Security improvements and bug fixes.
+
+### Limitations
+
+> [!IMPORTANT]
+> Based on the previously described [Azure Storage Mover update policy](#azure-storage-mover-update-policy), agents are automatically updated to the latest version. However, some improvements require a download and [provisioning](agent-deploy.md) of a new agent VM, using the latest agent image from [Microsoft Download Center](https://aka.ms/StorageMover/agent). This is recommended for all customers with agent deployments prior to this release date.
+
 ## 2023 November 6
 
 Major refresh release notes for:

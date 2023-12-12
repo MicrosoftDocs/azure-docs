@@ -4,8 +4,8 @@ description: Learn how to use Elastic SAN Preview with Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
 ms.author: v-suzuber
-ms.date: 11/16/2023
-ms.custom: references_regions
+ms.date: 12/05/2023
+ms.custom: references_regions, engagement-fy23
 ---
 
 # Use Azure VMware Solution with Azure Elastic SAN Preview

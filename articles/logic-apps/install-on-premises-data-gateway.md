@@ -93,19 +93,19 @@ You can use the same gateway installation with other cloud services, such as Pow
 
 1. Review the minimum requirements, keep the default installation path, accept the terms of use, and select **Install**.
 
-   :::image type="content" source="./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png" alt-text="Screenshot shows gateway installer with a minimum requirements link, an installation path, and a checkbox that's highlighted for accepting terms.":::
+   :::image type="content" source="./media/install-on-premises-data-gateway/review-and-accept-terms-of-use.png" alt-text="Screenshot shows gateway installer with a minimum requirements link, an installation path, and a checkbox that's highlighted for accepting terms.":::
 
 1. If prompted, confirm that the installer can make changes to your computer.
 
 1. After the gateway installation finishes, provide the email address for your Azure account, and select **Sign in**.
 
-   :::image type="content" source="./media/logic-apps-gateway-install/sign-in-gateway-install.png" alt-text="Screenshot shows gateway installer with a message about successful installation, a box that contains an email address, and a button for Sign in.":::
+   :::image type="content" source="./media/install-on-premises-data-gateway/sign-in-gateway-install.png" alt-text="Screenshot shows gateway installer with a message about successful installation, a box that contains an email address, and a button for Sign in.":::
 
 1. Select **Register a new gateway on this computer** > **Next**.
 
    This step registers your gateway installation with the [gateway cloud service](#how-the-gateway-works).
 
-   :::image type="content" source="./media/logic-apps-gateway-install/register-gateway-local-computer.png" alt-text="Screenshot shows gateway installer with a message about registering the gateway and the selected option for Register a new gateway on this computer.":::
+   :::image type="content" source="./media/install-on-premises-data-gateway/register-gateway-local-computer.png" alt-text="Screenshot shows gateway installer with a message about registering the gateway and the selected option for Register a new gateway on this computer.":::
 
 1. Provide the following information for your gateway installation:
 
@@ -119,11 +119,11 @@ You can use the same gateway installation with other cloud services, such as Pow
    > Make sure to save your recovery key in a safe place. You need this key to move, 
    > recover, change ownership, or change the location for the gateway installation.
 
-   :::image type="content" source="./media/logic-apps-gateway-install/gateway-name-recovery-key.png" alt-text="Screenshot shows gateway installer with input boxes for the gateway name, a recovery key, and confirmation of the recovery key.":::
+   :::image type="content" source="./media/install-on-premises-data-gateway/gateway-name-recovery-key.png" alt-text="Screenshot shows gateway installer with input boxes for the gateway name, a recovery key, and confirmation of the recovery key.":::
 
 1. Review the region for the gateway cloud service and [Azure Service Bus messaging instance](../service-bus-messaging/service-bus-messaging-overview.md) that your gateway installation uses. By default, this region is the same location as the Microsoft Entra tenant for your Azure account.
 
-   :::image type="content" source="./media/logic-apps-gateway-install/confirm-gateway-region.png" alt-text="Screenshot of part of the gateway installer window. The gateway cloud service region is highlighted.":::
+   :::image type="content" source="./media/install-on-premises-data-gateway/confirm-gateway-region.png" alt-text="Screenshot of part of the gateway installer window. The gateway cloud service region is highlighted.":::
 
 1. To accept the default region, select **Configure**. If the default region isn't the one that's closest to you, you can change the region.
 
@@ -133,17 +133,17 @@ You can use the same gateway installation with other cloud services, such as Pow
 
    1. Next to the current region, select **Change Region**.
 
-      :::image type="content" source="./media/logic-apps-gateway-install/change-gateway-service-region.png" alt-text="Screenshot shows partial gateway installer. Next to the gateway cloud service region, the Change Region option is highlighted.":::
+      :::image type="content" source="./media/install-on-premises-data-gateway/change-gateway-service-region.png" alt-text="Screenshot shows partial gateway installer. Next to the gateway cloud service region, the Change Region option is highlighted.":::
 
    1. On the next page, open the **Select Region** list, select the region you want, and select **Done**.
 
-      :::image type="content" source="./media/logic-apps-gateway-install/select-region-gateway-install.png" alt-text="Screenshot shows partial gateway installer with open list named Select Region.":::
+      :::image type="content" source="./media/install-on-premises-data-gateway/select-region-gateway-install.png" alt-text="Screenshot shows partial gateway installer with open list named Select Region.":::
 
 1. In the final confirmation window, review the data gateway information. When you're ready, select **Close**.
 
    This example uses the same account for Azure Logic Apps, Power BI, Power Apps, and Power Automate, so that the gateway is available for all these services.
 
-   :::image type="content" source="./media/logic-apps-gateway-install/finished-gateway-default-location.png" alt-text="Screenshot shows gateway installer with Close button and green check marks for Power Apps, Power Automate, and Power BI.":::
+   :::image type="content" source="./media/install-on-premises-data-gateway/finished-gateway-default-location.png" alt-text="Screenshot shows gateway installer with Close button and green check marks for Power Apps, Power Automate, and Power BI.":::
 
 1. Now [create the Azure resource for your gateway installation](logic-apps-gateway-connection.md).
 
@@ -200,11 +200,11 @@ If you must change your gateway's location, move your gateway installation to a 
 
 1. Select **Migrate, restore, or takeover an existing gateway** > **Next**.
 
-   :::image type="content" source="./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png" alt-text="Screenshot shows gateway installer with the selected option for Migrate, restore, or takeover an existing gateway.":::
+   :::image type="content" source="./media/install-on-premises-data-gateway/migrate-recover-take-over-gateway.png" alt-text="Screenshot shows gateway installer with the selected option for Migrate, restore, or takeover an existing gateway.":::
 
 1. Select from the available clusters and gateways, and enter the recovery key for the selected gateway.
 
-   :::image type="content" source="./media/logic-apps-gateway-install/select-existing-gateway.png" alt-text="Screenshot shows gateway installer with values specified for Available gateway clusters, Available gateways, and Recovery key.":::
+   :::image type="content" source="./media/install-on-premises-data-gateway/select-existing-gateway.png" alt-text="Screenshot shows gateway installer with values specified for Available gateway clusters, Available gateways, and Recovery key.":::
 
 1. To change the region, select **Change Region**, and then select the new region.
 
@@ -237,7 +237,7 @@ The gateway helps facilitate faster and more secure behind-the-scenes communicat
 
 The gateway works with firewalls and uses only outbound connections. All traffic originates as secured outbound traffic from the gateway agent. The gateway sends the data from on-premises sources on encrypted channels through [Service Bus messaging](../service-bus-messaging/service-bus-messaging-overview.md). This service bus creates a channel between the gateway and the calling service, but doesn't store any data. All data that travels through the gateway is encrypted.
 
-:::image type="content" source="./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png" alt-text="Architecture diagram shows an on-premises data gateway and data flow between cloud services and on-premises data sources." border="false":::
+:::image type="content" source="./media/install-on-premises-data-gateway/how-on-premises-data-gateway-works-flow-diagram.png" alt-text="Architecture diagram shows an on-premises data gateway and data flow between cloud services and on-premises data sources." border="false":::
 
 > [!NOTE]
 >
