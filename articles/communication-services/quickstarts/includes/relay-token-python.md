@@ -65,7 +65,7 @@ Add this code inside the `try` block:
 ```python
 
 # You can find your endpoint and access token from your resource in the Azure Portal
-connection_str = "endpoint=ENDPOINT;accessKey=KEY"
+connection_string = "endpoint=ENDPOINT;accessKey=KEY"
 endpoint = "https://<RESOURCE_NAME>.communication.azure.com"
 
 # To use Azure Active Directory Authentication (DefaultAzureCredential) make sure to have
@@ -75,8 +75,8 @@ identity_client = CommunicationIdentityClient(endpoint, DefaultAzureCredential()
 relay_client = CommunicationRelayClient(endpoint, DefaultAzureCredential())
 
 #You can also authenticate using your connection string
-identity_client = CommunicationIdentityClient.from_connection_string(self.connection_string)
-relay_client = CommunicationRelayClient.from_connection_string(self.connection_string)
+identity_client = CommunicationIdentityClient.from_connection_string(connection_string)
+relay_client = CommunicationRelayClient.from_connection_string(connection_string)
 ```
 
 ## Create a user from identity 
@@ -91,9 +91,9 @@ user = identity_client.create_user()
 Call the Azure Communication token service to exchange the user access token for a TURN service token
 
 ```python
-relay_configuration = relay_client.get_relay_configuration(user)
+relay_configuration = relay_client.get_relay_configuration(user=user)
 
-for iceServer in config.ice_servers:
+for iceServer in relay_configuration.ice_servers:
     assert iceServer.username is not None
     print('Username: ' + iceServer.username)
 
