@@ -115,23 +115,6 @@ For example:
 az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON" --migration-mode offline
 ```
 
-> [!NOTE]  
-> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in select regions - India Central, India South, Australia Southeast and South East Asia.
-
-If **Online** migration is selected, it requires Logical replication to be turned on in the source Single server. If it isn't turned on, the migration tool automatically turns on logical replication at the source Single server. Replication can also be set up manually at the source using the below command. Note that either approach of turning on logical replication restarts the source Single server.
-
-For example:
-
-```azurecli-interactive
-az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name CLIMigrationExample --setup-replication
-```
-
-To perform Online migration in any of the above regions, use:
-
-```azurecli-interactive
-az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON" --migration-mode online
-```
-
 The `migration-name` argument used in the `create` command is used in other CLI commands, such as `update`, `delete`, and `show.` In all those commands, it uniquely identifies the migration attempt in the corresponding actions.
 
 Finally, the `create` command needs a JSON file to be passed as part of its `properties` argument.
@@ -185,6 +168,29 @@ Note these important points for the command response:
 - Each database migrated has its own section with all migration details, such as table count, incremental inserts, deletions, and pending bytes.
 - The time that the `Migrating Data` substate takes to finish depends on the size of databases that are migrated.
 - The migration moves to the `Succeeded` state as soon as the `Migrating Data` substate finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
+
+> [!NOTE]  
+> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in select regions - India Central, India South, Australia Southeast and South East Asia.
+
+#### Setup replication
+
+If **Online** migration is selected, it requires Logical replication to be turned on in the source Single server. If it isn't turned on, the migration tool automatically turns on logical replication at the source Single server when the `SetupLogicalReplicationOnSourceDBIfNeeded` parameter is passed with a value of `true` in the accompanying JSON file. Replication can also be set up manually at the source after starting the migration, using the below command. Note that either approach of turning on logical replication restarts the source Single server.
+
+For example:
+
+```azurecli-interactive
+az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name CLIMigrationExample --setup-replication
+```
+
+This command is required to advance the migration when the flexible server is waiting in the `WaitingForLogicalReplicationSetupRequestOnSourceDB` state.
+
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png" alt-text="Screenshot of logical replication set up." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png":::
+
+To perform Online migration in any of the above regions, use:
+
+```azurecli-interactive
+az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --properties "C:\Users\Administrator\Documents\migrationBody.JSON" --migration-mode online
+```
 
 >[!NOTE]
 > Gentle reminder to [allowlist the extensions](./concepts-single-to-flexible.md#allowlist-required-extensions) before you execute **Create** in case it is not yet done. It's important to allow-list the extensions before you initiate a migration using this tool.
