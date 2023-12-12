@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 12/12/2023
 ms.author: rogarana
 ms.reviewer: jaylansdaal
+ms.custom: references_regions
 ---
 
 # Manage customer-managed keys for Azure Elastic SAN Preview

@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 12/12/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, references_regions
 ---
 
 # Configure customer-managed keys for an Azure Elastic SAN
@@ -416,7 +416,6 @@ az role assignment create --assignee-object-id $PrincipalId \
 Select the Azure PowerShell module or the Azure CLI tab for instructions on how to configure customer-managed encryption keys using your preferred management tool. Then select the tab that corresponds to whether you want to configure the settings during creation of a new volume group, or update the settings for an existing one. Each set of tabs includes instructions for how to configure customer-managed encryption keys for automatic and manual updating of the key version.
 
 ### [PowerShell](#tab/azure-powershell)
-
 ### [Azure CLI](#tab/azure-cli)
 
 ---
