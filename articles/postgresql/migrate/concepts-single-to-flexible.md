@@ -84,24 +84,6 @@ The single to flex migration tool is a hosted solution where we spin up a purpos
 
 :::image type="content" source="./media/concepts-single-to-flexible/concepts-flow-diagram.png" alt-text="Diagram that shows the Migration from Single Server to Flexible Server." lightbox="./media/concepts-single-to-flexible/concepts-flow-diagram.png":::
 
-The following table shows the time for performing offline migrations for databases of various sizes using the single to flex migration tool. The migration was performed using a flexible server with the SKU – **Standard_D4ds_v4(4 cores, 16GB Memory, 128GB disk and 500 iops)**
-
-| Database size | Approximate time taken (HH:MM) |
-| :--- | :--- |
-| 1 GB | 00:01 |
-| 5 GB | 00:03 |
-| 10 GB | 00:08 |
-| 50 GB | 00:35 |
-| 100 GB | 01:00 |
-| 500 GB | 04:00 |
-| 1,000 GB | 07:00 |
-
-> [!NOTE]  
-> The above numbers give you an approximation of the time taken to complete the migration. To get a precise value for migrating your server, we strongly recommend taking a **PITR (point in time restore)** of your single server and running it against the single to flex migration tool.
-
-> [!IMPORTANT]  
-> In order to perform faster migrations, pick a higher SKU for your flexible server. You can always change the SKU to match the application needs post migration.
-
 ## Pre-migration validations
 We noticed many migrations fail due to setup issues on source and target server. Most of the issues can be categorized into the following buckets: 
 * Issues related to authentication/permissions for the migration user on source and target server.  
@@ -166,11 +148,11 @@ Get started with the Single to Flex migration tool by using any of the following
 - [Migrate using the Azure portal](../migrate/how-to-migrate-single-to-flexible-portal.md)
 - [Migrate using the Azure CLI](../migrate/how-to-migrate-single-to-flexible-cli.md)
 
-## Best practices
+## Prerequisites
 
 Here, we go through the phases of an overall database migration journey, with guidance on how to use Single to Flex migration tool in the process.
 
-### Pre migration
+### Getting Started
 
 #### Application compatibility
 
@@ -309,42 +291,6 @@ Once the pre-migration steps are complete, you're ready to carry out the migrati
 This command ensures any remaining applications or connections are disconnected. Additionally, you can run **select * from pg_stat_activity;** after the restart to ensure no applications is connected to the source server.
 
 Trigger the migration of your production databases using the **Migrate** or **Validate and Migrate** option in the migration tool. The migration requires close monitoring, and the monitoring user interface of the migration tool comes in handy. Check the migration status over the period of time to ensure there is progress and wait for the migration to complete.
-
-#### Improve migration speed - Parallel migration of tables
-
-In general, a powerful SKU is recommended for the target as the migration tool runs out of a container on the Flexible server. A powerful SKU enables a greater number of tables to be migrated in parallel. You can scale the SKU back to your preferred configuration after the migration. This section contains steps to improve the migration speed in case the data distribution among the tables is skewed and/or a more powerful SKU doesn't have a significant impact on the migration speed.
-
-If the data distribution on the source is highly skewed, with most of the data present in one table, the allocated compute for migration isn't fully utilized and it creates a bottleneck. So, we split large tables into smaller chunks, which are then migrated in parallel. This feature is applicable to tables that have more than 10000000 (10 m) tuples. Splitting the table into smaller chunks is possible if one of the following conditions is satisfied.  
-
-1. The table must have a column with a simple (not composite) primary key or unique index of type int or big int.
-
-> [!NOTE]  
-> In case of approaches #2 or #3 below, the user must carefully evaluate the implications of adding a unique index column to the source schema. Only after confirmation that adding a unique index column will not affect the application should the user go ahead with the changes.
-
-2. If the table doesn't have a simple primary key or unique index of type int or big int, but has a column that meets the data type criteria, the column can be converted into a unique index using the below command. This command does not require a lock on the table.
-
-```sql
-    create unique index concurrently partkey_idx on <table name> (column name);
-```
-
-3. If the table has neither a simple int/big int primary key or unique index nor any column that meets the data type criteria, you can add such a column using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html) and drop it post-migration. Running the ALTER command requires a lock on the table.
-
-```sql
-    alter table <table name> add column <column name> bigserial unique;
-```
-
-If any of the above conditions are satisfied, the table is migrated in multiple partitions in parallel, which should provide a marked increase in the migration speed.
-
-##### How it works
-
-- The migration tool looks up the maximum and minimum integer value of the Primary key/Unique index of that table that must be split up and migrated in parallel.
-- If the difference between the minimum and maximum value is more than 10000000 (10 m), then the table is split into multiple parts and each part is migrated separately, in parallel.
-
-In summary, the Single to Flexible migration tool migrates a table in parallel threads and reduce the migration time if:
-
-1. The table has a column with a simple primary key or unique index of type int or big int.
-2. The table has at least 10000000 (10 m) rows so that the difference between the minimum and maximum value of the primary key is more than 10000000 (10 m).
-3. The SKU used has idle cores, which can be used for migrating the table in parallel.
 
 ### Post migration
 
