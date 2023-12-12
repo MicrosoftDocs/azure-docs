@@ -65,13 +65,13 @@ The MCSB standard is an Azure Policy initiative that includes multiple complianc
 
 As Defender for Cloud continually assesses and finds resources that don't satisfy this control, it marks the resources as noncompliant and triggers a recommendation. In this case, guidance is to harden Azure Storage accounts that aren't protected with virtual network rules.
 
-## Custom recommendations (Azure)
+### Custom recommendations (Azure)
 
 To create custom recommendations for Azure subscriptions, you currently need to use Azure Policy.
 
 You create a policy definition, assign it to a policy initiative, and merge that initiative and policy into Defender for Cloud. [Learn more](custom-security-policies.md).
 
-## Custom recommendations (AWS or GCP)
+### Custom recommendations (AWS or GCP)
 
 To create custom recommendations for AWS or GCP resources, you must have the [Defender CSPM plan](concept-cloud-security-posture-management.md) enabled.
 
