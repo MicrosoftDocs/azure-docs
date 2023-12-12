@@ -148,8 +148,6 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Monitor and troubleshoot deployment script
 
-*** jgao - for the inline script sample, checking write-output, check output, check deployment status and so on.
-
 *** jgao - add the following information - "In the preceding Bicep sample, a storage account is created and configured to be used by the deployment script. This is necessary for storing the script output. An alternative solution, without specifying your own storage account, involves setting `cleanupPreference` to `OnExpiration`and configuring `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed."
 
 
@@ -219,9 +217,9 @@ output text string = deploymentScript.properties.outputs.text
 
 ---
 
-After the Bicep file is deployed successfully, use the following methods to checkout the results:
+After the Bicep file is deployed successfully, use the Azure portal, Azure CLI, Azure PowerShell and REST API to checkout the results.
 
-# [Azure Portal](#tab/Portal)
+### Azure portal
 
 After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The **Overview** page lists the two supporting resources in addition to the deployment script resource. The supporting resources will be deleted after the retention interval expires.
 
@@ -233,14 +231,13 @@ Select the deployment resource from the list. The **Overview** page of a deploym
 
 Select **Outputs** to display outputs of the script:
 
-:::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-output.png" alt-text="Screenshot of deployment script outputs.":::
+:::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-resource-output.png" alt-text="Screenshot of deployment script outputs.":::
 
-Go back to the resource group, and select the storage account, select **File shares**, select the file share with **azscripts** appended to the share name, you shall see two folders - **azscriptinput** and **azscriptoutput**. The **azscriptoutput** folder contains the execution results and the script outputs:
+Go back to the resource group, select the storage account, select **File shares**, select the file share with **azscripts** appended to the share name, you shall see two folders - **azscriptinput** and **azscriptoutput**. The **azscriptoutput** folder contains the execution results and the script outputs:
 
 :::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-azscriptoutput.png" alt-text="Screenshot of deployment script azscriptoutput.":::
-![Resource Manager template deployment script portal overview]()
 
-# [CLI](#tab/CLI)
+### Azure CLI
 
 Using Azure CLI, you can manage deployment scripts at subscription or resource group scope:
 
@@ -298,7 +295,7 @@ The list command output is similar to:
 }
 ```
 
-# [PowerShell](#tab/PowerShell)
+### Azure PowerShell
 
 Using Azure PowerShell, you can manage deployment scripts at subscription or resource group scope:
 
@@ -334,7 +331,7 @@ RetentionInterval   : PT1H
 Timeout             : P1D
 ```
 
-# [REST API](#tab/RestAPI)
+### REST API
 
 You can get the deployment script resource deployment information at the resource group level and the subscription level by using REST API:
 
