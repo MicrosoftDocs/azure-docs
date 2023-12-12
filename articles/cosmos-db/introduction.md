@@ -30,12 +30,14 @@ App development is faster and more productive thanks to:
 
 As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 
-If you are an existing Azure AI or GitHub Copilot customer, you can try Azure Cosmos DB for free with 40,000 [RU/s](request-units.md) of throughput for 90 days under the Azure AI Advantage offer.
+If you are an existing Azure AI or GitHub Copilot customer, you may try Azure Cosmos DB for free with 40,000 [RU/s](request-units.md) of throughput for 90 days under the Azure AI Advantage offer.
 
 > [!div class="nextstepaction"]
 > [90-day Free Trial with Azure AI Advantage](ai-advantage.md)
 
-You can also [try Azure Cosmos DB for free for 30 days](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription or commitments, or [use the Azure Cosmos DB free tier indefinitely](free-tier.md) to get an account with the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
+You may also [try Azure Cosmos DB for free for 30 days](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription or commitments.
+
+Alternatively, you may [use the Azure Cosmos DB free tier indefinitely](free-tier.md) to get an account with the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
 
 > [!TIP]
 > To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
