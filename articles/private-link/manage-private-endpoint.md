@@ -153,6 +153,9 @@ There are two connection approval methods that a Private Link service consumer c
 - **Manual**: If the service consumer doesn’t have Azure Role Based Access Control permissions on the service provider resource, the consumer can choose the manual approval method. The connection request appears on the service resources as **Pending**. The service provider has to manually approve the request before connections can be established. 
 In manual cases, service consumer can also specify a message with the request to provide more context to the service provider. The service provider has following options to choose from for all private endpoint connections: **Approve**, **Reject**, **Remove**.
 
+> [!IMPORTANT]
+To approve connections with a private endpoint that is in a separate subscription or tenant, ensure that the provider subscription or tenant has registered **Microsoft.Network**. The consumer subscription or tenant should also have the resource provider of the destination resource registered.
+
 The below table shows the various service provider actions and the resulting connection states for private endpoints. The service provider can change the connection state at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side. 
 
 | Service provider action  | Service consumer private endpoint state | Description |
