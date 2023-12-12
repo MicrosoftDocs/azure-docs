@@ -214,13 +214,14 @@ There are two options to provide access to Azure Monitor for containers:
 | **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service.|
 | **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
 |**`arcmktplaceprod.azurecr.io`**|**`HTTPS:443`**|This address is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.centralindia.data.azurecr.io`** | **`HTTPS:443`** | This address is for the Central India regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.japaneast.data.azurecr.io`** | **`HTTPS:443`** | This address is for the East Japan regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.westus2.data.azurecr.io`** | **`HTTPS:443`** | This address is for the West US2 regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.westeurope.data.azurecr.io`** | **`HTTPS:443`** | This address is for the West Europe regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.eastus.data.azurecr.io`** | **`HTTPS:443`** | This address is for the East US regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
 |**`*.ingestion.msftcloudes.com, *.microsoftmetrics.com`**|**`HTTPS:443`**|This address is used to send agents metrics data to Azure.|
 |**`marketplaceapi.microsoft.com`**|**`HTTPS: 443`**|This address is used to send custom meter-based usage to the commerce metering API.|
-| **`arcmktplaceprod.centralindia.data.azurecr.io`** | **`HTTPS:443`** | This address is used to access Azure Marketplace data in Central India region.|
-| **`arcmktplaceprod.japaneast.data.azurecr.io`** | **`HTTPS:443`** | This address is used to access Azure Marketplace data in East Japan region.|
-| **`arcmktplaceprod.westus2.data.azurecr.io`** | **`HTTPS:443`** | This address is used to access Azure Marketplace data in the West US 2 region.|
-| **`arcmktplaceprod.westeurope.data.azurecr.io`** | **`HTTPS:443`** | This address is used to access Azure Marketplace data in the West Europe region.|
-| **`arcmktplaceprod.eastus.data.azurecr.io`** | **`HTTPS:443`** | This address is used to access Azure Marketplace data in the West US region.|
+
 
 #### Azure US Government required FQDN / application rules
 
