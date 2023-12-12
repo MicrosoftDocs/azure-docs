@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: hilarywang
 author: hilaryw29
-ms.date: 11/30/2023
+ms.date: 12/15/2023
 ---
 
 # Using Application Health extension with Azure Virtual Machines
@@ -46,11 +46,11 @@ Application Health Extensions has two options available: **Binary Health States*
 <sup>1</sup> The *Unknown* state is unavailable on TCP protocol. 
 <sup>2</sup> Only applicable for HTTP/HTTPS protocol. TCP protocol will follow the same process of identifying *Unhealthy* instances as in Binary Health States. 
 
-In general, you should use **Binary Health States** if:
+Use **Binary Health States** if:
 - You're not interested in configuring custom logic to identify and flag an unhealthy instance 
 - You don't require an *initializing* grace period for newly created instances
 
-You should use **Rich Health States** if:
+Use **Rich Health States** if:
 - You send health signals through HTTP/HTTPS protocol and can submit health information through the probe response body 
 - You would like to use custom logic to identify and mark unhealthy instances 
 - You would like to set an *initializing* grace period allowing newly created instances to settle into a steady health state
@@ -73,7 +73,7 @@ Binary Health State reporting contains two Health States, *Healthy* and *Unhealt
 | TCP | Healthy | To send a *Healthy* signal, a successful handshake must be made with the provided application endpoint. |
 | TCP | Unhealthy | The instance will be marked as *Unhealthy* if a failed or incomplete handshake occurred with the provided application endpoint. |
 
-Some scenarios that may result in an *Unhealthy* state include: 
+Some common scenarios that result in an *Unhealthy* state include: 
 - When the application endpoint returns a non-200 status code 
 - When there's no application endpoint configured inside the virtual machine to provide application health status 
 - When the application endpoint is incorrectly configured 
@@ -122,7 +122,7 @@ If the `gracePeriod` expires before a consecutive health status is reported by t
 
 ## Unknown state 
 
-This state only applies to Rich Health States. The *Unknown* state is only reported for "http" or "https" probes and occurs in the following scenarios: 
+The *Unknown* state only applies to Rich Health States. This state is only reported for `http` or `https` probes and occurs in the following scenarios: 
 - When a non-2xx status code is returned by the application  
 - When the probe request times out  
 - When the application endpoint is unreachable or incorrectly configured 
@@ -228,7 +228,7 @@ There are multiple ways of deploying the Application Health extension to your VM
 
 # [REST API](#tab/rest-api)
 
-The following example adds the Application Health extension (with name myHealthExtension) to a Windows-based virtual machine.
+The following example adds the Application Health extension named *myHealthExtension* to a Windows-based virtual machine.
 
 You can also use this example to change an existing extension from Rich Health States to Binary Health by making a PATCH call instead of a PUT.
 
