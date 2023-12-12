@@ -6,7 +6,7 @@ ms.author: shaithal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to 
-ms.date: 11/30/2021
+ms.date: 12/12/2023
 ms.custom: template-how-to 
 ---
 
@@ -47,26 +47,22 @@ To complete this tutorial, you need:
 
 1. Select **Create**.
 
-1. On the **Select Azure Database for PostgreSQL deployment option** page, select **Flexible Server **.
-    
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-postgresql-deployment-option.png" alt-text="Screenshot that shows the Flexible Server Deployment Option to be chosen.":::
-
 1. Enter the basic settings for a new **Flexible Server**.
 
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/basic-settings-postgresql.png" alt-text="Screenshot that shows the Basic Settings for creating Flexible Server.":::
 
-    |Setting	|Suggested Value	|Description |
-    |-------|------|------|
-    |Subscription	|Your subscription name	|Select the Free Trial Azure subscription.|
-    |Resource group	|Your resource group	|Enter a new resource group or an existing one from your subscription.|
-    |Server name	|mydemoserver-pgsql	|Specify a unique name to identify your flexible server. The domain name postgres.database.azure.com is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters. |
-    |Region	|The region closest to your users	|Select a location from the list, preferably the location that's closest to your users.|
-    |Workload type	|Development	|For a free trial, select **Development** workload. For a production workload, choose Small/Medium-size or Large-size depending on your requirements. |
-    |Availability zone	|No preference	|If your application (hosted on Azure VMs, virtual machine scale sets or AKS instance) is provisioned in a specific availability zone, create your flexible server in the same availability zone. Collocating the application and database improves performance by reducing network latency across zones. If you choose **No preference**, a default AZ is selected for you.|
-    |PostgreSQL version	|The latest major version	|Use the latest PostgreSQL major version unless you have specific requirements otherwise.|
-    |High availability	|Default	|Leave the High Availability option unchecked.|
-    |Admin username	|myadmin	|Create a sign-in account to use when you connect to the server. The admin username can’t start with **pg_** and can't be **azure_superuser, azure_pg_admin, admin, administrator, root, guest,** or **public**. |
-    |Password	|Your password	|Specify a password for the server admin account. The password must contain between 8 and 128 characters. It must also contain characters from three of the following four categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, and so on).|
+    | Setting            | Suggested Value                  | Description                                                                                                                                                                                                                                                                                                                                                                 |
+    |--------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Subscription	 | Your subscription name           | Select the Free Trial Azure subscription.                                                                                                                                                                                                                                                                                                                                   |
+    | Resource group	 | Your resource group              | Enter a new resource group or an existing one from your subscription.                                                                                                                                                                                                                                                                                                       |
+    | Server name	 | mydemoserver-pgsql               | Specify a unique name to identify your Flexible Server. The domain name postgres.database.azure.com is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.                                                                                     |
+    | Region	         | The region closest to your users | Select a location from the list, preferably the location that's closest to your users.                                                                                                                                                                                                                                                                                      |
+    | Workload type	 | Development                      | For a free trial, select **Development** workload. For a production workload, choose Small/Medium-size or Large-size depending on your requirements.                                                                                                                                                                                                                        |
+    | Availability zone	 | No preference                    | If your application (hosted on Azure VMs, virtual machine scale sets or AKS instance) is provisioned in a specific availability zone, create your flexible server in the same availability zone. Collocating the application and database improves performance by reducing network latency across zones. If you choose **No preference**, a default AZ is selected for you. |
+    | PostgreSQL version | The latest major version         | Use the latest PostgreSQL major version unless you have specific requirements otherwise.                                                                                                                                                                                                                                                                                    |
+    | High availability	 | Default                          | Leave the High Availability option unchecked.                                                                                                                                                                                                                                                                                                                               |
+    | Admin username	 | myadmin                          | Create a sign-in account to use when you connect to the server. The admin username must contain between 1 and 63 characters, must only cotain numbers and letters, can’t start with **pg_** and can't be **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest**, or **public**.                                                         |
+    | Password	         | Your password                    | Specify a password for the server admin account. The password must contain between 8 and 128 characters. It must also contain characters from three of the following four categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, and so on).                                                 |
 
 1. For **Compute + storage** setting, keep the default values populated upon selecting **Development** workload type. 
     
