@@ -2,12 +2,12 @@
     "redirections": [                
         {
             "source_path_from_root": "/articles/stream-analytics/app-insights-export-sql-stream-analytics.md",
-            "redirect_url": "/azure/stream-analytics/",
+            "redirect_url": "/azure-monitor/app/create-workspace-resource#export-telemetry",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/stream-analytics/app-insights-export-stream-analytics.md",
-            "redirect_url": "/azure/stream-analytics/",
+            "redirect_url": "/azure-monitor/app/create-workspace-resource#export-telemetry",
             "redirect_document_id": false
         },
         {
