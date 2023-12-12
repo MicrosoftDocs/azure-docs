@@ -1,13 +1,13 @@
 ---
-title: Non-common alert schema definitions in Azure Monitor for test action group
-description: Understanding the non-common alert schema definitions for Azure Monitor for the test action group feature.
+title: Non-common alert schema definitions in Azure Monitor
+description: Understanding the non-common alert schema definitions for Azure Monitor.
 author: issahn
 ms.topic: conceptual
 ms.date: 06/19/2023
 ms.reviewer: nolavime
 ---
 
-# Non-common alert schema definitions for test action group (preview)
+# Non-common alert schema definitions
 
 This article describes the non-common alert schema definitions for Azure Monitor, including definitions for:
 - Webhooks
@@ -19,9 +19,9 @@ This article describes the non-common alert schema definitions for Azure Monitor
 
 The non-common alert schema lets you customize the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log, and activity log) have had their own email templates and webhook schemas.
 
-## Alert context
+## Metric alerts
 
-See sample values for two metric alerts.
+See sample values for log alerts.
 
 ### Metric alerts: Static threshold
 
@@ -128,11 +128,11 @@ See sample values for two metric alerts.
 }
 ```
 
-### Log alerts
+## Log alerts
 
-See sample values for two log alerts.
+See sample values for log alerts.
 
-#### monitoringService = Log Alerts V1 – Metric
+### monitoringService = Log Alerts V1 – Metric
 
 **Sample values**
 
@@ -196,7 +196,7 @@ See sample values for two log alerts.
 }
 ```
 
-#### monitoringService = Log Alerts V1 - Numresults
+### monitoringService = Log Alerts V1 - Numresults
 
 **Sample values**
 
@@ -260,11 +260,11 @@ See sample values for two log alerts.
 }
 ```
 
-### Activity log alerts
+## Activity log alerts
 
 See sample values for four activity log alerts.
 
-#### monitoringService = Activity Log - Administrative
+### monitoringService = Activity Log - Administrative
 
 **Sample values**
 
@@ -314,7 +314,7 @@ See sample values for four activity log alerts.
 }
 ```
 
-#### monitoringService = Service Health
+### monitoringService = Service Health
 
 **Sample values**
 
@@ -367,7 +367,7 @@ See sample values for four activity log alerts.
 }
 ```
 
-#### monitoringService = Resource Health
+### monitoringService = Resource Health
 
 **Sample values**
 
@@ -411,7 +411,7 @@ See sample values for four activity log alerts.
 }
 ```
 
-#### monitoringService = Actual Cost Budget or Forecasted Budget
+### monitoringService = Actual Cost Budget or Forecasted Budget
 
 **Sample values**
 
