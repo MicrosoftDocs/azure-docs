@@ -16,7 +16,7 @@ ms.custom: devx-track-ansible
 
 Within the SAP Deployment Automation Framework (SDAF), we recognize that there are many moving parts.  This article is intended to help you troubleshoot issues that you can encounter.
 
-## Control Plane Deployment
+## Control plane deployment
 
 The control plane deployment consists of the following steps:
 
