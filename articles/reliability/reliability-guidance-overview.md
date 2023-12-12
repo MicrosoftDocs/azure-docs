@@ -56,10 +56,9 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure Application Gateway (V2)|[Autoscaling and High Availability)](../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Disaster recovery using Azure DNS and Traffic Manager](../networking/disaster-recovery-dns-traffic-manager.md)|         
 |Azure Backup|[Azure Backup](reliability-backup.md)| [Azure Backup](reliability-backup.md) |
 |Azure Bastion||[Azure Bastion](../bastion/bastion-faq.md?#dr) |
-||[Azure Batch](reliability-batch.md)| [Azure Batch](reliability-batch.md#cross-region-disaster-recovery-and-business-continuity) |
-||[Azure Bot Service](reliability-bot.md)||
-||[Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)
-||[Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-geo-replication.md) |
+|Azure Batch|[Azure Batch](reliability-batch.md)| [Azure Batch](reliability-batch.md#cross-region-disaster-recovery-and-business-continuity) |
+|Azure Bot Service|[Azure Bot Service](reliability-bot.md)|[Azure Bot Service](reliability-bot.md)|
+|Azure Cache for Redis|[Enable zone redundancy for Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Configure passive geo-replication for Premium Azure Cache for Redis instances](../azure-cache-for-redis/cache-how-to-geo-replication.md) |
 ||[Azure Communications Gateway](../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 ||[Azure Container Apps](reliability-azure-container-apps.md)|
 ||[Azure Container Instances](reliability-containers.md)| [Azure Container Instances](reliability-containers.md#disaster-recovery) |
