@@ -80,9 +80,14 @@ Implement RAG patterns with Azure Cosmos DB for NoSQL and Azure AI Search. This 
 - [Vector search with Azure Cosmos DB PostgreSQL](postgresql/howto-use-pgvector.md)
 - Learn more about [Azure OpenAI embeddings](../ai-services/openai/concepts/understand-embeddings.md)
 - Learn how to [generate embeddings using Azure OpenAI](../ai-services/openai/tutorials/embeddings.md)
-- Azure Cosmos DB [30-day Free Trial](https://azure.microsoft.com/try/cosmosdb/)
 
 ## Next step
 
 > [!div class="nextstepaction"]
 > [90-day Free Trial with Azure AI Advantage](ai-advantage.md)
+
+> [!div class="nextstepaction"]
+> [30-day Free Trial without Azure Subscription](https://azure.microsoft.com/try/cosmosdb/)
+
+> [!div class="nextstepaction"]
+> [Use the Azure Cosmos DB Free Tier Indefinitely](free-tier.md) 
