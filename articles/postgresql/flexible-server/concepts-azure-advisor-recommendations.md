@@ -1,5 +1,5 @@
 ---
-title: Azure Advisor for PostgreSQL - Flexible Server
+title: Azure Advisor
 description: Learn about Azure Advisor recommendations for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server

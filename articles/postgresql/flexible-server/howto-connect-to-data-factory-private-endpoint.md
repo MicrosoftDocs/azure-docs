@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Data Factory privately networked pipeline with Azure Database for PostgreSQL - Flexible Server using Azure Private Link
+title: Connect to Azure Data Factory privately networked pipeline using Azure Private Link
 description: This article describes how to connect to Azure Data Factory privately networked pipeline with Azure Database for PostgreSQL - Flexible Server using Azure Private Link
 author: gennadNY
 ms.author: gennadyk

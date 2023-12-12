@@ -1,5 +1,5 @@
 ---
-title: Create and manage Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using Azure REST API
+title: Create and manage with data encrypted by customer managed keys using Azure REST API
 description: Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using Azure REST API
 author: gennadNY 
 ms.author: gennadyk

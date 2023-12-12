@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Extension in Azure Database for PostgreSQL - Flexible Server -Preview
+title: Azure Storage Extension Preview
 description: Azure Storage Extension in Azure Database for PostgreSQL - Flexible Server -Preview
 author: gennadNY
 ms.author: gennadyk

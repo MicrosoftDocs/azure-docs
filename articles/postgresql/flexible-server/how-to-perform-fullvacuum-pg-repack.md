@@ -1,6 +1,6 @@
 ---
-title: Optimize Azure Database for PostgreSQL Flexible Server by using pg_repack
-description: Perform full vacuum using pg_Repack extension in Azure Database for PostgreSQL - Flexible Server
+title: Optimize by using pg_repack
+description: Perform full vacuum using pg_Repack extension in
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan

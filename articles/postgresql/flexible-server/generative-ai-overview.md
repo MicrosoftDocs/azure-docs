@@ -1,5 +1,5 @@
 ---
-title: Generative AI with Azure Database for PostgreSQL Flexible Server
+title: Generative AI
 description: Generative AI with Azure Database for PostgreSQL Flexible Server
 author: mulander
 ms.author: adamwolk

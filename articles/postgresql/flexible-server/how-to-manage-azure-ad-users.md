@@ -1,5 +1,5 @@
 ---
-title: Manage Microsoft Entra users - Azure Database for PostgreSQL - Flexible Server
+title: Manage Microsoft Entra users
 description: This article describes how you can manage Microsoft Entra ID enabled roles to interact with an Azure Database for PostgreSQL - Flexible Server.
 author: achudnovskij
 ms.author: anchudno

@@ -1,5 +1,5 @@
 ---
-title: Networking overview - Azure Database for PostgreSQL - Flexible Server with public access (allowed IP addresses)
+Networking overview with public access (allowed IP addresses)
 description: Learn about connectivity and networking with public access in the Flexible Server deployment option for Azure Database for PostgreSQL.
 author: GennadNY
 ms.author: gennadyk

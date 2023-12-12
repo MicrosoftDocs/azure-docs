@@ -1,5 +1,5 @@
 ---
-title: Versioning policy - Azure Database for PostgreSQL - Single Server and Flexible Server
+title: Versioning policy
 description: Describes the policy around Postgres major and minor versions in Azure Database for PostgreSQL - Single Server and Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server

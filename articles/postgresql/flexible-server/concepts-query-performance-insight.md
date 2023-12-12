@@ -1,5 +1,5 @@
 ---
-title: Query Performance Insight -  Azure Database for PostgreSQL - Flexible Server
+title: Query Performance Insight
 description: This article describes the Query Performance Insight feature in  Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server

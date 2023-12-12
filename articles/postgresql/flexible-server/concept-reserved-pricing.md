@@ -1,5 +1,5 @@
 ---
-title: Reserved compute pricing - Azure Database for PostgreSQL
+title: Reserved compute pricing
 description: Prepay for Azure Database for PostgreSQL compute resources with reserved capacity
 ms.service: postgresql
 ms.subservice: flexible-server

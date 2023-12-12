@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting guides - Azure portal - Azure Database for PostgreSQL - Flexible Server
+title: Troubleshooting guides - Azure portal
 description: Learn how to use Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server from the Azure portal.
 ms.service: postgresql
 ms.subservice: flexible-server

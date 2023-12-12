@@ -1,5 +1,5 @@
 ---
-title: Limits - Azure Database for PostgreSQL - Flexible Server
+title: Limits
 description: This article describes limits in Azure Database for PostgreSQL - Flexible Server, such as number of connection and storage engine options.
 ms.author: sunila
 author: sunilagarwal

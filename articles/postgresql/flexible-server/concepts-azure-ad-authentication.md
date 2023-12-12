@@ -1,5 +1,5 @@
 ---
-title: Active Directory authentication - Azure Database for PostgreSQL - Flexible Server
+title: Active Directory authentication
 description: Learn about the concepts of Microsoft Entra ID for authentication with Azure Database for PostgreSQL - Flexible Server
 author: kabharati
 ms.author: kabharati

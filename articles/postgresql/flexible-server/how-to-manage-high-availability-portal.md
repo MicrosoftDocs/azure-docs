@@ -1,5 +1,5 @@
 ---
-title: Manage high availability - Azure portal - Azure Database for PostgreSQL - Flexible Server
+title: Manage high availability - Azure portal
 description: This article describes how to enable or disable high availability in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
 ms.author: alkuchar
 author: AwdotiaRomanowna

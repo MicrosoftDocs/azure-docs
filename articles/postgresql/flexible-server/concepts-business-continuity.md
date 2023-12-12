@@ -1,5 +1,5 @@
 ---
-title: Overview of business continuity with Azure Database for PostgreSQL - Flexible Server
+title: Overview of business continuity
 description: Learn about the concepts of business continuity with Azure Database for PostgreSQL - Flexible Server
 ms.author: sunila
 author: sunilagarwal

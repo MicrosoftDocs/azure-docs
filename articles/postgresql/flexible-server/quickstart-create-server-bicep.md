@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Database for PostgreSQL Flexible Server - Bicep'
+title: 'Quickstart: Create with Bicep'
 description: In this Quickstart, learn how to create an Azure Database for PostgreSQL Flexible server using Bicep.
 author: mumian
 ms.service: postgresql

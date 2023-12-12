@@ -1,5 +1,5 @@
 ---
-title: Query Store scenarios - Azure Database for PostgreSQL - Flex Server
+title: Query Store scenarios
 description: This article describes some scenarios for Query Store in Azure Database for PostgreSQL - Flex Server.
 author: markingmyname
 ms.author: maghan

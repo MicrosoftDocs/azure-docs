@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot connections - Azure Database for PostgreSQL - flexible Server
+title: Troubleshoot connections
 description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL - flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server

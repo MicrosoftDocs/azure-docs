@@ -1,5 +1,5 @@
 ---
-title: Manage server - Azure CLI - Azure Database for PostgreSQL - Flexible Server
+title: Manage server - Azure CLI
 description: Learn how to manage an Azure Database for PostgreSQL - Flexible Server from the Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server

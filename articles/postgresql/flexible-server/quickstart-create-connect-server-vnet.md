@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Database for PostgreSQL flexible server with private access in the Azure portal'
+title: Connect with private access in the Azure portal
 description: This article shows how to create and connect to Azure Database for PostgreSQL flexible server with private access or virtual network using Azure portal.
 ms.service: postgresql
 ms.subservice: flexible-server

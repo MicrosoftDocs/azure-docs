@@ -1,5 +1,5 @@
 ---
-title: Recommendation system with Azure Database for PostgreSQL Flexible Server and Azure OpenAI
+title: Recommendation system with Azure OpenAI
 description: Recommendation System with Azure Database for PostgreSQL Flexible Server and Azure OpenAI
 author: mulander
 ms.author: adamwolk

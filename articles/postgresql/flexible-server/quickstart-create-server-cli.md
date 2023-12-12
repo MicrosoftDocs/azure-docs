@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a server - Azure CLI - Azure Database for PostgreSQL - Flexible Server'
+title: 'Quickstart: Create with Azure CLI'
 description: This quickstart describes how to use the Azure CLI to create an Azure Database for PostgreSQL Flexible Server in an Azure resource group.
 ms.author: sunila
 author: sunilagarwal

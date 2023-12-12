@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure Database for PostgreSQL Flexible Server with Azure Cognitive Services -Preview
-description: Integrate Azure Database for PostgreSQL Flexible Server with Azure Cognitive Services -Preview
+title: Integrate with Azure Cognitive Services Preview
+description: Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services - Preview.
 author: mulander
 ms.author: adamwolk
 ms.date: 11/02/2023

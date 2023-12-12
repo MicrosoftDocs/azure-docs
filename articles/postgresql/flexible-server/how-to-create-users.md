@@ -1,5 +1,5 @@
 ---
-title: Create users - Azure Database for PostgreSQL - Flexible Server
+title: Create users
 description: This article describes how you can create new user accounts to interact with an Azure Database for PostgreSQL - Flexible Server.
 author: kabharati
 ms.author: kabharati

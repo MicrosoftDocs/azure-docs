@@ -1,5 +1,5 @@
 ---
-title: Optimize query stats collection - Azure Database for PostgreSQL - flexible Server
+title: Optimize query stats collection
 description: This article describes how you can optimize query stats collection on an Azure Database for PostgreSQL - flexible Server
 ms.service: postgresql
 ms.subservice: flexible-server

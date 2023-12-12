@@ -1,5 +1,5 @@
 ---
-title: Azure AI Extension in Azure Database for PostgreSQL - Flexible Server
+title: Azure AI Extension
 description: Azure AI Extension in Azure Database for PostgreSQL - Flexible Server
 author: mulander
 ms.author: adamwolk

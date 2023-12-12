@@ -1,5 +1,5 @@
 ---
-title:  Major Version Upgrade of a flexible server - Azure CLI 
+title:  Major version upgrade - Azure CLI 
 description: This article describes how to perform major version upgrade in Azure Database for PostgreSQL through Azure CLI.
 ms.service: postgresql
 ms.subservice: flexible-server
