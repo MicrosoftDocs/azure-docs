@@ -1,7 +1,7 @@
 ---
 title: Maintain Defender for IoT OT network sensors from the GUI - Microsoft Defender for IoT
 description: Learn how to perform maintenance activities on individual OT network sensors using the OT sensor console.
-ms.date: 12/07/2023
+ms.date: 12/12/2023
 ms.topic: how-to
 ---
 
@@ -427,15 +427,17 @@ After clearing data on a cloud-connected sensor:
 
 A confirmation message appears that the action was successful. All learned data, allowlists, policies, and configuration settings are cleared from the sensor.
 
-## Manage custom plugins (legacy)
+## Manage sensor plugins and monitor plugin performance
 
-If you've added custom plugins for proprietary protocols using the legacy Horizon support, you can continue to manage them from the sensor console.
+View data for each protocol monitored by your sensor using the **Protocols DPI (Horizon Plugins)** page in the sensor console.
 
-**To access your custom plugins**: Sign into your OT sensor console and select **System settings > Network monitoring > Protocols DPI (Horizon Plugins)**.
+1. Sign into your OT sensor console and select **System settings > Network monitoring > Protocols DPI (Horizon Plugins)**.
 
-**To enable or disable plugins**: Select the **Enable/Disable** toggle for each plugin you want to enable or disable.
+1. Do one of the following:
 
-**To monitor plugin performance**:  Use the data shown on the **Protocols DPI (Horizon Plugins)** page in the sensor console to understand details about your plugin usage. To help locate a specific plugin, use the **Search** box to enter part of all of a plugin name.
+    - To limit the protocols monitored by your sensor, select the **Enable/Disable** toggle for each plugin as needed.
+
+    - To monitor plugin performance, view the data shown on the **Protocols DPI (Horizon Plugins)** page for each plugin. To help locate a specific plugin, use the **Search** box to enter part of all of a plugin name.
 
 The **Protocols DPI (Horizon Plugins)** lists the following data per plugin:
 
@@ -450,7 +452,7 @@ The **Protocols DPI (Horizon Plugins)** lists the following data per plugin:
 |**Warnings**     | The number of warnings detected, such as when packets match the structure and specifications, but unexpected behavior is detected, based on the plugin warning configuration.        |
 | **Errors** | The number of errors detected in the last five seconds for packets that failed basic protocol validations for the packets that match protocol definitions. |
 
-Horizon log data is available for export in the **Dissection statistics** and **Dissection Logs**, log files. For more information, see [Export troubleshooting logs](how-to-troubleshoot-sensor.md).
+Log data is available for export in the **Dissection statistics** and **Dissection Logs**, log files. For more information, see [Export troubleshooting logs](how-to-troubleshoot-sensor.md).
 
 ## Next steps
 
