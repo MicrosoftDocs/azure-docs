@@ -100,6 +100,8 @@ items:
     href: request-changes.md
 - name: Reference
   items:
+  - name: Provisioning API Reference
+    href: /rest/api/voiceservices
   - name: Azure Communications Gateway product page
     href: https://azure.microsoft.com/products/communications-gateway
   - name: Overview of Operator Connect

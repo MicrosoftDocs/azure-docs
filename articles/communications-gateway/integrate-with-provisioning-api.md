@@ -33,10 +33,10 @@ You must have access to a machine with an IP address that is permitted to access
 
 To integrate with the API, you need to create (or update) a BSS client that can contact the Provisioning API. The Provisioning API supports a machine-to-machine [OAuth 2.0](/azure/active-directory/develop/v2-protocols) client credentials authentication flow. Your client authenticates and makes authorized API calls as itself, without the interaction of users.
 
-Use the *Key concepts* and *Examples* information in the API Reference to learn about the resources available over the API and the requests that your organization needs to make.
+Use the *Key concepts* and *Examples* information in the [API Reference](/rest/api/voiceservices) to learn about the resources available over the API and the requests that your organization needs to make.
 
 - *Account* resources are descriptions of operator customers (typically, an enterprise), and per-customer settings for service provisioning.
-- *Number* resources belong to an account. They describe numbers, the services (for example, Microsoft Teams Direct Routing) that the numbers make use of, and any extra per-number configuration.
+- *Number* resources belong to an account. They describe numbers, the services that the numbers make use of (for example, Microsoft Teams Direct Routing), and any extra per-number configuration.
 
 [!INCLUDE [limits on the Provisioning API](includes/communications-gateway-provisioning-api-restrictions.md)]
 
@@ -52,9 +52,9 @@ The DNS record for this domain has a time-to-live (TTL) of 60 seconds. When a re
 > 1. Navigate to the **Overview** of your Azure Communications Gateway resource and select **Properties**.
 > 1. Find the field named **Domain**.
 
-Use the *Getting started* section of the API Reference to configure Azure and your BSS client to allow the BSS client to access the Provisioning API.
+Use the *Getting started* section of the [API Reference](/rest/api/voiceservices#getting-started) to configure Azure and your BSS client to allow the BSS client to access the Provisioning API.
 
-The following steps summarize the Azure configuration you need. Refer to the *Getting started* section of the API Reference for full details, including required configuration values.
+The following steps summarize the Azure configuration you need. See the *Getting started* section of the [API Reference](/rest/api/voiceservices) for full details, including required configuration values.
 
 1. Register your BSS client in the same Azure tenant as your Azure Communications Gateway deployment. This process creates an app registration.
 1. Assign yourself as an owner for the app registration.

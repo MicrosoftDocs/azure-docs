@@ -23,7 +23,7 @@ Azure Communications Gateway doesn't store content data, but it does store custo
 - Customer data provisioned on Azure Communications Gateway includes configuration of numbers for specific communications services. It's needed to match numbers to these communications services and (optionally) make number-specific changes to calls, such as adding custom headers.
 - Temporary customer data from call metadata is stored for a maximum of 30 days and used to provide statistics. After 30 days, data from call metadata is no longer accessible to perform diagnostics or analysis of individual calls. Anonymized statistics and logs produced based on customer data are available after the 30 days limit.
 
-Your organization's access to Azure Communications Gateway is managed using Microsoft Entra ID. For more information on the permissions your staff need, see [Set up user roles for Azure Communications Gateway](provision-user-roles.md). For information about Microsoft Entra ID with the Provisioning API, see the _API Reference_ for the Provisioning API.
+Your organization's access to Azure Communications Gateway is managed using Microsoft Entra ID. For more information on the permissions your staff need, see [Set up user roles for Azure Communications Gateway](provision-user-roles.md). For information about Microsoft Entra ID with the Provisioning API, see the [API Reference](/rest/api/voiceservices) for the Provisioning API.
 
 Azure Communications Gateway doesn't support [Customer Lockbox for Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md).  However Microsoft engineers can only access data on a just-in-time basis, and only for diagnostic purposes.
 

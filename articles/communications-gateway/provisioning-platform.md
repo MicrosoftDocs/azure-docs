@@ -61,5 +61,5 @@ The following diagram shows an Azure Communications Gateway deployment configure
 ## Next steps
 
 - [Learn about the technical requirements for integrating with the Provisioning API](integrate-with-provisioning-api.md)
-- Browse the API Reference for the Provisioning API
+- Browse the [API Reference for the Provisioning API](/rest/api/voiceservices)
 
