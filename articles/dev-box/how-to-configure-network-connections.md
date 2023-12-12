@@ -164,7 +164,7 @@ Follow the steps on the relevant tab to create your network connection.
 ---
 
 >[!NOTE]
-> When you create a network connection, Microsoft Dev Box automatically creates a resource group for the network interface cards (NICs) attached to dev boxes that use the virtual network assigned to the network connection. The resource group has a fixed name based on the name and region of the network connection. You can't change the name of the resource group, or specify an existing resource group.
+> Microsoft Dev Box automatically creates a resource group for each network connection, which holds the network interface cards (NICs) that use the virtual network assigned to the network connection. The resource group has a fixed name based on the name and region of the network connection. You can't change the name of the resource group, or specify an existing resource group.
 
 ## Attach a network connection to a dev center
 
