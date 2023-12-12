@@ -120,6 +120,6 @@ The following image shows the **Review** tab data prior to the creation of a new
 
 ## See also
 
-- [Azure Storage Actions Overview](../overview.md)
+- [Azure Storage Actions overview](../overview.md)
 - [Create, assign, and run a storage task](storage-task-quickstart-portal.md)
 - [Define conditions and operations](storage-task-conditions-operations-edit.md)

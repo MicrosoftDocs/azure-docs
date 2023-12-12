@@ -75,4 +75,4 @@ Storage accounts that have a hierarchical namespace display location information
 
 ## See Also
 
-- [Storage Tasks Overview](../overview.md)
+- [Azure Storage Actions overview](../overview.md)

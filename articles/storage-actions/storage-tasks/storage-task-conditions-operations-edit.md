@@ -164,4 +164,4 @@ To move an operation, select the checkbox that appears beside it. Then, select *
 
 ## See also
 
-- [Storage Tasks Overview](../overview.md)
+- [Azure Storage Actions Overview](../overview.md)
