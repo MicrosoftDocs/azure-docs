@@ -150,7 +150,7 @@ Disable ingress for your container app by omitting the `ingress` configuration p
 You can expose additional TCP ports from your application. To learn more, see the [ingress concept article](ingress-overview.md#additional-tcp-ports).
 
 > [Note]
-> To use this preview feature, you must have the containerapp CLI extension. Run `az extension add -n containerapp` in order to install the latest version of the containerapp CLI extension.
+> To use this preview feature, you must have the container apps CLI extension. Run `az extension add -n containerapp` in order to install the latest version of the container apps CLI extension.
 
 
 ::: zone pivot="azure-cli"
