@@ -50,12 +50,12 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 | Product| Availability zone guide | Disaster recovery guide | 
 |----------|----------|----------|
 |Azure AI Search|[Azure AI Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Azure AI Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-|Azure API Management|[Azure API Management](../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure API Management](../api-management/api-management-howto-disaster-recovery-backup-restore.md) |
-|Azure App Configuration|[Azure App Configuration](../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability)| [Azure App Configuration](../azure-app-configuration/concept-disaster-recovery.md?&tabs=core2x)|
+|Azure API Management|[Ensure API Management availability and reliability](../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [How to implement disaster recovery using service backup and restore](../api-management/api-management-howto-disaster-recovery-backup-restore.md) |
+|Azure App Configuration|[How does App Configuration ensure high data availability?](../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability)| [Resiliency and disaster recovery](../azure-app-configuration/concept-disaster-recovery.md?&tabs=core2x)|
 |Azure App Service|[Azure App Service](./reliability-app-service.md)| [Azure App Service](reliability-app-service.md#cross-region-disaster-recovery-and-business-continuity)|
-||[Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-||[Azure Backup](reliability-backup.md)| [Azure Backup](reliability-backup.md) |
-||||[Azure Bastion](../bastion/bastion-faq.md?#dr) |
+|Azure Application Gateway (V2)|[Autoscaling and High Availability)](../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Disaster recovery using Azure DNS and Traffic Manager](../networking/disaster-recovery-dns-traffic-manager.md)|         
+|Azure Backup|[Azure Backup](reliability-backup.md)| [Azure Backup](reliability-backup.md) |
+|Azure Bastion||[Azure Bastion](../bastion/bastion-faq.md?#dr) |
 ||[Azure Batch](reliability-batch.md)| [Azure Batch](reliability-batch.md#cross-region-disaster-recovery-and-business-continuity) |
 ||[Azure Bot Service](reliability-bot.md)||
 ||[Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)
