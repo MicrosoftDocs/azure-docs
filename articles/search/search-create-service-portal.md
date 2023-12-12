@@ -85,13 +85,16 @@ Service name requirements:
 
 ## Choose a region
 
+> [!NOTE]
+> Azure AI Search is currently resource constrained in West Europe. Microsoft recommends North Europe as an alternative. If you don't need semantic ranker or skillsets, Sweden Central is another option.
+
 Azure AI Search is available in most regions, as listed in the [**Products available by region**](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.
 
-As a rule, if you're using multiple Azure services, putting all of them in the same region minimizes or voids bandwidth charges. There are no charges for data exchanges among services when all of them are in the same region.
+If you use multiple Azure services, putting all of them in the same region minimizes or voids bandwidth charges. There are no charges for data exchanges among same-region services.
 
-Two notable exceptions might lead to provisioning one or more search services in a separate region:
+Two notable exceptions might lead to provisioning Azure services in separate regions:
 
-+ [Outbound connections from Azure AI Search to Azure Storage](search-indexer-securing-resources.md). You might want storage in a different region if you're enabling a firewall.
++ [Outbound connections from Azure AI Search to Azure Storage](search-indexer-securing-resources.md). You might want Azure Storage in a different region if you're enabling a firewall.
 
 + Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-paired-regions). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Central US, for each search service.
 
@@ -101,7 +104,7 @@ Some features are subject to regional availability. If you require any of follow
 
   :::image type="content" source="media/search-create-service-portal/region-availability.png" lightbox="media/search-create-service-portal/region-availability.png" alt-text="Screenshot of the regional availability page." border="true":::
 
-+ Semantic ranking is an optional premium feature. Check the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page to confirm the feature is available in your chosen region. 
++ Semantic ranker is an optional premium feature. Check the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page to confirm the feature is available in your chosen region. 
 
 Other features that have regional constraints:
 
