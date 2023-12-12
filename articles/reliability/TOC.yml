@@ -223,7 +223,7 @@
     - name: Azure Functions 
       href: reliability-functions.md
     - name: Azure Guest Configuration
-      href: ../governance/policy/concepts/guest-configuration.md#availability
+      href: ../governance/policy/concepts/machine-configuration/overview.md#availability
     - name: Azure HDInsight
       href: reliability-hdinsight.md
     - name: Azure Image Builder
