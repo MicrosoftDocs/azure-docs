@@ -12,7 +12,7 @@ ms.date: 04/24/2023
 
 # Connect to a lab VM using X2Go in Azure Lab Services
 
-In this article, you learn how to connect to a Linux-based lab VM in Azure Lab Services by using X2Go. Before you can connect with X2Go, the lab needs to have the X2Go and the Linux GUI (graphical user interface) desktop packages configured.
+In this article, you learn how to connect to a Linux-based lab VM in Azure Lab Services by using X2Go. Before you can connect with X2Go, the lab needs to have the [X2Go and the Linux GUI (graphical user interface) desktop packages configured](./how-to-enable-remote-desktop-linux.md) by the lab creator.
 
 When you connect to the lab VM by using X2Go, you need to provide the Linux GUI desktop version. For example, select *XFCE* if you're using either XFCE or xUbuntu GUI desktops. You can get this information from the person that created the lab.
 
