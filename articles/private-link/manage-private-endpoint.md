@@ -154,7 +154,7 @@ There are two connection approval methods that a Private Link service consumer c
 In manual cases, service consumer can also specify a message with the request to provide more context to the service provider. The service provider has following options to choose from for all private endpoint connections: **Approve**, **Reject**, **Remove**.
 
 > [!IMPORTANT]
-To approve connections with a private endpoint that is in a separate subscription or tenant, ensure that the provider subscription or tenant has registered **Microsoft.Network**. The consumer subscription or tenant should also have the resource provider of the destination resource registered.
+> To approve connections with a private endpoint that is in a separate subscription or tenant, ensure that the provider subscription or tenant has registered **Microsoft.Network**. The consumer subscription or tenant should also have the resource provider of the destination resource registered.
 
 The below table shows the various service provider actions and the resulting connection states for private endpoints. The service provider can change the connection state at a later time without consumer intervention. The action updates the state of the endpoint on the consumer side. 
 
