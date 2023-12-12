@@ -2,7 +2,7 @@
 title: OCR for images - Azure AI Vision
 titleSuffix: Azure AI services
 description: Extract text from in-the-wild and non-document images with a fast and synchronous Azure AI Vision Image Analysis 4.0 API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
@@ -12,7 +12,7 @@ ms.date: 07/04/2023
 ms.author: pafarley
 ---
 
-# OCR for images (version 4.0 preview)
+# OCR for images (version 4.0)
 
 > [!NOTE]
 >
@@ -20,7 +20,7 @@ ms.author: pafarley
 
 OCR traditionally started as a machine-learning-based technique for extracting text from in-the-wild and non-document images like product labels, user-generated images, screenshots, street signs, and posters. For several scenarios, such as single images that aren't text-heavy, you need a fast, synchronous API or service. This allows OCR to be embedded in near real-time user experiences to enrich content understanding and follow-up user actions with fast turn-around times.
 
-## What is Computer Vision v4.0 Read OCR (preview)?
+## What is Computer Vision v4.0 Read OCR?
 
 The new Computer Vision Image Analysis 4.0 REST API offers the ability to extract printed or handwritten text from images in a unified performance-enhanced synchronous API that makes it easy to get all image insights including OCR results in a single API operation. The Read OCR engine is built on top of multiple deep learning models supported by universal script-based models for [global language support](./language-support.md).
 

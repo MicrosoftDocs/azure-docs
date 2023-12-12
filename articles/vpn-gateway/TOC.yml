@@ -11,10 +11,10 @@
     href: tutorial-create-gateway-portal.md
   - name: Configure a site-to-site connection
     href: tutorial-site-to-site-portal.md
-  - name: Deploy VPN gateway with DDoS protection
-    href: tutorial-protect-vpn-gateway.md
 - name: Concepts
   items:
+  - name: What's new?
+    href: whats-new.md
   - name: Work remotely
     items:
     - name: Support for working remotely
@@ -29,6 +29,8 @@
     href: design.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
+  - name: About gateway SKUs
+    href: about-gateway-skus.md
   - name: About VPN devices
     href: vpn-gateway-about-vpn-devices.md
   - name: About cryptographic requirements
@@ -173,7 +175,7 @@
           href: vpn-gateway-howto-always-on-device-tunnel.md
         - name: User tunnel
           href: vpn-gateway-howto-always-on-user-tunnel.md
-      - name: point-to-site session management
+      - name: Point-to-site session management
         href: p2s-session-management.md
       - name: Advertise custom routes to point-to-site clients
         href: vpn-gateway-p2s-advertise-custom-routes.md
@@ -281,6 +283,8 @@
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Configure packet captures 
       href: packet-capture.md
+  - name: Configure customer-controlled gateway maintenance
+    href: customer-controlled-gateway-maintenance.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot VPN Gateway

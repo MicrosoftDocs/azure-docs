@@ -63,7 +63,7 @@ The template defines four parameters:
 
     :::image type="content" source="media/solution-template-move-files/move-files6.png" alt-text="Screenshot showing the result of the pipeline run.":::
 
-## Next steps
+## Related content
 
 - [Copy new and changed files by LastModifiedDate with Azure Data Factory](solution-template-copy-new-files-lastmodifieddate.md)
 

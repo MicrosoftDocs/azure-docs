@@ -442,10 +442,6 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
 }
 ```
 
-## Feature support
-
-[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
-
 ## Regional availability and pricing
 
 The lifecycle management feature is available in all Azure regions.

@@ -17,8 +17,6 @@ items:
         href: configure-devops.md
       - name: Configure the control plane
         href: configure-control-plane.md
-      - name: Configure Configuration Web App
-        href: configure-webapp.md
       - name: Configure the workload zone
         href: configure-workload-zone.md
       - name: Configure the SAP system
@@ -27,6 +25,10 @@ items:
         href: configure-sap-parameters.md
       - name: Configure custom disk sizing
         href: configure-extra-disks.md
+      - name: Extensibility
+        href: extensibility.md
+      - name: Configure Configuration Web App
+        href: configure-webapp.md
       - name: Configure external tools
         href: tools-configuration.md
   - name: How-to guides

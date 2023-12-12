@@ -9,9 +9,9 @@ ms.topic: how-to
 
 Your Microsoft Defender for IoT deployment for OT monitoring is managed through a site-based license, purchased in the Microsoft 365 admin center. After you've purchased your license, apply that license to your OT plan in the Azure portal.
 
-If you're looking to manage Enterprise IoT plans, see [Manage Defender for IoT plans for Enterprise IoT security monitoring](manage-subscriptions-enterprise.md).
+If you're looking to manage support for enterprise IoT security, see [Manage enterprise IoT monitoring support with Microsoft Defender for IoT](manage-subscriptions-enterprise.md).
 
-This article is relevant for commercial Defender for IoT customers. If you're a government cusetomer, contact your Microsoft sales representative for more information.
+This article is relevant for commercial Defender for IoT customers. If you're a government customer, contact your Microsoft sales representative for more information.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Before performing the procedures in this article, make sure that you have:
 
 - An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
 
-- A [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user role for the Azure subscription that you'll be using for the integration
+- A [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user role for the Azure subscription that you're using for the integration
 
 - An understanding of your site size. For more information, see [Calculate devices in your network](best-practices/plan-prepare-deploy.md#calculate-devices-in-your-network).
 
@@ -53,7 +53,7 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
 
 1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started), select **Plans and pricing** > **Add plan**.
 
-1. In the **Plan settings** pane, select the Azure subscription where you want to add a plan. You can only add a single subscription, and you'll need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the selected subscription.
+1. In the **Plan settings** pane, select the Azure subscription where you want to add a plan. You can only add a single subscription, and you need a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the selected subscription.
 
    > [!NOTE]
    > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner. Also make sure that you have the right subscriptions selected in your Azure settings > **Directories + subscriptions** page.
@@ -67,23 +67,17 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
     - Select the terms and conditions.
     - If you're working with an on-premises management console, select **Download OT activation file (Optional)**.
 
-    When you're finished, select **Save**. If you've selected to download the on-premises management console activation file, the file is downloaded and you're prompted to save it locally. You'll use it later, when [activating your on-premises management console](ot-deploy/activate-deploy-management.md#activate-the-on-premises-management-console). 
+    When you're finished, select **Save**. If you've selected to download the on-premises management console activation file, the file is downloaded and you're prompted to save it locally. You use it later, when [activating your on-premises management console](ot-deploy/activate-deploy-management.md#activate-the-on-premises-management-console). 
 
 Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page.
 
-## Cancel a Defender for IoT plan
+## Cancel a Defender for IoT plan for OT networks
 
-You may need to cancel a Defender for IoT plan from your Azure subscription, for example, if you need to work with a different subscription, or if you no longer need the service.
-
-> [!IMPORTANT]
-> Canceling a plan removes all Defender for IoT services from the subscription, including both OT and Enterprise IoT services. If you have an Enterprise IoT plan on your subscription, do this with care.
->
-> To cancel only an Enterprise IoT plan, do so from Microsoft 365. For more information, see [Cancel your Enterprise IoT plan](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
->
+You might need to cancel a Defender for IoT plan from your Azure subscription, for example, if you need to work with a different subscription, or if you no longer need the service.
 
 **Prerequisites**: Before canceling your plan, make sure to delete any sensors that are associated with the subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-**To cancel a Defender for IoT plan for OT networks**:
+**To cancel an OT network plan**:
 
 1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
@@ -142,13 +136,13 @@ Existing customers can continue to use any legacy OT plan, with no changes in fu
 
 ### Warnings for exceeding committed devices
 
-If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, you may see a warning message in the Azure portal and on your OT sensor that you have exceeded the maximum number of devices for your subscription.
+If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, you might see a warning message in the Azure portal and on your OT sensor that you have exceeded the maximum number of devices for your subscription.
 
-This warning indicates you need to update the number of committed devices on the relevant subscription to the actual number of devices being monitored. Click the link in the warning message to take you to the **Plans and pricing** page, with the **Edit plan** pane already open.
+This warning indicates you need to update the number of committed devices on the relevant subscription to the actual number of devices being monitored. Select the link in the warning message to take you to the **Plans and pricing** page, with the **Edit plan** pane already open.
 
 ### Move existing sensors to a different subscription
 
-If you have multiple legacy subscriptions and are migrating to a Microsoft 365 plan, you'll first need to consolidate your sensors to a single subscription. To do this, you'll need to register the sensors under the new subscription and remove them from the original subscription.
+If you have multiple legacy subscriptions and are migrating to a Microsoft 365 plan, you'll first need to consolidate your sensors to a single subscription. To do this, you need to register the sensors under the new subscription and remove them from the original subscription.
 
 - Devices are synchronized from the sensor to the new subscription automatically.
 
@@ -162,13 +156,13 @@ If you have multiple legacy subscriptions and are migrating to a Microsoft 365 p
 
    - Replicate site and sensor hierarchy as is.
 
-   - For sensors monitoring overlapping network segments, create the activation file under the same zone. Identical devices that are detected in more than one sensor in a zone, will be merged into one device.
+   - For sensors monitoring overlapping network segments, create the activation file under the same zone. Identical devices that are detected in more than one sensor in a zone are merged into one device.
 
 1. On your sensor, upload the new activation file.
 
 1. Delete the sensor identities from the previous subscription. For more information, see [Site management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
 
-1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel a Defender for IoT plan](#cancel-a-defender-for-iot-plan).
+1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel a Defender for IoT plan for OT networks](#cancel-a-defender-for-iot-plan-for-ot-networks).
 
 ### Edit a legacy plan on the Azure portal
 
@@ -188,7 +182,7 @@ If you have multiple legacy subscriptions and are migrating to a Microsoft 365 p
 
 1. If you have an on-premises management console, make sure to upload a new activation file, which reflects the changes made. For more information, see [Upload a new activation file](how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 
-Changes to your plan will take effect one hour after confirming the change. This change will appear on your next monthly statement, and you'll be charged based on the length of time each plan was in effect.
+Changes to your plan will take effect one hour after confirming the change. This change appears on your next monthly statement, and you're charged based on the length of time each plan was in effect.
 ## Next steps
 
 For more information, see:

@@ -3,11 +3,11 @@ title: Calculate EA reservations cost savings
 titleSuffix: Microsoft Cost Management
 description: Learn how Enterprise Agreement users manually calculate their reservations savings.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 

@@ -25,7 +25,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Recommendation**:  Try to set "NULLID" in the `packageCollection`  property.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

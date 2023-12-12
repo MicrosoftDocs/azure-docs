@@ -6,16 +6,18 @@ items:
   items:
   - name: What is Azure Communications Gateway?
     href: overview.md
-  - name: What's new?
-    href: whats-new.md
   - name: Get started
     href: get-started.md
+  - name: What's new?
+    href: whats-new.md
 - name: Planning
   items:
   - name: Your network and Communications Gateway
     href: role-in-network.md
   - name: Onboarding and Included Benefits
     href: onboarding.md
+  - name: Connectivity
+    href: connectivity.md
   - name: Reliability
     href: reliability-communications-gateway.md
   - name: Security
@@ -49,7 +51,7 @@ items:
   - name: Mobile Control Point
     href: mobile-control-point.md
   - name: Emergency calling
-    href: emergency-calling-operator-connect.md
+    href: emergency-calls-operator-connect.md
   - name: Use the Number Management Portal
     href: manage-enterprise-operator-connect.md
 - name: Integration with Microsoft Teams Direct Routing
@@ -67,7 +69,21 @@ items:
     - name: Prepare for live traffic
       href: prepare-for-live-traffic-teams-direct-routing.md
   - name: Emergency calling
-    href: emergency-calling-teams-direct-routing.md
+    href: emergency-calls-teams-direct-routing.md
+- name: Integration with Zoom Phone Cloud Peering
+  items:
+  - name: Overview of interoperability
+    href: interoperability-zoom.md
+  - name: Setup
+    items:
+    - name: Connect
+      href: connect-zoom.md
+    - name: Configure test numbers
+      href: configure-test-numbers-zoom.md
+    - name: Prepare for live traffic
+      href: prepare-for-live-traffic-zoom.md
+  - name: Emergency calling
+    href: emergency-calls-zoom.md
 - name: Maintenance
   items:
   - name: Set up user roles
@@ -90,3 +106,5 @@ items:
     href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/teams-phone-mobile
   - name: Overview of multitenant Microsoft Teams Direct Routing
     href: /microsoftteams/direct-routing-sbc-multiple-tenants
+  - name: Overview of Zoom Phone Cloud Peering
+    href: https://partner.zoom.us/partner-type/cloud-peering/

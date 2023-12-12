@@ -90,6 +90,7 @@ When using PostgreSQL for a busy database with a large number of concurrent conn
 - When the storage usage reaches 95% or if the available capacity is less than 5 GiB whichever is more, the server is automatically switched to **read-only mode** to avoid errors associated with disk-full situations. In rare cases, if the rate of data growth outpaces the time it takes switch to read-only mode, your Server may still run out of storage.
 - We recommend setting alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.
 - If you're using logical replication, then you must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists. Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot isn't in use (due to non-available subscriber), Flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation. 
+- We don't support the creation of tablespaces, so if you're creating a database, don’t provide a tablespace name. PostgreSQL will use the default one that is inherited from the template database. It's unsafe to provide a tablespace like the temporary one because we can't ensure that such objects will remain persistent after server restarts, HA failovers, etc.
    
 ### Networking
 
@@ -111,7 +112,6 @@ When using PostgreSQL for a busy database with a large number of concurrent conn
 - Postgres 10 and older aren't supported as those are already retired by the open-source community. If you must use one of these versions, you need to use the [Single Server](../overview-single-server.md) option, which supports the older major versions 95, 96 and 10.
 - Flexible Server supports all `contrib` extensions and more. Please refer to [PostgreSQL extensions](/azure/postgresql/flexible-server/concepts-extensions).
 - Built-in PgBouncer connection pooler is currently not available for Burstable servers.
-- SCRAM authentication isn't supported with connectivity using built-in PgBouncer.
    
 ### Stop/start operation
 
@@ -131,8 +131,6 @@ When using PostgreSQL for a busy database with a large number of concurrent conn
 - When using the Point-in-time-Restore feature, the new server is created with the same compute and storage configurations as the server it is based on.
 - VNET based database servers are restored into the same VNET when you restore from a backup.
 - The new server created during a restore doesn't have the firewall rules that existed on the original server. Firewall rules need to be created separately for the new server.
-- Restoring a deleted server isn't supported.
-- Cross region restore isn't supported.
 - Restore to a different subscription isn't supported but as a workaround, you can restore the server within the same subscription and then migrate the restored server to a different subscription.
    
 ## Next steps

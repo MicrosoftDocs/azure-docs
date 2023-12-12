@@ -2,7 +2,7 @@
 title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using PowerShell
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 ms.topic: article
-ms.date: 07/11/2023
+ms.date: 11/30/2023
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
@@ -205,7 +205,7 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
     spec:
       type: LoadBalancer
       ports:
-     - protocol: TCP
+      - protocol: TCP
         port: 80
       selector:
         app: sample

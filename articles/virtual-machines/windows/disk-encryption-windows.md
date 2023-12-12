@@ -19,18 +19,44 @@ Azure Disk Encryption for Windows virtual machines (VMs) uses the BitLocker feat
 
 Azure Disk Encryption is [integrated with Azure Key Vault](disk-encryption-key-vault.md) to help you control and manage the disk encryption keys and secrets. For an overview of the service, see [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
 
+## Prerequisites
+
 You can only apply disk encryption to virtual machines of [supported VM sizes and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems). You must also meet the following prerequisites:
 
 - [Networking requirements](disk-encryption-overview.md#networking-requirements)
 - [Group Policy requirements](disk-encryption-overview.md#group-policy-requirements)
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
->[!IMPORTANT]
-> - If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-overview-aad.md) for details.
->
-> - You should [take a snapshot](snapshot-copy-managed-disk.md) and/or create a backup before disks are encrypted. Backups ensure that a recovery option is possible if an unexpected failure occurs during encryption. VMs with managed disks require a backup before encryption occurs. Once a backup is made, you can use the [Set-AzVMDiskEncryptionExtension cmdlet](/powershell/module/az.compute/set-azvmdiskencryptionextension) to encrypt managed disks by specifying the -skipVmBackup parameter. For more information about how to back up and restore encrypted VMs, see [Back up and restore encrypted Azure VM](../../backup/backup-azure-vms-encryption.md).
->
-> - Encrypting or disabling encryption may cause a VM to reboot.
+## Restrictions
+
+If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-overview-aad.md) for details.
+
+You should [take a snapshot](snapshot-copy-managed-disk.md) and/or create a backup before disks are encrypted. Backups ensure that a recovery option is possible if an unexpected failure occurs during encryption. VMs with managed disks require a backup before encryption occurs. Once a backup is made, you can use the [Set-AzVMDiskEncryptionExtension cmdlet](/powershell/module/az.compute/set-azvmdiskencryptionextension) to encrypt managed disks by specifying the -skipVmBackup parameter. For more information about how to back up and restore encrypted VMs, see [Back up and restore encrypted Azure VM](../../backup/backup-azure-vms-encryption.md).
+
+Encrypting or disabling encryption may cause a VM to reboot.
+
+Azure Disk Encryption does not work for the following scenarios, features, and technology:
+
+- Encrypting basic tier VM or VMs created through the classic VM creation method.
+- Encrypting VMs configured with software-based RAID systems.
+- Encrypting VMs configured with Storage Spaces Direct (S2D), or Windows Server versions before 2016 configured with Windows Storage Spaces.
+- Integration with an on-premises key management system.
+- Azure Files (shared file system).
+- Network File System (NFS).
+- Dynamic volumes.
+- Windows Server containers, which create dynamic volumes for each container.
+- Ephemeral OS disks.
+- iSCSI disks.
+- Encryption of shared/distributed file systems like (but not limited to) DFS, GFS, DRDB, and CephFS.
+- Moving an encrypted VM to another subscription or region.
+- Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
+- M-series VMs with Write Accelerator disks.
+- Applying ADE to a VM that has disks encrypted with [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk or adding a data disk with SSE + CMK configured to a VM encrypted with ADE is an unsupported scenario as well.
+- Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md).
+- Encrypting VMs in failover clusters.
+- Encryption of [Azure ultra disks](../disks-enable-ultra-ssd.md).
+- Encryption of [Premium SSD v2 disks](../disks-types.md#premium-ssd-v2-limitations).
+- Encryption of VMs in subscriptions that have the [Secrets should have the specified maximum validity period](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) policy enabled with the [DENY effect](../../governance/policy/concepts/effects.md).
 
 ## Install tools and connect to Azure
 
@@ -159,7 +185,7 @@ NVMe disks will be uninitialized the following scenarios:
 
 In these scenarios, the NVMe disks need to be initialized after the VM starts. To enable encryption on the NVMe disks, run command to enable Azure Disk Encryption again after the NVMe disks are initialized.
 
-In addition to the scenarios listed in the [Unsupported Scenarios](#unsupported-scenarios) section, encryption of NVMe disks is not supported for:
+In addition to the scenarios listed in the [Restrictions](#restrictions) section, encryption of NVMe disks is not supported for:
 
 - VMs encrypted with Azure Disk Encryption with Microsoft Entra ID (previous release)
 - NVMe disks with storage spaces
@@ -297,30 +323,6 @@ You can remove the encryption extension using Azure PowerShell or the Azure CLI.
      az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryption"
      ```
 
-## Unsupported scenarios
-
-Azure Disk Encryption does not work for the following scenarios, features, and technology:
-
-- Encrypting basic tier VM or VMs created through the classic VM creation method.
-- Encrypting VMs configured with software-based RAID systems.
-- Encrypting VMs configured with Storage Spaces Direct (S2D), or Windows Server versions before 2016 configured with Windows Storage Spaces.
-- Integration with an on-premises key management system.
-- Azure Files (shared file system).
-- Network File System (NFS).
-- Dynamic volumes.
-- Windows Server containers, which create dynamic volumes for each container.
-- Ephemeral OS disks.
-- iSCSI disks.
-- Encryption of shared/distributed file systems like (but not limited to) DFS, GFS, DRDB, and CephFS.
-- Moving an encrypted VM to another subscription or region.
-- Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
-- M-series VMs with Write Accelerator disks.
-- Applying ADE to a VM that has disks encrypted with [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk or adding a data disk with SSE + CMK configured to a VM encrypted with ADE is an unsupported scenario as well.
-- Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md).
-- Encrypting VMs in failover clusters.
-- Encryption of [Azure ultra disks](../disks-enable-ultra-ssd.md).
-- Encryption of [Premium SSD v2 disks](../disks-types.md#premium-ssd-v2-limitations).
-- Encryption of VMs in subscriptions that have the [Secrets should have the specified maximum validity period](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) policy enabled with the [DENY effect](../../governance/policy/concepts/effects.md).
 
 ## Next steps
 

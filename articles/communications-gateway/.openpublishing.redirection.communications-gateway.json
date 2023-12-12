@@ -17,7 +17,17 @@
     },
     {
       "source_path_from_root": "/articles/communications-gateway/emergency-calling.md",
-      "redirect_URL": "/azure/communications-gateway/emergency-calling-operator-connect",
+      "redirect_URL": "/azure/communications-gateway/emergency-calls-operator-connect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communications-gateway/emergency-calling-operator-connect.md",
+      "redirect_URL": "/azure/communications-gateway/emergency-calls-operator-connect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communications-gateway/emergency-calling-teams-direct-routing.md",
+      "redirect_URL": "/azure/communications-gateway/emergency-calls-teams-direct-routing",
       "redirect_document_id": false
     },
     {

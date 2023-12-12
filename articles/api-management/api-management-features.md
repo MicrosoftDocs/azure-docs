@@ -38,7 +38,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | [External cache](./api-management-howto-cache-external.md)                                                    | Yes         | Yes       | Yes   | Yes      | Yes     |
 | [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | Yes         | Yes       | Yes   | Yes      | Yes     |
 | [Policies](api-management-howto-policies.md)<sup>4</sup> | Yes         | Yes       | Yes   | Yes      | Yes     |
-| [API authorizations](authorizations-overview.md)  | Yes         | Yes       | Yes   | Yes      | Yes     | 
+| [API credentials](credentials-overview.md)  | Yes         | Yes       | Yes   | Yes      | Yes     | 
 | [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Yes       | Yes   | Yes      | Yes     |
 | [Management over Git](api-management-configuration-repository-git.md)                        | No          | Yes       | Yes   | Yes      | Yes     |
 | Direct management API                                                                        | No          | Yes       | Yes   | Yes      | Yes     |
@@ -49,6 +49,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | [Pass-through WebSocket APIs](websocket-api.md)                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
 | [Pass-through GraphQL APIs](graphql-apis-overview.md)                                                                               | Yes          | Yes       | Yes   | Yes      | Yes     |
 | [Synthetic GraphQL APIs](graphql-apis-overview.md)                                            | Yes           | Yes       | Yes   | Yes      | Yes     |
+| [Pass-through gRPC APIs](grpc-api.md) (preview)                                                                              | No          | Yes       | No   | No      | Yes     |
 
 <sup>1</sup> Enables the use of Microsoft Entra ID (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>

@@ -46,7 +46,7 @@ The copy activity fails with the following error when using Snowflake as sink:<b
     - Direct copy: Make sure to grant access permission to Snowflake in the other source/sink. Currently, only Azure Blob Storage that uses shared access signature authentication is supported as source or sink. When you generate the shared access signature, make sure to set the allowed permissions and IP addresses to Snowflake in the Azure Blob Storage. For more information, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token). 
     - Staged copy: The staging Azure Blob Storage linked service must use shared access signature authentication. When you generate the shared access signature, make sure to set the allowed permissions and IP addresses to Snowflake in the staging Azure Blob Storage. For more information, see this [article](https://docs.snowflake.com/en/user-guide/data-load-azure-config.html#option-2-generating-a-sas-token).
  
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

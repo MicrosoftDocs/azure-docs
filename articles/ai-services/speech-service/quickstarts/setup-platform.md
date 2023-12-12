@@ -2,15 +2,23 @@
 title: Install the Speech SDK
 titleSuffix: Azure AI services
 description: In this quickstart, you learn how to install the Speech SDK for your preferred programming language.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 09/05/2023
 ms.author: eur
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-go
-zone_pivot_groups: programming-languages-speech-sdk
+ms.custom:
+  - devx-track-python
+  - devx-track-js
+  - devx-track-csharp
+  - mode-other
+  - devx-track-dotnet
+  - devx-track-extended-java
+  - devx-track-go
+  - ignite-2023
+zone_pivot_groups: programming-languages-ai-services
 ---
 
 # Install the Speech SDK

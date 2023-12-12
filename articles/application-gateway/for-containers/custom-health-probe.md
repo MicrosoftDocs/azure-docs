@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 11/07/2023
 ms.author: greglin
 ---
 
@@ -27,13 +27,15 @@ The following properties make up custom health probes:
 | -------- | ------------- |
 | port | the port number to initiate health probes to. Valid port values are 1-65535. |
 | interval | how often in seconds health probes should be sent to the backend target.  The minimum interval must be > 0 seconds. |
-| timeout | how long in seconds the request should wait until it's deemed a failure  The minimum interval must be > 0 seconds. |
+| timeout | how long in seconds the request should wait until it's marked as a failure  The minimum interval must be > 0 seconds. |
 | healthyThreshold | number of health probes before marking the target endpoint healthy. The minimum interval must be > 0. |
 | unhealthyTreshold | number of health probes to fail before the backend target should be labeled unhealthy. The minimum interval must be > 0. |
-| protocol| specifies either non-encrypted `HTTP` traffic or encrypted traffic via TLS as `HTTPS` |
+| protocol| specifies either nonencrypted `HTTP` traffic or encrypted traffic via TLS as `HTTPS` |
 | (http) host | the hostname specified in the request to the backend target. |
-| (http) path | the specific path of the request. If a single file should be loaded, the path may be /index.html as an example. |
+| (http) path | the specific path of the request. If a single file should be loaded, the path might be /index.html. |
 | (http -> match) statusCodes | Contains two properties, `start` and `end`, that define the range of valid HTTP status codes returned from the backend. |
+
+[ ![A diagram showing the Application Gateway for Containers using custom health probes to determine backend health.](./media/custom-health-probe/custom-health-probe.png) ](./media/custom-health-probe/custom-health-probe.png#lightbox)
 
 ## Default health probe
 Application Gateway for Containers automatically configures a default health probe when you don't define a custom probe configuration or configure a readiness probe. The monitoring behavior works by making an HTTP GET request to the IP addresses of configured backend targets. For default probes, if the backend target is configured for HTTPS, the probe uses HTTPS to test health of the backend targets.
@@ -55,9 +57,9 @@ When the default health probe is used, the following values for each health prob
 
 ## Custom health probe
 
-In both Gateway API and Ingress API, a custom health probe can be defined by defining a [_HealthCheckPolicyPolicy_ resource](api-specification-kubernetes.md#alb.networking.azure.io/v1.HealthCheckPolicy) and referencing a service the health probes should check against.  As the service is referenced by an HTTPRoute or Ingress resource with a class reference to Application Gateway for Containers, the custom health probe will be used for each reference.
+In both Gateway API and Ingress API, a custom health probe can be defined by defining a [_HealthCheckPolicyPolicy_ resource](api-specification-kubernetes.md#alb.networking.azure.io/v1.HealthCheckPolicy) and referencing a service the health probes should check against.  As the service is referenced by an HTTPRoute or Ingress resource with a class reference to Application Gateway for Containers, the custom health probe is used for each reference.
 
-In this example, the health probe emitted by Application Gateway for Containers will send the hostname contoso.com to the pods that make up _test-service_.  The request path will be `/`, a probe will be emitted every 5 seconds and wait 3 seconds before determining the connection has timed out. If a response is received, an HTTP response code between 200 and 299 (inclusive of 200 and 299) will be considered healthy, all other responses will be considered unhealthy.
+In this example, the health probe emitted by Application Gateway for Containers sends the hostname contoso.com to the pods that make up _test-service_.  The request path is `/`, a probe is emitted every 5 seconds and wait 3 seconds before determining the connection has timed out. If a response is received, an HTTP response code between 200 and 299 (inclusive of 200 and 299) is considered healthy, all other responses are considered unhealthy.
 
 ```bash
 kubectl apply -f - <<EOF

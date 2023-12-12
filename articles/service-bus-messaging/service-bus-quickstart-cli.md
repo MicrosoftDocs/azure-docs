@@ -12,7 +12,7 @@ ms.devlang: azurecli
 # Use the Azure CLI to create a Service Bus namespace and a queue
 This quickstart shows you how to create a Service Bus namespace and a queue using the Azure CLI. It also shows you how to get authorization credentials that a client application can use to send/receive messages to/from the queue. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+[!INCLUDE [service-bus-queues](./includes/service-bus-queues.md)]
 
 ## Prerequisites
 If you don't have an Azure subscription, you can create a [free account][free account] before you begin.

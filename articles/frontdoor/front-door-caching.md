@@ -1,12 +1,12 @@
 ---
 title: Caching with Azure Front Door
-description: This article helps you understand behavior for Front Door with routing rules that have enabled caching.
+description: This article helps you understand Front Door behavior when enabling caching in routing rules.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/14/2023
+ms.date: 11/08/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -44,6 +44,8 @@ When your origin responds to a request with a `Range` header, it must respond in
   > If your origin compresses the response, ensure that the `Content-Range` header value matches the actual length of the compressed response.
 
 - **Return a non-ranged response.** If your origin can't handle range requests, it can ignore the `Range` header and return a nonranged response. Ensure that the origin returns a response status code other than 206. For example, the origin might return a 200 OK response.
+
+If the origin uses Chunked Transfer Encoding (CTE) to send data to the Azure Front Door POP, response sizes greater than 8 MB aren't supported.
 
 ## File compression
 

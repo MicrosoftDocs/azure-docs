@@ -77,7 +77,7 @@ landingContent:
           - text: Monitoring and health checks tabs
             url: how-to-use-monitoring-and-health-checks-tabs.md
           - text: Metrics
-            url: how-to-configure-metrics.md
+            url: configure-metrics.md
           - text: Diagnostic settings
             url: how-to-enable-diagnostic-settings.md
 

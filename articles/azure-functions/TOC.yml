@@ -399,7 +399,31 @@
     - name: PowerShell
       href: functions-reference-powershell.md
     - name: Python
-      href: functions-reference-python.md
+      items:
+        - name: Developer reference guide
+          displayName: python
+          href: functions-reference-python.md
+        - name: Programming models 
+          displayName: python
+          href: functions-reference-python.md#programming-model
+        - name: Python worker extensions
+          href: develop-python-worker-extensions.md
+        - name: Scale and performance recommendations 
+          displayName: python
+          href: python-scale-performance-reference.md
+        - name: Troubleshooting
+          items: 
+            - name: General troubleshooting
+              displayName: python
+              href: recover-python-functions.md
+            - name: Memory profiling
+              displayName: python
+              href: python-memory-profiler-reference.md
+        - name: Python library API reference for Functions    
+          href: /python/api/azure-functions/azure.functions
+        - name: Samples
+          displayName: python
+          href: /samples/browse/?products=azure-functions&languages=python
 - name: How-to guides
   items:
     - name: Develop
@@ -512,6 +536,7 @@
           href: run-functions-from-deployment-package.md
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
+          displayName: bicep, ARM template
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure

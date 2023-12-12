@@ -51,7 +51,7 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
   * Both Desktop and Server Core experiences are supported
   * Azure Editions are supported on Azure Stack HCI
 
-The Azure Connected Machine agent can't currently be installed on systems hardened by the Center for Information Security (CIS) Benchmark.
+The Azure Connected Machine agent hasn't been tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
 
 ### Client operating system guidance
 

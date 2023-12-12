@@ -35,5 +35,6 @@ This table provides the various limits associated with the operations within Dev
 | Total number of updates per instance | 100 | 10 | No |
 | Maximum single update file size | 2 GB | 2 GB | Yes |
 | Maximum combined size of all files in a single import action | 2 GB | 2 GB | Yes |
+| Maximum number of files in a single update | 10 | 10 | No |
 | Total data storage included per instance | 100 GB | 5 GB | No |
 

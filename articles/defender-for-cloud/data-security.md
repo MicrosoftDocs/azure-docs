@@ -4,7 +4,7 @@ description: Learn how data is managed and safeguarded in Microsoft Defender for
 ms.topic: overview
 ms.author: dacurwin
 author: dcurwin
-ms.date: 07/18/2023
+ms.date: 11/02/2023
 ---
 # Microsoft Defender for Cloud data security
 
@@ -23,7 +23,7 @@ Defender for Cloud analyzes data from the following sources to provide visibilit
 
 ## Data sharing
 
-When you enable Defender for Storage Malware Scanning, it may share metadata, including metadata classified as customer data (e.g. SHA-256 hash), with Microsoft Defender for Endpoint.
+When you enable Defender for Storage Malware Scanning, it might share metadata, including metadata classified as customer data (e.g. SHA-256 hash), with Microsoft Defender for Endpoint.
 
 ## Data protection
 
@@ -33,7 +33,7 @@ Data is kept logically separate on each component throughout the service. All da
 
 ### Data access
 
-To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by Azure services, including process creation events, and other artifacts, which may unintentionally include customer data or personal data from your machines.
+To provide security recommendations and investigate potential security threats, Microsoft personnel might access information collected or analyzed by Azure services, including process creation events, and other artifacts, which might unintentionally include customer data or personal data from your machines.
 
 We adhere to the [Microsoft Online Services Data Protection Addendum](https://www.microsoftvolumelicensing.com/Downloader.aspx?DocumentId=17880), which states that Microsoft won't use Customer Data or derive information from it for any advertising or similar commercial purposes. We only use Customer Data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to Customer Data.
 
@@ -77,9 +77,12 @@ Customers can access Defender for Cloud related data from the following data str
 | [Azure Monitor logs](../azure-monitor/data-platform.md)                      | All security alerts.                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Security alerts, security recommendations, vulnerability assessment results, secure score information, status of compliance checks, and more.                                                                       |
 | [Microsoft Defender for Cloud REST API](/rest/api/defenderforcloud/) | Security alerts, security recommendations, and more.                                                                                                                                                                |
-
 > [!NOTE]
 > If there are no Defender plans enabled on the subscription, data will be removed from Azure Resource Graph after 30 days of inactivity in the Microsoft Defender for Cloud portal. After interaction with artifacts in the portal related to the subscription, the data should be visible again within 24 hours.
+
+## Defender for Cloud and Microsoft Defender 365 Defender integration
+
+When you enable any of Defender for Cloud's paid plans you automatically gain all of the benefits of Microsoft 365 Defender. Information from Defender for Cloud will be shared with Microsoft 365 Defender. This data may contain customer data and will be stored according to [Microsoft 365 data handling guidelines](/microsoft-365/security/defender/data-privacy?view=o365-worldwide).
 
 ## Next steps
 

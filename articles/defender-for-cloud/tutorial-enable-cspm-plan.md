@@ -18,7 +18,7 @@ You have the ability to enable the **Defender CSPM** plan, which offers extra pr
 > [!NOTE]
 > Agentless scanning requires the **Subscription Owner** to enable the Defender CSPM plan. Anyone with a lower level of authorization can enable the Defender CSPM plan, but the agentless scanner won't be enabled by default due a lack of required permissions that are only available to the Subscription Owner. In addition, attack path analysis and security explorer won't populate with vulnerabilities because the agentless scanner is disabled.
 
-For availability and to learn more about the features offered by each plan, see the [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+For availability and to learn more about the features offered by each plan, see the [Defender CSPM plan options](concept-cloud-security-posture-management.md).
 
 You can learn more about Defender CSPM's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). 
 
@@ -70,7 +70,7 @@ Once the Defender CSPM plan is enabled on your subscription, you have the abilit
 
 1. Select **On** for each component to enable it.
 
-1. (Optional) For agentless scanning for machine select **Edit configuration**.
+1. (Optional) For agentless scanning, select **Edit configuration**.
 
     :::image type="content" source="media/tutorial-enable-cspm-plan/cspm-configuration.png" alt-text="Screenshot that shows where to select edit configuration." lightbox="media/tutorial-enable-cspm-plan/cspm-configuration.png":::
 

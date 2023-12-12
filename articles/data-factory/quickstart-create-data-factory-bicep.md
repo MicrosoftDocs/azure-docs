@@ -190,7 +190,7 @@ You can also use the Azure portal to delete the resource group.
 1. Select **Delete resource group**.
 1. A tab will appear. Enter the resource group name and select **Delete**.
 
-## Next steps
+## Related content
 
 In this quickstart, you created an Azure Data Factory using Bicep and validated the deployment. To learn more about Azure Data Factory and Bicep, continue on to the articles below.
 

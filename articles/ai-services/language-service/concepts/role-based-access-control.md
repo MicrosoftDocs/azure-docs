@@ -2,7 +2,7 @@
 title: Role-based access control for the Language service
 titleSuffix: Azure AI services
 description: Learn how to use Azure RBAC for managing individual access to Azure resources.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
@@ -120,7 +120,7 @@ A user that is responsible for building and modifying an application, as a colla
 ### Cognitive Services Language Owner
 
 > [!NOTE]
-> If you are assigned as an *Owner* and *Language Owner* you will be be shown as *Cognitive Services Language Owner* in Language studio portal.
+> If you are assigned as an *Owner* and *Language Owner* you will be shown as *Cognitive Services Language Owner* in Language studio portal.
 
 
 These users are the gatekeepers for the Language applications in production environments. They should have full access to any of the underlying functions and thus can view everything in the application and have direct access to edit any changes for both authoring and runtime environments

@@ -203,33 +203,6 @@ Although a new account will automatically be created when a new user signs in wi
 > [!IMPORTANT]
 > You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the Microsoft Entra ID changes to take effect.
 
-<a name='legacy-developer-portal-how-to-sign-in-with-azure-ad'></a>
-
-## Legacy developer portal: How to sign in with Microsoft Entra ID
-
-[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
-
-To sign into the developer portal by using a Microsoft Entra account that you configured in the previous sections:
-
-1. Open a new browser window using the sign-in URL from the Active Directory application configuration. 
-2. Select **Microsoft Entra ID**.
-
-   ![Sign-in page][api-management-dev-portal-signin]
-
-1. Enter the credentials of one of the users in Microsoft Entra ID.
-2. Select **Sign in**.
-
-   ![Signing in with username and password][api-management-aad-signin]
-
-1. If prompted with a registration form, complete with any additional information required. 
-2. Select **Sign up**.
-
-   !["Sign up" button on registration form][api-management-complete-registration]
-
-Your user is now signed in to the developer portal for your API Management service instance.
-
-![Developer portal after registration is complete][api-management-registration-complete]
-
 ## Next Steps
 
 - Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).

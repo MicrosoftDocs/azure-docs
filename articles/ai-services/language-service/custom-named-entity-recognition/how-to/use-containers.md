@@ -2,7 +2,7 @@
 title: Use Docker containers for Custom Named Entity Recognition on-premises
 titleSuffix: Azure AI services
 description: Learn how to use Docker containers for Custom Named Entity Recognition on-premises.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

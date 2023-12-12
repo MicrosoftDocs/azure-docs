@@ -46,6 +46,7 @@ This table shows [supported metrics for Azure Files](/azure/azure-monitor/refere
 | FileShareCapacityQuota | The upper limit on the amount of storage that can be used by Azure Files Service in bytes. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024|
 | FileShareCount | The number of file shares in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | FileShareProvisionedIOPS | The number of provisioned IOPS on a file share. This metric is applicable to premium file storage only. <br/><br/> Unit: CountPerSecond <br/> Aggregation Type: Average |
+| FileShareProvisionedBandwidthMiBps | The baseline number of provisioned bandwidth in MiB/s for the premium file share in the premium file storage account. This number is calculated based on the provisioned size (quota) of the share capacity. <br/><br/> Unit: BytesPerSecond <br/> Aggregation Type: Average |
 | FileShareSnapshotCount | The number of snapshots present on the share in storage account's Azure Files service. <br/><br/> Unit: Count <br/> Aggregation Type: Average | 
 | FileShareSnapshotSize | The amount of storage used by the snapshots in storage account's Azure Files service. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average |
 | FileShareMaxUsedIOPS | The maximum number of used IOPS at the lowest time granularity of 1-minute for the premium file share in the premium files storage account. <br/><br/> Unit: CountPerSecond  <br/> Aggregation Type: Max |

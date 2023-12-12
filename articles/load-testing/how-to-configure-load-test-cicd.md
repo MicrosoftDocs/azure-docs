@@ -350,6 +350,6 @@ If you don't plan to use any of the resources that you created, delete them so y
 
 Advance to the next article to learn how to identify performance regressions by defining test fail criteria and comparing test runs.
 
-- [Tutorial: automate regression tests](./tutorial-identify-performance-regression-with-cicd.md)
+- [Tutorial: automate regression tests](./quickstart-add-load-test-cicd.md)
 - [Define test fail criteria](./how-to-define-test-criteria.md)
 - [View performance trends over time](./how-to-compare-multiple-test-runs.md)

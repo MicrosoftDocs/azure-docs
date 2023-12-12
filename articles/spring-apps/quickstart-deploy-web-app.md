@@ -46,8 +46,9 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 This article provides the following options for deploying to Azure Spring Apps:
 
-- The Azure portal is the easiest and fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
-- The Azure CLI is a powerful command line tool to manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services.
+- The **Azure portal** option is the easiest and the fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
+- The **Azure portal + Maven plugin** option provides a more conventional way to create resources and deploy applications step by step. This option is suitable for Spring developers using Azure cloud services for the first time.
+- The **Azure CLI** option is a powerful command line tool to manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services.
 
 ::: zone-end
 
@@ -82,6 +83,12 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Git](https://git-scm.com/downloads).
+- [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
+
 ### [Azure CLI](#tab/Azure-CLI)
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
@@ -94,21 +101,21 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ::: zone-end
 
-::: zone pivot="sc-standard"
-
-[!INCLUDE [deploy-to-azure-spring-apps-standard-plan](includes/quickstart-deploy-web-app/deploy-standard-plan.md)]
-
-::: zone-end
-
 ::: zone pivot="sc-enterprise"
 
-[!INCLUDE [deploy-to-azure-spring-apps-enterprise-plan](includes/quickstart-deploy-web-app/deploy-enterprise-plan.md)]
+[!INCLUDE [deploy-enterprise-plan](includes/quickstart-deploy-web-app/deploy-enterprise-plan.md)]
 
 ::: zone-end
 
 ::: zone pivot="sc-consumption-plan"
 
 [!INCLUDE [deploy-to-azure-spring-apps-consumption-plan](includes/quickstart-deploy-web-app/deploy-consumption-plan.md)]
+
+::: zone-end
+
+::: zone pivot="sc-standard"
+
+[!INCLUDE [deploy-standard-plan](includes/quickstart-deploy-web-app/deploy-standard-plan.md)]
 
 ::: zone-end
 
@@ -129,6 +136,10 @@ Use the following steps to validate:
 1. Access the application with the output application URL. The page should appear as you saw in localhost.
 
 1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+Access the application with the output application URL. The page should appear as you saw in localhost.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -213,6 +224,10 @@ Be sure to delete the resources you created in this article when you no longer n
 ::: zone pivot="sc-enterprise"
 
 ### [Azure portal](#tab/Azure-portal-ent)
+
+[!INCLUDE [clean-up-resources-via-resource-group](includes/quickstart-deploy-web-app/clean-up-resources-via-resource-group.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
 [!INCLUDE [clean-up-resources-via-resource-group](includes/quickstart-deploy-web-app/clean-up-resources-via-resource-group.md)]
 

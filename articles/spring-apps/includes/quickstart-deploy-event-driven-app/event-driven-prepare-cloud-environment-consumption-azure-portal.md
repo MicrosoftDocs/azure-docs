@@ -35,8 +35,6 @@ Use the following steps to create all the Azure resources that the app depends o
    | **Resource group** | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                        |
    | **Region**         | The region closest to your users. | The region is used to create the resource group.                                                                                                                            |
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/event-driven-custom-deployment.png" alt-text="Screenshot of the Azure portal that shows the custom deployment." lightbox="../../media/quickstart-deploy-event-driven-app/event-driven-custom-deployment.png":::
-
 1. Select **Review and Create** to review your selections. Then, select **Create** to deploy the app to Azure Spring Apps.
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. After the deployment finishes, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Select **Go to resource** to open the service's **Overview** page.

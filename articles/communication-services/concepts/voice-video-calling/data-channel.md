@@ -17,7 +17,7 @@ ms.subservice: calling
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
 > [!NOTE]
-> This document delves into the Data Channel feature present in the ACS Calling SDK.
+> This document delves into the Data Channel feature present in the Azure Communication Services Calling SDK.
 > While the Data Channel in this context bears some resemblance to the Data Channel in WebRTC, it's crucial to recognize subtle differences in their specifics.
 > Throughout this document, we use terms *Data Channel API* or *API* to denote the Data Channel API within the SDK.
 > When referring to the Data Channel API in WebRTC, we explicitly use the term *WebRTC Data Channel API* for clarity and precision.
@@ -32,28 +32,17 @@ The Data Channel API enables real-time messaging during audio and video calls. W
 
 ## Common use cases
 
-The Data Channel feature has two common use cases:
+The Data Channel can be used in many different scenarios. Two common use case examples are:
 
 ### Messaging between participants in a call
 
-The Data Channel API enables the transmission of binary type messages among call participants.
-With appropriate serialization in the application, it can deliver various message types for different purposes.
-There are also other libraries or services providing the messaging functionalities.
-Each of them has its advantages and disadvantages. You should choose the suitable one for your usage scenario.
-For example, the Data Channel API offers the advantage of low-latency communication, and simplifies user management as there's no need to maintain a separate participant list.
-However, the data channel feature doesn't provide message persistence and doesn't guarantee that message won't be lost in an end-to-end manner.
-If you need the stateful messaging or guaranteed delivery, you may want to consider alternative solutions.
+The Data Channel API enables the transmission of binary type messages among call participants. With appropriate serialization in the application, it can deliver various message types for different purposes. There are also other libraries or services providing the messaging functionalities. Each of them has its advantages and disadvantages. You should choose the suitable one for your usage scenario. For example, the Data Channel API offers the advantage of low-latency communication, and simplifies user management as there's no need to maintain a separate participant list. However, the data channel feature doesn't provide message persistence and doesn't guarantee that message won't be lost in an end-to-end manner. If you need the stateful messaging or guaranteed delivery, you may want to consider alternative solutions.
 
 ### File sharing
 
-File sharing represents another common use cases for the Data Channel API.
-In a peer-to-peer call scenario, the Data Channel connection works on a peer-to-peer basis.
-This setup offers an efficient method for file transfer, taking full advantage of the direct, peer-to-peer connection to enhance speed and reduce latency.
+File sharing represents another common use cases for the Data Channel API. In a peer-to-peer call scenario, the Data Channel connection works on a peer-to-peer basis. This setup offers an efficient method for file transfer, taking full advantage of the direct, peer-to-peer connection to enhance speed and reduce latency.
 
-In a group call scenario, files can still be shared among participants. However, there are better ways, such as Azure Storage or Azure Files.
-Additionally, broadcasting the file content to all participants in a call can be achieved by setting an empty participant list.
-However, it's important to keep in mind that, in addition to bandwidth limitations,
-there are further restrictions imposed during a group call when broadcasting messages, such as packet rate and back pressure from the receive bitrate.
+In a group call scenario, files can still be shared among participants. However, there are better ways, such as Azure Storage or Azure Files. Additionally, broadcasting the file content to all participants in a call can be achieved by setting an empty participant list. However, it's important to keep in mind that, in addition to bandwidth limitations, there are further restrictions imposed during a group call when broadcasting messages, such as packet rate and back pressure from the receive bitrate.
 
 ## Key concepts
 
@@ -63,25 +52,18 @@ The Data Channel API is designed for unidirectional communication, as opposed to
 The decoupling of sender and receiver objects simplifies message handling in group call scenarios, providing a more streamlined and user-friendly experience.
 
 ### Channel
-Every Data Channel message is associated with a specific channel identified by `channelId`.
-It's important to clarify that this channelId isn't related to the `id` property in the WebRTC Data Channel.
-This channelId can be utilized to differentiate various application uses, such as using 1000 for control messages and 1001 for image transfers.
+Every Data Channel message is associated with a specific channel identified by `channelId`. It's important to clarify that this channelId isn't related to the `id` property in the WebRTC Data Channel. This channelId can be utilized to differentiate various application uses, such as using 1000 for control messages and 1001 for image transfers.
 
-The channelId is assigned during the creation of a DataChannelSender object,
-and can be either user-specified or determined by the SDK if left unspecified.
+The channelId is assigned during the creation of a DataChannelSender object, and can be either user-specified or determined by the SDK if left unspecified.
 
-The valid range of a channelId lies between 1 and 65535. If a channelId 0 is provided,
-or if no channelId is provided, the SDK assigns an available channelId from within the valid range.
+The valid range of a channelId lies between 1 and 65535. If a channelId 0 is provided, or if no channelId is provided, the SDK assigns an available channelId from within the valid range.
 
 ### Reliability
 Upon creation, a channel can be configured to be one of the two Reliability options: `lossy` or `durable`.
 
 A `lossy` channel means the order of messages isn't guaranteed and a message can be silently dropped when sending fails. It generally affords a faster data transfer speed.
 
-A `durable` channel means the SDK guarantees a lossless and ordered message delivery. In cases when a message can't be delivered, the SDK will throw an exception.
-In the Web SDK, the durability of the channel is ensured through a reliable SCTP connection. However, it doesn't imply that message won't be lost in an end-to-end manner.
-In the context of a group call, it signifies the prevention of message loss between the sender and server.
-In a peer-to-peer call, it denotes reliable transmission between the sender and remote endpoint.
+A `durable` channel means the SDK guarantees a lossless and ordered message delivery. In cases when a message can't be delivered, the SDK will throw an exception. In the Web SDK, the durability of the channel is ensured through a reliable SCTP connection. However, it doesn't imply that message won't be lost in an end-to-end manner. In the context of a group call, it signifies the prevention of message loss between the sender and server. In a peer-to-peer call, it denotes reliable transmission between the sender and remote endpoint.
 
 > [!Note]
 > In the current Web SDK implementation, data transmission is done through a reliable WebRTC Data Channel connection for both `lossy` and `durable` channels.
@@ -96,20 +78,14 @@ When creating a channel, a desirable bitrate can be specified for bandwidth allo
 
 This Bitrate property is to notify the SDK of the expected bandwidth requirement for a particular use case. Although the SDK generally can't match the exact bitrate, it tries to accommodate the request.
 
-
 ### Session
-The Data Channel API introduces the concept of a session, which adheres to open-close semantics.
-In the SDK, the session is associated to the sender or the receiver object.
+The Data Channel API introduces the concept of a session, which adheres to open-close semantics. In the SDK, the session is associated to the sender or the receiver object.
 
-Upon creating a sender object with a new channelId, the sender object is in open state.
-If the `close()` API is invoked on the sender object, the session becomes closed and can no longer facilitate message sending.
-At the same time, the sender object notifies all participants in the call that the session is closed.
+Upon creating a sender object with a new channelId, the sender object is in open state. If the `close()` API is invoked on the sender object, the session becomes closed and can no longer facilitate message sending. At the same time, the sender object notifies all participants in the call that the session is closed.
 
 If a sender object is created with an already existing channelId, the existing sender object associated with the channelId will be closed and any messages sent from the newly created sender object will be recognized as part of the new session.
 
-From the receiver's perspective, messages coming from different sessions on the sender's side are directed to distinct receiver objects.
-If the SDK identifies a new session associated with an existing channelId on the receiver's side, it creates a new receiver object.
-The SDK doesn't close the older receiver object; such closure takes place 1) when the receiver object receives a closure notification from the sender, or 2) if the session hasn't received any messages from the sender for over two minutes.
+From the receiver's perspective, messages coming from different sessions on the sender's side are directed to distinct receiver objects. If the SDK identifies a new session associated with an existing channelId on the receiver's side, it creates a new receiver object. The SDK doesn't close the older receiver object; such closure takes place 1) when the receiver object receives a closure notification from the sender, or 2) if the session hasn't received any messages from the sender for over two minutes.
 
 In instances where the session of a receiver object is closed and no new session for the same channelId exists on the receiver's side, the SDK creates a new receiver object upon receipt of a message from the same session at a later time. However, if a new session for the same channelId exists on the receiver's side, the SDK discards any incoming messages from the previous session.
 
@@ -126,18 +102,17 @@ For instance, consider a scenario where a sender sends three messages. Initially
 The maximum allowable size for a single message is 32 KB. If you need to send data larger than the limit, you'll need to divide the data into multiple messages.
 
 ### Participant list
-The maximum number of participants in a list is limited to 64. If you want to specify more participants, you'll need to manage participant list on your own. For example, if you want to send a message to 50 participants, you can create two different channels, each with 25 participants in their recipient lists.
-When calculating the limit, two endpoints with the same participant identifier will be counted as separate entities.
-As an alternative, you could opt for broadcasting messages. However, certain restrictions apply when broadcasting messages.
+The maximum number of participants in a list is limited to 64. If you want to specify more participants, you'll need to manage participant list on your own. For example, if you want to send a message to 50 participants, you can create two different channels, each with 25 participants in their recipient lists. When calculating the limit, two endpoints with the same participant identifier will be counted as separate entities. As an alternative, you could opt for broadcasting messages. However, certain restrictions apply when broadcasting messages.
 
 ### Rate limiting
-There's a limit on the overall send bitrate, currently set at 500 Kbps.
-However, when broadcasting messages, the send bitrate limit is dynamic and depends on the receive bitrate.
-In the current implementation, the send bitrate limit is calculated as the maximum send bitrate (500 Kbps) minus 80% of the receive bitrate.
+Currently the calling SDK has rate limiting implemented, which prevents users from sending data at a higher speed even if their network allows it. The current bandwidth rate maximums for data channel are:
+- Reliable channel (Durable): 64 kbps
+- Unreliable channel (Lossy): 512 kbps
+- High priority unreliable channel: 200 kbps
 
-Furthermore, we also enforce a packet rate restriction when sending broadcast messages.
-The current limit is set at 80 packets per second, where every 1200 bytes in a message is counted as one packet.
-These measures are in place to prevent flooding when a significant number of participants in a group call are broadcasting messages.
+However, when broadcasting messages, the send bitrate limit is dynamic and depends on the receive bitrate. In the current implementation, the send bitrate limit is calculated as the maximum send bitrate minus 80% of the receive bitrate.
+
+Furthermore, we also enforce a packet rate restriction when sending broadcast messages. The current limit is set at 80 packets per second, where every 1200 bytes in a message is counted as one packet. These measures are in place to prevent flooding when a significant number of participants in a group call are broadcasting messages.
 
 ## Next steps
 For more information, see the following articles:

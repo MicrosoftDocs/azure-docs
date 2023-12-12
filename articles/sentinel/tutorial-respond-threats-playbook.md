@@ -372,7 +372,7 @@ You can see the run history for playbooks on an incident by selecting the **Runs
 
 1. Select an entity in one of the following ways, depending on your originating context:
 
-    **If you're in an incident's details page (new version, now in Preview):**
+    **If you're in an incident's details page (new version):**
     1. In the **Entities** widget in the **Overview** tab, find an entity from the list (don't select it).
     1. Select the three dots to the right of the entity.
     1. Select **Run playbook (Preview)** from the pop-up menu and continue with step 2 below.  

@@ -96,7 +96,11 @@ landingContent:
             url: ./trino/trino-create-delta-lake-tables-synapse.md
           - text: Configure caching
             url: ./trino/trino-caching.md
-  - title: Apache Flink
+      - linkListType: reference
+        links:
+          - text: Trademarks
+            url: trademarks.md      
+  - title: Apache Flink®
     linkLists:
       - linkListType: overview
         links:
@@ -126,8 +130,11 @@ landingContent:
             url: ./flink/use-hive-catalog.md
           - text: Kafka table on FlinkSQL
             url: ./flink/create-kafka-table-flink-kafka-sql-connector.md  
-          
-  - title: Apache Spark
+      - linkListType: reference
+        links:
+          - text: Trademarks
+            url: trademarks.md    
+  - title: Apache Spark™
     linkLists:
       - linkListType: overview
         links:
@@ -147,9 +154,13 @@ landingContent:
             url: ./spark/use-machine-learning-notebook-on-spark.md
           - text: Use Hive metastore
             url: ./spark/use-hive-metastore.md
+      - linkListType: reference
+        links:
+          - text: Trademarks
+            url: trademarks.md    
   - title: Resources
     linkLists:
-      - linkListType: learn
+      - linkListType: reference
         links:
          - text: FAQ
            url: faq.md

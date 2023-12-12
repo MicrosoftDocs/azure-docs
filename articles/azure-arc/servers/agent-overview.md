@@ -54,9 +54,9 @@ Installing the Connected Machine agent for Window applies the following system-w
 
     | Service name | Display name | Process name | Description |
     |--------------|--------------|--------------|-------------|
-    | himds | Azure Hybrid Instance Metadata Service | himds | Synchronizes metadata with Azure and hosts a local REST API for extensions and applications to access the metadata and request Microsoft Entra managed identity tokens |
-    | GCArcService | Guest configuration Arc Service | gc_service | Audits and enforces Azure guest configuration policies on the machine. |
-    | ExtensionService | Guest configuration Extension Service | gc_service | Installs, updates, and manages extensions on the machine. |
+    | himds | Azure Hybrid Instance Metadata Service | `himds.exe` | Synchronizes metadata with Azure and hosts a local REST API for extensions and applications to access the metadata and request Microsoft Entra managed identity tokens |
+    | GCArcService | Guest configuration Arc Service | `gc_arc_service.exe` (gc_service.exe prior to version 1.36) | Audits and enforces Azure guest configuration policies on the machine. |
+    | ExtensionService | Guest configuration Extension Service | `gc_extension_service.exe` (gc_service.exe prior to version 1.36) | Installs, updates, and manages extensions on the machine. |
 
 * Agent installation creates the following virtual service account.
 
@@ -152,18 +152,17 @@ Installing the Connected Machine agent for Linux applies the following system-wi
 The Azure Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
 
 * The Guest Configuration agent can use up to 5% of the CPU to evaluate policies.
-* The Extension Service agent can use up to 5% of the CPU to install, upgrade, run, and delete extensions. Some extensions might apply more restrictive CPU limits once installed. The following exceptions apply:
+* The Extension Service agent can use up to 5% of the CPU on Windows machines and 30% of the CPU on Linux machines to install, upgrade, run, and delete extensions. Some extensions might apply more restrictive CPU limits once installed. The following exceptions apply:
 
   | Extension type | Operating system | CPU limit |
   | -------------- | ---------------- | --------- |
   | AzureMonitorLinuxAgent | Linux | 60% |
   | AzureMonitorWindowsAgent | Windows | 100% |
-  | AzureSecurityLinuxAgent | Linux | 30% |
   | LinuxOsUpdateExtension | Linux | 60% |
   | MDE.Linux | Linux | 60% |
   | MicrosoftDnsAgent | Windows | 100% |
   | MicrosoftMonitoringAgent | Windows | 60% |
-  | OmsAgentForLinux | Windows | 60%|
+  | OmsAgentForLinux | Linux | 60%|
 
 During normal operations, defined as the Azure Connected Machine agent being connected to Azure and not actively modifying an extension or evaluating a policy, you can expect the agent to consume the following system resources:
 

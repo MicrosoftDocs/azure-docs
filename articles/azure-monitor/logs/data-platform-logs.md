@@ -32,7 +32,7 @@ The following table describes some of the ways that you can use Azure Monitor Lo
 | Export | Configure [automated export of log data](./logs-data-export.md) to an Azure Storage account or Azure Event Hubs.<br>Build a workflow to retrieve log data and copy it to an external location by using [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md). |
 | Bring your own analysis | [Analyze data in Azure Monitor Logs using a notebook](../logs/notebooks-azure-monitor-logs.md) to create streamlined, multi-step processes on top of data you collect in Azure Monitor Logs. This is especially useful for purposes such as [building and running machine learning pipelines](../logs/aiops-machine-learning.md#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), advanced analysis, and troubleshooting guides (TSGs) for Support needs. |
 
-![Diagram that shows an overview of Azure Monitor Logs.](media/data-platform-logs/logs-overview.png)
+:::image type="content" source="media/data-platform-logs/logs-overview.png" lightbox="media/data-platform-logs/logs-overview.png" alt-text="Diagram that shows an overview of Azure Monitor Logs.":::
 
 ## Data collection
 After you create a [Log Analytics workspace](#log-analytics-workspaces), you must configure sources to send their data. No data is collected automatically.
@@ -68,13 +68,26 @@ You can:
 Insights include prebuilt queries to support their views and workbooks.
 
 For a list of where log queries are used and references to tutorials and other documentation to get you started, see [Log queries in Azure Monitor](./log-query-overview.md).
-
-![Screenshot that shows queries in Log Analytics.](media/data-platform-logs/log-analytics.png)
+<!-- convertborder later -->
+:::image type="content" source="media/data-platform-logs/log-analytics.png" lightbox="media/data-platform-logs/log-analytics.png" alt-text="Screenshot that shows queries in Log Analytics." border="false":::
 
 ## Relationship to Azure Data Explorer
 Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is roughly the equivalent of a database in Azure Data Explorer. Tables are structured the same, and both use KQL. For information on KQL, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
 
 The experience of using Log Analytics to work with Azure Monitor queries in the Azure portal is similar to the experience of using the Azure Data Explorer Web UI. You can even [include data from a Log Analytics workspace in an Azure Data Explorer query](/azure/data-explorer/query-monitor-data).
+
+## Relationship to Azure Sentinel and Microsoft Defender for Cloud
+
+[Security monitoring](../best-practices-plan.md#security-monitoring) in Azure is performed by [Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md).
+
+These services store their data in Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor. For more information, see [Product integrations](../monitor-reference.md#product-integrations) and [Other services](../data-sources.md#other-services).
+
+### Learn more
+
+| Service | More information |
+|:--------------|:-----------------|
+| Azure Sentinel | <ul><li>[Where Microsoft Sentinel data is stored](../../sentinel/geographical-availability-data-residency.md#where-microsoft-sentinel-data-is-stored)</li><li>[Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md)</li><li>[Design a Log Analytics workspace architecture](./workspace-design.md)</li><li>[Prepare for multiple workspaces and tenants in Microsoft Sentinel](../../sentinel/prepare-multiple-workspaces.md)</li><li>[Enable Microsoft Sentinel on your Log Analytics workspace](../../sentinel/quickstart-onboard.md).</li><li>[Log management in Microsoft Sentinel](../../sentinel/skill-up-resources.md#module-5-log-management)</li><li>[Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/)</li><li>[Charges for workspaces with Microsoft Sentinel](./cost-logs.md#workspaces-with-microsoft-sentinel)</li></ul> |
+| Microsoft Defender for Cloud | <ul><li>[Continuously export Microsoft Defender for Cloud data](../../defender-for-cloud/continuous-export.md)</li><li>[Data consumption](../../defender-for-cloud/data-security.md#data-consumption)</li><li>[Frequently asked questions about Log Analytics workspaces used with Microsoft Defender for Cloud](../../defender-for-cloud/faq-data-collection-agents.yml)</li><li>[Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/)</li><li>[Charges for workspaces with Microsoft Defender for Cloud](./cost-logs.md#workspaces-with-microsoft-defender-for-cloud)</li></ul> |
 
 ## Next steps
 

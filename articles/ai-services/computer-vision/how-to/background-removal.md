@@ -2,7 +2,7 @@
 title: Remove the background in images
 titleSuffix: Azure AI services
 description: Learn how to call the Segment API to isolate and remove the background from images.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: PatrickFarley
 ms.author: pafarley

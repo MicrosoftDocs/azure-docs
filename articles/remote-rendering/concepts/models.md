@@ -1,8 +1,8 @@
 ---
 title: Models
 description: Describes what a model is in Azure Remote Rendering
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp

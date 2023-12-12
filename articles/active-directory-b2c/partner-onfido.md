@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with Onfido
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Onfido for document ID and facial biometrics verification 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 12/8/2022
 ms.author: gasinh

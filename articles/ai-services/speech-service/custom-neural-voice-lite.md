@@ -2,7 +2,7 @@
 title: Custom Neural Voice Lite - Speech service
 titleSuffix: Azure AI services
 description: Use Custom Neural Voice Lite to demo and evaluate Custom Neural Voice before investing in professional recordings to create a higher-quality voice.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
