@@ -1,23 +1,23 @@
 ---
-title: Non-common alert schema definitions in Azure Monitor
-description: Understanding the non-common alert schema definitions for Azure Monitor.
+title: Noncommon alert schema definitions in Azure Monitor
+description: Understanding the noncommon alert schema definitions for Azure Monitor.
 author: issahn
 ms.topic: conceptual
 ms.date: 06/19/2023
 ms.reviewer: nolavime
 ---
 
-# Non-common alert schema definitions
+# Noncommon alert schema definitions
 
-This article describes the non-common alert schema definitions for Azure Monitor, including definitions for:
+This article describes the noncommon alert schema definitions for Azure Monitor, including definitions for:
 - Webhooks
 - Azure Logic Apps
 - Azure Functions
 - Azure Automation runbooks
 
-## What is the non-common alert schema?
+## What is the noncommon alert schema?
 
-The non-common alert schema lets you customize the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log, and activity log) have had their own email templates and webhook schemas.
+The noncommon alert schema lets you customize the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log, and activity log) have had their own email templates and webhook schemas.
 
 ## Metric alerts
 
