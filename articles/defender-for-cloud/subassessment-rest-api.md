@@ -19,7 +19,10 @@ Azure, Aws and Gcp container registry vulnerabilities sub-assessments are publis
 
 ## ARG query examples
 
-To pull specific sub assessments, you need the assessment key. For Azure Container vulnerability assessment powered by MDVM the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`, for Aws Container vulnerability assessment powered by MDVM the key is `c27441ae-775c-45be-8ffa-655de37362ce`, and for Gcp Container vulnerability assessment powered by MDVM the key is `5cc3a2c1-8397-456f-8792-fe9d0d4c9145`. 
+To pull specific sub assessments, you need the assessment key.
+* For Azure Container vulnerability assessment powered by MDVM the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`.
+* For Aws Container vulnerability assessment powered by MDVM the key is `c27441ae-775c-45be-8ffa-655de37362ce`.
+* For Gcp Container vulnerability assessment powered by MDVM the key is `5cc3a2c1-8397-456f-8792-fe9d0d4c9145`. 
 
 The following is a generic security sub assessment query example that can be used as an example to build queries with. This query pulls the first sub assessment generated in the last hour.
 ```kql
@@ -472,7 +475,7 @@ securityresources
 | Name                        | Description                                                  |
 | --------------------------- | ------------------------------------------------------------ |
 | ResourceDetails             | Details of  the Azure resource that was assessed             |
-| ContainerVulnerability      | More  context fields for container registry Vulnerability assessment |
+| AzureContainerRegistryVulnerability      | More  context fields for container registry Vulnerability assessment |
 | CVE                         | CVE Details                                                  |
 | CVSS                        | CVSS Details                                                 |
 | SecuritySubAssessment       | Security  subassessment on a resource                       |
@@ -487,7 +490,7 @@ securityresources
 | VulnerabilityReference      | Reference  links to vulnerability                            |
 | ExploitabilityAssessment    | Reference  links to an example exploit                       |
 
-### ContainerRegistryVulnerability (MDVM)
+### AzureContainerRegistryVulnerability (MDVM)
 
 Other context fields for Azure container registry vulnerability assessment
 
