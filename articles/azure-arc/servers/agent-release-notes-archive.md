@@ -287,7 +287,7 @@ Download for [Windows](https://download.microsoft.com/download/8/9/f/89f80a2b-32
 - Resolved an issue that could cause the extension manager to hang during extension installation, update, and removal operations.
 - Improved support for TLS 1.3
 
-## Version 1.18 - might 2022
+## Version 1.18 - May 2022
 
 Download for [Windows](https://download.microsoft.com/download/2/5/6/25685d0f-2895-4b80-9b1d-5ba53a46097f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
@@ -459,7 +459,7 @@ Download for [Windows](https://download.microsoft.com/download/6/1/c/61c69f31-8e
   - Onboarding continues instead of aborting if OS information isn't available
 - Improved reliability when installing the Log Analytics agent for Linux extension on Red Hat and CentOS systems
 
-## Version 1.6 - might 2021
+## Version 1.6 - May 2021
 
 Download for [Windows](https://download.microsoft.com/download/d/3/d/d3df034a-d231-4ca6-9199-dbaa139b1eaf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
