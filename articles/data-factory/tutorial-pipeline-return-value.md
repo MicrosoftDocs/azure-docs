@@ -23,7 +23,7 @@ Introduce pipeline return value, a dictionary of key value pairs, that allows co
 
 ## Prerequisite - Calling a Child Pipeline
 
-The prerequisite of the use case, is that have an [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md), calling a child pipeline. It's important that we enabled _Wait on Completion_ for the activity
+As a prerequisite, your design needs an [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md) calling a child pipeline, with _Wait on Completion_ enabled on the activity.
 
 :::image type="content" source="media/pipeline-return-value/pipeline-return-value-01-execute-pipeline-setting.png" alt-text="Screenshot setting ExecutePipeline Activity to wait for completion.":::
 
