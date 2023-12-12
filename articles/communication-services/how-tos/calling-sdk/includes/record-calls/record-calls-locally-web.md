@@ -1,6 +1,6 @@
 author: karanmish
 ms.service: azure-communication-services
-ms.topic: include
+ms.topic: tutorial
 ms.date: 09/08/2021
 ms.author: rifox
 ---
