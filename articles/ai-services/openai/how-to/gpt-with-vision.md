@@ -92,6 +92,13 @@ The API response should look like the following.
 }
 ```
 
+Every response includes a `"finish_details"` field. The subfield `"type"` has the following possible values:
+- `stop`: API returned complete model output.
+- `max_tokens`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
+- `content_filter`: Omitted content due to a flag from our content filters.
+
+If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
+
 ## Use Vision enhancement with images
 
 GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. When combined with Azure AI Vision, it enhances your chat experience by providing the chat model with more detailed information about visible text in the image and the locations of objects.
@@ -213,6 +220,13 @@ The chat responses you receive from the model should now include enhanced inform
 }
 ```
 
+Every response includes a `"finish_details"` field. The subfield `"type"` has the following possible values:
+- `stop`: API returned complete model output.
+- `max_tokens`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
+- `content_filter`: Omitted content due to a flag from our content filters.
+
+If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
+
 ## Use Vision enhancement with video
 
 GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. The **video prompt** integration uses Azure AI Vision video retrieval to sample a set of frames from a video and create a transcript of the speech in the video. It enables the AI model to give summaries and answers about video content.
@@ -286,6 +300,50 @@ Follow these steps to set up a video retrieval system and integrate it with your
     The request includes the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVisionVideoIndex"` and a `parameters` property which contains your AI Vision and video information.
 1. Fill in all the `<placeholder>` fields above with your own information: enter the endpoint URLs and keys of your OpenAI and AI Vision resources where appropriate, and retrieve the video index information from the earlier step.
 1. Send the POST request to the API endpoint. It should contain your OpenAI and AI Vision credentials, the name of your video index, and the ID and SAS URL of a single video.
+
+
+### Output
+
+The chat responses you receive from the model should include information about the video. The API response should look like the following.
+
+
+```json
+{
+    "id": "chatcmpl-8V4J2cFo7TWO7rIfs47XuDzTKvbct",
+    "object": "chat.completion",
+    "created": 1702415412,
+    "model": "gpt-4",
+    "choices":
+    [
+        {
+            "finish_details":
+            {
+                "type": "stop",
+                "stop": "<|fim_suffix|>"
+            },
+            "index": 0,
+            "message":
+            {
+                "role": "assistant",
+                "content": "The advertisement video opens with a blurred background that suggests a serene and aesthetically pleasing environment, possibly a workspace with a nature view. As the video progresses, a series of frames showcase a digital interface with search bars and prompts like \"Inspire new ideas,\" \"Research a topic,\" and \"Organize my plans,\" suggesting features of a software or application designed to assist with productivity and creativity.\n\nThe color palette is soft and varied, featuring pastel blues, pinks, and purples, creating a calm and inviting atmosphere. The backgrounds of some frames are adorned with abstract, organically shaped elements and animations, adding to the sense of innovation and modernity.\n\nMidway through the video, the focus shifts to what appears to be a browser or software interface with the phrase \"Screens simulated, subject to change; feature availability and timing may vary,\" indicating the product is in development and that the visuals are illustrative of its capabilities.\n\nThe use of text prompts continues with \"Help me relax,\" followed by a demonstration of a 'dark mode' feature, providing a glimpse into the software's versatility and user-friendly design.\n\nThe video concludes by revealing the product name, \"Copilot,\" and positioning it as \"Your everyday AI companion,\" implying the use of artificial intelligence to enhance daily tasks. The final frames feature the Microsoft logo, associating the product with the well-known technology company.\n\nIn summary, the advertisement video is for a Microsoft product named \"Copilot,\" which seems to be an AI-powered software tool aimed at improving productivity, creativity, and organization for its users. The video conveys a message of innovation, ease, and support in daily digital interactions through a visually appealing and calming presentation."
+            }
+        }
+    ],
+    "usage":
+    {
+        "prompt_tokens": 2068,
+        "completion_tokens": 341,
+        "total_tokens": 2409
+    }
+}
+```
+
+Every response includes a `"finish_details"` field. The subfield `"type"` has the following possible values:
+- `stop`: API returned complete model output.
+- `max_tokens`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
+- `content_filter`: Omitted content due to a flag from our content filters.
+
+If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
 
 ## Low or high fidelity image understanding
 
