@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
-ms.date: 07/21/2023
+ms.date: 12/11/2023
 ms.custom: engagement-fy23
 #Customer intent: As a developer, I want to export one or more ISE workflows to a Standard workflow.
 ---
@@ -26,7 +26,7 @@ You can now export logic app workflows from an ISE to a Standard logic app. Usin
 >
 > You control the export process and your migration journey. You can test and validate your 
 > exported workflows to your satisfaction with the destination environment. You choose when 
-> to disable or delete your source logic apps. 
+> to disable or delete your source logic apps.
 
 This article provides information about the export process and shows how to export your logic app workflows from an ISE to a local Standard logic app project in Visual Studio Code.
 
@@ -59,14 +59,14 @@ This article provides information about the export process and shows how to expo
 
 - Azure reader subscription-level access to the subscription where the logic apps are currently deployed.
 
-- Azure contributor resource group-level access, if Deploy managed connectors option is selected.
+- Azure contributor resource group-level access, if the **Deploy managed connectors** option is selected.
 
 - Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites). 
 
 > [!NOTE]
 > 
-  > Make sure to install version 2.0.16 or higher for the Azure Logic Apps (Standard) extension for Visual Studio Code. 
-  > Some conversion scenarios require the latest workflow designer, which is available starting with this version.
+> Make sure to install version 2.0.16 or higher for the Azure Logic Apps (Standard) extension for Visual Studio Code. 
+> Some conversion scenarios require the latest workflow designer, which is available starting with this version.
 
 ## Group logic apps for export
 
@@ -167,6 +167,8 @@ Some exported logic app workflows require post-export remediation steps to run o
 ### Integration account actions and settings
 
 If you export actions that depend on an integration account, you have to manually set up your Standard logic app with a reference link to the integration account that contains the required artifacts. For more information, review [Link integration account to a Standard logic app](logic-apps-enterprise-integration-create-integration-account.md#link-account).
+
+If you have a Standard integration account that's created from inside an ISE, you can [export that integration account to an existing Premium integration account](ise-manage-integration-service-environment.md#export-integration-account-preview).
 
 ### Batch actions and settings
 

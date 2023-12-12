@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 12/12/2023
 ---
 
 # Exchange X12 messages using workflows in Azure Logic Apps
@@ -55,7 +55,7 @@ The **X12** connector has one version across workflows in [multi-tenant Azure Lo
 
   | Logic app workflow | Link required? |
   |--------------------|----------------|
-  | Consumption | Connection to integration account required, but no link required. You can create the connection when you add the **X12** operation to your workflow. |
+  | Consumption | Connection and [link to integration account](enterprise-integration/create-integration-account.md?tabs=azure-portal%2Cconsumption#link-to-logic-app) are required. You can create the connection when you add the **X12** operation to your workflow. |
   | Standard | Connection to integration account required, but no link required. You can create the connection when you add the **X12** operation to your workflow. |
 
 * The logic app resource and workflow where you want to use the X12 operations.
@@ -83,7 +83,7 @@ The **Encode to X12 message** operation performs the following tasks:
   * Extended validation on transaction-set data elements.
 * Requests a Technical and Functional Acknowledgment, if configured.
   * Generates a Technical Acknowledgment as a result of header validation. The technical acknowledgment reports the status of the processing of an interchange header and trailer by the address receiver.
-  * Generates a Functional Acknowledgment generates as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document.
+  * Generates a Functional Acknowledgment as a result of body validation. The functional acknowledgment reports each error encountered while processing the received document.
 
 ### [Consumption](#tab/consumption)
 
@@ -191,11 +191,11 @@ The **Decode X12 message** operation performs the following tasks:
 
 * Splits an interchange into transaction sets, or preserves the entire interchange:
 
-  * Split the interchange into transaction sets or suspend transaction sets on error: Parse each transaction set. The X12 decode action outputs only those transaction sets failing validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
+  * Split the interchange into transaction sets or suspend transaction sets on error: Parse each transaction set. The X12 decode action outputs only the transaction sets that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
 
   * Split the interchange into transaction sets or suspend interchange on error: Parse each transaction set. If one or more transaction sets in the interchange fail validation, the X12 decode action outputs all the transaction sets in that interchange to `badMessages`.
 
-  * Preserve the interchange or suspend transaction sets on error: Preserve the interchange and process the entire batched interchange. The X12 decode action outputs only those transaction sets failing validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
+  * Preserve the interchange or suspend transaction sets on error: Preserve the interchange and process the entire batched interchange. The X12 decode action outputs only the transaction sets that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
 
   * Preserve the interchange or suspend interchange on error: Preserve the interchange and process the entire batched interchange. If one or more transaction sets in the interchange fail validation, the X12 decode action outputs all the transaction sets in that interchange to `badMessages`.
 

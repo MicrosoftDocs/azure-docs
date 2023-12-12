@@ -49,7 +49,7 @@ You can also select an existing NetApp account in a different region.
 
 3. Delegate a subnet in the region to be used for replication by following the steps in [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
-4. Create the data replication volume by selecting **Volumes** under Storage Service in the destination NetApp account. Then click the **+ Add data replication** button.  
+4. Create the data replication volume by selecting **Volumes** under Storage Service in the destination NetApp account. Then select the **+ Add data replication** button.  
 
     ![Add data replication](../media/azure-netapp-files/cross-region-replication-add-data-replication.png)
  
@@ -69,11 +69,11 @@ For the NFS protocol, ensure that the export policy rules satisfy the requiremen
 
 7. Under the **Tags** tab, create key/value pairs as necessary.  
 
-8. Under the **Replication** tab, paste in the source volume resource ID that you obtained in [Locate the source volume resource ID](#locate-the-source-volume-resource-id), and then select the desired replication schedule. Options for replication schedule include: every 10 minutes, hourly, and daily.
+8. Under the **Replication** tab, paste in the source volume resource ID that you obtained in [Locate the source volume resource ID](#locate-the-source-volume-resource-id), and then select the desired replication schedule. There are three options for the replication schedule: every 10 minutes, hourly, and daily.
 
     ![Create volume replication](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
 
-9. Click **Review + Create**, then click **Create** to create the data replication volume.   
+9. Select **Review + Create**, then select **Create** to create the data replication volume.   
 
     ![Review and create replication](../media/azure-netapp-files/cross-region-replication-review-create-replication.png)
 
@@ -91,11 +91,11 @@ To authorize the replication, you need to obtain the resource ID of the replicat
  
 4. In Azure NetApp Files, go to the replication source account and source capacity pool. 
 
-5. Locate the replication source volume and select it. Go to **Replication** under Storage Service and click **Authorize**.
+5. Locate the replication source volume and select it. Navigate to **Replication** under Storage Service then select **Authorize**.
 
     ![Authorize replication](../media/azure-netapp-files/cross-region-replication-authorize.png) 
 
-6. In the Authorize field, paste the destination replication volume resource ID that you obtained in Step 3, then click **OK**.
+6. In the Authorize field, paste the destination replication volume resource ID that you obtained in Step 3, then select **OK**.
 
     > [!NOTE]
     > Due to various factors, like the state of the destination storage at a given time, there’s likely a difference between the used space of the source volume and the used space of the destination volume. <!-- ANF-14038 --> 

@@ -3,24 +3,24 @@ title: Create an Azure portal dashboard by using an Azure Resource Manager templ
 description: Learn how to create an Azure portal dashboard by using an Azure Resource Manager template.
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 09/16/2022
+ms.date: 12/11/2023
 ---
 
 # Quickstart: Create a dashboard in the Azure portal by using an ARM template
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a dashboard. The dashboard shows the performance of a virtual machine (VM), and some static information and links.
+A [dashboard](azure-portal-dashboards.md) in the Azure portal is a focused and organized view of your cloud resources. This quickstart shows how to deploy an Azure Resource Manager template (ARM template) to create a dashboard. The example dashboard shows the performance of a virtual machine (VM), along with some static information and links.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal, where you can edit the details (such as the VM used in the dashboard) before you deploy.
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.portal%2Fazure-portal-dashboard%2Fazuredeploy.json)
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
-- A virtual machine. The dashboard you create in the next part of this quickstart requires an existing VM. Create a VM by following these steps.
+
+- A virtual machine. The dashboard you create in the next part of this quickstart requires an existing VM called `myVM1` located in a resource group called `SimpleWinVmResourceGroup`. You can create this VM by following these steps:
 
     1. In the Azure portal, select **Cloud Shell** from the global controls at the top of the page.
 
@@ -45,13 +45,13 @@ If your environment meets the prerequisites and you're familiar with using ARM t
             -Location "East US"
         ```
 
-    1. Enter a username and password for the VM. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+    1. Enter a username and password for the VM. This is a new username and password (not the account you use to sign in to Azure). The password must be complex. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
     After the VM has been created, move on to the next section.
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-portal-dashboard/). The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/azuredeploy.json). The template defines one Azure resource, a dashboard that displays data about the VM you created.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-portal-dashboard/). This template file is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/azuredeploy.json). The template defines one Azure resource, a dashboard that displays data about your VM.
 
 ## Deploy the template
 
@@ -67,7 +67,7 @@ This example uses the Azure portal to deploy the template. You can also use othe
 
     Unless it's specified, use the default values to create the dashboard.
 
-    - **Subscription**: select the Azure subscription.
+    - **Subscription**: select the Azure subscription where the dashboard will be located.
     - **Resource group**: select **SimpleWinVmResourceGroup**.
     - **Location**: If not automatically selected, choose **East US**.
     - **Virtual Machine Name**: enter **myVM1**.
