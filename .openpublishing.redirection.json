@@ -8848,6 +8848,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/pricing.md",
+            "redirect_url": "https://azure.microsoft.com/pricing/details/functions/",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-student-starter.md",
+            "redirect_url": "/azure/azure-functions/functions-create-function-app-portal",
+            "redirect_document_id": false
+        },         
+        {
             "source_path_from_root": "/articles/azure-government/documentation-government-k8.md",
             "redirect_url": "/azure/azure-government",
             "redirect_document_id": false

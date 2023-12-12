@@ -463,8 +463,6 @@
                 - name: Linux container (Premium)
                   href: functions-deploy-container.md
                   displayName: container, Docker, custom
-                - name: Azure for Students Starter
-                  href: functions-create-student-starter.md
             - name: Azure Cosmos DB trigger
               href: functions-create-cosmos-db-triggered-function.md
             - name: Blob storage trigger
@@ -1024,12 +1022,12 @@
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=compute
-    - name: Pricing
-      href: pricing.md
-    - name: Language support policy
-      href: language-support-policy.md
+    - name: Pricing details
+      href: https://azure.microsoft.com/pricing/details/functions/
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
+    - name: Language support policy
+      href: language-support-policy.md
     - name: Quota information
       href: functions-scale.md#service-limits
     - name: Regional availability
