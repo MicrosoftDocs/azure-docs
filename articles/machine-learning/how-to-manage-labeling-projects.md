@@ -169,7 +169,7 @@ If labeling is active in Azure Machine Learning, you have two choices:
 
 Anyone who has Contributor or Owner access to your workspace can label data in your project.
 
-You can also add users and customize the permissions so that they can access labeling but not other parts of the workspace or your labeling project. For more information, see [Add users to your data labeling project](../how-to-add-users.md).
+You can also add users and customize the permissions so that they can access labeling but not other parts of the workspace or your labeling project. For more information, see [Add users to your data labeling project](./how-to-add-users.md).
 
 ## Add new labels to a project
 
@@ -183,7 +183,7 @@ To add one or more labels to a project:
 1. In the list on the left, select **Label categories**.
 1. Modify your labels.
 
-  :::image type="content" source="../media/how-to-create-labeling-projects/add-label.png" alt-text="Screenshot that shows how to add a label in Machine Learning Studio.":::
+  :::image type="content" source="./media/how-to-create-labeling-projects/add-label.png" alt-text="Screenshot that shows how to add a label in Machine Learning Studio.":::
 1. In the form, add your new label. Then choose how to continue the project. Because you changed the available labels, choose how to treat data that's already labeled:
   * Start over, and remove all existing labels. Choose this option if you want to start labeling from the beginning by using the new full set of labels. 
   * Start over, and keep all existing labels. Choose this option to mark all data as unlabeled, but keep the existing labels as a default tag for images that were previously labeled.
