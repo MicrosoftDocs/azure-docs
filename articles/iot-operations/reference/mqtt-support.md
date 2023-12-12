@@ -1,7 +1,7 @@
 ---
-title: MQTT specification support in Azure IoT MQ
+title: MQTT feature support in Azure IoT MQ
 titleSuffix: Azure IoT MQ
-description: What MQTT features are supported in Azure IoT MQ.
+description: MQTT feature and control support in Azure IoT MQ.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: mq
@@ -11,7 +11,7 @@ ms.date: 12/12/2023
 # CustomerIntent: As an operator, I want to understand what MQTT specifications are supported by Azure IoT MQ so that I can configure my MQTT client to connect to Azure IoT MQ.
 ---
 
-# MQTT specification support in Azure IoT MQ
+# MQTT feature support in Azure IoT MQ
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
