@@ -1306,7 +1306,7 @@ items:
           - name: The alerts common schema
             href: alerts/alerts-common-schema.md
           - name: Non-common alerts schema
-            href: alerts/alerts-common-schema.md
+            href: alerts/alerts-non-common-schema-definitions.md
           - name: Integrate with Logic apps
             href: alerts/alerts-logic-apps.md
           - name: Integrate with webhooks
