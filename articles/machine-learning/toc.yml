@@ -637,7 +637,7 @@
             - name: Tune prompts using variants
               href: ./prompt-flow/how-to-tune-prompts-using-variants.md
             - name: Incorporate images into prompt flow
-              href: ./prompt-flow/how-to-incorporate-images-into-prompt-flow.md
+              href: ./prompt-flow/how-to-process-image.md
         - name: Evaluate flows
           items:
             - name: Submit batch run and evaluate a flow 
