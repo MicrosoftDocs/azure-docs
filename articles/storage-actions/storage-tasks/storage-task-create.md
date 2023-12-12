@@ -39,7 +39,7 @@ On the **Basics** tab, provide the essential information for your storage task. 
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | Project details | Subscription | Required | Select the subscription for the new storage task. |
-| Project details | Resource group | Required | Create a new resource group for this storage task, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/../overview.md#resource-groups). |
+| Project details | Resource group | Required | Create a new resource group for this storage task, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
 | Instance details | Storage task name | Required | Choose a unique name for your storage task. storage task names must be between 3 and 18 characters in length and may contain only lowercase letters and numbers. |
 | Instance details | Region | Required | Select the appropriate region for your storage task. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md). |
 
@@ -100,7 +100,7 @@ The following image shows an example of the **Add assignment** pane.
 
 ## Tags tab
 
-On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
+On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
 
 The following image shows a standard configuration of the index tag properties for a new storage account.
 

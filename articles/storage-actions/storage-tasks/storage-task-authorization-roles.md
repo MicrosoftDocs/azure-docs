@@ -21,7 +21,7 @@ This article describes the least privileged built-in Azure roles or RBAC actions
 > Azure Storage Tasks is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-You must assign a role to any security principal in your organization that needs access to the storage task. To learn how to assign an Azure role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+You must assign a role to any security principal in your organization that needs access to the storage task. To learn how to assign an Azure role, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure roles and RBAC actions
 
