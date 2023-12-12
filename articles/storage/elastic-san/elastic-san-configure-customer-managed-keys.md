@@ -73,8 +73,9 @@ $ManagedUserName = "ManagedUserName"
 To use the Azure CLI to configure Elastic SAN encryption:
 
 1. Install the [latest version](/cli/azure/install-azure-cli).
-1. Run `az extension add -n elastic-san` to install the extension for Elastic SAN.
-1. (Optional) if you already have the elastic-san extension installed, run `az extension update -n elastic-san` to install the latest.
+1. Install version 1.0.0b2 or later of the Azure Elastic SAN CLI extension.
+    1. If you don't have the extension installed, use `az extension add -n elastic-san` to install the extension for Elastic SAN.
+    1. (Optional) if you already have the extension installed, run `az extension update -n elastic-san` to install the latest.
 
 #### Create variables to be used in the CLI samples in this article
 
