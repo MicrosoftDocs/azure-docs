@@ -16,10 +16,7 @@ ms.custom:
 
 # Tutorial: Migrate MySQL to Azure Database for MySQL offline using DMS
 
-You can use Azure Database Migration Service to perform a one-time full database migration on-premises MySQL instance to [Azure Database for MySQL](../mysql/index.yml) with high speed data migration capability. In this tutorial, we will migrate a sample database from an on-premises instance of MySQL 5.7 to Azure Database for MySQL (v5.7) by using an offline migration activity in Azure Database Migration Service. Although the articles assumes the source to be a MySQL database instance and target to be Azure Database for MySQL, it can be used to migrate from one Azure Database for MySQL to another just by changing the source server name and credentials. Also, migration from lower version MySQL servers (v5.6 and above) to higher versions is also supported.
-
-> [!IMPORTANT]
-> For online migrations, you can use open-source tools such as [MyDumper/MyLoader](https://github.com/maxbube/mydumper) with [data-in replication](../mysql/concepts-data-in-replication.md). 
+You can use Azure Database Migration Service to perform a seamless migration from your external MySQL instance to [Azure Database for MySQL](../mysql/index.yml) with high speed data migration capability. In this tutorial, we will migrate a sample database from an on-premises instance of MySQL 5.7 to Azure Database for MySQL (v5.7) by using an offline migration activity in Azure Database Migration Service. Although the articles assumes the source to be a MySQL database instance and target to be Azure Database for MySQL, it can be used to migrate from one Azure Database for MySQL to another just by changing the source server name and credentials. Also, migration from lower version MySQL servers (v5.6 and above) to higher versions is also supported.
 
 > [!NOTE]
 > For a PowerShell-based scriptable version of this migration experience, see [scriptable offline migration to Azure Database for MySQL](./migrate-mysql-to-azure-mysql-powershell.md).
@@ -31,9 +28,9 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Migrate database schema using mysqldump utility.
-> * Create an instance of Azure Database Migration Service.
-> * Create a migration project by using Azure Database Migration Service.
+> * Create a DMS instance.
+> * Create a MySQL migration project in DMS.
+> * Migrate a MySQL schema using DMS.
 > * Run the migration.
 > * Monitor the migration.
 
@@ -43,8 +40,6 @@ To complete this tutorial, you need to:
 
 * Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * Have an on-premises MySQL database with version 5.7. If not, then download and install [MySQL community edition](https://dev.mysql.com/downloads/mysql/) 5.7.
-* The MySQL Offline migration is supported only on the Premium DMS SKU.
-* [Create an instance in Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Refer to the article [Use MySQL Workbench to connect and query data](../mysql/connect-workbench.md) for details about how to connect and create a database using the Workbench application. The Azure Database for MySQL version should be equal to or higher than the on-premises MySQL version . For example, MySQL 5.7 can migrate to Azure Database for MySQL 5.7 or upgraded to 8. 
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
@@ -84,40 +79,24 @@ To prepare the target Azure Database for MySQL server for faster data loads usin
 	* In the Flexible Server deployment option, we recommend you can scale (increase or decrease) IOPS irrespective of the storage size. 
 	* Note that storage size can only be scaled up, not down.
 
-Once the migration is complete, you can revert back the server parameters and configuration to values required by your workload. 
+Once the migration is complete, you can revert back the server parameters and configuration to values required by your workload.
 
+## Set up DMS
 
-## Migrate database schema
+With your target flexible server deployed and configured, you next need to set up DMS to migrate your single server to a flexible server.
 
-To transfer all the database objects like table schemas, indexes and stored procedures, we need to extract schema from the source database and apply to the target database. To extract schema, you can use mysqldump with the `--no-data` parameter. For this you need a machine which can connect to both the source MySQL database and the target Azure Database for MySQL.
+### Register the resource provider
 
-To export the schema using mysqldump, run the following command:
+To register the Microsoft.DataMigration resource provider, perform the following steps.
 
-```
-mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
-```
+1. Before creating your first DMS instance, sign in to the Azure portal, and then search for and select **Subscriptions**.
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/1-subscriptions.png" alt-text="Screenshot of a Select subscriptions from Azure Marketplace.":::
 
-For example:
+2. Select the subscription that you want to use to create the DMS instance, and then select **Resource providers**.
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/2-resource-provider.png" alt-text="Screenshot of a Select Resource Provider.":::
 
-```
-mysqldump -h 10.10.123.123 -u root -p --databases migtestdb --no-data > d:\migtestdb.sql
-```
-
-To import schema to target Azure Database for MySQL, run the following command:
-
-```
-mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
- ```
-
-For example:
-
-```
-mysql.exe -h mysqlsstrgt.mysql.database.azure.com -u docadmin@mysqlsstrgt -p migtestdb < d:\migtestdb.sql
- ```
-
-If you have foreign keys or triggers in your schema, the parallel data load during migration will be handled by the migration task. There is no need to drop foreign keys or triggers during schema migration.
-
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
+3. Search for the term “Migration”, and then, for **Microsoft.DataMigration**, select **Register**.
+    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/3-register.png" alt-text="Screenshot of a Register your resource provider.":::
 
 ## Create a Database Migration Service instance
 
@@ -182,10 +161,6 @@ After the service is created, locate it within the Azure portal, open it, and th
     
     If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
     ![Select database details screen](media/tutorial-mysql-to-azure-mysql-offline-portal/12-dms-portal-project-mysql-select-db.png)
-    
-    > [!NOTE] 
-    > Though you can select multiple databases in this step, but there are limits to how many and how fast the DBs can be migrated this way, since each database will share compute. With the default configuration of the Premium SKU, each migration task will attempt to migrate two tables in parallel. These tables could be from any of the selected databases. If this isn't fast enough, you can split database migration activities into different migration tasks and scale across multiple services. Also, there is a limit of 10 instances of Azure Database Migration Service per subscription per region.
-    > For more granular control on the migration throughput and parallelization, please refer to the article [PowerShell: Run offline migration from MySQL database to Azure Database for MySQL using DMS](./migrate-mysql-to-azure-mysql-powershell.md)
 
 4. On the **Configure migration settings** screen, select the tables to be part of migration, and select **Next : Summary>>**. If the target tables have any data, they are not selected by default but you can explicitly select them and they will be truncated before starting the migration.
 
