@@ -2,7 +2,7 @@
 title: Protect your servers with Defender for Servers
 description: Learn how to enable the Defender for Servers on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/29/2023
+ms.date: 12/05/2023
 ---
 
 # Protect your servers with Defender for Servers
@@ -33,7 +33,7 @@ You can enable the Defender for Servers plan from the Environment settings page 
 
 1. In the Defender for Cloud menu, select **Environment settings**.
 
-1. Select the relevant subscription.
+1. Select the relevant Azure subscription, AWS account, or GCP project.
 
 1. On the Defender plans page, toggle the Servers switch to **On**.
 
