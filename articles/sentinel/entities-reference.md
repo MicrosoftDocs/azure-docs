@@ -28,7 +28,7 @@ Learn more about [strong and weak identifiers](entities.md#strong-and-weak-ident
 | [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>*FullName \**<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | HostName+NTDomain<br>HostName+DnsDomain<br>NetBiosName+NTDomain<br>NetBiosName+DnsDomain<br>AzureID<br>OMSAgentID | HostName<br>NetBiosName |
 | [**IP**](#ip) | Address<br>AddressScope | Address [\*\*](#strong-identifiers-of-an-ip-entity)<br>Address+AddressScope [\*\*](#strong-identifiers-of-an-ip-entity) | |
 | [**URL**](#url) | Url | Url *(if absolute URL)* [\*\*](#strong-identifiers-of-a-url-entity) | Url *(if relative URL)* [\*\*](#strong-identifiers-of-a-url-entity) |
-| [**Azure resource**](#azure-resource) | ResourceId | ResourceId | |
+| [**AzureResource**](#azure-resource) | ResourceId | ResourceId | |
 | [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name<br>AppId+InstanceName<br>Name+InstanceName | |
 | [**DNS Resolution**](#dns-resolution) | DomainName | DomainName+*DnsServerIp*+*HostIpAddress* | DomainName+*HostIpAddress* |
 | [**File**](#file) | Directory<br>Name | Directory+Name | |
@@ -66,7 +66,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - [Process](#process)
 - [Cloud application](#cloud-application)
 - [DNS resolution](#dns-resolution)
-- [Azure resource](#azure-resource)
+- [AzureResource](#azure-resource)
 - [File hash](#file-hash)
 - [Registry key](#registry-key)
 - [Registry value](#registry-value)
@@ -80,6 +80,8 @@ The following section contains a more in-depth look at the full schemas of each 
 - [Sentinel entities](#sentinel-entities)
 
 ### Account
+
+*Entity name: Account*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -138,6 +140,8 @@ The following section contains a more in-depth look at the full schemas of each 
 
 ### Host
 
+*Entity name: Host*
+
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | **Type** | String | 'host' |
@@ -191,6 +195,8 @@ The following section contains a more in-depth look at the full schemas of each 
 
 ### Malware
 
+*Entity name: Malware*
+
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | **Type** | String | 'malware' |
@@ -206,6 +212,8 @@ The following section contains a more in-depth look at the full schemas of each 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### File
+
+*Entity name: File*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -229,6 +237,8 @@ The following section contains a more in-depth look at the full schemas of each 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Process
+
+*Entity name: Process*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -306,6 +316,8 @@ The following section contains a more in-depth look at the full schemas of each 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Azure resource
+
+*Entity name: AzureResource*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -398,6 +410,8 @@ The following section contains a more in-depth look at the full schemas of each 
 
 ### URL
 
+*Entity name: Url*
+
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'url' |
@@ -459,6 +473,8 @@ The following section contains a more in-depth look at the full schemas of each 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Mailbox
+
+*Entity name: Mailbox*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
