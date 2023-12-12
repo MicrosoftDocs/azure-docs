@@ -15,6 +15,8 @@ ms.date: 12/12/2023
 <!-- Rose: A few notes for your review regarding the quickstart topic pattern.
 
    -- The pattern says not to number H2 headings, but instead use verb * noun. I updated the headings accordingly.
+      For now, I added <a href> tags to fix broken bookmarks to the old headings.
+      If you approve the new headings, I'll update the references in the other files.
    
    -- The pattern says not to use links that send the user to another article for details or instructions.
       This topic has several links that send the user away, and line 255 sends the user to another topic for instructions.
@@ -53,6 +55,7 @@ To complete this quickstart, you need:
 
 ## Create a dev center
 
+<a name="1-create-a-dev-center"> </a>
 To get started with Microsoft Dev Box, you first create a dev center. A dev center in Microsoft Dev Box provides a centralized place to manage a collection of projects, the configuration of available dev box images and sizes, and the networking settings to enable access to organizational resources.
 
 Use the following steps to create a dev center so you can manage your dev box resources: 
@@ -142,6 +145,7 @@ Because you're not configuring Deployment Environments, you can safely ignore th
 
 ## Create a dev box definition
 
+<a name="2-create-a-dev-box-definition"> </a>
 Next, you create a dev box definition in your dev center. A dev box definition defines the VM image and the VM SKU (compute size + storage) that are used in the creation of the dev boxes. Depending on the type of development project or developer profiles, you can create multiple dev box definitions. For example, some developers might need a specific developer tool set, whereas others need a cloud workstation that has more compute resources.
 
 The dev box definitions you create in a dev center are available for all projects associated with that dev center. You need to add at least one dev box definition to your dev center.
@@ -185,6 +189,7 @@ To create and configure a dev box definition for your dev center:
 
 ## Create a dev box pool
 
+<a name="3-create-a-dev-box-pool"> </a>
 Now that you defined a dev box definition in your dev center, you can create a dev box pool in the project. A dev box pool is the collection of dev boxes that have the same settings, such as the dev box definition and network connection. Developers that have access to the project in the dev center, can then choose to create a dev box from a dev box pool.
 
 Dev box pools define the location of the dev boxes through the specified network connection. You can choose to deploy dev boxes to a Microsoft-hosted network or to a network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). Organizations that support developers in multiple geographical locations can create dev box pools for each location by specifying a nearby region.
@@ -231,6 +236,7 @@ The Azure portal deploys the dev box pool and runs health checks to ensure that 
 
 ## Provide access to a dev box project
 
+<a name="4-provide-access-to-a-dev-box-project"> </a>
 Before users can create dev boxes based on the dev box pools in a project, you must provide access for users through role assignments. The Dev Box User role enables dev box users to create, manage, and delete their own dev boxes. You grant access for the user at the level of the project.
 
 > [!IMPORTANT]
