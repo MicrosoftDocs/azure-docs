@@ -38,15 +38,26 @@ Use the following steps to deploy a Defender for IoT system in an air-gapped or 
 
 1. Complete deploying each OT network sensor according to your plan, as described in [Deploy Defender for IoT for OT monitoring](ot-deploy-path.md).
 
-1. For each sensor, configure the following settings:
+1. For each sensor, do the following steps:
 
-    - [Proxy settings](../connect-sensors.md)
-    - [Health monitoring via a SNMP MIB server](../how-to-set-up-snmp-mib-monitoring.md)
-    - [A backup server](../back-up-restore-sensor.md), including configurations to [save your backup to an external server (SMB)](../back-up-restore-sensor.md#save-your-backup-to-an-external-server-smb).
-    - Alert forwarding to a SIEM, either on-premises or a cloud SIEM like Microsoft Sentinel. For more information, see:
+    - **Integrate with partner SIEM / syslog servers**, including setting up email notifications. For example:
 
-        - [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
+        - [Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md)
+        - [Investigate and detect threats for IoT devices](../iot-advanced-threat-monitoring.md)
         - [Forward on-premises OT alert information](../how-to-forward-alert-information-to-partners.md)
+
+    - **Use the Defender for IoT API to create management dashboards**. For more information, see [Defender for IoT API reference](../references-work-with-defender-for-iot-apis.md).
+
+    - **Set up a proxy or chained proxies to the management environment**.
+
+    - **Set up health monitoring** using an SNMP MIB server or via CLI. For more information, see:
+
+        - [Set up SNMP MIB health monitoring on an OT sensor](../how-to-set-up-snmp-mib-monitoring.md)
+        - [Defender for IoT CLI users and access](../references-work-with-defender-for-iot-cli-commands.md)
+
+    - **Configure access to the server management interface**, such as via iDRAC or iLO.
+
+    - **Configure a backup server**, including configurations to save your backup to an external server. For more information, see [Back up and restore OT network sensors from the sensor console](../back-up-restore-sensor.md).
 
 ## Transitioning from a legacy on-premises management console
 
@@ -54,7 +65,7 @@ Use the following steps to deploy a Defender for IoT system in an air-gapped or 
 > The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) won't be supported or available for download after January 1st, 2025. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date.
 >
 
-Our [current architecture guidance](#architecture-recommendations) is designed to be more efficient, secure, and reliable than using the legacy on-premises management console. The updated guidance has fewer components, which makes it easier to maintain and troubleshoot. The smart sensor technology used in the new architecture allows for on-premises processing, reducing the need for cloud resources, and improving security, performance, and reliability. The updated guidance supports any needs to keep data within your own network for better better security than in cloud computing.
+Our [current architecture guidance](#architecture-recommendations) is designed to be more efficient, secure, and reliable than using the legacy on-premises management console. The updated guidance has fewer components, which makes it easier to maintain and troubleshoot. The smart sensor technology used in the new architecture allows for on-premises processing, reducing the need for cloud resources and improving performance. The updated guidance keeps your data within your own network, providing better security than cloud computing.
 
 If you're an existing customer using an on-premises management console to manage your OT sensors, we recommend transitioning to the updated architecture guidance. The following image shows a graphical representation of the transition steps to the new recommendations:
 
@@ -68,7 +79,7 @@ If you're an existing customer using an on-premises management console to manage
 
 1. For each of your OT sensors, identify the legacy integrations in use and the permissions currently configured for on-premises security teams. For example, what backup systems are in place? Which user groups access the sensor data?
 
-1. Connect your sensors to recommended on-premises, Azure, Microsoft 365 Defender, and other cloud resources, as needed for each site. For example, set up proxy servers, backup storage, and integrations to third-party systems. You may have multiple sites and adopt a hybrid approach, where as only specific sites are kept completely on-premises.
+1. Connect your sensors to on-premises, Azure, and other cloud resources, as needed for each site. For example, connect to an on-premises SIEM, proxy servers, backup storage, and other partner systems. You may have multiple sites and adopt a hybrid approach, where only specific sites are kept completely air-gapped or isolated using data-diodes.
 
     For more information, see the information linked in the [air-gapped deployment procedure](#deployment-steps), as well as the following cloud resources:
 
@@ -89,9 +100,7 @@ The on-premises management console retirement includes the following details:
 
 - Sensor versions released after **January 1, 2025** won't be able to be managed by an on-premises management console.
 - Sensor software versions released between **January 1st, 2024 – January 1st, 2025** will continue to support an on-premises management console release.
-- Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console or using REST APIs.
-
-Our support team is available to help with further guidance as customers begin planning for the transition to the new architecture guidance.
+- Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console, CLI, or API.
 
 For more information, see [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions).
 
