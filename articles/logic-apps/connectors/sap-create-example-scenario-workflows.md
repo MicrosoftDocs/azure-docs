@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 12/12/2023
 ---
 
 # Create workflows for common SAP integration scenarios in Azure Logic Apps
@@ -22,7 +22,7 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 - Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
 
-- The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](../create-single-tenant-workflows-visual-studio-code.md).
+- The SAP built-in connector trigger named **When a message is received** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](../create-single-tenant-workflows-visual-studio-code.md).
 
 <a name="receive-messages-sap"></a>
 
@@ -103,7 +103,7 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 ### [Standard](#tab/standard)
 
-The preview SAP built-in connector trigger named **Register SAP RFC server for trigger** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](../create-single-tenant-workflows-visual-studio-code.md).
+The SAP built-in connector trigger named **When a message is received** is available in the Azure portal, but the trigger currently can't receive calls from SAP when deployed in Azure. To fire the trigger, you can run the workflow locally in Visual Studio Code. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](../create-single-tenant-workflows-visual-studio-code.md).
 
 > [!NOTE]
 >
@@ -112,13 +112,13 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
 > a polling schedule. The trigger is called only when a message arrives, so no polling is necessary. 
 >
 > To send a response following the SAP built-in trigger, make sure to add the 
-> [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server.-(preview)) 
+> [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server) 
 > to your workflow, rather than use the **Response** action, which applies only to workflows that start with the **Request** 
 > trigger named **When a HTTP request is received** and follow the Request-Response pattern.
 
 1. In Visual Studio Code, open your Standard logic app and a blank workflow in the designer.
 
-1. In the designer, [follow these general steps to find and add the SAP built-in trigger named **Register SAP RFC server for trigger**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+1. In the designer, [follow these general steps to find and add the SAP built-in trigger named **When a message is received**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
 1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up your SAP trigger.
 
@@ -139,12 +139,12 @@ The preview SAP built-in connector trigger named **Register SAP RFC server for t
    | Parameter | Required | Description |
    |-----------|----------|-------------|
    | **IDoc Format** | Yes | The format to use for receiving IDocs. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>**Note**: If you also use the [Flat File Decode action](../logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
-   | **SAP RFC Server Degree of Parallelism** | Yes | The number of calls to process in parallel |
+   | **Degree of Parallelism** | Yes | The number of calls to process in parallel |
    | **Allow Unreleased Segment** | Yes | Receive IDocs with or without unreleased segments. From the list, select **Yes** or **No**. |
-   | **SAP Gateway Host** | Yes | The registration gateway host for the SAP RFC server |
-   | **SAP Gateway Service** | Yes | The registration gateway service for the SAP RFC server |
-   | **SAP RFC Server Program ID** | Yes | The registration gateway program ID for the SAP RFC server. <br><br>**Note**: This value is case-sensitive. Make sure that you consistently use the same case format for the **Program ID** value when you configure your logic app workflow and SAP server. Otherwise, when you attempt to send an IDoc to SAP, the tRFC Monitor (T-Code SM58) might show the following errors (links require SAP login): <br><br>- [**Function IDOC_INBOUND_ASYNCHRONOUS not found** (2399329)](https://launchpad.support.sap.com/#/notes/2399329)<br>- [**Non-ABAP RFC client (partner type) not supported** (353597)](https://launchpad.support.sap.com/#/notes/353597) |
-   | **SAP SNC partners names** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Add new parameter** list, select **SAP SNC partners names**. Make sure to enter each name separated by a vertical bar (**\|**). |
+   | **Gateway Host** | Yes | The registration gateway host for the SAP server |
+   | **Gateway Service** | Yes | The registration gateway service for the SAP server |
+   | **Program ID** | Yes | The registration gateway program ID for the SAP server. <br><br>**Note**: This value is case-sensitive. Make sure that you consistently use the same case format for the **Program ID** value when you configure your logic app workflow and SAP server. Otherwise, when you attempt to send an IDoc to SAP, the tRFC Monitor (T-Code SM58) might show the following errors (links require SAP login): <br><br>- [**Function IDOC_INBOUND_ASYNCHRONOUS not found** (2399329)](https://launchpad.support.sap.com/#/notes/2399329)<br>- [**Non-ABAP RFC client (partner type) not supported** (353597)](https://launchpad.support.sap.com/#/notes/353597) |
+   | **SNC Partner Name** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Advanced parameters** list, select **SNC Partner Name**. Make sure to enter each name separated by a vertical bar (**\|**). |
 
    The following example shows a basically configured SAP built-in trigger in a Standard workflow:
 
@@ -178,7 +178,7 @@ The following example workflow shows how to extract individual IDocs from a pack
      | **204 No Content** | The server successfully fulfilled the request, and there's no additional content to send in the response payload body. |
      | **200 OK** | This status code always contains a payload, even if the server generates a payload body of zero length. |
 
-   - SAP built-in trigger: For this trigger, add the [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server.-(preview)) to your workflow.
+   - SAP built-in trigger: For this trigger, add the [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server) to your workflow.
 
    > [!NOTE]
    >
@@ -416,7 +416,7 @@ Next, create an action to send your IDoc to SAP when the workflow's request trig
 
 1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   Rather than have a generic action to send messages with different types, the preview SAP built-in connector provides individual actions for BAPI, IDoc, RFC, and so on. For example, these actions include **[BAPI] Call method in SAP** and **[RFC] Call function in SAP**.
+   Rather than have a generic action to send messages with different types, the SAP built-in connector provides individual actions for BAPI, IDoc, RFC, and so on. For example, these actions include **[BAPI] Call method in SAP** and **[RFC] Call function in SAP**.
 
 1. If prompted, provide the following connection information for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
@@ -621,7 +621,7 @@ Now, set up your workflow to return the results from your SAP server to the orig
    > [!NOTE]
    >
    > If you use the SAP built-in trigger, which is an Azure Functions-based trigger, not a webhook trigger, add the 
-   > [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server.-(preview)) 
+   > [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server) 
    > to your workflow and include the output from the SAP action.
 
 1. In the **Response** action, for the **Body** parameter, select inside the edit box to open the dynamic content list appears.
@@ -798,9 +798,9 @@ When you send transactions to SAP from Azure Logic Apps, this exchange happens i
 
 By default, the SAP managed connector action named [**Send message to SAP**](/connectors/sap/#send-message-to-sap) handles both the steps to transfer the function and confirm the transaction in a single call. You also have the option to decouple these steps. The capability to decouple the transfer and confirmation steps is useful for scenarios where you don't want to duplicate transactions in SAP. Such scenarios include failures that happen due to causes such as network issues.
 
-You can send an IDoc without automatically confirming the transaction using the SAP managed connector action named [**[IDOC] Send document to SAP**](/connectors/sap/#[idoc]-send-document-to-sap-(preview)). You can then explicitly confirm the transaction using the SAP managed connector action named [**[IDOC - RFC] Confirm transaction Id**](/connectors/sap/#[idoc---rfc]-confirm-transaction-id-(preview)). When your workflow separately confirms the transaction in a different step, the SAP system completes the transaction only once.
+You can send an IDoc without automatically confirming the transaction using the SAP managed connector action named [**[IDOC] Send document to SAP**](/connectors/sap/#[idoc]-send-document-to-sap). You can then explicitly confirm the transaction using the SAP managed connector action named [**[IDOC - RFC] Confirm transaction Id**](/connectors/sap/#[idoc---rfc]-confirm-transaction-id). When your workflow separately confirms the transaction in a different step, the SAP system completes the transaction only once.
 
-In Standard workflows, the SAP built-in connector also has actions that separately handle the transfer and confirmation steps, specifically, [**[IDoc] Send document to SAP**](/azure/logic-apps/connectors/built-in/reference/sap/#[idoc]-send-document-to-sap-(preview)) and [**[IDOC - RFC] Confirm transaction Id**](/azure/logic-apps/connectors/built-in/reference/sap/#[idoc---rfc]-confirm-transaction-id-(preview)).
+In Standard workflows, the SAP built-in connector also has actions that separately handle the transfer and confirmation steps, specifically, [**[IDoc] Send document to SAP**](/azure/logic-apps/connectors/built-in/reference/sap/#[idoc]-send-document-to-sap) and [**[IDOC - RFC] Confirm transaction Id**](/azure/logic-apps/connectors/built-in/reference/sap/#[idoc---rfc]-confirm-transaction-id).
 
 The following example workflow shows this pattern:
 
