@@ -27,7 +27,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | December 12 | [Container vulnerability assesssment powered by MDVM now supports Google Distroless](#container-vulnerability-assesssment-powered-by-mdvm-now-supports-google-distroless) |
 | December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account)
 
-### Defender for Containers vulnerability assesssment powered by MDVM now supports Google Distroless
+### Container vulnerability assesssment powered by MDVM now supports Google Distroless
 
 Container vulnerability assessment powered by MDVM have been extended with additional coverage for Linux OS packages, now supporting Google Distroless.
 
