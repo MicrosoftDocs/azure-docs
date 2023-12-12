@@ -29,7 +29,7 @@ You can see all of the runs attempted by a storage task by opening a list of run
 Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Task runs**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the the storage task list when opened from a storage task.](./media/storage-task-runs/storage-task-runs-storage-task-view.png)
+> ![Screenshot of the the storage task list when opened from a storage task.](../media/storage-tasks/storage-task-runs/storage-task-runs-storage-task-view.png)
 
 Metrics appear as tiles that you can select to view a list of the task runs which comprise the metric. For example, to view list of task runs where at least one operation failed, select the **Objects on which the operation failed** tile. Then, a filtered list of task runs will appear. You can filter this list by time frame. The following table describes each field that appears in this list.
 
@@ -49,7 +49,7 @@ You can see all runs against a specific storage account by opening a list of run
 Navigate to the storage account in the Azure portal and then under **Data management**, select **Storage tasks**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the the storage task list when opened from a storage account.](./media/storage-task-runs/storage-task-runs-storage-account-view.png)
+> ![Screenshot of the the storage task list when opened from a storage account.](../media/storage-tasks/storage-task-runs/storage-task-runs-storage-account-view.png)
 
 A list of task runs appears. You can filter this list by time frame. The following table describes each field that appears in this list.
 
@@ -84,7 +84,7 @@ The report is formatted as a CSV file. Each row of the report contains the detai
 The following example shows an execution report:
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of a sample execution report.](./media/storage-task-runs/execution-report-example.png)
+> ![Screenshot of a sample execution report.](../media/storage-tasks/storage-task-runs/execution-report-example.png)
 
 ## See also
 

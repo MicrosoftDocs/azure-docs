@@ -41,9 +41,9 @@ Start by creating a task. To provision a task, you must define at least one cond
 
 See these articles to learn how to define a task:
 
-- [Create a storage task](storage-task-create.md)
-- [Define storage task conditions and operations]( storage-task-conditions-operations-edit.md)
-- [Properties, operators, and operations in storage task conditions](storage-task-properties-operators-operations.md)
+- [Create a storage task](storage-tasks/storage-task-create.md)
+- [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md)
+- [Properties, operators, and operations in storage task conditions](storage-tasks/storage-task-properties-operators-operations.md)
 
 ### Assign a task
 
@@ -53,8 +53,8 @@ A storage task can be assigned to a storage account only by an owner of that acc
 
 See these articles to learn how to assign a task:
 
-- [Create and manage a storage task assignment](storage-task-assignment-create.md)
-- [Azure roles for storage task assignments](storage-task-authorization-roles.md)
+- [Create and manage a storage task assignment](storage-tasks/storage-task-assignment-create.md)
+- [Azure roles for storage task assignments](storage-tasks/storage-task-authorization-roles.md)
 
 ### Monitor task runs
 
@@ -64,8 +64,8 @@ The overview page of the task presents metrics and visualizations that summarize
 
 See these articles to learn how to monitor task runs:
 
-- [Analyze Azure Storage Task runs](storage-task-runs.md)
-- [Monitor Azure Storage Tasks](monitor-storage-tasks.md)
+- [Analyze Azure Storage Task runs](storage-tasks/storage-task-runs.md)
+- [Monitor Azure Storage Tasks](storage-tasks/monitor-storage-tasks.md)
 
 ### Handle task events
 
@@ -88,5 +88,5 @@ List pricing information here.
 
 ## Next steps
 
-- [Quickstart: Create, assign, and run a storage task by using the Azure portal](storage-task-quickstart-portal.md)
-- [Known issues with Azure Storage Tasks](storage-task-known-issues.md)
+- [Quickstart: Create, assign, and run a storage task by using the Azure portal](storage-tasks/storage-task-quickstart-portal.md)
+- [Known issues with Azure Storage Tasks](storage-tasks/storage-task-known-issues.md)

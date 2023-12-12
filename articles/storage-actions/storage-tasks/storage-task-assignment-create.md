@@ -36,7 +36,7 @@ Navigate to the storage task in the Azure portal and then under **Storage task m
 In the **Assignments** page, select **+ Create assignment**, and then select **+ Add assignment**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Assignments page that appears in the context of the storage task.](./media/storage-task-assignment-create/assignment-create.png)
+> ![Screenshot of the Assignments page that appears in the context of the storage task.](.../media/storage-tasks/storage-tasks/storage-task-assignment-create/assignment-create.png)
 
 The **Add assignment** pane appears.
 
@@ -49,7 +49,7 @@ Navigate to the storage account in the Azure portal and then under **Data manage
 In the **Storage tasks** page, select the **Task assignment** tab, select **+ Create assignment**, and then select **+ Add assignment**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Assignments page that appears in the context of a storage account.](./media/storage-task-assignment-create/assignment-create-2.png)
+> ![Screenshot of the Assignments page that appears in the context of a storage account.](.../media/storage-tasks/storage-tasks/storage-task-assignment-create/assignment-create-2.png)
 
 The **Add assignment** pane appears.
 
@@ -73,14 +73,14 @@ The following table describes each field in the **Select Scope** section:
 In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the system-assigned managed identity of the storage task. Only roles that are assigned to your user identity appear in this drop-down list. Roles not assigned to your user identity do not appear in this list. To learn more, see [Azure roles for storage task assignments](storage-task-assignment-authorization-roles.md)
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Role assignment section of the assignment pane.](./media/storage-task-assignment-create/assignment-role.png)
+> ![Screenshot of the Role assignment section of the assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-role.png)
 
 ## Add a filter
 
 In the **Filter objects** section, choose whether you want to target a subset of blobs based on a filter. Filters help you narrow the scope of execution. If your want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option. The following example uses a filter to target only blobs that exist in a container that is named `mycontainer`.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Filter objects section of the Add assignment pane.](./media/storage-task-assignment-create/assignment-pane-filter-prefix.png)
+> ![Screenshot of the Filter objects section of the Add assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-pane-filter-prefix.png)
 
 The following table describes each field:
 
@@ -94,7 +94,7 @@ The following table describes each field:
 In the **Trigger details** section, select how often you'd like this task to run. You can choose to run this task only once, or run the task recurring. If you decide to run this task on a recurring basis, choose a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Triggers section of the Add assignment pane.](./media/storage-task-assignment-create/assignment-trigger.png)
+> ![Screenshot of the Triggers section of the Add assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-trigger.png)
 
 The following table describes each field:
 
@@ -113,14 +113,14 @@ Select the **Add** button to create the assignment.
 The **Add assignment pane** closes. When deployment is complete, the assignment appears in the **Assignments** page.  If you don't see the assignment in that page, then select the **Refresh** button.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the assignment appearing in the Assignments page.](./media/storage-task-assignment-create/assignment-refresh.png)
+> ![Screenshot of the assignment appearing in the Assignments page.](../media/storage-tasks/storage-task-assignment-create/assignment-refresh.png)
 
 ## Enable an assignment
 
 The assignment is disabled by default. To enable the assignment so that it will be scheduled to run, select the checkbox that appears beside the assignment, and then select **Enable**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Enable button in the Assignments page.](./media/storage-task-assignment-create/assignment-enable.png)
+> ![Screenshot of the Enable button in the Assignments page.](../media/storage-tasks/storage-task-assignment-create/assignment-enable.png)
 
 After the task runs, an execution report is generated and then stored in the container that you specified when you created the assignment. For more information about that report as well as how to view metrics that capture the number of objects targeted, the number of operations attempted, and the number of operations that succeeded, see [Analyze Storage Task Runs](storage-task-runs.md).
 

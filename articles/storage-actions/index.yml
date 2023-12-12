@@ -23,10 +23,10 @@ highlightedContent:
       url: overview.md
     - title: 'Quickstart: Create, assign, and run a storage task'
       itemType: quickstart
-      url: storage-task-quickstart-portal.md
+      url: storage-tasks/storage-task-quickstart-portal.md
     - title: Known issues and limitations with Azure Storage Tasks
       itemType: concept
-      url: storage-task-known-issues.md
+      url: storage-tasks/storage-task-known-issues.md
 
  
 # additionalContent section (optional)
@@ -41,28 +41,28 @@ additionalContent:
           links:
           - url: storage-task-create.md
             text: Create a storage task
-          - url: storage-task-quickstart-portal.md
+          - url: storage-tasks/storage-task-quickstart-portal.md
             text: 'Quickstart: Create, assign, and run a storage task'
         # Card
         - title: Define
           links:
-          - url: storage-task-conditions-operations-edit.md
+          - url: storage-tasks/storage-task-conditions-operations-edit.md
             text: Define storage task conditions and operations
-          - url: storage-task-properties-operators-operations.md
+          - url: storage-tasks/storage-task-properties-operators-operations.md
             text: Supported properties, operators, and operations
         # Card
         - title: Assign
           links:
-          - url: storage-task-assignment-create.md
+          - url: storage-tasks/storage-task-assignment-create.md
             text: Create and manage a storage task assignment
-          - url: storage-task-assignment-authorization-roles.md
+          - url: storage-tasks/storage-task-assignment-authorization-roles.md
             text: Azure roles for storage task assignments
         # Card
         - title: Monitor
           links:
-          - url: storage-task-runs.md
+          - url: storage-tasks/ storage-task-runs.md
             text: Storage task runs
-          - url: monitor-storage-tasks.md
+          - url: storage-tasks/monitor-storage-tasks.md
             text: Monitor Azure Storage Tasks
 
     

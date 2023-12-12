@@ -14,34 +14,34 @@ items:
 - name: Concepts
   items: 
   - name: Properties, operators, and operations
-    href: storage-task-properties-operators-operations.md
+    href: storage-tasks/storage-task-properties-operators-operations.md
   - name: Azure roles for storage tasks
-    href: storage-task-authorization-roles.md
+    href: storage-tasks/storage-task-authorization-roles.md
   - name: Azure roles for storage task assignments
-    href: storage-task-assignment-authorization-roles.md
+    href: storage-tasks/storage-task-assignment-authorization-roles.md
   expanded: true
 - name: How-To
   items: 
   - name: Create a storage task
-    href: storage-task-create.md
+    href: storage-tasks/storage-task-create.md
   - name: Define conditions & operations
-    href: storage-task-conditions-operations-edit.md
+    href: storage-tasks/storage-task-conditions-operations-edit.md
   - name: Create and manage an assignment
-    href: storage-task-assignment-create.md
+    href: storage-tasks/storage-task-assignment-create.md
   - name: Monitor storage tasks
-    href: monitor-storage-tasks.md
+    href: storage-tasks/monitor-storage-tasks.md
   - name: Analyze storage task runs
-    href: storage-task-runs.md
+    href: storage-tasks/storage-task-runs.md
   expanded: true
 - name: Reference
   items:
   - name: Monitoring data Reference
-    href: storage-tasks-monitor-data-reference.md
+    href: storage-tasks/storage-tasks-monitor-data-reference.md
   - name: Storage Tasks events
     href: ../event-grid/event-schema-storage-actions.md?toc=/azure/storage-actions/toc.json
   expanded: true
 - name: Resources
   items:
     - name: Known issues and limitations
-      href: storage-task-known-issues.md
+      href: storage-tasks/storage-task-known-issues.md
   expanded: true

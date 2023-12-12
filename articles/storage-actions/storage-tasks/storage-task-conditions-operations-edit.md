@@ -27,7 +27,7 @@ To learn more, see [Properties, operators, and operations in storage task condit
 Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Conditions**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Conditions button and the Conditions editor](./media/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
+> ![Screenshot of the Conditions button and the Conditions editor](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-condition-editor.png)
 
 The **Visual builder** tab of the **Conditions** pane appears. 
 
@@ -37,10 +37,10 @@ Define a condition by adding clauses. A clause defines the relationship between 
 
 ### Add and remove clauses
 
-To add a clause, select **Add new clause**, and to remove a clause, select the delete icon(:::image type="icon" source="./media/storage-task-conditions-operations-edit/conditions-delete-icon.png":::) that appears next to it.
+To add a clause, select **Add new clause**, and to remove a clause, select the delete icon(:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/conditions-delete-icon.png":::) that appears next to it.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Add new clause button and three clauses that were added to the list of clauses.](./media/storage-task-conditions-operations-edit/storage-task-add-conditions.png)
+> ![Screenshot of the Add new clause button and three clauses that were added to the list of clauses.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-add-conditions.png)
 
 ### Specify the terms of a clause
 
@@ -53,7 +53,7 @@ In the **Blob property** drop-down list, choose a property. See [Supported blob 
 The following example selects the **Blob name** property.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the property drop-down list of a clause.](./media/storage-task-conditions-operations-edit/storage-task-condition-choose-property.png)
+> ![Screenshot of the property drop-down list of a clause.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-condition-choose-property.png)
 
 #### Choose a value and operator
 
@@ -62,7 +62,7 @@ In the **Property value** box, enter a value and in the **Operator** drop-down l
 The following example specifies a value of `.log` along with the **Ends with** operator. This condition allows the operation defined in this storage task to execute only on blobs that have a `.log` file extension.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of an example condition in the visual editor.](./media/storage-task-conditions-operations-edit/storage-task-blob-name-condition.png)
+> ![Screenshot of an example condition in the visual editor.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-blob-name-condition.png)
 
 #### Use a wildcard in string values
 
@@ -83,7 +83,7 @@ To reference a key, select the **Edit** link that appears in the **Property valu
 The following example adds the **Creation time** property, the **Earlier than** operator, and references a key named `retainFor` in the index tags of each blob that is evaluated.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of specifying a key in container metadata as part of the condition definition.](./media/storage-task-conditions-operations-edit/parameterized-query.png)
+> ![Screenshot of specifying a key in container metadata as part of the condition definition.](../media/storage-tasks/storage-task-conditions-operations-edit/parameterized-query.png)
 
 This condition tests whether a blob was created earlier than a certain time duration relative to now (the current date and time). For example, if the value retrieved from the `retainFor` tag is five minutes, then this condition checks if the blob was created more than 5 minutes ago.
 
@@ -99,7 +99,7 @@ You add **And** or **Or** to a clause. Specify **And** if you want to target obj
 The following example shows clauses that use **And**. In this example, the storage task targets objects that have a `.log` extension and which have a tag named `Archive-Status` set to `Ready`.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of clauses that use the AND operators.](./media/storage-task-conditions-operations-edit/storage-task-condition-and-operator.png)
+> ![Screenshot of clauses that use the AND operators.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-condition-and-operator.png)
 
 ### Change the order of clauses
 
@@ -110,7 +110,7 @@ First, select the clause. Then, select **Move clause up** or **Move clause down*
 The following example shows the result of selecting a clause and then selecting **Move clause up**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of clause appearing in a new position in the list.](./media/storage-task-conditions-operations-edit/storage-task-move-clause-up.png)
+> ![Screenshot of clause appearing in a new position in the list.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-move-clause-up.png)
 
 ### Group and ungroup clauses
 
@@ -121,9 +121,9 @@ Select the checkbox that appears next to each clause you want to group together.
 The following example shows two conditions grouped together. In this example, the operation executes if a blob has the `.log` extension and either a tag named `Archive-Status` is set to the value of `Ready` or the file has not been accessed in 120 days.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of clauses grouped together.](./media/storage-task-conditions-operations-edit/storage-task-grouped-clauses.png)
+> ![Screenshot of clauses grouped together.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-grouped-clauses.png)
 
-To ungroup clauses, select the ungroup icon (:::image type="icon" source="./media/storage-task-conditions-operations-edit/ungroup-icon.png":::) or select each clause in the group, and select **Ungroup**.
+To ungroup clauses, select the ungroup icon (:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/ungroup-icon.png":::) or select each clause in the group, and select **Ungroup**.
 
 ## Define operations
 
@@ -131,10 +131,10 @@ An operation is an that is action taken on each object that meets the conditions
 
 ### Add and remove operations
 
-To add a operation, select **Add new operation**, and to remove an operation, select the delete icon(:::image type="icon" source="./media/storage-task-conditions-operations-edit/conditions-delete-icon.png":::) that appears next to it.
+To add a operation, select **Add new operation**, and to remove an operation, select the delete icon(:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/conditions-delete-icon.png":::) that appears next to it.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Add new operation button and three operations that were added to the list of operations.](./media/storage-task-conditions-operations-edit/storage-task-add-operations.png)
+> ![Screenshot of the Add new operation button and three operations that were added to the list of operations.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-add-operations.png)
 
 #### Choose an operation
 
@@ -143,7 +143,7 @@ In the **Operation** drop-down list, choose an operation. See [Supported operati
 The following example selects the **Set blob tags** property.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Operation drop-down list of an operation.](./media/storage-task-conditions-operations-edit/storage-task-condition-choose-operation.png)
+> ![Screenshot of the Operation drop-down list of an operation.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-condition-choose-operation.png)
 
 #### Choose a parameter
 
@@ -152,7 +152,7 @@ Enter or select the parameters that are appropriate for the operation.
 The following example sets the `Archive-Status` tag to the value `Archived`.  
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of an example condition.](./media/storage-task-conditions-operations-edit/storage-task-blob-set-tag-operation.png)
+> ![Screenshot of an example condition.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-blob-set-tag-operation.png)
 
 ### Change the order of operations
 

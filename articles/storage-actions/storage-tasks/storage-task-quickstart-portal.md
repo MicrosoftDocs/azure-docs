@@ -38,22 +38,22 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 2. Under **Services**, select **Storage Tasks**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the search result of the string storage tasks.](./media/storage-task-create/storage-task-search.png)
+   > ![Screenshot of the search result of the string storage tasks.](../media/storage-tasks/storage-task-create/storage-task-search.png)
 
 3. On the **Storage tasks** page, select **Create**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the storage task create button.](./media/storage-task-create/storage-task-create-button.png)
+   > ![Screenshot of the storage task create button.](../media/storage-tasks/storage-task-create/storage-task-create-button.png)
 
 4. In the **Basics** page, under **Project details**, make sure that the correct subscription is selected. Then, create a new resource group by selecting the **Create new** link. Name that group _mystoragetaskresourcegroup_.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Project details section of the Basics tab.](./media/storage-task-quickstart-portal/project-details-section.png)
+   > ![Screenshot of the Project details section of the Basics tab.](../media/storage-tasks/storage-task-quickstart-portal/project-details-section.png)
 
 5. Under **Instance details**, enter *mystoragetask* for the **Storage task name**, and select any region that is supported by the preview of this service.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Instance details section of the Basics tab.](./media/storage-task-quickstart-portal/instance-details-section.png)
+   > ![Screenshot of the Instance details section of the Basics tab.](../media/storage-tasks/storage-task-quickstart-portal/instance-details-section.png)
 
 6. Select **Next** to open the **Conditions** page.
 
@@ -66,7 +66,7 @@ You can specify the conditions of a storage task by making selections in **If** 
 2. In the **Enter a metadata name** box, enter _Classification_, and in the **Enter a metadata value** box, enter _Confidential_.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the If condition section of the Visual Builder.](./media/storage-task-quickstart-portal/if-condition.png)
+   > ![Screenshot of the If condition section of the Visual Builder.](../media/storage-tasks/storage-task-quickstart-portal/if-condition.png)
 
    This condition allows operations only on blobs that exist in containers which are marked as confidential.
 
@@ -75,7 +75,7 @@ You can specify the conditions of a storage task by making selections in **If** 
 4. For the **Operator** of that condition, select **Ends with**, and in the **Enter a string** box, enter _.docx_.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the clause that filters for blob name.](./media/storage-task-quickstart-portal/if-condition-blob-name.png)
+   > ![Screenshot of the clause that filters for blob name.](../media/storage-tasks/storage-task-quickstart-portal/if-condition-blob-name.png)
 
    This condition allows operations only on Word documents.
 
@@ -86,7 +86,7 @@ You can specify the operations that a storage task performs by making selections
 1. In the **Select an operation** drop-down list of the **Then** section, select **Set blob immutability policy**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Then operation which sets the immutabality policy.](./media/storage-task-quickstart-portal/then-operation-immutability-policy.png)
+   > ![Screenshot of the Then operation which sets the immutabality policy.](../media/storage-tasks/storage-task-quickstart-portal/then-operation-immutability-policy.png)
 
    This operation applies a legal hold to any container that is marked as confidential and which contains one or more Microsoft Word documents.
 
@@ -95,7 +95,7 @@ You can specify the operations that a storage task performs by making selections
 3. In the **Enter a tag name** box, Enter _ImmutabilityUpdatedBy_, and in the **Enter a tag value** box, enter _StorageTaskQuickstart_. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Then operation which sets a blob index tag.](./media/storage-task-quickstart-portal/then-operation-set-blob-tags.png)
+   > ![Screenshot of the Then operation which sets a blob index tag.](../media/storage-tasks/storage-task-quickstart-portal/then-operation-set-blob-tags.png)
 
    This operation adds a blob index tag to each Word document in that container.
 
@@ -112,19 +112,19 @@ A storage task _assignment_ specifies a storage account. After you enable the st
 2. In the **Select scope** section, select your subscription and storage account and name the assignment _mystoragetaskassignment_.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Select scope section of the assignment pane.](./media/storage-task-quickstart-portal/assignment-pane-select-scope.png)
+   > ![Screenshot of the Select scope section of the assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-select-scope.png)
 
 3. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you are using to complete this quickstart followed by the `/` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Filter objects section of the Add assignment pane.](./media/storage-task-quickstart-portal/assignment-pane-filter-prefix.png)
+   > ![Screenshot of the Filter objects section of the Add assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-filter-prefix.png)
 
    Filters help you narrow the scope of execution. If your want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option instead.
 
 4. In the **Trigger details** section, select **Single run (only once)** and then select the container where you'd like to store the execution reports.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Trigger details section of the Add assignment pane.](./media/storage-task-quickstart-portal/assignment-pane-trigger-details.png)
+   > ![Screenshot of the Trigger details section of the Add assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-trigger-details.png)
 
 5. Select **Add**.
 
@@ -143,7 +143,7 @@ Storage task assignments are disabled by default. Enable assignments from the **
 1. Select **Assignments**, select the **mystoragetaskassignment** assignment, and then selet **Enable**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Assignments option and the storage task assignment link.](./media/storage-task-quickstart-portal/open-task-assignment.png)
+   > ![Screenshot of the Assignments option and the storage task assignment link.](../media/storage-tasks/storage-task-quickstart-portal/open-task-assignment.png)
 
    The task assignment is queued to run.
 
@@ -152,7 +152,7 @@ Storage task assignments are disabled by default. Enable assignments from the **
    Until the task runs and then completes, the string **In progress** appears beneath the **Last run status** column. When the task completes, the string **Completed** appears in that column.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the completed status appearing next to the task assignment.](./media/storage-task-quickstart-portal/completed-status.png)
+   > ![Screenshot of the completed status appearing next to the task assignment.](../media/storage-tasks/storage-task-quickstart-portal/completed-status.png)
 
 ## View results of the task run
 
@@ -165,7 +165,7 @@ After the task completes running, you can view the results of the run.
 2. Select the **View report** link to download a report.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Execution tasks pane.](./media/storage-task-quickstart-portal/run-report.png)
+   > ![Screenshot of the Execution tasks pane.](../media/storage-tasks/storage-task-quickstart-portal/run-report.png)
 
    The report appears as a comma-separated list of the container, the blob, and the operation performed along with a status.  You can also view these comma-separated reports in the container that you specified when you configured the assignment.
 

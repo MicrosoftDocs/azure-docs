@@ -25,12 +25,12 @@ In this how-to article, you'll learn how to create a storage task.
 In the Azure portal, search for _Storage Tasks_. Then, under **Services**, select **Storage Tasks**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the search result of the string Storage Tasks.](./media/storage-task-create/storage-task-search.png)
+> ![Screenshot of the search result of the string Storage Tasks.](../media/storage-tasks/storage-task-create/storage-task-search.png)
 
 On the **Storage tasks** page, select **Create**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the storage task create button.](./media/storage-task-create/storage-task-create-button.png)
+> ![Screenshot of the storage task create button.](../media/storage-tasks/storage-task-create/storage-task-create-button.png)
 
 ## Basics tab
 
@@ -46,7 +46,7 @@ On the **Basics** tab, provide the essential information for your storage task. 
 The following image shows an example of the **Basics** tab.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of basics tab of the storage task create experience.](./media/storage-task-create/storage-task-basics-page.png)
+> ![Screenshot of basics tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-basics-page.png)
 
 ## Conditions tab
 
@@ -68,7 +68,7 @@ The following table describes the fields on the **Conditions** tab.
 The following image shows an example of the **Conditions** tab.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of conditions tab of the storage task create experience.](./media/storage-task-create/storage-task-conditions-tab.png)
+> ![Screenshot of conditions tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-conditions-tab.png)
 
 To learn more about supported properties and operators in conditions, see [Storage task conditions and operations](storage-task-properties-operators-operations.md).
 
@@ -96,7 +96,7 @@ The following table describes the fields that appear in the **Add assignment** p
 The following image shows an example of the **Add assignment** pane.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of assignment tab of the storage task create experience.](./media/storage-task-create/storage-task-assignment-tab.png)
+> ![Screenshot of assignment tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-assignment-tab.png)
 
 ## Tags tab
 
@@ -105,7 +105,7 @@ On the **Tags** tab, you can specify Resource Manager tags to help organize your
 The following image shows a standard configuration of the index tag properties for a new storage account.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of tags tab of the storage task create experience.](./media/storage-task-create/storage-task-tags-page.png)
+> ![Screenshot of tags tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-tags-page.png)
 
 ## Review + create tab
 
@@ -116,7 +116,7 @@ If validation fails, then the portal indicates which settings need to be modifie
 The following image shows the **Review** tab data prior to the creation of a new storage task.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of review and create tab of the storage task create experience.](./media/storage-task-create/storage-task-validation-tab.png)
+> ![Screenshot of review and create tab of the storage task create experience.](../media/storage-tasks/storage-task-create/storage-task-validation-tab.png)
 
 ## See also
 
