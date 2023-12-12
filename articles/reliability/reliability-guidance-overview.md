@@ -47,59 +47,57 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 
 ### ![An icon that signifies this service is mainstream.](media/icon-mainstream.svg) Mainstream services
 
-|  Availability zone guide | Disaster recovery guide | 
-|-------|------| 
-[Azure AI Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Azure AI Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-|[Azure API Management](../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure API Management](../api-management/api-management-howto-disaster-recovery-backup-restore.md) |
-[Azure App Configuration](../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability)| [Azure App Configuration](../azure-app-configuration/concept-disaster-recovery.md?&tabs=core2x)|
-[Azure App Service](./reliability-app-service.md)| [Azure App Service](reliability-app-service.md#cross-region-disaster-recovery-and-business-continuity)|
-[Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Backup](reliability-backup.md)| [Azure Backup](reliability-backup.md) |
-||[Azure Bastion](../bastion/bastion-faq.md?#dr) |
-[Azure Batch](reliability-batch.md)| [Azure Batch](reliability-batch.md#cross-region-disaster-recovery-and-business-continuity) |
-[Azure Bot Service](reliability-bot.md)||
-[Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)
-| [Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-geo-replication.md) |
-[Azure Communications Gateway](../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Container Apps](reliability-azure-container-apps.md)|
-[Azure Container Instances](reliability-containers.md)| [Azure Container Instances](reliability-containers.md#disaster-recovery) |
-[Azure Container Registry](../container-registry/zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Data Explorer](/azure/data-explorer/business-continuity-overview) |
-[Azure Data Factory](../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json)|
-|| [Azure Database for MySQL](/azure/mysql/single-server/concepts-business-continuity?#recover-from-an-azure-regional-data-center-outage) |
-[Azure Database for MySQL - Flexible Server](../mysql/flexible-server/concepts-high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-restore-server-portal?#geo-restore-to-latest-restore-point) |
-[Azure Database for PostgreSQL - Flexible Server](./reliability-postgresql-flexible-server.md)
-| [Azure Database for PostgreSQL - Flexible Server](reliability-postgre-flexible.md#cross-region-disaster-recovery-and-business-continuity) |
-[Azure DDoS Protection](../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure DDoS Protection](../ddos-protection/ddos-disaster-recovery-guidance.md?#business-continuity) |
-[Azure Disk Encryption](../virtual-machines/disks-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure DNS - Azure DNS Private Zones](../dns/private-dns-getstarted-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure DNS - Azure DNS Private Resolver](../dns/dns-private-resolver-get-started-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure DNS - Azure DNS Private Resolver](../dns/dns-faq-private.yml#will-azure-private-dns-zones-work-across-azure-regions-)  |
-|| [Microsoft Entra Domain Services](../active-directory-domain-services/tutorial-create-replica-set.md) |
-[Azure Event Grid](../event-grid/availability-zones-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Event Grid](../event-grid/custom-disaster-recovery.md) |
-[Azure Firewall](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Functions](reliability-functions.md)| [Azure Functions](reliability-functions.md#cross-region-disaster-recovery-and-business-continuity) |
-|| [Azure Guest Configuration](../governance/policy/concepts/guest-configuration.md?#availability) |
-[Azure HDInsight](reliability-hdinsight.md)| [Azure HDInsight](reliability-hdinsight.md#cross-region-disaster-recovery-and-business-continuity) |
-[Azure IoT Hub](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Image Builder](reliability-image-builder.md)|
-[Azure Kubernetes Service (AKS)](../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Kubernetes Service (AKS)](../aks/operator-best-practices-multi-region.md) |
-[Azure Logic Apps](../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md) |
-| |[Azure Media Services](/azure/media-services/latest/architecture-high-availability-encoding-concept) |
-|| [Azure Migrate](../migrate/resources-faq.md?#does-azure-migrate-offer-backup-and-disaster-recovery) |
+| Product| Availability zone guide | Disaster recovery guide | 
+|----------|----------|----------|
+|Azure AI Search|[Azure AI Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Azure AI Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure API Management|[Azure API Management](../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure API Management](../api-management/api-management-howto-disaster-recovery-backup-restore.md) |
+|Azure App Configuration|[Azure App Configuration](../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability)| [Azure App Configuration](../azure-app-configuration/concept-disaster-recovery.md?&tabs=core2x)|
+|Azure App Service|[Azure App Service](./reliability-app-service.md)| [Azure App Service](reliability-app-service.md#cross-region-disaster-recovery-and-business-continuity)|
+||[Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||[Azure Backup](reliability-backup.md)| [Azure Backup](reliability-backup.md) |
+||||[Azure Bastion](../bastion/bastion-faq.md?#dr) |
+||[Azure Batch](reliability-batch.md)| [Azure Batch](reliability-batch.md#cross-region-disaster-recovery-and-business-continuity) |
+||[Azure Bot Service](reliability-bot.md)||
+||[Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)
+||[Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-geo-replication.md) |
+||[Azure Communications Gateway](../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||[Azure Container Apps](reliability-azure-container-apps.md)|
+||[Azure Container Instances](reliability-containers.md)| [Azure Container Instances](reliability-containers.md#disaster-recovery) |
+||[Azure Container Registry](../container-registry/zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||[Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Data Explorer](/azure/data-explorer/business-continuity-overview) |
+|||[Azure Data Factory](../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json)|
+||| [Azure Database for MySQL](/azure/mysql/single-server/concepts-business-continuity?#recover-from-an-azure-regional-data-center-outage) |
+||[Azure Database for MySQL - Flexible Server](../mysql/flexible-server/concepts-high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-restore-server-portal?#geo-restore-to-latest-restore-point) |
+||[Azure Database for PostgreSQL - Flexible Server](./reliability-postgresql-flexible-server.md)|[Azure Database for PostgreSQL - Flexible Server](reliability-postgre-flexible.md#cross-region-disaster-recovery-and-business-continuity) |
+||[Azure DDoS Protection](../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure DDoS Protection](../ddos-protection/ddos-disaster-recovery-guidance.md?#business-continuity) |
+||[Azure Disk Encryption](../virtual-machines/disks-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||[Azure DNS - Azure DNS Private Zones](../dns/private-dns-getstarted-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||[Azure DNS - Azure DNS Private Resolver](../dns/dns-private-resolver-get-started-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure DNS - Azure DNS Private Resolver](../dns/dns-faq-private.yml#will-azure-private-dns-zones-work-across-azure-regions-)  |
+||| [Microsoft Entra Domain Services](../active-directory-domain-services/tutorial-create-replica-set.md) |
+||[Azure Event Grid](../event-grid/availability-zones-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Event Grid](../event-grid/custom-disaster-recovery.md) |
+||[Azure Firewall](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||[Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||[Azure Functions](reliability-functions.md)| [Azure Functions](reliability-functions.md#cross-region-disaster-recovery-and-business-continuity) |
+||| [Azure Guest Configuration](../governance/policy/concepts/guest-configuration.md?#availability) |
+||[Azure HDInsight](reliability-hdinsight.md)| [Azure HDInsight](reliability-hdinsight.md#cross-region-disaster-recovery-and-business-continuity) |
+||[Azure IoT Hub](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||[Azure Image Builder](reliability-image-builder.md)|
+||[Azure Kubernetes Service (AKS)](../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Kubernetes Service (AKS)](../aks/operator-best-practices-multi-region.md) |
+||[Azure Logic Apps](../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md) |
+|||[Azure Media Services](/azure/media-services/latest/architecture-high-availability-encoding-concept) |
+||| [Azure Migrate](../migrate/resources-faq.md?#does-azure-migrate-offer-backup-and-disaster-recovery) |
 || [Azure Monitor - Application Insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration) |
-[Azure Monitor-Log Analytics](../azure-monitor/logs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Monitor - Log Analytics](../azure-monitor/logs/logs-data-export.md?&tabs=portal#enable-data-export) | 
-[Azure Network Watcher](../network-watcher/frequently-asked-questions.yml?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json#service-availability-and-redundancy)|
-[Azure Notification Hubs](../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Operator Nexus](reliability-operator-nexus.md)|
-[Azure Private Link](../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-[Azure Route Server](../route-server/route-server-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-|| [Azure SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates?preserve-view=true&view=sql-server-ver15#configure-regional-redundancy) |
-[Azure Storage - Blob Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-|| [Azure Stream Analytics](../stream-analytics/geo-redundancy.md) |
-[Azure Virtual WAN](../virtual-wan/virtual-wan-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)| [Azure Virtual WAN](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md) |
-[Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)
-| [Azure Web Application Firewall](../application-gateway/application-gateway-faq.yml?#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway) |
+||[Azure Monitor-Log Analytics](../azure-monitor/logs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Monitor - Log Analytics](../azure-monitor/logs/logs-data-export.md?&tabs=portal#enable-data-export) | 
+||[Azure Network Watcher](../network-watcher/frequently-asked-questions.yml?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json#service-availability-and-redundancy)|
+||[Azure Notification Hubs](../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||[Azure Operator Nexus](reliability-operator-nexus.md)|
+||[Azure Private Link](../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||[Azure Route Server](../route-server/route-server-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||| [Azure SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates?preserve-view=true&view=sql-server-ver15#configure-regional-redundancy) |
+||[Azure Storage - Blob Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+||| [Azure Stream Analytics](../stream-analytics/geo-redundancy.md) |
+||[Azure Virtual WAN](../virtual-wan/virtual-wan-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)| [Azure Virtual WAN](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md) |
+||[Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Azure Web Application Firewall](../application-gateway/application-gateway-faq.yml?#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway) |
   
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
 
