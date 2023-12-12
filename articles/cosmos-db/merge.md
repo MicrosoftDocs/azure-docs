@@ -183,9 +183,11 @@ az cosmosdb mongodb collection merge \
 
 Partition merge is a long-running operation and there's no SLA on how long it takes to complete. The time depends on the amount of data in the container and the number of physical partitions. It's recommended to allow at least 5-6 hours for merge to complete.
 
-While partition merge is running on your container, it isn't possible to change the throughput or any container settings (TTL, indexing policy, unique keys, etc.). Wait until the merge operation completes before changing your container settings.
+While partition merge is running on your container, it isn't possible to change any container settings (TTL, indexing policy, unique keys, etc.), with the exception of the provisioned RU/s setting. Wait until the merge operation completes before changing your container settings. If you increase your RU/s while a merge is running, the merge operation will be cancelled and your container's RU/s will be updated with your new value. If you decrease your RU/s while a merge is running, the RU/s will be immediately changed to the new RU/s. The in-progress merge will continue, with the same target partition count based on the RU/s set at the time the merge was triggered.
 
 You can track whether merge is still in progress by checking the **Activity Log** and filtering for the events **Merge the physical partitions of a MongoDB collection** or **Merge the physical partitions of a SQL container**.
+
+You can also use the **Physical Partition Count** metric to monitor how many physical partitions your container has. From your Cosmos account, navigate to **Metrics**. Select the metric **Physical Partition Count** and filter to your database and container.
 
 ## Limitations
 

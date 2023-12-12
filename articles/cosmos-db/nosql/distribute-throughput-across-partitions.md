@@ -396,6 +396,7 @@ az cosmosdb sql container redistribute-partition-throughput \
 
 Use the `Update-AzCosmosDBMongoDBCollectionPerPartitionThroughput` command for collections with dedicated RU/s or the `Update-AzCosmosDBMongoDBDatabasePerPartitionThroughput` command for databases with shared RU/s with parameter `-EqualDistributionPolicy` to distribute RU/s evenly across all physical partitions.
 
+```azurepowershell-interactive
 // Collection with dedicated RU/s
 Update-AzCosmosDBMongoDBCollectionPerPartitionThroughput `
     -ResourceGroupName "<resource-group-name>" `
@@ -403,7 +404,6 @@ Update-AzCosmosDBMongoDBCollectionPerPartitionThroughput `
     -DatabaseName "<cosmos-database-name>" `
     -Name "<cosmos-collection-name>" `
     -EqualDistributionPolicy
-
 
 // Database with shared RU/s
 Update-AzCosmosDBMongoDBDatabasePerPartitionThroughput `
@@ -443,7 +443,7 @@ To use the preview, your Azure Cosmos DB account must meet all the following cri
       - If you're using API for MongoDB, the version must be >= 3.6.
   - Your Azure Cosmos DB account is using provisioned throughput (manual or autoscale). Distribution of throughput across partitions doesn't apply to serverless accounts.
 
-You do not need to sign-up to use the preview. To use the feature, use the PowerShell or Azure CLI commands to redistribute throughput across your resources' physical partitions.
+You don't need to sign up to use the preview. To use the feature, use the PowerShell or Azure CLI commands to redistribute throughput across your resources' physical partitions.
 
 ## Next steps
 
