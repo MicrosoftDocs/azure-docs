@@ -287,6 +287,47 @@ Follow these steps to set up a video retrieval system and integrate it with your
 1. Fill in all the `<placeholder>` fields above with your own information: enter the endpoint URLs and keys of your OpenAI and AI Vision resources where appropriate, and retrieve the video index information from the earlier step.
 1. Send the POST request to the API endpoint. It should contain your OpenAI and AI Vision credentials, the name of your video index, and the ID and SAS URL of a single video.
 
+
+### Output
+tbd
+
+{
+    "id": "chatcmpl-8UyuhLfzwTj34zpevT3tWlVIgCpPg",
+    "object": "chat.completion",
+    "created": 1702394683,
+    "model": "gpt-4",
+    "choices":
+    [
+        {
+            "finish_details":
+            {
+                "type": "stop",
+                "stop": "<|fim_suffix|>"
+            },
+            "index": 0,
+            "message":
+            {
+                "role": "assistant",
+                "content": [
+    			{
+    				"type": "text",
+    				"text": "The video appears to feature an animated rabbit lying on the grass at the base of a tree. Over a span of 5 seconds, the frames show the rabbit transitioning from a resting position to stretching and leaning back against the tree, possibly waking up or stretching after a rest. The setting is a lush, green environment with vibrant grass, flowers, and a hint of a stone structure in the background. The rabbit seems to be the main character in this sequence."
+    			}]
+            },
+            "enhancements":
+            {
+                tbd
+            }
+        }
+    ],
+    "usage":
+    {
+        "prompt_tokens": 816,
+        "completion_tokens": 49,
+        "total_tokens": 865
+    }
+}
+
 ## Low or high fidelity image understanding
 
 By controlling the _detail_ parameter, which has two options, `low` or `high`, you can control how the model processes the image and generates its textual understanding.
