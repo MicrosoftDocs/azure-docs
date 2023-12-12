@@ -208,7 +208,7 @@ If you're not going to continue to use the Database Migration Service, then you 
     
     ![Delete the migration service](media/tutorial-mysql-to-azure-mysql-offline-portal/18-dms-portal-delete.png)
 
-3. On the confirmation dialog, type in the name of the service in the **TYPE THE DATABASE MIGRATION SERVICE NAME** textbox and select **Delete**
+3. On the confirmation dialog, type in the name of the service in the **TYPE THE DATABASE MIGRATION SERVICE NAME** textbox and select **Delete**.
 
     ![Confirm migration service delete](media/tutorial-mysql-to-azure-mysql-offline-portal/19-dms-portal-deleteconfirm.png)
 
