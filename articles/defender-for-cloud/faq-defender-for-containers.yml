@@ -124,15 +124,10 @@ sections:
           - For the OCI image format, the manifest media type would be **application/vnd.oci.image.manifest.v1+json**, and config media type **application/vnd.oci.image.config.v1+json**, as documented [here](https://specs.opencontainers.org/image-spec/media-types/).
 
       - question: |
-          What's the agentless discovery for Kubernetes refresh interval?
-        answer: |
-          Agentless information in Defender for Containers is updated through a snapshot mechanism. It can take up to **6 hours** to see results in cloud security explorer.
-
-      - question: |
           What are the extensions for agentless container posture management?
         answer: |
           There are two extensions that provide agentless CSPM functionality:
-          - **Agentless Container vulnerability assessments**: Provides agentless containers vulnerability assessments. Learn more about [Agentless Container vulnerability assessment](agentless-container-registry-vulnerability-assessment.md).
+          - **Agentless Container vulnerability assessments**: Provides agentless containers vulnerability assessments. Learn more about [Agentless Container vulnerability assessment](agentless-vulnerability-assessment-azure.md).
           - **Agentless discovery for Kubernetes**: Provides API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup.
 
       - question: |

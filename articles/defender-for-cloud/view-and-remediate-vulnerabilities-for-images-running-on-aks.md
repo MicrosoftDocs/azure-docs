@@ -1,13 +1,13 @@
 ---
-title: How-to view and remediate runtime threat findings
-description: Learn how to view and remediate runtime threat findings
+title: Assess vulnerabilities for images running on your Kubernetes clusters
+description: Learn how to view and remediate runtime threat findings for images running on your Kubernetes clusters
 ms.service: defender-for-cloud
 ms.custom: build-2023
 ms.topic: how-to
 ms.date: 09/06/2023
 ---
 
-# View and remediate vulnerabilities for images running on your AKS clusters
+# View and remediate vulnerabilities for images running on your Kubernetes clusters
 
 Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462ce) recommendation.
 

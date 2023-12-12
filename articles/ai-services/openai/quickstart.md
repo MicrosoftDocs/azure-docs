@@ -42,6 +42,12 @@ Use this article to get started making your first calls to Azure OpenAI.
 
 ::: zone-end
 
+::: zone pivot="programming-language-spring"
+
+[!INCLUDE [Spring quickstart](includes/spring.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-javascript"
 
 [!INCLUDE [JavaScript quickstart](includes/javascript.md)]

@@ -10,6 +10,9 @@ ms.date: 12/12/2023
 
 Onboarding agentless container posture in Defender CSPM allows you to gain all its [capabilities](concept-agentless-containers.md#capabilities).
 
+> [!NOTE]
+> Agentless container posture is available for Azure and AWS clouds.
+
 Defender CSPM includes [two extensions](/azure/defender-for-cloud/faq-defender-for-containers#what-are-the-extensions-for-agentless-container-posture-management) that allow for agentless visibility into Kubernetes and containers registries across your organization's software development lifecycle.
 
 **To onboard agentless container posture in Defender CSPM:**
@@ -18,7 +21,7 @@ Defender CSPM includes [two extensions](/azure/defender-for-cloud/faq-defender-f
 
 1. In the Azure portal, navigate to the Defender for Cloud's **Environment Settings** page.
 
-1. Select the subscription that's onboarded to the Defender CSPM plan, then select **Settings**.
+1. Select the scope that's onboarded to the Defender CSPM plan, then select **Settings**.
 
 1. Ensure the **Agentless discovery for Kubernetes** and **Agentless Container vulnerability assessments** extensions are toggled to **On**.
 

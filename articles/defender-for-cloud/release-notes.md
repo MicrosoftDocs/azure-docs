@@ -25,6 +25,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | Date | Update |
 |--|--|
 | December 13 | [Agentless Container Posture in Defender AWS and (Preview)](#agentless-container-posture-in-defender-aws-preview)
+| December 12 | [Container vulnerability assessment powered by MDVM now supports Google Distroless](#container-vulnerability-assessment-powered-by-mdvm-now-supports-google-distroless) |
 | December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account)
 
 ### Agentless Container Posture in Defender AWS (Preview)
@@ -32,6 +33,12 @@ If you're looking for items older than six months, you can find them in the [Arc
 December 13, 2023
 
 The new Agentless Container Posture (Preview) capabilities are available for AWS. For more information, see [Agentless container posture in Defender CSPM](concept-agentless-containers.md) and [Agentless capabilities in Defender for Containers](defender-for-containers-introduction.md#agentless-capabilities).
+
+### Container vulnerability assessment powered by MDVM now supports Google Distroless
+
+Container vulnerability assessment powered by MDVM have been extended with additional coverage for Linux OS packages, now supporting Google Distroless.
+
+For a list of all supported operating systems, see [Registries and images support for Azure - Vulnerability assessment powered by MDVM](support-matrix-defender-for-containers.md#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-mdvm).
 
 ### Defender for Storage alert released for preview: malicious blob was downloaded from a storage account
 
@@ -379,7 +386,7 @@ Containers vulnerability assessment powered by Microsoft Defender Vulnerability 
 
 The new trigger will start rolling out today, and is expected to be available to all customers by end of September.
 
-For more information, see [Container Vulnerability Assessment powered by MDVM](agentless-container-registry-vulnerability-assessment.md)
+For more information, see [Container Vulnerability Assessment powered by MDVM](agentless-vulnerability-assessment-azure.md)
 
 ### Updated naming format of Center for Internet Security (CIS) standards in regulatory compliance
 
@@ -584,7 +591,7 @@ We're announcing the release of Vulnerability Assessment (VA) for Linux containe
 
 This new offering will start rolling out today, and is expected to be available to all customers by August 7.
 
-For more information, see [Container Vulnerability Assessment powered by MDVM](agentless-container-registry-vulnerability-assessment.md) and [Microsoft Defender Vulnerability Management (MDVM)](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management).
+For more information, see [Container Vulnerability Assessment powered by MDVM](agentless-vulnerability-assessment-azure.md) and [Microsoft Defender Vulnerability Management (MDVM)](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management).
 
 ### Agentless container posture in Defender CSPM is now Generally Available
 

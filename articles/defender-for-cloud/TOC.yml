@@ -599,11 +599,13 @@
       - name: Vulnerability assessment for Azure powered by Qualys
         displayName: ACR, registry, images, qualys
         href: defender-for-containers-vulnerability-assessment-azure.md
-      - name: Vulnerability assessments for Azure powered by MDVM
+      - name: Vulnerability assessments powered by Microsoft Defender Vulnerability Management
         items:
-          - name: Overview
-            href: agentless-container-registry-vulnerability-assessment.md
-          - name: Enable vulnerability assessment
+          - name: Vulnerability assessments for Azure
+            href: agentless-vulnerability-assessment-azure.md
+          - name: Vulnerability assessments for AWS
+            href: agentless-vulnerability-assessment-aws.md
+          - name: Enable vulnerability assessments
             href: enable-vulnerability-assessment.md
           - name: View and remediate vulnerabilities for registry images
             href: view-and-remediate-vulnerability-assessment-findings.md
@@ -613,7 +615,7 @@
             href: disable-vulnerability-findings-containers.md
           - name: REST API
             href: subassessment-rest-api.md
-      - name: Vulnerability assessment for AWS
+      - name: Vulnerability assessment for AWS powered by Trivy
         displayName: AWS, ECR, registry, images, qualys
         href: defender-for-containers-vulnerability-assessment-elastic.md
       - name: Kubernetes data plane hardening
