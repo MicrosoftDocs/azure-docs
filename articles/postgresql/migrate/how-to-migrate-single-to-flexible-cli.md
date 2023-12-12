@@ -64,7 +64,7 @@ To complete this tutorial, you need to:
 ## Migration CLI commands
 
 The migration tool comes with easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  `az postgres flexible-server migration`.
-Allow-list all required extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It's important to allow-list the extensions before you initiate a migration using this tool.
+Allowlist all required extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It's important to allowlist the extensions before you initiate a migration using this tool.
 For help with understanding the options associated with a command and with framing the right syntax, you can use the `help` parameter:
 
 ```azurecli-interactive
