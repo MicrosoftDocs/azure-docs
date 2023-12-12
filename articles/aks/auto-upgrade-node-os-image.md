@@ -143,7 +143,7 @@ Here, the base node image version is `AKSUbuntu-2204gen2containerd`. If applicab
 
 The same details also be looked up in the Azure Portal under the node label view as illustrated below. 
 
-:::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png" alt-text="The screenshot of the nodes blade for an AKS cluster in the Azure portal. The label for nodeimage version clearly shows the base node image as well as the securitypatch latest applied on that node with dates.":::
+:::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch-inline.png" alt-text="A screenshot of the nodes page for an AKS cluster in the Azure portal. The label for node image version clearly shows the base node image as well as the latest applied security patch date." lightbox="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png":::
 
 
 <!-- LINKS -->
