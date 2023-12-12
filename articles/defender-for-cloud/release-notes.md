@@ -31,7 +31,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 Container vulnerability assessment powered by MDVM have been extended with additional coverage for Linux OS packages, now supporting Google Distroless.
 
-Click [here](support-matrix-defender-for-containers#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-mdvm)
+Click [here](support-matrix-defender-for-containers.md#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-mdvm)
  to see a list of all supported OS.
 
 ### Defender for Storage alert released for preview: malicious blob was downloaded from a storage account
