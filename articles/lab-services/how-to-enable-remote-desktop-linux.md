@@ -24,14 +24,14 @@ Performance over a remote desktop connection also varies by distro, version, GUI
 - A less resource intensive GUI desktop like XFCE.
 - X2Go for remote desktop connection to [supported GUI desktops](https://wiki.x2go.org/doku.php/doc:de-compat).
 
-Another option to consider, is using [nested virtualization](./concept-nested-virtualization-template-vm) so that students connect to a Windows lab host VM using RDP, and then use Linux on nested VM(s) which may also help improve performance.
+Another option to consider, is using [nested virtualization](concept-nested-virtualization-template-vm.md) so that students connect to a Windows lab host VM using RDP, and then use Linux on nested VM(s) which may also help improve performance.
 
 > [!IMPORTANT]
 > Some marketplace images already have a graphical desktop environment and remote desktop server installed. For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) already has [XFCE and X2Go Server installed and configured to accept client connections](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## Setup
 
-There are many [distros/versions](./how-to-configure-auto-shutdown-lab-plans#supported-linux-distributions-for-automatic-shutdown) and GUI desktops that can be used with Azure Lab Services.  This section shows how to set up a lab’s template VM with the following common configurations:
+There are many [distros/versions](how-to-configure-auto-shutdown-lab-plans.md#supported-linux-distributions-for-automatic-shutdown) and GUI desktops that can be used with Azure Lab Services.  This section shows how to set up a lab’s template VM with the following common configurations:
 
 |Distro/Version  |GUI desktop   |Remote desktop technology
 |----------|-----------|------------|
@@ -48,7 +48,7 @@ For optimal performance, we recommend using XFCE with X2Go for remote desktop co
 
 X2Go uses the same port as SSH (22), which is enabled by default when you create a lab.  The below steps show how to set up XFCE and X2Go.
 
-1. [Connect to a lab's template VM](./how-to-create-manage-template#update-a-template-vm) using SSH.
+1. [Connect to a lab's template VM](how-to-create-manage-template#update-a-template-vm.md) using SSH.
 1. On the template VM, use the following ReadMe and script to install the XFCE GUI desktop and the X2Go server:
     1. [ReadMe](https://aka.ms/azlabs/scripts/LinuxDesktop-Xfce)
     1. [Bash script](https://aka.ms/azlabs/scripts/LinuxDesktop-Xfce/x2go-xfce4.sh)
@@ -63,11 +63,11 @@ xUbuntu is another light-weight GUI desktop that can be used with X2Go for remot
 
 X2Go uses the same port as SSH (22), which is enabled by default when you create a lab.  The below steps show how to set up xUbuntu and X2Go.
 
-1. [Connect to a lab's template VM](./how-to-create-manage-template#update-a-template-vm) using SSH.
+1. [Connect to a lab's template VM](how-to-create-manage-template#update-a-template-vm.md) using SSH.
 1. On the template VM, use the following ReadMe and script to install the xUbuntu GUI desktop and the X2Go server:
     1. [ReadMe](https://aka.ms/azlabs/scripts/LinuxDesktop-Xfce)
     1. [Bash script](https://aka.ms/azlabs/scripts/LinuxDesktop-Xfce/x2go-xubuntu.sh)
-1.  Use the [X2Go client to connect to the template VM](./lab-services/connect-virtual-machine-linux-x2go).  As shown in the above ReadMe, disable windows compositing and restart the template VM to optimize performance.
+1.  Use the [X2Go client to connect to the template VM](lab-services/connect-virtual-machine-linux-x2go.md).  As shown in the above ReadMe, disable windows compositing and restart the template VM to optimize performance.
 
 ### Set up MATE and X2Go
 
@@ -77,11 +77,11 @@ The MATE GUI desktop can also be used with X2Go for remote desktop connection.  
 
 X2Go uses the same port as SSH (22), which is enabled by default when you create a lab.   The below steps show how to set up MATE and X2Go.
 
-1.	[Connect to a lab's template VM](./how-to-create-manage-template#update-a-template-vm) using SSH.
+1.	[Connect to a lab's template VM](how-to-create-manage-template#update-a-template-vm.md) using SSH.
 1.	On the template VM, use the following ReadMe and script to install the MATE GUI desktop and the X2Go server:
     1. [ReadMe](https://aka.ms/azlabs/scripts/LinuxDesktop-GnomeMate)
     1. [Bash script](https://aka.ms/azlabs/scripts/LinuxDesktop-GnomeMate/x2go-mate.sh)
-1.	Use the [X2Go client to connect to the template VM](./lab-services/connect-virtual-machine-linux-x2go). 
+1.	Use the [X2Go client to connect to the template VM](connect-virtual-machine-linux-x2go.md). 
 
 ### Set up GNOME and RDP
 
@@ -95,7 +95,7 @@ GNOME is a more resource intensive desktop that requires RDP for remote desktop 
 
 RDP uses port 3389 for connecting to a VM. By default, Linux lab VMs only have the SSH port 22 enabled.  The below steps show how to enable port 3389 and how to set up GNOME and RDP.
 
-1. During [lab creation](./lab-services/quick-create-connect-lab#create-a-lab), use the **Enabled connection types settings** to check the **Client connection (RDP)** setting.  You must enable this option to open the port on the Linux VM that is needed for an RDP remote desktop session.  If this option is left disabled, only the port for SSH is opened.  The enabled ports *can’t* be changed after a lab is created.
+1. During [lab creation](quick-create-connect-lab#create-a-lab.md), use the **Enabled connection types settings** to check the **Client connection (RDP)** setting.  You must enable this option to open the port on the Linux VM that is needed for an RDP remote desktop session.  If this option is left disabled, only the port for SSH is opened.  The enabled ports *can’t* be changed after a lab is created.
 
      :::image type="content" source="./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png" alt-text="Screenshot that shows the Lab policies window with the Client connection (RDP) setting during lab creation .":::
 
@@ -103,13 +103,13 @@ RDP uses port 3389 for connecting to a VM. By default, Linux lab VMs only have t
 
     :::image type="content" source="./media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png" alt-text="Screenshot that shows the Enable Remote Desktop Connection confirmation window.":::
 
-1. [Connect to a lab's template VM](./how-to-create-manage-template#update-a-template-vm) using SSH.
+1. [Connect to a lab's template VM](how-to-create-manage-template#update-a-template-vm.md) using SSH.
 
 1. On the template VM, use the following ReadMe and script to install the GNO ME GUI desktop, install the RDP server, and make RDP performance optimizations:
     1. [ReadMe](https://aka.ms/azlabs/scripts/LinuxDesktop-GnomeMate)
     1. [Bash script](https://aka.ms/azlabs/scripts/LinuxDesktop-GnomeMate/xrdp-gnome.sh)
 
-1. Use the [RDP client to connect to the template VM](./connect-virtual-machine#connect-to-a-linux-lab-vm-using-rdponnect-virtual-machine).
+1. Use the [RDP client to connect to the template VM](connect-virtual-machine.md#connect-to-a-linux-lab-vm-using-rdponnect-virtual-machine).
 
 ## Next steps
 

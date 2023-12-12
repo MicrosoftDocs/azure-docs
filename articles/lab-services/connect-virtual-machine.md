@@ -34,7 +34,7 @@ Azure Lab Services automatically configures SSH for Linux VMs. Both lab users an
 
 ### Connect to a Linux lab VM using RDP
 
-Before you can connect to a Linux VM using RDP, the lab creator first needs to enable the **Client connection (RDP)** setting and ensure that a GUI desktop and RDP are installed.  For more information on steps that need to be completed by the lab creator, see the example that shows [how to set up GNOME and RDP](./how-to-enable-remote-desktop-linux.md#setup-gnome-and-rdp).
+Before you can connect to a Linux VM using RDP, the lab creator first needs to enable the **Client connection (RDP)** setting and ensure that a GUI desktop and RDP are installed.  For more information on steps that need to be completed by the lab creator, see the example that shows [how to set up GNOME and RDP](how-to-enable-remote-desktop-linux.md#setup-gnome-and-rdp).
 
 To connect to a Linux VM using RDP, follow the instructions based on the type of OS you're using.
 
