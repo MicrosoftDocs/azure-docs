@@ -11,11 +11,13 @@ ms.date: 12/06/2023
 
 # Create and configure SFTP Ingestion Agents for Azure Operator Insights
 
-The SFTP agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent pulls files from an SFTP server, and forwards them to Azure Operator Insights.
+An SFTP Ingestion Agent is a software package that is installed onto a Linux Virtual Machine (VM) owned and managed by you. The agent pulls files from an SFTP server, and forwards them to Azure Operator Insights.
+
+For more background, see [SFTP Ingestion Agent overview](sftp-agent-overview.md).
 
 ## Prerequisites
 
-- You must have an SFTP server containing the files to be uploaded to Azure Operator Insights. This SFTP server must be accessible from the VM where the agent is installed.
+- You must have an SFTP server containing the files to be uploaded to Azure Operator Insights. This SFTP server must be accessible from the VM where you install the agent.
 - You must have an Azure Operator Insights Data Product deployment.
 - You must choose the number of agents and VMs on which to install the agents, using the guidance in the following section.
 
@@ -59,12 +61,6 @@ Each VM running the agent must meet the following specifications.
 | Other    | SSH or alternative access to run shell commands                     |
 | DNS      | (Preferable) Ability to resolve public DNS. If not, you need to perform extra steps to resolve Azure locations. See [VMs without public DNS: Map Azure host names to IP addresses.](#vms-without-public-dns-map-azure-host-names-to-ip-addresses). |
 
-
-> [!TIP]
-> The SFTP agent is designed to be highly reliable and resilient to low levels of network disruption. If an unexpected error occurs, the agent restarts and provides service again as soon as it's running.
->
-> If a persistent error or extended connectivity problems occur, some files might not be uploaded. However, if the error suggests that the upload might be successful if retried, the agent tries to upload the file on the next scheduled run.
-
 ### VM security recommendations
 
 The VM used for the SFTP agent should be set up following best practice for security. For example:
@@ -81,7 +77,7 @@ The VM used for the SFTP agent should be set up following best practice for secu
 
 A link to download the SFTP agent RPM is provided as part of the Azure Operator Insights onboarding process. See [How do I get access to Azure Operator Insights?](overview.md#how-do-i-get-access-to-azure-operator-insights) for details.
 
-## Set up authentication
+## Set up authentication to Azure
 
 You must have a service principal with a certificate credential that can access the Azure Key Vault created by the Data Product to retrieve storage credentials. Each agent must also have a copy of a valid certificate and private key for the service principal stored on this virtual machine.
 
@@ -140,15 +136,21 @@ Repeat these steps for each VM onto which you want to install the agent:
 Follow these steps on the SFTP server:
 
 1. Ensure port 22/TCP to the VM is open.
-2. Create a new user, or determine an existing user on the SFTP server that the ingestion agent will use to connect to the SFTP server.
-3. Determine the authentication method that the ingestion agent will use to connect to the SFTP server. The agent supports two methods:
+1. Create a new user, or determine an existing user on the SFTP server that the ingestion agent will use to connect to the SFTP server.
+1. Determine the authentication method that the ingestion agent will use to connect to the SFTP server. The agent supports two methods:
     - Password authentication
     - SSH key authentication
-4. Create a file to store the secret value (password or SSH key) in the secrets directory on the agent VM, which you created in the [Prepare the VMs](#prepare-the-vms) step.
+1. Create a file to store the secret value (password or SSH key) in the secrets directory on the agent VM, which you created in the [Prepare the VMs](#prepare-the-vms) step.
    - The file must not have a file extension.
    - Choose an appropriate name for the secret file, and note it for later.  This name is referenced in the agent configuration.
    - The secret file must contain only the secret value (password or SSH key), with no extra whitespace.
-5. If you're using an SSH key that has a passphrase to authenticate, use the same method to create a separate secret file that contains the passphrase.
+1. If you're using an SSH key that has a passphrase to authenticate, use the same method to create a separate secret file that contains the passphrase.
+1. Configure the SFTP server to remove files after a period of time (a _retention period_). Ensure the retention period is long enough that the agent should have processed the files before the SFTP server deletes them. The example configuration file contains configuration for checking for new files every five minutes.
+
+> [!IMPORTANT]
+> Your SFTP server must remove files after a suitable retention period so that it does not run out of disk space. The SFTP ingestion agent does not remove files automatically.
+>
+> A shorter retention time reduces disk usage, increases the speed of the agent and reduces the risk of duplicate uploads. However, a shorter retention period increases the risk that data is lost if data cannot be retrieved by the agent or uploaded to Azure Operator Insights.
 
 ## VMs without public DNS: Map Azure host names to IP addresses
 

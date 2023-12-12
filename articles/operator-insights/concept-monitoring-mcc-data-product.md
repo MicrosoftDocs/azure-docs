@@ -34,6 +34,13 @@ The following data type is provided as part of the Monitoring - Affirmed MCC Dat
 
 - *pmstats* contains performance management data reported by the MCC management node, giving insight into the performance characteristics of the MCC network elements.
 
+## Setup
+
+To use the Monitoring - Affirmed MCC Data Product:
+
+1. Deploy the Data Product by following [Create an Azure Operator Insights Data Product](data-product-create.md).
+1. Configure your network to provide data by setting up an SFTP Ingestion Agent. The agent collects data from an SFTP server in your network and uploads it to Azure Operator Insights. See [SFTP Ingestion Agent overview](sftp-agent-overview.md) and [Create and configure SFTP Ingestion Agents for Azure Operator Insights](how-to-install-sftp-agent.md).  Alternatively, you can provide your own ingestion agent.
+
 ## Related content
 
 - [Data Quality Monitoring](concept-data-quality-monitoring.md)

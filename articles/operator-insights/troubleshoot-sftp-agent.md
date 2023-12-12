@@ -95,6 +95,8 @@ Symptoms:
 
 Steps to fix:
 
+- Check whether the ingestion agent encountered a retryable error on a previous upload and then retried that upload more than 24 hours after the last successful upload. In that case, the agent might upload duplicate data during the retry attempt. The duplication of data should affect only the retry attempt.
+
 - Check that the file sources defined in the config file refer to non-overlapping sets of files. If multiple file sources are configured to pull files from the same location on the SFTP server, use the `include_pattern` and `exclude_pattern` config fields to specify distinct sets of files that each file source should consider.
 
 - If you're running multiple instances of the SFTP ingestion agent, check that the file sources configured for each agent don't overlap with file sources on any other agent. In particular, look out for file source config that has been accidentally copied from another agent's config.

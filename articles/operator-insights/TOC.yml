@@ -50,6 +50,8 @@
   - name: Deploy Ingestion Agents for SFTP files
     expanded: true
     items:
+    - name: Overview
+      href: sftp-agent-overview.md
     - name: Create and configure SFTP Ingestion Agents
       href: how-to-install-sftp-agent.md
     - name: Manage SFTP Ingestion Agents

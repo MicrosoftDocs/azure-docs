@@ -38,6 +38,13 @@ The following data types are provided for all Quality of Experience - Affirmed M
 - *edr* contains data from the Event Data Records (EDRs) written by the MCC network elements.  EDRs record each significant event arising during calls or sessions handled by the MCC. They provide a comprehensive record of what happened, allowing operators to explore both individual problems and more general patterns.
 - *edr-sanitized* contains data from the *edr* data type but with personal data suppressed. Sanitized data types can be used to support data analysis while also enforcing subscriber privacy.
 
+## Setup
+
+To use the Quality of Experience - Affirmed MCC Data Product:
+
+1. Deploy the Data Product by following [Create an Azure Operator Insights Data Product](data-product-create.md).
+1. Configure your network to provide data by setting up an MCC EDR Ingestion Agent. The MCC EDR Ingestion Agent uploads EDRs from your network to Azure Operator Insights. See [Create and configure MCC EDR Ingestion Agents for Azure Operator Insights](how-to-install-mcc-edr-agent.md). Alternatively, you can provide your own ingestion agent.
+
 ## Related content
 
 - [Data Quality Monitoring](concept-data-quality-monitoring.md)
