@@ -36,6 +36,9 @@ In this article, we'll use fpsync to move data from a Linux file server to NFS A
 
 To copy the data, fpsync uses either rsync (default), [cpio](https://linux.die.net/man/1/cpio), or tar tools. It computes subsets of the source directory `src_dir/` and spawns synchronization jobs to synchronize them to the destination directory `dst_dir/`. It executes synchronization jobs on-the-fly while simultaneously crawling the file system, making it a useful tool for efficiently migrating large file systems and copying large datasets with multiple files.
 
+> [!NOTE]
+> Fpsync only synchronizes directory contents, not the source directory itself. Unlike rsync, fpsync enforces the final '/' on the source directory, which means that you won't get a subdirectory with the name of the source directory in the target directory after synchronization.
+
 ### Install fpart
 
 To use fpsync, you'll need to install the fpart filesystem partitioner. Install fpart on the Linux distribution of your choice. Once it's installed, you should see fpsync under `/usr/bin/`.
