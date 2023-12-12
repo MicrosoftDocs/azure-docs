@@ -13,7 +13,7 @@ ms.author: pafarley
 
 |Areas | Products on Shelves – Custom Vision |Product Recognition – Image Analysis API/Customization |
 |---|---|---|
-|Features | Custom product understanding |Image stitching & rectification,</br>Pretrained product understanding,</br>Custom product understanding,</br>Planogram matching |  
+|Features | Custom product understanding |Image stitching & rectification, </br>Pretrained product understanding, </br>Custom product understanding, </br>Planogram matching |  
 |Base model |CNN |Florence transformer model|
 |Labeling |[Customvision.ai](https://www.customvision.ai/) |AML Studio |
 |Web Portal |[Customvision.ai](https://www.customvision.ai/) |[Vision Studio](https://portal.vision.cognitive.azure.com/gallery/featured) |
