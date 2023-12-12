@@ -253,8 +253,8 @@ No output for a successful response
 
 ## Next steps
 After you have added users to the groups, you can do the following:
-1. [How to manage legal tags](how-to-manage-legal-tags.md)
-2. [How to manage ACLs](how-to-manage-acls.md)
+- [How to manage legal tags](how-to-manage-legal-tags.md)
+- [How to manage ACLs](how-to-manage-acls.md)
 
 You can also ingest data into your Azure Data Manager for Energy instance with
 1. [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md)
