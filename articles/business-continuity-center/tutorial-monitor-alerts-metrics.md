@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Monitor alerts and metrics for business continuity estate
+title: Tutorial - Monitor alerts and metrics in Azure Business Continuity Center
 description: In this tutorial, learn how to monitor alerts and configure notifications for your business continuity estate using Azure Business Continuity center.
 ms.topic: tutorial
 ms.date: 12/11/2023
