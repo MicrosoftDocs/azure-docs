@@ -48,7 +48,7 @@ __Authorization for control plane operations__
 
 For control plane operations, your identity of choice needs to have a proper Azure role-based access control (Azure RBAC) allowed for access to your resources. Specifically, for CRUD operations on online endpoints and deployments, you need the identity to have the role assigned with the following actions:
 
-[!div class="mx-tdCol2BreakAll"]
+[!div class="mx-tdBreakAll"]
 | Operation | Required Azure RBAC action | On the scope of |
 | -- | -- | -- |
 | Create/update operations on online endpoints and deployments | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/write` | workspace |
@@ -95,14 +95,12 @@ __Authorization for data plane operations__
 
 For data plane operations, your identity of choice needs to have a proper Azure role-based access control (Azure RBAC) allowed for access to your resources, only if the endpoint is set to use Microsoft Entra token (`aad_token`). Specifically, for data plane operations on online endpoints and deployments, you need the identity to have the role assigned with the following actions:
 
-[!div class="mx-tdCol2BreakAll"]
+[!div class="mx-tdBreakAll"]
 | Operation | Required Azure RBAC action | On the scope of |
 | -- | -- | -- |
+| Invoke online endpoints with key or Azure Machine Learning token (`aml_token`). | - | - |
 | Invoke _managed_ online endpoints with Microsoft Entra token (`aad_token`). | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action` | endpoint |
-| Invoke _managed_ online endpoints with key or Azure Machine Learning token (`aml_token`). | - | - |
 | Invoke _Kubernetes_ online endpoints with Microsoft Entra token (`aad_token`). | Not supported | - |
-| Invoke _Kubernetes_ online endpoints with key. | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`, `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action`, `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listKeys/action` | endpoint |
-| Invoke _Kubernetes_ online endpoints with Azure Machine Learning token (`aml_token`). | Owner, contributor, or any role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action` or `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` | endpoint |
 
 
 ## Permissions needed for endpoint identity
