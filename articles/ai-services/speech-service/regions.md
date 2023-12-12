@@ -32,7 +32,7 @@ The following regions are supported for Speech service features such as speech t
 | ----- | ----- | ----- |
 | Africa | South Africa North | `southafricanorth` <sup>6</sup>|
 | Asia Pacific | East Asia | `eastasia` <sup>5</sup>|
-| Asia Pacific | Southeast Asia | `southeastasia` <sup>1,2,3,4,5,7</sup>|
+| Asia Pacific | Southeast Asia | `southeastasia` <sup>1,2,3,4,5,7,9</sup>|
 | Asia Pacific | Australia East | `australiaeast` <sup>1,2,3,4,7</sup>|
 | Asia Pacific | Central India | `centralindia` <sup>1,2,3,4,5</sup>|
 | Asia Pacific | Japan East | `japaneast` <sup>2,5</sup>|
@@ -40,7 +40,7 @@ The following regions are supported for Speech service features such as speech t
 | Asia Pacific | Korea Central | `koreacentral` <sup>2</sup>|
 | Canada | Canada Central | `canadacentral` <sup>1</sup>|
 | Europe | North Europe | `northeurope` <sup>1,2,4,5,7</sup>|
-| Europe | West Europe | `westeurope` <sup>1,2,3,4,5,7</sup>|
+| Europe | West Europe | `westeurope` <sup>1,2,3,4,5,7,9</sup>|
 | Europe | France Central | `francecentral` |
 | Europe | Germany West Central | `germanywestcentral` |
 | Europe | Norway East | `norwayeast` |
@@ -51,7 +51,7 @@ The following regions are supported for Speech service features such as speech t
 | Middle East | UAE North | `uaenorth` <sup>6</sup>|
 | South America | Brazil South | `brazilsouth` <sup>6</sup>|
 | US | Central US | `centralus` |
-| US | East US | `eastus` <sup>1,2,3,4,5,7</sup>|
+| US | East US | `eastus` <sup>1,2,3,4,5,7,9</sup>|
 | US | East US 2 | `eastus2` <sup>1,2,4,5</sup>|
 | US | North Central US | `northcentralus` <sup>4,6</sup>|
 | US | South Central US | `southcentralus` <sup>1,2,3,4,5,6,7</sup>|
@@ -75,6 +75,8 @@ The following regions are supported for Speech service features such as speech t
 <sup>7</sup> The region supports the [high performance](how-to-deploy-and-use-endpoint.md#add-a-deployment-endpoint) endpoint type for Custom Neural Voice.
 
 <sup>8</sup> The region doesn't support Custom Neural Voice.
+
+<sup>9</sup> The region supports personal voice.
 
 ## Intent recognition
 
