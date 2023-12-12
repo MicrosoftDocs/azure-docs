@@ -113,11 +113,11 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 ### Support for automatic VM Guest patching
 
 - For marketplace images, see the list of [supported OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images).
-- For VMs created from customized images even if the Patch orchestration mode is set to `Azure Orchestrated/AutomaticByPlatform` automatic VM guest patching doesn't work. We recommend that you use scheduled patching to patch the machines by defining your own schedules or install updates on-demand.
+- For VMs created from customized images even if the Patch orchestration mode is set to `Azure Orchestrated/AutomaticByPlatform`, automatic VM guest patching doesn't work. We recommend that you use scheduled patching to patch the machines by defining your own schedules or install updates on-demand.
 
 ### Support for all other Azure Update Manager operations
 
-The support for all Azure Update Manager operations like periodic assessment, scheduled patching, on-demand assessment and patching is described in the sections below.
+The support for all Azure Update Manager operations like periodic assessment, scheduled patching, on-demand assessment, and patching is described in the sections below.
 
 # [Azure VMs](#tab/azurevm-os)
 
@@ -160,7 +160,7 @@ Update Manager supports the following operating system versions on VMs for all o
 
 #### Unsupported operating system images
 
-The following table lists the images that VMs are created from which aren't supported.
+The following table lists the images (from which the VMs are created) that aren't supported:
 
 | **Publisher**| **OS offer** | **SKU**|
 |----------|-------------|-----|
@@ -179,7 +179,7 @@ The following table lists the images that VMs are created from which aren't supp
 
 ### Custom images
 
-We support VMs created from customized images and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
+We support VMs created from customized images, and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
 
    |**Windows operating system**|
    |---|
