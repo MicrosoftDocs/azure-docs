@@ -21,11 +21,15 @@ sections:
       - question: |
           What resources can I use this feature on?
         answer: |
-          The feature is only supported for SQL and API for MongoDB accounts and on collections with dedicated throughput (either manual or autoscale). Shared throughput databases aren't supported in the preview. The feature doesn't apply to serverless accounts.
+          The feature is only supported for SQL and API for MongoDB accounts. It is supported for shared throughput databases and containers/collections with dedicated throughput (either manual or autoscale). The feature doesn't apply to serverless accounts.
       - question: |
-          Which version of the Azure Cosmos DB functionality in Azure PowerShell supports this feature?
+          How do I enroll in the preview feature?
         answer: |
-          The ability to redistribute RU/s across physical partitions is only supported in the latest preview version of Azure PowerShell.
+          You don't have to enroll in the preview. To use the feature, just use the relevant commands in the Azure PowerShell or Azure CLI to redistribute throughput across your resources' physical partitions.
+      - question: |
+          Which version of the Azure Cosmos DB functionality in Azure PowerShell and Azure CLI supports this feature?
+        answer: |
+          The ability to redistribute RU/s across physical partitions is only supported in the latest preview version of Azure PowerShell and latest preview version of the Azure CLI.
       - question: |
           What is the maximum number of physical partitions I can change in one request?
         answer: |
