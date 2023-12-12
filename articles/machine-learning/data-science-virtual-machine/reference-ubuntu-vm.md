@@ -208,8 +208,6 @@ cd xgboostdemo
 xgboost mushroom.conf
 ```
 
-A .model file is written to the specified directory. You can find information about this demo example [on GitHub](https://github.com/dmlc/xgboost/tree/master/demo/cli/binary_classification).
-
 For more information about xgboost, see the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/) and its [GitHub repository](https://github.com/dmlc/xgboost).
 
 ### Rattle

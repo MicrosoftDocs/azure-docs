@@ -22,7 +22,7 @@ The encryption key used for encrypting backups might be different from the one u
 
 ### Supported regions
 
-CMK for Backup vault is currently available in the following regions: West Central US, Switzerland North. 
+CMK for Backup vault is currently available in the following regions: West Central US, Switzerland North, Australia East, North Europe, South Central US. 
 
 ### Key Vault and managed HSM key requirements
 

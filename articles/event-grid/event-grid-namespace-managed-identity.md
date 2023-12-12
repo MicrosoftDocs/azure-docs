@@ -3,8 +3,8 @@ title: Managed identity for Event Grid namespace
 description: Describes how to enable managed identity for an Event Grid namespace
 ms.topic: how-to
 ms.date: 8/14/2023
-author: veyaddan
-ms.author: veyaddan
+author: george-guirguis
+ms.author: geguirgu
 ---
 
 # Enabling managed identity for Event Grid namespace

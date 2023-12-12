@@ -2,7 +2,7 @@
 title:  Limited access to Microsoft Copilot for Azure (preview)
 description: This article describes the limited access policy for Microsoft Copilot for Azure (preview).
 ms.date: 11/15/2023
-ms.topic: how-to
+ms.topic: conceptual
 ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023

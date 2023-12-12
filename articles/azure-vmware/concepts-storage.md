@@ -2,9 +2,9 @@
 title: Concepts - Storage
 description: Learn about storage capacity, storage policies, fault tolerance, and storage integration in Azure VMware Solution private clouds.
 ms.topic: conceptual
-ms.custom: contperf-fy21q4
+ms.custom: contperf-fy21q4, engagement-fy23
 ms.service: azure-vmware
-ms.date: 6/6/2023
+ms.date: 12/05/2023
 ---
 
 # Azure VMware Solution storage concepts
@@ -29,7 +29,7 @@ Local storage in cluster hosts is used in the cluster-wide vSAN datastore. All d
 
 ## Storage policies and fault tolerance
 
-The default storage policy is set to **RAID-1 FTT-1**, with Object Space Reservation set to Thin provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. This is the policy that will be applied to the workload VMs. To set a different storage policy, see [Configure storage policy](configure-storage-policy.md).
+The default storage policy is set to **RAID-1 FTT-1**, with Object Space Reservation set to Thin provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. The default storage policy is the one that will be applied to the workload VMs. To set a different storage policy, see [Configure storage policy](configure-storage-policy.md).
 
 In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an operations perspective.
 

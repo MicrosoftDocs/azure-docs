@@ -90,7 +90,7 @@ $messages += @{
 }
 $messages += @{
   role     = 'user'
-  content  = 'Who through the final pitch during the world series each year from 1979 to 1989?'
+  content  = 'Who threw the final pitch during the world series each year from 1979 to 1989?'
 }
 $messages += @{
   role     = 'user'
