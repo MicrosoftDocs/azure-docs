@@ -1,6 +1,6 @@
 ---
-title: About Azure Storage Tasks
-titleSuffix: Azure Storage Tasks
+title: About Azure Storage Actions
+titleSuffix: Azure Storage Actions
 description: Learn how to perform operations on blobs in Azure Storage accounts based on a set of conditions that you define. 
 services: storage
 author: normesta
@@ -13,7 +13,7 @@ ms.author: normesta
 
 ---
 
-# What is Azure Storage Tasks?
+# What is Azure Storage Actions?
 
 Azure Storage Tasks can perform operations on blobs in Azure Storage accounts based on a set of conditions that you define. Azure Storage Tasks can process millions of objects in a storage account without provisioning additional compute capacity and without requiring you to write code.
 

@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
-title: Azure Storage Task documentation
+title: Azure Storage Actions documentation
 summary: Azure Storage Tasks can perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
 brand: azure
 
 metadata:
-  title: Azure Storage Tasks documentation
+  title: Azure Storage Actions documentation
   description: Azure Storage Tasks documentation hub page. Points to service documentation for using the Azure Storage Tasks perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
   ms.service: azure-storage-actions
   ms.topic: hub-page
@@ -18,13 +18,13 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
     # Card
-    - title: What is Azure Storage Tasks?
+    - title: What is Azure Storage Actions?
       itemType: concept
       url: overview.md
     - title: 'Quickstart: Create, assign, and run a storage task'
       itemType: quickstart
       url: storage-tasks/storage-task-quickstart-portal.md
-    - title: Known issues and limitations with Azure Storage Tasks
+    - title: Known issues and limitations with storage tasks
       itemType: concept
       url: storage-tasks/storage-task-known-issues.md
 
@@ -34,12 +34,12 @@ highlightedContent:
 additionalContent:
   # Supports up to 3 sections
   sections:
-    - title: Get started with Azure Storage Tasks
+    - title: Get started with storage tasks
       items:
         # Card
         - title: Create
           links:
-          - url: storage-task-create.md
+          - url: storage-tasks/storage-task-create.md
             text: Create a storage task
           - url: storage-tasks/storage-task-quickstart-portal.md
             text: 'Quickstart: Create, assign, and run a storage task'
@@ -60,9 +60,9 @@ additionalContent:
         # Card
         - title: Monitor
           links:
-          - url: storage-tasks/ storage-task-runs.md
+          - url: storage-tasks/storage-task-runs.md
             text: Storage task runs
           - url: storage-tasks/monitor-storage-tasks.md
-            text: Monitor Azure Storage Tasks
+            text: Monitor Azure Storage Actions
 
     

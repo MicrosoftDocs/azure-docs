@@ -12,12 +12,12 @@ ms.date: 05/10/2023
 
 # Create a storage task
 
-A storage task can perform operations on blobs in an Azure Storage account. As you create a task, you can define the conditions that must be met by each object (container or blob), and the operations to perform on the object. You can also identify one or more Azure Storage account targets. See [What are Azure Storage Tasks?](overview.md).
+A storage task can perform operations on blobs in an Azure Storage account. As you create a task, you can define the conditions that must be met by each object (container or blob), and the operations to perform on the object. You can also identify one or more Azure Storage account targets. See [What are Azure Storage Tasks?](../overview.md).
 
 In this how-to article, you'll learn how to create a storage task.
 
 > [!IMPORTANT]
-> Azure Storage Tasks is currently in PREVIEW and is available these [regions](overview.md#supported-regions).
+> Azure Storage Tasks is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Create a task
@@ -39,9 +39,9 @@ On the **Basics** tab, provide the essential information for your storage task. 
 | Section | Field | Required or optional | Description |
 |--|--|--|--|
 | Project details | Subscription | Required | Select the subscription for the new storage task. |
-| Project details | Resource group | Required | Create a new resource group for this storage task, or select an existing one. For more information, see [Resource groups](../azure-resource-manager/management/overview.md#resource-groups). |
+| Project details | Resource group | Required | Create a new resource group for this storage task, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/../overview.md#resource-groups). |
 | Instance details | Storage task name | Required | Choose a unique name for your storage task. storage task names must be between 3 and 18 characters in length and may contain only lowercase letters and numbers. |
-| Instance details | Region | Required | Select the appropriate region for your storage task. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). |
+| Instance details | Region | Required | Select the appropriate region for your storage task. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md). |
 
 The following image shows an example of the **Basics** tab.
 
@@ -120,6 +120,6 @@ The following image shows the **Review** tab data prior to the creation of a new
 
 ## See also
 
-- [Azure Storage Tasks Overview](overview.md)
+- [Azure Storage Tasks Overview](../overview.md)
 - [Create, assign, and run a storage task](storage-task-quickstart-portal.md)
 - [Define conditions and operations](storage-task-conditions-operations-edit.md)

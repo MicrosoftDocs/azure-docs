@@ -1,15 +1,15 @@
 items:
-- name: Azure Storage Tasks documentation
+- name: Azure Storage Actions documentation
   href: ./index.yml
 - name: Overview
   items:
-  - name: What is Azure Storage Tasks?
+  - name: What is Azure Storage Actions?
     href: overview.md
   expanded: true
 - name: Quickstarts
   items:
   - name: Create, assign, and run a storage task
-    href: storage-task-quickstart-portal.md
+    href: storage-tasks/storage-task-quickstart-portal.md
   expanded: true
 - name: Concepts
   items: 

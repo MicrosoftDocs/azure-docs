@@ -16,18 +16,18 @@ ms.author: normesta
 In this quickstart, you learn how to use the [Azure portal](https://portal.azure.com/) to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. 
 
 > [!IMPORTANT]
-> Azure Storage Tasks is currently in PREVIEW and is available these [regions](overview.md#supported-regions).
+> Azure Storage Tasks is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
 - An Azure subscription. See [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure storage account. See [create a storage account](../storage/common/storage-account-create.md).
+- An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md).
 
 - A blob container that has a metadata key named `Classification` which is set to the string "Confidential". 
 
-  Make sure to enable version-level immutability support on that container. See [Enable version-level immutability support on a container](../storage/blobs/immutable-policy-configure-version-scope.md#enable-version-level-immutability-support-on-a-container).
+  Make sure to enable version-level immutability support on that container. See [Enable version-level immutability support on a container](../../storage/blobs/immutable-policy-configure-version-scope.md#enable-version-level-immutability-support-on-a-container).
 
 - One or more Microsoft Word documents stored to the blob container.
 
