@@ -11,15 +11,16 @@ ms.date: 08/15/2023
 
 This article is an introduction to developing Azure Functions by using C# script (*.csx*).
 
+> [!IMPORTANT]
+> C# script is supported primarily to provide a convenient in-portal experience to help you quickly get started creating and running C# functions. For production-quality apps, you should instead develop your C# functions locally as a compiled C# class library project. To learn how to migrate a C# script project to a C# class library (isolated worker) project, see [Convert a C# script app to a C# project](#convert-a-c-script-app-to-a-c-project).
+
 Azure Functions lets you develop functions using C# in one of the following ways:
 
 | Type | Execution process | Code extension | Development environment | Reference |
 | --- | ---- | --- | --- | --- | 
 | C# script | in-process | .csx | [Portal](functions-create-function-app-portal.md)<br/>[Core Tools](functions-run-local.md) | This article | 
-| C# class library | in-process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md)| [In-process C# class library functions](functions-dotnet-class-library.md) |
-| C# class library (isolated worker process)| in an isolated worker process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md) | [.NET isolated worker process functions](dotnet-isolated-process-guide.md) | 
-
-This article assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
+| C# class library (isolated worker) | isolated worker process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md) | [.NET isolated worker process functions](dotnet-isolated-process-guide.md) | 
+| C# class library (in-process) | in-process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md)| [In-process C# class library functions](functions-dotnet-class-library.md) |  
 
 ## How .csx works
 
