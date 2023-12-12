@@ -613,7 +613,7 @@ Set up other custom applications on your compute instance by providing the appli
 
 1. Follow the previous steps to **Add application** when creating your compute instance.
 1. Select **Custom Application** on the **Application** dropdown.
-1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application.
+1. Configure the **Application name**, the **Target port** you wish to run the application on, the **Published port** you wish to access the application on and the **Docker image** that contains your application. If your custom image is stored in an Azure Container Registry, assign the **Contributor** role for users of the application. For information on assigning roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 1. Optionally, add **Environment variables**  you wish to use for your application.
 1. Use **Bind mounts** to add access to the files in your default storage account:
    * Specify **/home/azureuser/cloudfiles** for **Host path**.
@@ -635,7 +635,7 @@ Access the custom applications that you set up in studio:
 :::image type="content" source="media/how-to-create-compute-instance/custom-service-access.png" alt-text="Screenshot shows studio access for your custom applications.":::
 > [!NOTE]
 > It might take a few minutes after setting up a custom application until you can access it via the links. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
-> If your custom image is stored in an Azure Container Registry, you also need to assign the **Contributor** role to users of the application. For information on assigning roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+> If the custom image is pulled from an Azure Container Registry, you'll need a **Contributor** role for the workspace. For information on assigning roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 ## Next steps
 
