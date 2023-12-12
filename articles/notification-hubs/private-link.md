@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs Private Link
+title: Azure Notification Hubs Private Link (preview)
 description: Learn how to use the Private Link feature in Azure Notification Hubs. 
 author: sethmanheim
 ms.author: sethm
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 12/12/2023
 ---
 
-# Use Private Link
+# Use Private Link (preview)
 
 This article describes how to use *Private Link* to restrict access to managing resources in your subscriptions. Private links enable you to access Azure services over a private endpoint in your virtual network. This prevents exposure of the service to the public internet.
 
