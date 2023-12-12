@@ -125,7 +125,8 @@ To view the status of your node OS auto upgrades, look up [activity logs][monito
 
 On the `Unmanaged` channel, AKS has no control over how and when the security updates are delivered. With `SecurityPatch`, the security updates are fully tested and follows safe deployment practices. `SecurityPatch` also honors maintenance windows. For more details, see [Increased security and resiliency of Canonical workloads on Azure][Blog].
 
- * How do i know if a `SecurityPatch` or `nodeimage` is applied on my node ?
+ * How do I know if a `SecurityPatch` or `NodeImage` upgrade is applied on my node?
+ 
  Run the following command
  ```azurecli-interactive
 kubectl get nodes --show-labels
