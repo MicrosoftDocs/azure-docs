@@ -9,7 +9,8 @@ ms.reviewer: osalzberg
 ---
 
 # Query data in Azure Data Explorer and Azure Resource Graph from Azure Monitor
-Azure Monitor lets you query data in [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) and [Azure Resource Graph](../../governance/resource-graph/overview.md) from your Log Analytics workspace and Application Insights resources. This article explains how to query data in Azure Resource Graph and Azure Data Explorer from Azure Monitor.
+
+You can correlated data from [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) and [Azure Resource Graph](../../governance/resource-graph/overview.md) with data in your Log Analytics workspace and Application Insights resources by using the `adx()` and `arg()` expressions. This article explains how to query data in Azure Resource Graph and Azure Data Explorer from Azure Monitor Logs.
 
 You can run cross-service queries by using any client tools that support Kusto Query Language (KQL) queries, including the Log Analytics web UI, workbooks, PowerShell, and the REST API.
 
@@ -31,7 +32,7 @@ The following commands are supported with the cross-service query:
 * `.show function {FunctionName}`
 * `.show database {DatabaseName} schema as json`
 
-## Query data in Azure Data Explorer
+## Query data in Azure Data Explorer by using adx()
 
 Enter the identifier for an Azure Data Explorer cluster in a query within the `adx` pattern, followed by the database name and table.
 
@@ -81,7 +82,7 @@ Kusto Explorer automatically signs you in to the tenant to which the user accoun
 
 `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=TenantId`
 
-## Query data in Azure Resource Graph (Preview)
+## Query data in Azure Resource Graph by using arg() (Preview)
 
 Enter the `arg("")` pattern, followed by the Azure Resource Graph table name.
 
