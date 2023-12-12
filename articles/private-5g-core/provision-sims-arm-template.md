@@ -142,7 +142,7 @@ The following Azure resources are defined in the template.
     - **Existing Mobile Network Name:** enter the name of the Mobile Network resource representing your private mobile network.
     - **Existing Sim Policy Name:** enter the name of the SIM policy you want to assign to the SIMs.
     - **Sim Group Name:** enter the name for the new SIM group.
-    - **Sim Resources:** paste in one of the JSON arrays you prepared in [Prepare one or more arrays for your SIMs](#prepare-one-or-more-arrays-for-your-sims).
+    - **Sim Resources:** paste in one of the JSON arrays you prepared in [Prepare one or more JSON arrays for your SIMs](#prepare-one-or-more-json-arrays-for-your-sims).
 
     :::image type="content" source="media/provision-sims-arm-template/sims-arm-template-configuration-fields.png" alt-text="Screenshot of the Azure portal showing the configuration fields for the SIMs ARM template.":::
 
