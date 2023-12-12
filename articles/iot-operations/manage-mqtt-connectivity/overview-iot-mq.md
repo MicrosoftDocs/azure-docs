@@ -24,7 +24,7 @@ IoT MQ features a standards-compliant MQTT Broker that supports both MQTT v3.1.1
 
 Message Queue Telemetry Transport (MQTT) has emerged as the *lingua franca* among protocols in the IoT space. MQTT's simple design allows a single broker to serve tens of thousands of clients simultaneously, with a lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways.
 
-IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer.
+IoT MQ uses the [MQTT](https://mqtt.org/) protocol as the underpinning for the messaging layer. For more information about supported MQTT features, see [MQTT feature support in Azure IoT MQ](../reference/mqtt-support.md).
 
 ## Highly available and scalable
 
