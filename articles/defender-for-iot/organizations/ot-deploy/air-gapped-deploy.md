@@ -83,9 +83,9 @@ If you're an existing customer using an on-premises management console to manage
 1. After your transition is complete, decommission the on-premises management console.
 
 
-### Deprecation timeline
+### Retirement timeline
 
-The on-premises management console deprecation includes the following details:
+The on-premises management console retirement includes the following details:
 
 - Sensor versions released after **January 1, 2025** won't be able to be managed by an on-premises management console.
 - Sensor software versions released between **January 1st, 2024 – January 1st, 2025** will continue to support an on-premises management console release.
