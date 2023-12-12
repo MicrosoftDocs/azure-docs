@@ -22,7 +22,7 @@ Azure Operator Insights doesn't provide metrics in Azure Monitor.
 
 ## Resource logs
 
-This section lists the types of resource logs you can collect for Azure Operator Insights.   
+This section lists the types of resource logs you can collect for Azure Operator Insights.
 
 |Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual logs |
 |-------|-----|
@@ -50,27 +50,7 @@ This section lists all of the Azure Monitor Logs Kusto tables relevant to Azure 
 
 ### Diagnostics tables
 
-> [!WARNING]
-> INTERNAL INSTRUCTIONS: remove this note before publishing
-> REQUIRED. Please keep heading in this order
-> 
-> If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
-
-Azure Operator Insights uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
-
-**Azure Diagnostics**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
-
-**[TODO Service-specific table]**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
+Azure Operator Insights uses the tables listed in [Azure Monitor Logs tables](#azure-monitor-logs-tables) to store resource log information. It does not store resource log information in the Azure Diagnostics table.
 
 ## Activity log
 
