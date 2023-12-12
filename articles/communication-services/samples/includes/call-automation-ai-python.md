@@ -22,15 +22,14 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/)
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/).
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource **connection string** for this sample.
 - A Calling-enabled telephone number. [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
-- Azure Dev Tunnels CLI. For details, see  [Enable dev tunnel](https://docs.tunnels.api.visualstudio.com/cli)
-- Create an Azure AI Multi service resource. For details, see [Create an Azure AI services Resource](/azure/ai-services/multi-service-resource)
+- Azure Dev Tunnels CLI. For details, see  [Enable dev tunnel](https://docs.tunnels.api.visualstudio.com/cli).
+- Create an Azure AI Multi service resource. For details, see [Create an Azure AI services Resource](/azure/ai-services/multi-service-resource).
 - An Azure OpenAI Resource and Deployed Model. See [instructions](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
-- Create and host an Azure Dev Tunnel. Instructions [here](/azure/ai-services/multi-service-resource)
-- [Python](https://www.python.org/downloads/) 3.7 or above.
-
+- Create and host an Azure Dev Tunnel. Instructions [here](/azure/ai-services/multi-service-resource).
+- [Python](https://www.python.org/downloads/) 3.7 or above (please be aware that currently version 3.12 does not have support for OpenAI libraries).
 
 ## Setup instructions
 
