@@ -24,14 +24,14 @@ Use this article to get started making your first calls to Azure OpenAI.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../../ai-services/openai/how-to/create-resource.md).
+- An [Azure AI resource](../how-to/create-azure-ai-resource.md) with a model deployed. For more information about model deployment, see the [resource deployment guide](../../ai-services/openai/how-to/create-resource.md).
 
 
 ### Try text completions
 
 To use the Azure OpenAI for text completions in the playground, follow these steps:
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com) with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. You should be on the Azure AI Studio **Home** page.
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. From the Azure AI Studio Home page, select **Build** > **Playground**.
 1. Select your deployment from the **Deployments** dropdown. 
 1. Select **Completions** from the **Mode** dropdown menu.

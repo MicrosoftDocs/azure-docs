@@ -21,15 +21,14 @@ To test Microsoft Teams Direct Routing with Azure Communications Gateway, you ne
 
 You must have at least one number that you can allocate to your test tenant.
 
-You must have completed the following procedures.
+You must complete the following procedures.
 
 - [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md)
 - [Deploy Azure Communications Gateway](deploy.md)
 - [Connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md)
 - [Configure a test customer for Microsoft Teams Direct Routing](configure-test-customer-teams-direct-routing.md)
 
-Your organization must have integrated with Azure Communications Gateway's Provisioning API. Someone in your organization must be able to make requests using the Provisioning API during this procedure.
-
+Your organization must [integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md). Someone in your organization must be able to make requests using the Provisioning API during this procedure.
 You must be able to sign in to the Microsoft 365 admin center for your test customer tenant as a Global Administrator.
 
 ## Configure the test numbers on Azure Communications Gateway with the Provisioning API

@@ -142,7 +142,7 @@ Azure Cosmos DB for MongoDB supports the following aggregation commands.
 | `currentOp`         | No        |
 | `facet`             | Yes       |
 | `geoNear`           | Yes       |
-| `graphLookup`       | Yes       |
+| `graphLookup`       | No        |
 | `group`             | Yes       |
 | `indexStats`        | No        |
 | `limit`             | Yes       |
