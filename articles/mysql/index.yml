@@ -32,7 +32,7 @@ landingContent:
             url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
 
 # Card 2
-  - title: Azure Database for MySQL - Flexible Server
+  - title: Azure Database for MySQL - Flexible Server deployment model
     linkLists:
       - linkListType: overview
         links:
