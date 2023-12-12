@@ -11,12 +11,7 @@ ms.date: 12/15/2023
 ---
 
 <!-- VERSION 2.3 2022_05_17
-Template for the main monitoring article for Azure services. 
-Keep the required sections and add/modify any content for any information specific to your service. 
-This article should be in your TOC with the name *monitor-Azure Operator Insights.md* and the TOC title "Monitor Azure Operator Insights". 
-Put accompanying reference information into an article in the Reference section of your TOC with the name *monitor-Azure Operator Insights-reference.md* and the TOC title "Monitoring data". 
-Keep the headings in this order. 
--->
+Template for the main monitoring article for Azure services. -->
 
 # Monitoring Azure Operator Insights
 
@@ -60,10 +55,6 @@ The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of pl
 For a list of the types of resource logs collected for Azure Operator Insights, see [Monitoring Azure Operator Insights data reference: Resource logs](monitor-operator-insights-data-reference.md#resource-logs).
 
 For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Operator Insights data reference: Azure Monitor Logs tables](monitor-operator-insights-data-reference.md#azure-monitor-logs-tables).
-
-> [!WARNING]
-> INTERNAL INSTRUCTIONS: remove this note before publishing
-> Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in.
 
 ### Sample Kusto queries
 

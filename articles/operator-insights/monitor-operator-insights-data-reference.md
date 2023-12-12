@@ -50,11 +50,11 @@ This section lists all of the Azure Monitor Logs Kusto tables relevant to Azure 
 
 ### Diagnostics tables
 
-Azure Operator Insights uses the tables listed in [Azure Monitor Logs tables](#azure-monitor-logs-tables) to store resource log information. It does not store resource log information in the Azure Diagnostics table.
+Azure Operator Insights uses the tables listed in [Azure Monitor Logs tables](#azure-monitor-logs-tables) to store resource log information. It doesn't store resource log information in the Azure Diagnostics table.
 
 ## Activity log
 
-The following table lists the operations that Azure Operator Insights may record in the Activity log. This is a subset of the possible entries your might find in the activity log.
+The following table lists the operations that Azure Operator Insights might record in the Activity log. This table is a subset of the possible entries you might find in the activity log.
 
 | Namespace | Description |
 |:---|:---|
@@ -77,5 +77,5 @@ Azure Operator Insights uses multiple schemas for logs.
 
 ## See Also
 
-- See [Monitoring Azure Operator Insights](monitor-operator-insights.md) for a description of monitoring Azure Azure Operator Insights.
+- See [Monitoring Azure Operator Insights](monitor-operator-insights.md) for a description of monitoring Azure Operator Insights.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
