@@ -4,7 +4,7 @@ description: Learn about the concepts of in-place major version upgrade with Azu
 author: kabharati
 ms.author: kabharati
 ms.reviewer: rajsell
-ms.date: 02/08/2023
+ms.date: 12/12/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: references_regions
@@ -15,7 +15,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-Azure Database for PostgreSQL Flexible Server supports PostgreSQL versions 11, 12, 13, 14 and 15. Postgres community releases a new major version containing new features about once a year. Additionally, major version receives periodic bug fixes in the form of minor releases. Minor version upgrades include changes that are backward-compatible with existing applications. Azure Database for PostgreSQL Flexible Server periodically updates the minor versions during customer’s maintenance window. Major version upgrades are more complicated than minor version upgrades as they can include internal changes and new features that may not be backward-compatible with existing applications. 
+Azure Database for PostgreSQL Flexible Server supports PostgreSQL versions 11, 12, 13, 14, 15 and 16. Postgres community releases a new major version containing new features about once a year. Additionally, major version receives periodic bug fixes in the form of minor releases. Minor version upgrades include changes that are backward-compatible with existing applications. Azure Database for PostgreSQL Flexible Server periodically updates the minor versions during customer’s maintenance window. Major version upgrades are more complicated than minor version upgrades, as they can include internal changes and new features that may not be backward-compatible with existing applications. 
 
 ## Overview 
 
@@ -30,7 +30,7 @@ Here are some of the important considerations with in-place major version upgrad
 
 - If the pre-check is successful, then Flexible Server stops the service and takes an implicit backup just before starting the upgrade. This backup can be used to restore the database instance to its previous version if there's an upgrade error. 
 
-- Flexible Server uses  **pg_upgrade** utility to perform in-place major version upgrades and  provides the flexibility to skip versions and upgrade directly to higher versions. 
+- Flexible Server uses  [**pg_upgrade**](https://www.postgresql.org/docs/current/pgupgrade.html) utility to perform in-place major version upgrades and provides the flexibility to skip versions and upgrade directly to higher versions. 
 
 -	During an in-place major version upgrade of a High Availability (HA) enabled server, the service disables HA, performs the upgrade on the primary server, and then re-enables HA after the upgrade is complete. 
 
@@ -38,17 +38,17 @@ Here are some of the important considerations with in-place major version upgrad
 
 -	In-place major version upgrade process for Flexible Server automatically deploys the latest supported minor version. 
 
--	The process of performing an in-place major version upgrade is an offline operation that results in a brief period of downtime. Typically, the downtime is under 15 minutes, although the duration may vary depending on the number of system tables involved
+-	The process of performing an in-place major version upgrade is an offline operation that results in a brief period of downtime. Typically, the downtime is under 15 minutes, although the duration may vary depending on the number of system tables involved.
 
 -	Long-running transactions or high workload before the upgrade might increase the time taken to shut down the database and increase upgrade time. 
 
--	If an in-place major version upgrade fails, the service restores the server to its previous state using a backup taken as part of step 2.
+-	If an in-place major version upgrade fails, the service restores the server to its previous state using a backup taken as part of second step described in this list.
 
 -	Once the in-place major version upgrade is successful, there are no automated ways to revert to the earlier version. However, you can perform a Point-In-Time Recovery (PITR) to a time prior to the upgrade to restore the previous version of the database instance.
 
 ## Limitations  
 
-If in-place major version upgrade pre-check operations fail then it aborts with a detailed error message for all the below limitations.
+If in-place major version upgrade pre-check operations fail, then the upgrade aborts with a detailed error message for all the below limitations.
 
 - In-place major version upgrade currently doesn't support read replicas, so if you have a read replica enabled server, you need to delete the replica before performing the upgrade on the primary server. After the upgrade, you can recreate the replica. 
 
@@ -61,11 +61,11 @@ If in-place major version upgrade pre-check operations fail then it aborts with 
 
 ## How to perform in-place major version upgrade: 
 
-It's recommended to perform a dry run of the in-place major version upgrade in a non-production environment before upgrading the production server. It allows you to identify any application incompatibilities and validate that the upgrade completes successfully before upgrading the production environment. You can perform a Point-In-Time Recovery (PITR) of your production server and test the upgrade in the non-production environment. Addressing these issues before the production upgrade minimizes downtime and ensures a smooth upgrade process. 
+It's recommended to perform a dry run of the in-place major version upgrade in a non-production environment before upgrading the production server. It allows you to identify any application incompatibilities and validate that the upgrade completes successfully before upgrading the production environment. You can perform a Point-In-Time Recovery (PITR) of your production server, and restore it in the non-production environment to test the upgrade there. Addressing these issues before the production upgrade minimizes downtime and ensures a smooth upgrade process. 
 
 **Steps**
 
-1. You can perform in-place major version upgrade using Azure portal or CLI (command-line interface).  Click the **Upgrade** button in Overview blade.
+1. You can perform in-place major version upgrade using Azure Portal or CLI (command-line interface).  Click the **Upgrade** button in Overview blade.
 
    :::image type="content" source="media/concepts-major-version-upgrade/upgrade-tab.png" alt-text="Diagram of Upgrade tab to perform in-place major version upgrade.":::
 
@@ -77,18 +77,18 @@ It's recommended to perform a dry run of the in-place major version upgrade in a
 
    :::image type="content" source="media/concepts-major-version-upgrade/deployment-progress.png" alt-text="Diagram of deployment progress for major version upgrade.":::
 
-4. Once the upgrade is successful,you can expand the **Deployment details** tab and click **Operation details**  to see more information about upgrade process like duration, provisioning state etc. 
+4. Once the upgrade is successful, you can expand the **Deployment details** tab and click **Operation details**  to see more information about upgrade process like duration, provisioning state etc. 
 
    :::image type="content" source="media/concepts-major-version-upgrade/deployment-success.png" alt-text="Diagram of successful deployment of for major version upgrade.":::
 
-5. You can click on the **Go to resource** tab to validate your upgrade. You notice that server name remained unchanged and PostgreSQL version upgraded to desired higher version with the latest minor version. 
+5. You can click on the **Go to resource** tab to validate your upgrade. Notice that server name remained unchanged and PostgreSQL version upgraded to desired higher version with the latest minor version. 
 
    :::image type="content" source="media/concepts-major-version-upgrade/upgrade-verification.png" alt-text="Diagram of Upgraded version to Flexible Server after major version upgrade.":::
 
 
 ## Post upgrade
 
-Run the **ANALYZE** operation to refresh the `pg_statistic` table. You should do this for every database on all your Flexible Server. Optimizer statistics aren't transferred during a major version upgrade, so you need to regenerate all statistics to avoid performance issues. Run the command without any parameters to generate statistics for all regular tables in the current database, as follows:
+Run the **ANALYZE** operation to refresh the `pg_statistic` table. You should do this for every database on your Flexible Server. Optimizer statistics aren't transferred during a major version upgrade, so you need to regenerate all statistics to avoid performance issues. Run the command without any parameters to generate statistics for all regular tables in the current database, as follows:
 
 
 ```
