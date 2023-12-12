@@ -15,7 +15,7 @@ ms.author: pafarley
 |---|---|---|
 |Features | Custom product understanding |Image stitching & rectification,</br>Pretrained product understanding,</br>Custom product understanding,</br>Planogram matching |  
 |Base model |CNN |Florence transformer model|
-|Labeling |[Customvision.ai](https://www.customvision.ai/) |AML Studio or COCO file |
+|Labeling |[Customvision.ai](https://www.customvision.ai/) |AML Studio |
 |Web Portal |[Customvision.ai](https://www.customvision.ai/) |[Vision Studio](https://portal.vision.cognitive.azure.com/gallery/featured) |
 |Libraries |REST, SDK |REST, Python Sample |
 |Minimum training data needed |15 images per category |2-5 images per category| 
