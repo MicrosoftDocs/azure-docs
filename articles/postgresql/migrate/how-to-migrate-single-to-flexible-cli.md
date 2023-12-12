@@ -42,7 +42,7 @@ To complete this tutorial, you need to:
 > [!IMPORTANT]
 > To provide the best migration experience, performing migration using a burstable instance of Flexible server is not supported. Please use a general purpose or a memory optimized instance (4 VCore or higher) as your Target Flexible server to perform the migration. Once the migration is complete, you can downscale back to a burstable instance if necessary.
 
-4. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./concepts-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
+4. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./best-practices-seamless-migration-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
 
 
 ## Getting started
@@ -316,4 +316,4 @@ The command gives you the following output:
 
 ## Migration best practices
 
-- For a successful end-to-end migration, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#best-practices).
+- For a successful end-to-end migration, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#post-migration).

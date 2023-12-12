@@ -1,9 +1,9 @@
 ---
 title: "Best Practices for a seamless migration using the Single to Flexible migration tool"
 description: Best Practices for a seamless migration using the Single to Flexible migration tool.
-author: hariramt, shriramm
-ms.author: hariramt, shriramm
-ms.reviewer: hasingh
+author: hariramt
+ms.author: hariramt
+ms.reviewer: shriramm
 ms.date: 12/12/2023
 ms.service: postgresql
 ms.subservice: 
