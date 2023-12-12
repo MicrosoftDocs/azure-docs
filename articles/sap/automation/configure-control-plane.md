@@ -16,9 +16,10 @@ ms.custom: devx-track-terraform
 The control plane for [SAP Deployment Automation Framework](deployment-framework.md) consists of the following components:
 
  - Deployer
- - SAP library
+ - SAP Library
 
 :::image type="content" source="./media/deployment-framework/control-plane.png" alt-text="Diagram that shows the control plane.":::
+
 
 ## Deployer
 
@@ -26,7 +27,10 @@ The [deployer](deployment-framework.md#deployment-components) is the execution e
 
 The configuration of the deployer is performed in a Terraform `tfvars` variable file.
 
-## Terraform parameters
+If you want to use an existing resource group for the Deployer provide the Azure resource ID for the resource group using the `resource_group_arm_id` parameter in the deployer's tfvars file. If the parameter isn't defined, the resource group is created using the default naming. Yoc can change the default name using the `resource_group_name` parameter.
+
+
+### Terraform parameters
 
 This table shows the Terraform parameters. These parameters need to be entered manually if you aren't using the deployment scripts.
 
@@ -233,6 +237,9 @@ The [SAP library](deployment-framework.md#deployment-components) provides the pe
 
 The configuration of the SAP library is performed in a Terraform `tfvars` variable file.
 
+If you want to use an existing resource group for the SAP Library provide the Azure resource ID for the resource group using the `resource_group_arm_id` parameter in the deployer's tfvars file. If the parameter isn't defined, the resource group is created using the default naming. Yoc can change the default name using the `resource_group_name` parameter.
+
+
 ### Terraform parameters
 
 This table shows the Terraform parameters. These parameters need to be entered manually if you aren't using the deployment scripts or Azure Pipelines.
@@ -312,4 +319,4 @@ location = "westeurope"
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure SAP system](configure-system.md)
+> [Configure SAP system](configure-workload-zone.md)

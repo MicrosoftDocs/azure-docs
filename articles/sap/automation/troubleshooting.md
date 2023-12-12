@@ -16,6 +16,28 @@ ms.custom: devx-track-ansible
 
 Within the SAP Deployment Automation Framework (SDAF), we recognize that there are many moving parts.  This article is intended to help you troubleshoot issues that you can encounter.
 
+## Control Plane Deployment
+
+The control plane deployment consists of the following steps:
+
+1. Deploy the deployer infrastructure.
+2. Add the Service Principal details to the Deployer key vault.
+3. Deploy the SAP Library infrastructure
+4. Migrate the Terraform state for the Deployer to the SAP Library.
+5. Migrate the Terraform state for the SAP Library to the SAP Library.
+
+To track the progress of the deployment, the state is persisted in a file in the `.sap_deployment_automation` folder in the WORKSPACES directory.  
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Step  | What is being deployed                                                    | State file location      |
+> | ----- | ------------------------------------------------------------------------- | ------------------------ |
+> | 0     | Deployment infrastructure (virtual machine, key vault, Firewall, Bastion) | local                    |
+> | 1     | Service Principal details persisted in the deployer's key vault           | local                    |
+> | 2     | SAP Library infrastructure (storage accounts, Private DNS)                | local                    |
+> | 3     | Deployer terraform state migrated to remote storage                       | SAP Library              |
+> | 4     | SAP Library terraform state migrated to remote storage                    | SAP Library              |
+
+
 ## Deployment
 
 This section describes how to troubleshoot issues that you can encounter when performing deployments using the SAP Deployment Automation Framework.
