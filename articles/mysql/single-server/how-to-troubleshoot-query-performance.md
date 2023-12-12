@@ -6,7 +6,7 @@ ms.subservice: single-server
 author: SudheeshGH
 ms.author: sunaray
 ms.topic: troubleshooting
-ms.date: 06/20/2022
+ms.date: 10/20/2023
 ---
 
 # Profile query performance in Azure Database for MySQL using EXPLAIN

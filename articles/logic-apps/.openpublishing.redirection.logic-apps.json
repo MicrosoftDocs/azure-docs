@@ -1,6 +1,91 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/sap-create-example-scenario-workflows.md",
+            "redirect_url": "/azure/logic-apps/connectors/sap-create-example-scenario-workflows",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/sap-generate-schemas-for-artifacts.md",
+            "redirect_url": "/azure/logic-apps/connectors/sap-generate-schemas-for-artifacts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-using-sap-connector.md",
+            "redirect_url": "/azure/logic-apps/connectors/sap",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-using-sap-connector-old.md",
+            "redirect_url": "/azure/logic-apps/connectors/sap",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-connector-sap-connector.md",
+            "redirect_url": "/azure/logic-apps/connectors/sap",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/create-managed-service-identity.md",
+            "redirect_url": "/azure/logic-apps/authenticate-with-managed-identity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-exception-handling.md",
+            "redirect_url": "/azure/logic-apps/error-exception-handling",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/app-service-logic/app-service-logic-exception-handling.md",
+            "redirect_url": "/azure/logic-apps/error-exception-handling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-gateway-connection.md",
+            "redirect_url": "/azure/logic-apps/connect-on-premises-data-sources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-gateway-install.md",
+            "redirect_url": "/azure/logic-apps/install-on-premises-data-gateway",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/app-service-logic/app-service-logic-gateway-connection.md",
+            "redirect_url": "/azure/logic-apps/connect-on-premises-data-sources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service-logic/app-service-logic-gateway-install.md",
+            "redirect_url": "/azure/logic-apps/install-on-premises-data-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md",
+            "redirect_url": "https://learn.microsoft.com/azure/connectors/integrate-3270-apps-ibm-mainframe",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/connectors-overview.md",
+            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/apis-list.md",
+            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/index.md",
+            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-create-integration-account.md",
+            "redirect_url": "/azure/logic-apps/enterprise-integration/create-integration-account",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/connect-virtual-network-vnet-isolated-environment.md",
             "redirect_url": "/azure/logic-apps/connect-virtual-vnet-isolated-environment-overview",
             "redirect_document_id": false
@@ -44,11 +129,6 @@
             "source_path_from_root": "/articles/logic-apps/quickstart-create-first-logic-app-workflow.md",
             "redirect_url": "/azure/logic-apps/quickstart-create-example-consumption-workflow",
             "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/connectors/apis-list.md",
-            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
-            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-backup-restore.md",
@@ -227,12 +307,12 @@
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-accounts.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
+            "redirect_url": "/azure/logic-apps/enterprise-integration/create-integration-account",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
+            "redirect_url": "/azure/logic-apps/enterprise-integration/create-integration-account",
             "redirect_document_id": false
         },
         {
@@ -318,21 +398,6 @@
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-use-logic-app-features.md",
             "redirect_url": "/azure/logic-apps/logic-apps-examples-and-scenarios",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-exception-handling.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-exception-handling",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-gateway-connection.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-gateway-connection",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-gateway-install.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-gateway-install",
             "redirect_document_id": false
         },
         {
@@ -426,24 +491,9 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/app-service-logic/app-service-logic-enterprise-connector-sap-connector.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-manage-from-vs.md",
             "redirect_url": "/azure/logic-apps/manage-logic-apps-with-visual-studio",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/index.md",
-            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-overview.md",
-            "redirect_url": "/azure/connectors/introduction",
-            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-http.md",
@@ -527,8 +577,8 @@
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-accounts.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account",
-            "redirect_document_id": true
+            "redirect_url": "/azure/logic-apps/enterprise-integration/create-integration-account",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-as2-encode.md",
@@ -544,11 +594,6 @@
             "source_path_from_root": "/articles/logic-apps/logic-apps-use-logic-app-features.md",
             "redirect_url": "/azure/logic-apps/logic-apps-examples-and-scenarios",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/logic-apps/logic-apps-using-sap-connector-old.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
-            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-manage-from-vs.md",

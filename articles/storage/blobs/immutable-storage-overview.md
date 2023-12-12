@@ -5,9 +5,9 @@ description: Azure Storage offers WORM (Write Once, Read Many) support for Blob 
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 09/20/2023
 ms.author: normesta
 ---
 
@@ -122,7 +122,7 @@ All blob access tiers support immutable storage. You can change the access tier 
 
 ### Redundancy configurations
 
-All redundancy configurations support immutable storage. For geo-redundant configurations, customer-managed failover is not supported. For more information about redundancy configurations, see [Azure Storage redundancy](../common/storage-redundancy.md).
+All redundancy configurations support immutable storage. For more information about redundancy configurations, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
 ### Hierarchical namespace support
 
@@ -155,6 +155,8 @@ Creating, modifying, or deleting a time-based retention policy or legal hold on 
 If you fail to pay your bill and your account has an active time-based retention policy in effect, normal data retention policies will apply as stipulated in the terms and conditions of your contract with Microsoft. For general information, see [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management).
 
 ## Feature support
+
+This feature is incompatible with Point in Time Restore and Last Access Tracking. 
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 

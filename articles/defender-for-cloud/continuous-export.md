@@ -180,7 +180,7 @@ When collecting data into a tenant, you can analyze the data from one central lo
 To export data to an Azure Event Hubs or Log Analytics workspace in a different tenant:
 
 1. In the tenant that has the Azure Event Hubs or Log Analytics workspace, [invite a user](../active-directory/external-identities/what-is-b2b.md#easily-invite-guest-users-from-the-azure-portal) from the tenant that hosts the continuous export configuration, or alternatively configure Azure Lighthouse for the source and destination tenant.
-1. If using Azure AD B2B Guest access, ensure that the user accepts the invitation to access the tenant as a guest.
+1. If using Microsoft Entra B2B Guest access, ensure that the user accepts the invitation to access the tenant as a guest.
 1. If you're using a Log Analytics Workspace, assign the user in the workspace tenant one of these roles: Owner, Contributor, Log Analytics Contributor, Sentinel Contributor, or Monitoring Contributor.
 1. Create and submit the request to the Azure REST API to configure the required resources. You'll need to manage the bearer tokens in both the context of the local (workspace) and the remote (continuous export) tenant. 
 

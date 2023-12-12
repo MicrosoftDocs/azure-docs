@@ -15,7 +15,7 @@ Get started developing Azure Data Catalog apps using the Data Catalog REST API. 
 
 * [Get started with Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/)
   
-   The get started sample shows you how to authenticate with Azure AD to Register, Search, and Delete a data asset using the Data Catalog REST API.
+   The get started sample shows you how to authenticate with Microsoft Entra ID to Register, Search, and Delete a data asset using the Data Catalog REST API.
 
 * [Get started with Azure Data Catalog using Service Principal](https://github.com/Azure-Samples/data-catalog-dotnet-service-principal-get-started/)
 

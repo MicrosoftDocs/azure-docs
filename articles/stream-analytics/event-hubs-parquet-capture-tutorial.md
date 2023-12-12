@@ -5,7 +5,7 @@ author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 08/02/2022
+ms.date: 08/03/2023
 ms.custom: seodec18
 ---
 

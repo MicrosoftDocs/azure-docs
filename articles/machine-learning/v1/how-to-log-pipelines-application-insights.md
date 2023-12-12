@@ -28,7 +28,7 @@ Having your logs in once place will provide a history of exceptions and error me
   ```python
   pip install opencensus-ext-azure
   ```
-* Create an [Application Insights instance](../../azure-monitor/app/opencensus-python.md) (this doc also contains information on getting the connection string for the resource)
+* Create an [Application Insights instance](/previous-versions/azure/azure-monitor/app/opencensus-python) (this doc also contains information on getting the connection string for the resource)
 
 ## Getting Started
 
@@ -106,7 +106,7 @@ Custom Dimensions make up a dictionary of key-value (stored as string, string) p
 
 **Other helpful fields**
 
-These fields may require extra code instrumentation, and aren't provided by the run context.
+These fields might require extra code instrumentation, and aren't provided by the run context.
 
 | Field                   | Reasoning/Example                                                                                                                                                                                                           |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -162,4 +162,4 @@ Some of the queries below use 'customDimensions.Level'. These severity levels co
 
 Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](../../azure-monitor/alerts/alerts-overview.md) based on query results.
 
-You can also add results from queries to an [Azure Dashboard](../../azure-monitor/app/tutorial-app-dashboards.md#add-a-logs-query) for more insights.
+You can also add results from queries to an [Azure Dashboard](../../azure-monitor/app/overview-dashboard.md#add-a-logs-query) for more insights.

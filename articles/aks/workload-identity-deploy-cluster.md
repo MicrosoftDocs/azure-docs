@@ -1,21 +1,21 @@
 ---
 title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity
-description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity.
+description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with a Microsoft Entra Workload ID.
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-linux
-ms.date: 07/26/2023
+ms.date: 09/27/2023
 ---
 
 # Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage Kubernetes clusters. In this article, you will:
 
-* Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and an Azure AD workload identity
+* Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and a Microsoft Entra Workload ID
 * Grant access to your Azure Key Vault
-* Create an Azure Active Directory (Azure AD) workload identity and Kubernetes service account
+* Create a Microsoft Entra Workload ID and Kubernetes service account
 * Configure the managed identity for token federation.
 
-This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you aren't familiar with Azure AD workload identity, see the following [Overview][workload-identity-overview] article.
+This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you aren't familiar with Microsoft Entra Workload ID, see the following [Overview][workload-identity-overview] article.
 
 - This article requires version 2.47.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -149,7 +149,7 @@ EOF
 ```
 
 > [!IMPORTANT]
-> Ensure your application pods using workload identity have added the following label [azure.workload.identity/use: "true"] to your running pods/deployments, otherwise the pods will fail once restarted.
+> Ensure your application pods using workload identity have added the following label `azure.workload.identity/use: "true"` to your pod spec, otherwise the pods fail after their restarted.
 
 ```bash
 kubectl apply -f <your application>
@@ -191,7 +191,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 
 ## Disable workload identity
 
-To disable the Azure AD workload identity on the AKS cluster where it's been enabled and configured, you can run the following command:
+To disable the Microsoft Entra Workload ID on the AKS cluster where it's been enabled and configured, you can run the following command:
 
 ```azurecli-interactive
 az aks update --resource-group myResourceGroup --name myAKSCluster --disable-workload-identity

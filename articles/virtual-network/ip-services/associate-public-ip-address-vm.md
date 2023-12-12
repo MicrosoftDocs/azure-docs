@@ -15,7 +15,7 @@ ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azu
 
 # Associate a public IP address to a virtual machine
 
-In this article, you learn how to associate a public IP address to an existing virtual machine (VM). To do so, you associate the public IP address to an IP configuration of a network interface attached to a VM. You can use the [Azure portal](#azure-portal), the [Azure CLI](#azure-cli), or [Azure PowerShell](#azure-powershell).
+In this article, you learn how to associate a public IP address to an existing virtual machine (VM). To do so, you associate the public IP address to an IP configuration of a network interface attached to a VM. You can use the Azure portal, the Azure CLI, or Azure PowerShell by selecting the tab for the method you want to use.
 
  If you want to instead create a new VM with a public IP address, you can use the [Azure portal](virtual-network-deploy-static-pip-arm-portal.md), the [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md), or [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md).
 
@@ -27,7 +27,7 @@ Public IP addresses have a nominal fee. For details, see [pricing](https://azure
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Azure portal
+# [Azure portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -47,18 +47,17 @@ Public IP addresses have a nominal fee. For details, see [pricing](https://azure
    > [!NOTE]
    > Public IP addresses are associated to the IP configurations for a network interface. In this screenshot, the network interface has only one IP configuration. If the network interface had multiple IP configurations, they would all appear in the list, and you'd select the IP configuration that you want to associate the public IP address to.
 
-1. Select **Associate**, then select **Public IP address** to choose an existing public IP address from the drop-down list. If no public IP addresses are listed, you need to create one. To learn how, see [Create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address).
+1. In the **Edit IP configuration** window, select **Associate public IP address**, then select **Public IP address** to choose an existing public IP address from the drop-down list. If no public IP addresses are listed, you need to create one. To learn how, see [Create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address).
 
-    :::image type="content" source="./media/associate-public-ip-address-vm/choose-public-ip-address.png" alt-text="Screenshot showing how to select and associate an existing public I P.":::
+    :::image type="content" source="./media/associate-public-ip-address-vm/choose-public-ip-address.png" alt-text="Screenshot showing how to select, create, and associate a new public IP address.":::
 
-1. Select **Save**, and then close the IP configuration window.
-
-    :::image type="content" source="./media/associate-public-ip-address-vm/enable-public-ip-address.png" alt-text="Screenshot showing the selected public I P.":::
 
    > [!NOTE]
    > The public IP addresses that appear in the drop-down list are those that exist in the same region as the VM. If you have multiple public IP addresses created in the region, all will appear here. Any address that's already associated to a different resource is grayed out.
 
-1. From the **Network interface** window, view the public IP address assigned to the IP configuration. It might take a few seconds for a newly associated IP address to appear.
+1. Select **Save**.
+
+1. In the **IP Configurations** window, view the public IP address assigned to the IP configuration. It might take a few seconds for a newly associated IP address to appear.
 
     :::image type="content" source="./media/associate-public-ip-address-vm/view-assigned-public-ip-address.png" alt-text="Screenshot showing the newly assigned public I P.":::
 
@@ -67,7 +66,7 @@ Public IP addresses have a nominal fee. For details, see [pricing](https://azure
 
 1. Open the necessary ports in your security groups by adjusting the security rules in the network security groups. For information, see [Allow network traffic to the VM](#allow-network-traffic-to-the-vm).
 
-## Azure CLI
+# [Azure CLI](#tab/azure-cli)
 
 Install the [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) on your machine, or use Azure Cloud Shell. Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It includes the Azure CLI preinstalled and configured to use with your Azure account. Select the **Open Cloudshell** button in the Azure CLI code examples that follow. When you select **Open Cloudshell**, Cloud Shell loads in your browser and prompts you to sign into your Azure account.
 
@@ -121,7 +120,7 @@ Install the [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-netw
 
 1. Open the necessary ports in your security groups by adjusting the security rules in the network security groups. For information, see [Allow network traffic to the VM](#allow-network-traffic-to-the-vm).
 
-## Azure PowerShell
+# [Azure PowerShell](#tab/azure-powershell)
 
 Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your machine, or use Cloud Shell. Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It includes Azure PowerShell preinstalled and configured to use with your Azure account. Select the **Open Cloudshell** button in the Azure PowerShell code examples that follow. When you select **Open Cloudshell**, Cloud Shell loads in your browser and prompts you to sign into your Azure account.
 
@@ -218,6 +217,8 @@ Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your m
    > An IP address is assigned from the pool of public IP addresses reserved for an Azure region. For a list of the address pools used in each region, see [Azure IP ranges and service tags](https://www.microsoft.com/download/details.aspx?id=56519). If you need the address to be assigned from a specific prefix, use a [Public IP address prefix](public-ip-address-prefix.md).
 
 1. Open the necessary ports in your security groups by adjusting the security rules in the network security groups. For information, see [Allow network traffic to the VM](#allow-network-traffic-to-the-vm).
+
+---
 
 ## Allow network traffic to the VM
 

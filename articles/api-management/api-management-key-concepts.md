@@ -108,7 +108,7 @@ API Management integrates with many complementary Azure services to create enter
 * [Azure Monitor](api-management-howto-use-azure-monitor.md) for logging, reporting, and alerting on management operations, systems events, and API requests​
 * [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
 * [Virtual networks](virtual-network-concepts.md), [private endpoints](private-endpoint.md), and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
-* Azure Active Directory for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
+* Microsoft Entra ID for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
 * [Event Hubs](api-management-howto-log-event-hubs.md) for streaming events​
 * Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.md), and others.​
 
@@ -151,7 +151,7 @@ Groups are used to manage the visibility of products to developers. API Manageme
 
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-Administrators can also create custom groups or use external groups in an [associated Azure Active Directory tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
+Administrators can also create custom groups or use external groups in an [associated Microsoft Entra tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
 
 **More information**: 
 * [How to create and use groups][How to create and use groups]

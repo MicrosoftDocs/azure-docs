@@ -24,10 +24,10 @@ Data encryption with customer-managed keys for Azure Database for MySQL - Flexib
 - Full control over the key lifecycle, including rotation of the key to aligning with corporate policies
 - Central management and organization of keys in Azure Key Vault
 - Ability to implement separation of duties between security officers, DBA, and system administrators
--
+
 ## How does data encryption with a customer-managed key work?
 
-Managed identities in Azure Active Directory (Azure AD) provide Azure services an alternative to storing credentials in the code by provisioning an automatically assigned identity that can be used to authenticate to any service supporting Azure AD authentication, such as Azure Key Vault (AKV). Azure Database for MySQL - Flexible Server currently supports only User-assigned Managed Identity (UMI). For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure.
+Managed identities in Microsoft Entra ID provide Azure services an alternative to storing credentials in the code by provisioning an automatically assigned identity that can be used to authenticate to any service supporting Microsoft Entra authentication, such as Azure Key Vault (AKV). Azure Database for MySQL - Flexible Server currently supports only User-assigned Managed Identity (UMI). For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure.
 
 To configure the CMK for an Azure Database for MySQL flexible server, you need to link the UMI to the server and specify the Azure Key vault and key to use.
 
@@ -61,14 +61,14 @@ After logging is enabled, auditors can use Azure Monitor to review Key Vault aud
 
 Before you attempt to configure Key Vault, be sure to address the following requirements.
 
-- The Key Vault and Azure Database for MySQL - Flexible Server must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and flexible server interactions need to be supported. You'll need to reconfigure data encryption if you move Key Vault resources after performing the configuration.
+- The Key Vault and Azure Database for MySQL - Flexible Server must belong to the same Microsoft Entra tenant. Cross-tenant Key Vault and flexible server interactions need to be supported. You'll need to reconfigure data encryption if you move Key Vault resources after performing the configuration.
 - The Key Vault and Azure Database for MySQL - Flexible Server must reside in the same region.
 - Enable the [soft-delete](../../key-vault/general/soft-delete-overview.md) feature on the key vault with a retention period set to 90 days to protect from data loss should an accidental key (or Key Vault) deletion occur. The recover and purge actions have their own permissions in a Key Vault access policy. The soft-delete feature is off by default, but you can enable it through the Azure portal or by using PowerShell or the Azure CLI.
 - Enable the [Purge Protection](../../key-vault/general/soft-delete-overview.md#purge-protection) feature on the key vault and set the retention period to 90 days. When purge protection is on, a vault or an object in the deleted state can't be purged until the retention period has passed. You can enable this feature using PowerShell or the Azure CLI, and only after you've enabled soft-delete.
 
 Before you attempt to configure the CMK, be sure to address the following requirements.
 
-- The customer-managed key to encrypt the DEK can be only asymmetric, RSA 2048.
+- The customer-managed key to encrypt the DEK can be only asymmetric, RSA\RSA-HSM(Vaults with Premium SKU) 2048,3072 or 4096.
 - The key activation date (if set) must be a date and time in the past. The expiration date not set.
 - The key must be in the **Enabled** state.
 - The key must have [soft delete](../../key-vault/general/soft-delete-overview.md) with retention period set to 90 days. This implicitly sets the required key attribute recoveryLevel: “Recoverable.”
@@ -87,8 +87,9 @@ As you configure Key Vault to use data encryption using a customer-managed key, 
 - Keep a copy of the customer-managed key in a secure place or escrow it to the escrow service.
 - If Key Vault generates the key, create a key backup before using the key for the first time. You can only restore the backup to Key Vault. For more information about the backup command, see [Backup-AzKeyVaultKey](/powershell/module/az.keyVault/backup-azkeyVaultkey).
 
-> [!NOTE]  
-> It is advised to use a key vault from the same region, but if necessary, you can use a key vault from another region by specifying the "enter key identifier" information.
+> [!NOTE]
+> * It is advised to use a key vault from the same region, but if necessary, you can use a key vault from another region by specifying the "enter key identifier" information.
+> * RSA key stored in **Azure Key Vault Managed HSM**, is currently not supported.
 
 ## Inaccessible customer-managed key condition
 
@@ -106,7 +107,7 @@ It might happen that someone with sufficient access rights to Key Vault accident
 - Deleting the key
 - Deleting the key vault
 - Changing the key vault's firewall rules
-- Deleting the user managed identity used for encryption on the flexible server with a customer managed key in Azure AD
+- Deleting the user managed identity used for encryption on the flexible server with a customer managed key in Microsoft Entra ID
 
 ## Monitor the customer-managed key in Key Vault
 
@@ -137,3 +138,5 @@ To avoid issues while setting up customer-managed data encryption during restore
 - [Data encryption with Azure portal](how-to-data-encryption-portal.md)
 - [Security in encryption rest](../../security/fundamentals/encryption-atrest.md)
 - [Active Directory authentication](concepts-azure-ad-authentication.md)
+
+

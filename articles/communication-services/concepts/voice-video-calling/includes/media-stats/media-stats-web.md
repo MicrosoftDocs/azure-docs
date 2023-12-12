@@ -53,9 +53,12 @@ If you set the following values:
 
 The `mediaStatsEmitted` or `summaryReported` event is raised every 60 seconds and contains 1 unique unit for each statistic recorded.
 
-### SDK version 1.8.0 or later
+### SDK version 1.8.0 beta and later
 
 As a developer, you can invoke the `createCollector` method with optional `mediaStatsSubscriptionOptions`.
+To receive the media statistics data, you can subscribe `sampleReported` event or `summaryReported` event.
+`sampleReported` event triggers every second. It is suitable as a data source for UI display or your own data pipeline.
+`summaryReported` event contains the aggregated values of the data over intervals, which is useful when you just need a summary.
 
 ```js
 const mediaStatsCollector = mediaStatsFeature.createCollector(mediaStatsSubscriptionOptions);
@@ -69,19 +72,43 @@ mediaStatsCollector.on('summaryReported', (summary) => {
 });
 ```
 
-To dispose of the media statistics collector, invoke the `dispose` method of `mediaStatsCollector`.
+In case you don't need to use the media statistics collector, you can call `dispose` method of `mediaStatsCollector`.
 
 ```js
 mediaStatsCollector.dispose();
 ```
-
-We removed the `disposeAllCollectors` method. The collectors will be reclaimed when you dispose of `mediaStatsFeature`.
+It is not necessary to call `dispose` method of `mediaStatsCollector` every time when the call ends, as the collectors will be reclaimed internally when the call ends.
+However, if you are using SDK version less than 1.8.0-beta.1, you need use `disposeAllCollectors` API to release the resource.
 
 ## Best practices
 
 If you want to collect the data for offline inspection, we recommend that you collect the data and send it to your pipeline ingestion after your call ends. If you transmit the data during a call, it could use internet bandwidth that's needed to continue an Azure Communication Services call (especially when available bandwidth is low).
 
-## Media quality statistics metrics for SDK version 1.8.0 or later
+## Media quality statistics metrics for SDK version 1.8.0 beta and later
+
+In either `sampleReported` event or `summaryReported` event, the media statistics data are not just a simple key-value mapping.
+
+Here is the type declaration of the event data reported by `sampleReported` event.
+```typescript
+export interface MediaStatsReportSample {
+    audio: {
+        send: AudioSendMediaStats<MediaStatRawValue>[];
+        receive: AudioRecvMediaStats<MediaStatRawValue>[];
+    };
+    video: {
+        send: VideoSendMediaStats<MediaStatRawValue>[];
+        receive: VideoRecvMediaStats<MediaStatRawValue>[];
+    };
+    screenShare: {
+        send: ScreenShareSendMediaStats<MediaStatRawValue>[];
+        receive: ScreenShareRecvMediaStats<MediaStatRawValue>[];
+    };
+}
+
+```
+The event data provide the statistics data for each media stream in the call, including both send and recv directions.
+It is recommended that you print out the event using the `console.log` to observe its layout and value changes, so you can find a proper way to display or process the data according to your usage scenario.
+
 
 The bandwidth metrics have changes to `availableBitrate` in audio send and video send metrics.
 

@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 10/24/2023
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -45,7 +45,7 @@ There are a few options for value types, including
 Type Name | Description
 -------- | ----------- 
 String | The most straight forward of all. It expects a string value.
-Expression | It allows you to reference output from previous activities.
+Expression | It allows you to reference output from previous activities. You can use string interpolation here to include in-line expression values such as ```"The value is @{guid()}"```.
 Array | It expects an array of _string values_. Press "enter" key to separate values in the array
 Boolean | True or False
 Null | Signal place holder status; the value is constant _null_
@@ -87,7 +87,7 @@ You may have multiple Set Pipeline Return value activities in a pipeline. Howeve
 
 To avoid missing key situation in the calling pipeline, described above, we encourage you to have the same list of keys for all branches in child pipeline. Consider using _null_ types for keys that don't have values, in a specific branch.
 
-## Next steps
+## Related content
 Learn about another related control flow activity: 
 - [Set Variable Activity](control-flow-set-variable-activity.md)
 - [Append Variable Activity](control-flow-append-variable-activity.md)

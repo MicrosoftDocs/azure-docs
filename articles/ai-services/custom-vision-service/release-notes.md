@@ -2,12 +2,11 @@
 title: Release Notes - Custom Vision Service
 titleSuffix: Azure AI services
 description: Get the latest information on new releases from the Custom Vision team.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: pafarley

@@ -125,32 +125,36 @@ az iot product test task create --type QueueTestRun --test-id [YourTestId] --wai
 Example test run output
 
 ```json
-      "validationTasks": [
-        {
-          "componentName": "Default component",
-          "endTime": "2020-08-25T05:18:49.5224772+00:00",
-          "interfaceId": "dtmi:com:example:TemperatureController;1",
-          "logs": [
-            {
-              "message": "Waiting for telemetry from the device",
-              "time": "2020-08-25T05:18:37.3862586+00:00"
-            },
-            {
-              "message": "Validating PnP properties",
-              "time": "2020-08-25T05:18:37.3875168+00:00"
-            },
-            {
-              "message": "Validating PnP commands",
-              "time": "2020-08-25T05:18:37.3894343+00:00"
-            },
-            {
-              "message": "{\"propertyName\":\"serialNumber\",\"expectedSchemaType\":null,\"actualSchemaType\":null,\"message\":\"Property is successfully validated\",\"passed\":true,\"time\":\"2020-08-25T05:18:37.4205985+00:00\"}",
-              "time": "2020-08-25T05:18:37.4205985+00:00"
-            },
-            {
-              "message": "PnP interface properties validation passed",
-              "time": "2020-08-25T05:18:37.4206964+00:00"
-            },
+"validationTasks": [
+  {
+    "componentName": "Default component",
+    "endTime": "2020-08-25T05:18:49.5224772+00:00",
+    "interfaceId": "dtmi:com:example:TemperatureController;1",
+    "logs": [
+      {
+        "message": "Waiting for telemetry from the device",
+        "time": "2020-08-25T05:18:37.3862586+00:00"
+      },
+      {
+        "message": "Validating PnP properties",
+        "time": "2020-08-25T05:18:37.3875168+00:00"
+      },
+      {
+        "message": "Validating PnP commands",
+        "time": "2020-08-25T05:18:37.3894343+00:00"
+      },
+      {
+        "message": "{\"propertyName\":\"serialNumber\",\"expectedSchemaType\":null,\"actualSchemaType\":null,\"message\":\"Property is successfully validated\",\"passed\":true,\"time\":\"2020-08-25T05:18:37.4205985+00:00\"}",
+        "time": "2020-08-25T05:18:37.4205985+00:00"
+      },
+      {
+        "message": "PnP interface properties validation passed",
+        "time": "2020-08-25T05:18:37.4206964+00:00"
+      },
+      ...
+    ]
+  }
+]
 ```
 
 ## Test using the Azure Certified Device portal
@@ -159,7 +163,7 @@ The following steps show you how to use the [Azure Certified Device portal](http
 
 ### Onboarding
 
-To use the [certification portal](https://certify.azure.com), you must use an Azure Active Directory from your work or school tenant.
+To use the [certification portal](https://certify.azure.com), you must use a Microsoft Entra ID from your work or school tenant.
 
 To publish the models to the Azure IoT Public Model Repository, your account must be a member of the [Microsoft Partner Network](https://partner.microsoft.com). The system checks that the Microsoft Partner Network ID exists and the account is fully vetted before publishing to the device catalog.
 

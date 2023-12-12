@@ -7,13 +7,13 @@ ms.service: ddos-protection
 ms.topic: how-to
 ms.custom: ignite-2022
 ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 11/06/2023
 ms.author: abell
 ---
 
 # Manage DDoS Protection Plans: permissions and restrictions
 
-A DDoS protection plan works across regions and subscriptions. The same plan can be linked to virtual networks from other subscriptions in different regions, across your tenant. The subscription the plan is associated to incurs the monthly recurring bill for the plan, as well as overage charges, in case the number of protected public IP addresses exceed 100. For more information on DDoS pricing, see [pricing details](https://azure.microsoft.com/pricing/details/ddos-protection/).
+A DDoS protection plan works across regions and subscriptions. The same plan can be linked to virtual networks from other subscriptions in different regions, across your tenant. The associated subscription incurs the plan's monthly bill and overage charges if the protected public IP addresses exceed 100. For more information on DDoS pricing, see [pricing details](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 ## Prerequisites
 
@@ -37,9 +37,9 @@ To enable DDoS protection for a virtual network, your account must also be assig
 
 ## Azure Policy
 
-Creation of more than one plan is not required for most organizations. A plan cannot be moved between subscriptions. If you want to change the subscription a plan is in, you have to delete the existing plan and create a new one.
+Creation of more than one plan isn't required for most organizations. A plan can't be moved between subscriptions. If you want to change the subscription a plan is in, you have to delete the existing plan and create a new one.
 
-For customers who have various subscriptions, and who want to ensure a single plan is deployed across their tenant for cost control, you can use Azure Policy to [restrict creation of Azure DDoS Protection plans](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20Policy%20Definitions/Restrict%20creation%20of%20Azure%20DDoS%20Protection%20Standard%20Plans%20with%20Azure%20Policy). This policy will block the creation of any DDoS plans, unless the subscription has been previously marked as an exception. This policy will also show a list of all subscriptions that have a DDoS plan deployed but should not, marking them as out of compliance.
+For customers who have various subscriptions, and who want to ensure a single plan is deployed across their tenant for cost control, you can use Azure Policy to restrict creation of Azure DDoS Protection plans. This policy blocks the creation of any DDoS plans, unless the subscription has been previously marked as an exception. This policy will also show a list of all subscriptions that have a DDoS plan deployed but shouldn't, marking them as out of compliance.
 
 
 ## Next steps

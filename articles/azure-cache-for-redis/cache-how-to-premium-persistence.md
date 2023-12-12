@@ -31,7 +31,7 @@ You have two options for persistence with Azure Cache for Redis: the _Redis data
 - _RDB persistence_ - When you use RDB persistence, Azure Cache for Redis persists a snapshot of your cache in a binary format. The snapshot is saved in an Azure Storage account. The configurable backup frequency determines how often to persist the snapshot. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed automatically using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
 - _AOF persistence_ - When you use AOF persistence, Azure Cache for Redis saves every write operation to a log. The log is saved at least once per second in an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica caches, the cache is reconstructed automatically using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
 
-Azure Cache for Redis persistence features are intended to be used to restore data automatically to the same cache after data loss. The RDB/AOF persisted data files can't be imported to a new cache. To move data across caches, use the _Import and Export_ feature. For more information, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
+Azure Cache for Redis persistence features are intended to be used to restore data automatically to the same cache after data loss. The RDB/AOF persisted data files can't be imported to a new cache or the existing cache. To move data across caches, use the _Import and Export_ feature. For more information, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 
 To generate any backups of data that can be added to a new cache, you can write automated scripts using PowerShell or CLI that export data periodically.
 
@@ -39,7 +39,7 @@ To generate any backups of data that can be added to a new cache, you can write 
 
 Persistence features are intended to be used to restore data to the same cache after data loss.
 
-- RDB/AOF persisted data files can't be imported to a new cache. Use the [Import/Export](cache-how-to-import-export-data.md) feature instead.
+- RDB/AOF persisted data files can't be imported to a new cache or the existing cache. Use the [Import/Export](cache-how-to-import-export-data.md) feature instead.
 - Persistence isn't supported with caches using [passive geo-replication](cache-how-to-geo-replication.md) or [active geo-replication](cache-how-to-active-geo-replication.md).
 - On the _Premium_ tier, AOF persistence isn't supported with [multiple replicas](cache-how-to-multi-replicas.md).
 - On the _Premium_ tier, data must be persisted to a storage account in the same region as the cache instance.

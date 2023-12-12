@@ -2,12 +2,12 @@
 title: Technical profiles
 titleSuffix: Azure AD B2C
 description: Specify the TechnicalProfiles element of a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 06/22/2023
 ms.author: kengaderdus
@@ -25,8 +25,8 @@ A *technical profile* provides a framework with a built-in mechanism to communic
 A technical profile enables these types of scenarios:
 
 - [Application Insights](analytics-with-application-insights.md): Sends event data to [Application Insights](../azure-monitor/app/app-insights-overview.md).
-- [Azure AD](active-directory-technical-profile.md): Provides support for the Azure AD B2C user management.
-- [Azure AD multifactor authentication](multi-factor-auth-technical-profile.md): Provides support for verifying a phone number by using Azure AD multifactor authentication.
+- [Microsoft Entra ID](active-directory-technical-profile.md): Provides support for the Azure AD B2C user management.
+- [Microsoft Entra multifactor authentication](multi-factor-auth-technical-profile.md): Provides support for verifying a phone number by using Microsoft Entra multifactor authentication.
 - [Claims transformation](claims-transformation-technical-profile.md): Calls output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.
 - [ID token hint](id-token-hint.md): Validates the `id_token_hint` JWT token signature, the issuer name, and the token audience, and extracts the claim from the inbound token.
 - [JWT token issuer](jwt-issuer-technical-profile.md): Emits a JWT token that's returned back to the relying party application.
@@ -43,7 +43,7 @@ A technical profile enables these types of scenarios:
 
 ## Technical profile flow
 
-All types of technical profiles share the same concept. They start by reading the input claims and run claims transformations. Then they communicate with the configured party, such as an identity provider, REST API, or Azure AD directory services. After the process is completed, the technical profile returns the output claims and might run output claims transformations. The following diagram shows how the transformations and mappings referenced in the technical profile are processed. After the claims transformation is executed, the output claims are immediately stored in the claims bag, regardless of the party the technical profile interacts with.
+All types of technical profiles share the same concept. They start by reading the input claims and run claims transformations. Then they communicate with the configured party, such as an identity provider, REST API, or Microsoft Entra directory services. After the process is completed, the technical profile returns the output claims and might run output claims transformations. The following diagram shows how the transformations and mappings referenced in the technical profile are processed. After the claims transformation is executed, the output claims are immediately stored in the claims bag, regardless of the party the technical profile interacts with.
 
 ![Diagram that illustrates the technical profile flow.](./media/technical-profiles/technical-profile-flow.png)
 
@@ -233,7 +233,7 @@ The following technical profiles reference the **CreateOtherMailsFromEmail** cla
 
 ## Input claims
 
-The **InputClaims** element picks up claims from the claims bag that are used for the technical profile. For example, a [self-asserted technical profile](self-asserted-technical-profile.md) uses the input claims to prepopulate the output claims that the user provides. A REST API technical profile uses the input claims to send input parameters to the REST API endpoint. Azure AD uses an input claim as a unique identifier to read, update, or delete an account.
+The **InputClaims** element picks up claims from the claims bag that are used for the technical profile. For example, a [self-asserted technical profile](self-asserted-technical-profile.md) uses the input claims to prepopulate the output claims that the user provides. A REST API technical profile uses the input claims to send input parameters to the REST API endpoint. Azure AD B2C uses an input claim as a unique identifier to read, update, or delete an account.
 
 The **InputClaims** element contains the following element:
 
@@ -306,9 +306,9 @@ In the following technical profile:
 
 ## Persisted claims
 
-The **PersistedClaims** element contains all of the values that should be persisted by an [Azure AD technical profile](active-directory-technical-profile.md) with possible mapping information between a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy and the Azure AD attribute name.
+The **PersistedClaims** element contains all of the values that should be persisted by an [Microsoft Entra ID technical profile](active-directory-technical-profile.md) with possible mapping information between a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy and the Microsoft Entra attribute name.
 
-The name of the claim is the name of the [Azure AD attribute](user-profile-attributes.md) unless the **PartnerClaimType** attribute is specified, which contains the Azure AD attribute name.
+The name of the claim is the name of the [Microsoft Entra attribute](user-profile-attributes.md) unless the **PartnerClaimType** attribute is specified, which contains the Microsoft Entra attribute name.
 
 The **PersistedClaims** element contains the following element:
 
@@ -401,7 +401,7 @@ The following technical profile references the AssertAccountEnabledIsTrue claims
 
 ## Validation technical profiles
 
-A validation technical profile is used for validating output claims in a [self-asserted technical profile](self-asserted-technical-profile.md#validation-technical-profiles). A validation technical profile is an ordinary technical profile from any protocol, such as [Azure AD](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims or returns error code. The error message is rendered to the user on the screen, which allows the user to retry.
+A validation technical profile is used for validating output claims in a [self-asserted technical profile](self-asserted-technical-profile.md#validation-technical-profiles). A validation technical profile is an ordinary technical profile from any protocol, such as [Microsoft Entra ID](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims or returns error code. The error message is rendered to the user on the screen, which allows the user to retry.
 
 The following diagram illustrates how Azure AD B2C uses a validation technical profile to validate the user credentials.
 

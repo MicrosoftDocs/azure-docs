@@ -34,7 +34,7 @@ Before you use the migration module, make sure you have the following things rea
 - PowerShell or PowerShell ISE to run the scripts you'll see in this article. The Microsoft.RdInfra.RDPowershell module doesn't work in PowerShell Core.
 
 >[!IMPORTANT]
->Migration only creates service objects in the US geography. If you try to migrate your service objects to another geography, it won't work. Also, if you have more than 500 application groups in your Azure Virtual Desktop (classic) deployment, you won't be able to migrate. You'll only be able to migrate if you rebuild your environment to reduce the number of application groups within your Azure Active Directory (Azure AD) tenant.
+>Migration only creates service objects in the US geography. If you try to migrate your service objects to another geography, it won't work. Also, if you have more than 500 application groups in your Azure Virtual Desktop (classic) deployment, you won't be able to migrate. You'll only be able to migrate if you rebuild your environment to reduce the number of application groups within your Microsoft Entra tenant.
 
 ## Prepare your PowerShell environment
 

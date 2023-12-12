@@ -12,6 +12,8 @@ ms.date: 01/26/2022
 
 # Monitor and scale an Azure Database for MariaDB server using Azure CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](../includes/azure-database-for-mariadb-deprecation.md)]
+
 This sample CLI script scales compute and storage for a single Azure Database for MariaDB server after querying the metrics. Compute can scale up or down. Storage can only scale up.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

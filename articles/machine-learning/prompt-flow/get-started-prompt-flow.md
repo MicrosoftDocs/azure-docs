@@ -1,41 +1,34 @@
 ---
-title: Get started in Prompt flow (preview)
+title: Get started in prompt flow
 titleSuffix: Azure Machine Learning
-description: Learn how to use Prompt flow in Azure Machine Learning studio.
+description: Learn how to use prompt flow in Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
 author: ishinzhang
 ms.author: yijunzhang
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 09/12/2023
 ---
 
-# Get started with Prompt flow (preview)
+# Get started with prompt flow 
 
-This article walks you through the main user journey of using Prompt flow in Azure Machine Learning studio. You'll learn how to enable Prompt flow in your Azure Machine Learning workspace, create and develop your first prompt flow, test and evaluate it, then deploy it to production.
+This article walks you through the main user journey of using prompt flow in Azure Machine Learning studio. You'll learn how to enable prompt flow in your Azure Machine Learning workspace, create and develop your first prompt flow, test and evaluate it, then deploy it to production.
 
-A quick video tutorial can be found here: [Prompt flow get started video tutorial](https://www.youtube.com/watch?v=kYqRtjDBci8).
-
-> [!IMPORTANT]
-> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Prerequisites: Enable Prompt flow in your Azure Machine Learning workspace
+## Prerequisites 
 
 > [!IMPORTANT]
 > Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
 >
->Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
->
->Prompt flow is **not supported** in workspaces that enable managed VNet. Managed VNet is a private preview feature.
->
->Prompt flow is **not supported** if you secure your Azure AI services account(Azure openAI, Azure cognitive search, Azure content safety) with virtual networks. If you want to use these as connection in prompt flow please allow access from all networks.
+> Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
 
-In your Azure Machine Learning workspace, you can enable Prompt flow by turning on **Build AI solutions with Prompt flow** in the **Manage preview features** panel.
+- Make sure the default data store in your workspace is blob type. 
 
-:::image type="content" source="./media/get-started-prompt-flow/preview-panel.png" alt-text="Screenshot of manage preview features highlighting build AI solutions with Prompt flow button." lightbox ="./media/get-started-prompt-flow/preview-panel.png":::
+- If you secure prompt flow with virtual network, please follow [Network isolation in prompt flow](how-to-secure-prompt-flow.md) to learn more detail.
+
 
 ## Setup
 
@@ -45,13 +38,15 @@ First you need to set up connection and runtime.
 
 Connection helps securely store and manage secret keys or other sensitive credentials required for interacting with LLM (Large Language Models) and other external tools, for example,  Azure Content Safety.
 
-Navigate to the Prompt flow homepage, select **Connections** tab. Connection is a shared resource to all members in the workspace. So, if you already see a connection whose provider is AzureOpenAI, you can skip this step, go to create runtime.
+Navigate to the prompt flow homepage, select **Connections** tab. Connection is a shared resource to all members in the workspace. So, if you already see a connection whose provider is AzureOpenAI, you can skip this step, go to create runtime.
 
 If you aren't already connected to AzureOpenAI, select the **Create** button then *AzureOpenAI* from the drop-down.
 
 :::image type="content" source="./media/get-started-prompt-flow/connection-creation-entry-point.png" alt-text="Screenshot of the connections tab with create highlighted." lightbox = "./media/get-started-prompt-flow/connection-creation-entry-point.png":::
 
-Then a right-hand panel will appear. Here, you'll need to provide the connection name, API key, API base, API type, and API version before selecting the **Save** button.
+Then a right-hand panel will appear. Here, you'll need to select the subscription and resource name, provide the connection name, API key, API base, API type, and API version before selecting the **Save** button.
+
+:::image type="content" source="./media/get-started-prompt-flow/azure-openai-connection.png" alt-text="Screenshot of the add Azure OpenAI connections." lightbox = "./media/get-started-prompt-flow/azure-openai-connection.png":::
 
 To obtain the API key, base, type, and version, you can navigate to the [chat playground](https://oai.azure.com/portal/chat) in the Azure OpenAI portal and select the **View code** button. From here, you can copy the necessary information and paste it into the connection creation panel.
 
@@ -63,43 +58,42 @@ After inputting the required fields, select **Save** to create the runtime.
 
 Runtime serves as the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. It's a must-have for flow execution. So, we suggest before starting flow authoring, you should set up your runtime.
 
-In this article, we recommend creating a runtime from Compute Instance. If you're a subscription owner or resource group owner, you have all the permissions needed. If not, first go [ask your subscription owner or resource group owner to grant you permissions](how-to-create-manage-runtime.md#grant-sufficient-permissions-to-use-the-runtime).
+First, check if you have a Compute Instance assigned to you in the workspace. If not, follow [How to create a managed compute instance](../how-to-create-compute-instance.md) to create one. A memory optimized compute is recommended.
 
-Meanwhile check if you have a Compute Instance assigned to you in the workspace. If not, follow [How to create a managed compute instance](../how-to-create-compute-instance.md) to create one. A memory optimized compute is recommended.
-
-Once you have your Compute Instance running, you can start to create a runtime. Go to **Runtime** tab, select **Create**.
-
-We support 2 types of runtimes, for this tutorial use **Compute Instance**. Then in the runtime creation right panel, specify a name, select your running compute instance, select **Authenticate** (if you see the warning message as shown below), and use the default environment, then **Create**.
+Once you have your Compute Instance running, you can start to create a runtime. Go to **Runtime** tab, select **Create**. Then in the runtime creation right panel, specify a name, select your running compute instance, (if you see the warning message as shown below, select **Authenticate**), and use the default environment, then **Create**.
 
 :::image type="content" source="./media/get-started-prompt-flow/create-runtime.png" alt-text="Screenshot of add compute instance runtime tab. " lightbox = "./media/get-started-prompt-flow/create-runtime.png":::
 
-If you want to learn more about runtime type, how to customize conda packages in runtime, limitations, etc., see [how to create and manage runtime](how-to-create-manage-runtime.md).
 
-## Create and develop your Prompt flow
+## Create and develop your prompt flow
 
-In **Flows** tab of Prompt flow home page, select **Create** to create your first Prompt flow. You can create a flow by cloning the samples in the gallery.
+In **Flows** tab of prompt flow home page, select **Create** to create your first prompt flow. You can create a flow by cloning the samples in the gallery.
 
 ### Clone from sample
 
 The built-in samples are shown in the gallery.
 
-In this guide, we'll use **Web Classification** sample to walk you through the main user journey, so select **View detail** on Web Classification tile to preview the sample.
+In this guide, we'll use **Web Classification** sample to walk you through the main user journey. You can select **View detail** on Web Classification tile to preview the sample. Then a preview window is popped up. You can browse the sample introduction to see if the sample is similar to your scenario. Or you can just select **Clone** to clone the sample directly, then check the flow, test it, modify it.
 
 :::image type="content" source="./media/get-started-prompt-flow/sample-in-gallery.png" alt-text="Screenshot of create from galley highlighting web classification. " lightbox = "./media/get-started-prompt-flow/sample-in-gallery.png":::
 
-Then a preview window is popped up. You can browse the sample introduction to see if the sample is similar to your scenario. You can select Clone to clone the sample, then check the flow, test it, modify it.
+After selecting **Clone**, the new flow will be saved in a specific folder within your workspace file share storage. You can customize the folder name according to your preferences.
 
 ### Authoring page
 
 After selecting **Clone**, You'll enter the authoring page.
 
+:::image type="content" source="./media/get-started-prompt-flow/views.png" alt-text="Screenshot of web classification highlighting the main working area." lightbox = "./media/get-started-prompt-flow/flatten-view.png":::
+
 At the left, it's the flatten view, the main working area where you can author the flow, for example add a new node, edit the prompt, select the flow input data, etc.
 
-:::image type="content" source="./media/get-started-prompt-flow/flatten-view.png" alt-text="Screenshot of web classification highlighting the main working area." lightbox = "./media/get-started-prompt-flow/flatten-view.png":::
+The top right corner shows the folder structure of the flow. Each flow has a folder that contains a flow.dag.yaml file, source code files, and system folders. You can export or import a flow easily for testing, deployment, or collaborative purposes.
 
-At the right, it's the graph view for visualization only. You can zoom in, zoom out, auto layout, etc.
+In addition to inline editing the node in the flatten view, you can also turn on the **Raw file mode** toggle and select the file name to edit the file in the opening file tab.
 
-:::image type="content" source="./media/get-started-prompt-flow/graph-view.png" alt-text="Screenshot of web classification highlighting graph view area." lightbox = "./media/get-started-prompt-flow/graph-view.png":::
+:::image type="content" source="./media/get-started-prompt-flow/file-edit-tab.png" alt-text="Screenshot of the file edit tab under raw file mode." lightbox = "./media/get-started-prompt-flow/file-edit-tab.png":::
+
+In the bottom right corner, it's the graph view for visualization only. You can zoom in, zoom out, auto layout, etc.
 
 In this guide, we use **Web Classification** sample to walk you through the main user journey. Web Classification is a flow demonstrating multi-class classification with LLM. Given a URL, it will classify the URL into a web category with just a few shots, simple summarization and classification prompts. For example, given \"https://www.imdb.com/\", it will classify this URL into \"Movie\".
 
@@ -125,9 +119,10 @@ For each LLM node, you need to select a connection to set your LLM API keys.
 
 :::image type="content" source="./media/get-started-prompt-flow/select-a-connection.png" alt-text="Screenshot of Web classification showing the connection drop-down." lightbox = "./media/get-started-prompt-flow/select-a-connection.png":::
 
-For this example, the API type should be **completion**.
+For this example, make sure API type is **chat** since the prompt example we provide is for chat API. To learn the prompt format difference of chat and completion API, see  [Develop a flow](./how-to-develop-flow.md). 
 
-Then depending on the connection type you selected, you need to select a deployment  or a model. If you use AzureOpenAI connection, you need to select a deployment in drop-down (If you don't have a deployment, create one in AzureOpenAI portal by following [Create a resource and deploy a model using Azure OpenAI](../../cognitive-services/openai/how-to/create-resource.md?pivots=web-portal#deploy-a-model)). If you use OpenAI connection, you need to select a model.
+
+Then depending on the connection type you selected, you need to select a deployment or a model. If you use Azure OpenAI connection, you need to select a deployment in drop-down (If you don't have a deployment, create one in Azure OpenAI portal by following [Create a resource and deploy a model using Azure OpenAI](../../cognitive-services/openai/how-to/create-resource.md?pivots=web-portal#deploy-a-model)). If you use OpenAI connection, you need to select a model.
 
 We have two LLM nodes (summarize_text_content and classify_with_llm) in the flow, so you need to set up for each respectively.
 
@@ -151,7 +146,7 @@ Then you can check the run status and output of each node. The node statuses are
 
 ### Set and check flow output
 
-When the flow is complicated, instead of checking outputs on each node, you can set flow output and check outputs of multiple nodes in one place. Moreover, flow output helps:
+Instead of checking outputs on each node, you can also set flow output and check outputs of multiple nodes in one place. Moreover, flow output helps:
 
 - Check bulk test results in one single table
 - Define evaluation interface mapping
@@ -161,6 +156,8 @@ When you clone the sample, the flow outputs (category and evidence) are already 
 
 :::image type="content" source="./media/get-started-prompt-flow/view-outputs-entry-point.png" alt-text="Screenshot of Web classification showing the view outputs button." lightbox = "./media/get-started-prompt-flow/view-outputs-entry-point.png":::
 
+You can see that the flow predicts the input URL with a category and evidence.
+
 :::image type="content" source="./media/get-started-prompt-flow/view-outputs.png" alt-text="Screenshot of Web classification showing outputs tab." lightbox = "./media/get-started-prompt-flow/view-outputs.png":::
 
 ## Test and evaluation
@@ -169,89 +166,61 @@ After the flow run successfully with a single row of data, you might want to tes
 
 ### Prepare data
 
-You need to prepare test data first. We support csv and txt file for now.
+You need to prepare test data first. We support csv, tsv, and jsonl file for now.
 
-Go to [GitHub](https://aka.ms/web-classification-data) to download raw file for Web Classification sample.
-
-### Bulk test
-
-Select **Bulk test** button, then a right panel pops up. It's a wizard that guides you to submit a bulk test and to select the evaluation method (optional).​​​​​​​
-
-:::image type="content" source="./media/get-started-prompt-flow/bulk-test-entry-point.png" alt-text="Screenshot of Web classification showing the bulk test button." lightbox = "./media/get-started-prompt-flow/bulk-test-entry-point.png":::
-
-You need to set a bulk test name, description, then select a runtime first.
-
-Then select **Upload new data** to upload the data you just downloaded. After uploading the data or if your colleagues in the workspace already created a dataset, you can choose the dataset from the drop-down and preview first 50 rows.
-
-:::image type="content" source="./media/get-started-prompt-flow/upload-new-data-bulk-test.png" alt-text="Screenshot of Bulk test and evaluate, highlighting upload new data." lightbox = "./media/get-started-prompt-flow/upload-new-data-bulk-test.png":::
-
-The dataset selection drop down supports search and autosuggestion.
+Go to [GitHub](https://aka.ms/web-classification-data) to download "data.csv", the golden dataset for Web Classification sample.
 
 ### Evaluate
 
-Select **Next**, then you can use an evaluation method to evaluate your flow. The evaluation methods are also flows that use Python or LLM etc., to calculate metrics like accuracy, relevance score. The built-in evaluation flows and customized ones are listed in the drop-down.
+Select **Evaluate** button next to Run button, then a right panel pops up. It's a wizard that guides you to submit a batch run and to select the evaluation method (optional).​​​​​​​
 
-:::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing the bulk test and evaluate on the evaluation settings." lightbox = "./media/get-started-prompt-flow/accuracy.png":::
+You need to set a batch run name, description, select a runtime, then select **Add new data** to upload the data you just downloaded. After uploading the data or if your colleagues in the workspace already created a dataset, you can choose the dataset from the drop-down and preview first five rows. The dataset selection drop down supports search and autosuggestion.
 
-Since Web classification is a classification scenario, it's suitable to select the **Classification Accuracy Evaluation** to evaluate.
+In addition, the **input mapping** supports mapping your flow input to a specific data column in your dataset, which means that you can use any column as the input, even if the column names don't match.
 
-If you're interested in how the metrics are defined for built-in evaluation methods, you can preview the evaluation flows by selecting **View details**.
+:::image type="content" source="./media/get-started-prompt-flow/upload-new-data-batch-run.png" alt-text="Screenshot of Batch run and evaluate, highlighting upload new data." lightbox = "./media/get-started-prompt-flow/upload-new-data-batch-run.png":::
 
-After selecting **Classification Accuracy Evaluation** as evaluation method, you can set interface mapping to map the ground truth to flow input and category to flow output.
+Next, select one or multiple evaluation methods. The evaluation methods are also flows that use Python or LLM etc., to calculate metrics like accuracy, relevance score. The built-in evaluation flows and customized ones are listed in the page. Since Web classification is a classification scenario, it's suitable to select the **Classification Accuracy Evaluation** to evaluate.
 
-Then select **Submit** to submit a bulk test and the selected evaluation.
+:::image type="content" source="./media/get-started-prompt-flow/accuracy.png" alt-text="Screenshot of Web classification showing the batch run and evaluate on evaluation methods." lightbox = "./media/get-started-prompt-flow/accuracy.png":::
 
-### Check evaluation results
+If you're interested in how the metrics are defined for built-in evaluation methods, you can preview the evaluation flows by selecting **More details**.
 
-When completed, select the link, go to bulk test detail page.
+After selecting **Classification Accuracy Evaluation** as evaluation method, you can set interface mapping to map the ground truth to flow input and prediction to flow output.
 
-:::image type="content" source="./media/get-started-prompt-flow/bulk-test-status.png" alt-text="Screenshot of Web classification showing a successful bulk run and link to detail page." lightbox = "./media/get-started-prompt-flow/bulk-test-status.png":::
+:::image type="content" source="./media/get-started-prompt-flow/accuracy-configure.png" alt-text="Screenshot of Web classification showing the batch run and evaluate on the evaluation settings." lightbox = "./media/get-started-prompt-flow/accuracy-configure.png":::
 
-Select **Refresh** until the evaluation run is completed.
+Then select **Review + submit** to submit a batch run and the selected evaluation.
 
-:::image type="content" source="./media/get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png" alt-text="Screenshot of Web classification bulk test detail page." lightbox = "./media//get-started-prompt-flow/refresh-until-the-evaluation-run-is-completed.png":::
+### Check results
 
-Then go to the **Metrics** tab, check accuracy.
+When your run have been submitted successfully, select **View run list** to navigate to the batch run list of this flow.
 
-:::image type="content" source="./media/get-started-prompt-flow/check-metrics.png" alt-text="Screenshot of Web classification bulk test detail page on the metrics tab." lightbox = "./media/get-started-prompt-flow/check-metrics.png":::
+The batch run might take a while to finish. You can **Refresh** the page to load the latest status. 
 
-To understand in which case the flow classifies incorrectly, you need to see the evaluation results for each row of data. Go to **Outputs** tab, select the evaluation run, you can see in the table below for most cases the flow classifies correctly except for few rows.
+After the batch run is completed, select the run, then **Visualize outputs** to view the result of your batch run. Select **View outputs** (eye icon) to append evaluation results to the table of batch run results. You can see the total token count and overall accuracy, then in the table you will see the results for each row of data: input, flow output and evaluation results (which cases are predicted correctly and which are not.).
 
-:::image type="content" source="./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png" alt-text="Screenshot of Web classification bulk test detail page on the output tab." lightbox = "./media/get-started-prompt-flow/check-outputs-for-each-row-of-data.png":::
+:::image type="content" source="./media/get-started-prompt-flow/check-outputs.png" alt-text="Screenshot of Web classification batch run details page to view outputs." lightbox = "./media/get-started-prompt-flow/check-outputs.png":::
 
-You can adjust column width, hide/unhide columns, and export table to csv file for further investigation. 
+You can adjust column width, hide/unhide columns, change column orders. You can also select **Export** to download the output table for further investigation, we provide 2 options: 
+* Download current page: a csv file of the batch run outputs in current page.
+* Download all data: what you download is a Jupyter notebook file, you need to run it to download outputs in jsonl or csv format.
 
-As you might know, accuracy isn't the only metric that can evaluate a classification task, for example you can also use recall to evaluate. In this case, you can select **New evaluation**, choose other evaluation methods to evaluate.
+As you might know, accuracy isn't the only metric that can evaluate a classification task, for example you can also use recall to evaluate. In this case, you can select **Evaluate** next to "Visualize outputs" button, choose other evaluation methods to evaluate.
 
 ## Deployment
 
-After you build a flow and test it properly, you may want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
+After you build a flow and test it properly, you might want to deploy it as an endpoint so that you can invoke the endpoint for real-time inference.
 
 ### Configure the endpoint
 
-When you are in the bulk test **Overview** tab, select bulk test link.
-
-:::image type="content" source="./media/get-started-prompt-flow/bulk-test-run.png" alt-text="Screenshot of Web classification bulk test detail page highlighting the bulk test link." lightbox = "./media/get-started-prompt-flow/bulk-test-run.png":::
-
-Then you're directed to the bulk test detail page, select **Deploy**. A wizard pops up to allow you to configure the endpoint. Specify an endpoint name, use the default settings, set connections, and select a virtual machine, select **Deploy** to start the deployment.
-
-:::image type="content" source="./media/get-started-prompt-flow/endpoint-creation.png" alt-text="Screenshot of endpoint configuration wizard." lightbox = "./media/get-started-prompt-flow/endpoint-creation.png":::
-
-If you're a Workspace Owner or Subscription Owner, see [Deploy a flow as a managed online endpoint for real-time inference](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint) to grant permissions to the endpoint. If not, go ask your Workspace Owner or Subscription Owner to it for you.
+Select batch run link, then you're directed to the batch run detail page, select **Deploy**. A wizard pops up to allow you to configure the endpoint. Specify an endpoint and deployment name, select a virtual machine, set connections, do some settings (you can use the default settings), select **Review + create** to start the deployment.
 
 ### Test the endpoint
 
-It takes several minutes to deploy the endpoint. After the endpoint is deployed successfully, you can test it in the **Test** tab. 
+You can go to your endpoint detail page from the notification or by navigating to **Endpoints** in the left navigation of studio then select your endpoint in **Real-time endpoints** tab. It takes several minutes to deploy the endpoint. After the endpoint is deployed successfully, you can test it in the **Test** tab. 
 
-Copy following sample input data, paste to the input box, and select **Test**, then you'll see the result predicted by your endpoint.
-
-```json
-{
-  "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/"
-}
-```
-
-:::image type="content" source="./media/get-started-prompt-flow/test-endpoint.png" alt-text="Screenshot of the endpoint on the test tab." lightbox = "./media/get-started-prompt-flow/test-endpoint.png":::
+Put the url you want to test in the input box, and select **Test**, then you'll see the result predicted by your endpoint.
 
 ## Clean up resources
 

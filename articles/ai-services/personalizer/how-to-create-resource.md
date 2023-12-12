@@ -4,14 +4,15 @@ description: In this article, learn how to create a personalizer resource in the
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: how-to
 ms.date: 03/26/2020 
 ms.custom: devx-track-azurecli
 ---
 
 # Create a Personalizer resource
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 A Personalizer resource is the same thing as a Personalizer learning loop. A single resource, or learning loop, is created for each subject domain or content area you have. Do not use multiple content areas in the same loop because this will confuse the learning loop and provide poor predictions.
 

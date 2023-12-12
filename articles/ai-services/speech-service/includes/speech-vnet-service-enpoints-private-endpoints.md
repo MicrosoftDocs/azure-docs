@@ -1,7 +1,6 @@
 ---
 author: alexeyo26
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 03/19/2021
 ms.author: alexeyo

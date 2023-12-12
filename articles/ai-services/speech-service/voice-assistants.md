@@ -2,11 +2,10 @@
 title: Voice assistants overview - Speech service
 titleSuffix: Azure AI services
 description: An overview of the features, capabilities, and restrictions for voice assistants with the Speech SDK.
-services: cognitive-services
+#services: cognitive-services
 author: trrwilson
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 03/11/2020
 ms.author: travisw

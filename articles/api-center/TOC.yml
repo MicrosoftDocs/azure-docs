@@ -19,4 +19,12 @@
 - name: Reference
   items:
       - name: REST API
-        href: https://aka.ms/apicenter/docs/rest
+        href: /rest/api/apicenter/
+      - name: REST API SDKs
+        items:
+          - name: JavaScript
+            href: /javascript/api/overview/azure/apicenter
+          - name: Java
+            href: /java/api/overview/azure/apicenter
+          - name: Python
+            href: https://pypi.org/project/azure-mgmt-apicenter

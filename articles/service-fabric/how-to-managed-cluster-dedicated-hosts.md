@@ -157,7 +157,7 @@ Create an Azure Service Fabric managed cluster with node type(s) configured to r
             {  
                   "code": "QuotaExceeded",  
                   "message": "Operation could not be completed as it results in exceeding approved standardDSv3Family Cores quota.  
-            Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase [here](https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/). Please read more about quota limits [here](https://learn.microsoft.com/azure/azure-supportability/per-vm-quota-requests)” 
+            Additional Required: 320, (Minimum) New Limit Required: 320. Submit a request for Quota increase [here](https://aka.ms/ProdportalCRP/#blade/Microsoft_Azure_Capacity/UsageAndQuota.ReactView/Parameters/). Please read more about quota limits [here](/azure/azure-supportability/per-vm-quota-requests)” 
                 }
       ```
 ## Next steps

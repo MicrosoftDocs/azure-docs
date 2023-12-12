@@ -1,7 +1,7 @@
 ---
 title: Configure Azure Compute Gallery
 titleSuffix: Microsoft Dev Box
-description: Learn how to create an Azure Compute Gallery repository for managing and sharing Dev Box images.
+description: Learn how to create and attach an Azure compute gallery to a dev center in Microsoft Dev Box. Use a compute gallery to manage and share dev box images.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -12,7 +12,11 @@ ms.topic: how-to
 
 # Configure Azure Compute Gallery for Microsoft Dev Box
 
-Azure Compute Gallery is a service for managing and sharing images. A gallery is a repository that's stored in your Azure subscription and helps you build structure and organization around your image resources. You can use a gallery to provide custom images for your dev box users.
+In this article, you learn how to configure and attach an Azure compute gallery to a dev center in Microsoft Dev Box. With Azure Compute Gallery, you can give developers customized images for their dev box.
+
+Azure Compute Gallery is a service for managing and sharing images. A gallery is a repository that's stored in your Azure subscription and helps you build structure and organization around your image resources.
+
+After you attach a compute gallery to a dev center in Microsoft Dev Box, you can create dev box definition based on images stored in the compute gallery.
 
 Advantages of using a gallery include:
 
@@ -29,13 +33,17 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 - A dev center. If you don't have one available, follow the steps in [Create a dev center](quickstart-configure-dev-box-service.md#1-create-a-dev-center).
 - A compute gallery. Images stored in a compute gallery can be used in a dev box definition, provided they meet the requirements listed in the [Compute gallery image requirements](#compute-gallery-image-requirements) section.
- 
+
 > [!NOTE]
 > Microsoft Dev Box doesn't support community galleries.
 
 ## Compute gallery image requirements 
 
 A gallery used to configure dev box definitions must have at least [one image definition and one image version](../virtual-machines/image-version.md).
+
+When you create a virtual machine image, select an image from the Azure Marketplace that is compatible with Microsoft Dev Box. The following are examples of compatible images:
+- [Visual Studio 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019plustools?tab=Overview)
+- [Visual Studio 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudioplustools?tab=Overview) 
 
 The image version must meet the following requirements:
 - Generation 2.
@@ -46,8 +54,10 @@ The image version must meet the following requirements:
 - Generalized VM image.
     - You must create the image using these three sysprep options: `/generalize /oobe /mode:vm`. </br>
       For more information, see: [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).
-    - To speed up the Dev Box creation time, you can disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. </br>
-      For more information, see: [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
+    - To speed up the Dev Box creation time:
+      - Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. </br>
+        For more information, see: [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
+      -	Run `defrag` and `chkdsk` during image creation, wait for them to finish. And disable `chkdisk` and `defrag` scheduled task.
 - Single-session virtual machine (VM) images. (Multiple-session VM images aren't supported.)
 - No recovery partition.
     - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
@@ -57,12 +67,12 @@ The image version must meet the following requirements:
     :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
 
 > [!NOTE]
-> - Dev Box image requirements exceed [Windows 365 image requirements](/windows-365/enterprise/device-images) and include settings to optimize dev box creation time and performance. 
+> - Microsoft Dev Box image requirements exceed [Windows 365 image requirements](/windows-365/enterprise/device-images) and include settings to optimize dev box creation time and performance. 
 > - Images that do not meet Windows 365 requirements will not be listed for creation.
 
 ## Provide permissions for services to access a gallery
 
-When you use an Azure Compute Gallery image to create a dev box definition, the Windows 365 service validates the image to ensure that it meets the requirements to be provisioned for a dev box. The Dev Box service replicates the image to the regions specified in the attached network connections, so the images are present in the region that's required for dev box creation.
+When you use an Azure Compute Gallery image to create a dev box definition, the Windows 365 service validates the image to ensure that it meets the requirements to be provisioned for a dev box. Microsoft Dev Box replicates the image to the regions specified in the attached network connections, so the images are present in the region that's required for dev box creation.
 
 To allow the services to perform these actions, you must provide permissions to your gallery as follows.
 
@@ -79,7 +89,7 @@ To allow the services to perform these actions, you must provide permissions to 
 
 ### Assign roles
 
-The Dev Box service behaves differently depending how you attach your gallery:
+Microsoft Dev Box behaves differently depending how you attach your gallery:
 
 - When you use the Azure portal to attach the gallery to your dev center, the Dev Box service creates the necessary role assignments automatically after you attach the gallery.
 - When you use the Azure CLI to attach the gallery to your dev center, you must manually create the Windows 365 service principal and the dev center's managed identity role assignments before you attach the gallery.
@@ -124,7 +134,7 @@ You can use the same managed identity in multiple dev centers and compute galler
 
 ## Attach a gallery to a dev center
 
-To use the images from a gallery in dev box definitions, you must first associate the gallery with the dev center by attaching it:
+To use the images from a compute gallery in dev box definitions, you must first associate the gallery with the dev center by attaching it:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -177,6 +187,6 @@ You can detach galleries from dev centers so that their images can no longer be 
 
 The gallery is detached from the dev center. The gallery and its images aren't deleted, and you can reattach it if necessary.
 
-## Next steps
+## Related content
 
-- Learn more about [key concepts in Microsoft Dev Box ](./concept-dev-box-concepts.md).
+- Learn more about [key concepts in Microsoft Dev Box](./concept-dev-box-concepts.md).

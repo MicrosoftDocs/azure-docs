@@ -9,6 +9,9 @@ ms.date: 03/23/2022
 
 The Open Service Mesh (OSM) add-on integrates with features provided by Azure and some open source projects.
 
+> [!NOTE]
+> With the retirement of [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) by the Cloud Native Computing Foundation (CNCF), we recommend identifying your OSM configurations and migrating them to an equivalent Istio configuration. For information about migrating from OSM to Istio, see [Migration guidance for Open Service Mesh (OSM) configurations to Istio](open-service-mesh-istio-migration-guidance.md).
+
 > [!IMPORTANT]
 > Integrations with open source projects aren't covered by the [AKS support policy][aks-support-policy].
 

@@ -283,6 +283,10 @@ Use **[az network private-endpoint-connection delete](/cli/azure/network/private
 
 ---
 
+> [!NOTE]
+> Connections that have been previously denied can't be approved. You must remove the connection and create a new one.
+
+
 ## Next steps
 - [Learn about Private Endpoints](private-endpoint-overview.md)
  

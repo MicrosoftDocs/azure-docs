@@ -3,11 +3,10 @@ metadata:
   title: Text to speech FAQ
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about the text to speech service.
-  services: cognitive-services
+  #services: cognitive-services
   author: eric-urban
   manager: nitinme
-  ms.service: cognitive-services
-  ms.subservice: speech-service
+  ms.service: azure-ai-speech
   ms.topic: faq
   ms.date: 03/29/2023
   ms.author: eur
@@ -46,13 +45,19 @@ sections:
       - question: |
           Can we have multiple strength for each emotions, like very sad, slightly sad and so on in?
         answer: |
-          Adjusting the style degree is supported for some voices depending on the locale. See the [mstts:express-as tag](speech-synthesis-markup-voice.md#speaking-styles-and-roles).
+          Adjusting the style degree is supported for some voices depending on the locale. See the [mstts:express-as tag](speech-synthesis-markup-voice.md#use-speaking-styles-and-roles).
       - question: |
           Is there a mapping between Viseme IDs and mouth shape?
         answer: |
           Yes. See [Get facial position with viseme](how-to-speech-synthesis-viseme.md?tabs=visemeid#map-phonemes-to-visemes).
 
-
+  - name: Audio Content Creation
+    questions:
+        - question: |
+            How can I reference a lexicon file that I created on the Audio Content Creation platform in my code?
+          answer: |
+            First, you can open the lexicon file on the Audio Content Creation and obtain the lexicon file ID, which is located before "?fileKind=CustomLexiconFile" in the file path. For example, if the file path is `https://speech.microsoft.com/portal/d391a094f76846acbcd11dc2ba835f4f/audiocontentcreation/file/6cbc2527-8d57-4c1b-b9d9-3ea6d13ca95c?fileKind=CustomLexiconFile`, the lexicon file ID is `6cbc2527-8d57-4c1b-b9d9-3ea6d13ca95c`. Then, switch a file referencing this lexicon to SSML format on the Audio Content Creation. In the SSML file, locate the `<!--ID=FCB` xml node, where you can find the URI of the lexicon file based on the mentioned file ID. Finally, reference the lexicon file URI link using the SSML lexicon element in your code. For instance, if you locate the XML node `<!--ID=FCB5B6FB566-33CA-4B68-BEAF-B013C53B3368;Version=1|{"Files":{"6cbc2527-8d57-4c1b-b9d9-3ea6d13ca95c":{"FileKind":"CustomLexiconFile","FileSubKind":"CustomLexiconFile","Uri":"https://cvoiceprodwus2.blob.core.windows.net/acc-public-files/d391a094f76846acbcd11dc2ba835f4f/e9a6a5a2-9cef-47f4-b961-d175be75d92f.xml"}}}`, you can obtain the lexicon file URI `https://cvoiceprodwus2.blob.core.windows.net/acc-public-files/d391a094f76846acbcd11dc2ba835f4f/e9a6a5a2-9cef-47f4-b961-d175be75d92f.xml`.
+        
   - name: Custom Neural Voice
     questions:
       - question: |

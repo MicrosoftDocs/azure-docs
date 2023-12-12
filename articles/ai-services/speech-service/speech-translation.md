@@ -2,11 +2,10 @@
 title: Speech translation overview - Speech service
 titleSuffix: Azure AI services
 description: With speech translation, you can add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 09/16/2022
 ms.author: eur

@@ -2,11 +2,10 @@
 title: "How to prepare data for Custom Voice - Speech service"
 titleSuffix: Azure AI services
 description: "Learn how to provide studio recordings and the associated scripts that will be used to train your Custom Neural Voice."
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.author: eur

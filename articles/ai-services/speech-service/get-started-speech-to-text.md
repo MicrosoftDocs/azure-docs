@@ -1,14 +1,13 @@
 ---
 title: "Speech to text quickstart - Speech service"
 titleSuffix: Azure AI services
-description: In this quickstart, you convert speech to text with recognition from a microphone.
-services: cognitive-services
+description: In this quickstart, learn how to convert speech to text with recognition from a microphone or .wav file.
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 09/16/2022
+ms.date: 08/24/2023
 ms.author: eur
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other, devx-track-extended-java, devx-track-go

@@ -4,14 +4,15 @@ titleSuffix: Azure AI services
 description: How to configure your Metrics Advisor instance and fine-tune the anomaly detection results.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: how-to
 ms.date: 05/12/2022
 ms.author: mbullwin
 ---
 
 # Configure metrics and fine tune detection configuration
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 Use this article to start configuring your Metrics Advisor instance using the web portal and fine-tune the anomaly detection results.
 

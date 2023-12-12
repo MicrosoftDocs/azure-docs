@@ -2,11 +2,10 @@
 title: How to call Text Analytics for health
 titleSuffix: Azure AI services
 description: Learn how to extract and label medical information from unstructured clinical text with Text Analytics for health.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.author: jboback
@@ -29,50 +28,7 @@ There are two ways to call the service:
 
 ## Development options
 
-[!INCLUDE [Development options](../includes/development-options.md)] 
-
-
-
-## Specify the Text Analytics for health model
-
-By default, Text Analytics for health will use the ("2022-03-01") model version on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform operations provided by the Text Analytics for health. Extraction of social determinants of health entities along with their assertions and relationships (**only in English**) is supported with the latest preview model version "2023-04-15-preview".
-
-| Supported Versions | Status |
-|--|--|
-| `2023-04-15-preview` | Preview   |
-| `2023-04-01` | Generally available   |
-| `2023-01-01-preview` | Preview   |
-| `2022-08-15-preview` | Preview   |
-| `2022-03-01` | Generally available   |
-
-## Specify the Text Analytics for health API version
-
-When making a Text Analytics for health API call, you must specify an API version. The latest generally available API version is "2023-04-01" which supports relationship confidence scores in the results. The latest preview API version is "2023-04-15-preview", offering the latest feature which is support for [temporal assertions](../concepts/assertion-detection.md).
-
-| Supported Versions | Status |
-|--|--|
-| `2023-04-15-preview`| Preview  |
-| `2023-04-01`| Generally available  |
-| `2022-10-01-preview` | Preview   |
-| `2022-05-01` | Generally available  |
-
-
-### Text Analytics for health container
-
-The [Text Analytics for health container](use-containers.md) uses separate model versioning than the REST API and client libraries. Only one model version is available per container image.
-
-| Endpoint                        | Container Image Tag                     | Model version |
-|---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `3.0.59413252-onprem-amd64` (latest)            | `2022-03-01`  |
-| `/entities/health`              | `3.0.59413252-latin-onprem-amd64` (latin)            | `2022-08-15-preview`  |
-| `/entities/health`              | `3.0.59413252-semitic-onprem-amd64` (semitic)            | `2022-08-15-preview`  |
-| `/entities/health`              | `3.0.016230002-onprem-amd64`            | `2021-05-15`  |
-| `/entities/health`              | `3.0.015370001-onprem-amd64`            | `2021-03-01`  |
-| `/entities/health`              | `1.1.013530001-amd64-preview`           | `2020-09-03`  |
-| `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
-| `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
-| `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
-| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
+[!INCLUDE [Development options](../includes/development-options.md)]
 
 ### Input languages
 
