@@ -1,6 +1,6 @@
 ---
-title: Query data in Azure Data Explorer and Azure Resource Graph from Azure Monitor
-description: Query data in Azure Data Explorer and Azure Resource Graph from Azure Monitor.
+title: Correlated data in Azure Data Explorer and Azure Resource Graph with data in a Log Analytics workspace 
+description: Run cross-service queries to correlated data in Azure Data Explorer and Azure Resource Graph with data in a Log Analytics workspace.
 author: guywi-ms
 ms.author: guywild
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 08/22/2023
 ms.reviewer: osalzberg
 ---
 
-# Query data in Azure Data Explorer and Azure Resource Graph from Azure Monitor
+# Correlated data in Azure Data Explorer and Azure Resource Graph with data in a Log Analytics workspace
 
 You can correlated data from [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) and [Azure Resource Graph](../../governance/resource-graph/overview.md) with data in your Log Analytics workspace and Application Insights resources by using the `adx()` and `arg()` expressions. This increases your analysis capabilities in [Azure Monitor Logs](../logs/data-platform-logs.md) and in [Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md), which also store data in Log Analytics workspaces. This article explains how to run cross-service queries from any service that stores data in a Log Analytics workspace.
 
