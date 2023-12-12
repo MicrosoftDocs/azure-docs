@@ -9623,6 +9623,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/update-java-versions.md",
+            "redirect_url": "/azure/azure-functions/update-language-versions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-government/documentation-government-k8.md",
             "redirect_url": "/azure/azure-government",
             "redirect_document_id": false
@@ -15391,6 +15396,11 @@
             "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group.md",
             "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/how-to/deploy-models.md",
+            "redirect_URL": "/azure/ai-studio/concepts/deployments-overview",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
