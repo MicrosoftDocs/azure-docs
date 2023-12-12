@@ -388,6 +388,7 @@ The following table is a statistical summary after many rounds of running the **
 
 
 This use case requires high load on the app server side. See the suggested app server count in the following table.
+
 | Send to connection | Unit 1 | Unit 2 | Unit 10 | Unit 50 | Unit 100 | Unit 200 | Unit 500 | Unit 1000 |
 |--------------------|-------|-------|--------|--------|---------|---------|---------|----------|
 | Connections        | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000 | 1,000,000|
