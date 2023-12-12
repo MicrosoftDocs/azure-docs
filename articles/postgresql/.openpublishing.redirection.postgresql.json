@@ -1493,7 +1493,7 @@
     {
         "source_path_from_root": "/articles/postgresql/migrate/common-errors-and-special-scenarios-fms.md",
         "redirect_url": "/azure/postgresql/migrate/best-practices-seamless-migration-single-to-flexible.md",
-        "redirect_document_id": true
+        "redirect_document_id": false
     }    
     ]
 }
