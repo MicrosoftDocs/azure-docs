@@ -987,14 +987,14 @@ from azure.ai.ml import Input
 from azure.ai.ml.constants import AssetTypes, InputOutputModes
 from azure.ai.ml import MLClient
 
-ml_client = MLClient.from_config()
+ml_client = MLClient.from_config(credential=DefaultAzureCredential())
 
 filedataset_asset = ml_client.data.get(name="<filedataset_name>", version="<version>")
 
 my_job_inputs = {
     "input_data": Input(
             type=AssetTypes.MLTABLE,
-            path=filedataset_asset,
+            path=filedataset_asset.id,
             mode=InputOutputModes.EVAL_MOUNT
     )
 }
@@ -1059,14 +1059,14 @@ from azure.ai.ml import Input
 from azure.ai.ml.constants import AssetTypes, InputOutputModes
 from azure.ai.ml import MLClient
 
-ml_client = MLClient.from_config()
+ml_client = MLClient.from_config(credential=DefaultAzureCredential())
 
 filedataset_asset = ml_client.data.get(name="<tabulardataset_name>", version="<version>")
 
 my_job_inputs = {
     "input_data": Input(
             type=AssetTypes.MLTABLE,
-            path=filedataset_asset,
+            path=filedataset_asset.id,
             mode=InputOutputModes.DIRECT
     )
 }
