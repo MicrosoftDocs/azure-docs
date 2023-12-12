@@ -36,7 +36,7 @@ Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployme
 - `api-key`: {API_KEY} 
 
 **Body**: 
-The following is a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content can be an array containing strings and images (either a URL to an image, or a base-64-encoded image). 
+The following is a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content can be an array containing strings and images (either a URL to an image, or a base-64-encoded image). Remember to set a `"max_tokens"` value, or the return output will be cut off.
 
 ```json
 {
@@ -55,6 +55,41 @@ The following is a sample request body. The format is the same as the chat compl
     "max_tokens": 100, 
     "stream": false 
 } 
+```
+
+### Output
+
+The API response should look like the following.
+
+```json
+{
+    "id": "chatcmpl-8Uyxu7xpvngMZnvMhVAPpiI3laUef",
+    "object": "chat.completion",
+    "created": 1702394882,
+    "model": "gpt-4",
+    "choices":
+    [
+        {
+            "finish_details":
+            {
+                "type": "stop",
+                "stop": "<|fim_suffix|>"
+            },
+            "index": 0,
+            "message":
+            {
+                "role": "assistant",
+                "content": "This picture depicts a grayscale image of an individual showcasing dark hair combed to one side, and the tips of their ears are also visible. The person appears to be dressed in a casual outfit with a hint of a garment that has a collar or neckline. The background is a plain and neutral shade, creating a stark contrast with the subject in the foreground."
+            }
+        }
+    ],
+    "usage":
+    {
+        "prompt_tokens": 816,
+        "completion_tokens": 71,
+        "total_tokens": 887
+    }
+}
 ```
 
 ## Use Vision enhancement with images
@@ -82,7 +117,9 @@ Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployme
 
 **Body**: 
 
-The request body is the same as above, except you must include the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource.
+The format is similar to that of the chat completions API for GPT-4, but the message content can be an array containing strings and images (either a URL to an image, or a base-64-encoded image).
+
+You must also include the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. Remember to set a `"max_tokens"` value, or the return output will be cut off.
 
 ```json
 {
@@ -119,7 +156,62 @@ The request body is the same as above, except you must include the `enhancements
 } 
 ```
 
-The chat responses you receive from the model should now include enhanced information about the image, such as object labels and bounding boxes, and OCR results.
+### Output
+
+The chat responses you receive from the model should now include enhanced information about the image, such as object labels and bounding boxes, and OCR results. The API response should look like the following.
+
+```json
+{
+    "id": "chatcmpl-8UyuhLfzwTj34zpevT3tWlVIgCpPg",
+    "object": "chat.completion",
+    "created": 1702394683,
+    "model": "gpt-4",
+    "choices":
+    [
+        {
+            "finish_details":
+            {
+                "type": "stop",
+                "stop": "<|fim_suffix|>"
+            },
+            "index": 0,
+            "message":
+            {
+                "role": "assistant",
+                "content": "The image shows a close-up of an individual with dark hair and what appears to be a short haircut. The person has visible ears and a bit of their neckline. The background is a neutral light color, providing a contrast to the dark hair."
+            },
+            "enhancements":
+            {
+                "grounding":
+                {
+                    "lines":
+                    [
+                        {
+                            "text": "The image shows a close-up of an individual with dark hair and what appears to be a short haircut. The person has visible ears and a bit of their neckline. The background is a neutral light color, providing a contrast to the dark hair.",
+                            "spans":
+                            [
+                                {
+                                    "text": "the person",
+                                    "length": 10,
+                                    "offset": 99,
+                                    "polygon": [{"x":0.11950000375509262,"y":0.4124999940395355},{"x":0.8034999370574951,"y":0.4124999940395355},{"x":0.8034999370574951,"y":0.6434999704360962},{"x":0.11950000375509262,"y":0.6434999704360962}]
+                                }
+                            ]
+                        }
+                    ],
+                    "status": "Success"
+                }
+            }
+        }
+    ],
+    "usage":
+    {
+        "prompt_tokens": 816,
+        "completion_tokens": 49,
+        "total_tokens": 865
+    }
+}
+```
 
 ## Use Vision enhancement with video
 
@@ -186,7 +278,8 @@ Follow these steps to set up a video retrieval system and integrate it with your
                         }
                     ]
             }
-        ]
+        ],
+        "max_tokens": 100, 
     } 
     ```
 
@@ -194,7 +287,7 @@ Follow these steps to set up a video retrieval system and integrate it with your
 1. Fill in all the `<placeholder>` fields above with your own information: enter the endpoint URLs and keys of your OpenAI and AI Vision resources where appropriate, and retrieve the video index information from the earlier step.
 1. Send the POST request to the API endpoint. It should contain your OpenAI and AI Vision credentials, the name of your video index, and the ID and SAS URL of a single video.
 
- ## Low or high fidelity image understanding
+## Low or high fidelity image understanding
 
 By controlling the _detail_ parameter, which has two options, `low` or `high`, you can control how the model processes the image and generates its textual understanding.
 - `low` disables the "high res" mode. The model receives a low-res 512x512 version of the image and represents the image with a budget of 65 tokens. This allows the API to return faster responses and consume fewer input tokens for use cases that don't require high detail.

@@ -80,7 +80,7 @@ GPT-4, GPT-4-32k, and GPT-4 Turbo with Vision are now available to all Azure Ope
 
 These models can only be used with the Chat Completion API.
 
-GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support. Version `gpt-4-vision-preview` is the third version and adds support for visual recognition.
+GPT-4 version 0314 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-4 deployments.
 
