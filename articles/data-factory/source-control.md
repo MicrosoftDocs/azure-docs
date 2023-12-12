@@ -241,7 +241,7 @@ If you connect to GitHub Enterprise Server, you need to use personal access toke
 
 #### Connecting to Azure DevOps Server 2022
 
-If you connect to Azure DevOps Server 2022, you need to use a personal access token for authentication. [Learn how to create a personal access token here](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+If you connect to Azure DevOps Server 2022, you need to use a personal access token for authentication. [Learn how to create a personal access token here](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
  
 Connect to on-premises Azure DevOps by providing the ``Azure DevOps Server URL`` and ``Azure DevOps Project Collection``
 
