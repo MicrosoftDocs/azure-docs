@@ -3,7 +3,7 @@ title: Agentless container posture in Defender CSPM
 description: Learn how agentless container posture offers discovery, visibility, and vulnerability assessment for containers without installing an agent on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 12/12/2023
 ms.custom: template-concept
 ---
 
@@ -23,10 +23,6 @@ Agentless container posture provides the following capabilities:
 - **[Attack path analysis](concept-attack-path.md)** - Contextual risk assessment exposes exploitable paths that attackers might use to breach your environment and are reported as attack paths to help prioritize posture issues that matter most in your environment.
 - **[Enhanced risk-hunting](how-to-manage-cloud-security-explorer.md)** - Enables security admins to actively hunt for posture issues in their containerized assets through queries (built-in and custom) and [security insights](attack-path-reference.md#insights) in the [security explorer](how-to-manage-cloud-security-explorer.md).
 - **Control plane hardening** - Defender for Cloud continuously assesses the configurations of your clusters and compares them with the initiatives applied to your subscriptions. When it finds misconfigurations, Defender for Cloud generates security recommendations that are available on Defender for Cloud's Recommendations page. The recommendations let you investigate and remediate issues. For details on the recommendations included with this capability, check out the [containers section](recommendations-reference.md#recs-container) of the recommendations reference table for recommendations of the type **control plane**.
-
-### What's the refresh interval for Agentless discovery of Kubernetes?
-
-It can take up to **24 hours** for changes to reflect in the security graph, attack paths, and the security explorer.
 
 ## Next steps
 
