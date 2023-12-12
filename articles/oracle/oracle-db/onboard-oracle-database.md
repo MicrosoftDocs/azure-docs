@@ -50,10 +50,9 @@ Optionally, you can create identity federation for your OCI account so that user
      - **Region**: This field is automatically set to “Global”.
      - **Plan and Billing term**: The values in these fields are automatically set for your offer, and you don't need to set or change these values.
 
-9.  The **Region** field is set to "Global", which applies to the subscription resource and not to the physical infrastructure resources you provision after onboarding. The values for **Plan** and **Billing term** are automatically set for your offer, and you don't need to set or change these values.
-10. Select **Review + create** to continue.
-11. On the **Review + create** tab, review the information about your service and the **Marketplace terms of use**, then select **Create**. The Azure portal redirects to the deployment details for the Oracle Database@Azure service. The deployment of the service takes a few minutes.
-12. When the page displays the **Your deployment is complete** message, select the **Go to resource** button under **Next steps**. Your browser redirects to the deployment details page. The **Purchase status** for your private offer shows **Subscribed**.
+9. Select **Review + create** to continue.
+10. On the **Review + create** tab, review the information about your service and the **Marketplace terms of use**, then select **Create**. The Azure portal redirects to the deployment details for the Oracle Database@Azure service. The deployment of the service takes a few minutes.
+11. When the page displays the **Your deployment is complete** message, select the **Go to resource** button under **Next steps**. Your browser redirects to the deployment details page. The **Purchase status** for your private offer shows **Subscribed**.
 
 ## Step 2: Select your Oracle Cloud account
 
