@@ -14,7 +14,7 @@ Template for monitoring data reference article for Azure services. This article 
 
 # Monitoring Azure Operator Insights data reference
 
-See [Monitoring Azure Operator Insights](monitor-operator-insights.md) for details on collecting and analyzing monitoring data for Azure Operator Insights.
+This article describes the data you can collect in Azure Monitor for Azure Operator Insights. See [Monitoring Azure Operator Insights](monitor-operator-insights.md) for details on how to collect and analyze this monitoring data.
 
 ## Metrics
 
