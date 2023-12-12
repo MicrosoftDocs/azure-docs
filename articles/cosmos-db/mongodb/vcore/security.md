@@ -53,7 +53,7 @@ And although it may seem obvious, recent [large-scale database breaches](https:/
 
 ## How does Azure Cosmos DB secure my database
 
-Let's look back at the preceding list - how many of those security requirements does Azure Cosmos DB for MongoDB vCore provide? Every single one.
+Azure Cosmos DB for MongoDB vCore seamlessly fulfills each and every one of those security requirements.
 
 Let's dig into each one in detail.
 
@@ -61,7 +61,7 @@ Let's dig into each one in detail.
 |---|---|
 |Network security|Using an IP firewall is the first layer of protection to secure your database. Azure Cosmos DB for MongoDB vCore supports policy driven IP-based access controls for inbound firewall support. The IP-based access controls are similar to the firewall rules used by traditional database systems. However, they're expanded so that an Azure Cosmos DB for MongoDB vCore cluster is only accessible from an approved set of machines or cloud services. <br><br>Azure Cosmos DB for MongoDB vCore enables you to enable a specific IP address (168.61.48.0), an IP range (168.61.48.0/8), and combinations of IPs and ranges. <br><br>All requests originating from machines outside this allowed list are blocked by Azure Cosmos DB for MongoDB vCore. Requests from approved machines and cloud services then must complete the authentication process to be given access control to the resources.<br><br> You can use [virtual network service tags](../../../virtual-network/service-tags-overview.md) to achieve network isolation and protect your Azure Cosmos DB for MongoDB vCore resources from the general Internet. Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, AzureCosmosDB) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service.|
 |Local replication|Even within a single data center, Azure Cosmos DB for MongoDB vCore replicates the data using LRS. HA-enabled clusters also have another layer of replication between a primary and secondary node, thus guaranteeing a 99.995% [availability SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db).|
-|Automated online backups|Azure Cosmos DB databases are backed up regularly and stored in a geo redundant store. |
+|Automated online backups|Azure Cosmos DB for MongoDB vCore databases are backed up regularly and stored in a geo redundant store. |
 |Restore deleted data|The automated online backups can be used to recover data you may have accidentally deleted up to ~7 days after the event. |
 |Protect and isolate sensitive data|All data in the regions listed in What's new? is now encrypted at rest.|
 |Monitor for attacks|By using audit logging and activity logs, you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources. This data includes; who initiated the operation, when the operation occurred, the status of the operation, and much more.|
