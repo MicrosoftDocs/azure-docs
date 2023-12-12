@@ -48,8 +48,8 @@ A `client-secret` is a string value your app can use in place of a certificate t
 2. Open 'Certificates & secrets' under the *Manage* section.
 3. Create a `client-secret` for the `client-id` that you used to create your Azure Data Manager for Energy instance.
 4. Add one now by clicking on *New Client Secret*.
-5. Record the secret's `value` for later use in your client application code.
-6. The access token of the app id and client secret has the Infra Admin access to the instance.
+5. Record the `secret's value` for later use in your client application code.
+6. The access token of the `app id` and client secret has the Infra Admin access to the instance.
 
 > [!CAUTION]
 > Don't forget to record the secret's value. This secret value is never displayed again after you leave this page of 'client secret' creation.
