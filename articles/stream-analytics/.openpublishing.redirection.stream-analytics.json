@@ -1,5 +1,15 @@
 {
-    "redirections": [
+    "redirections": [                
+        {
+            "source_path_from_root": "/articles/stream-analytics/app-insights-export-sql-stream-analytics.md",
+            "redirect_url": "/azure/stream-analytics/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/app-insights-export-stream-analytics.md",
+            "redirect_url": "/azure/stream-analytics/",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/stream-analytics/no-code-filter-ingest-adx.md",
             "redirect_url": "/azure/stream-analytics/no-code-filter-ingest-data-explorer",
