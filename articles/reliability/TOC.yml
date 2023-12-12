@@ -58,7 +58,7 @@
     href: business-continuity-management-program.md
   - name: Cross-region replication
     href: cross-region-replication-azure.md
-- name: Reliability (AZ and DR) guides by service
+- name: Reliability guides by service
   items:
   - name: Overview
     href: reliability-guidance-overview.md
