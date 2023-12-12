@@ -33,7 +33,7 @@ In this tutorial, you learn to:
 
 1. Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md)
 
-2. Allowlist extensions whose libraries need to be loaded at server start, by following the steps mentioned in this [doc](./concepts-single-to-flexible.md#allow-list-required-extensions). It's important to allowlist these extensions before you initiate a migration using this tool.
+2. Allowlist extensions whose libraries need to be loaded at server start, by following the steps mentioned in this [doc](./concepts-single-to-flexible.md#allowlist-required-extensions). It's important to allowlist these extensions before you initiate a migration using this tool.
 
 3. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./concepts-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
 
@@ -77,7 +77,7 @@ After deploying the Flexible Server, follow the steps 3 to 5 under [Configure th
 
 ### Setup tab
 
-The first tab is **Setup**. Just in case you missed it, allowlist necessary extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It's important to allowlist these extensions before you initiate a migration using this tool.
+The first tab is **Setup**. Just in case you missed it, allowlist necessary extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allowlist-required-extensions). It's important to allowlist these extensions before you initiate a migration using this tool.
 
 >[!NOTE]
 > If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
@@ -130,7 +130,7 @@ Under this tab, there's a list of user databases inside the Single Server. You c
 ### Review
 
 >[!NOTE]
-> Gentle reminder to allowlist necessary [extensions](./concepts-single-to-flexible.md#allow-list-required-extensions) before you select **Create** in case it's not yet complete.
+> Gentle reminder to allowlist necessary [extensions](./concepts-single-to-flexible.md#allowlist-required-extensions) before you select **Create** in case it's not yet complete.
 
 The **Review** tab summarizes all the details for creating the validation or migration. Review the details and click on the start button.
 
