@@ -44,7 +44,7 @@ The RDP client software has various settings for optimizing your connection expe
 
 Learn more about the [RDP client's **Experience** settings](/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings).
 
-If the lab creator configured the GNOME graphical desktop on a Linux lab VM with the RDP client, we recommend the following settings to optimize performance:
+If your are using Linux lab VM with a graphical desktop and the RDP client, the following settings may help to optimize performance:
 
 - On the **Display** tab, set the color depth to **High Color (15 bit)**.
 
@@ -52,9 +52,9 @@ If the lab creator configured the GNOME graphical desktop on a Linux lab VM with
 
 - On the **Experience** tab, set the connection speed to **Modem (56 kbps)**.
 
-    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-experience-settings.png" alt-text="Screenshot of experience tab of the Windows R D P client, highlighting the connection speed setting.":::
+    :::image type="content" source="./media/connect-virtual-machine-windows-rdp/rdp-experience-settings.png" alt-text="Screenshot of experience tab of the Windows RDP client, highlighting the connection speed setting.":::
 
 ## Next steps
 
-- [As an educator, enabled RDP on Linux](how-to-enable-remote-desktop-linux.md#rdp-setup)
+- [As an educator, enabled RDP on Linux](how-to-enable-remote-desktop-linux.md)
 - [As a student, stop the VM](how-to-use-lab.md#start-or-stop-the-vm)

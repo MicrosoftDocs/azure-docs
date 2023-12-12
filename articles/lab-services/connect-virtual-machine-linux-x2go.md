@@ -12,9 +12,9 @@ ms.date: 04/24/2023
 
 # Connect to a lab VM using X2Go in Azure Lab Services
 
-In this article, you learn how to connect to a Linux-based lab VM in Azure Lab Services by using X2Go. Before you can connect with X2Go, the lab needs to have the X2Go and the GUI packages for a Linux graphical desktop environment.
+In this article, you learn how to connect to a Linux-based lab VM in Azure Lab Services by using X2Go. Before you can connect with X2Go, the lab needs to have the X2Go and the Linux GUI (graphical user interface) desktop packages configured.
 
-When you connect to the lab VM by using X2Go, you need to provide the Linux graphical desktop environment version. For example, select `XFCE` if you're using either XFCE or Xubuntu graphical desktop environments. You can get this information from the person that created the lab.
+When you connect to the lab VM by using X2Go, you need to provide the Linux GUI desktop version. For example, select *XFCE* if you're using either XFCE or xUbuntu GUI desktops. You can get this information from the person that created the lab.
 
 ## Install X2Go client
 
@@ -44,7 +44,7 @@ Install the [X2Go client](https://wiki.x2go.org/doku.php/doc:installation:x2gocl
    - **Host** - The ID of your VM; for example, **`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`**.
    - **Login** - The username for your VM; for example, **student**.
    - **SSH port** - The unique port assigned to your VM; for example, **12345**.
-   - **Session type** - Select the Linux graphical desktop environment that was used when setting up the lab. For example, select `XFCE` if you're using either XFCE or Xubuntu graphical desktop environments.
+   - **Session type** - Select the Linux GUI desktop that was used when setting up the lab. For example, select **XFCE** if you're using either XFCE or xUbuntu GUI desktops.
 
 1. Select **OK** to create the remote session.
 
@@ -59,8 +59,8 @@ Install the [X2Go client](https://wiki.x2go.org/doku.php/doc:installation:x2gocl
 
 1. When prompted, enter your password and select **OK**.
 
-    You're now remotely connected to your lab VM's GUI desktop environment.
+    You're now remotely connected to your lab VM's GUI desktop.
 
 ## Next steps
 
-- [Configure X2Go on a template VM](how-to-enable-remote-desktop-linux.md#setting-up-x2go)
+- [Configure X2Go on a template VM](how-to-enable-remote-desktop-linux.md)
