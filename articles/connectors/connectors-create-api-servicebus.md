@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/25/2023
+ms.date: 12/12/2023
 ms.custom: engagement-fy23
 tags: connectors
 ---
@@ -14,7 +14,7 @@ tags: connectors
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This article shows how to access Azure Service Bus from a workflow in Azure Logic Apps with the Service Bus connector. You can then create automated workflows that run when triggered by events in a service bus or run actions to manage service bus items, for example:
+This guide shows how to access Azure Service Bus from a workflow in Azure Logic Apps using the Service Bus connector. You can then create automated workflows that run when triggered by events in a service bus or run actions to manage service bus items, for example:
 
 * Monitor when messages arrive (auto-complete) or are received (peek-lock) in queues, topics, and topic subscriptions.
 * Send messages.
@@ -199,11 +199,11 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 
 1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
 
-1. On the namespace menu, under **Settings**, select **Properties**.
+1. On the namespace menu, under **Settings**, select **Shared access policies**.
 
-1. In the **Properties** section, find the **Service bus endpoint** property, and copy the URL.
+1. Under **Policy**, select **RootManageSharedAccessKey**.
 
-1. Save the URL for later use.
+1. On the pane that opens, under either **Primary Connection String** or **Secondary Connection String**, copy the connection string, and save for later use.
 
 <a name="get-fully-qualified-namespace"></a>
 
@@ -239,6 +239,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Managed connector authentication](#managed-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
@@ -288,6 +289,7 @@ The built-in Service Bus connector is a stateless connector, by default. To run 
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Built-in connector authentication](#built-in-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses connection string authentication and provides the connection string for a Service Bus namespace:
 
@@ -323,12 +325,13 @@ The built-in Service Bus connector is a stateless connector, by default. To run 
 
    This example continues with the trigger named **When a message is received in a queue (auto-complete)**.
 
-1. If prompted, provide the following information for your connection. When you're done, select **Create**.
+1. In the connection box, provide the following information. When you're done, select **Create**.
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Managed connector authentication](#managed-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
@@ -378,6 +381,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Managed connector authentication](#managed-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
@@ -427,6 +431,7 @@ The built-in Service Bus connector is a stateless connector, by default. To run 
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Built-in connector authentication](#built-in-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses connection string authentication and provides the connection string for a Service Bus namespace:
 
@@ -464,6 +469,7 @@ The built-in Service Bus connector is a stateless connector, by default. To run 
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Managed connector authentication](#managed-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
