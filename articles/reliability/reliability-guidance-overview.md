@@ -22,7 +22,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 
 ### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
 
-| Product| Availability zone guide | Disaster recovery guide | 
+| Product| Availability zone guide | Disaster recovery guide |
 |----------|----------|----------|
 |Azure Cosmos DB|[Achieve high availability](../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Configure multi-region writes](../cosmos-db/nosql/how-to-multi-master?tabs=api-async) |
 |Azure Event Hubs| [Availability Zones](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md) |
@@ -47,7 +47,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 
 ### ![An icon that signifies this service is mainstream.](media/icon-mainstream.svg) Mainstream services
 
-| Product| Availability zone guide | Disaster recovery guide | 
+| Product| Availability zone guide | Disaster recovery guide |
 |----------|----------|----------|
 |Azure AI Search|[Azure AI Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Azure AI Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure API Management|[Ensure API Management availability and reliability](../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [How to implement disaster recovery using service backup and restore](../api-management/api-management-howto-disaster-recovery-backup-restore.md) |
@@ -99,7 +99,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
   
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
 
-| Product| Availability zone guide | Disaster recovery guide | 
+| Product| Availability zone guide | Disaster recovery guide |
 |-------|-------|-------|
 |Azure Community Training|[Reliability in Community Training](reliability-community-training.md) |[Reliability in Community Training](reliability-community-training.md) |
 |Azure Cosmos DB for MongoDB vCore||[Failover for business continuity and disaster recovery with Azure Cosmos DB for MongoDB vCore](../cosmos-db/mongodb/vcore/failover-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) ||
