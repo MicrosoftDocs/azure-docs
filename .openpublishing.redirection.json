@@ -25801,7 +25801,7 @@
         },
         {
             "source_path_from_root": "/articles/reliability/disaster-recovery-guidance-overview.md",
-            "redirect_url": "/auzre/reliability/reliability-guidance-overview",
+            "redirect_url": "/azure/reliability/reliability-guidance-overview",
             "redirect_document_id": false  
         }
         
