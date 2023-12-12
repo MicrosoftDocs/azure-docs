@@ -96,6 +96,8 @@
           href: tutorial-enable-recurrent-materialization-run-batch-inference.md
         - name: Enable online materialization and run online inference
           href: tutorial-online-materialization-inference.md
+        - name: Develop a feature set with a custom source
+          href: tutorial-develop-feature-set-with-custom-source.md
         - name: Network isolation with feature store
           href: tutorial-network-isolation-for-feature-store.md
     # v1

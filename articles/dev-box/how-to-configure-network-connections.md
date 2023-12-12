@@ -15,6 +15,8 @@ ms.topic: how-to
 
 In this article, you learn how to manage network connections for a dev center in Microsoft Dev Box. Network connections enable dev boxes to connect to existing virtual networks. In addition, you can configure the network settings to enable connecting to on-premises resources from your dev box. The location, or Azure region, of the network connection determines where associated dev boxes are hosted.
 
+You can choose to deploy dev boxes to a Microsoft-hosted network associated with a [dev box pool](how-to-manage-dev-box-pools.md#create-a-dev-box-pool) or to a network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first configure a network connection.
+
 You need to add at least one network connection to a dev center in Microsoft Dev Box.
 
 When you're planning network connectivity for your dev boxes, you must:

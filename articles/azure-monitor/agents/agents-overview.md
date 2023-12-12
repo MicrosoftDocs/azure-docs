@@ -128,7 +128,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Services and features supported**	|		|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
 |		|	VM Insights	|	✓ | ✓ |		|
-|		|	Microsoft Defender for Cloud - Olny uses MDE agent	|		|  |		|
+|		|	Microsoft Defender for Cloud - Only uses MDE agent	|		|  |		|
 |		|	Automation Update Management - Moved to Azure Update Manager	| ✓	| ✓ |		|
 |   | Azure Stack HCI | ✓ |  |  |
 |		|	Update Manager - no longer uses agents	|	|		|		|

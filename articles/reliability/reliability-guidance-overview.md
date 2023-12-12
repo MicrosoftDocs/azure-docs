@@ -89,11 +89,15 @@ Azure reliability guidance contains the following:
 | **Products**  | 
 |--------------|
 |[Azure Cosmos DB for MongoDB vCore](../cosmos-db/mongodb/vcore/failover-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
-| [Azure Data Manager for Energy](./reliability-energy-data-services.md) |
-| [Azure Deployment Environments](reliability-deployment-environments.md)|
+|[Azure Data Manager for Energy](./reliability-energy-data-services.md) |
+|[Azure Deployment Environments](reliability-deployment-environments.md)|
 |[Azure Private 5G Core](../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-| [Azure Spring Apps](reliability-spring-apps.md) |
-| [Azure Storage Mover](./reliability-azure-storage-mover.md)|
+|[Azure Spring Apps](reliability-spring-apps.md) |
+|[Azure Storage Mover](./reliability-azure-storage-mover.md)|
+|[Community Training](reliability-community-training.md) |
+|[Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|
+| [Microsoft Fabric](reliability-fabric.md) |
+
 
 ## Azure Service Manager Retirement
 

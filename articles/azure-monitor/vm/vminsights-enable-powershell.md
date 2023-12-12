@@ -22,7 +22,6 @@ This script installs VM extensions for Log Analytics/Azure Monitoring Agent (AMA
 
 You need to:
 
-- [Configure a Log Analytics workspace for VM insights](../vm/vminsights-configure-workspace.md).
 - See [Manage Azure Monitor Agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor Agent.
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported.
 
@@ -50,10 +49,7 @@ Use the script to enable VM insights using Azure Monitoring Agent and  Dependenc
 
 ### [Azure Monitor Agent](#tab/AMA)
 
-
-AMA Onboarding 
-If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated to the VM/VMSS and UAMI settings are passed over to AMA extension.   
-
+When you enable VM insights using Azure Monitor Agent, the script associates a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) to the VM/VMSS, and passes the UAMI settings to the Azure Monitor Agent extension.   
 
 ```powershell
 Install-VMInsights.ps1 -SubscriptionId <SubscriptionId> `
