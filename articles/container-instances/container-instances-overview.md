@@ -83,8 +83,7 @@ ACI Spot containers allow customers to run interruptible, containerized workload
 For more information, see [spot container groups](container-instances-spot-containers-overview.md).
 
 ## Considerations
-Best practice: Don’t pass credentials in plaintext via command line. Instead, store them in an environment variable for enhanced securities important to adhere to best practices when handling credentials. One common oversight is passing credentials in plaintext via command line arguments. This method can potentially make the credentials visible to unauthorized individuals.
-There are default limits that require quota increases. Not all quota increases may be approved: [Resource availability & quota limits for ACI - Azure Container Instances | Microsoft Learn](./container-instances-resource-and-quota-limits.md)
+User’s credentials passed via command line interface (CLI) are stored as plain text in the backend. Storing credentials in plain text is a security risk; Microsoft advises customers to store user credentials in CLI environment variables to ensure they are encrypted/transformed when stored in the backend.
 
 If your container group stops working, we suggest trying to restart your container, checking your application code, or your local network configuration before opening a [support request][azure-support]. 
 
