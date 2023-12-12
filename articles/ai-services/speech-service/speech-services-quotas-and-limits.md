@@ -105,6 +105,12 @@ These limits aren't adjustable. For more information on batch synthesis latency,
 | Max number of simultaneous model trainings | N/A | 4 |
 | Max number of custom endpoints | N/A | 50 |
 
+#### Real-time text to speech avatar
+
+| Quota | Free (F0)| Standard (S0) |
+|--|--|--|
+| New connections per minute | Not available for F0 | 2 new connections per minute |
+
 #### Audio Content Creation tool
 
 | Quota | Free (F0)| Standard (S0) |

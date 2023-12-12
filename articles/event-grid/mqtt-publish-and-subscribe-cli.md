@@ -7,8 +7,9 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.date: 11/15/2023
-author: veyaddan
-ms.author: veyaddan
+author: george-guirguis
+ms.author: geguirgu
+
 ---
 
 # Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure CLI

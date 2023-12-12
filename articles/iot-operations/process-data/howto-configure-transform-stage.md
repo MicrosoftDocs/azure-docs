@@ -3,7 +3,7 @@ title: Use jq to transform data in a pipeline
 description: Configure a transform pipeline stage to configure a data transformation with jq in a Data Processor pipeline.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

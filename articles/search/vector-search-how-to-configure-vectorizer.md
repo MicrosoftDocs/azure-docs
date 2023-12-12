@@ -21,7 +21,7 @@ A *vectorizer* is a component of a [search index](search-what-is-an-index.md) th
 
 A vectorizer is used during indexing and queries. It allows the search service to handle chunking and coding on your behalf.
 
-You can use the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md), the [2023-10-01-Preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) REST APIs, or any Azure beta SDK package that's been updated to provide this feature.
+You can use the [**Import and vectorize data wizard**](search-get-started-portal-import-vectors.md), the [2023-10-01-Preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) REST APIs, or any Azure beta SDK package that's been updated to provide this feature.
 
 ## Prerequisites
 

@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: concept-article
 ms.reviewer: harshacs
-ms.date: 10/27/2023
+ms.date: 11/27/2023
 
 #CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
 ---
@@ -128,7 +128,8 @@ Traffic analytics requires the following prerequisites:
     - `Microsoft.Network/virtualNetworkGateways/read`
     - `Microsoft.Network/virtualNetworks/read`
     - `Microsoft.Network/expressRouteCircuits/read`
-    - `Microsoft.OperationalInsights/workspaces/*` <sup>1</sup>
+    - `Microsoft.OperationalInsights/workspaces/read` <sup>1</sup>
+    - `Microsoft.OperationalInsights/workspaces/sharedkeys/action` <sup>1</sup>
     - `Microsoft.Insights/dataCollectionRules/read` <sup>2</sup>
     - `Microsoft.Insights/dataCollectionRules/write` <sup>2</sup>
     - `Microsoft.Insights/dataCollectionRules/delete` <sup>2</sup>

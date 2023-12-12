@@ -1,13 +1,13 @@
 ---
 title: Cluster - Azure Cosmos DB for PostgreSQL
 description: What is a cluster in Azure Cosmos DB for PostgreSQL
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/05/2023
+ms.date: 11/28/2023
 ---
 
 # Clusters in Azure Cosmos DB for PostgreSQL
@@ -44,21 +44,18 @@ values:
 
 ### Node availability zone
 
-Azure Cosmos DB for PostgreSQL displays the [availability
-zone](../../availability-zones/az-overview.md#availability-zones) of each node
+Azure Cosmos DB for PostgreSQL displays the [availability zone](./concepts-availability-zones.md) of each node
 in a cluster on the Overview page in the Azure portal. The **Availability
 zone** column contains either the name of the zone, or `--` if the node isn't
-assigned to a zone. (Only [certain
-regions](https://azure.microsoft.com/global-infrastructure/geographies/#geographies)
+assigned to a zone. (Only [certain regions](./resources-regions.md)
 support availability zones.)
 
 Azure Cosmos DB for PostgreSQL allows you to set a preferred availability zone for cluster. Usually the reason for it is to put cluster nodes in the same availability zone where the application and the rest of the application stack components are.
 
-If [high availability](./concepts-high-availability.md) is enabled for the cluster, and a node [fails
-over](concepts-high-availability.md) to a standby, you may see its availability
+If [high availability](./concepts-high-availability.md) is enabled for the cluster, and a node fails
+over to a standby, you may see its availability
 zone differs from the other nodes. In this case, the nodes will be moved back
-into the same availability zone together during the next [maintenance
-window](concepts-maintenance.md).
+into the same availability zone together during the next [maintenance event](./concepts-maintenance.md).
 
 ## Next steps
 

@@ -234,6 +234,71 @@
             "source_path_from_root": "/articles/virtual-desktop/required-url-check-tool.md",
             "redirect_url": "/azure/virtual-desktop/check-access-validate-required-fqdn-endpoint",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-statuses-checks.md",
+            "redirect_url": "/azure/virtual-desktop/session-host-status-health-checks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/what-is-app-attach.md",
+            "redirect_url": "/azure/virtual-desktop/app-attach-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/app-attach-faq.yml",
+            "redirect_url": "/azure/virtual-desktop/app-attach-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/app-attach.md",
+            "redirect_url": "/azure/virtual-desktop/app-attach-test-msix-packages",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/app-attach-file-share.md",
+            "redirect_url": "/azure/virtual-desktop/app-attach-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/create-netapp-files.md",
+            "redirect_url": "/azure/virtual-desktop/app-attach-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/app-attach-azure-portal.md",
+            "redirect_url": "/azure/virtual-desktop/app-attach-setup",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/app-attach-powershell.md",
+            "redirect_url": "/azure/virtual-desktop/app-attach-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/msix-app-attach-create-msix-image.md",
+            "redirect_url": "/azure/virtual-desktop/app-attach-create-msix-image",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/manage-app-groups.md",
+            "redirect_url": "/azure/virtual-desktop/publish-applications",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/manage-app-groups-powershell.md",
+            "redirect_url": "/azure/virtual-desktop/publish-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/publish-apps.md",
+            "redirect_url": "/azure/virtual-desktop/publish-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/sandbox.md",
+            "redirect_url": "/azure/virtual-desktop/publish-applications",
+            "redirect_document_id": false
         }
     ]
 }

@@ -30,7 +30,7 @@ The following table summarizes the difference between custom neural voice pro an
 | Voice quality | Natural | Highly natural |
 | Multilingual support | Yes. The voice is able to speak about 100 languages, with automatic language detection enabled. | Yes. You need to select the "Neural – cross lingual" feature to train a model that speaks a different language from the training data. |
 | Availability | The demo on [Speech Studio](https://aka.ms/speechstudio/) is available upon registration. | Access to the API is restricted to eligible customers and approved use cases. Request access through the intake form. You can only train and deploy a CNV Pro model after access is approved. CNV Pro access is limited based on eligibility and usage criteria. Request access through the intake form. |
-| Pricing | To be announced later. | Check the pricing details here. |
+| Pricing | To be announced later. | Check the pricing details [here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |
 | RAI requirements | Speaker's verbal statement required. No unapproved use case allowed. | Speaker's verbal statement required. No unapproved use case allowed. |
 
 ## Try the demo

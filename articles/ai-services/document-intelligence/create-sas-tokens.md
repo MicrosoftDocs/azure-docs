@@ -168,7 +168,7 @@ The SAS URL includes a special set of [query parameters](/rest/api/storageservic
 
 ### REST API
 
-To use your SAS URL with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/BuildDocumentModel), add the SAS URL to the request body:
+To use your SAS URL with the [REST API](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP), add the SAS URL to the request body:
 
   ```json
   {

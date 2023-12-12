@@ -43,6 +43,7 @@ These metrics are available for Azure Database for MySQL:
 |Storage IO percent|io_consumption_percent|Percent|The percentage of IO in use over selected period. IO percent is for both read and write IOPS.|
 |Storage IO Count|storage_io_count|Count|The total count of I/O operations (both read and write) utilized by server per minute.|
 |Host Memory Percent|memory_percent|Percent|The total percentage of memory in use on the server, including memory utilization from both database workload and other Azure MySQL processes. This metric provides evaluation of the server's memory utilization, excluding re-usable memory like buffer and cache.|
+|Available Memory Bytes|available_memory_bytes|Bytes|This metric represents the amount of memory that is currently available for use on the server.|
 |Total connections|total_connections|Count|The number of client connections to your Azure Database for MySQL - Flexible Server. Total Connections is sum of connections by clients using TCP/IP protocol over a selected period.|
 |Aborted Connections|aborted_connections|Count|Total number of failed attempts to connect to your MySQL server, for example, failed connection due to bad credentials. For more information on aborted connections, you can refer to this [documentation](https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html).|
 |Queries|queries|Count|Total number of queries executed per minute on your server. Total count of queries per minute on your server from your database workload and Azure MySQL processes.|

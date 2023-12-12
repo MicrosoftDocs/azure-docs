@@ -90,7 +90,7 @@ If you don't require every pipeline execution of your data flow activities to fu
 
 :::image type="content" source="media/data-flow/logging.png" alt-text="Logging level":::
 
-## Next steps
+## Related content
 
 - [Optimizing sources](concepts-data-flow-performance-sources.md)
 - [Optimizing sinks](concepts-data-flow-performance-sinks.md)

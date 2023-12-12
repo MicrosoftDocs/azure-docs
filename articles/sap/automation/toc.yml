@@ -5,10 +5,10 @@ items:
     items:
     - name: Supported platforms and features
       href: supportability.md
-    - name: Naming conventions
-      href: naming.md
     - name: Plan your automated deployment
       href: plan-deployment.md
+    - name: Naming conventions
+      href: naming.md
     - name: Using a custom naming convention
       href: naming-module.md
     - name: Configuration
@@ -37,6 +37,8 @@ items:
       href: get-started.md
     - name: Upgrading the automation framework
       href: upgrading.md
+    - name: Troubleshoot the automation framework
+      href: troubleshooting.md
     - name: Deployment
       items:
       - name: Deploy the control plane

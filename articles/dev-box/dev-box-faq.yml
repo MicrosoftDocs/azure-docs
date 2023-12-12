@@ -81,8 +81,6 @@ sections:
                 Or, for Azure portal resource limits:  
                 - Dev Centers 
                 - Network connections 
-                - Projects 
-                - Pools 
                 - Dev Box Definitions 
       
       - question: What should I do if I hit a vCPU quota error?  

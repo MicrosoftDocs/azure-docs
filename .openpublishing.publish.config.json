@@ -177,9 +177,21 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure_powershell_scripts",
+      "url": "https://github.com/Azure-Samples/azure-docs-powershell-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "powershell_scripts",
       "url": "https://github.com/Azure/azure-docs-powershell-samples",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "new_powershell_scripts",
+      "url": "https://github.com/Azure-Samples/azure-docs-powershell-samples",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -509,7 +521,7 @@
     {
       "path_to_root": "azureml-examples-temp-fix",
       "url": "https://github.com/Azure/azureml-examples",
-      "branch": "temp-fix-doc-error",
+      "branch": "temp-fix",
       "branch_mapping": {}
     },
     {
@@ -945,6 +957,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "msdocs-quarkus-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azuresignalr-samples",
       "url": "https://github.com/aspnet/AzureSignalR-samples",
       "branch": "main",
@@ -1129,6 +1147,12 @@
       "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-iot-operations-samples",
+      "url": "https://github.com/Azure-Samples/explore-iot-operations",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -1233,6 +1257,7 @@
   "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
   "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
   "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
-  "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json"
+  "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
+  "articles/operator-nexus/.openpublishing.redirection.operator-nexus.json"
 ]
 }

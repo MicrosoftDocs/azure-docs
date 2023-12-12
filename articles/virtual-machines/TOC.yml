@@ -2,8 +2,6 @@
   href: index.yml
 - name: Overview
   href: overview.md
-- name: What's new
-  href: whats-new.md
 - name: Quickstarts
   items:
   - name: Create a Linux VM
@@ -334,7 +332,7 @@
         href: nd-series.md
       - name: NDv2-series
         href: ndv2-series.md
-      - name: NDm-H100-v5-series
+      - name: ND-H100-v5-series
         href: nd-h100-v5-series.md
       - name: NGads V620-series
         href: ngads-v-620-series.md
@@ -1069,8 +1067,8 @@
       - name: Use templates
         displayName: Desired state configuration, dsc
         href: ./extensions/dsc-template.md
-    - name: Virtual machine access
-      href: ./extensions/vmaccess.md
+    - name: VMAccess for Linux
+      href: ./extensions/vmaccess-linux.md
     - name: Third-party extensions
       items:
       - name: Chef
@@ -1660,9 +1658,7 @@
       href: ./windows/multiple-nics.md
   - name: Assign public DNS name
     href: create-fqdn.md
-  - name: Assign public DNS name
-    href: create-fqdn.md
-  - name: DNS resolution
+  - name: DNS resolution for Linux Azure VMs
     href: ./linux/azure-dns.md
   - name: Use internal DNS
     href: ./linux/static-dns-name-resolution-for-linux-on-azure.md

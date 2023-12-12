@@ -3,7 +3,7 @@ title: Serialization and deserialization formats overview
 description: Understand the data formats the Azure IoT Data Processor supports when it serializes or deserializes messages.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: concept-article
 ms.custom:
   - ignite-2023

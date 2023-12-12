@@ -23,7 +23,7 @@ Download for [Windows](https://download.microsoft.com/download/5/e/9/5e9081ed-2e
 ### New features
 
 - [azcmagent show](azcmagent-show.md) now reports extended security license status on Windows Server 2012 server machines.
-- Introduced a new [proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) option, `ArcData`, that covers the Azure Arc-enabled SQL Server endpoints. This will enable you to use a private endpoint with Azure Arc-enabled servers with the public endpoints for Azure Arc-enabled SQL Server.
+- Introduced a new [proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) option, `ArcData`, that covers the SQL Server enabled by Azure Arc endpoints. This will enable you to use a private endpoint with Azure Arc-enabled servers with the public endpoints for SQL Server enabled by Azure Arc.
 - The [CPU limit for extension operations](agent-overview.md#agent-resource-governance) on Linux is now 30%. This increase will help improve reliability of extension install, upgrade and uninstall operations.
 - Older extension manager and machine configuration agent logs are automatically zipped to reduce disk space requirements.
 - New executable names for the extension manager (`gc_extension_service`) and machine configuration (`gc_arc_service`) agents on Windows to help you distinguish the two services. For more information, see [Windows agent installation details](./agent-overview.md#windows-agent-installation-details).

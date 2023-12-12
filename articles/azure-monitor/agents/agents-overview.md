@@ -123,17 +123,17 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data sent to**	|		|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|	✓ (Public preview)	|
-|		|	Azure Storage	|	✓ (Preview)	|		| ✓ |
-|		|	Event Hubs	|	✓ (Preview)	|		| ✓ |
+|		|	Azure Storage - for Azure VMs only	|	✓ (Preview)	|		| ✓ |
+|		|	Event Hubs - for Azure VMs only   	|	✓ (Preview)	|		| ✓ |
 |	**Services and features supported**	|		|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
 |		|	VM Insights	|	✓ | ✓ |		|
-|		|	Microsoft Defender for Cloud	|	✓ (Public preview)	| ✓ |		|
-|		|	Automation Update Management	|	| ✓ |		|
+|		|	Microsoft Defender for Cloud - Only uses MDE agent	|		|  |		|
+|		|	Automation Update Management - Moved to Azure Update Manager	| ✓	| ✓ |		|
 |   | Azure Stack HCI | ✓ |  |  |
-|		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
-|		|	Change Tracking	| ✓ (Public preview) | ✓ |		|
-|       |   SQL Best Practices Assessment | ✓ |     |       |
+|		|	Update Manager - no longer uses agents	|	|		|		|
+|		|	Change Tracking	| ✓ | ✓ |		|
+|   | SQL Best Practices Assessment | ✓ |     |       |
 
 ### Linux agents
 
@@ -150,15 +150,15 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data sent to**	|		|		|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |		|		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|		|	✓ (Public preview)	|
-|		|	Azure Storage	|	✓ (Preview)	|		| ✓ |		|
-|		|	Event Hubs	|	✓ (Preview)	|		| ✓ |		|
+|		|	Azure Storage - for Azrue VMs only	|	✓ (Preview)	|		| ✓ |		|
+|		|	Event Hubs - for azure VMs only   	|	✓ (Preview)	|		| ✓ |		|
 |	**Services and features supported**	|		|		|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
 |		|	VM Insights	| ✓ |	✓ 	|		|
-|		|	Microsoft Defender for Cloud	|	✓ (Public preview)	| ✓ |		|
-|		|	Automation Update Management	|		| ✓ |		|
-|		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
-|		|	Change Tracking	| ✓ (Public preview) | ✓ |		|
+|		|	Microsoft Defender for Cloud - Only use MDE agent	| 	|  |	|
+|		|	Automation Update Management - Moved to Azure Update Manager	|	✓	| ✓ |		|
+|		|	Update Manager - no longer uses agents	|	|		|		|
+|		|	Change Tracking	| ✓ | ✓ |		|
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
@@ -219,7 +219,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>3</sup> | ✓ | ✓<sup>2</sup> |
 | Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓ | ✓<sup>2</sup> |
 | Red Hat Enterprise Linux Server 7                           | ✓ | ✓ | ✓ |
-| Red Hat Enterprise Linux Server 6.7+                        |   |  | ✓ |
+| Red Hat Enterprise Linux Server 6.7+                        |   |  |  |
 | Rocky Linux 9                                               | ✓ | ✓ |   |
 | Rocky Linux 8                                               | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 15 SP4                         | ✓<sup>3</sup> |   |   |
@@ -319,10 +319,6 @@ Yes, but you need to [onboard to Defender for Cloud](./azure-monitor-agent-overv
 ### Why do I need to install the Azure Arc Connected Machine agent to use Azure Monitor Agent?
 
 Azure Monitor Agent authenticates to your workspace via managed identity, which is created when you install the Connected Machine agent. Managed Identity is a more secure and manageable authentication solution from Azure. The legacy Log Analytics agent authenticated by using the workspace ID and key instead, so it didn't need Azure Arc.
-
-### Does the new Azure Monitor Agent have hardening support for Linux?
-
-Hardening support for Linux isn't available yet.
 
 ## Next steps
 

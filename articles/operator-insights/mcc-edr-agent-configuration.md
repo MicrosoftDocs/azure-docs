@@ -1,8 +1,9 @@
 ---
 title: MCC EDR Ingestion Agents configuration reference for Azure Operator Insights
 description: This article documents the complete set of configuration for the agent, listing all fields with examples and explanatory comments.
-author: HollyCl
-ms.author: HollyCl
+author: rcdun
+ms.author: rdunstan
+ms.reviewer: sergeyche
 ms.service: operator-insights
 ms.date: 11/02/2023
 ms.topic: conceptual

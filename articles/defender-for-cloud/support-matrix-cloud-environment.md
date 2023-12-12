@@ -2,7 +2,7 @@
 title: Support across Azure clouds
 description: Review Defender for Cloud features and plans supported across different clouds
 ms.topic: limits-and-quotas
-ms.date: 05/01/2023
+ms.date: 12/03/2023
 ---
 
 # Defender for Cloud support for Azure commercial/other clouds
@@ -33,7 +33,7 @@ In the support table, **NA** indicates that the feature isn't available.
 [DevOps security posture](concept-devops-environment-posture-management-overview.md) | Preview | NA | NA
 **DEFENDER FOR CLOUD PLANS** | | |
 [Defender CSPM](concept-cloud-security-posture-management.md)| GA | NA | NA
-[Defender for APIs](defender-for-apis-introduction.md). [Review support preview regions](defender-for-apis-prepare.md#cloud-and-region-support). | Preview | NA | NA
+[Defender for APIs](defender-for-apis-introduction.md).  | GA | NA | NA
 [Defender for App Service](defender-for-app-service-introduction.md) | GA | NA | NA
 [Defender for Azure Cosmos DB](concept-defender-for-cosmos.md) | GA | NA | NA
 [Defender for Azure SQL database servers](defender-for-sql-introduction.md) | GA | GA | GA<br/><br/>A subset of alerts/vulnerability assessments is available.<br/>Behavioral threat protection isn't available.

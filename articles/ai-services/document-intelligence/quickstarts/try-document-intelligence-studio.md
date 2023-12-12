@@ -32,6 +32,14 @@ monikerRange: '>=doc-intel-3.0.0'
 > [!TIP]
 > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Microsoft Entra authentication](../../../active-directory/authentication/overview-authentication.md).
 
+#### Azure role assignments
+
+For document analysis and prebuilt models, following role assignments are required for different scenarios.
+* Basic
+  * **Cognitive Services User**: you need this role to Document Intelligence or Azure AI services resource to enter the analyze page.
+* Advanced
+  * **Contributor**: you need this role to create resource group, Document Intelligence service, or Azure AI services resource.
+
 ## Models
 
 Prebuilt models help you add Document Intelligence features to your apps without having to build, train, and publish your own models. You can choose from several prebuilt models, each of which has its own set of supported data fields. The choice of model to use for the analyze operation depends on the type of document to be analyzed. Document Intelligence currently supports the following prebuilt models:
@@ -80,6 +88,17 @@ A **standard performance** [**Azure Blob Storage account**](https://portal.azure
 
 * [**Create a storage account**](../../../storage/common/storage-account-create.md). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
 * [**Create a container**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When creating your container, set the **Public access level** field to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
+
+### Azure role assignments
+
+For custom projects, the following role assignments are required for different scenarios.
+
+* Basic
+  * **Cognitive Services User**: You need this role for Document Intelligence or Azure AI services resource to train the custom model or do analysis with trained models.
+  * **Storage Blob Data Contributor**: You need this role for the Storage Account to create a project and label data.
+* Advanced
+  * **Storage Account Contributor**: You need this role for the Storage Account to set up CORS settings (this is a one-time effort if the same storage account is reused).
+  * **Contributor**: You need this role to create a resource group and resources.
 
 ### Configure CORS
 
