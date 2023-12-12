@@ -15,19 +15,21 @@ ms.author: normesta
 
 # What is Azure Storage Actions?
 
-Azure Storage Tasks can perform operations on blobs in Azure Storage accounts based on a set of conditions that you define. Azure Storage Tasks can process millions of objects in a storage account without provisioning additional compute capacity and without requiring you to write code.
+Azure Storage Actions is a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. 
 
 > [!IMPORTANT]
-> Azure Storage Tasks is currently in PREVIEW and is available these [regions](#supported-regions).
+> Azure Storage Actions is currently in PREVIEW and is available these [regions](#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+The preview release of Azure Storage Actions enable you to create _storage tasks_ that can perform operations on blobs in Azure Storage accounts based on a set of conditions that you define. Storage tasks can process millions of objects in a storage account without provisioning additional compute capacity and without requiring you to write code.
 
 ## Anatomy of a storage task
 
-Azure Storage Tasks is a service that manages *storage tasks*. A storage task contains a set of *conditions*, *operations*, and *assignments*. The following table describes each component of a task.
+A storage task contains a set of _conditions_, _operations_, and _assignments_. The following table describes each component of a task.
 
 | Component | Description |
 |---|---|
-| Conditions | A *condition* a collection of one or more *clauses*. Each clause contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. For example, a clause might evaluate whether a `creation-time` property of a blob is greater than five days ago. |
+| Conditions | A _condition_ a collection of one or more _clauses_. Each clause contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. For example, a clause might evaluate whether a `creation-time` property of a blob is greater than five days ago. |
 | Operations | An operation is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. |
 | Assignments | An assignment identifies a storage account and a subset of objects to target in that account. It also specifies when the task runs and where execution reports are stored. |
 
@@ -64,16 +66,16 @@ The overview page of the task presents metrics and visualizations that summarize
 
 See these articles to learn how to monitor task runs:
 
-- [Analyze Azure Storage Task runs](storage-tasks/storage-task-runs.md)
-- [Monitor Azure Storage Tasks](storage-tasks/monitor-storage-tasks.md)
+- [Analyze storage task runs](storage-tasks/storage-task-runs.md)
+- [Monitor Azure Storage Actions](storage-tasks/monitor-storage-tasks.md)
 
 ### Handle task events
 
-Azure Storage Tasks events allow applications to react to events, such as the completion of a storage task run. It does so without the need for complicated code or expensive and inefficient polling services.
+Azure Storage Actions events allow applications to react to events, such as the completion of a storage task run. It does so without the need for complicated code or expensive and inefficient polling services.
 
-Azure Storage Tasks events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering. Event Grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. First, subscribe an endpoint to an event. Then, when an event is triggered, the Event Grid service will send data about that event to the endpoint.
+Azure Storage Actions events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering. Event Grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. First, subscribe an endpoint to an event. Then, when an event is triggered, the Event Grid service will send data about that event to the endpoint.
 
-See the [Azure Storage Tasks events schema](../event-grid/event-schema-storage-actions.md?toc=/azure/storage-actions/toc.json) article to view the full list of the events that Azure Storage Tasks supports.
+See the [Azure Storage Actions events schema](../event-grid/event-schema-storage-actions.md?toc=/azure/storage-actions/toc.json) article to view the full list of the events that Azure Storage Actions supports.
 
 ## Supported Regions
 
@@ -89,4 +91,4 @@ List pricing information here.
 ## Next steps
 
 - [Quickstart: Create, assign, and run a storage task by using the Azure portal](storage-tasks/storage-task-quickstart-portal.md)
-- [Known issues with Azure Storage Tasks](storage-tasks/storage-task-known-issues.md)
+- [Known issues with storage tasks](storage-tasks/storage-task-known-issues.md)

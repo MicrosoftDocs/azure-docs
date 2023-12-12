@@ -1,6 +1,6 @@
 ---
 title: Create a storage task
-titleSuffix: Azure Storage Tasks
+titleSuffix: Azure Storage Actions
 description: Learn how to create a storage task. A storage task can perform on blobs in one or more Azure Storage accounts. 
 author: normesta
 ms.service: azure-storage-actions
@@ -12,12 +12,12 @@ ms.date: 05/10/2023
 
 # Create a storage task
 
-A storage task can perform operations on blobs in an Azure Storage account. As you create a task, you can define the conditions that must be met by each object (container or blob), and the operations to perform on the object. You can also identify one or more Azure Storage account targets. See [What are Azure Storage Tasks?](../overview.md).
+A storage task can perform operations on blobs in an Azure Storage account. As you create a task, you can define the conditions that must be met by each object (container or blob), and the operations to perform on the object. You can also identify one or more Azure Storage account targets. See [What are Azure Storage Actions?](../overview.md).
 
 In this how-to article, you'll learn how to create a storage task.
 
 > [!IMPORTANT]
-> Azure Storage Tasks is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
+> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Create a task
@@ -120,6 +120,6 @@ The following image shows the **Review** tab data prior to the creation of a new
 
 ## See also
 
-- [Azure Storage Tasks Overview](../overview.md)
+- [Azure Storage Actions Overview](../overview.md)
 - [Create, assign, and run a storage task](storage-task-quickstart-portal.md)
 - [Define conditions and operations](storage-task-conditions-operations-edit.md)

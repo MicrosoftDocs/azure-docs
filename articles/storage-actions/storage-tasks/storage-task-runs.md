@@ -1,6 +1,6 @@
 ---
-title: Analyze Azure Storage Task runs
-titleSuffix: Azure Storage Tasks
+title: Analyze storage task runs
+titleSuffix: Azure Storage Actions
 description: Learn how to view lists of runs and review run reports.
 author: normesta
 ms.service: azure-storage-actions
@@ -10,12 +10,12 @@ ms.author: normesta
 ms.date: 05/10/2023
 ---
 
-# Analyze Azure Storage Task runs
+# Analyze storage task runs
 
 You can view a list of task runs. For each completed run, you can open a report that lists each object that met the conditions of the task and the outcome of the operation against that object.
 
 > [!IMPORTANT]
-> Azure Storage Tasks is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
+> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## View a list of task runs
@@ -88,5 +88,5 @@ The following example shows an execution report:
 
 ## See also
 
-- [Monitor Azure Storage Tasks](monitor-storage-tasks.md)
+- [Monitor Azure Storage Actions](monitor-storage-tasks.md)
 - [Storage Tasks Overview](../overview.md)

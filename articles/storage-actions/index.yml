@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
 title: Azure Storage Actions documentation
-summary: Azure Storage Tasks can perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
+summary: Azure Storage Actions is a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. The preview release of Azure Storage Actions enable you to create storage tasks that can perform operations on blobs in Azure Storage accounts based on a set of conditions that you define.
 brand: azure
 
 metadata:
   title: Azure Storage Actions documentation
-  description: Azure Storage Tasks documentation hub page. Points to service documentation for using the Azure Storage Tasks perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
+  description: Azure Storage Actions documentation hub page. Points to service documentation for using the Azure Storage Actions to perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
   ms.service: azure-storage-actions
   ms.topic: hub-page
   author: normesta

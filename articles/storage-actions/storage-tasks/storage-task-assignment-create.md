@@ -1,6 +1,6 @@
 ---
 title: Create and manage a storage task assignment
-titleSuffix: Azure Storage Tasks
+titleSuffix: Azure Storage Actions
 description: Learn how to create an assignment, and then enable that assignment to run.
 author: normesta
 ms.service: azure-storage-actions
@@ -17,7 +17,7 @@ An _assignment_ identifies a storage account and a subset of objects in that acc
 This article helps you create an assignment, and then enable that assignment to run.
 
 > [!IMPORTANT]
-> Azure Storage Tasks is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
+> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Create an assignment
@@ -36,7 +36,7 @@ Navigate to the storage task in the Azure portal and then under **Storage task m
 In the **Assignments** page, select **+ Create assignment**, and then select **+ Add assignment**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Assignments page that appears in the context of the storage task.](.../media/storage-tasks/storage-task-assignment-create/assignment-create.png)
+> ![Screenshot of the Assignments page that appears in the context of the storage task.](../media/storage-tasks/storage-task-assignment-create/assignment-create.png)
 
 The **Add assignment** pane appears.
 
@@ -49,7 +49,7 @@ Navigate to the storage account in the Azure portal and then under **Data manage
 In the **Storage tasks** page, select the **Task assignment** tab, select **+ Create assignment**, and then select **+ Add assignment**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the Assignments page that appears in the context of a storage account.](.../media/storage-tasks/storage-task-assignment-create/assignment-create-2.png)
+> ![Screenshot of the Assignments page that appears in the context of a storage account.](../media/storage-tasks/storage-task-assignment-create/assignment-create-2.png)
 
 The **Add assignment** pane appears.
 
@@ -134,5 +134,5 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
 
 ## See also
 
-- [Azure Storage Tasks Overview](../overview.md)
+- [Azure Storage Actions Overview](../overview.md)
 - [Analyze Storage Task Runs](storage-task-runs.md)

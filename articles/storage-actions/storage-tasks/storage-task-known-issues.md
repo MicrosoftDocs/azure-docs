@@ -1,7 +1,7 @@
 ---
-title: Known issues and limitations with Azure Storage Tasks
-titleSuffix: Azure Storage Tasks
-description: Learn about limitations and known issues of Azure Storage Tasks.
+title: Known issues and limitations with storage tasks
+titleSuffix: Azure Storage Actions
+description: Learn about limitations and known issues of storage tasks.
 author: normesta
 
 ms.service: azure-storage-actions
@@ -11,12 +11,12 @@ ms.date: 05/16/2023
 ms.author: normesta
 ---
 
-# Known issues and limitations with Azure Storage Tasks
+# Known issues and limitations with storage tasks
 
-This article describes limitations and known issues of Azure Storage Tasks. The issues that appear in this article reflect the current state of the service. This list will change over time as support continues to expand.
+This article describes limitations and known issues of storage tasks. The issues that appear in this article reflect the current state of the service. This list will change over time as support continues to expand.
 
 > [!IMPORTANT]
-> Azure Storage Tasks is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
+> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Storage account regions

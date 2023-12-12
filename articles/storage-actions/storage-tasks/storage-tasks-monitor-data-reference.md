@@ -1,7 +1,7 @@
 ---
-title: Storage Task monitoring data reference
-titleSuffix: Azure Storage Tasks
-description: Important reference material needed when you monitor Azure Storage Tasks 
+title: Storage Actions monitoring data reference
+titleSuffix: Azure Storage Actions
+description: Important reference material needed when you monitor Azure Storage Actions 
 author: normesta
 
 ms.service: azure-storage-actions
@@ -11,13 +11,13 @@ ms.date: 05/16/2023
 ms.author: normesta
 ---
 
-# Azure Storage Task monitoring data reference
+# Azure Storage Actions monitoring data reference
 
-See [Monitoring Azure Storage Tasks](monitor-storage-tasks.md) for details on collecting and analyzing monitoring data for Azure Storage Tasks.
+See [Monitoring Azure Storage Actions](monitor-storage-tasks.md) for details on collecting and analyzing monitoring data for Azure Storage Actions.
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics for Azure Storage Tasks.  
+This section lists all the automatically collected platform metrics for Azure Storage Actions.  
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -28,7 +28,7 @@ This section lists all the automatically collected platform metrics for Azure St
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-Azure Storage Tasks support the following dimensions for metrics in Azure Monitor.
+Azure Storage Actions support the following dimensions for metrics in Azure Monitor.
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
@@ -37,7 +37,7 @@ Azure Storage Tasks support the following dimensions for metrics in Azure Monito
 
 ## Activity log
 
-The following table lists the operations that Azure Storage Tasks might record in the activity log. This list of entries is a subset of the possible entries that you might find in the activity log.
+The following table lists the operations that Azure Storage Actions might record in the activity log. This list of entries is a subset of the possible entries that you might find in the activity log.
 
 | Namespace | Description |
 |:---|:---|
@@ -57,5 +57,5 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 
 ## See Also
 
-- See [Monitoring Azure Azure Storage Tasks](monitor-storage-tasks.md) for a description of monitoring Azure Azure Storage Tasks.
+- See [Monitoring Azure Azure Storage Actions](monitor-storage-tasks.md) for a description of monitoring Azure Azure Storage Actions.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
