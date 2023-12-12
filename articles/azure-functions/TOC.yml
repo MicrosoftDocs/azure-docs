@@ -450,8 +450,6 @@
               items:
                 - name: Azure portal
                   href: functions-create-function-app-portal.md
-                - name: Kotlin using Maven
-                  href: functions-create-first-kotlin-maven.md
                 - name: Kotlin using IntelliJ
                   href: functions-create-maven-kotlin-intellij.md
                 - name: Linux App Service plan
