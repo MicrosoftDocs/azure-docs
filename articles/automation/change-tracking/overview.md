@@ -10,6 +10,9 @@ ms.topic: conceptual
 
 # Change Tracking and Inventory overview
 
+> [!Important]
+> - Change Tracking and Inventory using Log Analytics agent will be retired on **31 August 2023** and we recommend that you use Azure Monitoring Agent as the new supporting agent. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md).
+
 This article introduces you to Change Tracking and Inventory in Azure Automation. This feature tracks changes in virtual machines hosted in Azure, on-premises, and other cloud environments to help you pinpoint operational and environmental issues with software managed by the Distribution Package Manager. Items that are tracked by Change Tracking and Inventory include:
 
 - Windows software
