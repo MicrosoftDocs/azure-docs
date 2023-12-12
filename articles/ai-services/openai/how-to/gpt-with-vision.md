@@ -48,8 +48,9 @@ The following is a sample request body. The format is the same as the chat compl
         {
             "role": "user", 
             "content": [ 
-                "Describe this picture:", { "image": "URL or base-64-encoded image" } 
-            ] 
+               { "type": "text", "text": "Describe this picture:" }, 
+               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
+           ] 
         }
     ],
     "max_tokens": 100, 
@@ -154,8 +155,9 @@ You must also include the `enhancements` and `dataSources` objects. `enhancement
         {
             "role": "user", 
             "content": [ 
-                "Describe this picture:", { "image": "URL or base-64-encoded image" } 
-            ] 
+               { "type": "text", "text": "Describe this picture:" }, 
+               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
+           ] 
         }
     ],
     "max_tokens": 100, 
