@@ -226,8 +226,6 @@
       href: ../governance/policy/concepts/guest-configuration.md#availability
     - name: Azure HDInsight
       href: reliability-hdinsight.md
-    - name: Azure IoT Hub
-      href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Image Builder
       href: reliability-image-builder.md
     - name: Azure Kubernetes Service (AKS)

@@ -79,7 +79,6 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 ||[Azure Functions](reliability-functions.md)| [Azure Functions](reliability-functions.md#cross-region-disaster-recovery-and-business-continuity) |
 ||| [Azure Guest Configuration](../governance/policy/concepts/guest-configuration.md?#availability) |
 ||[Azure HDInsight](reliability-hdinsight.md)| [Azure HDInsight](reliability-hdinsight.md#cross-region-disaster-recovery-and-business-continuity) |
-||[Azure IoT Hub](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 ||[Azure Image Builder](reliability-image-builder.md)|
 ||[Azure Kubernetes Service (AKS)](../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Kubernetes Service (AKS)](../aks/operator-best-practices-multi-region.md) |
 ||[Azure Logic Apps](../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md) |
