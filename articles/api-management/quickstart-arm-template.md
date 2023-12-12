@@ -1,19 +1,21 @@
 ---
-title: Quickstart - Create Azure API Management instance by using ARM template
+title: Quickstart - Create Azure API Management instance - ARM template
 description: Learn how to create an Azure API Management instance in the Developer tier by using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 author: dlepow
 ms.service: api-management
 tags: azure-resource-manager
-ms.topic: quickstart
+ms.topic: quickstart-arm
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: danlep
-ms.date: 10/09/2020
+ms.date: 12/12/2023
 ---
 
 # Quickstart: Create a new Azure API Management service instance using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure API Management (APIM) service instance. APIM helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md).
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure API Management instance. You can also use ARM templates for common management tasks such as importing APIs in your API Management instance.
+
+[!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -66,7 +68,7 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
 
     :::image type="content" source="media/quickstart-arm-template/deployment-notification.png" alt-text="Deployment notification":::
 
- The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
+ The Azure portal is used to deploy the template. In addition to the Azure portal, you can use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
 
 ## Review deployed resources
 
