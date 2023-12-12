@@ -122,7 +122,8 @@ To view the status of your node OS auto upgrades, look up [activity logs][monito
  No. Currently, when you set the [cluster auto-upgrade channel][Autoupgrade] to `node-image`, it also automatically sets the node OS auto-upgrade channel to `NodeImage`. You can't change the node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to be able to change the node OS auto-upgrade channel values, make sure the [cluster auto-upgrade channel][Autoupgrade] isn't `node-image`.
 
  * Why is `SecurityPatch` recommended over `Unmanaged` channel?
- on `Unmanaged` channel, AKS has no control whatsoever on how and when the security updates are delivered. With `SecurityPatch` , the security updates are fully tested and follows safe deployment practices. `SecurityPatch` also honors maintenance windows. Read more on this in the [blog][Blog].
+
+On the `Unmanaged` channel, AKS has no control over how and when the security updates are delivered. With `SecurityPatch`, the security updates are fully tested and follows safe deployment practices. `SecurityPatch` also honors maintenance windows. For more details, see [Increased security and resiliency of Canonical workloads on Azure][Blog].
 
  * How do i know if a `SecurityPatch` or `nodeimage` is applied on my node ?
  Run the following command
