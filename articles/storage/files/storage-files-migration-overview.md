@@ -3,8 +3,8 @@ title: Migrate to SMB Azure file shares
 description: Learn how to migrate to SMB Azure file shares and find your migration guide.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 12/11/2023
+ms.topic: how-to
+ms.date: 12/12/2023
 ms.author: kendownie
 ---
 
@@ -36,7 +36,7 @@ Here are the two basic components of a file:
 - **Data stream**: The data stream of a file stores the file content.
 - **File metadata**: Unlike object storage in Azure blobs, an Azure file share can natively store file metadata. General-purpose file data traditionally depends on file metadata. App data might not. The file metadata has these subcomponents:
   - File attributes like read-only
-  - File permissions, which can be referred to as *NTFS permissions* or *file and folder ACLs*
+  - File permissions, which are often referred to as *NTFS permissions* or *file and folder ACLs*
   - Timestamps, most notably the creation and last-modified timestamps
   - An alternative data stream, which is a space to store larger amounts of nonstandard properties. This alternative data stream can't be stored on a file in an Azure file share. It's preserved on-premises when Azure File Sync is used.
 
@@ -44,7 +44,7 @@ File fidelity in a migration can be defined as the ability to:
 
 - Store all applicable file information on the source.
 - Transfer files with the migration tool.
-- Store files in the target storage of the migration. </br> The target for migration guides on this page is one or more Azure file shares. Consider this [list of features that SMB Azure file shares don't support](files-smb-protocol.md#limitations).
+- Store files in the target storage of the migration. </br> The target for migration guides in this article is one or more Azure file shares. Consider this [list of features that SMB Azure file shares don't support](files-smb-protocol.md#limitations).
 
 To ensure your migration proceeds smoothly, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
 
@@ -123,7 +123,7 @@ There are several file-copy tools available from Microsoft and others. To select
 
     By mirroring a source to a target (as with **robocopy /MIR**), you can run the tool again on that same source and target. This second run is much faster because it needs to transport only source changes that happened after the previous run. Rerunning a copy tool this way can reduce downtime significantly.
 
-The following table classifies Microsoft tools and their current suitability for Azure file shares:
+The following table classifies Microsoft tools and their current suitability for SMB Azure file shares:
 
 | Recommended | Tool | Support for Azure file shares | Preservation of file fidelity |
 | :-: | :-- | :---- | :---- |
@@ -150,7 +150,7 @@ Azure Storage Mover is a relatively new, fully managed migration service that en
 
 #### RoboCopy
 
-Included in Windows, RoboCopy is one of the tools most applicable to file migrations. The main [RoboCopy documentation](/windows-server/administration/windows-commands/robocopy) is a helpful resource for this tool's many options.
+Included in Windows, RoboCopy is one of the tools most applicable to SMB file migrations. The main [RoboCopy documentation](/windows-server/administration/windows-commands/robocopy) is a helpful resource for this tool's many options.
 
 #### Azure Storage Migration Program
 

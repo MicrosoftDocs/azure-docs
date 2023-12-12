@@ -197,13 +197,15 @@
       href: files-monitoring-alerts.md           
   - name: Migrate
     items:
-    - name: Migrate to Azure file shares
+    - name: Migrate to SMB Azure file shares
       href: storage-files-migration-overview.md
+    - name: Migrate to NFS Azure file shares
+      href: storage-files-migration-nfs.md
     - name: Migrate files between Azure file shares
       href: migrate-files-between-shares.md
     - name: Target a cloud-only deployment
       items:
-      - name: RoboCopy to migrate to Azure file shares
+      - name: RoboCopy to migrate to SMB Azure file shares
         href: storage-files-migration-robocopy.md
       - name: Migrate from an on-premises NAS to Azure file shares with DataBox
         href: storage-files-migration-nas-cloud-databox.md
