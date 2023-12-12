@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create Azure API Management instance - Bicep
-description: Learn how to create an Azure API Management instance in the Developer tier by using Bicep.
+description: Use this quickstart to create an Azure API Management instance in the Developer tier by using Bicep.
 services: azure-resource-manager
 author: mumian
 ms.service: api-management
