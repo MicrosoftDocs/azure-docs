@@ -28,11 +28,8 @@ The benefits of deployment script:
 
 The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](../../container-instances/container-instances-region-availability.md).
 
-> [!IMPORTANT]
+> [!WARNING]
 > The deployment script service requires two extra resources to execute and troubleshoot scripts: a storage account (unless you provide one) and a container instance. Generally, the service cleans up these resources after the deployment script completes. Yet, you'll incur charges for these resources until they're removed. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). To learn more, see [Clean-up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
-
-> [!NOTE]
-> Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same Bicep file as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
 
 ### Training resources
 
@@ -84,7 +81,7 @@ The following Bicep file demonstrates a simple deployment script. The script tak
 # [CLI](#tab/CLI)
 
 ```bicep
-param name string = '\\"John Dole\\"'
+param name string = 'John Dole'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
@@ -105,7 +102,7 @@ output text string = deploymentScript.properties.outputs.text
 # [PowerShell](#tab/PowerShell)
 
 ```bicep
-param name string = 'John Dole'
+param name string = '\\"John Dole\\"'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
@@ -114,7 +111,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   kind: 'AzurePowerShell'
   properties: {
     azPowerShellVersion: '10.0'
-    arguments: '-name \\"${name}\\"'
+    arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
       Write-Host 'The argument is {0}' -f $name
@@ -162,13 +159,13 @@ The output folder contains a _executionresult.json_ and the script output file. 
 By default, the two supporting resources are removed automatically after execution. For more information, see the `cleanupPreference` property and the `retentionlInterval` property in [Create deployment script](./deployment-script-develop.md). To explore the two resources, add the `cleanupPreference` property to the simple inline script from the last section, and set the value to `OnExpiration`. The default value is `Always`. Also, set rentalInterval to 'PT1H' (one hour), or shorter.
 
 
-The two supporting resources are automatically removed after execution by default. For more information, see `cleanupPreference` and `retentionInterval` properties in  [Create deployment script](./deployment-script-develop.md). To delve into these resources, incorporate the `cleanupPreference`` property into the simple inline script mentioned in the preceding section. Set its value to `OnExpiration`, noting that the default value is `Always``. Additionally, configure the `retentionInterval`` to `PT1H` (one hour) or an even shorter duration.
+The two supporting resources are automatically removed after execution by default. For more information, see `cleanupPreference` and `retentionInterval` properties in  [Create deployment script](./deployment-script-develop.md). To delve into these resources, incorporate the `cleanupPreference` property into the simple inline script mentioned in the preceding section. Set its value to `OnExpiration`, noting that the default value is `Always`. Additionally, configure the `retentionInterval` to `PT1H` (one hour) or an even shorter duration.
 
 
 # [CLI](#tab/CLI)
 
 ```bicep
-param name string = '\\"John Dole\\"'
+param name string = 'John Dole'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
@@ -468,4 +465,3 @@ In this article, you learned how to use deployment scripts. To walk through a Le
 
 > [!div class="nextstepaction"]
 > [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)
-> [Create ]

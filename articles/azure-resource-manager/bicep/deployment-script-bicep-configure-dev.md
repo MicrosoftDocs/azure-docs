@@ -407,7 +407,7 @@ You also need to configure file sharing to mount the directory, which contains t
 
 1. The following screenshot shows how to run a PowerShell script, given that you have a *helloworld.ps1* file in the shared drive.
 
-    :::image type="content" source="./media/deployment-script-bicep-configure-dev/resource-manager-deployment-script-docker-cmd.png" alt-text="Screenshot of the Resource Manager template deployment script using Docker command.":::
+    :::image type="content" source="./media/deployment-script-bicep-configure-dev/deployment-script-docker-cmd.png" alt-text="Screenshot of the Resource Manager template deployment script using Docker command.":::
 
 After the script is tested successfully, you can use it as a deployment script in your Bicep files.
 

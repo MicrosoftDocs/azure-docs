@@ -10,8 +10,6 @@ ms.date: 12/07/2023
 
 Learn how to develop [deployment script](./deployment-script-bicep.md). Note that deployment script resources might have a deployment duration. For efficient development and testing of these scripts, consider establishing a dedicated development environment, such as an Azure container instance or a Docker instance. For more information, see [Create development environment](./deployment-script-bicep-configure-dev.md).
 
-*** jgao: review the deployment script resource symbolic name and resource name.
-
 ## Syntax
 
 The following Bicep file is an example of the deployment script resource. For more information, see the latest [Deployment script schema](/azure/templates/microsoft.resources/deploymentscripts?tabs=bicep).
@@ -100,12 +98,12 @@ resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
 
 Property value details:
 
-- `tags`: Deployment script tags. If the deployment script service creates the two supporting resources - a storage account and a container instance, the tags are passed to both resources, which can be used to identify them. Another way to identify these supporting resources is through their suffixes, which contain `azscripts`. For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-troubleshoot.md).
+- `tags`: Deployment script tags. If the deployment script service creates the two supporting resources - a storage account and a container instance, the tags are passed to both resources, which can be used to identify them. Another way to identify these supporting resources is through their suffixes, which contain `azscripts`. For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-bicep.md#monitor-and-troubleshoot-deployment-script).
 - <a id='identity'></a>`identity`: For deployment script API version *2020-10-01* or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script ( See [Access Azure resources](#access-azure-resources) or running deployment script in private network (See [Access private virtual network](./deployment-script-vnet.md)). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity in deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
-- `kind`: Specify the type of script, either **AzurePowerShell** or **AzureCLI**. You will also need to specify the `azPowerShellVersion` or `azCliVersion` property.
+- `kind`: Specify the type of script, either **AzurePowerShell** or **AzureCLI**. In addition to `kind`. You also need to specify the `azPowerShellVersion` or `azCliVersion` property.
 - `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. For more information, see [Use an existing storage account](#use-existing-storage-account).
 - `containerSettings`: Customize the name of Azure Container Instance. For configuring the container group name, see [Configure container instance](#configure-container-instance). For configuring `subnetIds` to run deployment script in a private network, see [Access private virtual network](./deployment-script-vnet.md).
-- `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Environment variables](#environment-variables).
+- `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Environment variables](#use-environment-variables).
 - `azPowerShellVersion`/`azCliVersion`: Specify the module version to be used.
 
     # [CLI](#tab/CLI)
@@ -170,7 +168,7 @@ The following Bicep file shows how to use inline script.
 # [CLI](#tab/CLI)
 
 ```bicep
-param name string = '\\"John Dole\\"'
+param name string = 'John Dole'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
@@ -178,7 +176,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.40.0'
+    azCliVersion: '2.52.0'
     arguments: name
     scriptContent: 'output="Hello $1"; echo $output'
     retentionInterval: 'P1D'
@@ -212,7 +210,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 
 You can control how Azure PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
 
-The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`. For more information, see [Troubleshoot deployment script](./deployment-script-troubleshoot.md).
+The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`.
 
 ---
 
@@ -229,10 +227,10 @@ output="Hello $1"
 echo $output
 ```
 
-And revise the preceding Bicep file as the following:
+And revise the preceding Bicep file as the following Bicep file:
 
 ```bicep
-param name string = '\\"John Dole\\"'
+param name string = 'John Dole'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
@@ -240,7 +238,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.40.0'
+    azCliVersion: '2.52.0'
     arguments: name
     scriptContent: loadTextContent('./scripts/hello.sh')
     retentionInterval: 'P1D'
@@ -281,12 +279,12 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 
 ### Use external scripts
 
-Apart from inline scripts, external script files are also supported. Only primary PowerShell scripts with the .ps1 extension are accepted. For CLI scripts, primary scripts can carry any valid bash script extensions or have no extension at all. To employ external script files, swap out 'scriptContent' with 'primaryScriptUri'.
+Apart from inline scripts, external script files are also supported. Only primary PowerShell scripts with the `.ps1` extension are accepted. For CLI scripts, primary scripts can carry any valid bash script extensions or have no extension at all. To employ external script files, swap out 'scriptContent' with 'primaryScriptUri'.
 
 # [CLI](#tab/CLI)
 
 ```bicep
-param name string = '\\"John Dole\\"'
+param name string = 'John Dole'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
@@ -294,7 +292,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.40.0'
+    azCliVersion: '2.52.0'
     primaryScriptUri: 'https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/hello.sh'
     arguments: '-name ${name}'
     retentionInterval: 'P1D'
@@ -335,7 +333,7 @@ You can separate complicated logics into one or more supporting script files. Th
 # [CLI](#tab/CLI)
 
 ```bicep
-param name string = '\\"John Dole\\"'
+param name string = 'John Dole'
 param location string = resourceGroup().location
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
@@ -343,7 +341,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.40.0'
+    azCliVersion: '2.52.0'
     arguments: name
     scriptContent: 'output="Hello $1"; echo $output; ./hello.sh "$1"'
     supportingScriptUris: [
@@ -388,10 +386,7 @@ The supporting files are copied to `azscripts/azscriptinput` at the runtime. Use
 
 ## Access Azure resources
 
-To access Azure resources from deployment script, you must configure the `identity` element. The following Bicep file shows how to list Azure key vaults. To run the script successfully, you also need to give the user-assignment management identity the permission to access the key vault.
-
-
-To access Azure resources, you must configure the `identity`` element. The following Bicep file demonstrates how to retrieve a list of Azure key vaults. Additionally, granting the user-assignment management identity permission to access the key vault is necessary.
+To access Azure resources, you must configure the `identity` element. The following Bicep file demonstrates how to retrieve a list of Azure key vaults. Additionally, granting the user-assignment management identity permission to access the key vault is necessary.
 
 # [CLI](#tab/CLI)
 
@@ -461,6 +456,10 @@ output result object = deploymentScript.properties.outputs
 ```
 
 ---
+
+> [!NOTE]
+> Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same Bicep file as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
+
 ## Work with outputs
 
 The approach to handling outputs varies based on the type of script you're using—whether it's Azure PowerShell or Azure CLI.
@@ -497,7 +496,7 @@ Azure PowerShell deployment script exposes a common variable for storing script 
 The following Bicep file shows how to pass values between two `deploymentScripts` resources. In the first resource, you define a variable called `$DeploymentScriptOutputs`, and use it to store the output values. Use resource symbolic name to access the output values.
 
 ```bicep
-param name string = 'John Dole'
+param name string = '\\"John Dole\\"'
 param location string = resourceGroup().location
 
 resource deploymentScript1 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
@@ -506,7 +505,7 @@ resource deploymentScript1 'Microsoft.Resources/deploymentScripts@2023-08-01' = 
   kind: 'AzurePowerShell'
   properties: {
     azPowerShellVersion: '10.0'
-    arguments: '-name \\"${name}\\"'
+    arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
       $output = 'Hello {0}' -f $name
@@ -776,10 +775,6 @@ The two automatically created supporting resources can never outlive the `deploy
 > [!NOTE]
 > It is not recommended to use the storage account and the container instance that are generated by the script service for other purposes. The two resources might be removed depending on the script life cycle.
 
-## Troubleshoot deployment script
-
-*** jgao: deployment script error codes are listed in a different article.
-
 ## Next steps
 
 In this article, you learned how to use deployment scripts. To walk through a Learn module:
@@ -788,5 +783,4 @@ In this article, you learned how to use deployment scripts. To walk through a Le
 > [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)
 > [Create script development environments](./deployment-script-bicep-configure-dev.md)
 > [Create deployment scripts](./deployment-script-develop.md)
-> [Troubleshoot deployment script](./deployment-script-troubleshoot.md)
 > [Access private virtual network](./deployment-script-vnet.md)
