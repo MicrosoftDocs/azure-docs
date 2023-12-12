@@ -1,6 +1,6 @@
 ---
 title: How to optimize performance when using pgvector
-description: How to optimize performance when using pgvector - Azure Database for PostgreSQL - Flexible Server
+description: How to optimize performance when using pgvector on Azure Database for PostgreSQL - Flexible Server.
 ms.author: adamwolk
 author: mulander
 ms.service: postgresql

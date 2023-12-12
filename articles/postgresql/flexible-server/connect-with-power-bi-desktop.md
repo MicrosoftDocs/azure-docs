@@ -1,6 +1,6 @@
 ---
 title: Connect with Power BI
-description: This article shows how to build Power BI reports from data on your Azure Database for PostgreSQL - Flexible Server.
+description: This article shows how to build Power BI reports from data on your Azure Database for PostgreSQL - Flexible Server instance.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart

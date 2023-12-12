@@ -1,6 +1,6 @@
 ---
 title: Manage virtual networks - Azure portal
-description: Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure portal
+description: Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure portal.
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql

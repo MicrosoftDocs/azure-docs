@@ -1,6 +1,6 @@
 ---
 title: Restart - Azure portal
-description: This article describes how to perform restart operations in Azure Database for PostgreSQL through the Azure portal.
+description: This article describes how to perform restart operations in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
 ms.author: alkuchar
 author: AwdotiaRomanowna
 ms.service: postgresql

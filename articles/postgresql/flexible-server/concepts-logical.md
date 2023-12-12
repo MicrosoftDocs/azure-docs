@@ -1,6 +1,6 @@
 ---
 title: Logical replication and logical decoding
-description: Learn about using logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
+description: Learn about using logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server.
 author: AwdotiaRomanowna
 ms.author: alkuchar
 ms.reviewer: maghan

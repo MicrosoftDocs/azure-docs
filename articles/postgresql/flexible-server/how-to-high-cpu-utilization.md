@@ -1,6 +1,6 @@
 ---
 title: High CPU utilization
-description: Troubleshooting guide for high cpu utilization in
+description: Troubleshooting guide for high CPU utilization.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan

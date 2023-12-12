@@ -1,6 +1,6 @@
 ---
 title: Optimize by using pg_repack
-description: Perform full vacuum using pg_Repack extension in
+description: Perform full vacuum using pg_Repack extension.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan

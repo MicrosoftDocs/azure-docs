@@ -1,6 +1,6 @@
 ---
 title: High memory utilization
-description: Troubleshooting guide for high memory utilization in
+description: Troubleshooting guide for high memory utilization.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan

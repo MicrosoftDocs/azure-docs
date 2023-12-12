@@ -1,6 +1,6 @@
 ---
 title: Azure Pipelines task
-description: Enable  Azure Database for PostgreSQL Flexible Server CLI  task for using with Azure Pipelines
+description: Enable Azure Database for PostgreSQL - Flexible Server CLI task for using with Azure Pipelines.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart

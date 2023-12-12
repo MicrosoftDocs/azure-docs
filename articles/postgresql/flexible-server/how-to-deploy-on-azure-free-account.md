@@ -1,6 +1,6 @@
 ---
 title: Use an Azure free account to try for free
-description: Guidance on how to deploy an Azure Database for PostgreSQL - Flexible Server for free using an Azure Free Account. 
+description: Guidance on how to deploy an Azure Database for PostgreSQL - Flexible Server instance for free using an Azure Free Account.
 author: shreyaaithal 
 ms.author: shaithal
 ms.service: postgresql

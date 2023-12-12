@@ -1,6 +1,6 @@
 ---
 title: Configure and access logs
-description: How to access database logs for
+description: How to access database logs.
 author: varun-dhawan
 ms.author: varundhawan
 ms.service: postgresql

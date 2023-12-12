@@ -1,6 +1,6 @@
 ---
 title: How to optimize costs
-description: This article provides a list of cost optimization recommendations 
+description: This article provides a list of cost optimization recommendations.
 author: varun-dhawan
 ms.author: varundhawan
 ms.service: postgresql

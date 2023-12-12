@@ -1,6 +1,6 @@
 ---
 title: Choose the right server option in Azure
-description: Provides guidelines for choosing the right PostgreSQL server option for your deployments.
+description: Provides guidelines for choosing the right Azure Database for PostgreSQL - Flexible Server option for your deployments.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview

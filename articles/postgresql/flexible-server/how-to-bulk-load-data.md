@@ -1,6 +1,6 @@
 ---
 title: Upload data in bulk
-description: This article discusses best practices for uploading data in bulk in Azure Database for PostgreSQL - Flexible Server 
+description: This article discusses best practices for uploading data in bulk in Azure Database for PostgreSQL - Flexible Server.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan 

@@ -1,6 +1,6 @@
 ---
-title: Autovacuum Tuning
-description: Troubleshooting guide for autovacuum in
+title: Autovacuum tuning
+description: Troubleshooting guide for autovacuum in Azure Database for PostgreSQL - Flexible Server.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan

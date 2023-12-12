@@ -1,6 +1,6 @@
 ---
 Networking overview with private access (VNET)
-description: Learn about connectivity and networking options in the Flexible Server deployment option for Azure Database for PostgreSQL with private access (VNET)
+description: Learn about connectivity and networking options for Azure Database for PostgreSQL - Flexible Server with private access (VNET).
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual

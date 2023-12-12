@@ -1,6 +1,6 @@
 ---
 title: Data encryption with customer-managed key
-description: Azure Database for PostgreSQL Flexible Server data encryption with a customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data.
+description: Azure Database for PostgreSQL - Flexible Server data encryption with a customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data.
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
