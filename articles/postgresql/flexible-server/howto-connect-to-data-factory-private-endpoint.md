@@ -17,7 +17,7 @@ ms.date: 12/11/2023
 In this quickstart, you connect your Azure Database for PostgreSQL - Flexible Server to Azure hosted Data Factory pipeline via Private Link. 
 
 
-## Azure hosed Data Factory with private (VNET) networking
+## Azure hosted Data Factory with private (VNET) networking
 
 
 **[Azure Data Factory](../../data-factory/introduction.md)** is a fully managed, easy-to-use, serverless data integration, and transformation solution to ingest and transform all your data. Data Factory offers three types of Integration Runtime (IR), and you should choose the type that best serves your data integration capabilities and network environment requirements. The three types of IR are:
