@@ -25,7 +25,7 @@ In this quickstart, you use the Azure CLI to deploy an isolated Docker container
 - This quickstart requires version 2.0.55 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
   > [!WARNING]
-  > Best practice: Don’t pass credentials in plaintext via command line. Instead, store them in an environment variable for enhanced securities important to adhere to best practices when handling credentials. One common oversight is passing credentials in plaintext via command line arguments. This method can potentially make the credentials visible to unauthorized individuals.
+  > Best practice: User’s credentials passed via command line interface (CLI) are stored as plain text in the backend. Storing credentials in plain text is a security risk; Microsoft advises customers to store user credentials in CLI environment variables to ensure they are encrypted/transformed when stored in the backend.     
 
 ## Create a resource group
 
