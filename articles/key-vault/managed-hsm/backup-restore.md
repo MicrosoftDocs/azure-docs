@@ -46,11 +46,11 @@ There are 2 ways to execute a full backup. You must provide the following inform
 5. Provide ‘storage blob data contributor’ role access to the user assigned managed identity created in step#2. Do this by going to the “Access Control” tab on the portal -> Add Role Assignment. Then select “managed identity” and select the managed identity created in step#2 -> Review + Assign
 6. Create the Managed HSM and associate the managed identity with below command.
    ```azurecli-interactive
-   az keyvault create --hsm-name mhsmdemo2 –g mhsmrgname –l mhsmlocation -- retention-days 7 --administrators "initialadmin" --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
+   az keyvault create --hsm-name mhsmdemo2 –l mhsmlocation -- retention-days 7 --administrators "initialadmin" --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
    ```
  If you have an existing Managed HSM, associate the managed identity by updating the MHSM with the below command. 
   ```azurecli-interactive
-   az keyvault update-hsm --hsm-name mhsmdemo2 –g mhsmrgname --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
+   az keyvault update-hsm --hsm-name mhsmdemo2 --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
    ```
 
 ## Full backup
@@ -61,7 +61,7 @@ While the backup is in progress, the HSM might not operate at full throughput as
 
 ### Backup HSM using user assigned managed identity (preview)
 ```azurecli-interactive
-az keyvault backup start --use-managed-identity true --hsm-name mhsmdemo2 -- storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer
+az keyvault backup start --use-managed-identity true --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer
   ```
 ### Backup HSM using SAS token
 
@@ -108,7 +108,7 @@ Restore is a long running operation but will immediately return a Job ID. You ca
 
 ### Restore HSM using user assigned managed identity (preview)
 ```azurecli-interactive
-az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup--blob-container-name mhsmdemobackupcontainer --backup-folder mhsm-backup-foldername --use-managed-identity true
+az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --backup-folder mhsm-backup-foldername --use-managed-identity true
   ```
 ### Restore HSM using SAS token
 
