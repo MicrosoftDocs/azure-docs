@@ -28,7 +28,9 @@ You'll need at least one NFS Azure file share mounted to a Linux virtual machine
 
 Many open source tools are available to transfer data to NFS file shares. However, not all of them are efficient when dealing with a distributed file system with distinct performance considerations compared to on-premises setups. In a distributed file system, each network call involves a round trip to a server that might not be local. Therefore, optimizing the time spent on network calls is crucial to achieving optimal performance and efficient data transfer over the network.
 
-## Using fpsync
+## Using fpsync vs. rsync
+
+Despite being single-threaded, rsync is a fast and versatile file copy tool. It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon. It offers many options and enables flexible specification of the set of files to be copied. However, fpsync offers some advantages.
 
 In this article, we'll use the open source tool fpsync to copy the data. A multi-threaded application that's designed to synchronize files between two locations, [fpsync](https://manpages.ubuntu.com/manpages/lunar/en/man1/fpsync.1.html) stands for File Parallel Synchronization. It comes as a part of the fpart filesystem partitioner.
 
@@ -119,9 +121,7 @@ After several incremental syncs, you need to do a final pass to delete any files
 
 ## Comparing rsync and fpsync with different datasets  
 
-This section compares the performance of rsync and fpsync with different datasets.  
-
-Although it has its limitations, rsync is a fast and versatile file copying tool. It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon. It offers many options and enables flexible specification of the set of files to be copied.
+This section compares the performance of rsync and fpsync with different datasets.
 
 ### Datasets and configuration
 
