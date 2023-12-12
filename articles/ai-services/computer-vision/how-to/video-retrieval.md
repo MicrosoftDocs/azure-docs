@@ -242,7 +242,7 @@ After you add video files to the index, you can search for specific videos using
 To perform a search using the "vision" feature, use the [Search By Text](../reference-video-search.md) API with the `vision` filter, specifying the query text and any other desired filters.
 
 ```bash
-POST -v -X "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index:queryByText?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
+curl.exe -v -X POST "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index:queryByText?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
 {
   'queryText': 'a man with black hoodie',
   'filters': {
