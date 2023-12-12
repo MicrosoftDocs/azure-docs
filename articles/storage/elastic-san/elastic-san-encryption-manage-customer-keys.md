@@ -1,12 +1,12 @@
 ---
-title: Learn how to manage keys for Elastic SAN Preview
+title: Manage customer-managed keys for Elastic SAN Preview
 titleSuffix: Azure Elastic SAN Storage
-description: Learn how to manage keys for Elastic SAN Preview
+description: Learn how to manage customer-managed keys for Azure Elastic SAN Preview
 author: roygara
 
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 12/12/2023
 ms.author: rogarana
 ms.reviewer: jaylansdaal
 ---
@@ -22,7 +22,7 @@ You control all aspects of your key encryption keys, including:
 - How the keys are rotated
 - The ability to switch between customer-managed and platform-managed keys
 
-This article tells you how to manage your customer-managed KEKs.
+This article explains how to manage your customer-managed KEKs.
 
 > [!NOTE]
 > Envelope encryption allows you to change your key configuration without impacting your Elastic SAN volumes. When you make a change, the Elastic SAN service re-encrypts the data encryption keys with the new keys. The protection of the data encryption key changes, but the data in your Elastic SAN volumes remain encrypted at all times. There is no additional action required on your part to ensure that your data is protected. Changing the key configuration doesn't impact performance, and there is no downtime associated with such a change.
