@@ -19,7 +19,7 @@ By default, the Azure Data Factory user interface experience (UX) authors direct
 - The Data Factory service isn't optimized for collaboration and version control.
 - The Azure Resource Manager template required to deploy Data Factory itself is not included.
 
-To provide a better authoring experience, Azure Data Factory allows you to configure a Git repository with either Azure Repos or GitHub. Git is a version control system that allows for easier change tracking and collaboration. This article will outline how to configure and work in a git repository along with highlighting best practices and a troubleshooting guide.
+To provide a better authoring experience, Azure Data Factory allows you to configure a Git repository with either Azure Repos or GitHub. Git is a version control system that allows for easier change tracking and collaboration. This article outlines how to configure and work in a git repository along with highlighting best practices and a troubleshooting guide.
 
 You can also reference [Continuous integration and delivery (CI/CD) in Azure Data Factory](continuous-integration-delivery.md) to learn more about the larger CI/CD pattern, of which source control is a critical aspect.
 
@@ -41,11 +41,11 @@ Below is a list of some of the advantages git integration provides to the author
 -   **Collaboration and control:** If you have multiple team members contributing to the same factory, you might want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor has equal permissions. Some team members might only be allowed to make changes via Git and only certain people in the team are allowed to publish the changes to the factory.
 -   **Better CI/CD:**  If you are deploying to multiple environments with a [continuous delivery process](continuous-integration-delivery.md), git integration makes certain actions easier. Some of these actions include:
     -   Configure your release pipeline to trigger automatically as soon as there are any changes made to your 'dev' factory.
-    -   Customize the properties in your factory that are available as parameters in the Resource Manager template. It can be useful to keep only the required set of properties as parameters, and have everything else hard coded.
+    -   Customize the properties in your factory that are available as parameters in the Resource Manager template. It can be useful to keep only the required set of properties as parameters, and have everything else hard-coded.
 -   **Better Performance:** An average factory with git integration loads 10 times faster than one authoring against the data factory service. This performance improvement is because resources are downloaded via Git.
 
 > [!NOTE]
-> Authoring directly with the Data Factory service is disabled in the Azure Data Factory UX when a Git repository is configured. Changes made via PowerShell or an SDK are published directly to the Data Factory service, and are not entered into Git.
+> Authoring directly with the Data Factory service is disabled in the Azure Data Factory UX when a Git repository is configured. Changes made via PowerShell or an SDK are published directly to the Data Factory service and are not entered into Git.
 
 ## Connect to a Git repository
 
@@ -74,7 +74,7 @@ Go to the management hub in the ADF UX. Select **Git configuration** in the **So
 When creating a new data factory in the Azure portal, you can configure Git repository information in the **Git configuration** tab.
 
 > [!NOTE]
-> When configuring git in the Azure Portal, settings like project name and repo name have to be manually entered instead being part of a dropdown.
+> When configuring git in the Azure Portal, settings like project name and repo name have to be manually entered instead of being part of a dropdown.
 
 :::image type="content" source="media/author-visually/configure-repo-4.png" alt-text="Configure the code repository settings from Azure Portal":::
 
@@ -115,7 +115,7 @@ If any adjustments need to be made to the settings of your configured Azure Repo
 
 :::image type="content" source="media/author-visually/repo-settings-2.png" alt-text="Screenshot showing the edit button for editing an Azure Repos Git repository.":::
 
-You can update your publish branch and decide whether or not to disable the publish button from the ADF studio. If you choose to disable the publish button from the studio, the publish button will be grayed out in the studio. This will help to avoid overwriting the last automated publish deployment. 
+You can update your publish branch and decide whether or not to disable the publish button from the ADF studio. If you choose to disable the publish button from the studio, the publish button is grayed out in the studio. This helps you avoid overwriting the last automated publish deployment. 
 
 :::image type="content" source="media/author-visually/repo-settings-3.png" alt-text="Screenshot showing a checkbox for disabling the publish button for Data Factory studio.":::
 
@@ -147,12 +147,12 @@ For more info about connecting Azure Repos to your organization's Active Directo
 
 Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
 
-The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)), GitHub Enterprise Cloud and GitHub Enterprise Server. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub. To connect with a public repository, select the **Use Link Repository option**, as they will not be visible in the dropdown menu of **Repository name**. ADF’s GitHub enterprise server integration only works with [officially supported versions of GitHub enterprise server.](https://docs.github.com/en/enterprise-server@3.1/admin/all-releases)  
+The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)), GitHub Enterprise Cloud and GitHub Enterprise Server. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub. To connect with a public repository, select the **Use Link Repository option**, as they aren't visible in the dropdown menu of **Repository name**. ADF’s GitHub enterprise server integration only works with [officially supported versions of GitHub enterprise server.](https://docs.github.com/en/enterprise-server@3.1/admin/all-releases)  
 
-For repositories owned by GitHub organization account, the admin has to authorize ADF app. For repositories owned by GitHub user account, a user with at least collaborator permission can authorize ADF app. This doesn't give ADF app direct access to all the repositories owned by the account/organization, it only allows ADF app to act on-behalf of user to access repositories based on user's access permissions.
+For repositories owned by GitHub organization account, the admin has to authorize the ADF app. For repositories owned by GitHub user account, a user with at least collaborator permission can authorize ADF app. This doesn't give ADF app direct access to all the repositories owned by the account/organization, it only allows the ADF app to act on-behalf of the user to access repositories based on user's access permissions.
 
 > [!NOTE]
-> If you are using Microsoft Edge, GitHub Enterprise version less than 2.1.4 does not work with it. GitHub officially supports >=3.0 and these all should be fine for ADF. As GitHub changes its minimum version, ADF supported versions will also change. 
+> If you are using Microsoft Edge, GitHub Enterprise version less than 2.1.4 does not work with it. GitHub officially supports >=3.0 and these all should be fine for ADF. As GitHub changes its minimum version, ADF supported versions also change. 
 
 ### GitHub settings
 
@@ -169,11 +169,11 @@ The configuration pane shows the following GitHub repository settings:
 | **Repository Type** | The type of the Azure Repos code repository. | GitHub |
 | **Use GitHub Enterprise Server** | Checkbox to select GitHub Enterprise Server.| unselected (default) |
 | **GitHub Enterprise Server URL** | The GitHub Enterprise root URL (must be HTTPS for local GitHub Enterprise server). For example: `https://github.mydomain.com`. Required only if **Use GitHub Enterprise Server** is selected | `<your GitHub Enterprise Server URL>` |                                                         
-| **GitHub repository owner** | GitHub organization or account that owns the repository. This name can be found from https:\//github.com/{owner}/{repository name}. Navigating to this page prompts you to enter GitHub OAuth credentials to your GitHub organization or account. If you select **Use GitHub Enterprise Server**, a dialog box will pop out to let you enter your access token. | `<your GitHub repository owner name>` |
+| **GitHub repository owner** | GitHub organization or account that owns the repository. This name can be found from https:\//github.com/{owner}/{repository name}. Navigating to this page prompts you to enter GitHub OAuth credentials to your GitHub organization or account. If you select **Use GitHub Enterprise Server**, a dialog box appears to let you enter your access token. | `<your GitHub repository owner name>` |
 | **Repository Name**  | Your GitHub code repository name. GitHub accounts contain Git repositories to manage your source code. You can create a new repository or use an existing repository that's already in your account. Specify your GitHub code repository name when you select **Select repository**. | `<your repository name>` |
 |**Git repository link**| Your GitHub code repository link. Specify your GitHub code repository link when you select **Use repository link**. |`<your repository link>`|
 | **Collaboration branch** | Your GitHub collaboration branch that is used for publishing. By default, it's main. Change this setting in case you want to publish resources from another branch. You can also create a new collaboration branch here. | `<your collaboration branch>` |
-| **Publish branch**  |The branch in your repository where publishing related ARM templates are stored and updated.| `<your publish branch name>`|
+| **Publish branch**  |The branch in your repository where publishing-related ARM templates are stored and updated.| `<your publish branch name>`|
 | **Root folder** | Your root folder in your GitHub collaboration branch. |`<your root folder name>` |
 | **Import existing resources to repository** | Specifies whether to import existing data factory resources from the UX authoring canvas into a GitHub repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 | **Import resource into this branch** | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported.  |  |
@@ -184,7 +184,7 @@ If any adjustments need to be made to the settings of your configured GitHub rep
 
 :::image type="content" source="media/author-visually/repo-settings-4.png" alt-text="Screenshot showing the edit button for editing a GitHub repository.":::
 
-You can update your publish branch and decide whether or not to disable the publish button from the ADF studio. If you choose to disable the publish button from the studio, the publish button will be grayed out in the studio. This will help to avoid overwriting the last automated publish deployment. 
+You can update your publish branch and decide whether or not to disable the publish button from the ADF studio. If you choose to disable the publish button from the studio, the publish button is grayed out in the studio. This helps avoid overwriting the last automated publish deployment. 
 
 :::image type="content" source="media/author-visually/repo-settings-3.png" alt-text="Screenshot showing a checkbox for disabling the publish button for Azure Data Factory studio.":::
 
@@ -196,11 +196,11 @@ Connecting to a GitHub organization requires the organization to grant permissio
 
 If you're connecting to public GitHub or GitHub Enterprise Cloud from Azure Data Factory for the first time, follow these steps to connect to a GitHub organization.
 
-1. In the Git configuration pane, enter the organization name in the *GitHub Account* field. A prompt to login into GitHub will appear. 
+1. In the Git configuration pane, enter the organization name in the *GitHub Account* field. A prompt to log into GitHub appears. 
 1. Login using your user credentials.
-1. You'll be asked to authorize Azure Data Factory as an application called *AzureDataFactory*. On this screen, you will see an option to grant permission for ADF to access the organization. If you don't see the option to grant permission, ask an admin to manually grant the permission through GitHub.
+1. You'll be asked to authorize Azure Data Factory as an application called *AzureDataFactory*. On this screen, you see an option to grant permission for ADF to access the organization. If you don't see the option to grant permission, ask an admin to manually grant the permission through GitHub.
 
-Once you follow these steps, your factory will be able to connect to both public and private repositories within your organization. If you are unable to connect, try clearing the browser cache and retrying.
+Once you follow these steps, your factory can connect to both public and private repositories within your organization. If you are unable to connect, try clearing the browser cache and retrying.
 
 #### Already connected to public GitHub or GitHub Enterprise Cloud using a personal account
 
@@ -218,14 +218,14 @@ If you have already connected to public GitHub or GitHub Enterprise Cloud and on
 
     :::image type="content" source="media/author-visually/github-organization-grant.png" alt-text="Grant access":::
 
-Once you follow these steps, your factory will be able to connect to both public and private repositories within your organization. 
+Once you follow these steps, your factory can connect to both public and private repositories within your organization. 
 
 #### Connecting to GitHub Enterprise Server
 
-If you connect to GitHub Enterprise Server, you need to use personal access token for authentication. Learn how to create a personal access token in [Creating a personal access token](https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+If you connect to GitHub Enterprise Server, you need to use a personal access token for authentication. Learn how to create a personal access token in [Creating a personal access token](https://docs.github.com/en/enterprise-server@3.6/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 > [!Note]
-> GitHub Enterprise Server is in your self-hosted private environment, so you need have full control on the firewall, network policies and VPN when you use this authentication. For more information, see [About GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.6/admin/overview/about-github-enterprise-server#about-github-enterprise-server).
+> GitHub Enterprise Server is in your self-hosted private environment, so you need full control of the firewall, network policies, and VPN when you use this authentication. For more information, see [About GitHub Enterprise Server](https://docs.github.com/en/enterprise-server@3.6/admin/overview/about-github-enterprise-server#about-github-enterprise-server).
 
 :::image type="content" source="media/author-visually/use-github-enterprise-server-pane.png" alt-text="Screenshot shows GitHub Configure a repository using enterprise server pane.":::
 
@@ -271,7 +271,7 @@ When you are ready to merge the changes from your feature branch to your collabo
 
 ### Configure publishing settings
 
-By default, data factory generates the Resource Manager templates of the published factory and saves them into a branch called `adf_publish`. To configure a custom publish branch, add a `publish_config.json` file to the root folder in the collaboration branch. When publishing, ADF reads this file, looks for the field `publishBranch`, and saves all Resource Manager templates to the specified location. If the branch doesn't exist, data factory will automatically create it. And example of what this file looks like is below:
+By default, data factory generates the Resource Manager templates of the published factory and saves them into a branch called `adf_publish`. To configure a custom publish branch, add a `publish_config.json` file to the root folder in the collaboration branch. When publishing, ADF reads this file, looks for the field `publishBranch`, and saves all Resource Manager templates to the specified location. If the branch doesn't exist, data factory automatically creates it. An example of what this file looks like is below:
 
 ```json
 {
@@ -303,7 +303,7 @@ A side pane will open where you confirm that the publish branch and pending chan
 
 ### Permissions
 
-Typically you don't want every team member to have permissions to update the Data Factory. The following permissions settings are recommended:
+Typically you don't want every team member to have permission to update the Data Factory. The following permissions settings are recommended:
 
 *   All team members should have read permissions to the Data Factory.
 *   Only a select set of people should be allowed to publish to the Data Factory. To do so, they must have the **Data Factory contributor** role on the **Resource Group** that contains the Data Factory. For more information on permissions, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
@@ -325,13 +325,13 @@ Below are some examples of situations that can cause a stale publish branch:
 - A user has multiple branches. In one feature branch, they deleted a linked service that isn't AKV associated (non-AKV linked services are published immediately regardless if they are in Git or not) and never merged the feature branch into the collaboration branch.
 - A user modified the data factory using the SDK or PowerShell
 - A user moved all resources to a new branch and tried to publish for the first time. Linked services should be created manually when importing resources.
-- A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the UX is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the UX will allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
+- A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the user interface is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the user interface allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
 
 If the publish branch is out of sync with the main branch and contains out-of-date resources despite a recent publish, you can use either of the below solutions:
 
 #### Option 1: Use **Overwrite live mode** functionality
 
-It publishes or overwrites the code from your collaboration branch into the live mode. It will consider the code in your repository as the source of truth. 
+It publishes or overwrites the code from your collaboration branch into the live mode. It considers the code in your repository as the source of truth. 
 
 <u>*Code flow:*</u> ***Collaboration branch -> Live mode***
 
@@ -348,15 +348,13 @@ It imports the code from live mode into collaboration branch. It considers the c
 1. Create a pull request to merge the changes to the collaboration branch.
 
 > [!NOTE]
-> It is only necessary to create and merge a pull request if you are working in a repository that does not allow direct commits.  In most organizations, submissions into the repository will require review before merging so the best practice is usually to use this approach.  But in some cases no review is required, in which case it isn't necessary to create and merge a pull request, but changes can be directly committed to the collaboration branch.
+> It is only necessary to create and merge a pull request if you are working in a repository that does not allow direct commits.  In most organizations, submissions into the repository require review before merging so the best practice is usually to use this approach.  But in some cases no review is required, in which case it isn't necessary to create and merge a pull request, but changes can be directly committed to the collaboration branch.
 
 Choose either method appropriately as needed. 
 
 ### All resources showing as new on publish
 
-While publishing, all resources might show as new even if they were previously published. This can happen if the *lastCommitId* property is reset on the factory’s *repoConfiguration* property either by re-deploying a factory ARM template or updating the factory *repoConfiguration* property  through PowerShell or the REST API. Continuing to publish the resources will resolve the issue, but to prevent to it from occurring again, avoid updating the factory *repoConfiguration* property. 
-
-
+While publishing, all resources might show as new even if they were previously published. This can happen if the *lastCommitId* property is reset on the factory’s *repoConfiguration* property either by re-deploying a factory ARM template or updating the factory *repoConfiguration* property  through PowerShell or the REST API. Continuing to publish the resources can resolve the issue, but to prevent it from occurring again, avoid updating the factory *repoConfiguration* property. 
 
 ## Switch to a different Git repository
 
@@ -371,7 +369,7 @@ Enter your data factory name and click **confirm** to remove the Git repository 
 After you remove the association with the current repo, you can configure your Git settings to use a different repo and then import existing Data Factory resources to the new repo.
 
 > [!IMPORTANT]
-> Removing Git configuration from a data factory doesn't delete anything from the repository. The factory will contain all published resources. You can continue to edit the factory directly against the service.
+> Removing Git configuration from a data factory doesn't delete anything from the repository. The factory contains all published resources. You can continue to edit the factory directly against the service.
 
 ## Related content
 
