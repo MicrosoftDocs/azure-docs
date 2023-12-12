@@ -114,7 +114,7 @@ ManagedUserName="ManagedUserName"
 
 You can use a new or existing key vault to store customer-managed keys. The encrypted resource and the key vault can be in different regions or subscriptions in the same Microsoft Entra ID tenant. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../../key-vault/general/overview.md) and [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md).
 
-Using customer-managed keys with encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and can't be disabled. You can enable purge protection either when you create the key vault or after it's created. Azure Elastic SAN encryption supports RSA keys of sizes 2048, 3072 and 4096.
+Using customer-managed keys with encryption requires that both soft delete and purge protection are enabled for the key vault. Soft delete is enabled by default when you create a new key vault and can't be disabled. You can enable purge protection either when you create the key vault or after it's created. Azure Elastic SAN encryption supports RSA keys of sizes 2048, 3072 and 4096.
 
 Azure Key Vault supports authorization with Azure RBAC via an Azure RBAC permission model. Microsoft recommends using the Azure RBAC permission model over key vault access policies. For more information, see [Grant permission to applications to access an Azure key vault using Azure RBAC](../../key-vault/general/rbac-guide.md).
 
@@ -206,7 +206,7 @@ $Key = Add-AzKeyVaultKey @NewKeyArguments
 
 # [Azure CLI](#tab/azure-cli)
 
-To add a key with Azure CLI, call [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create). You can also set a policy on your keyvault, to give permissions to specific users directly. Replaec `youremail@here.com` then use the following sample and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
+To add a key with Azure CLI, call [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create). You can also set a policy on your keyvault, to give permissions to specific users directly. Replace `youremail@here.com` then use the following sample and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
 
 ```azurecli
 #### Get vault_url
