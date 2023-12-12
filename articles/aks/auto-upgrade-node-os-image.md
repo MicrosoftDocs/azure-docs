@@ -52,7 +52,7 @@ The default cadence means there's no planned maintenance window applied.
 |Channel|Updates Ownership|Default cadence|
 |---|---|
 | `Unmanaged`|OS driven security updates. AKS has no control over these updates.|Nightly around 6AM UTC for Ubuntu and Azure Linux. Monthly for Windows.|
-| `SecurityPatch`|AKS- Tested, fully managed and with safe deployment practices. For more information refer to the [blog][Blog]. This channel is recommended for security updates over `Unmanaged`, for above reasons. |Weekly.|
+| `SecurityPatch`|AKS- Tested, fully managed and with safe deployment practices. For more information refer to the [blog][Blog]. This channel is recommended for security updates over `Unmanaged`, for above reasons.|Weekly.|
 | `NodeImage`|AKS|Weekly.|
 
 ## SecurityPatch channel requirements
@@ -130,7 +130,8 @@ To view the status of your node OS auto upgrades, look up [activity logs][monito
 kubectl get nodes --show-labels
 ```
 The node image is returned for example as kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0. Here base node image version is AKSUbuntu-2204gen2containerd and the securitypatch version typically follows this if any , in the above example it is 202311.07.0.  
-The same can also be looked up in the Azure Portal under the node label view. 
+The same can also be looked up in the Azure Portal under the node label view as illustrated below. 
+
 :::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png" alt-text="The screenshot of the nodes blade for an AKS cluster in the Azure portal. The label for nodeimage version clearly shows the base node image as well as the securitypatch latest applied on that node with dates.":::
 
 
