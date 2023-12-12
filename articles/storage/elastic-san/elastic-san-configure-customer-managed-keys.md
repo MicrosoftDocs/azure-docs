@@ -206,14 +206,14 @@ $Key = Add-AzKeyVaultKey @NewKeyArguments
 
 # [Azure CLI](#tab/azure-cli)
 
-To add a key with Azure CLI, call [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create). You can also set a policy on your keyvault, to give permissions to specific users directly. Use the following sample and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
+To add a key with Azure CLI, call [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create). You can also set a policy on your keyvault, to give permissions to specific users directly. Replaec `youremail@here.com` then use the following sample and [the same variables you created previously in this article](#create-variables-to-be-used-in-the-cli-samples-in-this-article):
 
 ```azurecli
 #### Get vault_url
 vault_uri=$(az keyvault show --name $KvName --resource-group $RgName --query "properties.vaultUri" -o tsv)
 
 #### Find your object id and set key policy
-objectId=$(az ad user show --id YOUREMAIL@HERE.COM --query id -o tsv)
+objectId=$(az ad user show --id youremail@here.com --query id -o tsv)
 
 az keyvault set-policy -n $KvName --object-id $objectId --key-permissions backup create delete get import get list update restore
 
@@ -493,12 +493,14 @@ az elastic-san volume update -g $RgName -e $EsanName -v $EsanVgName -n $volume_n
 
 #### System assigned identity
 
+Replace `youremail@here.com` with the email of the user you'd like to assign permissions to, and run the following script:
+
 ```azurecli
 #### Get vault_url
 vault_uri=$(az keyvault show --name $KvName --resource-group $RgName --query "properties.vaultUri" -o tsv)
 
 #### Find your object id and set key policy
-objectId=$(az ad user show --id YOUREMAIL@HERE.COM --query id -o tsv)
+objectId=$(az ad user show --id youremail@here.com --query id -o tsv)
 az keyvault set-policy -n $KvName --object-id $objectId --key-permissions backup create delete get import get list update restore
 
 #### Create key
