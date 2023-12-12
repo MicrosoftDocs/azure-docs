@@ -105,7 +105,7 @@ RDP uses port 3389 for connecting to a VM. By default, Linux lab VMs only have t
 
 1. [Connect to a lab's template VM](how-to-create-manage-template.md#update-a-template-vm) using SSH.
 
-1. On the template VM, use the following ReadMe and script to install the GNO ME GUI desktop, install the RDP server, and make RDP performance optimizations:
+1. On the template VM, use the following ReadMe and script to install the GNOME GUI desktop, install the RDP server, and make RDP performance optimizations:
     1. [ReadMe](https://aka.ms/azlabs/scripts/LinuxDesktop-GnomeMate)
     1. [Bash script](https://aka.ms/azlabs/scripts/LinuxDesktop-GnomeMate/xrdp-gnome.sh)
 
