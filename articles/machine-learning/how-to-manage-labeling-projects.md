@@ -30,7 +30,7 @@ The **Dashboard** tab shows the progress of the labeling task.
 
 #### [Image projects](#tab/image)
 
-:::image type="content" source="./media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Screenshot that shows the data labeling dashboard.":::
+:::image type="content" source="./media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Screenshot that shows the data labeling dashboard." lightbox="./media/how-to-create-labeling-projects/labeling-dashboard.png":::
 
 The progress charts show how many items were labeled, skipped, need review, or aren't yet complete. Hover over the chart to see the number of items in each section.
 
@@ -54,7 +54,7 @@ Additionally, when ML-assisted labeling is enabled, you can scroll down to see t
 
 #### [Text projects](#tab/text)
 
-:::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Screenshot that shows the text labeling dashboard.":::
+:::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Screenshot that shows the text labeling dashboard." lightbox="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png":::
 
 The progress charts show how many items were labeled, skipped, need review, or aren't yet complete. Hover over the chart to see the number of items in each section.
 
@@ -97,15 +97,15 @@ If your project uses consensus labeling, review images that have no consensus:
 1. On the left menu, select **Review labels**.
 1. On the command bar above **Review labels**, select **All filters**.
 
-  :::image type="content" source="media/how-to-create-labeling-projects/select-filters.png" alt-text="Screenshot that shows how to select filters to review consensus label problems." lightbox="media/how-to-create-labeling-projects/select-filters.png":::
+    :::image type="content" source="media/how-to-create-labeling-projects/select-filters.png" alt-text="Screenshot that shows how to select filters to review consensus label problems." lightbox="media/how-to-create-labeling-projects/select-filters.png":::
 
 1. Under **Labeled datapoints**, select **Consensus labels in need of review** to show only images for which the labelers didn't come to a consensus.
 
-  :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot that shows how to select labels in need of review.":::
+    :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot that shows how to select labels in need of review.":::
 
 1. For each image to review, select the **Consensus label** dropdown to view the conflicting labels.
 
-  :::image type="content" source="media/how-to-create-labeling-projects/consensus-dropdown.png" alt-text="Screenshot that shows the Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-labeling-projects/consensus-dropdown.png":::
+    :::image type="content" source="media/how-to-create-labeling-projects/consensus-dropdown.png" alt-text="Screenshot that shows the Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-labeling-projects/consensus-dropdown.png":::
 
 1. Although you can select an individual labeler to see their labels, to update or reject the labels, you must use the top choice, **Consensus label (preview)**.
 
@@ -115,15 +115,15 @@ If your project uses consensus labeling, review images that have no consensus:
 1. On the left menu, select **Review labels**.
 1. On the command bar above **Review labels**, select **All filters**.
 
-  :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png" alt-text="Screenshot that shows how to select filters to review consensus label problems." lightbox="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png":::
+    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png" alt-text="Screenshot that shows how to select filters to review consensus label problems." lightbox="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png":::
 
 1. Under **Labeled datapoints**, select **Consensus labels in need of review** to show only items for which the labelers didn't come to a consensus.
 
-  :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot that shows how to select labels in need of review.":::
+    :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot that shows how to select labels in need of review.":::
 
 1. For each item to review, select the **Consensus label** dropdown to view the conflicting labels.
 
-  :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png" alt-text="Screenshot that shows the Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png":::
+    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png" alt-text="Screenshot that shows the Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png":::
 
 1. Although you can select an individual labeler to see their labels, to update or reject the labels, you must use the top choice, **Consensus label (preview)**.
 
@@ -131,7 +131,7 @@ If your project uses consensus labeling, review images that have no consensus:
 
 ### Change project details
 
-View and change details of your project. On this tab, you can:
+View and change details of your project on the **Details** tab. On this tab, you can:
 
 * View project details and input datasets.
 * Set or clear the **Enable incremental refresh at regular intervals** option, or request an immediate refresh.
@@ -164,13 +164,6 @@ If labeling is active in Azure Machine Learning, you have two choices:
 * Select **Disconnect from Language Studio** to sever the relationship with Language Studio. Once you disconnect, the project loses its association with Language Studio, and no longer shows the Language Studio tab. Disconnecting your project from Language Studio is a permanent, irreversible process and can't be undone. You'll no longer be able to access your labels for this project in Language Studio. The labels are available only in Azure Machine Learning from this point onward.
 
 --- 
-
-### Access for labelers
-
-Anyone who has Contributor or Owner access to your workspace can label data in your project.
-
-You can also add users and customize the permissions so that they can access labeling but not other parts of the workspace or your labeling project. For more information, see [Add users to your data labeling project](./how-to-add-users.md).
-
 ## Add new labels to a project
 
 During the data labeling process, you might want to add more labels to classify your items. For example, you might want to add an *Unknown* or *Other* label to indicate confusion.
@@ -184,10 +177,13 @@ To add one or more labels to a project:
 1. Modify your labels.
 
   :::image type="content" source="./media/how-to-create-labeling-projects/add-label.png" alt-text="Screenshot that shows how to add a label in Machine Learning Studio.":::
+
 1. In the form, add your new label. Then choose how to continue the project. Because you changed the available labels, choose how to treat data that's already labeled:
-  * Start over, and remove all existing labels. Choose this option if you want to start labeling from the beginning by using the new full set of labels. 
-  * Start over, and keep all existing labels. Choose this option to mark all data as unlabeled, but keep the existing labels as a default tag for images that were previously labeled.
-  * Continue, and keep all existing labels. Choose this option to keep all data already labeled as it is, and start using the new label for data that's not yet labeled.
+
+    * Start over, and remove all existing labels. Choose this option if you want to start labeling from the beginning by using the new full set of labels.
+    * Start over, and keep all existing labels. Choose this option to mark all data as unlabeled, but keep the existing labels as a default tag for images that were previously labeled.
+    * Continue, and keep all existing labels. Choose this option to keep all data already labeled as it is, and start using the new label for data that's not yet labeled.
+
 1. Modify your instructions page as necessary for new labels.
 1. After you've added all new labels, toggle **Paused** to **Running** to restart the project. 
 
@@ -238,7 +234,6 @@ Access exported Azure Machine Learning datasets and data assets in the **Data** 
 :::moniker range="azureml-api-1"
 After you export your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models that are trained on your labeled data. Learn more at [Set up AutoML to train computer vision models by using Python](how-to-auto-train-image-models.md).
 :::moniker-end
-
 
 #### [Text projects](#tab/text)
 
@@ -299,6 +294,12 @@ Import from either a COCO file or an Azure MLTable data asset.
 The import labels feature is not available for text projects.
 
 ---
+
+## Access for labelers
+
+Anyone who has Contributor or Owner access to your workspace can label data in your project.
+
+You can also add users and customize the permissions so that they can access labeling but not other parts of the workspace or your labeling project. For more information, see [Add users to your data labeling project](./how-to-add-users.md).
 
 ## Troubleshoot issues
 
