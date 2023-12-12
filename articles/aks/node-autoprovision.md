@@ -72,13 +72,13 @@ To enable node autoprovisioning, create a new cluster using the az aks create co
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azure-cli
+```azurecli-interactive
 az aks create --name karpuktest --resource-group karpuk --node-provisioning-mode Auto --network-plugin azure --network-plugin-mode overlay --network-dataplane cilium
 
 ```
 
 ### [Azure ARM](#tab/azure-arm)
-```azure-cli
+```azurecli-interactive
 az deployment group create --resource-group napcluster --template-file ./nap.json  
 ```
 
@@ -191,13 +191,18 @@ spec:
 | karpenter.azure.com/sku-gpu-count | GPU count per VM | 2 |
 | karpenter.azure.com/sku-networking-accelerated | Whether the VM has accelerated networking | [true, false] |
 | karpenter.azure.com/sku-storage-premium-capable | Whether the VM supports Premium IO storage | [true, false] |
-| karpenter.azure.com/sku-storage-temp-maxsize     | Size limit for the VM temp storage in Mb | 7168 |
-| karpenter.azure.com/sku-storage-ephemeralos-maxsize | Size limit for the Ephemeral OS disk in Mb | 7168 |
+| karpenter.azure.com/sku-storage-ephemeralos-maxsize | Size limit for the Ephemeral OS disk in Gb | 92 |
 | topology.kubernetes.io/zone | The Availability Zone(s)         | [uksouth-1,uksouth-2,uksouth-3]  | 
 | kubernetes.io/os    | Operating System (Linux only during preview)                                           | linux       |                    
 | kubernetes.io/arch    | CPU architecture (AMD64 or ARM64)                                         | [amd64, arm64]       |
                      
 
+
+To list the VM SKU capabilities and allowed values, use the `vm list-skus` command from the Azure CLI.
+
+```azurecli-interactive
+az vm list-skus --resource-type virtualMachines --location <location> --query '[].name' --output table
+```
 
 ## Node pool limits
 By default, NAP attempts to schedule your workloads within the Azure quota you have available.  You can also specify the upper limit of resources that is used by a Nodepool, specifying limits within the Node pool spec. 
@@ -215,8 +220,7 @@ By default, NAP attempts to schedule your workloads within the Azure quota you h
 When you have multiple Nodepools defined, it's possible to set a preference of where a workload should be scheduled.  Define the relative weight on your Node pool definitions.
 
 ```
-  # Priority given to the NodePool when the scheduler considers which NodePool
-  # to select. Higher weights indicate higher priority when comparing NodePools.
+  # Priority given to the node pool when the scheduler considers which to select. Higher weights indicate higher priority when comparing node pools.
   # Specifying no weight is equivalent to specifying a weight of 0.
   weight: 10
 ```
@@ -269,7 +273,7 @@ Removing the imageVersion spec would revert the node pool to be updated to the l
 
 When the workloads on your nodes scale down, NAP uses disruption rules on the Node pool specification to decide when and how to remove those nodes and potentially reschedule your workloads to be more efficient.
 
-You can remove a node manually using ```kubectl delete node```, but NAP can also control when it should optimize your nodes.
+You can remove a node manually using `kubectl delete node`, but NAP can also control when it should optimize your nodes.
 
 
 ```yaml
