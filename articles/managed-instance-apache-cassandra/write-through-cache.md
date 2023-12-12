@@ -55,23 +55,23 @@ In this analysis, we explore a sample test designed to compare the IOPs and late
 
 The screenshot shows IOPS of Raid 0 array with four premium managed disks(present day configuration)
 
-:::image type="content" source="./media/write-through-cache/premium-disk-iops.png" alt-text="screenshot of IOPS test using premium disks." lightbox="./media/write-through-cache/premium-disk-iops.png" border="true":::
+:::image type="content" source="./media/write-through-cache/premium-disk-iops.png" alt-text="Screenshot of IOPS test using premium disks." lightbox="./media/write-through-cache/premium-disk-iops.png" border="true":::
 
 
 IOPS with RAID 1 array of local NVMe disks and Premium managed disks
 
-:::image type="content" source="./media/write-through-cache/nvme-disk-iops.png" alt-text="screenshot of IOPS test using locally NVMe disks." lightbox="./media/write-through-cache/nvme-disk-iops.png" border="true":::
+:::image type="content" source="./media/write-through-cache/nvme-disk-iops.png" alt-text="Screenshot of IOPS test using locally NVMe disks." lightbox="./media/write-through-cache/nvme-disk-iops.png" border="true":::
 
 We see a better read performance of 248 K IOPS using locally attached NVMe disk.
 
 #### Latency local NVMe disks and Premium managed disk
 Throughput of Raid 0 array with four premium managed disks (present day configuration)
 
-:::image type="content" source="./media/write-through-cache/premium-disk-throughput.png" alt-text="screenshot of latency test using premium disks." lightbox="./media/write-through-cache/premium-disk-throughput.png" border="true":::
+:::image type="content" source="./media/write-through-cache/premium-disk-throughput.png" alt-text="Screenshot of latency test using premium disks." lightbox="./media/write-through-cache/premium-disk-throughput.png" border="true":::
 
 Throughput with RAID 1 array of local NVMe disks and Premium managed disks
 
-:::image type="content" source="./media/write-through-cache/nvme-disk-throughput.png" alt-text="screenshot of throughput test using NVMe disks." lightbox="./media/write-through-cache/nvme-disk-throughput.png" border="true":::
+:::image type="content" source="./media/write-through-cache/nvme-disk-throughput.png" alt-text="Screenshot of throughput test using NVMe disks." lightbox="./media/write-through-cache/nvme-disk-throughput.png" border="true":::
 
 We see a higher through put capacity performance of 14.9 GB/s using locally attached NVMe disk.
 
