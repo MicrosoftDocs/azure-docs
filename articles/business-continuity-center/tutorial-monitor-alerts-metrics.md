@@ -77,7 +77,7 @@ To view metrics, follow these steps:
 
 4. Use the *filters* to further see the metric values at lower levels of granularity, for example, a particular protected item in the vault.
  
-5. To create alert rules based on the value of the metric, select **New Alert Rule** at the top of the *metrics chart*, which leads you to the metric alert rules creation experience. [Learn more](../backup/metrics-overview#configure-alerts-and-notifications-on-your-metrics.md) about supported metric alert scenarios.
+5. To create alert rules based on the value of the metric, select **New Alert Rule** at the top of the *metrics chart*, which leads you to the metric alert rules creation experience. [Learn more](../backup/metrics-overview.md#configure-alerts-and-notifications-on-your-metrics) about supported metric alert scenarios.
  
 ## Next steps
 
