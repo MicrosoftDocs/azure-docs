@@ -14,7 +14,7 @@ When you turn on Defender for Cloud in a subscription, the [Microsoft cloud secu
 The MSCB issues recommendations based on assessment findings. Only built-in recommendations from the MSCB affect the secure score. Currently, [risk prioritization](how-to-manage-attack-path.md#features-of-the-attack-path-overview-page) doesn't affect the secure score.
 
 > [!NOTE]
-> Recommendations flagged as **Preview** aren't included in secure score calculations. You should still remediate these recommendations wherever possible, so that when the preview period ends, they'll contribute toward your score. Preview recommendations are marked with a note icon: :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::.
+> Recommendations flagged as **Preview** aren't included in secure score calculations. You should still remediate these recommendations wherever possible, so that when the preview period ends, they'll contribute toward your score. Preview recommendations are marked with an icon: :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::.
 
 ## Viewing the secure score
 
@@ -61,7 +61,7 @@ This example illustrates the following fields in the recommendations.
 **Max score** |  The maximum number of points that you can gain by completing all recommendations within a control.<br/><br/> The maximum score for a control indicates the relative significance of that control and is fixed for every environment.<br/><br/>Use the values in this column to determine which issues to work on first.
 **Current score** | The current score for this control.<br/><br/> Current score = [Score per resource] * [Number of healthy resources]<br/><br/>Each control contributes to the total score. In this example, the control is contributing 2.00 points to current total score.
 **Potential score increase** | The remaining points available to you within the control. If you remediate all the recommendations in this control, your score increases by 9%.<br/><br/> Potential score increase = [Score per resource] * [Number of unhealthy resources]
-**Insights** | Extra details for each recommendation, such as:<br/><br/>  - :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: Preview recommendation: This recommendation affects the secure score only when it's generally available.<br/><br/> - :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: Fix: Resolve this issue.<br/><br/> - :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: Enforce: Automatically deploy a policy to fix this issue whenever someone creates a noncompliant resource.<br/><br/> - :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: Deny: Prevent new resources from being created with this issue.
+**Insights** | Extra details for each recommendation, such as:<br/><br/>  - :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: **Preview recommendation**: This recommendation affects the secure score only when it's generally available.<br/><br/> - :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: **Fix**: Resolve this issue.<br/><br/> - :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: **Enforce**: Automatically deploy a policy to fix this issue whenever someone creates a noncompliant resource.<br/><br/> - :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: **Deny**: Prevent new resources from being created with this issue.
 
 ## Score calculation equations
 
@@ -69,7 +69,7 @@ Here's how scores are calculated.
 
 ### Security control
 
-Here's the equation for determining the score for a security control:
+The equation for determining the score for a security control is:
 
 :::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-control.png" alt-text="Screenshot that shows the equation for calculating a security control score." :::
 
@@ -81,7 +81,7 @@ In the following example, the maximum score of 6 is divided by 78 because that's
 
 ### Single subscription or connector
 
-Here's the equation for determining the secure score for a single subscription or connector:
+The equation for determining the secure score for a single subscription or connector is:
 
 :::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-sub.png" alt-text="Screenshot of the equation for calculating a subscription's secure score.":::
 
@@ -92,11 +92,11 @@ The score shows 28 points out of a possible 60. The remaining 32 points are refl
 
 :::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub-recs.png" alt-text="Screenshot that shows a list of controls and the potential score increase.":::
 
-This equation is the same equation for a connector with just the word *subscription* replaced by the word *connector*.
+This equation is the same equation for a connector, with just the word *subscription* replaced by the word *connector*.
 
 ### Multiple subscriptions and connectors
 
-Here's the equation for determining the secure score for multiple subscriptions and connectors:
+The equation for determining the secure score for multiple subscriptions and connectors is:
 
 :::image type="content" source="./media/secure-score-security-controls/secure-score-equation-multiple-subs.png" alt-text="Screenshot that shows the equation for calculating the secure score for multiple subscriptions.":::
 
@@ -119,7 +119,7 @@ To get all the possible points for a security control, all of your resources mus
 You can improve your secure score by using either of these methods:
 
 - Remediate security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or use the **Fix** option (when available) to resolve an issue on multiple resources quickly.
-- [Enforce or deny](prevent-misconfigurations.md) recommendations to improve your score, and to make sure your users don't create resources that negatively affect your score.
+- [Enforce or deny](prevent-misconfigurations.md) recommendations to improve your score, and to make sure that your users don't create resources that negatively affect your score.
 
 ## Secure score controls
 

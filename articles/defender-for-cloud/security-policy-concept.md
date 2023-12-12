@@ -43,7 +43,7 @@ Recommendations derived from assessments against custom standards appear togethe
 
 ## Security recommendations
 
-Defender for Cloud periodically and continuously analyzes and assesses the security state of protected resources against  defined security standards, to identify potential security misconfigurations and weaknesses. Based on assessment findings, recommendations provide information about issues and suggest remediation actions.
+Defender for Cloud periodically and continuously analyzes and assesses the security state of protected resources against  defined security standards, to identify potential security misconfigurations and weaknesses. Defender for Cloud then provides recommendations based on assessment findings.
 
 Each recommendation provides the following information:
 
