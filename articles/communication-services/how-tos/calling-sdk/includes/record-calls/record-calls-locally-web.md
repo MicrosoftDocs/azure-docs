@@ -56,7 +56,7 @@ You can also subscribe to 'localRecordingsUpdated' and get a collection of updat
 const localRecordingsUpdateddHandler = (args: { added: SDK.LocalRecordingInfo[], removed: SDK.LocalRecordingInfo[]}) => {
                         console.log('Local recording started by: ');
                         args.added?.forEach(a => {
-                            console.log('UserMRI: ${a.initiatorIdentifier?.microsoftTeamsUserId});
+                            console.log('Microsoft 365 user ID: ${a.initiatorIdentifier?.microsoftTeamsUserId});
                         });
 
                         console.log('Local recording stopped by: ');
