@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 12/6/2023
+ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 
@@ -139,7 +139,7 @@ Once you have provisioned the Oracle Exadata Infrastructure, you now need to cre
 1. From the Consent tab of the Create Oracle Exadata Virtual Machine Cluster flow, you must agree to the terms of service, privacy policy, and agree to access permissions.
 Consent Tab of the Create Oracle Exadata Virtual Machine Cluster Flow.
 
-    :::image type="content" source="media/oracle-database-azure-virtual-machine-06.png" alt-text="Diagram showing the Consent Tab of the Create Oracle Exadata Virtual Machine Cluster Flow" lightbox=media/oracle-database-azure-virtual-machine-06.png"::: 
+    :::image type="content" source="media/oracle-database-azure-virtual-machine-06.png" alt-text="Diagram showing the Consent Tab of the Create Oracle Exadata Virtual Machine Cluster Flow" lightbox="media/oracle-database-azure-virtual-machine-06.png"::: 
 
 1. From the Tags tab of the Create Oracle Exadata Virtual Machine Cluster flow, you can define Microsoft Azure tags.
 

@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 12/6/2023
+ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 ---
@@ -44,13 +44,13 @@ Oracle Support can help you with the following types of Oracle Database@Azure is
 - New generation hardware upgrades
 - Billing issues related to Oracle Database@Azure
 
-If you contact Oracle Support, be sure to tell your Oracle Support agent that your issue is related to Oracle Database@Azure, as support requests for this service are handled by a  support team that specializes with these deployments. A member of this team contacts you directly.
+If you contact Oracle Support, be sure to tell your Oracle Support agent that your issue is related to Oracle Database@Azure.  Support requests for this service are handled by a  support team that specializes in these deployments. A member of this specialized team contacts you directly.
 
 1. Call **1-800-223-1711.** If you're outside of the United States, visit[Oracle Support Contacts Global Directory](https://www.oracle.com/support/contact.html) to find contact information for your country or region.
 2. Choose option "2" to open a new Service Request (SR).
 3. Choose option "4" for "unsure".
 4. Enter "#" each time you're asked for your CSI number. At the third attempt, your call is directed to an Oracle Support agent.
-5. Let the agent know that you have an issue with your multicloud system, and the name of the product (for example, or). An internal Service Request is opened on your behalf and a  support engineer will contact you directly.
+5. Let the agent know that you have an issue with your multicloud system, and the name of the product (for example, or). An internal Service Request is opened on your behalf and a  support engineer contacts you directly.
 
 You can also submit a question to the Oracle Database@Azure forum in Oracle's [Cloud Customer Connect](https://community.oracle.com/customerconnect/categories/oracle-cloud-infrastructure-and-platform) community. This option is available to all customers.
 

@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: oracle
 ms.custom: engagement-fy23
-ms.date: 12/6/2023
+ms.date: 12/12/2023
 ---
 
 # Network planning for Oracle Database@Azure

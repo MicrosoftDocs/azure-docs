@@ -5,9 +5,9 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.collection: oracle
 ms.topic: article
-ms.date: 12/06/2023
+ms.custom: engagement-fy23
+ms.date: 12/12/2023
 ---
 
 # Oracle on Azure

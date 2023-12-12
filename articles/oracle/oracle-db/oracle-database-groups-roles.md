@@ -3,11 +3,11 @@ title: Groups and roles for Oracle Database@Azure
 description: title: Groups and roles for Oracle Database@Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
+ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: oracle
-ms.collection: oracle
-ms.topic: article
-ms.date: 12/06/2023
+ms.date: 12/12/2023
+ms.custom: engagement-fy23
 ---
 
 This article lists the groups and roles used to manage access to Oracle Database@Azure. Using these groups and roles ensures that assigned users have the appropriate permissions to operate the service.
