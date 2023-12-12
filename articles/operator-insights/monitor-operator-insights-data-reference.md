@@ -54,24 +54,12 @@ Azure Operator Insights uses the tables listed in [Azure Monitor Logs tables](#a
 
 ## Activity log
 
-> [!WARNING]
-> INTERNAL INSTRUCTIONS: remove this note before publishing
-> REQUIRED. Please keep heading in this order -->
-
 The following table lists the operations that Azure Operator Insights may record in the Activity log. This is a subset of the possible entries your might find in the activity log.
-
-> [!WARNING]
-> INTERNAL INSTRUCTIONS: remove this note before publishing
-> Fill in the table with the operations that can be created in the Activity log for the service by gathering the links for your namespaces or otherwise explaning what's available. For example, see the bookmark https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftbatch
 
 | Namespace | Description |
 |:---|:---|
-| | |
-| | |
-
-> [!WARNING]
-> INTERNAL INSTRUCTIONS: remove this note before publishing
-> NOTE: Any additional operations may be hard to find or not listed anywhere.  Please ask your PM for at least any additional list of what messages could be written to the activity log. You can contact azmondocs@microsoft.com for help if needed. -->
+|`Microsoft.NetworkAnalytics`|Logs relating to creating, modifying and deleting Data Product resources|
+|`Microsoft.OperationalInsights/workspaces/query/AOI*`|Logs relating to querying Azure Operator Insights data in Azure Monitor|
 
 See [all the possible resource provider operations in the activity log](/azure/role-based-access-control/resource-provider-operations).  
 
