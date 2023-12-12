@@ -30,7 +30,7 @@ Cross-tenant policies are not permitted by default for a storage account created
 
 ### Remediate cross-tenant replication for a new account
 
-To disallow cross-tenant replication for a new storage account, use the Azure portal, PowerShell, or Azure CLI. The property defaults to false for new accounts created after Dec 15, 2023 even when not set explicitly.
+To disallow cross-tenant replication for a new storage account, use the Azure portal, PowerShell, or Azure CLI. The property defaults to false for new accounts created after Dec 15, 2023, even when not set explicitly.
 
 #### [Portal](#tab/portal)
 
