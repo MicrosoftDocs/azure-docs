@@ -10,7 +10,9 @@ ms.author: rifox
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK.
 
-Local recording is an extended feature of the core `Call` API and works very similar to the recording feature. While the recording feature saves the recording on cloud, the local recording feature lets a teams user save the recording to their device. This feature is currently available to teams user and in teams meetings only but the notification for local recording can be shown to ACS users.
+Terms of use for Azure Communication Services require developers to show notification to the users, if they are being recorded. Microsoft Teams application allows Teams users to record Teams calls and Teams meetings in the cloud and on Teams desktop app also locally. Developers can use Azure Communication Services Calling SDK to identify whether local or cloud recording has started or stopped. 
+
+Azure Communication Services Calling SDK provides object `Call` to manage calls, that has dedicated features for local recording `LocalRecordingCallFeature` and cloud recording `RecordingCallFeature `. Developers need to implement both features to provide a compliant solution.
 You first need to import calling Features from the Calling SDK:
 
 ```js
