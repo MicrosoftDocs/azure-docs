@@ -76,7 +76,7 @@ Currently, there is a not a built-in role for deployment script.
 
 ## Create deployment scripts
 
-The following Bicep file demonstrates a simple deployment script. The script takes one string parameter, and creates another string.
+The following Bicep file demonstrates a simple Bicep file with a deployment script resource. The script takes one string parameter, and creates another string.
 
 # [CLI](#tab/CLI)
 
@@ -128,7 +128,7 @@ output result string = deploymentScript.properties.outputs.text
 
 ---
 
-For more information about creating deployment scripts, see [Create deployments scripts](./deployment-script-develop.md).
+For more information about creating deployment script resources, see [Create deployments scripts](./deployment-script-develop.md). For the creation of scripts utilized in the deployment script resource, it's advisable to establish a dedicated script development environment such as an Azure container instance or a Docker image. Once the scripts have been developed and thoroughly tested, you can integrate or invoke the script files from the deployment script resource. For more information, see[Configure script development environments](./deployment-script-bicep-configure-dev.md).
 
 Save the script into a `inlineScript.bicep` file, and then deploy the resource by using the following script
 
@@ -145,7 +145,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Monitor and troubleshoot deployment script
 
-When you deploy a deployment script resource, a storage account is required for storing the user script, the execution results, adn the stdout file. You can specify your own storage account. See [Use existing storage account](./deployment-script-develop.md#use-existing-storage-account). An alternative solution, without specifying your own storage account, involves setting `cleanupPreference` to `OnExpiration`and configuring `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed. For more information, see [](./deployment-script-develop.md#clean-up-deployment-script-resources).
+When you deploy a deployment script resource, a storage account is required for storing the user script, the execution results, adn the stdout file. You can specify your own storage account. See [Use existing storage account](./deployment-script-develop.md#use-existing-storage-account). An alternative solution, without specifying your own storage account, involves setting `cleanupPreference` to `OnExpiration`and configuring `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed. For more information, see [Clean up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
 
 Add the `cleanupPreference` property to the preceding Bicep file, and set the value to `OnExpiration`. The default value is `Always`. Also, set `rentalInterval` to `PT1H` (one hour), or shorter.
 
@@ -205,11 +205,11 @@ After the Bicep file is deployed successfully, use the Azure portal, Azure CLI, 
 
 ### Azure portal
 
-After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The **Overview** page lists the two supporting resources in addition to the deployment script resource. The supporting resources will be deleted after the retention interval expires. Notice both resources have the `azscripts` suffix in the resource names because these resources are created automatically. The other way to identify the the supporting resources is by using `tags``. For more information, see [tags](./deployment-script-develop.md#syntax).
+After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The **Overview** page lists the two supporting resources in addition to the deployment script resource. The supporting resources will be deleted after the retention interval expires. Notice both resources have the `azscripts` suffix in the resource names because these resources are created automatically. The other way to identify the the supporting resources is by using `tags`. For more information, see [tags](./deployment-script-develop.md#syntax).
 
 :::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-resource-group.png" alt-text="Screenshot of deployment script resource group.":::
 
-Select the deployment resource from the list. The **Overview** page of a deployment script resource displays some important information of the resource, such as **Provisioning state**, the two supporting resources - **Storage account** and **Container instance**. The **Logs** shows the print text from the script.
+Select the deployment script resource from the list. The **Overview** page of a deployment script resource displays some important information of the resource, such as **Provisioning state**, the two supporting resources - **Storage account** and **Container instance**. The **Logs** shows the print text from the script.
 
 :::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-resource.png" alt-text="Screenshot of deployment script resource.":::
 
@@ -387,13 +387,11 @@ The following REST API returns the log:
 
 It only works before the deployment script resources are deleted.
 
-To see the deploymentScripts resource in the portal, select **Show hidden types**:
-
-![Resource Manager template deployment script, show hidden types, portal](./media/deployment-script-bicep/resource-manager-deployment-script-portal-show-hidden-types.png)
-
 ---
 
 ## Deployment script error codes
+
+The following table lists the deployment script error codes:
 
 | Error code | Description |
 |------------|-------------|
@@ -420,20 +418,6 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 | DeploymentScriptContainerInstancesServiceUnavailable | When creating the Azure container instance (ACI), ACI threw a service unavailable error. |
 | DeploymentScriptContainerGroupInNonterminalState | When creating the Azure container instance (ACI), another deployment script is using the same ACI name in the same scope (same subscription, resource group name, and resource name). |
 | DeploymentScriptContainerGroupNameInvalid | The Azure container instance name (ACI) specified doesn't meet the ACI requirements. See [Troubleshoot common issues in Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
-
-## Use Microsoft Graph within a deployment script
-
-A deployment script can use [Microsoft Graph](/graph/overview) to create and work with objects in Microsoft Entra ID.
-
-### Commands
-
-When you use Azure CLI deployment scripts, you can use commands within the `az ad` command group to work with applications, service principals, groups, and users. You can also directly invoke Microsoft Graph APIs by using the `az rest` command.
-
-When you use Azure PowerShell deployment scripts, you can use the `Invoke-RestMethod` cmdlet to directly invoke the Microsoft Graph APIs.
-
-### Permissions
-
-The identity that your deployment script uses needs to be authorized to work with the Microsoft Graph API, with the appropriate permissions for the operations it performs. You must authorize the identity outside of your Bicep file, such as by precreating a user-assigned managed identity and assigning it an app role for Microsoft Graph. For more information, [see this quickstart example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad).
 
 ## Access private virtual network
 

@@ -756,6 +756,20 @@ Deployment script execution is an idempotent operation. If there are no changes 
 > [!IMPORTANT]
 > Write deployment scripts to ensure idempotence, guaranteeing that accidental reruns won't result in system alterations. For example, when creating an Azure resource through the deployment script, validate its absence before creation to ensure the script either succeeds or avoids redundant resource creation.
 
+## Use Microsoft Graph within a deployment script
+
+A deployment script can use [Microsoft Graph](/graph/overview) to create and work with objects in Microsoft Entra ID.
+
+### Commands
+
+When you use Azure CLI deployment scripts, you can use commands within the `az ad` command group to work with applications, service principals, groups, and users. You can also directly invoke Microsoft Graph APIs by using the `az rest` command.
+
+When you use Azure PowerShell deployment scripts, you can use the `Invoke-RestMethod` cmdlet to directly invoke the Microsoft Graph APIs.
+
+### Permissions
+
+The identity that your deployment script uses needs to be authorized to work with the Microsoft Graph API, with the appropriate permissions for the operations it performs. You must authorize the identity outside of your Bicep file, such as by precreating a user-assigned managed identity and assigning it an app role for Microsoft Graph. For more information, [see this quickstart example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad).
+
 ## Clean up deployment script resources
 
 The two automatically created supporting resources can never outlive the `deploymentScript` resource, unless there are failures deleting them. The life cycle of the supporting resources is controlled by the `cleanupPreference` property, the life cycle of the `deploymentScript` resource is controlled by the `retentionInterval` property:
