@@ -3106,8 +3106,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "active-directory/authentication/concept-mfa-plan.md",
-            "redirect_url": "active-directory/authentication/howto-mfa-getstarted",
+            "source_path": "articles/active-directory/authentication/concept-mfa-plan.md",
+            "redirect_url": "/entra/identity/authentication/howto-mfa-getstarted",
             "redirect_document_id": false
         },
         {
