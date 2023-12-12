@@ -129,7 +129,10 @@ To view the status of your node OS auto upgrades, look up [activity logs][monito
  ```azurecli-interactive
 kubectl get nodes --show-labels
 ``
-The node image is returned for example as kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0. Here base node image version is AKSUbuntu-2204gen2containerd and the securitypatch version typically follows this if any , in the above example it is 202311.07.0.  The same can also be looked up in the Azure Portal under the node label view. 
+The node image is returned for example as kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0. Here base node image version is AKSUbuntu-2204gen2containerd and the securitypatch version typically follows this if any , in the above example it is 202311.07.0.  
+The same can also be looked up in the Azure Portal under the node label view. 
+:::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png" alt-text="The screenshot of the nodes blade for an AKS cluster in the Azure portal. The label for nodeimage version clearly shows the base node image as well as the securitypatch latest applied on that node with dates.":::
+
 
 <!-- LINKS -->
 [planned-maintenance]: planned-maintenance.md
