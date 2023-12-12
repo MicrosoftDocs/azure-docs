@@ -42,14 +42,32 @@ To begin, collect the values in the following table for each SIM you want to pro
 | The type of device using this SIM. This value is an optional free-form string. You can use it as required to easily identify device types using the enterprise's private mobile network.  | `deviceType` |
 | The SIM policy to assign to the SIM. This is optional, but your SIMs won't be able to use the private mobile network without an assigned SIM policy. | `simPolicyId` |
 
-## Prepare one or more arrays for your SIMs
+### Collect the required information for assigning static IP addresses
 
-Use the information you collected in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims) to create one or more JSON arrays containing properties for up to 500 of the SIMs you want to provision. The following is an example of an array containing properties for two SIMs (`SIM1` and `SIM2`).
+You only need to complete this step if all of the following apply:
+
+- You're using one or more JSON arrays to provision your SIMs.
+- You've configured static IP address allocation for your packet core instance(s).
+- You want to assign static IP addresses to the SIMs during SIM provisioning.
+
+Collect the values in the following table for each SIM you want to provision. If your private mobile network has multiple data networks and you want to assign a different static IP address for each data network to this SIM, collect the values for each IP address.
+
+Each IP address must come from the pool you assigned for static IP address allocation when creating the relevant data network, as described in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values). For more information, see [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools).
+
+| Value | Field name in Azure portal | JSON parameter name |
+|--|--|--|
+| The data network that the SIM will use. | Not applicable. | `staticIpConfiguration.attachedDataNetworkId` |
+| The network slice that the SIM will use. | Not applicable. | `staticIpConfiguration.sliceId` |
+| The static IP address to assign to the SIM.  | Not applicable. | `staticIpConfiguration.staticIpAddress` |
+
+## Prepare one or more JSON arrays for your SIMs
+
+Use the information you collected in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims) to create one or more JSON arrays containing properties for up to 1000 of the SIMs you want to provision. The following is an example of an array containing properties for two SIMs (`SIM1` and `SIM2`).
+
+If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicyId` and/or `staticIpConfiguration` parameters.
 
 > [!IMPORTANT]
-> Bulk SIM provisioning is limited to 500 SIMs. If you want to provision more that 500 SIMs, you must create multiple SIM arrays with no more than 500 SIMs in any one array and repeat the provisioning process for each SIM array.
-
-Delete the `staticIpConfiguration` parameter for that SIM.
+> Bulk SIM provisioning is limited to 1000 SIMs. If you want to provision more that 1000 SIMs, you must create multiple SIM arrays with no more than 1000 SIMs in any one array and repeat the provisioning process for each SIM array.
 
 ```json
 [
@@ -134,7 +152,7 @@ The following Azure resources are defined in the template.
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
 4. Once your configuration has been validated, you can select **Create** to provision your SIMs. The Azure portal will display a confirmation screen when the SIMs have been provisioned.
-5. If you are provisioning more than 500 SIMs, repeat this process for each of your JSON arrays.
+5. If you are provisioning more than 1000 SIMs, repeat this process for each of your JSON arrays.
 
 ## Review deployed resources
 

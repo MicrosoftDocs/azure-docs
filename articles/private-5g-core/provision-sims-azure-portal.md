@@ -6,7 +6,7 @@ author: robswain
 ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 01/16/2022
+ms.date: 12/01/2023
 ms.custom: template-how-to
 zone_pivot_groups: ap5gc-portal-powershell
 ---
@@ -25,7 +25,7 @@ zone_pivot_groups: ap5gc-portal-powershell
 
   - Manually entering each provisioning value into fields in the Azure portal. This option is best if you're provisioning a few SIMs.
 
-  - Importing one or more JSON files containing values for up to 500 SIM resources each. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
+  - Importing one or more JSON files containing values for up to 1000 SIM resources each. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
   
   - Importing an encrypted JSON file containing values for one or more vendor provided SIM resources. This option is required for any vendor provided SIMs. You'll need a good JSON editor if you want to edit any fields within the encrypted JSON file when using this option.
 
@@ -45,7 +45,7 @@ zone_pivot_groups: ap5gc-portal-powershell
 
 To begin, collect the values in the following table for each SIM you want to provision.
 
-| Value | Field name in Azure portal | JSON file parameter name |
+| Value | Field name in Azure portal | JSON parameter name |
 |--|--|--|
 | SIM name. The SIM name must only contain alphanumeric characters, dashes, and underscores. | **SIM name** | `simName` |
 | The Integrated Circuit Card Identification Number (ICCID). The ICCID identifies a specific physical SIM or eSIM, and includes information on the SIM's country/region and issuer. The ICCID is a unique numerical value between 19 and 20 digits in length, beginning with 89. | **ICCID** | `integratedCircuitCardIdentifier` |
@@ -77,12 +77,14 @@ Each IP address must come from the pool you assigned for static IP address alloc
 
 Only carry out this step if you decided in [Prerequisites](#prerequisites) to use JSON files or an encrypted JSON file provided by a SIM vendor to provision your SIMs. Otherwise, you can skip to [Begin provisioning the SIMs in the Azure portal](#begin-provisioning-the-sims-in-the-azure-portal).
 
-Prepare the files using the information you collected for your SIMs in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims). The example file below shows the required format. It contains the parameters required to provision two SIMs (`SIM1` and `SIM2`).
+Prepare the files using the information you collected for your SIMs in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims). The examples below show the required format.
 
 > [!IMPORTANT]
-> Bulk SIM provisioning is limited to 500 SIMs. If you want to provision more that 500 SIMs, you must create multiple JSON files with no more than 500 SIMs in any one file and repeat the provisioning process for each JSON file.
+> Bulk SIM provisioning is limited to 1000 SIMs. If you want to provision more that 1000 SIMs, you must create multiple JSON files with no more than 1000 SIMs in any one file and repeat the provisioning process for each JSON file.
 
-- If you are creating a JSON file, use the following example. It contains the parameters required to provision two SIMs (`SIM1` and `SIM2`). If you don't want to assign a SIM policy to a SIM, you can delete the `simPolicyId` parameter for that SIM.
+### Plaintext SIMs
+
+If you are creating plaintext SIMs, use the following example. It contains the parameters required to provision two unencrypted SIMs (`SIM1` and `SIM2`). If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicyId` and/or `staticIpConfiguration` parameters.
 
     ```json
     [
@@ -107,8 +109,9 @@ Prepare the files using the information you collected for your SIMs in [Collect 
     ]
     ```
 
-- If you are editing an encrypted JSON file provided by a SIM vendor, use the following example. It contains the parameters required to provision two SIMs (`SIM1` and `SIM2`). 
-  - If you don't want to assign a SIM policy to a SIM, you can delete the `simPolicyId` parameter for that SIM.
+### Encrypted SIMs
+
+If you are editing an encrypted JSON file provided by a SIM vendor, use the following example. If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicyId` and/or `staticIpConfiguration` parameters.
 
     ```json
     {
@@ -227,7 +230,7 @@ In this step, you'll provision SIMs using a JSON file.
 
     :::image type="content" source="media/provision-sims-azure-portal/sims-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently provisioned SIMs for a private mobile network." lightbox="media/provision-sims-azure-portal/sims-list.png":::
 
-1. If you are provisioning more than 500 SIMs, repeat this process for each JSON file.
+1. If you are provisioning more than 1000 SIMs, repeat this process for each JSON file.
 
 ## Next steps
 
