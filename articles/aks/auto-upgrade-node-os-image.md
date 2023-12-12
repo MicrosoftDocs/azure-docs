@@ -127,12 +127,21 @@ On the `Unmanaged` channel, AKS has no control over how and when the security up
 
  * How do I know if a `SecurityPatch` or `NodeImage` upgrade is applied on my node?
  
- Run the following command
- ```azurecli-interactive
+ Run the following command to obtain node labels:
+ 
+```azurecli-interactive
 kubectl get nodes --show-labels
 ```
-The node image is returned for example as kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0. Here base node image version is AKSUbuntu-2204gen2containerd and the securitypatch version typically follows this if any , in the above example it is 202311.07.0.  
-The same can also be looked up in the Azure Portal under the node label view as illustrated below. 
+
+Among the labels in the output, you will see a line similar to the following:
+
+```output
+kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0
+```
+
+Here, the base node image version is `AKSUbuntu-2204gen2containerd`. If applicable, the security patch version typically follows. In the above example it is `202311.07.0`.  
+
+The same details also be looked up in the Azure Portal under the node label view as illustrated below. 
 
 :::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png" alt-text="The screenshot of the nodes blade for an AKS cluster in the Azure portal. The label for nodeimage version clearly shows the base node image as well as the securitypatch latest applied on that node with dates.":::
 
