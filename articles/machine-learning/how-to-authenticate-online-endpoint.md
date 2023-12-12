@@ -38,7 +38,7 @@ In this section, you assign permissions to the user identity that you use for in
 
 ### Use a built-in role
 
-The `AzureML Data Scientist` built-in role (as defined [here](/azure/role-based-access-control/built-in-roles.md#azureml-data-scientist)) uses wildcard to include the following _control plane_ RBAC actions:
+The `AzureML Data Scientist` built-in role (as defined [here](/role-based-access-control/built-in-roles.md#azureml-data-scientist)) uses wildcard to include the following _control plane_ RBAC actions:
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/write`
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/delete`
 - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/read`
@@ -200,7 +200,7 @@ The studio doesn't expose the Entra token.
 
 ## Create an endpoint
 
-Below example creates the endpoint with system-assigned identity as the endpoint identity (which is a default identity type of the managed identity for endpoints). Some basic roles will be automatically assigned for the system-assigned identity. See [Automatic role assignment for endpoint identity](concept-endpoints-onlie-auth.md#automatic-role-assignment-for-endpoint-identity) for more. 
+Below example creates the endpoint with system-assigned identity as the endpoint identity (which is a default identity type of the managed identity for endpoints). Some basic roles will be automatically assigned for the system-assigned identity. See [Automatic role assignment for endpoint identity](concept-endpoints-online-auth.md#automatic-role-assignment-for-endpoint-identity) for more. 
 
 ### [Azure CLI](#tab/azure-cli)
 
