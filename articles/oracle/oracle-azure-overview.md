@@ -12,9 +12,9 @@ ms.date: 12/06/2023
 
 # Oracle on Azure
 
-Customers running Oracle workloads on-premises can accelerate their cloud adoption by migrating their workloads to Azure. You have a choice to either lift and shift your Oracle workloads to Azure virtual machines or to Oracle Database@Azure. Additionally, you can also migrate to our Azure Database services like Azure SQL, Azure Database for PostgreSQL based on your organizational requirements.  
+Customers running Oracle workloads on-premises can accelerate their cloud adoption by migrating their workloads to Azure. You have a choice to either lift and shift your Oracle workloads to Azure virtual machines or to Oracle Database@Azure. Additionally, you can also migrate to our Azure Database services like Azure SQL, Azure Database for PostgreSQL based on the requirements of your organization.  
 
-## Oracle on Azure Virtual Machines 
+## Oracle on Azure virtual machines 
 
 Microsoft Azure is an [authorized cloud provider](https://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf) for customers to run Oracle workloads. Customers have been migrating their Oracle databases, and enterprise applications such as Siebel, PeopleSoft, JD Edwards, E-Business Suite, or customized WebLogic server applications to Azure infrastructure as part of their cloud migration journey. 
 

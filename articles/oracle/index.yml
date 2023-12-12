@@ -40,8 +40,8 @@ landingContent:
         links:
           - text: Oracle Database@Azure
             url: oracle-db/database-overview.md
-          - text: Onboarding with Oracle Database@Azure
-            url: oracle-db/onboarding-oracle-database.md
+          - text: Onboard with Oracle Database@Azure
+            url: oracle-db/onboard-oracle-database.md
           - text: Network planning for Oracle Database@Azure
             url: oracle-db/oracle-database-network-plan.md          
           - text: Provision and manage Oracle Database@Azure

@@ -53,6 +53,6 @@ You can also submit a question to the Oracle Database@Azure forum in Oracle's [C
 ## Next steps
 
 - [Overview - Oracle Database@Azure](database-overview.md)
-- [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
+- [Onboard with Oracle Database@Azure](onboard-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
 - [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)

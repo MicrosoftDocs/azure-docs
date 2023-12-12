@@ -1,5 +1,5 @@
 ---
-title: Onboarding with Oracle Database@Azure
+title: Onboard with Oracle Database@Azure
 description: Learn about onboarding your OracleOracle Database@Azure.
 author: jjaygbay1
 ms.service: virtual-machines
@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 ---
 
-# Onboarding with Oracle Database@Azure 
+# Onboard with Oracle Database@Azure 
 
 In this article, you learn how to subscribe to the Oracle Database@Azure service in your Azure environment.
 

@@ -11,8 +11,8 @@ items:
   items:
   - name: Overview - Oracle Database@Azure
     href: oracle-db/database-overview.md
-  - name: Onboarding with Oracle Database@Azure
-    href: oracle-db/onboarding-oracle-database.md
+  - name: Onboard with Oracle Database@Azure
+    href: oracle-db/onboard-oracle-database.md
   - name: Network planning for Oracle Database@Azure
     href: oracle-db/oracle-database-network-plan.md
   - name: Provision and manage Oracle Database@Azure

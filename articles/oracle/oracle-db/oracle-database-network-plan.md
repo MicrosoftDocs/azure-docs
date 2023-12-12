@@ -57,6 +57,6 @@ The following table describes the configuration of supported network features:
 ## Next steps
 
 - [Overview - Oracle Database@Azure](database-overview.md)
-- [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
+- [Onboard with Oracle Database@Azure](onboard-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-database-support.md)

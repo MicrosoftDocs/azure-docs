@@ -16,11 +16,11 @@ ms.author: jacobjaygbay
 
 Oracle Database@Azure offers you a seamless integration of Oracle resources within Microsoft Azure.
 
-:::image type="content" source="media/ODAAZMain.png" alt-text="Diagram showing the starting page for accessing Oracle Database@Azure from the Microsoft Azure portal.":::
+:::image type="content" source="media/oracle-database-azure-main.png" alt-text="Diagram showing the starting page for accessing Oracle Database@Azure from the Microsoft Azure portal.":::
 
 After accepting the private offer through the Azure Marketplace, navigate to the Oracle Database@Azure service page in the Azure portal to create and manage Oracle Exadata Infrastructure and Oracle Exadata virtual machine Cluster resources with direct access to the Oracle Cloud Infrastructure (OCI) portal to create and manage Oracle Exadata Databases, including all Container Databases (CDBs) and Pluggable Databases (PDBs).
 
-:::image type="content" source="media/ODAAZStart.png" alt-text="Diagram showing the second page for accessing Oracle Database@Azure from the Microsoft Azure portal.":::
+:::image type="content" source="media/oracle-database-azure-start.png" alt-text="Diagram showing the second page for accessing Oracle Database@Azure from the Microsoft Azure portal.":::
 
 ## Additional information
 
@@ -156,6 +156,6 @@ Consent Tab of the Create Oracle Exadata Virtual Machine Cluster Flow.
 
 ## Next steps
 - [Overview - Oracle Database@Azure](database-overview.md)
-- [Onboarding with Oracle Database@Azure](onboarding-oracle-database.md)
+- [Onboard with Oracle Database@Azure](onboard-oracle-database.md)
 - [Oracle Database@Azure support information](oracle-database-support.md)
 - [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
