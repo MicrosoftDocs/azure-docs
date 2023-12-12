@@ -35,7 +35,7 @@ In this section, you will enable resource pools, networks, and other non-VM reso
 4. Repeat these steps for one or more network, resource pool, and VM template resources.
 
 >[!NOTE]
-> To enable VM templates, VMware tools must be installed on the templates. If VMware tools aren't installed on the templates, the **Enable in Azure** option will be grayed out.
+> To enable VM templates, VMware tools must be installed on them. The **Enable in Azure** option is grayed out if VMware tools aren't installed.
 
 ## Enable existing virtual machines in Azure
 
