@@ -123,7 +123,7 @@ To view the status of your node OS auto upgrades, look up [activity logs][monito
 
  * Why is `SecurityPatch` recommended over `Unmanaged` channel?
 
-On the `Unmanaged` channel, AKS has no control over how and when the security updates are delivered. With `SecurityPatch`, the security updates are fully tested and follows safe deployment practices. `SecurityPatch` also honors maintenance windows. For more details, see [Increased security and resiliency of Canonical workloads on Azure][Blog].
+On the `Unmanaged` channel, AKS has no control over how and when the security updates are delivered. With `SecurityPatch`, the security updates are fully tested and follow safe deployment practices. `SecurityPatch` also honors maintenance windows. For more details, see [Increased security and resiliency of Canonical workloads on Azure][Blog].
 
  * How do I know if a `SecurityPatch` or `NodeImage` upgrade is applied on my node?
  
@@ -133,7 +133,7 @@ On the `Unmanaged` channel, AKS has no control over how and when the security up
 kubectl get nodes --show-labels
 ```
 
-Among the labels in the output, you will see a line similar to the following:
+Among the labels in the output, you'll see a line similar to the following:
 
 ```output
 kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0
@@ -141,7 +141,7 @@ kubernetes.azure.com/node-image-version=AKSUbuntu-2204gen2containerd-202311.07.0
 
 Here, the base node image version is `AKSUbuntu-2204gen2containerd`. If applicable, the security patch version typically follows. In the above example it is `202311.07.0`.  
 
-The same details also be looked up in the Azure Portal under the node label view as illustrated below. 
+The same details also be looked up in the Azure portal under the node label view as illustrated below. 
 
 :::image type="content" source="./media/auto-upgrade-node-os-image/nodeimage-securitypatch-inline.png" alt-text="A screenshot of the nodes page for an AKS cluster in the Azure portal. The label for node image version clearly shows the base node image as well as the latest applied security patch date." lightbox="./media/auto-upgrade-node-os-image/nodeimage-securitypatch.png":::
 
