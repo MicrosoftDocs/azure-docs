@@ -1,18 +1,18 @@
 ---
 title: Indexer troubleshooting guidance
-titleSuffix: Azure Cognitive Search
-description: This article provides indexer problem and resolution guidance for cases when no error messages are returned from the service search. 
+titleSuffix: Azure AI Search
+description: This article provides indexer problem and resolution guidance for cases when no error messages are returned from the service search.
 
-manager: liamca
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 04/04/2023
 ---
 
-# Indexer troubleshooting guidance for Azure Cognitive Search
+# Indexer troubleshooting guidance for Azure AI Search
 
 Occasionally, indexers run into problems and there is no error to help with diagnosis. This article covers problems and potential resolutions when indexer results are unexpected and there is limited information to go on. If you have an error to investigate, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md) instead.
 
@@ -215,7 +215,7 @@ api-key: [admin key]
 
 ## Missing content from Azure Cosmos DB
 
-Azure Cognitive Search has an implicit dependency on Azure Cosmos DB indexing. If you turn off automatic indexing in Azure Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
+Azure AI Search has an implicit dependency on Azure Cosmos DB indexing. If you turn off automatic indexing in Azure Cosmos DB, Azure AI Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
 
 
 ## Indexer reflects a different document count than data source or index

@@ -1,5 +1,5 @@
 ---
-title: Scale the management of Azure role assignments by using conditions and custom security attributes (Preview) - Azure ABAC
+title: Scale the management of Azure role assignments by using conditions and custom security attributes - Azure ABAC
 description: Scale the management of Azure role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Microsoft Entra custom security attributes for principals.
 services: active-directory
 author: rolyon
@@ -8,17 +8,13 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/13/2022
+ms.date: 11/15/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to 
 ---
 
-# Scale the management of Azure role assignments by using conditions and custom security attributes (Preview)
-
-> [!IMPORTANT]
-> Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Scale the management of Azure role assignments by using conditions and custom security attributes
 
 Azure role-based access control (Azure RBAC) has a [limit of role assignments per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). If you need to create hundreds or even thousands of Azure role assignments, you might encounter this limit. Managing hundreds or thousands of role assignments can be difficult. Depending on your scenario, you might be able to reduce the number of role assignments and make it easier to manage access.
 

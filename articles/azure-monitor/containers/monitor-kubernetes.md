@@ -125,7 +125,7 @@ See [Enable Container insights](../containers/container-insights-onboard.md) for
 
 Once Container insights is enabled for a cluster, perform the following actions to optimize your installation.
 
-- Container insights collects many of the same metric values as [Prometheus](#enable-scraping-of-prometheus-metrics). You can disable collection of these metrics by configuring Container insights to only collect **Logs and events** as described in [Enable cost optimization settings in Container insights](../containers/container-insights-cost-config.md#custom-data-collection). This configuration disables the Container insights experience in the Azure portal, but you can use Grafana to visualize Prometheus metrics and Log Analytics to analyze log data collected by Container insights.
+- Container insights collects many of the same metric values as [Prometheus](#enable-scraping-of-prometheus-metrics). You can disable collection of these metrics by configuring Container insights to only collect **Logs and events** as described in [Enable cost optimization settings in Container insights](../containers/container-insights-cost-config.md#enable-cost-settings). This configuration disables the Container insights experience in the Azure portal, but you can use Grafana to visualize Prometheus metrics and Log Analytics to analyze log data collected by Container insights.
 - Reduce your cost for Container insights data ingestion by reducing the amount of data that's collected. 
 - To improve your query experience with data collected by Container insights and to reduce collection costs, [enable the ContainerLogV2 schema](container-insights-logging-v2.md) for each cluster. If you only use logs for occasional troubleshooting, then consider configuring this table as [basic logs](../logs/basic-logs-configure.md).
 
@@ -134,9 +134,9 @@ If you have an existing solution for collection of logs, then follow the guidanc
 
 #### Collect control plane logs for AKS clusters
 
-The logs for AKS control plane components are implemented in Azure as [resource logs](../essentials/resource-logs.md). Container Insights doesn't use these logs, so you need to create your own log queries to view and analyze them. For details on log structure and queries, see [How to query logs from Container Insights](../../aks/monitor-aks.md#resource-logs).
+The logs for AKS control plane components are implemented in Azure as [resource logs](../essentials/resource-logs.md). Container Insights doesn't use these logs, so you need to create your own log queries to view and analyze them. For details on log structure and queries, see [How to query logs from Container Insights](../../aks/monitor-aks.md#aks-control-planeresource-logs).
 
-[Create a diagnostic setting](../../aks/monitor-aks.md#resource-logs) for each AKS cluster to send resource logs to a Log Analytics workspace. Use [Azure Policy](../essentials/diagnostic-settings-policy.md) to ensure consistent configuration across multiple clusters.
+[Create a diagnostic setting](../../aks/monitor-aks.md#aks-control-planeresource-logs) for each AKS cluster to send resource logs to a Log Analytics workspace. Use [Azure Policy](../essentials/diagnostic-settings-policy.md) to ensure consistent configuration across multiple clusters.
 
 There's a cost for sending resource logs to a workspace, so you should only collect those log categories that you intend to use. For a description of the categories that are available for AKS, see [Resource logs](../../aks/monitor-aks-reference.md#resource-logs).  Start by collecting a minimal number of categories and then modify the diagnostic setting to collect additional categories as your needs increase and as you understand your associated costs. You can send logs to an Azure storage account to reduce costs if you need to retain the information for compliance reasons. For details on the cost of ingesting and retaining log data, see [Azure Monitor Logs pricing details](../logs/cost-logs.md).
 

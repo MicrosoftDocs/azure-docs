@@ -2,7 +2,7 @@
 title: How to configure OpenSSL for Linux
 titleSuffix: Azure AI services
 description: Learn how to configure OpenSSL for Linux.
-services: cognitive-services
+#services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: azure-ai-speech

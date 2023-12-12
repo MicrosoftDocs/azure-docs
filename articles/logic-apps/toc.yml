@@ -1,3 +1,4 @@
+items:
 - name: Azure Logic Apps documentation
   href: index.yml
 - name: Overview
@@ -88,6 +89,8 @@
       href: designer-overview.md
     - name: Create single-tenant workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
+    - name: Get AI-powered help from the workflow assistant
+      href: workflow-assistant-standard.md
     - name: Create single-tenant workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
     - name: Set up SQL storage for single-tenant workflows
@@ -180,8 +183,8 @@
       href: logic-apps-author-definitions.md
     - name: Handle content types
       href: logic-apps-content-type.md
-    - name: Handle exceptions
-      href: logic-apps-exception-handling.md
+    - name: Handle errors and exceptions
+      href: error-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
     - name: Handle long-running stored procedures for SQL connector
@@ -208,12 +211,12 @@
       href: connect-virtual-network-vnet-set-up-single-ip-address.md
     - name: Add resources to integration service environments
       href: add-artifacts-integration-service-environment-ise.md
-  - name: Access on-premises data
+  - name: Access on-premises data sources
     items:
-    - name: Install data gateway
-      href: logic-apps-gateway-install.md
-    - name: Connect to on-premises data
-      href: logic-apps-gateway-connection.md
+    - name: Install on-premises data gateway
+      href: install-on-premises-data-gateway.md
+    - name: Connect to on-premises data sources
+      href: connect-on-premises-data-sources.md
   - name: Develop for B2B scenarios
     items:
     - name: Integration account and artifacts
@@ -363,11 +366,11 @@
     - name: SAP
       items:
       - name: Prerequisites and setup
-        href: logic-apps-using-sap-connector.md
+        href: connectors/sap.md
       - name: Create common example workflows
-        href: sap-create-example-scenario-workflows.md
+        href: connectors/sap-create-example-scenario-workflows.md
       - name: Generate schemas for SAP artifacts
-        href: sap-generate-schemas-for-artifacts.md
+        href: connectors/sap-generate-schemas-for-artifacts.md
     - name: SFTP - SSH
       href: ../connectors/connectors-sftp-ssh.md
     - name: Sliding Window
@@ -387,7 +390,7 @@
     - name: Secure your logic apps
       href: logic-apps-securing-a-logic-app.md
     - name: Authenticate with managed identities
-      href: create-managed-service-identity.md
+      href: authenticate-with-managed-identity.md
     - name: Block connector usage
       href: block-connections-connectors.md
     - name: Block connections across tenants

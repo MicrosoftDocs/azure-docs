@@ -4,6 +4,8 @@ description: Learn how to use the Azure VMware Solution to configure an external
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 11/06/2023
+ms.custom: engagement-fy23
+
 
 ---
 # Configure an external identity source for NSX-T Data Center
@@ -15,18 +17,18 @@ In this article, you will learn how to configure an external identity source for
 
 ## Prerequisites 
 
--	A working connectivity from your Active Directory network to your Azure VMware Solution private cloud. </br>
+-	A working connection from your Active Directory network to your Azure VMware Solution private cloud. </br>
 -	A network path from your Active Directory server to the management network of Azure VMware solution where NSX-T is deployed. </br>
 -	Best practice: Two domain controllers located in Azure in the same region as the Azure VMware Solution SDDC. </br>
 -	Active Directory Domain Controller(s) with a valid certificate. The certificate could be issued by an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
 
 
-
 >[!Note] 
 > Self-sign certificates are not recommended for production environments.
+
     
 -	An account with Administrator permissions</br>
--	The Azure VMware Solution DNS zones and DNS servers have been correcly deployed. See: [Configure NSX-T Data Center DNS for resolution to your Active Directory Domain and Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md)</br>
+-	The Azure VMware Solution DNS zones and the DNS servers have been correcly deployed. See: [Configure NSX-T Data Center DNS for resolution to your Active Directory Domain and Configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md)</br>
 
 
 >[!NOTE] 
@@ -58,7 +60,7 @@ The base DN is the container where you user accounts are kept, it is the startin
 | Hostname/IP          | This is the LDAP server’s FQDN or IP address. For example either azfta-dc01.azfta.com or 10.5.4.4|
 | LDAP Protocol        | Select LDAPS|
 | Port	Choose 636     | This is the default secure LDAP port.|
-| Enabled	           | Leave as ‘Yes’|
+| Enabled	             | Leave as ‘Yes’|
 | Use StartTLS	       | Only required if non-secured LDAP is being used.|
 | Bind Identity	       | Use your account with domain administrator permissions. For example  admin@contoso.com |
 | Password	           | Enter the password for the LDAP server, this is the password for the example admin@contoso.com account.|
@@ -73,16 +75,12 @@ The base DN is the container where you user accounts are kept, it is the startin
    
 ![Screenshot of the successful certificate retrieval details](./media/nsxt/configure-nsx-t-pic-4.png)
 
-
 5. Back on the User Managment screen, click "SAVE" to complete the changes.
    
-7. To add a second domain controller, or another external identity provider, go back to step 1.
+6. To add a second domain controller, or another external identity provider, go back to step 1.
 
 >[!NOTE] 
 > Best practice is to have two domain controllers to act as LDAP servers.  You can also put the LDAP servers behind a load balancer.
->
-
-</br>
 
 
 ## Assign other NSX-T Data Center roles to Active Directory identities 
@@ -115,7 +113,7 @@ After adding an external identity, you can assign NSX-T Data Center Roles to Act
 5. Users should now be able to sign in to NSX-T Manager using their Active Directory credentials. 
 
 ## Next steps
-Now that you've configured the external source, you can also learn about:
+Now that you configured the external source, you can also learn about:
 
 - [Configure external identity source for vCenter Server](configure-identity-source-vcenter.md)
 - [Azure VMware Solution identity concepts](concepts-identity.md)

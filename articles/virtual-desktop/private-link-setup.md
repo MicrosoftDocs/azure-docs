@@ -16,7 +16,7 @@ This article shows you how to set up Private Link with Azure Virtual Desktop to 
 
 In order to use Private Link with Azure Virtual Desktop, you need the following things:
 
-- An existing [host pool](create-host-pool.md) with [session hosts](add-session-hosts-host-pool.md), [application group, and workspace](create-application-group-workspace.md).
+- An existing [host pool](create-host-pool.md) with [session hosts](add-session-hosts-host-pool.md), an [application group, and workspace](create-application-group-workspace.md).
 
 - An existing [virtual network](../virtual-network/manage-virtual-network.md) and [subnet](../virtual-network/virtual-network-manage-subnet.md) you want to use for private endpoints.
 
@@ -995,7 +995,7 @@ To test that your users can connect to their remote resources:
 
 - Learn more about how Private Link for Azure Virtual Desktop at [Use Private Link with Azure Virtual Desktop](private-link-overview.md).
 
-- Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
+- Learn how to configure Azure Private Endpoint DNS at [Private Link DNS integration](../private-link/private-endpoint-dns-integration.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
 
 - For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 

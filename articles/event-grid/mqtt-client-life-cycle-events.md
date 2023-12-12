@@ -2,10 +2,13 @@
 title: 'MQTT Clients Life Cycle Events'
 description: 'An overview of the MQTT Client Life Cycle Events and how to configure them.'
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 05/23/2023
+ms.custom:
+  - build-2023
+  - ignite-2023
+ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
+
 ---
 # MQTT Clients Life Cycle Events 
 
@@ -14,7 +17,7 @@ Client Life Cycle events allow applications to react to events about the client 
 - React with a mitigation action for client disconnections. For example, you can build an application that initiates an auto-mitigation flow or creates a support ticket every time a client is disconnected.
 - Track the namespace that your clients are attached to. For example, confirm that your clients are connected to the right namespace after you initiate a failover.  
 
-[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 
 ## Event types
 
@@ -270,13 +273,13 @@ The sequence number on the MQTTClientSessionConnected and MQTTClientSessionDisco
 - MQTTClientSessionConnected > "sequenceNumber": 2
 - MQTTClientSessionDisconnected > "sequenceNumber": 2
 
-Here is a sample logic to order the events:
+Here's a sample logic to order the events:
 For each client:
 - Store the sequence number and the connection status from the first event.
 - For every new MQTTClientSessionConnected event:
     - if the new sequence number is greater than the previous one, update the sequence number and the connection status to match the new event.
 - For every new MQTTClientSessionDisconnected event:
-    - if the new sequence number is equal than or greater than the previous one, update the sequence number and the connection status to match the new event.
+    - if the new sequence number is equal or greater than the previous one, update the sequence number and the connection status to match the new event.
 
 ## Next steps
 - To learn more about system topics, go to [System topics in Azure Event Grid](system-topics.md)

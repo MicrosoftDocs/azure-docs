@@ -131,7 +131,7 @@ You can protect your playbooks as follows, depending on where the  analytic rule
 
 In both cases, if the playbook needs to access the customer’s Azure environment, use a user or service principal that has that access via Lighthouse.
 
-However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Microsoft Entra ID, Office 365, or Microsoft 365 Defender, create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
+However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Microsoft Entra ID, Office 365, or Microsoft Defender XDR, create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
 
 > [!NOTE]
 > If you use automation rules together with your playbooks, you must set the automation rule permissions on the resource group where the playbooks live.

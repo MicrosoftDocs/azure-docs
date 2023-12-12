@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/06/2023
+ms.date: 11/29/2023
 ms.author: rolyon
 ---
 
@@ -70,7 +70,7 @@ On the **Role assignments** tab, you can list and see the count of privileged ad
 
 1. To manage privileged administrator role assignments, see the **Privileged** card and click **View assignments**.
 
-    On the **Manage privileged role assignments** page, you can add a condition to constrain the privileged role assignment or remove the role assignment. For more information, see [Delegate the Azure role assignment task to others with conditions (preview)](delegate-role-assignments-portal.md).
+    On the **Manage privileged role assignments** page, you can add a condition to constrain the privileged role assignment or remove the role assignment. For more information, see [Delegate Azure role assignment management to others with conditions (preview)](delegate-role-assignments-portal.md).
 
     :::image type="content" source="./media/role-assignments-list-portal/access-control-role-assignments-privileged-manage.png" alt-text="Screenshot of Manage privileged role assignments page showing how to add conditions or remove role assignments." lightbox="./media/role-assignments-list-portal/access-control-role-assignments-privileged-manage.png":::
 

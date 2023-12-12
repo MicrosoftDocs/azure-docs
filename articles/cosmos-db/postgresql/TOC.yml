@@ -132,6 +132,8 @@
           displayName: backup, restore, outage
         - name: High availability
           href: concepts-high-availability.md
+        - name: Availability zones
+          href: concepts-availability-zones.md
     - name: Replication
       href: concepts-read-replicas.md
     - name: Connection pooling (PgBouncer)
@@ -211,6 +213,8 @@
       items:
         - name: Configure high availability
           href: howto-high-availability.md
+        - name: Use availability zones
+          href: howto-availability-zones.md
         - name: Manage read replicas
           href: howto-read-replicas-portal.md
           displayName: replication, read replica
@@ -300,6 +304,8 @@
 
 - name: Resources
   items:
+    - name: Learning path - Azure Cosmos DB for PostgreSQL
+      href: /training/paths/azure-cosmos-db-for-postgresql/
     - name: Pricing
       href: resources-pricing.md
     - name: Regional availability

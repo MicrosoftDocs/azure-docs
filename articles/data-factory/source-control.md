@@ -373,7 +373,7 @@ After you remove the association with the current repo, you can configure your G
 > [!IMPORTANT]
 > Removing Git configuration from a data factory doesn't delete anything from the repository. The factory will contain all published resources. You can continue to edit the factory directly against the service.
 
-## Next steps
+## Related content
 
 * To learn more about monitoring and managing pipelines, see [Monitor and manage pipelines programmatically](monitor-programmatically.md).
 * To implement continuous integration and deployment, see [Continuous integration and delivery (CI/CD) in Azure Data Factory](continuous-integration-delivery.md).

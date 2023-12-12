@@ -1,12 +1,12 @@
 ---
 title: Add Conditional Access to a user flow in Azure AD B2C
 description: Learn how to add Conditional Access to your Azure AD B2C user flows. Configure multifactor authentication (MFA) settings and Conditional Access policies in your user flows to enforce policies and remediate risky sign-ins.
-services: active-directory
+
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 04/10/2022
-ms.custom: project-no-code
+ms.custom: 
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG

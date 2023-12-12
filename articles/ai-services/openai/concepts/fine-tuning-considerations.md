@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI Service fine-tuning considerations
 description: Learn more about what you should take into consideration before fine-tuning with Azure OpenAI Service 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual 

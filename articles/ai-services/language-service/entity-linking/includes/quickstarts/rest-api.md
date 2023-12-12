@@ -2,7 +2,7 @@
 title: "Quickstart: Using cURL to call the Entity Linking REST API"
 titleSuffix: Azure AI services
 description: This quickstart shows how to quickly get started using the Entity linking REST API in Azure AI services.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

@@ -104,7 +104,7 @@ The Network Diagnostic Tool provides a hosted experience for
 
 
 - For more information, please see: [Network Diagnostics Tool](../developer-tools/network-diagnostic.md).
-  <!-- - <span class="mark">Visual</span> - [ACS Network Diagnostic
+  <!-- - <span class="mark">Visual</span> - [Azure Communication Services Network Diagnostic
     Tool](https://azurecommdiagnostics.net/) -->
 
 
@@ -295,6 +295,7 @@ The call may have fired a User Facing Diagnostic indicating a severe problem wit
 
 -	Create your own queries in Log Analytics, see: [Get Started Queries](../../../../articles/azure-monitor/logs/get-started-queries.md)
 
+- Explore known issues, see: [Known issues in the SDKs and APIs](../known-issues.md)
 
 <!-- Comment this out - add to the toc.yml file at row 583.
 

@@ -45,9 +45,12 @@ Security admin rules allow or deny traffic on specific ports, protocols, and sou
 
 To enforce security policies across multiple virtual networks, you [create and deploy a security admin configuration](how-to-block-network-traffic-portal.md). This configuration contains a set of rule collections, and each rule collection contains one or more security admin rules. Once created, you associate the rule collection with the network groups requiring security admin rules. The rules are then applied to all virtual networks contained in the network groups when the configuration is deployed. A single configuration provides a centralized and scalable enforcement of security policies across multiple virtual networks.
 
+> [!IMPORTANT]
+> Only one security admin configuration can be deployed to a region. However, multiple connectivity configurations can exist in a region. To deploy multiple security admin configurations to a region, you can [create multiple rule collections](how-to-block-network-traffic-portal.md#add-a-rule-collection) in a security configuration instead.
+
 ### Evaluation of security admin rules and network security groups (NSGs)
 
-Security admin rules and network security groups (NSGs) can be used to enforce network security policies in Azure. However, they have different scopes and priorities.
+Security admin rules and network security groups (NSGs) can be used to enforce network security policies in Azure. However, they have different scopes and priorities.#
 
 Security admin rules are intended to be used by network admins of a central governance team, thereby delegating NSG rules to individual application or service teams to further specify security as needed. Security admin rules have a higher priority than NSGs and are evaluated before NSG rules.
 

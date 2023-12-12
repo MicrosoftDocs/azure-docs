@@ -21,7 +21,7 @@ You can create and manage multiple dev boxes as a dev box user. Create a dev box
 
 To complete this quickstart, you need:
 
-- Permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#5-provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
+- Permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#4-provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
 
 ## Create a dev box
 
@@ -76,6 +76,9 @@ To connect to a dev box by using the browser:
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-open-in-browser.png" alt-text="Screenshot of dev box card that shows the option for opening in a browser.":::
 
 A new tab opens with a Remote Desktop session through which you can use your dev box. Use a work or school account to sign in to your dev box, not a personal Microsoft account.
+
+> [!TIP]
+> A Remote Desktop client provides best performance and advanced features like multiple monitor support. For more information, see [Connect to a dev box by using a Remote Desktop app](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).
 
 ## Clean up resources
 

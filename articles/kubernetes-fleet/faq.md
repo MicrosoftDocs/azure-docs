@@ -19,15 +19,15 @@ This article covers the frequently asked questions for Azure Kubernetes Fleet Ma
 
 Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance. Since the Kubernetes control plane is managed by Azure, you only manage and maintain the agent nodes. You run your actual workloads on the AKS clusters.
 
-Azure Kubernetes Fleet Manager (Fleet) will help you address at-scale and multi-cluster scenarios for Azure Kubernetes Service clusters. Azure Kubernetes Fleet Manager only provides a group representation for your AKS clusters and helps users with orchestrating Kubernetes resource propagation and multi-cluster load balancing. User workloads can't be run on the fleet cluster itself. 
+Azure Kubernetes Fleet Manager (Fleet) will help you address at-scale and multi-cluster scenarios for Azure Kubernetes Service clusters. Azure Kubernetes Fleet Manager provides a group representation for your AKS clusters and helps users with orchestrating cluster updates, Kubernetes resource propagation and multi-cluster load balancing. User workloads can't be run on the fleet cluster itself. 
 
 ## Creation of AKS clusters from fleet resource
 
-The current preview of Azure Kubernetes Fleet Manager resource supports joining only existing AKS clusters as member. Creation and lifecycle management of new AKS clusters from fleet cluster is in the [roadmap](https://aka.ms/fleet/roadmap).
+Today, Azure Kubernetes Fleet Manager supports joining existing AKS clusters as fleet members. Creation and lifecycle management of new AKS clusters from fleet cluster is in the [roadmap](https://aka.ms/fleet/roadmap).
 
 ## Number of clusters
 
-During preview, you can join up to 20 AKS clusters as member clusters to the same fleet resource.
+The number of member clusters that can be joined to the same fleet resource depends on whether the fleet resource has a hub cluster or not. Fleets without a hub cluster support joining up to 100 AKS clusters. Fleet resources with a hub cluster support joining up to 20 AKS clusters.
 
 ## AKS clusters that can be joined as members
 
@@ -39,7 +39,7 @@ Fleet supports joining the following types of AKS clusters as member clusters:
 
 ## Relationship to Azure-Arc enabled Kubernetes
 
-The current preview of Azure Kubernetes Fleet Manager resource supports joining only AKS clusters as member clusters. Support for joining member clusters to the fleet resource is in the [roadmap](https://aka.ms/fleet/roadmap).
+Today, Azure Kubernetes Fleet Manager supports joining AKS clusters as member clusters. Support for joining member clusters to the fleet resource is in the [roadmap](https://aka.ms/fleet/roadmap).
 
 ## Regional or global
 
@@ -62,4 +62,4 @@ The roadmap for Azure Kubernetes Fleet Manager resource is available [here](http
 
 ## Next steps
 
-* Create an [Azure Kuberntes Fleet Manager resource and join member clusters](./quickstart-create-fleet-and-members.md)
+* Create an [Azure Kubernetes Fleet Manager resource and join member clusters](./quickstart-create-fleet-and-members.md)

@@ -18,9 +18,11 @@ ms.devlang: azurecli
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-Azure MySQL Import enables you to migrate your Azure Database for MySQL seamlessly - Single Server to Flexible Server. It uses snapshot backup and restores technology to offer a simple and fast migration path to restore the source server's physical data files to the target server. Post MySQL Import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
+Azure MySQL Import (Generally Available) enables you to migrate your Azure Database for MySQL seamlessly - Single Server to Flexible Server. It uses snapshot backup and restores technology to offer a simple and fast migration path to restore the source server's physical data files to the target server. Post MySQL Import operation, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows.
 
-Azure MySQL Import currently supports the offline mode of import. Based on user-inputs, it takes up the responsibility of provisioning your target Flexible Server and then taking the backup of the source server and restoring the target. It copies the data files, server parameters and server properties - tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password from Single to Flexible Server instance.
+ Based on user-inputs, it takes up the responsibility of provisioning your target Flexible Server and then taking the backup of the source server and restoring the target. It copies the data files, server parameters, compatible firewall rules and server properties - tier, version, sku-name, storage-size, location, geo-redundant-backup, public-access, tags, auto grow, backup-retention-days, admin-user and admin-password from Single to Flexible Server instance.
+
+Azure MySQL Import supports a near-zero downtime migration by first performing an offline import operation and consequently users can set up data-in replication between source and target to perform an online migration.
 
 This tutorial shows how to use the Azure MySQL Import CLI command to migrate your Azure Database for MySQL Single Server to Flexible Server.
 
@@ -30,7 +32,7 @@ The [Azure Cloud Shell](../../cloud-shell/overview.md) is a free interactive she
 
 To open the Cloud Shell, select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
-If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.52.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.54.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Setup
 
@@ -59,7 +61,6 @@ az account set --subscription <subscription id>
 - If the Single Server instance has ' Infrastructure Double Encryption' enabled, enabling Customer Managed Key (CMK) on target Flexible Server instance is recommended to support similar functionality. You can choose to enable CMK on target server with MySQL Import CLI input parameters or post migration as well.
 - Only instance-level import is supported. No option to import selected databases within an instance is provided.
 - Below items should be copied from source to target by the user post MySQL Import operation:
-  - Firewall rules
   - Read-Replicas
   - Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
   - Any Terraform/CLI scripts hosted by you to manage your Single Server instance should be updated with Flexible Server references
@@ -177,6 +178,18 @@ standby-zone | 3 | The availability zone information of the standby server when 
 storage-auto-grow | Enabled | Enable or disable auto grow of storage for the target Azure Database for MySQL Flexible Server. The default value is Enabled. Accepted values: Disabled, Enabled; Default value: Enabled.
 iops | 500 | Number of IOPS to be allocated for the target Azure Database for MySQL Flexible Server. You get a certain amount of free IOPS based on compute and storage provisioned. The default value for IOPS is free IOPS. To learn more about IOPS based on compute and storage, refer to IOPS in Azure Database for MySQL Flexible Server.
 
+## Steps for online migration
+
+After completing the above-stated MySQL Import operation :
+
+- Log in to the target Azure Database for MySQL Flexible Server and run the following command to get the bin-log filename and position corresponding to the backup snapshot used by Azure MySQL Import to restore to the target server.
+
+```sql
+CALL mysql.az_show_binlog_file_and_pos_for_mysql_import();
+```
+
+- Set up data-in replication between the source and target server instances using bin-log position by following steps listed [here](../flexible-server/how-to-data-in-replication.md) and when replication status reflects that the target server has caught up with the source, stop replication and perform cutover.
+
 ## Best practices for configuring Azure MySQL Import CLI command parameters
 
  Before you trigger the Azure MySQL Import command, consider the following parameter configuration guidance to help ensure faster data loads using Azure MySQL Import.
@@ -232,7 +245,6 @@ Below is the benchmarked performance based on varying number of tables for 10 Gi
 ## Post-import steps
 
 - Copy the following properties from the source Single Server to target Flexible Server post MySQL Import operation is completed successfully:
-  - Firewall rules
   - Read-Replicas
   - Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
   - Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.

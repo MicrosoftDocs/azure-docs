@@ -21,7 +21,7 @@ Managed Airflow supports either small (D2v4) or large (D4v4) node sizing.  Small
 
 :::image type="content" source="media/airflow-pricing/airflow-pricing.png" alt-text="Shows a screenshot of a table of pricing options for Managed Airflow configuration.":::
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Changing password for Airflow environments](password-change-airflow.md)

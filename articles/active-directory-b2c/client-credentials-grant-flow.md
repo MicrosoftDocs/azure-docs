@@ -2,15 +2,12 @@
 title: Set up OAuth 2.0 client credentials flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up the OAuth 2.0 client credentials flow in Azure Active Directory B2C.
-services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 06/21/2022
-ms.custom: project-no-code
+ms.date: 11/21/2023
+ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -28,7 +25,7 @@ In the client credentials flow, permissions are granted directly to the applicat
 
 ## App registration overview
 
-To enable your app to sign in with client credentials and call a web API, you register two applications in the Azure AD B2C directory.  
+To enable your app to sign in with client credentials, then call a web API, you register two applications in the Azure AD B2C directory.  
 
 - The **application** registration enables your app to sign in with Azure AD B2C. The app registration process generates an *application ID*, also known as the *client ID*, which uniquely identifies your app. You also create a *client secret*, which your app uses to securely acquire the tokens.
 
@@ -40,13 +37,13 @@ The app architecture and registrations are illustrated in the following diagram:
 
 ## Step 1: Register the web API app
 
-In this step you register the web API (**App 2**) with its scopes. Later you'll grant your application (**App 1**) permission to those scopes. If you already have such app registration, skip to the next step [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes).
+In this step, you register the web API (**App 2**) with its scopes. Later, you grant your application (**App 1**) permission to those scopes. If you already have such an app registration, skip this step, then move to the next one, [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes).
 
 [!INCLUDE [active-directory-b2c-app-integration-register-api](../../includes/active-directory-b2c-app-integration-register-api.md)]
 
 ### Step 1.1 Define web API roles (scopes)
 
-In this step you configure the web API **Application ID URI**, then define **App roles**. The app *roles*, used by the OAuth 2.0 *scopes* and defined on an application registration representing your API. Your application uses the Application ID URI with the `.default` scope.  To define app roles, follow these steps:
+In this step, you configure the web API **Application ID URI**, then define **App roles**. The app *roles*, used by the OAuth 2.0 *scopes* and defined on an application registration representing your API. Your application uses the Application ID URI with the `.default` scope.  To define app roles, follow these steps:
 
 1. Select the web API that you created, for example *my-api1*.
 1. Under **Manage**, select **Expose an API**.
@@ -57,7 +54,7 @@ In this step you configure the web API **Application ID URI**, then define **App
 
 1. Under **Manage**, select **Manifest** to open the application manifest editor.
 In the editor, locate the `appRoles` setting, and define app roles that target `applications`. Each app role definition must have a global unique identifier (GUID) for its `id` value. Generate 
-a new GUID by running `new-guid`command in the Microsoft PowerShell, or an [online GUID  generator](https://www.bing.com/search?q=online+guid+generator). The `value` property of each app role definition will appear in the scope, the `scp` claim. The `value` property 
+a new GUID by running `new-guid`command in the Microsoft PowerShell, or an [online GUID  generator](https://www.bing.com/search?q=online+guid+generator). The `value` property of each app role definition appears in the scope, the `scp` claim. The `value` property 
 can't contain spaces. The following example demonstrates two app roles, read and write:
 
     ```json
@@ -89,7 +86,7 @@ To enable your app to sign in with Azure AD B2C using client credentials flow, y
 If you're using an existing app, make sure the app's `accessTokenAcceptedVersion` is set to `2`:
 
 1. In the Azure portal, search for and select **Azure AD B2C**. 
-1. Select **App registrations**, and then select the your existing app from the list.
+1. Select **App registrations**, and then select your existing app from the list.
 1. In the left menu, under **Manage**, select **Manifest** to open the manifest editor.
 1. Locate the `accessTokenAcceptedVersion` element, and set its value to `2`. 
 1. At the top of the page, select **Save** to save the changes. 
@@ -112,7 +109,7 @@ Create a client secret for the registered application. Your app uses the client 
 1. Select **New client secret**.
 1. In the **Description** box, enter a description for the client secret (for example, *clientsecret1*).
 1. Under **Expires**, select a duration for which the secret is valid, and then select **Add**.
-1. Record the secret's **Value**. You'll use this value for configuration in a later step.
+1. Record the secret's **Value**. You use this value for configuration in a later step.
     
     ![Screenshot shows how to copy the application secret.](./media/client-credentials-grant-flow/copy-application-secret.png)
 
@@ -153,13 +150,19 @@ There are no specific actions to enable the client credentials for user flows or
 
 The actual POST request looks like the following example:
 
+**Request**:
 ```https
 POST /<tenant-name>.onmicrosoft.com/B2C_1A_SUSI/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=client_credentials&client_id=33333333-0000-0000-0000-000000000000&client_secret=FyX7Q~DuPJ...&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2F.default
+grant_type=client_credentials
+&client_id=33333333-0000-0000-0000-000000000000
+&client_secret=FyX7Q~DuPJ...
+&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2F.default
 ```
+
+**Response**:
 
 ```json
 {

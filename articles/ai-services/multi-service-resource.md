@@ -2,7 +2,7 @@
 title: Create a multi-service resource for Azure AI services
 titleSuffix: Azure AI services
 description: Create and manage a multi-service resource for Azure AI services
-services: cognitive-services
+#services: cognitive-services
 keywords: Azure AI services, cognitive
 author: eric-urban
 manager: nitinme

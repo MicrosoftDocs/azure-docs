@@ -2,7 +2,7 @@
 title: "Recording custom voice samples - Speech service"
 titleSuffix: Azure AI services
 description: Make a production-quality custom voice by preparing a robust script, hiring good voice talent, and recording professionally.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

@@ -176,7 +176,7 @@ The `publish` command adds a module to a registry. The Azure container registry 
 
 After publishing the file to the registry, you can [reference it in a module](modules.md#file-in-registry).
 
-To use the publish command, you must have [Bicep CLI version 0.4.X or higher](./install.md). To use the `--documentationUri`/`-d` parameter, you must have [Bicep CLI version 0.14.X or higher](./install.md).
+To use the publish command, you must have [Bicep CLI version 0.14.X or higher](./install.md). To use the `--documentationUri`/`-d` parameter, you must have [Bicep CLI version 0.14.X or higher](./install.md).
 
 To publish a module to a registry, use:
 

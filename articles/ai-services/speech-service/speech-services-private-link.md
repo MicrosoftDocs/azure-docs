@@ -2,7 +2,7 @@
 title: How to use private endpoints with Speech service
 titleSuffix: Azure AI services
 description: Learn how to use Speech service with private endpoints provided by Azure Private Link
-services: cognitive-services
+#services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: azure-ai-speech

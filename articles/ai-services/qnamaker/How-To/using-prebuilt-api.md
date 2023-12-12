@@ -2,7 +2,7 @@
 title: QnA Maker Prebuilt API
 titleSuffix: Azure AI services
 description: Use the Prebuilt API to get answers over text
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: jboback
 author: jboback

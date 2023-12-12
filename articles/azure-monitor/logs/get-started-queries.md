@@ -56,9 +56,13 @@ The preceding query returns 10 results from the `SecurityEvent` table, in no spe
 
 * The query starts with the table name `SecurityEvent`, which defines the scope of the query.
 * The pipe (|) character separates commands, so the output of the first command is the input of the next. You can add any number of piped elements.
-* Following the pipe is the `take` command, which returns a specific number of arbitrary records from the table.
+* Following the pipe is the [`take` operator](#take).
 
-We could run the query even without adding `| take 10`. The command would still be valid, but it could return up to 30,000 results.
+   We could run the query even without adding `| take 10`. The command would still be valid, but it could return up to 30,000 results.
+
+#### Take
+
+Use the [`take` operator](/azure/data-explorer/kusto/query/takeoperator) to view a small sample of records by returning up to the specified number of records. The selected results are arbitrary and displayed in no particular order. If you need to return results in a particular order, use the [`sort` and `top` operators](#sort-and-top).
 
 ### Search queries
 
@@ -75,30 +79,63 @@ This query searches the `SecurityEvent` table for records that contain the phras
 > Search queries are ordinarily slower than table-based queries because they have to process more data.
 
 ## Sort and top
-Although `take` is useful for getting a few records, the results are selected and displayed in no particular order. To get an ordered view, you could `sort` by the preferred column:
+
+This section describes the `sort` and `top` operators and their `desc` and `asc` arguments. Although [`take`](#take) is useful for getting a few records, you can't select or sort the results in any particular order. To get an ordered view, use `sort` and `top`.
+
+### Desc and asc
+
+#### Desc
+
+Use the `desc` argument to sort records in descending order. Descending is the default sorting order for `sort` and `top`, so you can usually omit the `desc` argument. 
+
+For example, the data returned by both of the following queries is sorted by the [TimeGenerated column](./log-standard-columns.md#timegenerated), in descending order:
+
+- ```Kusto
+  SecurityEvent	
+  | sort by TimeGenerated desc
+  ```
+
+- ```Kusto
+   SecurityEvent	
+   | sort by TimeGenerated
+   ```
+   
+#### Asc
+
+To sort in ascending order, specify `asc`.
+
+### Sort
+
+You can use the [`sort` operator](/azure/data-explorer/kusto/query/sort-operator). `sort` sorts the query results by the column you specify. However, `sort` doesn't limit the number of records that are returned by the query.
+
+For example, the following query returns all available records for the `SecurityEvent` table, which is up to a maximum of 30,000 records, and sorts them by the TimeGenerated column.
 
 ```Kusto
 SecurityEvent	
-| sort by TimeGenerated desc
+| sort by TimeGenerated
 ```
 
-The preceding query could return too many results though, and it might also take some time. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 30,000 records. This approach isn't optimal.
+The preceding query could return too many results. Also, it might also take some time to return the results. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 30,000 records. This approach isn't optimal. The best way to only get the latest records is to use the [`top` operator](#top).
 
-The best way to get only the latest 10 records is to use `top`, which sorts the entire table on the server side and then returns the top records:
+### Top
+
+Use the [`top` operator](/azure/data-explorer/kusto/query/topoperator) to sort the entire table on the server side and then only return the top records. 
+
+For example, the following query returns the latest 10 records:
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-Descending is the default sorting order, so you would usually omit the `desc` argument. The output looks like this example.
+The output looks like this example.
 <!-- convertborder later -->
 :::image type="content" source="media/get-started-queries/top10.png" lightbox="media/get-started-queries/top10.png" alt-text="Screenshot that shows the top 10 records sorted in descending order." border="false":::
 
 ## The where operator: Filter on a condition
 Filters, as indicated by their name, filter the data by a specific condition. Filtering is the most common way to limit query results to relevant information.
 
-To add a filter to a query, use the `where` operator followed by one or more conditions. For example, the following query returns only `SecurityEvent` records where `Level equals _8`:
+To add a filter to a query, use the [`where` operator](/azure/data-explorer/kusto/query/whereoperator) followed by one or more conditions. For example, the following query returns only `SecurityEvent` records where `Level equals _8`:
 
 ```Kusto
 SecurityEvent
@@ -147,7 +184,9 @@ The time picker is displayed next to the **Run** button and indicates that you'r
 
 ### Add a time filter to the query
 
-You can also define your own time range by adding a time filter to the query. It's best to place the time filter immediately after the table name:
+You can also define your own time range by adding a time filter to the query. Adding a time filter overrides the time range selected in the [time picker](#use-the-time-picker).
+
+It's best to place the time filter immediately after the table name:
 
 ```Kusto
 SecurityEvent

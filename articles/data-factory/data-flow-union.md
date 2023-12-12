@@ -47,6 +47,6 @@ If you choose "union by position", each column value will drop into the original
 
 :::image type="content" source="media/data-flow/unionoutput.png" alt-text="Union output":::
 
-## Next steps
+## Related content
 
 Explore similar transformations including [Join](data-flow-join.md) and [Exists](data-flow-exists.md).

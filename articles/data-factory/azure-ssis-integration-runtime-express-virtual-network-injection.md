@@ -129,7 +129,7 @@ Following our guidance in the [Configure an NSG](#nsg) section above, you must i
 
   - If you need to access Azure Files, you must open port *445* for outbound TCP traffic with *0.0.0.0/0* or your Azure Files FQDN as destination.
 
-## Next steps
+## Related content
 
 - [Join Azure-SSIS IR to a virtual network via ADF UI](join-azure-ssis-integration-runtime-virtual-network-ui.md)
 - [Join Azure-SSIS IR to a virtual network via Azure PowerShell](join-azure-ssis-integration-runtime-virtual-network-powershell.md)

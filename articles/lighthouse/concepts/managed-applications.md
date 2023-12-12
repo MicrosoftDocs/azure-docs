@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse and Azure managed applications
 description: Understand how Azure Lighthouse and Azure managed applications can be used together.
-ms.date: 05/10/2023
+ms.date: 12/07/2023
 ms.topic: conceptual
 ---
 
@@ -28,7 +28,7 @@ This table illustrates some high-level differences that may impact whether you m
 
 With [Azure Lighthouse](../overview.md), a service provider can perform a wide range of management tasks directly on a customer's subscription (or resource group). This access is achieved through a [logical projection](architecture.md#logical-projection), allowing service providers to sign in to their own tenant and access resources that belong to the customer's tenant. The customer can determine which subscriptions or resource groups to delegate to the service provider, and the customer maintains full access to those resources. They can also remove the service provider's access at any time.
 
-To use Azure Lighthouse, customers are onboarded either by [deploying ARM templates](../how-to/onboard-customer.md) or through a [Managed Service offer in Azure Marketplace](managed-services-offers.md). You can track your impact on customer engagements by [linking your partner ID](../how-to/partner-earned-credit.md).
+To use Azure Lighthouse, customers are onboarded either by [deploying ARM templates](../how-to/onboard-customer.md) or through a [Managed Service offer in Azure Marketplace](managed-services-offers.md). You can track your impact on customer engagements by [linking your partner ID](../../cost-management-billing/manage/link-partner-id.md).
 
 Azure Lighthouse is typically used when a service provider will perform management tasks for a customer on an ongoing basis. To learn more about how Azure Lighthouse works at a technical level, see [Azure Lighthouse architecture](architecture.md).
 
@@ -36,7 +36,7 @@ Azure Lighthouse is typically used when a service provider will perform manageme
 
 [Azure managed applications](../../azure-resource-manager/managed-applications/overview.md) allow an ISV/publisher to offer cloud solutions that are easy for customers to deploy and use in their own subscriptions.
 
-In a managed application, the resources used by the application are bundled together and deployed to a resource group that can be managed by the ISV/publisher. This 'managed resource group' is present in the customer's subscription, but identities in the publisher's tenant can have access to it. When publishing an offer in Microsoft Partner Center, the publisher can choose whether they enable or disable management access by the publisher itself. In addition, the publisher can restrict customer access (using deny assignments), or grant the customer full access.
+In a managed application, the resources used by the application are bundled together and deployed to a resource group that can be managed by the ISV/publisher. This "managed resource group" is present in the customer's subscription, but identities in the publisher's tenant can have access to it. When publishing an offer in Microsoft Partner Center, the publisher can choose whether they enable or disable management access by the publisher itself. In addition, the publisher can restrict customer access (using deny assignments), or grant the customer full access.
 
 Managed applications support [customized Azure portal experiences](../../azure-resource-manager/managed-applications/concepts-view-definition.md) and [integration with custom providers](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md). These options can be used to deliver a more customized and integrated experience, making it easier for customers to perform some management tasks themselves.
 

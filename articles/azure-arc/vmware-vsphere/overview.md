@@ -98,4 +98,4 @@ Azure Arc-enabled VMware vSphere doesn't store/process customer data outside the
 
 - Plan your resource bridge deployment by reviewing the [support matrix for Arc-enabled VMware vSphere](support-matrix-for-arc-enabled-vmware-vsphere.md).
 - Once ready, [connect VMware vCenter to Azure Arc using the helper script](quick-start-connect-vcenter-to-arc-using-script.md).
-- Try out Arc-enabled VMware vSphere by using the [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_vsphere/).
+- Try out Arc-enabled VMware vSphere by using the [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_vsphere).

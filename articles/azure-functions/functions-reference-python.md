@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
-ms.date: 05/25/2023
+ms.date: 11/14/2023
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
 zone_pivot_groups: python-mode-functions
@@ -51,11 +51,8 @@ Python v1 programming model:
 
 You can also create Python v1 functions in the Azure portal.
 
-The following considerations apply for local Python development:
-
-+ Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
-
-+ Functions doesn't currently support local Python function development on ARM64 devices, including on a Mac with an M1 chip. To learn more, see [x86 emulation on ARM64](functions-run-local.md#x86-emulation-on-arm64).
+> [!TIP]
+> Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
 
 ## Programming model
 

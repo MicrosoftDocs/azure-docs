@@ -2,7 +2,7 @@
 title: Definitions used in custom Text Analytics for health
 titleSuffix: Azure AI services
 description: Learn about definitions used in custom Text Analytics for health
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

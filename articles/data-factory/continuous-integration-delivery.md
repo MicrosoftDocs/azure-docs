@@ -109,7 +109,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
     **No action is required unless you are using 'PartialArmTemplates'. Otherwise, switch to any supported mechanism for deployments using: 'ARMTemplateForFactory.json' or 'linkedTemplates' files.**
 
-## Next steps
+## Related content
 
 - [Continuous deployment improvements](continuous-integration-delivery-improvements.md#continuous-deployment-improvements)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)
