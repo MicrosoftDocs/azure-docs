@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Upgraded progress bar for cloud-based sensor update](#upgraded-progress-bar-for-cloud-based-sensor-update) <br> - [Updated security stack integration guidance](#updated-security-stack-integration-guidance)|
+| **OT networks** | - [Live statuses for cloud-based sensor updates](#live-statuses-for-cloud-based-sensor-updates) <br> - [Updated security stack integration guidance](#updated-security-stack-integration-guidance)|
 
 ### Live statuses for cloud-based sensor updates
 
