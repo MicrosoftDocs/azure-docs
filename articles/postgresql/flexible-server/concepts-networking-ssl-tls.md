@@ -1,5 +1,5 @@
 ---
-Networking overview using SSL and TLS
+title: Networking overview using SSL and TLS
 description: Learn about secure connectivity with Flexible Server using SSL and TLS.
 author: GennadNY
 ms.author: gennadyk
