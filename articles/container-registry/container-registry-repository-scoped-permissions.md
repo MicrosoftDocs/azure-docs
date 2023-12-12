@@ -7,6 +7,7 @@ ms.author: tejaswikolli
 ms.date: 10/11/2022
 ms.custom: ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
+ms.service: container-registry
 ---
 
 # Create a token with repository-scoped permissions

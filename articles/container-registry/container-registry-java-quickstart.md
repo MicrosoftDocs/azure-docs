@@ -5,6 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.date: 10/11/2022
 ms.topic: quickstart
+ms.service: container-registry
 ms.custom: devx-track-java, devx-track-azurecli, mode-api, devx-track-extended-java
 ---
 

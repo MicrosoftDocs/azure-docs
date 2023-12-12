@@ -5,6 +5,7 @@ ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
+ms.service: container-registry
 ms.custom: "seodec18, mvc, devx-track-azurecli"
 # Customer intent: As a developer or devops engineer, I want to quickly build container images in Azure, without having to install dependencies like Docker Engine, so that I can simplify my inner-loop development pipeline.
 ---

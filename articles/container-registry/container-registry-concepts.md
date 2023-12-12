@@ -4,6 +4,7 @@ description: Introduction to key concepts of Azure container registries, reposit
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.service: container-registry
 ms.date: 10/11/2022
 ---
 

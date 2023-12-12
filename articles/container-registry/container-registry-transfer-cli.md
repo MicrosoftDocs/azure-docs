@@ -6,6 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
 ms.custom: devx-track-azurecli
+ms.service: container-registry
 ---
 
 # ACR Transfer with Az CLI

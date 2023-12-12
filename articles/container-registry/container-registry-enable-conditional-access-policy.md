@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 09/13/2021
 ms.author: tejaswikolli
+ms.service: container-registry
 ms.reviewer: johnsonshi 
 ---
 
