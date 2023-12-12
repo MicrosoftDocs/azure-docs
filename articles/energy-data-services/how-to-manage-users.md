@@ -19,7 +19,7 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 3. Get various parameters of your instance such as client-id, client-secret, etc.  
 4. Keep all these parameter values handy as they are needed for executing different user management requests via the Entitlements API. 
 
-## Fetch Parameters
+## Fetch parameters
 #### Find `tenant-id`
 1. Navigate to the Microsoft Entra account for your organization. You can search for "Microsoft Entra ID" in the Azure portal's search bar.
 2. Locate `tenant-id` under the basic information section in the *Overview* tab.
