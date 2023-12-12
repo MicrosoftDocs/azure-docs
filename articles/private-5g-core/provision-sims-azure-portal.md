@@ -88,24 +88,38 @@ If you are creating plaintext SIMs, use the following example. It contains the p
 
 ```json
 [
-    {
+  {
     "simName": "SIM1",
     "integratedCircuitCardIdentifier": "8912345678901234566",
     "internationalMobileSubscriberIdentity": "001019990010001",
     "authenticationKey": "00112233445566778899AABBCCDDEEFF",
     "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88737d",
     "deviceType": "Cellphone",
-    "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy1"
-    },
-    {
+    "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/ mobileNetworks/contoso-network/simPolicies/SimPolicy1",
+    "staticIpConfiguration": [
+      {
+        "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork",
+        "sliceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+        "staticIpAddress": "2.4.0.1"
+      }
+    ]
+  },
+  {
     "simName": "SIM2",
     "integratedCircuitCardIdentifier": "8922345678901234567",
     "internationalMobileSubscriberIdentity": "001019990010002",
     "authenticationKey": "11112233445566778899AABBCCDDEEFF",
     "operatorKeyCode": "63bfa50ee6523365ff14c1f45f88738d",
     "deviceType": "Sensor",
-    "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy2"
-    }
+    "simPolicyId": "/subscriptions/subid/resourceGroups/contoso-rg/providers/Microsoft.MobileNetwork/mobileNetworks/contoso-network/simPolicies/SimPolicy2",
+    "staticIpConfiguration": [
+      {
+        "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork",
+        "sliceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+        "staticIpAddress": "2.4.0.2"
+      }
+    ]
+  }
 ]
 ```
 
