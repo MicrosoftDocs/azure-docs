@@ -187,14 +187,14 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 | Responsible Person Role | (0010,2298) | Relationship of Responsible Person to the patient. |
 | Responsible Organization | (0010,2299) | Name of organization with medical decision making authority for the patient. |
 | Patient Species Description | (0010,2201) | The species of the patient. |
-| Patient Breed Description | (0010,2292) | The breed of the patient.See Section C.7.1.1.1.1. |
+| Patient Breed Description | (0010,2292) | The breed of the patient. See Section C.7.1.1.1.1. |
 | Breed Registration Number | (0010,2295) | Identification number of a veterinary patient within the registry. |
-
+| Issuer of Patient ID | (0010,0021) | Identifier of the Assigning Authority (system, organization, agency, or department) that issued the Patient ID. ```
 ## Limitations
 There are a few limitations when you use the bulk update operation:
 
 - A maximum of 50 studies can be updated in a single operation.
 - Only one bulk update operation can be performed at a time.
 - You can't delete only the latest version of a study or revert back to the original version. 
-
+- You can't update any field from non-null to a null value.
 [!INCLUDE [DICOM trademark statements](../includes/healthcare-apis-dicom-trademark.md)]
