@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 12/12/2023
 ---
 
 # Exchange EDIFACT messages using workflows in Azure Logic Apps
@@ -119,7 +119,7 @@ This action performs the following tasks:
 
   | Logic app workflow | Link required? |
   |--------------------|----------------|
-  | Consumption | Connection to integration account required, but no link required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
+  | Consumption | Connection and [link to integration account](enterprise-integration/create-integration-account.md?tabs=azure-portal%2Cconsumption#link-to-logic-app) are required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
   | Standard | Connection to integration account required, but no link required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
 
 * The logic app resource and workflow where you want to use the EDIFACT operations.
@@ -293,7 +293,7 @@ To handle an EDIFACT document or process an EDIFACT message that has a UN2.5 seg
 
    For example, suppose the schema root name for the sample UNH field is `EFACT_D03B_ORDERS_EAN008`. For each `D03B_ORDERS` that has a different UNH2.5 segment, you have to deploy an individual schema.
 
-1. In the [Azure portal](https://portal.azure.com), add the schema to your integration account resource or logic app resource, based on whether you have a Consumption or Standard logicapp workflow respectively.
+1. In the [Azure portal](https://portal.azure.com), add the schema to your integration account resource or logic app resource, based on whether you have a Consumption or Standard logic app workflow respectively.
 
 1. Whether you're using the EDIFACT decoding or encoding action, upload your schema and set up the schema settings in your EDIFACT agreement's **Receive Settings** or **Send Settings** sections respectively.
 
