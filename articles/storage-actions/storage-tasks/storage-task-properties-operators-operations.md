@@ -25,17 +25,18 @@ This article describes the properties, operators, and operations that you can us
 
 The following table shows the properties that you can use to compose each clause of a condition. A clause can contain string, boolean, numeric, as well as date and time properties.
 
-| String                         | Date and time<sup>3</sup>      | Numeric        | Boolean          |
-|--------------------------------|----------------------|----------------|------------------|
-| AccessTier<sup>1</sup>         | AccessTierChangeTime | Content-Length | IsCurrentVersion |
-| Metadata.Value                 | Creation-Time        | TagCount       |                  |
-| Name                           | LastAccessTime       |                |                  |
-| BlobType<sup>2</sup>           | Last-Modified        |                |                  |
-| Container.Metadata.Value[Name] |                      |                |                  |
-| Container.Name                 |                      |                |                  |
-| Container.Metadata.Value[Name] |                      |                |                  |
-| Container.Name                 |                      |                |                  |
-| Tags.Value[Name]               |                      |                |                  |
+| String                         | Date and time<sup>3</sup> | Numeric        | Boolean          |
+|--------------------------------|---------------------------|----------------|------------------|
+| AccessTier<sup>1</sup>         | AccessTierChangeTime      | Content-Length | Deleted          |
+| Metadata.Value                 | Creation-Time             | TagCount       | IsCurrentVersion |
+| Name                           | DeletedTime               |                |                  |
+| BlobType<sup>2</sup>           | LastAccessTime            |                |                  |
+| Container.Metadata.Value[Name] | Last-Modified             |                |                  |
+| Container.Name                 |                           |                |                  |
+| Container.Metadata.Value[Name] |                           |                |                  |
+| Container.Name                 |                           |                |                  |
+| Tags.Value[Name]               |                           |                |                  |
+| VersionId                      |                           |                |                  |
 
 <sup>1</sup>    Allowed values are `Hot`, `Cool`, or `Archive`.
 
@@ -55,19 +56,21 @@ The following table shows the operators that you can use in a clause to evaluate
 | endWith | less | less ||
 | length | lessOrEquals | lessOrEquals ||
 | startsWith | addToTime | ||
+| Matches |  | ||
 
 ## Supported operations
 
 The following table shows the supported operations, parameters, and parameter values:
 
-| Operation | Parameters | Values |
-|---|---|---|
-| Set Blob Tier | Tier | Hot \| Cold \| Archive |
-| Delete Blob | None | None |
-| Undelete Blob | None | None |
-| Set Blob Tags | TagSet | A fixed collection of up to 10 key-value pairs |
-| Set Blob Immutability Policy | Need parameter names | Need value names|
-| Set Blob Legal Hold | Need parameter names | Need parameter names |
+| Operation                    | Parameters           | Values                                         |
+|------------------------------|----------------------|------------------------------------------------|
+| Set blob tier                | Tier                 | Hot \| Cold \| Archive |
+| Set blob expiry              | None                 | Absolute \| Never expire \| Relative to creation time \| Relative to current time |
+| Delete blob                  | None                 | None                                           |
+| Undelete blob                | None                 | None                                           |
+| Set blob tags                | TagSet               | A fixed collection of up to 10 key-value pairs |
+| Set blob immutability policy | Need parameter names | Need value names                               |
+| Set blob legal hold          | Need parameter names | Need parameter names                           |
 
 ## See also
 

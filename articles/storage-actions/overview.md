@@ -25,7 +25,7 @@ The preview release of Azure Storage Actions enable you to create _storage tasks
 
 ## Anatomy of a storage task
 
-A storage task contains a set of _conditions_, _operations_, and _assignments_. The following table describes each component of a task.
+A storage task contains a set of _conditions_, _operations_, and _assignments_. The following table describes each component of a storage task.
 
 | Component | Description |
 |---|---|
@@ -35,30 +35,30 @@ A storage task contains a set of _conditions_, _operations_, and _assignments_. 
 
 ## How to use a storage task
 
-First, define the conditions and operations of a task. Then, assign that task to one or more storage accounts. Monitor task runs by using metrics, charts, and reports.
+First, define the conditions and operations of a storage task. Then, assign that task to one or more storage accounts. Monitor task runs by using metrics, charts, and reports.
 
-### Define a task
+### Define a storage task
 
-Start by creating a task. To provision a task, you must define at least one condition and one operation. After the task is created, you can edit those conditions and operations or add more of them by using a visual designer.  
+Start by creating a storage task. To provision a storage task, you must define at least one condition and one operation. After the task is created, you can edit those conditions and operations or add more of them by using a visual designer.  
 
-See these articles to learn how to define a task:
+See these articles to learn how to define a storage task:
 
 - [Create a storage task](storage-tasks/storage-task-create.md)
 - [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md)
 - [Properties, operators, and operations in storage task conditions](storage-tasks/storage-task-properties-operators-operations.md)
 
-### Assign a task
+### Assign a storage task
 
-You can assign a task to any storage account that you own. As you create an assignment, you'll select a storage account, and assign a role to the system-assigned managed identity of the task. That identity is created for you automatically when the task is provisioned. The role that you assign that identity must enable it to perform the operations that are defined in the task.
+You can assign a storage task to any storage account that you own. As you create an assignment, you'll select a storage account, and assign a role to the system-assigned managed identity of the task. That identity is created for you automatically when the task is provisioned. The role that you assign that identity must enable it to perform the operations that are defined in the task.
 
 A storage task can be assigned to a storage account only by an owner of that account. Therefore, if the task that you define is useful to an owner of another storage account, you must grant that user access to the storage task. Then, that user can assign your task to their storage account. You can grant a user access to your storage task by assigning an Azure role to their user identity.
 
-See these articles to learn how to assign a task:
+See these articles to learn how to assign a storage task:
 
 - [Create and manage a storage task assignment](storage-tasks/storage-task-assignment-create.md)
 - [Azure roles for storage task assignments](storage-tasks/storage-task-authorization-roles.md)
 
-### Monitor task runs
+### Monitor storage task runs
 
 Tasks run asynchronously according to the schedule that you specify in the assignment. An execution report is created when the run completes. That report itemizes the results of the task run on each object that was targeted by the task.
 
@@ -69,7 +69,7 @@ See these articles to learn how to monitor task runs:
 - [Analyze storage task runs](storage-tasks/storage-task-runs.md)
 - [Monitor Azure Storage Actions](storage-tasks/monitor-storage-tasks.md)
 
-### Handle task events
+### Handle storage task events
 
 Azure Storage Actions events allow applications to react to events, such as the completion of a storage task run. It does so without the need for complicated code or expensive and inefficient polling services.
 
