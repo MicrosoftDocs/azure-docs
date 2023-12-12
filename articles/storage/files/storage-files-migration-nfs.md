@@ -24,21 +24,21 @@ This article covers the basic aspects of migrating from Linux file servers to NF
 
 You'll need at least one NFS Azure file share mounted to a Linux virtual machine (VM). To create one, see [Create an NFS Azure file share and mount it on a Linux VM](storage-files-quick-create-use-linux.md). We recommend mounting the share with nconnect to use multiple TCP connections. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nconnect).
 
-## Migration basics
+## Migration tools
 
 Many open source tools are available to transfer data to NFS file shares. However, not all of them are efficient when dealing with a distributed file system with distinct performance considerations compared to on-premises setups. In a distributed file system, each network call involves a round trip to a server that might not be local. Therefore, optimizing the time spent on network calls is crucial to achieving optimal performance and efficient data transfer over the network.
 
-## Using fpsync vs. rsync
+### Using fpsync vs. rsync
 
-Despite being single-threaded, rsync is a fast and versatile file copy tool. It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon. It offers many options and enables flexible specification of the set of files to be copied. However, fpsync offers some advantages.
+Despite being single-threaded, [rsync](https://linux.die.net/man/1/rsync) is a versatile, open source file copy tool. It can copy locally, to/from another host over any remote shell, or to/from a remote rsync daemon. It offers many options and enables flexible specification of the set of files to be copied. However, [fpsync](https://manpages.ubuntu.com/manpages/lunar/en/man1/fpsync.1.html), which stands for File Parallel Synchronization, is a multithreaded application and therefore offers some advantages.
 
-In this article, we'll use the open source tool fpsync to copy the data. A multi-threaded application that's designed to synchronize files between two locations, [fpsync](https://manpages.ubuntu.com/manpages/lunar/en/man1/fpsync.1.html) stands for File Parallel Synchronization. It comes as a part of the fpart filesystem partitioner.
+In this article, we'll use fpsync to copy and synchronize data from a Linux file server to NFS Azure file shares.
 
-Internally, fpsync uses [rsync](https://linux.die.net/man/1/rsync) (default), [cpio](https://linux.die.net/man/1/cpio), or tar tools to copy. It computes subsets of the source directory `src_dir/` and spawns synchronization jobs to synchronize them to the destination directory `dst_dir/`. It executes synchronization jobs on-the-fly while simultaneously crawling the file system, making it a useful tool for efficiently migrating large file systems and copying large datasets with multiple files.
+To copy the data, fpsync uses either rsync (default), [cpio](https://linux.die.net/man/1/cpio), or tar tools. It computes subsets of the source directory `src_dir/` and spawns synchronization jobs to synchronize them to the destination directory `dst_dir/`. It executes synchronization jobs on-the-fly while simultaneously crawling the file system, making it a useful tool for efficiently migrating large file systems and copying large datasets with multiple files.
 
 ### Install fpart
 
-Install fpart on the Linux distribution of your choice. Once it's installed, you should see fpsync under `/usr/bin/`.
+To use fpsync, you'll need to install the fpart filesystem partitioner. Install fpart on the Linux distribution of your choice. Once it's installed, you should see fpsync under `/usr/bin/`.
 
 # [Ubuntu](#tab/ubuntu)
 
