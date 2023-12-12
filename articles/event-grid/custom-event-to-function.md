@@ -66,10 +66,9 @@ Before subscribing to the custom topic, create a function to handle the events.
     ```
 
     :::image type="content" source="./media/custom-event-to-function/function-code-test-menu.png" alt-text="Image showing the selection Code + Test menu for an Azure function.":::
-6. Select **Monitor** on the left menu, and then select **Logs**. 
+6. Select **Monitor** on the left menu, and keep this window or tab of the browser open so that you can see the received event information. 
 
-    :::image type="content" source="./media/custom-event-to-function/monitor-page.png" alt-text="Screenshot showing the Monitor view the Azure function.":::    
-7. Keep this window or tab of the browser open so that you can see the received event information. 
+    :::image type="content" source="./media/custom-event-to-function/monitor-page.png" alt-text="Screenshot showing the Monitor view the Azure function.":::
 
 ## Create a custom topic
 
