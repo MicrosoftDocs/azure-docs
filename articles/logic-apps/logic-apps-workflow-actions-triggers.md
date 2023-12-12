@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 08/20/2022
+ms.date: 12/12/2023
 ms.custom:
 ---
 
@@ -2532,11 +2532,11 @@ For more information, see [Runtime configuration settings](#runtime-config-optio
 
 ### Change waiting runs limit
 
-By default, logic app workflow instances all run at the same time (concurrently or in parallel). This behavior means that each trigger instance fires before the previously active workflow instance finishes running. However, the number of concurrently running instances has a [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). When the number of concurrently running workflow instances reaches this limit, any other new instances must wait to run.
+By default, logic app workflow instances all run at the same time (concurrently or in parallel). This behavior means that each trigger instance fires before the previously active workflow instance finishes running. However, a [default limit](logic-apps-limits-and-config.md#looping-debatching-limits) exists on the number of concurrently running workflow instances. When the number of concurrent runs reaches this limit, any other new workflow instances must wait to run. A [default limit](logic-apps-limits-and-config.md#looping-debatching-limits) also exists on the number of waiting workflow instances. When the number of waiting instances reaches this limit, the Azure Logic Apps engine no longer accepts new workflow instances to run. Request and webhook triggers return [**429 - Too many requests** errors](handle-throttling-problems-429-errors.md), and recurring triggers start skipping polling attempts.
 
-The number of waiting runs also has a [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). When the number of waiting runs reaches this limit, the Logic Apps engine no longer accepts new runs. Request and webhook triggers return 429 errors, and recurring triggers start skipping polling attempts.
+You can [change the default limit on trigger concurrency](#change-trigger-concurrency) as well as the default limit on waiting runs. However, this change primarily slows down the trigger to relieve the pressure due to concurrency. For example, if you have polling trigger, and the waiting runs queue is full due to in-progress runs, Azure Logic Apps stops polling. If your workflow uses a request-based trigger, and the waiting runs queue is full, Azure Logic Apps starts returning the 429 error. Some scenarios exist where Azure Logic Apps can't stop the trigger from polling without introducing failures and opts to add such runs to the waiting runs queue anyway without failing the calling runs.
 
-Not only can you [change the default limit on trigger concurrency](#change-trigger-concurrency), but you can also change the default limit on waiting runs. In the underlying trigger definition, add the `runtimeConfiguration.concurrency.maximumWaitingRuns` property, which can have a value that ranges from `1` to `100`.
+In the underlying trigger definition, add the `runtimeConfiguration.concurrency.maximumWaitingRuns` property, which can have a value that ranges from `1` to `100`.
 
 ```json
 "<trigger-name>": {
