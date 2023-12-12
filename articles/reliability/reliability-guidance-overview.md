@@ -23,7 +23,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 ### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
 
 | Product| Availability zone guide | Disaster recovery guide | 
-|---|---|---|
+|----------|----------|----------|
 |Azure Cosmos DB|[Achieve high availability](../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Configure multi-region writes](../cosmos-db/nosql/how-to-multi-master?tabs=api-async) |
 |Azure Event Hubs| [Availability Zones](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md) |
 |Azure ExpressRoute| [Designing for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md)|
@@ -48,7 +48,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 ### ![An icon that signifies this service is mainstream.](media/icon-mainstream.svg) Mainstream services
 
 |  Availability zone guide | Disaster recovery guide | 
-| --- | --- | 
+|-------|------| 
 [Azure AI Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Azure AI Search](../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |[Azure API Management](../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure API Management](../api-management/api-management-howto-disaster-recovery-backup-restore.md) |
 [Azure App Configuration](../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability)| [Azure App Configuration](../azure-app-configuration/concept-disaster-recovery.md?&tabs=core2x)|
@@ -104,7 +104,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
 
 | Product| Availability zone guide | Disaster recovery guide | 
-|---|---|---|
+|-------|-------|-------|
 |Azure Community Training|[Reliability in Community Training](reliability-community-training.md) |[Reliability in Community Training](reliability-community-training.md) |
 |Azure Cosmos DB for MongoDB vCore||[Failover for business continuity and disaster recovery with Azure Cosmos DB for MongoDB vCore](../cosmos-db/mongodb/vcore/failover-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) ||
 |Azure Databox| |[Microsoft Azure Data Box Disk FAQ](../databox/data-box-disk-faq.yml?#how-can-i-recover-my-data-if-an-entire-region-fails-) |
