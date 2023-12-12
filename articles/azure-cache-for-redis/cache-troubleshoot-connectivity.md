@@ -87,7 +87,7 @@ Steps to check your private endpoint configuration:
 1. If you've deleted your private endpoint, ensure that the public network access is enabled.
 1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Cache for Redis instance](cache-private-link.md#create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance).
 1. Verify if your application is connecting to `<cachename>.redis.cache.windows.net` on port 6380. We recommend avoiding the use of `<cachename>.privatelink.redis.cache.windows.net` in the configuration or the connection string.
-1.  Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
+1. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
   
 ### Firewall rules
 
@@ -106,6 +106,7 @@ If you've configured any networking or security resource to use your cache's pub
 While it is possible to use VNet injection with your Premium caches, we recommend Azure Private Link.
 
 For more information, see:
+
 - [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md)
 - [Configure virtual network support for a Premium Azure Cache for Redis instance](cache-how-to-premium-vnet.md)
 
