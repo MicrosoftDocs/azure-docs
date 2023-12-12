@@ -26,22 +26,22 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |  --- | --- | --- |
 |Azure Cosmos DB|[Achieve high availability](../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Configure multi-region writes](../cosmos-db/nosql/how-to-multi-master?tabs=api-async) |
 |Azure Event Hubs| [Availability Zones](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md) |
-[Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Azure ExpressRoute](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md)|
-[Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md) |
-[Azure Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Load Balancer](../load-balancer/tutorial-cross-region-portal.md) |
-[Azure Public IP](../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone)| [Azure Public IP](../load-balancer/cross-region-overview.md) |
-[Azure Service Bus](../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Azure Service Bus](../service-bus-messaging/service-bus-geo-dr.md) |
-[Azure Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Service Fabric](../service-fabric/service-fabric-disaster-recovery.md#availability-of-the-service-fabric-cluster) |
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Site Recovery](../site-recovery/azure-to-azure-tutorial-enable-replication.md?) |
-[Azure SQL](/azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure SQL](/azure/azure-sql/database/recovery-using-backups#geo-restore) |
-|| [Azure SQL-Managed Instance](/azure/azure-sql/database/auto-failover-group-sql-db?tabs=azure-powershell) |
-| |[Azure Storage-Disk Storage](../virtual-machines/disks-incremental-snapshots.md?tabs=azure-resource-manage.md) |
-[Azure Storage Mover](reliability-azure-storage-mover.md)||
-[Azure Virtual Machine Scale Sets](reliability-virtual-machine-scale-sets.md)||
-[Azure Virtual Machines](reliability-virtual-machines.md)|
-[Azure Virtual Machines Image Builder](reliability-image-builder.md)| [Azure Virtual Machines](reliability-virtual-machines.md#cross-region-disaster-recovery-and-business-continuity) |
-[Azure Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Virtual Network](../virtual-network/virtual-network-disaster-recovery-guidance.md#business-continuity) |
-[Azure VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Azure VPN](../vpn-gateway/vpn-gateway-highlyavailable.md?) |
+|Azure ExpressRoute| [Designing for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md)|
+|Azure Key Vault|[Azure Key Vault failover within a region](../key-vault/general/disaster-recovery-guidance.md#failover-within-a-region?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md#failover-across-regions) |
+|Azure Load Balancer|[Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Create a cross-region Azure Load Balancer](../load-balancer/tutorial-cross-region-portal.md) |
+|Azure Public IP|[Azure Public IP - Availability zones](../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone)| [Azure Public IP: Cross-region overview](../load-balancer/cross-region-overview.md) |
+|Azure Service Bus|[Azure Service Bus - Availability zones](../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Azure Service Bus Geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md) |
+|Azure Service Fabric| [Deploy an Azure Service Fabric cluster across Availability Zones](../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Disaster recovery in Azure Service Fabric](../service-fabric/service-fabric-disaster-recovery.md) |
+|Azure Site Recovery|| [Set up disaster recovery for Azure VMs](../site-recovery/azure-to-azure-tutorial-enable-replication.md?) |
+|Azure SQL|[Azure SQL - High availability](/azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure SQL - Recovery using backup and restore](/azure/azure-sql/database/recovery-using-backups#geo-restore) |
+|Azure SQL-Managed Instance|| [Azure SQL-Managed Instance](/azure/azure-sql/database/auto-failover-group-sql-db?tabs=azure-powershell) |
+|Azure Storage-Disk Storage||[Create an incremental snapshot for managed disks](../virtual-machines/disks-incremental-snapshots.md?tabs=azure-resource-manage.md) |
+|Azure Storage Mover| [Reliability in Azure Storage Mover](reliability-azure-storage-mover.md)|[Reliability in Azure Storage Mover](reliability-azure-storage-mover.md)|
+|Azure Virtual Machine Scale Sets|[Azure Virtual Machine Scale Sets](reliability-virtual-machine-scale-sets.md)||
+|Azure Virtual Machines|[Reliability in Virtual Machines](reliability-virtual-machines.md)|[Reliability in Virtual Machines](reliability-virtual-machines.md)|
+|Azure Virtual Machines Image Builder| [Reliability in Azure Image Builder (AIB)](reliability-image-builder.md)|  [Reliability in Azure Image Builder (AIB)](reliability-image-builder.md)||
+|Azure Virtual Network| [Create a zone-redundant virtual network gateway in Azure Availability Zones](../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Virtual Network – Business Continuity](../virtual-network/virtual-network-disaster-recovery-guidance.md#business-continuity) |
+|Azure VPN Gateway| [About zone-redundant virtual network gateway in Azure availability zones](../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Highly Available cross-premises and VNet-to-VNet connectivity](../vpn-gateway/vpn-gateway-highlyavailable.md?) |
 
 
 

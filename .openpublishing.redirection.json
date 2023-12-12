@@ -25793,6 +25793,11 @@
             "source_path_from_root": "/articles/aks/ai-toolchain-operator.md",
             "redirect_url": "https://azure.microsoft.com/updates/preview-ai-toolchain-operator-addon-for-aks/",
             "redirect_document_id": false  
+        },
+        {
+            "source_path_from_root": "/articles/reliability/disaster-recovery-guidance-overview.md",
+            "redirect_url": "/auzre/reliability/reliability-guidance-overview",
+            "redirect_document_id": false  
         }
     ]
 }
