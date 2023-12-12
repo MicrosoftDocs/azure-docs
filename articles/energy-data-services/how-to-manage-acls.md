@@ -119,7 +119,10 @@ curl --location 'https://osdu-ship.msft-osdu-test.org/api/storage/v2/records/ope
 ```
 
 ## Delete ACLs from the data record
-
+- The first `/acl/owners/0` operation removes ACL from 0th position in the array of ACL.
+- When you delete the first with this operation, the system deletes the first entry. Thus, the previous second entry becomes the first entry.
+- The second `/acl/owners/0` operation tries to remove the second entry.
+  
 **Request format**
 
 ```bash
