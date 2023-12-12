@@ -1,5 +1,5 @@
 ---
-title: How to incorporate images into prompt flow (preview)
+title: Incorporate images into prompt flow (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to incorporate images into prompt flow.
 services: machine-learning
@@ -7,11 +7,11 @@ ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: how-to
 ms.author: jinzhong
-ms.date: 11/20/2023
+ms.date: 12/18/2023
 author: zhongj
 ---
 
-# How to utilize images in prompt flow (preview)
+# Incorporate images into prompt flow (preview)
 Multimodal Large Language Models(LLMs), which can process and interpret diverse forms of data inputs, present a powerful tool that can elevate the capabilities of language-only systems to new heights. Among the various data types, images are particularly important for many real-world applications. The incorporation of image data into AI systems provides an essential layer of visual understanding. 
 
 In this article, you'll learn:
@@ -20,6 +20,7 @@ In this article, you'll learn:
 > * How to use built-in GPT-4V tool to analyze image inputs.
 > * How to build a chatbot that can process image and text inputs.
 > * How to create a batch run using image data.  
+> * How to consume online endpoint with image data.
 
 > [!IMPORTANT]
 > Prompt flow image support is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -39,16 +40,16 @@ To use image data in prompt flow authoring page:
     > [!IMPORTANT]
     > To process image using Python function, you need to use the `Image` class, import it from `promptflow.contracts.multimedia` package. The Image class is used to represent an Image type within prompt flow. It is designed to work with image data in byte format, which is convenient when you need to handle or manipulate the image data directly.
     >
-    > To return the processed image data, you need to use the `Image` class to wrap the image data. Create an `Image` object by providing the image data in bytes and the MIME type `mime_type`. The MIME type lets the system understand the format of the image data. Without it, the system might not correctly interpret the image data.
+    > To return the processed image data, you need to use the `Image` class to wrap the image data. Create an `Image` object by providing the image data in bytes and the [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) `mime_type`. The MIME type lets the system understand the format of the image data, or it can be `*` for unknown type.
 
 4. Run the Python node and check the output. In this example, the Python function returns the processed Image object. Select the image output to preview the image.
    :::image type="content" source="./media/how-to-use-image-in-promptflow/python-node-image-output.png" alt-text="Screenshot of Python node's image output." lightbox = "./media/how-to-use-image-in-promptflow/python-node-image-output.png"::: 
 If the Image object from Python node is set as the flow output, you can preview the image in the flow output page as well.
 
 ## Use GPT-4V tool
-GPT-4V is a built-in tool in prompt flow that can use OpenAI GPT-4V model to answer questions based on input images.
+OpenAI GPT-4V is a built-in tool in prompt flow that can use OpenAI GPT-4V model to answer questions based on input images.
 
-Add the GPT-4V tool to the flow. Make sure you have an OpenAI or AOAI connection, with the availability of GPT-4V models/deployments.
+Add the [OpenAI GPT-4V tool](./tools-reference/openai-gpt-4v-tool.md) to the flow. Make sure you have an OpenAI connection, with the availability of GPT-4V models.
    :::image type="content" source="./media/how-to-use-image-in-promptflow/gpt-4v-tool.png" alt-text="Screenshot of GPT-4V tool." lightbox = "./media/how-to-use-image-in-promptflow/gpt-4v-tool.png":::
 
 The Jinja template for composing prompts in the GPT-4V tool follows a similar structure to the chat API in the LLM tool. To represent an image input within your prompt, you can use the syntax `![image]({{INPUT NAME}})`. Image input can be passed in the `user`, `system` and `assistant` messages.
@@ -83,11 +84,14 @@ Assume you want to build a chatbot that can answer any questions about the image
 >   :::image type="content" source="./media/how-to-use-image-in-promptflow/chatbot-image-output.png" alt-text="Screenshot of chatbot responding with rich text and images." lightbox = "./media/how-to-use-image-in-promptflow/chatbot-image-output.png":::
 
 ## Create a batch run using image data
-A batch run allows you to test the flow with an extensive dataset. You can represent image data in two ways:
+A batch run allows you to test the flow with an extensive dataset.   There are three methods to represent image data: through an image file, a public image URL, or a Base64 string.
 - **Image file**. To test with image files in batch run, you need to prepare a **data folder**. This folder should contain a batch run entry file in `jsonl` format located in the root directory, along with all image files stored in the same folder or subfolders.
    :::image type="content" source="./media/how-to-use-image-in-promptflow/batch-run-sample-data.png" alt-text="Screenshot of batch run sample data with images." lightbox = "./media/how-to-use-image-in-promptflow/batch-run-sample-data.png":::
-   In the entry file, you should use the format `{"data:image/[image extension];path":"[image file]"}` to reference each image file. For example, `{"data:image/png;path":"./images/1.png"}`.
-- **Public image URL**. You can directly reference the image URL in the entry file using this format `{"data:image/[image extension];url":"[image URL]"}`. For example, `{"data:image/png;url":"https://www.example.com/images/1.png"}`.
+   In the entry file, you should use the format: `{"data:<mime type>;path": "<image relative path>"}` to reference each image file. For example, `{"data:image/png;path": "./images/1.png"}`.
+- **Public image URL**. You can also reference the image URL in the entry file using this format: `{"data:<mime type>;url": "<image URL>"}`. For example, `{"data:image/png;url": "https://www.example.com/images/1.png"}`.
+- **Base64 string**. A Base64 string can be referenced in the entry file using this format: `{"data:<mime type>;base64": "<base64 string>"}`. For example, `{"data:image/png;base64": "iVBORw0KGgoAAAANSUhEUgAAAGQAAABLAQMAAAC81rD0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABlBMVEUAAP7////DYP5JAAAAAWJLR0QB/wIt3gAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+QIGBcKN7/nP/UAAAASSURBVDjLY2AYBaNgFIwCdAAABBoAAaNglfsAAAAZdEVYdGNvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVDnr0DLAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIwLTA4LTI0VDIzOjEwOjU1KzAzOjAwkHdeuQAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMC0wOC0yNFQyMzoxMDo1NSswMzowMOEq5gUAAAAASUVORK5CYII="}`.
+
+In summary, prompt flow uses a unique dictionary format to represent an image, which is `{"data:<mime type>;<representation>": "<value>"}`. Here, `<mime type>` refers to HTML standard [MIME](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) image types, and `<representation>` refers to the supported image representations: `path`,`url` and `base64`.
 
 ### Create a batch run
 In flow authoring page, select the **Evaluate** button to initiate a batch run. In Batch run settings, select a dataset which can be either a folder (containing the entry file and image files) or a file (containing only the entry file). You can preview the entry file and perform input mapping to align the columns in the entry file with the flow inputs.
@@ -99,6 +103,13 @@ You can check the batch run outputs in the run detail page. Select the image obj
 
 If the batch run outputs contain images, you can check the **flow_outputs dataset** with the output jsonl file as well as the output images. 
    :::image type="content" source="./media/how-to-use-image-in-promptflow/explore-run-outputs.png" alt-text="Screenshot of batch run flow output." lightbox = "./media/how-to-use-image-in-promptflow/explore-run-outputs.png"::: 
+
+## Consume online endpoint with image data
+You can deploy a flow to an online endpoint for real-time inference by following [this documentation](./how-to-deploy-for-real-time-inference.md). 
+
+To consume the online endpoint with image input, you should represent the image by using the format `{"data:<mime type>;<representation>": "<value>"}`. In this case, `<representation>` can either be `url` or `base64`.
+
+If the flow generates image output, it will be returned with `base64` format, for example, `{"data:<mime type>;base64": "<base64 string>"}`.
 
 ## Next steps
 - [Iterate and optimize your flow by tuning prompts using variants](./how-to-tune-prompts-using-variants.md)
