@@ -17,15 +17,15 @@ ms.custom: seo-lt-2023, references_regions
 
 [!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
-This articles explains common pitfalls ecountered and best practices to ensure a smooth and successful migration to the Azure Database for PostgreSQL Flexible Server.
+This article explains common pitfalls ecountered, and best practices to ensure a smooth and successful migration to the Azure Database for PostgreSQL Flexible Server.
 
 ## Pre-Migration Validation
 
-As a first step, it is recommended to run the pre-migration validation before you perform a migration. You can do this using the **Validate** and **Validate and Migrate** options in the migration setup page. Pre-migration validation conducts thorough checks against a predefined rule set. The goal is to identify any potential problems and provide actionable insights for remedial actions. Click [Pre-migration validations](./concepts-single-to-flexible.md#pre-migration-validations) to know more.
+As a first step, it's recommended to run the pre-migration validation before you perform a migration. You can do this using the **Validate** and **Validate and Migrate** options in the migration setup page. Pre-migration validation conducts thorough checks against a predefined rule set. The goal is to identify any potential problems and provide actionable insights for remedial actions. Click [Pre-migration validations](./concepts-single-to-flexible.md#pre-migration-validations) to know more.
 
 ## Migration Set up
 
-Each migration has a lifecyle of 7 days (168 hours) once the migration starts and will time out after that. You can plan to complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In case of Online migrations, the cutover window has a lifecycle of 3 days (72 hours) before timing out.
+Each migration has a lifecycle of seven days (168 hours) once the migration starts and will time out after seven days. You can plan to complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window has a lifecycle of three days (72 hours) before timing out.
 
 > [!NOTE]  
 > Online migration is currently supported in limited regions - India Central, India South, Australia Southeast and South East Asia.
@@ -57,9 +57,9 @@ If the data distribution on the source is highly skewed, with most of the data p
 1. The table must have a column with a simple (not composite) primary key or unique index of type int or big int.
 
 > [!NOTE]  
-> In case of approaches #2 or #3 below, the user must carefully evaluate the implications of adding a unique index column to the source schema. Only after confirmation that adding a unique index column will not affect the application should the user go ahead with the changes.
+> In case of approaches #2 or #3, the user must carefully evaluate the implications of adding a unique index column to the source schema. Only after confirmation that adding a unique index column will not affect the application should the user go ahead with the changes.
 
-2. If the table doesn't have a simple primary key or unique index of type int or big int, but has a column that meets the data type criteria, the column can be converted into a unique index using the below command. This command does not require a lock on the table.
+2. If the table doesn't have a simple primary key or unique index of type int or big int, but has a column that meets the data type criteria, the column can be converted into a unique index using the below command. This command doesn't require a lock on the table.
 
 ```sql
     create unique index concurrently partkey_idx on <table name> (column name);
@@ -86,11 +86,11 @@ In summary, the Single to Flexible migration tool migrates a table in parallel t
 
 ### Target Flexible server storage configuration
 
-During initial base copy of data, multiple insert statements are executed on the target, which in-turn generates WALs (Write Ahead Logs). Until these WALs are archived, the logs will consume storage at the target in addition to the storage required by the Database. Hence, It is advisable to allocate sufficient storage on the Flexible server, equivalent to 1.25 times or 25% more storage than the Single server. To get an idea of the storage required for migrating your server, we strongly recommend taking a **PITR (point in time restore)** of your single server and running it against the single to flex migration tool. Monitoring the **PITR** migration will give a good estimate of the required storage. [Storage Autogrow](../flexible-server/how-to-auto-grow-storage-portal.md) can also be used.
+During initial base copy of data, multiple insert statements are executed on the target, which in-turn generates WALs (Write Ahead Logs). Until these WALs are archived, the logs consume storage at the target in addition to the storage required by the Database. Hence, It's advisable to allocate sufficient storage on the Flexible server, equivalent to 1.25 times or 25% more storage than the Single server. To get an idea of the storage required for migrating your server, we strongly recommend taking a **PITR (point in time restore)** of your single server and running it against the single to flex migration tool. Monitoring the **PITR** migration gives a good estimate of the required storage. [Storage Autogrow](../flexible-server/how-to-auto-grow-storage-portal.md) can also be used.
 
 > [!IMPORTANT]  
 > 
-- In both manual configuration as well as Storage Autogrow, storage size cannot be reduced. Each step in the Storage configuration spectrum doubles in size so it is prudent to estimate the required storage beforehand.
+- In both manual configuration and Storage Autogrow, storage size can't be reduced. Each step in the Storage configuration spectrum doubles in size so it's prudent to estimate the required storage beforehand.
 
 ### Vacuum Bloat in PostgreSQL Database
 
@@ -115,7 +115,7 @@ VACUUM FULL your_table;
 
 In this example, replace your_table with the actual table name. The `VACUUM` command without **FULL** reclaims space efficiently, while `VACUUM ANALYZE` optimizes query planning. The `VACUUM FULL` option should be used judiciously due to its heavier performance impact. 
 
-Some Databases store large objects such as images or documents that can contribute to database bloat over time. The `VACUUMLO` command is specifically designed for large objects in PostgreSQL.
+Some Databases store large objects such as images or documents that can contribute to database bloat over time. The `VACUUMLO` command is designed for large objects in PostgreSQL.
 
 -- Vacuum Large Objects
 ```sql
