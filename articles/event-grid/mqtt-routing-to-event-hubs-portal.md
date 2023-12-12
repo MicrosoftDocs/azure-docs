@@ -8,7 +8,7 @@ ms.custom:
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
-
+ms.subservice: mqtt
 ---
 
 # Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with Azure portal
