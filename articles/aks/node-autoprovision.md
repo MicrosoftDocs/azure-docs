@@ -127,7 +127,7 @@ az deployment group create --resource-group napcluster --template-file ./nap.jso
   ]
 }
 ```
-
+---
 ## Node Pools
 Node autoprovision uses a list of VM SKUs as a starting point to decide which is best suited for the workloads that are in a pending state.  Having control over what SKU you want in the initial pool allows you to specify specific SKU families, or VM types and the maximum amount of resources a provisioner uses.
 
