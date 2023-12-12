@@ -15,16 +15,16 @@
     - name: Add-ons, extensions, and other integrations
       href: integrations.md
       displayName: add-on, extensions, prometheus, grafana, openfaas, spark, istio, linkerd, consul, github, actions
-    - name: Getting started
-      items:
-        - name: Well-architected considerations
-          href: /azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Plan your implementation
-          href: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
-        - name: Optimize costs
-          href: best-practices-cost.md
-        - name: Windows vs. Linux containers
-          href: windows-vs-linux-containers.md
+- name: Getting started
+  items:
+    - name: Well-architected considerations
+      href: /azure/architecture/framework/services/compute/azure-kubernetes-service/azure-kubernetes-service?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: Plan your implementation
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: Optimize costs
+      href: best-practices-cost.md
+    - name: Windows vs. Linux containers
+      href: windows-vs-linux-containers.md
 - name: Quickstarts
   expanded: true
   items:
