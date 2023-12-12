@@ -55,7 +55,7 @@ For example, if your proxy server requires authentication with a user name and p
 
 ```powershell
 # IP address or name of the proxy server.
-$Address="127.0.0.1"
+$Address="https://127.0.0.1"
 
 # The port to use for the connection to the proxy.
 $Port=8080
@@ -91,7 +91,7 @@ To configure machine-wide proxy settings, follow the steps below:
      ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
-          <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+          <proxy autoDetect="false" bypassonlocal="false" proxyaddress="https://127.0.0.1:8888" usesystemdefault="false" />
         </defaultProxy>
       </system.net>
      ```
