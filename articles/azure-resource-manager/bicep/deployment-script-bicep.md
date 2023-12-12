@@ -63,7 +63,7 @@ For deployment script API version `2020-10-01` or later, there are two principal
     }
     ```
 
-    If the Azure Storage and the Azure Container Instance resource providers haven't been registered, you also need to add `Microsoft.Storage/register/action` and `Microsoft.ContainerInstance/register/action`.
+    In case the Azure Storage and the Azure Container Instance resource providers haven't been registered, ensure to add `Microsoft.Storage/register/action` and `Microsoft.ContainerInstance/register/action`.
 
 - **Deployment script principal**: This principal is only required if the deployment script needs to authenticate to Azure and call Azure CLI/PowerShell. There are two ways to specify the deployment script principal:
 
@@ -145,22 +145,9 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Monitor and troubleshoot deployment script
 
-*** jgao - add the following information - "In the preceding Bicep sample, a storage account is created and configured to be used by the deployment script. This is necessary for storing the script output. An alternative solution, without specifying your own storage account, involves setting `cleanupPreference` to `OnExpiration`and configuring `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed."
+When you deploy a deployment script resource, a storage account is required for storing the user script, the execution results, adn the stdout file. You can specify your own storage account. See [Use existing storage account](./deployment-script-develop.md#use-existing-storage-account). An alternative solution, without specifying your own storage account, involves setting `cleanupPreference` to `OnExpiration`and configuring `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed. For more information, see [](./deployment-script-develop.md#clean-up-deployment-script-resources).
 
-
-The script service creates two supporting resources, a [storage account](../../storage/common/storage-account-overview.md) and a [container instance](../../container-instances/container-instances-overview.md), for script execution (unless you specify an existing storage account and/or an existing container instance). If these supporting resources are automatically created by the script service, both resources have the `azscripts` suffix in the resource names. The other way to identify the the supporting resources is by using tags. For more information, see [tags](./deployment-script-develop.md#syntax).
-
-![Resource Manager template deployment script resource names](./media/deployment-script-bicep/resource-manager-template-deployment-script-resources.png)
-
-The user script, the execution results, and the stdout file are stored in the files shares of the storage account. There's a folder called `azscripts`. In the folder, there are two more folders for the input and the output files: `azscriptinput` and `azscriptoutput`.
-
-The output folder contains a _executionresult.json_ and the script output file. You can see the script execution error message in _executionresult.json_. The output file is created only when the script is executed successfully. The input folder contains a system PowerShell script file and the user deployment script files. You can replace the user deployment script file with a revised one, and rerun the deployment script from the Azure container instance.
-
-By default, the two supporting resources are removed automatically after execution. For more information, see the `cleanupPreference` property and the `retentionlInterval` property in [Create deployment script](./deployment-script-develop.md). To explore the two resources, add the `cleanupPreference` property to the simple inline script from the last section, and set the value to `OnExpiration`. The default value is `Always`. Also, set rentalInterval to 'PT1H' (one hour), or shorter.
-
-
-The two supporting resources are automatically removed after execution by default. For more information, see `cleanupPreference` and `retentionInterval` properties in  [Create deployment script](./deployment-script-develop.md). To delve into these resources, incorporate the `cleanupPreference` property into the simple inline script mentioned in the preceding section. Set its value to `OnExpiration`, noting that the default value is `Always`. Additionally, configure the `retentionInterval` to `PT1H` (one hour) or an even shorter duration.
-
+Add the `cleanupPreference` property to the preceding Bicep file, and set the value to `OnExpiration`. The default value is `Always`. Also, set `rentalInterval` to `PT1H` (one hour), or shorter.
 
 # [CLI](#tab/CLI)
 
@@ -218,7 +205,7 @@ After the Bicep file is deployed successfully, use the Azure portal, Azure CLI, 
 
 ### Azure portal
 
-After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The **Overview** page lists the two supporting resources in addition to the deployment script resource. The supporting resources will be deleted after the retention interval expires.
+After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The **Overview** page lists the two supporting resources in addition to the deployment script resource. The supporting resources will be deleted after the retention interval expires. Notice both resources have the `azscripts` suffix in the resource names because these resources are created automatically. The other way to identify the the supporting resources is by using `tags``. For more information, see [tags](./deployment-script-develop.md#syntax).
 
 :::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-resource-group.png" alt-text="Screenshot of deployment script resource group.":::
 
@@ -230,7 +217,7 @@ Select **Outputs** to display outputs of the script:
 
 :::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-resource-output.png" alt-text="Screenshot of deployment script outputs.":::
 
-Go back to the resource group, select the storage account, select **File shares**, select the file share with **azscripts** appended to the share name, you shall see two folders - **azscriptinput** and **azscriptoutput**. The **azscriptoutput** folder contains the execution results and the script outputs:
+Go back to the resource group, select the storage account, select **File shares**, select the file share with **azscripts** appended to the share name, you shall see two folders - **azscriptinput** and **azscriptoutput**. The output folder contains a _executionresult.json_ and the script output file. You can see the script execution error message in _executionresult.json_. The output file is created only when the script is executed successfully. The input folder contains a system script file and the user deployment script files. You can replace the user deployment script file with a revised one, and rerun the deployment script from the Azure container instance.
 
 :::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-azscriptoutput.png" alt-text="Screenshot of deployment script azscriptoutput.":::
 
@@ -351,50 +338,43 @@ The output is similar to:
 
 ```json
 {
-  "kind": "AzurePowerShell",
-  "identity": {
-    "type": "userAssigned",
-    "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
-    "userAssignedIdentities": {
-      "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
-        "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF",
-        "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF"
-      }
-    }
-  },
+  "kind": "AzureCLI",
+  "identity": null,
   "location": "centralus",
   "systemData": {
-    "createdBy": "someone@contoso.com",
+    "createdAt": "2023-12-11T19:45:32.239063+00:00",
+    "createdBy": "johndole@contoso.com",
     "createdByType": "User",
-    "createdAt": "2023-05-11T02:59:04.7501955Z",
-    "lastModifiedBy": "someone@contoso.com",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "2023-05-11T02:59:04.7501955Z"
+    "lastModifiedAt": "2023-12-11T20:18:26.183565+00:00",
+    "lastModifiedBy": "johndole@contoso.com",
+    "lastModifiedByType": "User"
   },
   "properties": {
     "provisioningState": "Succeeded",
-    "forceUpdateTag": "20220625T025902Z",
-    "azPowerShellVersion": "10.0",
-    "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
-    "arguments": "-name \\\"John Dole\\\"",
-    "retentionInterval": "P1D",
-    "timeout": "PT1H",
-    "containerSettings": {},
+    "azCliVersion": "2.52.0",
+    "scriptContent": "echo \"The argument is John Dole.\"; jq -n -c --arg st \"Hello John Dole\" '{\"text\": $st}' > $AZ_SCRIPTS_OUTPUT_PATH",
+    "arguments": "John Dole",
+    "retentionInterval": "1:00:00",
+    "timeout": "1 day, 0:00:00",
+    "containerSettings": {
+      "containerGroupName": null
+    },
     "status": {
-      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
-      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
-      "startTime": "2023-05-11T02:59:07.5951401Z",
-      "endTime": "2023-05-11T03:00:16.7969234Z",
-      "expirationTime": "2023-05-12T03:00:16.7969234Z"
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/jgczqtxom5oreazscripts",
+      "endTime": "2023-12-11T20:20:12.149468+00:00",
+      "error": null,
+      "expirationTime": "2023-12-11T21:20:12.149468+00:00",
+      "startTime": "2023-12-11T20:18:26.674492+00:00",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/jgczqtxom5oreazscripts"
     },
     "outputs": {
       "text": "Hello John Dole"
     },
     "cleanupPreference": "OnSuccess"
   },
-  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlineCLI",
   "type": "Microsoft.Resources/deploymentScripts",
-  "name": "runPowerShellInlineWithOutput"
+  "name": "inlineCLI",
 }
 
 ```
