@@ -34,11 +34,11 @@ Another option to consider, is using [nested virtualization](concept-nested-virt
 There are many [distros/versions](how-to-configure-auto-shutdown-lab-plans.md#supported-linux-distributions-for-automatic-shutdown) and GUI desktops that can be used with Azure Lab Services.  This section shows how to set up a lab’s template VM with the following common configurations:
 
 |Distro/Version  |GUI desktop   |Remote desktop technology | Instructions
-|----------|-----------|------------|
-|Ubuntu 20.04/22.04 LTS    |[XFCE](https://www.xfce.org/)    |[X2Go](https://wiki.x2go.org/doku.php/doc:newtox2go)    | how-to-enable-remote-desktop-linux.md#set-up-xfce-and-x2go
-|Ubuntu 20.04/22.04 LTS    |[Xubuntu](https://xubuntu.org/)    |X2Go    | how-to-enable-remote-desktop-linux.md#set-up-xubuntu-and-x2go
-|Ubuntu 20.04/22.04 LTS    |[MATE](https://mate-desktop.org/)    |X2Go    | how-to-enable-remote-desktop-linux.md#set-up-mate-and-x2go
-|Ubuntu 20.04/22.04 LTS    |[GNOME](https://www.gnome.org/)    |[RDP](https://en.wikipedia.org/wiki/Xrdp)    | how-to-enable-remote-desktop-linux.md#set-up-gnome-and-rdp
+|----------|-----------|------------|------------|
+|Ubuntu 20.04/22.04 LTS    |[XFCE](https://www.xfce.org/)    |[X2Go](https://wiki.x2go.org/doku.php/doc:newtox2go)    | [Set up XFCE and X2Go](how-to-enable-remote-desktop-linux.md#set-up-xfce-and-x2go)
+|Ubuntu 20.04/22.04 LTS    |[Xubuntu](https://xubuntu.org/)    |X2Go    | [Set up xUbuntu and X2Go](how-to-enable-remote-desktop-linux.md#set-up-xubuntu-and-x2go)
+|Ubuntu 20.04/22.04 LTS    |[MATE](https://mate-desktop.org/)    |X2Go    | [Set up MATE and X2Go](how-to-enable-remote-desktop-linux.md#set-up-mate-and-x2go)
+|Ubuntu 20.04/22.04 LTS    |[GNOME](https://www.gnome.org/)    |[RDP](https://en.wikipedia.org/wiki/Xrdp)    | [Set up GNOME and RDP](how-to-enable-remote-desktop-linux.md#set-up-gnome-and-rdp)
 
 ### Set up XFCE and X2Go
 
