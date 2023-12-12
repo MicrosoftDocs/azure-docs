@@ -103,26 +103,26 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
   
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
 
-|  Availability zone guide | Disaster recovery guide | 
-| --- | --- | 
-|[Azure Cosmos DB for MongoDB vCore](../cosmos-db/mongodb/vcore/failover-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) ||
-| |[Azure Databox](../databox/data-box-disk-faq.yml?#how-can-i-recover-my-data-if-an-entire-region-fails-) |
-|[Azure Data Manager for Energy](./reliability-energy-data-services.md) ||
-| |[Azure Data Share](../data-share/disaster-recovery.md)||
-|[Azure Deployment Environments](reliability-deployment-environments.md)|
-|| [Azure DevOps](/azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true&#data-availability)|
-|| [Azure Health Data Services - Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md) |
-|| [Azure IoT Hub](../iot-hub/iot-hub-ha-dr.md?#disable-disaster-recovery) |
-|| [Azure Machine Learning Service](../machine-learning/v1/how-to-high-availability-machine-learning.md) |
-|| [Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md) |
-|[Azure Private 5G Core](../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)||
-|| [Azure SignalR Service](../azure-signalr/signalr-concept-disaster-recovery.md) |
-|[Azure Spring Apps](reliability-spring-apps.md) ||
-|[Azure Storage Mover](./reliability-azure-storage-mover.md)||
-|| [Azure VMware Solution](../azure-vmware/disaster-recovery-for-virtual-machines.md) |
-|[Community Training](reliability-community-training.md) |
-|[Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|[Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|
-|[Microsoft Fabric](reliability-fabric.md) |[Microsoft Fabric](reliability-fabric.md)
+| Product| Availability zone guide | Disaster recovery guide | 
+|  --- | --- | --- |
+|Azure Community Training|[Reliability in Community Training](reliability-community-training.md) |[Reliability in Community Training](reliability-community-training.md) |
+|Azure Cosmos DB for MongoDB vCore||[Failover for business continuity and disaster recovery with Azure Cosmos DB for MongoDB vCore](../cosmos-db/mongodb/vcore/failover-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) ||
+|Azure Databox| |[Microsoft Azure Data Box Disk FAQ](../databox/data-box-disk-faq.yml?#how-can-i-recover-my-data-if-an-entire-region-fails-) |
+|Azure Data Manager for Energy| [Reliability in Azure Data Manager for Energy](./reliability-energy-data-services.md) |[Reliability in Azure Data Manager for Energy](./reliability-energy-data-services.md) |
+|Azure Data Share| |[Disaster recovery for Azure Data Share](../data-share/disaster-recovery.md)|
+|Azure Deployment Environments| [Reliability in Azure Deployment Environments](reliability-deployment-environments.md)|[Reliability in Azure Deployment Environments](reliability-deployment-environments.md)|
+|Azure DevOps|| [Azure DevOps Data protection - data availability](/azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true&#data-availability)|
+|Azure Health Data Services - Azure API for FHIR|| [Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md) |
+|Azure IoT Hub| [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md)| [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md) |
+|Azure Machine Learning Service| | [Azure Machine Learning Service](../machine-learning/v1/how-to-high-availability-machine-learning.md) |
+|Azure NetApp Files|| [Manage disaster recovery using cross-region replication](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md) |
+|Azure Private 5G Core|[Reliability for Azure Private 5G Core](../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Reliability for Azure Private 5G Core](../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure SignalR Service|| [Resiliency and disaster recovery in Azure SignalR Service](../azure-signalr/signalr-concept-disaster-recovery.md) |
+|Azure Spring Apps|[Reliability in Azure Spring Apps](reliability-spring-apps.md) |[Reliability in Azure Spring Apps](reliability-spring-apps.md)|
+|Azure Storage Mover|[Reliability in Azure Storage Mover](./reliability-azure-storage-mover.md)|[Reliability in Azure Storage Mover](./reliability-azure-storage-mover.md)|
+|Azure VMware Solution|| [Azure VMware disaster recovery for virtual machines](../azure-vmware/disaster-recovery-for-virtual-machines.md) |
+|Microsoft Defender for Cloud DevOps security|[Reliability in Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|[Reliability in Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|
+|Microsoft Fabric|[Microsoft Fabric](reliability-fabric.md) |[Microsoft Fabric](reliability-fabric.md)
 
 
 ## Azure Service Manager Retirement
