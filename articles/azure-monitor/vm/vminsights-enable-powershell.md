@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 author: guywi-ms
 ms.author: guywild
-ms.date: 11/28/2023
+ms.date: 12/13/2023
 ---
 
 # Enable VM insights by using PowerShell
@@ -14,7 +14,7 @@ This article describes how to enable VM insights on Azure virtual machines by us
 - Azure Virtual Machines
 - Azure Virtual Machine Scale Sets
 
-This script installs VM extensions for Log Analytics/Azure Monitoring Agent (AMA) and, if necessary the Dependency Agent VM Insights. If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated with the virtual machines and virtual machine scale sets. 
+This script installs VM extensions for Log Analytics/Azure Monitoring Agent (AMA) and, if necessary, the Dependency Agent to enable VM Insights. If AMA is onboarded, a Data Collection Rule (DCR) and a User Assigned Managed Identity (UAMI) is also associated with the virtual machines and virtual machine scale sets.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
@@ -83,7 +83,7 @@ The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-N
 
 Example:
 ```azurepowershell
-Install-VMInsights.ps1  -SubscriptionId 12345678-abcd-abcd-1234-12345678 `
+Install-VMInsights.ps1 -SubscriptionId 12345678-abcd-abcd-1234-12345678 `
 -ResourceGroup rg-AMAPowershell  `
 -ProcessAndDependencies  `
 -Name vmAMAPowershellWindows `
@@ -97,7 +97,7 @@ The output has the following format:
 ```powershell
 Name                                     Account                               SubscriptionName                      Environment                          TenantId
 ----                                     -------                               ----------------                      -----------                          --------
-AzMon001 12345678-abcd-123…             MSI@9876                              AzMon001                              AzureCloud                           abcd1234-9876-abcd-1234-1234abcd5648
+AzMon001 12345678-abcd-123…              MSI@9876                              AzMon001                              AzureCloud                           abcd1234-9876-abcd-1234-1234abcd5648
 
 Getting list of VMs or VM Scale Sets matching specified criteria.
 VMs and Virtual Machine Scale Sets matching selection criteria :
@@ -136,12 +136,12 @@ VMSS Instance Upgrade Failures : 0
 
 Required Arguments:
 + `-WorkspaceId <String>` Log Analytics WorkspaceID (GUID). 
-+ `-WorkspaceKey <String>`Log Analytics Workspace primary or secondary key. 
++ `-WorkspaceKey <String>` Log Analytics Workspace primary or secondary key. 
 
 Optional Arguments:   
 + `-ReInstall [<SwitchParameter>]` Trigger removal of existing Log analytics extension and reinstallation to migrate log analytics workspaces with Legacy Agent (Linux) - OMSAgent. 
-+ `- Name <String>`   Name of the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Sets in the subscription or resource group are onboarded.
-+ `- ResourceGroup <String>`  Name of the resource group containing the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Sets in the subscription are onboarded.
++ `- Name <String>` Name of the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Sets in the subscription or resource group are onboarded.
++ `- ResourceGroup <String>` Name of the resource group containing the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Sets in the subscription are onboarded.
 + `-PolicyAssignmentName <String>` Only include VMs associated with this policy.   When the PolicyAssignmentName parameter is specified, the VMs part of the parameter SubscriptionId are considered. 
 + `-TriggerVmssManualVMUpdate [<SwitchParameter>]` Trigger the update of VM instances in a scale set whose upgrade policy is set to Manual. 
 + `-WhatIf [<SwitchParameter>]` Get info about expected effect of the commands in the script.         
