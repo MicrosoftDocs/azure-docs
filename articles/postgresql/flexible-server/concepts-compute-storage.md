@@ -137,7 +137,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 | E32s_v3 / E32ds_v4 / E32ds_v5 / E32ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
 | E48s_v3 / E48ds_v4 / E48ds_v5 / E48ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
 | E64s_v3 / E64ds_v4 / E64ds_v5 / E64ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
-| E96ds_v5 / | E96ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
+| E96ds_v5 / E96ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
 
 IOPS marked with an asterisk (\*) are limited by the VM type that you selected. Otherwise, the selected storage size limits the IOPS.
 

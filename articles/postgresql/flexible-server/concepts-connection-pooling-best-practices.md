@@ -78,7 +78,7 @@ The sidecar pattern is typically used with containers being coscheduled as an at
 
 This sidecar pattern is typically used with containers being coscheduled as an atomic container group. sidecar pattern strongly binds the application and sidecar lifecycles and has shared resources such hostname and networking. By using this setup, PgBouncer optimizes connection management and facilitates efficient communication between the application and the Azure Database for PostgreSQL flexible server instance.
 
-Microsoft has published a [**PgBouncer** sidecar proxy image](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) in Microsoft container registry.
+Microsoft has published a **PgBouncer** sidecar proxy image in Microsoft container registry.
 
 Refer [this](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/steps-to-install-and-setup-pgbouncer-connection-pooling-on-azure/ba-p/3633043) for more details.
 
@@ -137,7 +137,7 @@ If you're working with highly scalable and large containerized deployments on Az
 
 By utilizing **PgBouncer** as a separate service, you can efficiently manage and handle connection pooling for your applications on a broader scale. This approach allows for centralizing the connection pooling functionality, enabling multiple applications to connect to the same database resource while maintaining optimal performance and resource utilization.
 
-[**PgBouncer** sidecar proxy image](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) published in Microsoft container registry can be used to create and deploy a service.
+**PgBouncer** sidecar proxy image published in Microsoft container registry can be used to create and deploy a service.
 
 :::image type="content" source="./media/concepts-connection-pooling-best-practices/centralized-aks.png" alt-text="Diagram for PgBouncer as a service within AKS.":::
 
