@@ -99,35 +99,32 @@ Add the following key-value to your App Configuration store. For more informatio
 
 ## Web applications
 
-The following example shows how to update an existing web application to use refreshable configuration values. An property can be added to the load operation to set a callback when the configuration is refreshed. This callback can be used to update the configuration values in the application.
+The following example shows how to update an existing web application to use refreshable configuration values. A callback can be supplied to the `on_refresh_success` keyword argument of the `load` function. This callback will be invoked when configuration is successfully refreshed, and can be used to update the configuration values in the application.
 
 ### [Flask](#tab/flask)
 
-In `app.py`, setup Azure App Configuration to load your configuration values. Then update your endpoints to check for updated configuration values.
+In `app.py`, set up Azure App Configuration to load your configuration values. Then update your endpoints to check for updated configuration values.
 
 ```python
-from azure.appconfiguration.provider import WatchKey
-from azure.appconfiguration.provider.aio import load
+from azure.appconfiguration.provider import load, WatchKey
 
 azure_app_config = None  # declare azure_app_config as a global variable
 
 def on_refresh_success():
    app.config.update(azure_app_config)
 
-async def load_config():
-   global azure_app_config
-   async with await load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING")
-                           refresh_on=[WatchKey("sentinel")],
-                           on_refresh_success=on_refresh_success,
-                     ) as config:
-       # NOTE: This will override all existing configuration settings with the same key name.
-      azure_app_config = config
 
-asyncio.run(load_config())
+global azure_app_config
+azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING")
+                        refresh_on=[WatchKey("sentinel")],
+                        on_refresh_success=on_refresh_success,
+                        refresh_interval=10, # Default value is 30 seconds, shortened for this sample
+                    )
 
 
 
-@app.route('/')
+
+@app.route("/")
 def index():
     global azure_app_config
     # Refresh the configuration from App Configuration service.
@@ -137,7 +134,7 @@ def index():
     print("Request for index page received")
     context = {}
     context["message"] = app.config.get("message")
-    return render_template('index.html', **context)
+    return render_template("index.html", **context)
 ```
 
 Update your template `index.html` to use the new configuration values.
@@ -166,10 +163,14 @@ You can find a full sample project [here](https://github.com/Azure/AppConfigurat
 Set up App Configuration in your Django settings file, `settings.py`.
 
 ```python
+def on_refresh_success():
+   app.config.update(azure_app_config)
+
 AZURE_APPCONFIGURATION = load(
         connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"),
         refresh_on=[WatchKey("sentinel")],
-        refresh_interval=10, # Default value is 30 seconds, shorted for this sample
+        on_refresh_success=on_refresh_success,
+        refresh_interval=10, # Default value is 30 seconds, shortened for this sample
     )
 ```
 
