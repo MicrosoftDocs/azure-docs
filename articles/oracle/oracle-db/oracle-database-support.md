@@ -46,7 +46,7 @@ Oracle Support can help you with the following types of Oracle Database@Azure is
 
 If you contact Oracle Support, be sure to tell your Oracle Support agent that your issue is related to Oracle Database@Azure.  Support requests for this service are handled by a  support team that specializes in these deployments. A member of this specialized team contacts you directly.
 
-1. Call **1-800-223-1711.** If you're outside of the United States, visit[Oracle Support Contacts Global Directory](https://www.oracle.com/support/contact.html) to find contact information for your country or region.
+1. Call **1-800-223-1711.** If you're outside of the United States, visit [Oracle Support Contacts Global Directory](https://www.oracle.com/support/contact.html) to find contact information for your country or region.
 2. Choose option "2" to open a new Service Request (SR).
 3. Choose option "4" for "unsure".
 4. Enter "#" each time you're asked for your CSI number. At the third attempt, your call is directed to an Oracle Support agent.

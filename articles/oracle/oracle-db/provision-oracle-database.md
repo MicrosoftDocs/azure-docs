@@ -63,7 +63,7 @@ Provisioning Oracle Exadata Infrastructure takes a few hours and is a prerequisi
     1. The Oracle Cloud account name field is display-only. If the name isn't showing correctly, your Oracle Database@Azure account setup isn't successfully completed.
 1. From the Configuration tab of the Create Oracle Exadata Infrastructure flow, enter the following information.
 
-    :::image type="content" source="media/oracle-database-azure-infrastructure-03.png" alt-text="Diagram showing the basics Tab of the the configuration Tab of the Create Oracle Exadata Infrastructure Flow" lightbox="media/oracle-database-azure-infrastructure-03.png":::
+    :::image type="content" source="media/oracle-database-azure-infrastructure-03.png" alt-text="Diagram showing the basics Tab of the configuration Tab of the Create Oracle Exadata Infrastructure Flow" lightbox="media/oracle-database-azure-infrastructure-03.png":::
 
     1. From the dropdown list, select the Exadata infrastructure model you want to use for this deployment. 
         >[!NOTE] 
@@ -85,7 +85,7 @@ Provisioning Oracle Exadata Infrastructure takes a few hours and is a prerequisi
     >[!NOTE]
     >These tags are not propagated to the Oracle Cloud Infrastructure (OCI) portal. 
 
-     :::image type="content" source="media/oracle-database-azure-infrastructure-06.png" alt-text="Diagram showing the basics tags tab of the Create Oracle Exadata Infrastructure Flow" lightbox="media/oracle-database-azure-infrastructure-06.png":::
+     :::image type="content" source="media/oracle-database-azure-infrastructure-06.png" alt-text="Diagram showing the Tags tab of the Create Oracle Exadata Infrastructure Flow" lightbox="media/oracle-database-azure-infrastructure-06.png":::
 
 1. From the Review _+ create tab of the Create Oracle Exadata Infrastructure flow, a short validation process is run to check the values that you entered from the previous steps. If the validation fails, you must correct any errors before you can start the provisioning process.
  
