@@ -447,11 +447,32 @@ sections:
 
           - You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription with at least a **Reader** role to access Document Intelligence Studio.
 
-          - For **document analysis and prebuilt models**, you need full access—**Cognitive Services User** role—to at least one [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page. Once you access the model analyze page, you can change the endpoint and key to access other resources, if needed.
+          - For document analysis and prebuilt models, here are the role requirements for user scenarios.
 
-          - For **custom models**, you can either use a **Cognitive Services User** role, or use the endpoint and key of a [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project. You also need to have **Storage Blob Data Contributor** role to access to at least one blob storage account.
+            - Basic
 
-          - For more information, *see* [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md).
+              - **Cognitive Services User**: you need this role to [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page.
+
+            - Advanced
+
+              - **Contributor**: you need this role to create resource group or Document Intelligence resource.
+
+          - For custom model projects, here are the role requirements for user scenarios.
+
+            - Basic
+
+              - **Cognitive Services User**: you need this role to [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to train custom model or analyze with trained models.
+
+              - **Storage Blob Data Contributor**: you need this role to storage account to create project and label data.
+
+            - Advanced
+
+              - **Storage Account Contributor**: you need this role to the storage account to setup CORS settings (this is one time effort if the same storage account is reused).
+
+              - **Contributor**: you need this role to create resource group and resources.
+
+
+          - For more information, *see* [Microsoft Entra built-in roles](../../role-based-access-control/built-in-roles.md) and **Azure role assignments** sections in [Document Intelligence Studio](quickstarts/try-document-intelligence-studio.md) page.
 
       - question: |
           I have multiple pages in a document. Why are there only two pages analyzed in Document Intelligence Studio?
