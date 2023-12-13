@@ -24,7 +24,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### New architecture for hybrid and air-gapped support
 
-Hybrid and air-gapped networks are common in many industries, such as government, financial services, or industrial manufacturing. Air-gapped networks are physically separated from other, unsecured networks like the internet, and are less vulnerable to cyber-attacks. However, air-gapped networks are still not completely secure, can still be breached, and must be secured and monitored carefully.
+Hybrid and air-gapped networks are common in many industries, such as government, financial services, or industrial manufacturing. Air-gapped networks are physically separated from other, unsecured external networks like enterprise networks or the internet, and are less vulnerable to cyber-attacks. However, air-gapped networks are still not completely secure, can still be breached, and must be secured and monitored carefully.
 
 Defender for IoT now provides new guidance for connecting to and monitoring hybrid and air-gapped networks. The new architecture guidance is designed to add efficiency, security, and reliability to your SOC operations, with fewer components to maintain and troubleshoot. The sensor technology used in the new architecture allows for on-premises processing that keeps data within your own network, reducing the need for cloud resources and improving performance.
 
