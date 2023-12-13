@@ -7,11 +7,18 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/12/2023
+ms.date: 12/13/2023
 #Customer intent: As a dev box user, I want to understand how to create and access a dev box so that I can start work.
 ---
 
 # Quickstart: Create and connect to a dev box by using the Microsoft Dev Box developer portal
+
+<!-- Rose: One note for your review regarding the quickstart topic pattern.
+
+   -- The pattern says not to use links that send the user to another article for details or instructions.
+      On line 31, the topic sends the user to another topic for instructions.
+      How would you like to address these issues?
+-->
 
 In this quickstart, you get started with Microsoft Dev Box by creating a dev box through the developer portal. After you create the dev box, you can connect to it with a Remote Desktop session through a browser or through a Remote Desktop app.
 
@@ -33,36 +40,41 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
 1. Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
 
-2. Select **Get started**.
+1. Select **Add a dev box**.
 
    :::image type="content" source="./media/quickstart-create-dev-box/welcome-to-developer-portal.png" alt-text="Screenshot of the developer portal and the button for adding a dev box.":::
 
-3. In **Add a dev box**, enter the following values:
+1. In **Add a dev box**, enter the following values:
 
-   |Name|Value|
-   |----|----|
-   |**Name**|Enter a name for your dev box. Dev box names must be unique within a project.|
-   |**Project**|Select a project from the dropdown list. |
-   |**Dev box pool**|Select a pool from the dropdown list, which includes all the dev box pools for that project. |
+   | Setting | Value |
+   |---|---|
+   | **Name** | Enter a name for your dev box. Dev box names must be unique within a project. |
+   | **Project** | Select a project from the dropdown list. |
+   | **Dev box pool** | Select a pool from the dropdown list, which includes all the dev box pools for that project. |
 
    :::image type="content" source="./media/quickstart-create-dev-box/create-dev-box.png" alt-text="Screenshot of the dialog for adding a dev box.":::
 
-   You see the following information:
-   - How many dev boxes you can create in the project that you selected, if the project has limits configured.
-   - Whether hibernation is supported or not.
-   - A shutdown time if the pool where you're creating the dev box has a shutdown schedule. 
+   After you make your selections, the page shows you the following information:
 
-4. Select **Create** to begin creating your dev box.
+   - How many dev boxes you can create in the project that you selected, if the project has limits configured
+   - Whether hibernation is supported or not
+   - A shutdown time if the pool where you're creating the dev box has a shutdown schedule
+   
+1. Select **Create** to begin creating your dev box.
 
-5. Use the dev box tile in the developer portal to track the progress of creation.
+1. Use the dev box tile in the developer portal to track the progress of creation.
 
    :::image type="content" source="./media/quickstart-create-dev-box/dev-box-tile-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating.":::
+
+<!-- Rose: The creation process took 20 minutes for me. Should we add a note that the process can take some time to complete?
+     The next include file also adds an Important alert into the topic.
+     Adding a Note alert here would result in back-to-back alerts, which isn't ideal. -->
 
 [!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]
 
 ## Connect to a dev box
 
-After you create a dev box, you can connect remotely to the developer VM. Microsoft Dev Box supports connecting to a dev box in the following ways:
+After you create a dev box, you can connect remotely to the developer virtual machine. Microsoft Dev Box supports connecting to a dev box in the following ways:
 
 - Connect through the browser from within the developer portal
 - Connect by using a remote desktop client application
