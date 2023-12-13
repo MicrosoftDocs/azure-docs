@@ -223,7 +223,7 @@ Review this documentation to start collecting call logs: [Enable logs via Diagno
 - We recommend you monitor your data usage and retention policies for cost considerations as needed. See: [Controlling costs.](../../../azure-monitor/essentials/diagnostic-settings.md#controlling-costs)
 
 
-## Diagnose call issues with Call Diagnostics
+### Diagnose calls with Call Diagnostics
 Call Diagnostics is an Azure Monitor experience that delivers tailored insight through specialized telemetry and diagnostic pages in the Azure portal. 
 
 Once you begin storing log data in your log analytics workspace you can visualize your search for individual calls and visualize the data in Call Diagnostics. Within your Azure Monitor account you simply need to navigate to your Azure Communication Services resource and locate the Call Diagnostics blade in your side pane. 
@@ -264,8 +264,6 @@ Once you have enabled logs, you can view call insights in your Azure Resource us
 
 - For examples of deeper suggested analysis see our [Query call logs](../analytics/query-call-logs.md)
 
-<!-- #### Detailed Media Statistics -->
-
 
 #### Analyze end user sentiment with the End of Call Survey
 Once you enable diagnostic settings to capture your survey data you can use our sample [call log queries](../analytics/query-call-logs.md) in Azure Log Analytics to analyze your user's perceived quality experience. User feedback can show you call issues you didn't know you had and help you prioritize your quality improvements. 
@@ -279,11 +277,30 @@ The call may have fired a User Facing Diagnostic indicating a severe problem wit
 > [!NOTE] 
 > As a rule, we recommend prioritizing a user’s Audio connection bandwidth before their video connection and both audio and video before other network traffic. When a network is unable to support both audio and video, you can proactively disable a user’s video or nudge a user to disable their video.
 
+### Request support
+
+If you encounter quality or reliability issues you are unable to resolve and need support, please choose a paid Azure support plans best aligned to your needs. See: [Compare Support Plans](https://azure.microsoft.com/en-us/support/plans).
+
+- If you prefer not to purchase support you can leverage community support. See: [Community Support](https://azure.microsoft.com/en-us/support/community/).
+
+<!-- Free Public support options
+Azure Community Support | Microsoft Azure - This is a hub that allows you to search for a product/service and visit related sites such as:
+Msdn forums (microsoft.com)
+Newest Questions - Stack Overflow - Search for questions tagged 'azure-communication-services'
+Server Fault - Q&A site for system & network admins
+(General Feedback): Top (6645 ideas) – Customer Feedback for ACE Community Tooling (azure.com) - This is our Azure Feedback site for Feature requests
+Microsoft Q&A supported products | Microsoft Docs - Home of technical questions and answers at Microsoft (Search for questions tagged 'azure-communication-services' & you  can 'Follow' the tag)
+New Issue · Azure/Communication (github.com) or New Issue · Azure/azure-sdk-for-media-services (github.com) - File an issue or search the known issues on our github repos -->
+
 ### Other considerations
 <!-- - Considerations for Teams user data:
     - [Azure logs and metrics for Teams external users](../interop/guest/monitor-logs-metrics.md) -->
 
-- If you don't have access to your customer’s Azure portal to view data tied to their Azure Resource ID you can query their workspaces to improve quality on their behalf? 
+
+
+
+
+- If you don't have access to your customer’s Azure portal to view data tied to their Azure Resource ID you can request to query their workspaces to improve quality on their behalf. 
     - [Create a log query across multiple workspaces and apps in Azure Monitor](../../../azure-monitor/logs/cross-workspace-query.md)
 
 
