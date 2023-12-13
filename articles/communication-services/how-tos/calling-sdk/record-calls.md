@@ -27,6 +27,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
+## Cloud Recording
 ::: zone pivot="platform-web"
 [!INCLUDE [Record Calls Client-side JavaScript](./includes/record-calls/record-calls-web.md)]
 ::: zone-end
@@ -41,6 +42,11 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 ::: zone pivot="platform-windows"
 [!INCLUDE [Record Calls Client-side Windows](./includes/record-calls/record-calls-windows.md)]
+::: zone-end
+
+## Local Recording
+::: zone pivot="platform-web"
+[!INCLUDE [Local Recording Notification for Teams JavaScript](./includes/record-calls/record-calls-locally-web.md)]
 ::: zone-end
 
 ## Next steps
