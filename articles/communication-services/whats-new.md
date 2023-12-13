@@ -100,7 +100,7 @@ With this release, you can use Azure bots to enhance your Chat service and integ
 ### Managed Identities in Public Preview
 :::image type="content" source="./media/whats-new-images/11-23/managed-identities.png" lightbox="./media/whats-new-images/10-23/number-lookup-lightbox.png" alt-text="A banner showing images representing identity and security.":::
 
-Azure Communication Services now supports Azure Managed Identities, which are a feature of Microsoft Entra ID (formerly Azure Active Directory (AAD)) that allow resources to securely authenticate with other Azure services that support Entra authentication. Managed Identities is an [Azure Enterprise Promise](/entra/identity/managed-identities-azure-resources/overview) that improves security and simplifies workflows for customers, as they don't need to embed security credentials into their code. Managed Identities can be used in Azure Communication Services for various scenarios, such as connecting Cognitive Services, Azure Storage, and Key-Vault. You can learn more about this feature and how to use it from the Ignite 2023 announcement blog and prerecorded video.
+Azure Communication Services now supports Azure Managed Identities, which are a feature of Microsoft Entra ID (formerly Azure Active Directory (Azure AD)) that allow resources to securely authenticate with other Azure services that support Entra authentication. Managed Identities is an [Azure Enterprise Promise](/entra/identity/managed-identities-azure-resources/overview) that improves security and simplifies workflows for customers, as they don't need to embed security credentials into their code. Managed Identities can be used in Azure Communication Services for various scenarios, such as connecting Cognitive Services, Azure Storage, and Key-Vault. You can learn more about this feature and how to use it from the Ignite 2023 announcement blog and prerecorded video.
 
 [Try the quickstart.](./how-tos/managed-identity.md)
 
@@ -116,10 +116,10 @@ Services features.
 
 Microsoft employees Shawn Henry and Dan Wahlin presented at the DEVintersection & Microsoft Azure + AI conference in Orlando, FL. Shawn and Dan presented four separate sessions plus a workshop. The sessions were: 
 
-1. Transform Customer Experiences with AI-assisted Voice, Video and Chat
-1. Azure for WhatsApp, SMS, and Email Integration: A Developer's Guide
-1. Take Your Apps to the Next Level with AI, Communication, and Organizational Data
-1. Integrate Services Across the Microsoft Cloud to Enhance User Collaboration
+- Transform Customer Experiences with AI-assisted Voice, Video and Chat
+- Azure for WhatsApp, SMS, and Email Integration: A Developer's Guide
+- Take Your Apps to the Next Level with AI, Communication, and Organizational Data
+- Integrate Services Across the Microsoft Cloud to Enhance User Collaboration
 
 and the workshop was entitled "Integrate OpenAI, Communication, and Organizational Data Features into Line of Business Apps"
 
