@@ -81,7 +81,7 @@ Use the DCR Config Generator tool to parse Log Analytics Agent configuration fro
 
 4. **Deploy the generated ARM templates:**
 
-	[Portal](#tab/portal-1)
+	Portal
    
 	- In the portal's search box, type in *template* and then select **Deploy a custom template**.
     
@@ -95,7 +95,7 @@ Use the DCR Config Generator tool to parse Log Analytics Agent configuration fro
 	- On the **Custom deployment** screen, specify a **Subscription**, **Resource group**, and **Region**.    
 	- Select **Review + create** > **Create**.
 
-   	[PowerShell](#tab/azure-powershell)
+   	PowerShell
    
 	```powershell-interactive
    	New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
