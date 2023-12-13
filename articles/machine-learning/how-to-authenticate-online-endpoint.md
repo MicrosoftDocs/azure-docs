@@ -168,6 +168,8 @@ If you want to use a specific identity, use the following code to sign in with t
 az login --identity --username <identityId>
 ```
 
+Then you can use this context to get the token.
+
 ```bash
 export CONTROL_PLANE_TOKEN=`(az account get-access-token --resource https://management.azure.com --query accessToken | tr -d '"')`
 ```
@@ -175,6 +177,7 @@ export CONTROL_PLANE_TOKEN=`(az account get-access-token --resource https://mana
 ### [REST](#tab/rest)
 
 __From Azure VM__
+
 You can acquire the token based on the managed identities for an Azure VM (when the VM is enabled a managed identity). To get the Microsoft Entra token (`aad_token`) for the control plane operation on the Azure VM with managed identity, submit the request to the [Azure Instance Metadata Service](../virtual-machines/instance-metadata-service.md) (IMDS) endpoint for the Azure resource endpoint `management.azure.com`:
 
 ```bash
@@ -186,6 +189,7 @@ To extract the token from the JSON output, the `jq` utility is used as an exampl
 For more information on getting tokens based on managed identities, see [Get a token using HTTP](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http).
 
 __From Compute Instance__
+
 In case you are using Compute Instance of Azure Machine Learning workspace, you must pass the client ID and secret of the managed identity of the Compute Instance to the Managed System Identity (MSI) endpoint configured locally at the Compute Instance instead of IMDS to get the token. You can get the MSI endpoint, client ID and secret from the environment variables `MSI_ENDPOINT`, `DEFAULT_IDENTITY_CLIENT_ID` and `MSI_SECRET` respectively, which are set automatically if you enable managed identity for the Compute Instance. The following code shows how to get the token for the Azure resource endpoint `management.azure.com` from the Compute Instance of Azure Machine Learning workspace:
 
 ```bash
@@ -217,6 +221,7 @@ The studio doesn't expose the Entra token.
 ---
 
 __Verifying the resource endpoint and client ID for Entra token__
+
 After getting the Entra token, you can optionally verify that the token is for the right Azure resource endpoint `management.azure.com` and the right client ID by decoding it via [jwt.ms](https://jwt.ms/), which will return a json response with the following information:
 
 ```json
@@ -348,7 +353,9 @@ You may replace `auth_mode` with `key` for key auth, or `aml_token` for Azure Ma
 
 ### [Studio](#tab/studio)
 
-The studio doesn't support creating an online endpoint with the Microsoft Entra token.
+The studio doesn't require you to explicitly provide the control plane token, as the studio would already authenticate you during sign in, and the token would automatically be retrieved and passed for you.
+
+For more information on deploying online endpoints, see [Deploy an ML model with an online endpoint (via Studio)](how-to-deploy-online-endpoints.md?tabs=azure-studio#deploy-to-azure)
 
 ---
 
@@ -385,7 +392,7 @@ Create the deployment using the YAML file. For this sample, set all traffic to t
 az ml online-deployment create -f blue-deployment.yml --all-traffic
 ```
 
-For more information on deploying online endpoints, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md?tabs=azure-cli#deploy-to-azure)
+For more information on deploying online endpoints, see [Deploy an ML model with an online endpoint (via CLI)](how-to-deploy-online-endpoints.md?tabs=azure-cli#deploy-to-azure)
 
 ### [REST](#tab/rest)
 
@@ -393,11 +400,11 @@ For more information on deploying online endpoints using REST, see [Use REST to 
 
 ### [Python](#tab/python)
 
-For more information on deploying online endpoints, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md?tabs=python#deploy-to-azure)
+For more information on deploying online endpoints, see [Deploy an ML model with an online endpoint (via SDK)](how-to-deploy-online-endpoints.md?tabs=python#deploy-to-azure)
 
 ### [Studio](#tab/studio)
 
-For more information on deploying online endpoints, see [Deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md?tabs=azure-studio#deploy-to-azure)
+For more information on deploying online endpoints, see [Deploy an ML model with an online endpoint (via Studio)](how-to-deploy-online-endpoints.md?tabs=azure-studio#deploy-to-azure)
 
 ---
 
@@ -453,6 +460,7 @@ Key or token can be used for data plane operations, while getting it itself is a
 Getting the _key_ or _Azure Machine Learning token_ will require that the right role is assigned to the user identity that is requesting for it as described in [authorization for control plane operations](concept-endpoints-online-auth.md#control-plane-operations). Getting the _Microsoft Entra token_ will not require additional role for the user identity to get it.
 
 ### [Azure CLI](#tab/azure-cli)
+
 #### Key or Azure Machine Learning token
 
 If you plan to use the CLI to invoke the endpoint, and if the endpoint is set to use an auth mode of key or Azure Machine Learning token (`aml_token`), you're not required to get the data plane token explicitly, as the CLI handles it for you. However, you can still use the CLI to get the data plane token so that you can use it with other channels such as REST API.
@@ -488,6 +496,7 @@ export DATA_PLANE_TOKEN=`(az account get-access-token --resource https://ml.azur
 > - Token for data plane operations is retrieved from Azure resource endpoint `ml.azure.com` instead of `management.azure.com`, unlike the token for control plane operations.
 
 ### [REST](#tab/rest)
+
 #### Key or Azure Machine Learning token
 
 To get the key or Azure Machine Learning token (`aml_token`):
@@ -502,6 +511,7 @@ export DATA_PLANE_TOKEN=$(echo $response | jq -r '.accessToken')
 #### Microsoft Entra token
 
 __From Azure VM__
+
 You can acquire the token based on the managed identities for an Azure VM (when the VM is enabled a managed identity). To get the Microsoft Entra token (`aad_token`) for the _data_ plane operation on the Azure VM with managed identity, submit the request to the [Azure Instance Metadata Service](../virtual-machines/instance-metadata-service.md) (IMDS) endpoint for the Azure resource endpoint `ml.azure.com`:
 
 ```bash
@@ -513,6 +523,7 @@ To extract the token from the JSON output, the `jq` utility is used as an exampl
 For more information on getting tokens based on managed identities, see [Get a token using HTTP](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http).
 
 __From Compute Instance__
+
 In case you are using Compute Instance of Azure Machine Learning workspace, you must pass the client ID and secret of the managed identity of the Compute Instance to the Managed System Identity (MSI) endpoint configured locally at the Compute Instance instead of IMDS to get the token. You can get the MSI endpoint, client ID and secret from the environment variables `MSI_ENDPOINT`, `DEFAULT_IDENTITY_CLIENT_ID` and `MSI_SECRET` respectively, which are set automatically if you enable managed identity for the Compute Instance. The following code shows how to get the token for the Azure resource endpoint `ml.azure.com` from the Compute Instance of Azure Machine Learning workspace:
 
 ```bash
@@ -578,6 +589,7 @@ Entra token is not exposed in the studio.
 ---
 
 __Verifying the resource endpoint and client ID for Entra token__
+
 After getting the Entra token, you can optionally verify that the token is for the right Azure resource endpoint `ml.azure.com` and the right client ID by decoding it via [jwt.ms](https://jwt.ms/), which will return a json response with the following information:
 
 ```json
@@ -617,7 +629,7 @@ In addition to using Azure Machine Learning SDK, you can also use generic Python
 
 #### Microsoft Entra token
 
-Azure Machine Learning SDK using `ml_client.online_endpoints.invoke()` is not supported for Microsoft Entra token. Instead, use generic Python SDK to send the POST request to the scoring URI.
+Azure Machine Learning SDK using `ml_client.online_endpoints.invoke()` isn't supported for Microsoft Entra token. Instead, use generic Python SDK as described below or REST API to send the POST request to the scoring URI.
 
 When calling the online endpoint for scoring, pass the key or token in the authorization header. The following example shows how to call the online endpoint using a key or token using generic Python SDK. In the example, replace the `api_key` variable with your key or token.
 
@@ -673,7 +685,7 @@ If the diagnostic setting is enabled, you can check the `AmlOnlineEndpointTraffi
 
 ## Limitations
 
-Microsoft Entra token for data plane operation does not support the CLI `az ml online-endpoint invoke`, SDK `ml_client.online_endpoints.invoke()`, or ML Studio Test/Consume tabs. Use generic Python SDK or REST API instead to pass the control plane token.
+Endpoints with Microsoft Entra token (`aad_token`) auth mode do not support the CLI `az ml online-endpoint invoke`, SDK `ml_client.online_endpoints.invoke()`, or ML Studio Test/Consume tabs. Instead, use generic Python SDK or REST API to pass the control plane token.
 
 
 ## Related content
