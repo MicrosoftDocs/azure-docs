@@ -17,7 +17,7 @@ The following procedure enables node down cleaner and is applicable for both gre
 
 ## Pre-requisites
 
-- This article assumes that you've installed the Azure command line interface & the `networkcloud` command line interface extension. For more information, see [How to Install CLI Extensions](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-install-cli-extensions?tabs=linux).
+- This article assumes that you've installed the Azure command line interface & the `networkcloud` command line interface extension. For more information, see [How to Install CLI Extensions](./howto-install-cli-extensions.md).
 - Logged in to Azure CLI with the correct subscription
 - The target bare metal machine power state is on and has readyState set to True
 - User must have the appropriate permission assigned to execute the `networkcloud baremetalmachine run-command`
