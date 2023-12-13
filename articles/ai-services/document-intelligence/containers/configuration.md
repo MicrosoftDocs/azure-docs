@@ -8,14 +8,21 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 12/12/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.0.0'
 ---
 
-# Configure Document Intelligence containers
 
-[!INCLUDE [applies to v3.0 and v2.1](../includes/applies-to-v30-v21.md)]
+
+:::moniker range="doc-intel-2.0.0 || doc-intel-3.1.0||doc-intel-4.0.0 "
+    Document Intelligence containers are currently only supported by REST API 2022-08-31 (GA) and the SDKs that target REST API 2022-08-31 (GA). See [Configure Document Intelligence v3.0 containers](configuration.md#configure-document-intelligence-v30-containers?view=doc-intel-3.0.0&preserve-view=true)
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+# Configure Document Intelligence v3.0 containers
+
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)**
 
 With Document Intelligence containers, you can build an application architecture optimized to take advantage of both robust cloud capabilities and edge locality. Containers provide a minimalist, isolated environment that can be easily deployed on-premises and in the cloud. In this article, we show you how to configure the Document Intelligence container run-time environment by using the `docker compose` command arguments. Document Intelligence features are supported by six Document Intelligence feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom**. These containers have both required and optional settings. For a few examples, see the [Example docker-compose.yml file](#example-docker-composeyml-file) section.
 
@@ -150,3 +157,5 @@ networks:
 > [Learn more about running multiple containers and the docker compose command](install-run.md)
 
 * [Azure container instance recipe](../../../ai-services/containers/azure-container-instance-recipe.md)
+
+:::moniker-end
