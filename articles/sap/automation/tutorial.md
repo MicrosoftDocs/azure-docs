@@ -210,7 +210,9 @@ When you choose a name for your service principal, make sure that the name is un
       --scope /subscriptions/${ARM_SUBSCRIPTION_ID}
     ```
 
-If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
+
+> [!IMPORTANT]
+> If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
 
 ## View configuration files
 
