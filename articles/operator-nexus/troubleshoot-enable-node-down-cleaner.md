@@ -11,7 +11,7 @@ ms.custom: troubleshooting
 
 # Enable node down cleaner
 
-Azure Operator Nexus introduces a new feature called Node down cleaner, which is disabled by default.
+Azure Operator Nexus introduces a new feature called node down cleaner, which is disabled by default.
 It helps in moving NFS server pods from a failed node to a new node when a Bare Metal Host is powers off through AZ CLI.
 The following procedure enables node down cleaner and is applicable for both green field and brown field environments.
 
@@ -24,7 +24,7 @@ The following procedure enables node down cleaner and is applicable for both gre
 
 ## Steps to enable node down cleaner on cluster
 
-The procedure needs to be run against management nodes. To determine which nodes are management nodes, you can run the following azure CLI `baremetalmachine run-read-command`.
+The procedure needs to be run against management nodes. To determine which nodes are management nodes, you can run the following Azure CLI `baremetalmachine run-read-command`.
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name <any-ready-baremetal-machine> \

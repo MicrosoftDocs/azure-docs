@@ -150,7 +150,7 @@
       href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
     - name: Troubleshoot BMM reboot issues
       href: troubleshoot-bmm-node-reboot.md
-    - name: Enable Node Down Cleaner
+    - name: Enable node down cleaner
       href: troubleshoot-enable-node-down-cleaner.md
     - name: BareMetal Actions
       expanded: false
