@@ -22,10 +22,10 @@ If you use [Azure Arc for servers](../../azure-arc/servers/overview.md), you can
 
 ## Overview
 
-To enable VM insights on virtual machines outside of Azure, install the agents manually or through some other method on the guest operating system: 
+To enable VM insights on virtual machines outside of Azure, install the agents manually, or using other methods, on the guest operating system: 
 
-- On a Windows machine: [install Azure Monitor Agent](../agents/azure-monitor-agent-windows-client.md) and the [Dependency agent](#install-the-dependency-agent-on-windows) on the machine.
-- On a Linux virtual machine: [install the legacy Log Analytics agent](../agents/agent-linux.md) and the [Dependency agent](#install-the-dependency-agent-on-linux). 
+- On a Windows machine: [Install Azure Monitor Agent](../agents/azure-monitor-agent-windows-client.md) and the [Dependency agent](#install-the-dependency-agent-on-windows) on the machine.
+- On a Linux virtual machine: [Install the legacy Log Analytics agent](../agents/agent-linux.md) and the [Dependency agent](#install-the-dependency-agent-on-linux). 
 
 
 ## Firewall requirements
