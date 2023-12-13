@@ -324,5 +324,5 @@ riff-48khz-16bit-mono-pcm
 ## Next steps
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-- [Get started with custom neural voice](how-to-custom-voice.md)
+- [Get started with custom neural voice](professional-voice-create-project.md)
 - [Batch synthesis](batch-synthesis.md)
