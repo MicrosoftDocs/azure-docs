@@ -52,7 +52,7 @@ landingContent:
   # Card
   - title: Azure NetApp Files concepts 
     linkLists:
-      - linkListType: concepts 
+      - linkListType: concept
         links:
           - text: NAS volumes a s service
             url: network-attached-storage-concept.md 
@@ -80,7 +80,7 @@ landingContent:
         links: 
           - text: Set up Azure NetApp Files and create an NFS volume
             url: azure-netapp-files-quickstart-set-up-account-create-volumes.md
-      - linkListType: how-to 
+      - linkListType: how-to-guide
         links: 
           - text: Register and set up 
             url: azure-netapp-files-register.md
