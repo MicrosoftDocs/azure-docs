@@ -5,144 +5,92 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.date: 12/11/2023
-# Customer-intent: As a cloud administrator, I want to enable VM insights on virtual machines in a hybrid cloud environment without using Azure Arc, so that I can monitor the performance and dependencies of my virtual machines.
+# Customer-intent: As a cloud administrator, I want to enable VM insights on Windows virtual machines in a hybrid cloud environment without using Azure Arc, so that I can monitor the performance and dependencies of my virtual machines.
 
 ---
 
 # Enable VM insights for a hybrid virtual machine
 
-If you use [Azure Arc for servers](../../azure-arc/servers/overview.md), you can onboard hybrid virtual machines in the same way you [enable VM insights on Azure VMs](vminsights-enable-portal.md). This article describes how to enable VM insights on a virtual machine outside of Azure, including on-premises and other cloud environments, without using Azure Arc.
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-vminsights-agent.md)]
+For Linux hybrid machines, use [Azure Arc for servers](../../azure-arc/servers/overview.md) and onboard your virtual machines in the same way you [enable VM insights on Azure VMs](vminsights-enable-portal.md). Azure Arc doesn't currently support Windows hybrid machines. This article describes how to enable VM insights on a Widows virtual machine outside of Azure, including on-premises and other cloud environments, without using Azure Arc, which doesn't currently support Windows.
 
 ## Prerequisites
 
 - [Create a Log Analytics workspace](../logs/quick-create-workspace.md).
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported.
 
-## Overview
-
-To enable VM insights on virtual machines outside of Azure, install the agents manually, or using other methods, on the guest operating system: 
-
-- On a Windows machine: [Install Azure Monitor Agent](../agents/azure-monitor-agent-windows-client.md) and the [Dependency agent](#install-the-dependency-agent-on-windows) on the machine.
-- On a Linux virtual machine: [Install the legacy Log Analytics agent](../agents/agent-linux.md) and the [Dependency agent](#install-the-dependency-agent-on-linux). 
-
-
 ## Firewall requirements
 
 - For Azure Monitor Agent firewall requirements, see [Define Azure Monitor Agent network settings](../agents/azure-monitor-agent-data-collection-endpoint.md#firewall-requirements). 
-- For Log Analytics agent firewall requirements, see [Log Analytics agent overview](../agents/log-analytics-agent.md#network-requirements). 
 - The VM insights Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports.
 
-Azure Monitor Agent and Log Analytics agent transmit data to the Azure Monitor service directly or through the [Operations Management Suite gateway](../../azure-monitor/agents/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+Azure Monitor Agent transmits data to the Azure Monitor service directly or through the [Operations Management Suite gateway](../../azure-monitor/agents/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
-## Dependency agent
+## Install Azure Monitor Agent and Dependency agent
 
->[!NOTE]
->The information in this section also applies to the [Service Map solution](./service-map.md).
+To enable VM insights on virtual machines outside of Azure, install the agents manually, or using other methods, on the guest operating system: 
 
-You can download the Dependency agent from these locations:
+1. [Install Azure Monitor Agent](../agents/azure-monitor-agent-windows-client.md). 
+1. Optionally, to use the [Map feature of VM insights](vminsights-maps.md), install Dependency agent using the installer or PowerShell script:
 
-| File | OS | Version | SHA-256 |
-|:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.17.3860 | BA3D1CF76E2BCCE35815B0F62C0A18E84E0459B468066D0F80F56514A74E0BF6  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.17.3860 | 22538642730748F4AD8688D00C2919055825BA425BAAD3591D6EBE0021863617  |
+    - To install Dependency agent using the installer: 
 
-## Install the Dependency agent on Windows
+        Download [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) and install the agent manually on by running `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install the agent interactively. You require Administrator privileges on the guest OS to install or uninstall the agent.
+        
+        The agent setup command supports these parameters from the command line:
+        
+        | Parameter | Description |
+        |:--|:--|
+        | /? | Returns a list of the command-line options. |
+        | /S | Performs a silent installation with no user interaction. |
+        
+        For example, to run the installation program with the `/?` parameter, enter **InstallDependencyAgent-Windows.exe /?**.
+    
+        Files for the Windows Dependency agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
 
-You can install the Dependency agent manually on Windows computers by running `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install the agent interactively. You require Administrator privileges on the guest OS to install or uninstall the agent.
+    - To install Dependency agent using PowerShell:
 
-The following table highlights the parameters that are supported by setup for the agent from the command line.
-
-| Parameter | Description |
-|:--|:--|
-| /? | Returns a list of the command-line options. |
-| /S | Performs a silent installation with no user interaction. |
-
-For example, to run the installation program with the `/?` parameter, enter **InstallDependencyAgent-Windows.exe /?**.
-
-Files for the Windows Dependency agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
-
-### PowerShell script
-Use the following sample PowerShell script to download and install the agent:
-
-```powershell
-Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
-
-.\InstallDependencyAgent-Windows.exe /S
-```
-
-## Install the Dependency agent on Linux
-
-The Dependency agent is installed on Linux servers from *InstallDependencyAgent-Linux64.bin*, a shell script with a self-extracting binary. You can run the file by using `sh` or add execute permissions to the file itself.
-
->[!NOTE]
-> Root access is required to install or configure the agent.
-
-| Parameter | Description |
-|:--|:--|
-| -help | Get a list of the command-line options. |
-| -s | Perform a silent installation with no user prompts. |
-| --check | Check permissions and the operating system, but don't install the agent. |
-
-For example, to run the installation program with the `-help` parameter, enter **InstallDependencyAgent-Linux64.bin -help**. Install the Linux Dependency agent as root by running the command `sh InstallDependencyAgent-Linux64.bin`.
-
-If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
-
-Files for the Dependency agent are placed in the following directories:
-
-| Files | Location |
-|:--|:--|
-| Core files | /opt/microsoft/dependency-agent |
-| Log files | /var/opt/microsoft/dependency-agent/log |
-| Config files | /etc/opt/microsoft/dependency-agent/config |
-| Service executable files | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
-| Binary storage files | /var/opt/microsoft/dependency-agent/storage |
-
-### Shell script
-Use the following sample shell script to download and install the agent:
-
-```
-wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
-sudo sh InstallDependencyAgent-Linux64.bin -s
-```
-
-## Desired State Configuration
-
-To deploy the Dependency agent by using Desired State Configuration (DSC), you can use the `xPSDesiredStateConfiguration` module with the following example code:
-
-```powershell
-configuration VMInsights {
-
-    Import-DscResource -ModuleName xPSDesiredStateConfiguration
-
-    $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
-
-    Node localhost
-    {
-        # Download and install the Dependency agent
-        xRemoteFile DAPackage
-        {
-            Uri = "https://aka.ms/dependencyagentwindows"
-            DestinationPath = $DAPackageLocalPath
-        }
-
-        xPackage DA
-        {
-            Ensure="Present"
-            Name = "Dependency Agent"
-            Path = $DAPackageLocalPath
-            Arguments = '/S'
-            ProductId = ""
-            InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
-            InstalledCheckRegValueName = "DisplayName"
-            InstalledCheckRegValueData = "Dependency Agent"
-            DependsOn = "[xRemoteFile]DAPackage"
-        }
-    }
-}
-```
-
+        - Use this sample PowerShell script to download and install the agent:
+        
+            ```powershell
+            Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+            
+            .\InstallDependencyAgent-Windows.exe /S
+            ```
+        
+        - To deploy the Dependency agent by using Desired State Configuration (DSC), you can use the `xPSDesiredStateConfiguration` module with the following sample code:
+        
+            ```powershell
+            configuration VMInsights {
+            
+                Import-DscResource -ModuleName xPSDesiredStateConfiguration
+            
+                $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
+            
+                Node localhost
+                {
+                    # Download and install the Dependency agent
+                    xRemoteFile DAPackage
+                    {
+                        Uri = "https://aka.ms/dependencyagentwindows"
+                        DestinationPath = $DAPackageLocalPath
+                    }
+            
+                    xPackage DA
+                    {
+                        Ensure="Present"
+                        Name = "Dependency Agent"
+                        Path = $DAPackageLocalPath
+                        Arguments = '/S'
+                        ProductId = ""
+                        InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+                        InstalledCheckRegValueName = "DisplayName"
+                        InstalledCheckRegValueData = "Dependency Agent"
+                        DependsOn = "[xRemoteFile]DAPackage"
+                    }
+                }
+            }
+            ```
+        
 ## Troubleshooting
 
 This section offers troubleshooting tips for common issues.
@@ -151,10 +99,7 @@ This section offers troubleshooting tips for common issues.
 
 If your Dependency agent installation succeeded but you don't see your computer on the map, diagnose the problem by following these steps:
 
-1. Is the Dependency agent installed successfully? Check to see if the service is installed and running.
-
-    - **Windows**: Look for the service named "Microsoft Dependency agent."
-    - **Linux**: Look for the running process "microsoft-dependency-agent."
+1. Is the Dependency agent installed successfully? Check to see if the service is installed and running. Look for the service named "Microsoft Dependency agent."
 
 1. Are you on the [Free pricing tier of Log Analytics](/previous-versions/azure/azure-monitor/insights/solutions)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
 
@@ -170,7 +115,7 @@ If your Dependency agent installation succeeded but you don't see your computer 
 
 You see your server on the map, but it has no process or connection data. In this case, the Dependency agent is installed and running, but the kernel driver didn't load.
 
-Check the *C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log* file (Windows) or */var/opt/microsoft/dependency-agent/log/service.log* file (Linux). The last lines of the file should indicate why the kernel didn't load. For example, the kernel might not be supported on Linux if you updated your kernel.
+Check the *C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log* file . The last lines of the file should indicate why the kernel didn't load. 
 
 ## Next steps
 
