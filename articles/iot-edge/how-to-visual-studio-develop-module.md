@@ -170,7 +170,7 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
 
 ::: zone pivot="iotedge-dev-cli"
 
-1. In Visual Studio Code, open *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
+1. Open *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
 1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
 
     ```json
@@ -510,7 +510,6 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 >
 
 ::: zone-end
-<!--iotedgedev end-->
 
 ### Confirm the deployment to your device
 
