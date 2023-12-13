@@ -54,7 +54,7 @@ Azure Communications Gateway doesn't add a header if the number hasn't been prov
 
 The following diagram shows an Azure Communications Gateway deployment configured to add a `X-MS-Operator-Content` header to messages sent to the operator network from Operator Connect.
 
-:::image type="complex" source="media/azure-communications-gateway-provisioning-platform-custom-header.svg" alt-text="Call flow showing outbound call from Operator Connect with custom header configuration.":::
+:::image type="complex" source="media/azure-communications-gateway-provisioning-platform-custom-header.svg" alt-text="Call flow diagram showing outbound call from Operator Connect with custom header configuration.":::
     Call flow diagram showing an invite from a number assigned to a customer. Azure Communications Gateway checks its internal database to determine if the calling number has custom header configuration. Because the number configuration includes custom header contents, Azure Communications Gateway adds the header contents as an X-MS-Operator-Content header before forwarding the call to the operator network.
 :::image-end:::
 
