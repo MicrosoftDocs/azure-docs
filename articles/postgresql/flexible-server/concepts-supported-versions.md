@@ -8,7 +8,7 @@ ms.subservice: flexible-server
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 12/12/2023
 ---
 
 # Supported PostgreSQL major versions in Azure Database for PostgreSQL - Flexible Server
@@ -24,8 +24,7 @@ PostgreSQL version 16 is now generally available in all Azure regions. The curre
 
 ## PostgreSQL version 15
 
-PostgreSQL version 15 is now generally available in all Azure regions. The current minor release is **15.4**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/15.4/) to learn more about improvements and fixes in this release. New servers are created with this minor version. 
-
+The current minor release is **15.4**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/15.4/) to learn more about improvements and fixes in this release. New servers are created with this minor version. 
 
 ## PostgreSQL version 14
 
@@ -52,7 +51,7 @@ We don't support PostgreSQL version 10 and older for Azure Database for PostgreS
 
 The PostgreSQL project regularly issues minor releases to fix reported bugs. Azure Database for PostgreSQL flexible server automatically patches servers with minor releases during the service's monthly deployments.
 
-Automation for major version upgrade isn't yet supported. For example, there's currently no automatic upgrade from PostgreSQL 11 to PostgreSQL 12.<!-- To upgrade to the next major version, create a [database dump and restore](howto-migrate-using-dump-and-restore.md) to a server that was created with the new engine version.-->
+It is also possible to do in-place major version upgrades by means of the [Major Version Upgrade](./concepts-major-version-upgrade.md) feature. This feature greatly simplifies the upgrade process of an instance from a given major version (PostgreSQL 11, for example) to any higher supported version (like PostgreSQL 16).
 
 ## Supportability and retirement policy of the underlying operating system
 
