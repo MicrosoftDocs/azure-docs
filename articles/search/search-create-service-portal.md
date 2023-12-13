@@ -15,10 +15,6 @@ ms.date: 12/12/2023
 
 # Create an Azure AI Search service in the portal
 
-> [!IMPORTANT]
-> Due to high demand:
-> * Azure AI Search is currently resource constrained in West Europe. North Europe is an alternative. If you don't immediately need semantic ranker or skillsets, Sweden Central is another option.
-
 [**Azure AI Search**](search-what-is-azure-search.md) is an Azure resource used for adding a full text search experience to custom apps.
 
 If you have an Azure subscription, including a [trial subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), you can create a search service for free. Free services have limitations, but you can complete all of the quickstarts and most tutorials.
@@ -88,6 +84,10 @@ Service name requirements:
 > If you think you'll be using multiple services, we recommend including the region (or location) in the service name as a naming convention. Services within the same region can exchange data at no charge, so if Azure AI Search is in West US, and you have other services also in West US, a name like `mysearchservice-westus` can save you a trip to the properties page when deciding how to combine or attach resources.
 
 ## Choose a region
+
+> [!IMPORTANT]
+> Due to high demand:
+> + Azure AI Search is currently resource constrained in West Europe. If you don't immediately need semantic ranker or skillsets, choose Sweden Central because it has the most capacity. Otherwise, North Europe is another option.
 
 Azure AI Search is available in most regions, as listed in the [**Products available by region**](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.
 
