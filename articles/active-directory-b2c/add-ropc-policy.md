@@ -9,11 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 12/16/2023
 ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer intent: As a developer integrating Azure AD B2C into my application, I want to set up the resource owner password credentials flow, so that my application can exchange valid credentials for tokens and authenticate users.
 ---
 
 # Set up a resource owner password credentials flow in Azure Active Directory B2C
@@ -69,12 +71,13 @@ When using the ROPC flow, consider the following:
 ::: zone pivot="b2c-custom-policy"
 
 ## Pre-requisite 
-If you've not done so, learn about custom policy starter pack in [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md).
+If you've not done so, learn how to use the custom policy starter pack in [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md).
 
 ##  Create a resource owner policy
 
 1. Open the *TrustFrameworkExtensions.xml* file.
-2. If it doesn't exist already, add a **ClaimsSchema** element and its child elements as the first element under the **BuildingBlocks** element:
+ 
+1. Under the **BuildingBlocks** element, locate the **ClaimsSchema** element, then add the following claims types:  
 
     ```xml
     <ClaimsSchema>

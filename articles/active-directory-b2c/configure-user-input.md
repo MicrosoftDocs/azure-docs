@@ -9,17 +9,20 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 12/28/2022
+ms.date: 12/13/2023
 ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer intent: As a developer or IT administrator, I want to add a new attribute to the sign-up journey, customize it's input type, and define whether it's mandatory or optional.
+
 ---
 #  Add user attributes and customize user input in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-In this article, you collect a new attribute during your sign-up journey in Azure Active Directory B2C (Azure AD B2C). You'll obtain the users' city, configure it as a drop-down, and define whether it's required to be provided.
+In this article, you collect a new attribute, such as city, during your sign-up journey in Azure Active Directory B2C (Azure AD B2C). You obtain the users' city, configure it as a drop-down, and define whether it's required to be provided.
 
 > [!IMPORTANT]
 > This sample uses the built-in claim 'city'. Instead, you can choose one of the supported [Azure AD B2C built-in attributes](user-profile-attributes.md) or a custom attribute. To use a custom attribute, [enable custom attributes](user-flow-custom-attributes.md). To use a different built-in or custom attribute, replace 'city' with the attribute of your choice, for example the built-in attribute *jobTitle* or a custom attribute like *extension_loyaltyId*.  
@@ -42,11 +45,11 @@ In this article, you collect a new attribute during your sign-up journey in Azur
 
 ## Provide optional claims to your app
 
-The application claims are values that are returned to the application. Update your user flow to contain the desired claims.
+The application claims are values that are returned to the application. Update your user flow to contain the desired claims:
 
 1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
 1. Select **Application claims**.
-1. Select attributes that you want send back to your application (for example, "City")..
+1. Select attributes that you want send back to your application (for example, "City").
 1. Select **Save**.
  
 ## Configure user attributes input type
@@ -123,7 +126,7 @@ The `LocalizedCollections` is an array of `Name` and `Value` pairs. The order fo
 1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**
+1. Select **Run user flow**
 
 ::: zone-end
 
@@ -336,7 +339,7 @@ To return the city claim back to the relying party application, add an output cl
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
-1. From the sign-up or sign-in page, select **Sign up now** to sign up. Finish entering the user information including the city name, and then click **Create**. You should see the contents of the token that was returned.
+1. From the sign-up or sign-in page, select **Sign up now** to sign up. Finish entering the user information including the city name, and then select **Create**. You should see the contents of the token that was returned.
 
 ::: zone-end
 

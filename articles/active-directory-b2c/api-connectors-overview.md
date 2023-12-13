@@ -5,13 +5,15 @@ description: Use Microsoft Entra API connectors to customize and extend your use
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 12/13/2023
 
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
 ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
+
+#Customer intent: As a developer or IT administrator, I want to use API connectors to integrate your sign-up user flows with REST APIs.
 ---
 
 # Use API connectors to customize and extend sign-up user flows and custom policies with external identity data sources 
@@ -243,7 +245,7 @@ If you reference a REST API technical profile directly from a user journey, the 
 
 Your REST API can be developed on any platform and written in any programing language, as long as it's secure and can send and receive claims in JSON format.
 
-The request to your REST API service comes from Azure AD B2C servers. The REST API service must be published to a publicly accessible HTTPS endpoint. The REST API calls will arrive from an Azure data center IP address.
+The request to your REST API service comes from Azure AD B2C servers. The REST API service must be published to a publicly accessible HTTPS endpoint. The REST API calls arrives from an Azure data center IP address.
 
 You can use serverless cloud functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md) for ease of development.
 
@@ -269,7 +271,7 @@ See the following articles for examples of using a RESTful technical profile:
 - [Walkthrough: Add an API connector to a sign-up user flow](add-api-connector.md)
 - [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](add-api-connector-token-enrichment.md)
 - [Secure your REST API services](secure-rest-api.md)
-- [Reference: RESTful technical profile](restful-technical-profile.md)
+- [Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md)
 
 ::: zone-end
 

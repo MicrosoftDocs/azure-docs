@@ -9,11 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 12/13/2023
 ms.custom: "b2c-support"
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer intent: As a developer, I want to customize the user interface of my application, so that I can provide a seamless and branded user experience for sign-up, sign-in, profile editing, and password resetting.
 ---
 
 # Customize the user interface in Azure Active Directory B2C
