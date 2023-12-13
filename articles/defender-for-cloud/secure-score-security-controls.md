@@ -73,7 +73,7 @@ The equation for determining the score for a security control is:
 
 :::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-control.png" alt-text="Screenshot that shows the equation for calculating a security control score." :::
 
-The current score for each control is a measure of the status of the resources *within* the control. Each individual security control contributes toward the secure score. Each resource that's affected by a recommendation within the control contributes toward the control's current score. The secure score doesn't include resources found in preview recommendations.
+The current score for each control is a measure of the status of the resources within the control. Each individual security control contributes toward the secure score. Each resource that's affected by a recommendation within the control contributes toward the control's current score. The secure score doesn't include resources found in preview recommendations.
 
 In the following example, the maximum score of 6 is divided by 78 because that's the sum of the healthy and unhealthy resources. So, 6 / 78 = 0.0769. Multiplying that by the number of healthy resources (4) results in the current score: 0.0769 * 4 = 0.31.
 
