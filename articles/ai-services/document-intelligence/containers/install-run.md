@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 12/13/2023
 ms.author: lajanuar
 ---
 
@@ -18,46 +18,28 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD051 -->
 
-::: moniker range="doc-intel-4.0.0"
-[!INCLUDE [applies to v4.0](../includes/applies-to-v40.md)]
-::: moniker-end
+:::moniker range="doc-intel-2.1.0 || doc-intel-3.1.0||doc-intel-4.0.0"
 
-::: moniker range="doc-intel-3.1.0"
-[!INCLUDE [applies to v3.1](../includes/applies-to-v31.md)]
-::: moniker-end
+Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` only:
 
-::: moniker range="doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](../includes/applies-to-v30.md)]
-::: moniker-end
+* [REST API `2022-08-31 (GA)`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+* [SDKs targeting `REST API 2022-08-31 (GA)`](../sdk-overview-v3-0.md)
 
-::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
-::: moniker-end
+See [**Install and run Document Intelligence v3.0 containers**](?view=doc-intel-3.0.0&preserve-view=true) for supported container documentation
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)**
 
 Azure AI Document Intelligence is an Azure AI service that lets you build automated data processing software using machine-learning technology. Document Intelligence enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your documents. The results are delivered as structured data that ../includes the relationships in the original file.
 
-::: moniker range=">=doc-intel-3.0.0"
 In this article you learn how to download, install, and run Document Intelligence containers. Containers enable you to run the Document Intelligence service in your own environment. Containers are great for specific security and data governance requirements.
 
 * **Read**, **Layout**, **General Document**, **ID Document**,  **Receipt**, **Invoice**, **Business Card**, and **Custom** models are supported by Document Intelligence v3.0 containers.
 
 * **Business Card** model is currently only supported in the [v2.1 containers](install-run.md?view=doc-intel-2.1.0&preserve-view=true).
-
-::: moniker-end
-
-::: moniker range="doc-intel-2.1.0"
-
-> [!IMPORTANT]
->
-> Document Intelligence v3.0 containers are now generally available. If you are getting started with containers, consider using the v3 containers.
-
-In this article you learn how to download, install, and run Document Intelligence containers. Containers enable you to run the Document Intelligence service in your own environment. Containers are great for specific security and data governance requirements.
-
-* **Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** models are supported by six Document Intelligence feature containers.
-
-* For Receipt, Business Card and ID Document containers you also need the **Read** OCR container.
-
-::: moniker-end
 
 ## Prerequisites
 
@@ -75,23 +57,6 @@ You also need the following to use Document Intelligence containers:
 |---------|----------|
 |**Azure CLI (command-line interface)** | The [Azure CLI](/cli/azure/install-azure-cli) enables you to use a set of online commands to create and manage Azure resources. It's available to install in Windows, macOS, and Linux environments and can be run in a Docker container and Azure Cloud Shell. |
 
-:::moniker range="doc-intel-2.1.0"
-You also need an **Azure AI Vision API resource to process business cards, ID documents, or Receipts**.
-
-* You can access the Recognize Text feature as either an Azure resource (the REST API or SDK) or a **cognitive-services-recognize-text** [container](../../../ai-services/Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image).
-
-* The usual [billing](#billing) fees apply.
-
-* If you use the **cognitive-services-recognize-text** container, make sure that your Azure AI Vision key for the Document Intelligence container is the key specified in the Azure AI Vision `docker run`  or `docker compose` command for the **cognitive-services-recognize-text** container and  your billing endpoint is the container's endpoint (for example, `http://localhost:5000`).
-
-* If you use both the Azure AI Vision container and Document Intelligence container together on the same host, they can't both be started with the default port of **5000**.
-
-* Pass in both the key and endpoints for your Azure AI Vision Azure cloud or Azure AI container:
-
-  * **{COMPUTER_VISION_KEY}**: one of the two available resource keys.
-  * **{COMPUTER_VISION_ENDPOINT_URI}**: the endpoint for the resource used to track billing information.
-:::moniker-end
-
 ## Host computer requirements
 
 The host is a x64-based computer that runs the Docker container. It can be a computer on your premises or a Docker hosting service in Azure, such as:
@@ -105,19 +70,7 @@ The host is a x64-based computer that runs the Docker container. It can be a com
 #### Required supporting containers
 
 The following table lists the supporting container(s) for each Document Intelligence container you download. For more information, see the [Billing](#billing) section.
-:::moniker range="doc-intel-2.1.0"
 
-| Feature container | Supporting container(s) |
-|---------|-----------|
-| **Layout** | Not required |
-| **Business Card** | **Azure AI Vision Read**|
-| **ID Document** | **Azure AI Vision Read** |
-| **Invoice**   | **Layout** |
-| **Receipt** |**Azure AI Vision Read** |
-| **Custom** | **Custom API**, **Custom Supervised**, **Lay&#8203;out**|
-:::moniker-end
-
-:::moniker range=">=doc-intel-3.0.0"
 Feature container | Supporting container(s) |
 |---------|-----------|
 | **Read** | Not required |
@@ -129,15 +82,11 @@ Feature container | Supporting container(s) |
 | **ID Document** | **Read**|
 | **Custom Template** | **Layout** |
 
-:::moniker-end
-
 #### Recommended CPU cores and memory
 
 > [!NOTE]
 >
 > The minimum and recommended values are based on Docker limits and *not* the host machine resources.
-
-:::moniker range=">=doc-intel-3.0.0"
 
 ##### Document Intelligence containers
 
@@ -151,31 +100,6 @@ Feature container | Supporting container(s) |
 | `Invoice` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
 | `Receipt` | `8` cores, 11-GB memory | `8` cores, 24-GB memory |
 | `Custom Template` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
-
-:::moniker-end
-
-:::moniker range="doc-intel-2.1.0"
-
-##### Read, Layout, and prebuilt containers
-
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-| `Read 3.2` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
-| `Layout 2.1` | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
-| `Business Card 2.1` | `2` cores, 4-GB memory | `4` cores, 4-GB memory |
-| `ID Document 2.1` | `1` core, 2-GB memory |`2` cores, 2-GB memory |
-| `Invoice 2.1` | `4` cores, 8-GB memory | `8` cores, 8-GB memory |
-| `Receipt 2.1` |  `4` cores, 8-GB memory | `8` cores, 8-GB memory  |
-
-##### Custom containers
-
-The following host machine requirements are applicable to **train and analyze** requests:
-
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-| Custom API| 0.5 cores, 0.5-GB memory| `1` core, 1-GB memory |
-|Custom Supervised | `4` cores, 2-GB memory | `8` cores, 4-GB memory|
-:::moniker-end
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker compose` or `docker run`  command.
@@ -202,8 +126,6 @@ The following host machine requirements are applicable to **train and analyze** 
 
 > [!IMPORTANT]
 > The keys are used to access your Document Intelligence resource. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
-
-:::moniker range=">=doc-intel-3.0.0"
 
 ### [Read](#tab/read)
 
@@ -431,25 +353,25 @@ In addition to the [prerequisites](#prerequisites), you need to do the following
 
 * Name this folder **files**.
 * We reference the file path for this folder as  **{FILE_MOUNT_PATH}**.
-* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called files, located in the same folder as the docker-compose file, the .env file entry is `FILE_MOUNT_PATH="./files"`
+* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called files, located in the same folder as the `docker-compose` file, the .env file entry is `FILE_MOUNT_PATH="./files"`
 
 #### Create a folder to store the logs  written by the Document Intelligence service on your local machine
 
 * Name this folder **output**.
 * We reference the file path for this folder as **{OUTPUT_MOUNT_PATH}**.
-* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called output, located in the same folder as the docker-compose file, the .env file entry is `OUTPUT_MOUNT_PATH="./output"`
+* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called output, located in the same folder as the `docker-compose` file, the .env file entry is `OUTPUT_MOUNT_PATH="./output"`
 
 #### Create a folder for storing internal processing shared between the containers
 
 * Name this folder **shared**.
 * We reference the file path for this folder as  **{SHARED_MOUNT_PATH}**.
-* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called shared, located in the same folder as the docker-compose file, the .env file entry is `SHARED_MOUNT_PATH="./shared"`
+* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called shared, located in the same folder as the `docker-compose` file, the .env file entry is `SHARED_MOUNT_PATH="./shared"`
 
 #### Create a folder for the Studio to store project related information
 
 * Name this folder **db**.
 * We reference the file path for this folder as  **{DB_MOUNT_PATH}**.
-* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called db, located in the same folder as the docker-compose file, the .env file entry is `DB_MOUNT_PATH="./db"`
+* Copy the file path in a convenient location, you need to add it to your **.env** file. As an example if the folder is called db, located in the same folder as the `docker-compose` file, the .env file entry is `DB_MOUNT_PATH="./db"`
 
 #### Create an environment file
 
@@ -722,469 +644,20 @@ POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2023-
 
 ---
 
-:::moniker-end
-
-:::moniker range="doc-intel-2.1.0"
-
-### [Read](#tab/read)
-
-Document Intelligence v2.1 doesn't support the Read container. 
-
-### [General Document](#tab/general-document)
-
-Document Intelligence v2.1 doesn't support the General Document container.
-
-### [Layout](#tab/layout)
-
-The following code sample is a self-contained `docker compose`  example to run the Document Intelligence Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Layout container instance.
-
-```yml
-version: "3.9"
-services:
-  azure-cognitive-service-layout:
-    container_name: azure-cognitive-service-layout
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
-    environment:
-      - EULA=accept
-      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apiKey={FORM_RECOGNIZER_KEY}
-    ports:
-      - "5000"
-    networks:
-      - ocrvnet
-networks:
-  ocrvnet:
-    driver: bridge
-
-```
-
-Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
-
-```bash
-docker-compose up
-```
-
-### [Invoice](#tab/invoice)
-
-The following code sample is a self-contained `docker compose` example to run Document Intelligence Invoice and Layout containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.  Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Invoice and Layout containers.
-
-```yml
-version: "3.9"
-services:
-  azure-cognitive-service-invoice:
-    container_name: azure-cognitive-service-invoice
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice
-    environment:
-      - EULA=accept
-      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apiKey={FORM_RECOGNIZER_KEY}
-      - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
-    ports:
-      - "5000:5050"
-    networks:
-      - ocrvnet
-  azure-cognitive-service-layout:
-    container_name: azure-cognitive-service-layout
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
-    environment:
-      - EULA=accept
-      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apiKey={FORM_RECOGNIZER_KEY}
-    networks:
-      - ocrvnet
-
-networks:
-  ocrvnet:
-    driver: bridge
-```
-
-Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
-
-```bash
-docker-compose up
-```
-
-### [Receipt](#tab/receipt)
-
-The following code sample is a self-contained `docker compose` example to run Document Intelligence Receipt and Read containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Receipt container. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_KEY} values for your Azure AI Vision Read container.
-
-```yml
-version: "3.9"
-services:
-  azure-cognitive-service-receipt:
-    container_name: azure-cognitive-service-receipt
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt
-    environment:
-      - EULA=accept
-      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apiKey={FORM_RECOGNIZER_KEY}
-      - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
-    ports:
-      - "5000:5050"
-    networks:
-      - ocrvnet
-  azure-cognitive-service-read:
-    container_name: azure-cognitive-service-read
-    image: mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-04-12
-    environment:
-      - EULA=accept
-      - billing={COMPUTER_VISION_ENDPOINT_URI}
-      - apiKey={COMPUTER_VISION_KEY}
-    networks:
-      - ocrvnet
-
-networks:
-  ocrvnet:
-    driver: bridge
-```
-
-Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
-
-```bash
-docker-compose up
-```
-
-### [ID Document](#tab/id-document)
-
-The following code sample is a self-contained `docker compose` example to run Document Intelligence ID Document and Read containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your ID document container. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_KEY} values for your Azure AI Vision Read container.
-
-```yml
-version: "3.9"
-services:
-  azure-cognitive-service-id:
-    container_name: azure-cognitive-service-id
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document
-    environment:
-      - EULA=accept
-      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apiKey={FORM_RECOGNIZER_KEY}
-      - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
-    ports:
-      - "5000:5050"
-    networks:
-      - ocrvnet
-  azure-cognitive-service-read:
-    container_name: azure-cognitive-service-read
-    image: mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-04-12
-    environment:
-      - EULA=accept
-      - billing={COMPUTER_VISION_ENDPOINT_URI}
-      - apiKey={COMPUTER_VISION_KEY}
-    networks:
-      - ocrvnet
-
-networks:
-  ocrvnet:
-    driver: bridge
-```
-
-Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
-
-```bash
-docker-compose up
-```
-
-### [Business Card](#tab/business-card)
-
-The following code sample is a self-contained `docker compose` example to run Document Intelligence Business Card and Read containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_KEY} values for your Business Card container instance. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_KEY} for your Azure AI Vision Read container.
-
-```yml
-version: "3.9"
-services:
-  azure-cognitive-service-businesscard:
-    container_name: azure-cognitive-service-businesscard
-    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/businesscard
-    environment:
-      - EULA=accept
-      - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-      - apiKey={FORM_RECOGNIZER_KEY}
-      - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
-    ports:
-      - "5000:5050"
-    networks:
-      - ocrvnet
-  azure-cognitive-service-read:
-    container_name: azure-cognitive-service-read
-    image: mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-04-12
-    environment:
-      - EULA=accept
-      - billing={COMPUTER_VISION_ENDPOINT_URI}
-      - apiKey={COMPUTER_VISION_KEY}
-    networks:
-      - ocrvnet
-
-networks:
-  ocrvnet:
-    driver: bridge
-```
-
-Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
-
-```bash
-docker-compose up
-```
-
-### [Custom](#tab/custom)
-
-In addition to the [prerequisites](#prerequisites), you need to do the following to process a custom document:
-
-#### &bullet; Create a folder to store the following files
-
-  1. [**.env**](#-create-an-environment-file)
-  1. [**nginx.conf**](#-create-an-nginx-file)
-  1. [**docker-compose.yml**](#-create-a-docker-compose-file)
-
-#### &bullet; Create a folder to store your input data
-
-  1. Name this folder **shared**.
-  1. We reference the file path for this folder as  **{SHARED_MOUNT_PATH}**.
-  1. Copy the file path in a convenient location, such as *Microsoft Notepad*. You need to add it to your **.env** file.
-
-#### &bullet; Create a folder to store the logs  written by the Document Intelligence service on your local machine.
-
-  1. Name this folder **output**.
-  1. We reference the file path for this folder as **{OUTPUT_MOUNT_PATH}**.
-  1. Copy the file path in a convenient location, such as *Microsoft Notepad*. You need to add it to your **.env** file.
-
-#### &bullet; Create an environment file
-
-  1. Name this file **.env**.
-
-  1. Declare the following environment variables:
-
-  ```text
-  SHARED_MOUNT_PATH="<file-path-to-shared-folder>"
-  OUTPUT_MOUNT_PATH="<file -path-to-output-folder>"
-  FORM_RECOGNIZER_ENDPOINT_URI="<your-form-recognizer-endpoint>"
-  FORM_RECOGNIZER_KEY="<your-form-recognizer-key>"
-  RABBITMQ_HOSTNAME="rabbitmq"
-  RABBITMQ_PORT=5672
-  NGINX_CONF_FILE="<file-path>"
-  ```
-
-#### &bullet; Create an **nginx** file
-
-  1. Name this file **nginx.conf**.
-
-  1. Enter the following configuration:
-
-```text
-worker_processes 1;
-
-events { worker_connections 1024; }
-
-http {
-
-    sendfile on;
-    client_max_body_size 90M;
-    upstream docker-api {
-        server azure-cognitive-service-custom-api:5000;
-    }
-
-    upstream docker-layout {
-        server  azure-cognitive-service-layout:5000;
-    }
-
-    server {
-        listen 5000;
-
-        location = / {
-            proxy_set_header Host $host:$server_port;
-            proxy_set_header Referer $scheme://$host:$server_port;
-            proxy_pass http://docker-api/;
-
-        }
-
-        location /status {
-            proxy_pass http://docker-api/status;
-
-        }
-
-        location /ready {
-            proxy_pass http://docker-api/ready;
-
-        }
-
-        location /swagger {
-            proxy_pass http://docker-api/swagger;
-
-        }
-
-        location /formrecognizer/v2.1/custom/ {
-            proxy_set_header Host $host:$server_port;
-            proxy_set_header Referer $scheme://$host:$server_port;
-            proxy_pass http://docker-api/formrecognizer/v2.1/custom/;
-
-        }
-
-        location /formrecognizer/v2.1/layout/ {
-            proxy_set_header Host $host:$server_port;
-            proxy_set_header Referer $scheme://$host:$server_port;
-            proxy_pass http://docker-layout/formrecognizer/v2.1/layout/;
-
-        }
-    }
-}
-```
-
-* Gather a set of at least six forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*). Download the training files to the **shared** folder you created.
-
-* If you want to label your data, download the [Document Intelligence Sample Labeling tool for Windows](https://github.com/microsoft/OCR-Form-Tools/releases). The download imports the labeling tool .exe file that you use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
-
-#### Create a new Sample Labeling tool project
-
-* Open the labeling tool by double-clicking on the Sample Labeling tool .exe file.
-* On the left pane of the tool, select the connections tab.
-* Select to create a new project and give it a name and description.
-* For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.
-* Navigate back to the home tab and select the *Use custom to train a model with labels and key-value pairs option*.
-* Select the train button on the left pane to train the labeled model.
-* Save this connection and use it to label your requests.
-* You can choose to analyze the file of your choice against the trained model.
-
-#### &bullet; Create a **docker compose** file
-
-1. Name this file **docker-compose.yml**
-
-2. The following code sample is a self-contained `docker compose` example to run Document Intelligence Layout, Label Tool, Custom API, and Custom Supervised containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
-
-```yml
-version: '3.3'
-services:
- nginx:
-  image: nginx:alpine
-  container_name: reverseproxy
-  volumes:
-    - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
-  ports:
-    - "5000:5050"
- rabbitmq:
-  container_name: ${RABBITMQ_HOSTNAME}
-  image: rabbitmq:3
-  expose:
-    - "5672"
- layout:
-  container_name: azure-cognitive-service-layout
-  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
-  depends_on:
-    - rabbitmq
-  environment:
-    eula: accept
-    apikey: ${FORM_RECOGNIZER_KEY}
-    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
-    Queue:RabbitMQ:HostName: ${RABBITMQ_HOSTNAME}
-    Queue:RabbitMQ:Port: ${RABBITMQ_PORT}
-    Logging:Console:LogLevel:Default: Information
-    SharedRootFolder: /shared
-    Mounts:Shared: /shared
-    Mounts:Output: /logs
-  volumes:
-    - type: bind
-      source: ${SHARED_MOUNT_PATH}
-      target: /shared
-    - type: bind
-      source: ${OUTPUT_MOUNT_PATH}
-      target: /logs
-  expose:
-    - "5000"
-
- custom-api:
-  container_name: azure-cognitive-service-custom-api
-  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-api
-  restart: always
-  depends_on:
-    - rabbitmq
-  environment:
-    eula: accept
-    apikey: ${FORM_RECOGNIZER_KEY}
-    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
-    Logging:Console:LogLevel:Default: Information
-    Queue:RabbitMQ:HostName: ${RABBITMQ_HOSTNAME}
-    Queue:RabbitMQ:Port: ${RABBITMQ_PORT}
-    SharedRootFolder: /shared
-    Mounts:Shared: /shared
-    Mounts:Output: /logs
-  volumes:
-    - type: bind
-      source: ${SHARED_MOUNT_PATH}
-      target: /shared
-    - type: bind
-      source: ${OUTPUT_MOUNT_PATH}
-      target: /logs
-  expose:
-    - "5000"
-
- custom-supervised:
-  container_name: azure-cognitive-service-custom-supervised
-  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-supervised
-  restart: always
-  depends_on:
-    - rabbitmq
-  environment:
-    eula: accept
-    apikey: ${FORM_RECOGNIZER_KEY}
-    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
-    CustomFormRecognizer:ContainerPhase: All
-    CustomFormRecognizer:LayoutAnalyzeUri: http://azure-cognitive-service-layout:5000/formrecognizer/v2.1/layout/analyze
-    Logging:Console:LogLevel:Default: Information
-    Queue:RabbitMQ:HostName: ${RABBITMQ_HOSTNAME}
-    Queue:RabbitMQ:Port: ${RABBITMQ_PORT}
-    SharedRootFolder: /shared
-    Mounts:Shared: /shared
-    Mounts:Output: /logs
-  volumes:
-    - type: bind
-      source: ${SHARED_MOUNT_PATH}
-      target: /shared
-    - type: bind
-      source: ${OUTPUT_MOUNT_PATH}
-      target: /logs
- ```
-
-### Ensure the service is running
-
-To ensure that the service is up and running. Run these commands in an Ubuntu shell.
-
-```bash
-$cd <folder containing the docker-compose file>
-
-$source .env
-
-$docker-compose up
-```
-
-### Create a new connection
-
-* On the left pane of the tool, select the **connections** tab.
-* Select **create a new project** and give it a name and description.
-* For the provider, choose the **local file system** option. For the local folder, make sure you enter the path to the folder where you stored the **sample data** files.
-* Navigate back to the home tab and select **Use custom to train a model with labels and key-value pairs**.
-* Select the **train button** on the left pane to train the labeled model.
-* **Save** this connection and use it to label your requests.
-* You can choose to analyze the file of your choice against the trained model.
-
-## The Sample Labeling tool and Azure Container Instances (ACI)
-
-To learn how to use the Sample Labeling tool with an Azure Container Instance, *see*, [Deploy the Sample Labeling tool](../deploy-label-tool.md#deploy-with-azure-container-instances-aci).
-
----
-
-:::moniker-end
-
 ## Validate that the service is running
 
 There are several ways to validate that the container is running:
 
 * The container provides a homepage at `\` as a visual validation that the container is running.
 
-* You can open your favorite web browser and navigate to the external IP address and exposed port of the container in question. Use the listed request URLs to validate the container is running. The listed example request URLs are `http://localhost:5000`, but your specific container may vary. Keep in mind that you're  navigating to your container's **External IP address** and exposed port.
+* You can open your favorite web browser and navigate to the external IP address and exposed port of the container in question. Use the listed request URLs to validate the container is running. The listed example request URLs are `http://localhost:5000`, but your specific container can vary. Keep in mind that you're  navigating to your container's **External IP address** and exposed port.
 
   Request URL    | Purpose
   ----------- | --------
   |**http://<span></span>localhost:5000/** | The container provides a home page.
   |**http://<span></span>localhost:5000/ready**     | Requested with GET, this request provides a verification that the container is ready to accept a query against the model. This request can be used for Kubernetes liveness and readiness probes.
   |**http://<span></span>localhost:5000/status** | Requested with GET, this request verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes liveness and readiness probes.
-  |**http://<span></span>localhost:5000/swagger** | The container provides a full set of documentation for the endpoints and a Try it out feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required.
+  |**http://<span></span>localhost:5000/swagger** | The container provides a full set of documentation for the endpoints and a Try it out feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the required HTTP headers and body format.
   |
 
 :::image type="content" source="../media/containers/container-webpage.png" alt-text="Screenshot of Azure containers welcome page.":::
@@ -1201,19 +674,11 @@ docker-compose down
 
 The Document Intelligence containers send billing information to Azure by using a Document Intelligence resource on your Azure account.
 
-:::moniker range=">=doc-intel-3.0.0"
-Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You're billed for each container instance used to process your documents and images.
+Queries to the container are billed at the pricing tier of the Azure resource used for the API `Key`. You're billed for each container instance used to process your documents and images.
 
 > [!NOTE]
 > Currently, Document Intelligence v3 containers only support pay as you go pricing. Support for commitment tiers and disconnected mode will be added in March 2023.
 Azure AI containers aren't licensed to run without being connected to the metering / billing endpoint. Containers must be enabled to always communicate billing information with the billing endpoint. Azure AI containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
-:::moniker-end
-
-:::moniker range="doc-intel-2.1.0"
-Queries to the container are billed at the pricing tier of the Azure resource that's used for the `Key`. You're billed for each container instance used to process your documents and images. Thus, If you use the business card feature, you're billed for the Document Intelligence `BusinessCard` and `Azure AI Vision Read` container instances. For the invoice feature, you're billed for the Document Intelligence `Invoice` and `Layout` container instances. *See*, [Document Intelligence](https://azure.microsoft.com/pricing/details/form-recognizer/) and Azure AI Vision [Read feature](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) container pricing.
-
-Azure AI containers aren't licensed to run without being connected to the metering / billing endpoint. Containers must be enabled to always communicate billing information with the billing endpoint. Azure AI containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
-:::moniker-end
 
 ### Connect to Azure
 
@@ -1225,8 +690,8 @@ The [**docker-compose up**](https://docs.docker.com/engine/reference/commandline
 
 | Option | Description |
 |--------|-------------|
-| `ApiKey` | The key of the Azure AI services resource that's used to track billing information.<br/>The value of this option must be set to a key for the provisioned resource that's specified in `Billing`. |
-| `Billing` | The endpoint of the Azure AI services resource that's used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned Azure resource.|
+| `ApiKey` | The key of the Azure AI services resource used to track billing information.<br/>The value of this option must be set to a key for the provisioned resource specified in `Billing`. |
+| `Billing` | The endpoint of the Azure AI services resource used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned Azure resource.|
 | `Eula` | Indicates that you accepted the license for the container.<br/>The value of this option must be set to **accept**. |
 
 For more information about these options, see [Configure containers](configuration.md).
@@ -1248,3 +713,4 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 * [Document Intelligence container configuration settings](configuration.md)
 
 * [Azure container instance recipe](../../../ai-services/containers/azure-container-instance-recipe.md)
+::: moniker-end
