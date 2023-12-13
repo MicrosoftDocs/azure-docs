@@ -1,8 +1,12 @@
 author: karanmish
+title: Local recording notification for Teams
+titleSuffix: An Azure Communication Services tutorials document
+description: Show local recording notifications to users joining Teams calls or Teams meetings
+ms.subservice: teams-interop
 ms.service: azure-communication-services
 ms.topic: tutorial
 ms.date: 09/08/2021
-ms.author: rifox
+ms.author: karanmishra
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
@@ -25,7 +29,7 @@ Then you can get the local recording feature API object from the call instance:
 const localCallRecordingApi = call.feature(Features.LocalRecording);
 ```
 
-Then, to check if the call is being recorded locally, inspect the `isLocalRecordingActive` property of `callRecordingApi`. It returns `Boolean`.
+Then, to check if the call is being recorded locally, inspect the `isRecordingActive` property of `callRecordingApi`. It returns `Boolean`.
 
 ```js
 const isLocalRecordingActive = localCallRecordingApi.isLocalRecordingActive;
