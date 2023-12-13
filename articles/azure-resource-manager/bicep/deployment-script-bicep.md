@@ -327,7 +327,7 @@ You can get the deployment script resource deployment information at the resourc
 /subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2020-10-01
 ```
 
-The following example uses [ARMClient](https://github.com/projectkudu/ARMClient). Not ARMClient is not a supported Microsoft tool.
+The following example uses [ARMClient](https://github.com/projectkudu/ARMClient). Note ARMClient is not a supported Microsoft tool.
 
 ```azurepowershell
 armclient login
