@@ -61,11 +61,11 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     endpoint = f"{base_url}/chat/completions?api-version=2023-12-01-preview" 
     data = { 
         "messages": [ 
-            { "role": "system", "content": "You are a helpful assistant." }, # Content can be a string, OR 
-            { "role": "user", "content": [       # It can be an array containing strings and images. 
-                "Describe this picture:", 
-                { "image": "<base_64_encoded_image>" }      # Images are represented like this. 
-            ] } 
+            { "role": "system", "content": "You are a helpful assistant." }, 
+            { "role": "user", "content": [ 
+               { "type": "text", "text": "Describe this picture:" }, 
+               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
+           ] } 
         ], 
         "max_tokens": 100 
     }   
@@ -136,11 +136,11 @@ The **object grounding** integration brings a new layer to data analysis and use
             }
         }],
         "messages": [ 
-            { "role": "system", "content": "You are a helpful assistant." }, # Content can be a string, OR 
-            { "role": "user", "content": [       # It can be an array containing strings and images. 
-                "Describe this picture:", 
-                { "image": "<base_64_encoded_image>" }      # Images are represented like this. 
-            ]} 
+            { "role": "system", "content": "You are a helpful assistant." },
+            { "role": "user", "content": [ 
+               { "type": "text", "text": "Describe this picture:" }, 
+               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
+           ]} 
         ], 
         "max_tokens": 100 
     }   
