@@ -279,10 +279,10 @@ The call may have fired a User Facing Diagnostic indicating a severe problem wit
 
 ### Request support
 
-If you encounter quality or reliability issues you are unable to resolve and need support, please choose a paid Azure support plans best aligned to your needs. See: [Compare Support Plans](https://azure.microsoft.com/en-us/support/plans).
+If you encounter quality or reliability issues you are unable to resolve and need support, please choose a paid Azure support plans best aligned to your needs. See: [Compare Support Plans](https://azure.microsoft.com/support/plans).
 - If you have a paid support plan you'll be able to request technical support. See: [How to create azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 
-- If you prefer not to purchase support you can leverage community support. See: [Community Support](https://azure.microsoft.com/en-us/support/community/).
+- If you prefer not to purchase support you can leverage community support. See: [Community Support](https://azure.microsoft.com/support/community/).
 
 <!-- Free Public support options
 Azure Community Support | Microsoft Azure - This is a hub that allows you to search for a product/service and visit related sites such as:
