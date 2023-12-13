@@ -10,7 +10,7 @@ ms.author: karanmishra
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-### Record calls locally
+### Local recording notification for Teams
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK.
 
