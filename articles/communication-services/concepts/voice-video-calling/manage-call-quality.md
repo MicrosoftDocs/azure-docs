@@ -252,6 +252,7 @@ After a call ends, call logs are created to help you investigate individual call
 Review this documentation to start collecting call logs: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md)
 
 - Choose the category group "allLogs" and choose the destination detail of “Send to Log Analytics workspace" in order to view and analyze the data in Azure Monitor.
+- If you don't have a Log Analytics workspace, you will need to create one. https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/enable-logging#next-steps
 
 <!-- To enable call logs review this documentation
  [Enable and Access Call Summary and Call Diagnostic Logs](../call-logs-azure-monitor-access.md). Then follow these steps: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md) -->
