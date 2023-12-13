@@ -54,10 +54,10 @@ devtunnel host
 
 <a name='2-add-a-managed-identity-to-the-acs-resource-that-connects-to-the-cognitive-services-resource'></a>
 
-##### 2. Add a Managed Identity to the Azure Communication Services Resource that connects to the Azure AI services resource
+##### 3. Add a Managed Identity to the Azure Communication Services Resource that connects to the Azure AI services resource
 Follow the instructions in this [documentation](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
 
-##### 3. Add the required API Keys and endpoints
+##### 4. Add the required API Keys and endpoints
 
 Open `main.py` file to configure the following settings
 
