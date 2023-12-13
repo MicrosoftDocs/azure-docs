@@ -38,7 +38,7 @@ The agent is automatically installed when adding session hosts in most scenarios
 
 In this update, we've made the following changes: 
 
-- Windows 7 VMs will no longer get side-by-side stack updates 
+- Windows 7 VMs no longer receive side-by-side stack updates.
 
 - General improvements and bug fixes. 
 
@@ -48,7 +48,7 @@ In this update, we've made the following changes:
 
 In this update, we've made the following changes: 
 
-- Windows 7 VMs will no longer get side-by-side stack updates 
+- Windows 7 VMs no longer receive side-by-side stack updates.
 
 - General improvements and bug fixes. 
 
