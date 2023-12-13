@@ -7,14 +7,9 @@ description: "Use Azure Policy to apply Flux v2 configurations at scale on Azure
 
 # Deploy applications consistently at scale using Flux v2 configurations and Azure Policy
 
-You can use Azure Policy to apply Flux v2 configurations (`Microsoft.KubernetesConfiguration/fluxConfigurations` resource type) at scale on Azure Arc-enabled Kubernetes (`Microsoft.Kubernetes/connectedClusters`) or AKS (`Microsoft.ContainerService/managedClusters`) clusters.
+You can use Azure Policy to apply Flux v2 configurations (`Microsoft.KubernetesConfiguration/fluxConfigurations` resource type) at scale on Azure Arc-enabled Kubernetes (`Microsoft.Kubernetes/connectedClusters`) or AKS (`Microsoft.ContainerService/managedClusters`) clusters. To use Azure Policy, you select a built-in policy definition and create a policy assignment.
 
-To use Azure Policy, select a built-in policy definition and create a policy assignment. When creating the policy assignment:
-
-1. Set the scope for the assignment to all resource groups in a subscription or management group, or to specific resource groups.
-2. Set the parameters for the Flux v2 configuration that will be created.
-
-Once the assignment is created, the Azure Policy engine identifies all Azure Arc-enabled Kubernetes clusters located within the scope and applies the GitOps configuration to each cluster.
+Before you assign the policy that creates Flux configurations, you must ensure that the Flux extension is deployed to your clusters. You can do this by first assigning a policy that deploys the extension to all clusters in the selected scope (all resource groups in a subscription or management group, or to specific resource groups). Then, when creating the policy assignment to deploy configurations, you set parameters for the Flux configuration that will be applied to the clusters in that scope.
 
 To enable separation of concerns, you can create multiple policy assignments, each with a different Flux v2 configuration pointing to a different source. For example, one Git repository can be used by cluster admins while other repositories can be used by application teams.
 
