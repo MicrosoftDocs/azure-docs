@@ -75,9 +75,9 @@ Document Intelligence containers support the following features:
 > [!IMPORTANT]
 > The Document Intelligence v1.0 container is retired.
 
-:::moniker-end
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Install and run Document Intelligence containers](install-run.md)
+:::moniker-end
