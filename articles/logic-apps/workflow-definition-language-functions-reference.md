@@ -157,7 +157,7 @@ To work with conditions, compare values and expression results, or evaluate vari
 | [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Check whether the first value is greater than the second value. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Check whether the first value is greater than or equal to the second value. |
 | [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Check whether an expression is true or false. Based on the result, return a specified value. |
-| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is a floating-point number. |
+| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isFloat) | Return a boolean that indicates whether a string is a floating-point number. |
 | [isInt](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is an integer. |
 | [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Check whether the first value is less than the second value. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Check whether the first value is less than or equal to the second value. |
