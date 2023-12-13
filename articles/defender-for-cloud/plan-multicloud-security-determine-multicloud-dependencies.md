@@ -5,7 +5,7 @@ ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 10/03/2022
+ms.date: 12/13/2023
 ---
 
 # Determine multicloud dependencies
@@ -93,7 +93,7 @@ Machines must meet [network requirements](../azure-arc/servers/network-requireme
 
 ### Defender for Containers
 
-Enabling Defender for Containers provides GKE and EKS clusters and underlying hosts with [these capabilities](defender-for-containers-introduction.md#agentless-capabilities).
+Enabling Defender for Containers provides GKE and EKS clusters and underlying hosts with [these security capabilities](defender-for-containers-introduction.md#agentless-capabilities).
 
 #### Review components - Defender for Containers
 

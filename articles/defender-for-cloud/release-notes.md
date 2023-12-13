@@ -24,9 +24,16 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| December 13 | [Agentless Container Posture in Defender AWS and (Preview)](#agentless-container-posture-in-defender-aws-preview)
-| December 12 | [Container vulnerability assessment powered by MDVM now supports Google Distroless](#container-vulnerability-assessment-powered-by-mdvm-now-supports-google-distroless) |
-| December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account)
+| December 13 | [Deprecation of container vulnerability assessment recommendation powered by Trivy](#deprecation-of-container-vulnerability-assessment-recommendation-powered-by-trivy) |
+| December 13 | [Agentless Container Posture in Defender AWS and (Preview)](#agentless-container-posture-in-defender-aws-preview) |
+| December 12 | [Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless](#container-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-now-supports-google-distroless) |
+| December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account) |
+
+### Deprecation of container vulnerability assessment recommendation powered by Trivy
+
+December 13, 2023
+
+The container vulnerability assessment recommendation powered by Trivy was deprecated on December 13. After this date, it will only be available to customers who onboarded to the public preview powered by Trivy before December 6. We encourage you to transition to the new Microsoft Defender Vulnerability Management powered offering as soon as it's released, and complete the migration by February 6, as the container vulnerability assessment powered by Trivy for AWS will be fully retired by then.
 
 ### Agentless Container Posture in Defender AWS (Preview)
 
@@ -34,11 +41,11 @@ December 13, 2023
 
 The new Agentless Container Posture (Preview) capabilities are available for AWS. For more information, see [Agentless container posture in Defender CSPM](concept-agentless-containers.md) and [Agentless capabilities in Defender for Containers](defender-for-containers-introduction.md#agentless-capabilities).
 
-### Container vulnerability assessment powered by MDVM now supports Google Distroless
+### Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless
 
-Container vulnerability assessment powered by MDVM have been extended with additional coverage for Linux OS packages, now supporting Google Distroless.
+Container vulnerability assessment powered by Microsoft Defender Vulnerability Management have been extended with additional coverage for Linux OS packages, now supporting Google Distroless.
 
-For a list of all supported operating systems, see [Registries and images support for Azure - Vulnerability assessment powered by MDVM](support-matrix-defender-for-containers.md#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-mdvm).
+For a list of all supported operating systems, see [Registries and images support for Azure - Vulnerability assessment powered by Microsoft Defender Vulnerability Management](support-matrix-defender-for-containers.md#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management).
 
 ### Defender for Storage alert released for preview: malicious blob was downloaded from a storage account
 

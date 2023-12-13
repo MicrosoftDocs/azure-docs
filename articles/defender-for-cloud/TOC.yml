@@ -610,12 +610,12 @@
           - name: View and remediate vulnerabilities for registry images
             href: view-and-remediate-vulnerability-assessment-findings.md
           - name: View and remediate vulnerabilities for running images
-            href: view-and-remediate-vulnerabilities-for-images-running-on-aks.md
+            href: view-and-remediate-vulnerabilities-for-images.md
           - name: Disable vulnerabilities on images
             href: disable-vulnerability-findings-containers.md
           - name: REST API
             href: subassessment-rest-api.md
-      - name: Vulnerability assessment for AWS powered by Trivy
+      - name: Vulnerability assessment for AWS powered by Trivy (deprecated)
         displayName: AWS, ECR, registry, images, qualys
         href: defender-for-containers-vulnerability-assessment-elastic.md
       - name: Kubernetes data plane hardening

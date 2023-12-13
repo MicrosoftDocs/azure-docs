@@ -896,6 +896,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/view-and-remediate-vulnerabilities-for-images-running-on-aks.md",
+            "redirect_url": "/azure/defender-for-cloud/view-and-remediate-vulnerabilities-for-images",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/attack-path-reference.md",
             "redirect_url": "/azure/defender-for-cloud/how-to-manage-attack-path",
             "redirect_document_id": true
