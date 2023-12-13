@@ -38,7 +38,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](/a
 
 The Azure Monitor metrics and logs that you can collect are discussed in the following sections.
 
-Ingestion agents that we provide automatically collect metrics and logs for troubleshooting. Metrics and logs are stored them on the VM on which you have installed the agent, and aren't uploaded to Azure Monitor. For details, see [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md).
+Ingestion agents that we provide automatically collect metrics and logs for troubleshooting. Metrics and logs are stored them on the VM on which you have installed the agent, and aren't uploaded to Azure Monitor. For details, see the troubleshooting guidance for [MCC EDR Ingestion Agents](troubleshoot-mcc-edr-agent.md) or [SFTP Ingestion Agents](troubleshoot-sftp-agent.md).
 
 ## Analyzing metrics
 
