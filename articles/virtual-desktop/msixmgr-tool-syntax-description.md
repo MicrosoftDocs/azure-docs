@@ -19,7 +19,7 @@ Before you can follow the instructions in this article, you need:
 - Get an MSIX-packaged application (`.msix` file).
 - A Windows device with administrative permissions to create the MSIX image.
 
-## AddPackage
+## -AddPackage
 
 Add the package at specified file path.
 
@@ -37,7 +37,7 @@ Here's an example of using the `-AddPackage` parameter:
 msixmgr.exe -AddPackage "C:\MSIX\myapp.msix"
 ```
 
-## RemovePackage
+## -RemovePackage
 
 Remove the package with specified package full name.
 
@@ -55,7 +55,7 @@ Here's an example of using the `-RemovePackage` parameter. You can find the pack
 msixmgr.exe -RemovePackage myapp_0.0.0.1_x64__8wekyb3d8bbwe
 ```
 
-## FindPackage
+## -FindPackage
 
 Find a package with specific package full name.
 
@@ -69,7 +69,7 @@ Here's an example of using the `-FindPackage` parameter. You can find the packag
 msixmgr.exe -FindPackage myapp_0.0.0.1_x64__8wekyb3d8bbwe
 ```
 
-## ApplyACLs
+## -ApplyACLs
 
 Apply ACLs to a package folder (an unpacked package). You also need to specify the following required subparameters:
 
@@ -87,7 +87,7 @@ Here's an example of using the `-ApplyACLs` parameter:
 msixmgr.exe -ApplyACLs -packagePath "C:\MSIX\myapp_0.0.0.1_x64__8wekyb3d8bbwe"
 ```
 
-## Unpack
+## -Unpack
 
 Unpack a package in one of the file formats `.appx`, `.msix`, `.appxbundle`, or `.msixbundle`, and extract its contents to a folder. You also need to specify the following required subparameters:
 
@@ -131,7 +131,7 @@ Here's some examples of using the `-Unpack` parameter:
 | `-validateSignature` | Validates a package's signature file before unpacking package. This parameter requires that the package's certificate is installed on the machine.<br /><br />For more information, see [Certificate Stores](/windows-hardware/drivers/install/certificate-stores). | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\Myapp" -validateSignature -applyACLs` |
 | `-vhdSize` | The desired size of the `.vhd` or `.vhdx` file in MB. Must be between 5 MB and 2040000 MB. Use only for `.vhd` or `.vhdx` files. Requires the `-create` and `-filetype` parameters. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -create -fileType VHDX -vhdSize 500` |
 
-## MountImage
+## -MountImage
 
 Mount a VHD, VHDX, or CIM image. You also need to specify the following required subparameters:
 
@@ -154,7 +154,7 @@ msixmgr.exe -MountImage -imagePath "C:\MSIX\myapp.cim" -fileType CIM
 |--|--|--|
 | `-readOnly` | Boolean (true of false) indicating whether the image should be mounted as read only. If not specified, the image is mounted as read-only by default. | `msixmgr.exe -MountImage -imagePath "C:\MSIX\myapp.cim" -filetype CIM -readOnly false` |
 
-## UnmountImage
+## -UnmountImage
 
 Unmount a VHD, VHDX, or CIM image. You also need to specify the following required subparameters:
 
@@ -177,7 +177,7 @@ msixmgr.exe -UnmountImage -imagePath "C:\MSIX\myapp.vhdx" -fileType VHDX
 |--|--|--|
 | `-volumeId` | The GUID of the volume (specified without curly braces) associated with the image to unmount. This parameter is optional only for CIM files. You can find volume ID by running the PowerShell cmdlet [Get-Volume](/powershell/module/storage/get-volume). | `msixmgr.exe -UnmountImage -volumeId 199a2f93-99a8-11ee-9b0d-4c445b63adac -filetype CIM` |
 
-## quietUX
+## -quietUX
 
 Suppresses user interaction when running the MSIXMGR tool. This parameter is optional and can be used with any other parameter.
 
