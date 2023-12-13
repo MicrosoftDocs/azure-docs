@@ -41,7 +41,7 @@ The response to the `POST [endpoint-base]/negotiate` request contains one of thr
 
   The payload that this endpoint returns provides the following data:
 
-  * The `connectionId` value that the Long Polling and Server-Sent Events transports require to correlate send*ing and receiving.
+  * The `connectionId` value that the Long Polling and Server-Sent Events transports require to correlate sending and receiving.
   * The `negotiateVersion` value is the negotiation protocol version that you use between the server and the client.
   * The `availableTransports` list describes the transports that the server supports. For each transport, the payload lists the name of the transport (`transport`) and a list of transfer formats that the transport supports (`transferFormats`).
 
