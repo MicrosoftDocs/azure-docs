@@ -68,6 +68,8 @@ Use the values in the following table to build the expression portion of the con
 | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | {queueName} |
 
+The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
+
 :::image type="content" source="./media/queues-auth-abac-examples/peek-clear-messages-portal.png" alt-text="Screenshot of condition editor in Azure portal showing peek or clear access to messages in a named queue." lightbox="./media/queues-auth-abac-examples/peek-clear-messages-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
