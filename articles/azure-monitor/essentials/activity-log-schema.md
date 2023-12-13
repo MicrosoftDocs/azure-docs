@@ -222,7 +222,19 @@ This category contains the record of any service health incidents that have occu
 Refer to the [service health notifications](../../service-health/service-notifications.md) article for documentation about the values in the properties.
 
 ## Resource health category
-This category contains the record of any resource health events that have occurred to your Azure resources. An example of the type of event you would see in this category is "Virtual Machine health status changed to unavailable." Resource health events can represent one of four health statuses: Available, Unavailable, Degraded, and Unknown. Additionally, resource health events can be categorized as being Platform Initiated or User Initiated.
+This category contains the record of resource health events that have occurred to your Azure resources. An example of the type of event you would see in this category is "Virtual Machine health status changed to unavailable." Resource health events can represent one of four health statuses: Available, Unavailable, Degraded, and Unknown. Additionally, resource health events can be categorized as being Platform Initiated or User Initiated.
+
+A resource health event is recorded in the activity log when:
+- An annotation (for example ResourceDegraded / AccountClientThrottling) is submitted for a resource.
+- A resource transitioned to or from Unhealthy.
+- A resource was Unhealthy for more than 15 minutes.
+
+The following resource health transitions are not recorded in the activity log:
+- A transition to Unknown state.
+- A transition from Unknown state if:
+    - This is the first transition.
+    - If the state prior to Unknown is the same as the new state after. (For example, if the resource transitioned from Healthy->Unknown->Healthy).
+    - For Compute resources: Healthy->Unhealthy->Healthy transitions from VMs where Unhealthy time is less than 35 seconds.
 
 ### Sample event
 
