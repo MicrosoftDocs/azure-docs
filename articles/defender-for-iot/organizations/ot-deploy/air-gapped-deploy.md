@@ -21,9 +21,11 @@ This article describes the architecture of deploying hybrid and air-gapped secur
 
 The following image shows a sample, high level architecture of our recommendations for monitoring and maintaining Defender for IoT systems, where each OT sensor connects to multiple security management systems in the cloud or on-premises.
 
-:::image type="content" source="../media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support.":::
+:::image type="content" source="../media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support." lightbox="../media/on-premises-architecture/on-premises-architecture.png":::
 
 In this sample architecture, three sensors connect to four routers in different logical zones across the organization. The sensors are located behind a firewall and integrate with local, on-premises IT infrastructure, such as local backup servers, remote access connections through SASE, and forwarding alerts to an on-premises security event and information management (SIEM) system.
+
+In this sample image, communication for alerts, syslog messages, and APIs is shown in a solid black line. On-premises management communication is shown in a solid purple line, and cloud / hybrid management communication is shown in a dotted black line.
 
 The Defender for IoT architecture guidance for hybrid and air-gapped networks helps you to:
 
