@@ -24,8 +24,6 @@ A _user identity_ is a Microsoft Entra ID that you can use to create an endpoint
 
 An _endpoint identity_ is a Microsoft Entra ID that runs the user container in deployments. In other words, if the identity is associated with the endpoint and used for the user container for the deployment, then it's called an endpoint identity. The endpoint identity would also need proper permissions for the user container to interact with resources as needed. For example, the endpoint identity would need the proper permissions to pull images from the Azure Container Registry or to interact with other Azure services.
 
-In general, the user identity and endpoint identity would have separate permission requirements. In the special case of enforcing access to default secret stores, the [user identity has additional permission requirements](#additional-permissions-for-user-identity-when-enforcing-access-to-default-secret-stores) to ensure safe management of access to secrets.
-
 
 ## Permissions needed for user identity
 
@@ -59,19 +57,6 @@ For control plane operations, your user identity needs to have a proper Azure ro
 > [!NOTE]
 > You can fetch your Microsoft Entra token (`aad_token`) directly from Microsoft Entra ID once you're signed in, and you don't need extra Azure RBAC permission on the workspace.
 
-#### Additional permissions for user identity when enforcing access to default secret stores
-
-If you intend to use the secret injection feature, and while creating your endpoints, you set the flag to enforce access to the default secret stores, your user identity needs to have the permission to read secrets from workspace connections.
-
-When the endpoint is created with a system-assigned identity (SAI) _and_ the flag is set to enforce access to the default secret stores, your user identity needs to have permissions to read secrets from workspace connections when creating the endpoint and creating the deployment(s) under the endpoint. This restriction ensures that only a user identity with the permission to read secrets can grant the endpoint identity the permission to read secrets.
-
-- If a user identity doesn't have the permissions to read secrets from workspace connections, but it tries to create the endpoint with an SAI and the endpoint's flag set to enforce access to the default secret stores, the endpoint creation is rejected.
-
-- Similarly, if a user identity doesn't have the permissions to read secrets from workspace connections, but tries to create a deployment under the endpoint with an SAI and the endpoint's flag set to enforce access to the default secret stores, the deployment creation is rejected.
-
-When (1) the endpoint is created with a UAI, _or_ (2) the flag is _not_ set to enforce access to the default secret stores even if the endpoint uses an SAI, your user identity doesn't need to have permissions to read secrets from workspace connections. In this case, the endpoint identity won't be automatically granted the permission to read secrets, but you can still manually grant the endpoint identity this permission by assigning proper roles. Secret retrieval and injection will still be triggered if you mapped the environment variables with secret references, and it will use the current endpoint identity to do so.
-
-For more information on managing authorization to an Azure Machine Learning workspace, see [Manage access to Azure Machine Learning](how-to-assign-roles.md).
 
 ### Data plane operations
 
