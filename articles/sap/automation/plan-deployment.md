@@ -191,13 +191,16 @@ To create your service principal:
     }
     ```
 
-1. Optionally, assign the User Access Administrator role to your service principal. For example:
+1. Assign the User Access Administrator role to your service principal. For example:
 
     ```azurecli
     az role assignment create --assignee <your-application-ID> --role "User Access Administrator" --scope /subscriptions/<your-subscription-ID>/resourceGroups/<your-resource-group-name>
     ```
 
 For more information, see the [Azure CLI documentation for creating a service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
+
+> [!IMPORTANT]
+> If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
 
 ### Permissions management
 
@@ -208,17 +211,22 @@ In a locked-down environment, you might need to assign another permission to the
 The following table shows the required permissions for the service principals.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Credential                                   | Area                                | Required permissions         |
-> | -------------------------------------------- | ----------------------------------- | ---------------------------- |
-> | Control Plane SPN                            | Control plane subscription          | Contributor                  |
-> | Workload Zone SPN                            | Target subscription                 | Contributor                  |
-> | Workload Zone SPN                            | Control plane subscription          | Reader                       |
-> | Workload Zone SPN                            | Control plane virtual network       | Network contributor          |
-> | Workload Zone SPN                            | SAP library `tfstate` storage account | Storage account contributor  |
-> | Workload Zone SPN                            | SAP library `sapbits` storage account | Reader                       |
-> | Workload Zone SPN                            | Private DNS zone                    | Private DNS zone contributor |
-> | Web Application Identity                     | Target subscription                 | Reader                       |
-> | Cluster Virtual Machine Identity             | Resource group                      | Fencing role                 |
+> | Credential                                   | Area                                  | Required permissions                   | Duration           |
+> | -------------------------------------------- | ------------------------------------- | -------------------------------------- | ------------------ |
+> | Control Plane SPN                            | Control plane subscription            | Contributor                            |                    |
+> | Control Plane SPN                            | Deployer resource group               | Contributor                            |                    |
+> | Control Plane SPN                            | Deployer resource group               | User Access Administrator              | During setup       | 
+> | Control Plane SPN                            | SAP Library resource group            | Contributor                            |                    |
+> | Control Plane SPN                            | SAP Library resource group            | User Access Administrator              |                    |
+> | Workload Zone SPN                            | Target subscription                   | Contributor                            |                    |
+> | Workload Zone SPN                            | Workload zone resource group          | Contributor, User Access Administrator |                    |
+> | Workload Zone SPN                            | Control plane subscription            | Reader                                 |                    |
+> | Workload Zone SPN                            | Control plane virtual network         | Network contributor                    |                    |
+> | Workload Zone SPN                            | SAP library `tfstate` storage account | Storage account contributor            |                    |
+> | Workload Zone SPN                            | SAP library `sapbits` storage account | Reader                                 |                    |
+> | Workload Zone SPN                            | Private DNS zone                      | Private DNS zone contributor           |                    |
+> | Web Application Identity                     | Target subscription                   | Reader                                 |                    |
+> | Cluster Virtual Machine Identity             | Resource group                        | Fencing role                           |
 
 ### Firewall configuration
 
