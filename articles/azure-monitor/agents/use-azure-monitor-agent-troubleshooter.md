@@ -38,7 +38,7 @@ The Azure Monitor Agent isn't a service that runs in the context of an Azure Res
 ## Windows Troubleshooter
 ### Run Windows Troubleshooter
 1. Log in to the machine to be diagnosed as Administator
-2. Run script in power shell
+2. Run script in PowerShell
    
    ```PowerShell
    $currentVersion = ((Get-ChildItem -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure\HandlerState\" `

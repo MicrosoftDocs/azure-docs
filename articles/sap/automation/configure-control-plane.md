@@ -27,7 +27,7 @@ The [deployer](deployment-framework.md#deployment-components) is the execution e
 
 The configuration of the deployer is performed in a Terraform `tfvars` variable file.
 
-If you want to use an existing resource group for the Deployer provide the Azure resource ID for the resource group using the `resource_group_arm_id` parameter in the deployer's tfvars file. If the parameter isn't defined, the resource group is created using the default naming. Yoc can change the default name using the `resource_group_name` parameter.
+If you want to use an existing resource group for the Deployer provide the Azure resource ID for the resource group using the `resource_group_arm_id` parameter in the deployer's tfvars file. If the parameter isn't defined, the resource group is created using the default naming. You can change the default name using the `resource_group_name` parameter.
 
 
 ### Terraform parameters
@@ -237,7 +237,7 @@ The [SAP library](deployment-framework.md#deployment-components) provides the pe
 
 The configuration of the SAP library is performed in a Terraform `tfvars` variable file.
 
-If you want to use an existing resource group for the SAP Library provide the Azure resource ID for the resource group using the `resource_group_arm_id` parameter in the deployer's tfvars file. If the parameter isn't defined, the resource group is created using the default naming. Yoc can change the default name using the `resource_group_name` parameter.
+If you want to use an existing resource group for the SAP Library provide the Azure resource ID for the resource group using the `resource_group_arm_id` parameter in the deployer's tfvars file. If the parameter isn't defined, the resource group is created using the default naming. You can change the default name using the `resource_group_name` parameter.
 
 
 ### Terraform parameters
