@@ -224,6 +224,8 @@ The manual setup consists of the following steps:
 
 - [Export your GuardDuty findings to an S3 bucket](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html).
 
+In AWS, findings are exported by default every 6 hours. Adjust the export frequency for updated Active findings based on your environment requirements. To expedite the process, you can modify the default setting to export findings every 15 minutes.
+
     > [!NOTE]
     > The *TimeGenerated* field is populated with the finding's *Update at* value.
 
@@ -337,6 +339,7 @@ Learn how to [troubleshoot Amazon Web Services S3 connector issues](aws-s3-troub
     > [!IMPORTANT]
     > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
 
+
 ---
 
 ## Next steps
@@ -345,3 +348,4 @@ In this document, you learned how to connect to AWS resources to ingest their lo
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
+
