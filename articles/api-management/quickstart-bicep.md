@@ -29,6 +29,7 @@ This quickstart describes how to use a Bicep file to create an Azure API Managem
 
 - For Azure PowerShell:
 
+
     [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
 
 ## Review the Bicep file

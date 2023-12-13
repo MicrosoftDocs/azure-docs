@@ -41,7 +41,7 @@ In the following example, *myapim* is used for the service name. Update the name
 
 By default, the command creates the instance in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about the API Management tiers, see [Feature-based comparison of the Azure API Management tiers](api-management-features.md).
 
-> [!NOTE]
+> [!TIP]
 > This is a long-running action. It can take between 30 and 40 minutes to create and activate an API Management service in this tier.
 
 ```azurepowershell-interactive
@@ -49,7 +49,7 @@ New-AzApiManagement -Name "myapim" -ResourceGroupName "myResourceGroup" `
   -Location "West US" -Organization "Contoso" -AdminEmail "admin@contoso.com" 
 ```
 
-When the command returns, run [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) to view the properties of the Azure API Management service. After activation, the setting up status is Succeeded and the service instance has several associated URLs. For example:
+When the command returns, run [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) to view the properties of the Azure API Management service. After activation, the `ProvisioningState` is Succeeded and the instance has several associated URLs. For example:
 
 ```azurepowershell-interactive
 Get-AzApiManagement -Name "myapim" -ResourceGroupName "myResourceGroup" 

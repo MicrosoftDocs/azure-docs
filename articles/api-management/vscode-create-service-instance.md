@@ -36,7 +36,7 @@ Select **Sign in to Azure...** to launch a browser window and sign in to your Mi
 
 ## Create an API Management instance
 
-Once you're signed in to your Microsoft account, the *Azure: API Management* explorer pane will list your Azure subscription(s).
+Once you're signed in to your Microsoft account, the *Azure: API Management* Explorer pane will list your Azure subscription(s). You can enable and disable this Explorer pane in the  *Azure API Management Extension Settings*.
 
 Right-click on the subscription you'd like to use, and select **Create API Management in Azure**.
 
@@ -59,7 +59,7 @@ At this point, you're ready to import and publish your first API. You can do tha
 
 When no longer needed, remove the API Management instance by right-clicking and selecting **Open in Portal** to [delete the API Management service](get-started-create-service-instance.md#clean-up-resources) and its resource group.
 
-Alternately, you can select **Delete API Management** to only delete the API Management instance (this action doesn't delete its resource group).
+Alternately, you can select **Delete API Management** to only delete the API Management instance. This action doesn't delete its resource group.
 
 ![Delete API Management instance from VS Code](./media/vscode-create-service-instance/visual-studio-code-api-management-delete-updated.png)
 
