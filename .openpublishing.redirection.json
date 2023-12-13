@@ -4774,6 +4774,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/nodejs-use-node-modules-azure-apps.md",
+            "redirect_url": "/training/modules/create-nodejs-project-dependencies/",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/application-gateway/application-gateway-create-gateway-cli-nodejs.md",
             "redirect_url": "/azure/application-gateway/quick-create-cli",
             "redirect_document_id": false
