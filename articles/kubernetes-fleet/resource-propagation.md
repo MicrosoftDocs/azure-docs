@@ -32,7 +32,7 @@ Fleet workload placement can deploy any Kubernetes objects to clusters In order 
 ## Resource placement with `ClusterResourcePlacement` resources
 
 A `ClusterResourcePlacement` object is used to tell the Fleet scheduler how to place a given set of cluster-scoped objects from the hub cluster into member clusters. Namespace-scoped objects like Deployments, StatefulSets, DaemonSets, ConfigMaps, Secrets, and PersistentVolumeClaims are included when their containing namespace is selected. 
-(To propagate to the member clusters without any unintended side effects, the `ClusterResourcePlacement` object supports [using ConfigMap to envelope the object](envelope-object).) Multiple methods of selection can be used:
+(To propagate to the member clusters without any unintended side effects, the `ClusterResourcePlacement` object supports [using ConfigMap to envelope the object][envelope-object].) Multiple methods of selection can be used:
 
 - Group, version, and kind - select and place all resources of the given type
 - Group, version, kind, and name - select and place one particular resource of a given type
@@ -306,7 +306,7 @@ Resource-only changes (updating the resources or updating the `ResourceSelector`
 * Review the [`ClusterResourcePlacement` documentation and more in the open-source fleet repository][fleet-doc] for more examples
 * Review the [API specifications][fleet-apispec] for all fleet custom resources.
 * Review more information about [the fleet scheduler][fleet-scheduler] and how placement decisions are made.
-* Review our [troubleshooting guide](troubleshooting-guide) to help resolve common issues related to the Fleet APIs.
+* Review our [troubleshooting guide][troubleshooting-guide] to help resolve common issues related to the Fleet APIs.
 
 <!-- LINKS - external -->
 [fleet-github]: https://github.com/Azure/fleet
