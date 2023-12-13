@@ -20,7 +20,6 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-
 | **OT networks** | - [Live statuses for cloud-based sensor updates](#live-statuses-for-cloud-based-sensor-updates) <br> - [Updated security stack integration guidance](#updated-security-stack-integration-guidance)|
 
 ### Live statuses for cloud-based sensor updates
