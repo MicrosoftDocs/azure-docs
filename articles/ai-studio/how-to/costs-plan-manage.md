@@ -91,9 +91,9 @@ You can get to cost analysis from the [Azure portal](https://portal.azure.com). 
 > [!IMPORTANT]
 > Your Azure AI project costs are only a subset of your overall application or solution costs. You need to monitor costs for all Azure resources used in your application or solution. See [Azure AI resources](../concepts/ai-resources.md) for more information.
 
-In this section, assume that all Azure AI Studio resources are in the same resource group. But you can have resources in different resource groups. For example, your Azure AI Search resource might be in a different resource group than your Azure AI Studio project.
+For the examples in this section, assume that all Azure AI Studio resources are in the same resource group. But you can have resources in different resource groups. For example, your Azure AI Search resource might be in a different resource group than your Azure AI Studio project.
 
-To monitor costs for an Azure AI Studio project:
+Here's an example of how to monitor costs for an Azure AI Studio project. The costs are used as an example only. Your costs will vary depending on the services that you use and the amount of usage.
 
 1. Sign in to [Azure AI Studio portal](https://ai.azure.com).
 1. Select your project and then select **Settings** from the left navigation menu.
@@ -138,7 +138,7 @@ For more information, see the [Azure pricing calculator](https://azure.microsoft
 
 ### Monitor costs for models offered through the Azure Marketplace
 
-Models deployed as a service using pay-as-you-go are offered through the Azure Marketplace. The model publishers might apply different costs depending on the offering. Each project in Azure AI Studio has its own subscription with the offering, which allows you to monitor the costs and the consumption happening on that project. Use Azure Cost Management to monitor the costs:
+Models deployed as a service using pay-as-you-go are offered through the Azure Marketplace. The model publishers might apply different costs depending on the offering. Each project in Azure AI Studio has its own subscription with the offering, which allows you to monitor the costs and the consumption happening on that project. Use [Microsoft Cost Management](https://azure.microsoft.com/products/cost-management) to monitor the costs:
 
 1. Sign in to [Azure portal](https://portal.azure.com).
 
