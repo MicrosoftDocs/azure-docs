@@ -25,15 +25,17 @@ Add the package at specified file path.
 
 ```
 -AddPackage [Path to the MSIX package]
+```
 
 or
 
+```
 -p [Path to the MSIX package]
 ```
 
 Here's an example of using the `-AddPackage` parameter:
 
-```
+```cmd
 msixmgr.exe -AddPackage "C:\MSIX\myapp.msix"
 ```
 
@@ -43,15 +45,17 @@ Remove the package with specified package full name.
 
 ```
 -RemovePackage [Package name]
+```
 
 or
 
+```
 -x [Package name]
 ```
 
 Here's an example of using the `-RemovePackage` parameter. You can find the package full name by running the PowerShell cmdlet [Get-AppxPackage](/powershell/module/appx/get-appxpackage).
 
-```
+```cmd
 msixmgr.exe -RemovePackage myapp_0.0.0.1_x64__8wekyb3d8bbwe
 ```
 
@@ -65,7 +69,7 @@ Find a package with specific package full name.
 
 Here's an example of using the `-FindPackage` parameter. You can find the package full name by running the PowerShell cmdlet [Get-AppxPackage](/powershell/module/appx/get-appxpackage).
 
-```
+```cmd
 msixmgr.exe -FindPackage myapp_0.0.0.1_x64__8wekyb3d8bbwe
 ```
 
@@ -83,7 +87,7 @@ Apply ACLs to a package folder (an unpacked package). You also need to specify t
 
 Here's an example of using the `-ApplyACLs` parameter:
 
-```
+```cmd
 msixmgr.exe -ApplyACLs -packagePath "C:\MSIX\myapp_0.0.0.1_x64__8wekyb3d8bbwe"
 ```
 
@@ -106,19 +110,19 @@ Here's some examples of using the `-Unpack` parameter:
 
 - To unpack a package into a directory:
 
-   ```
+   ```cmd
    msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp"
    ```
 
 - To unpack a package into a VHDX disk image:
 
-   ```
+   ```cmd
    msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp\myapp.vhdx" -applyACLs -create -filetype VHDX -rootDirectory apps
    ```
 
 - To unpack a package into a CIM disk image:
 
-   ```
+   ```cmd
    msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp\myapp.cim" -applyACLs -create -filetype CIM -rootDirectory apps
    ```
 
@@ -148,7 +152,7 @@ Mount a VHD, VHDX, or CIM image. You also need to specify the following required
 
 Here's an example of using the `-MountImage` parameter:
 
-```
+```cmd
 msixmgr.exe -MountImage -imagePath "C:\MSIX\myapp.cim" -fileType CIM
 ```
 
@@ -173,7 +177,7 @@ Unmount a VHD, VHDX, or CIM image. You also need to specify the following requir
 
 Here's an example of using the `-UnmountImage` parameter:
 
-```
+```cmd
 msixmgr.exe -UnmountImage -imagePath "C:\MSIX\myapp.vhdx" -fileType VHDX
 ```
 
@@ -189,7 +193,7 @@ Suppresses user interaction when running the MSIXMGR tool. This parameter is opt
 
 Here's an example of using the `-quietUX` parameter with the `-AddPackage` parameter:
 
-```
+```cmd
 msixmgr.exe -AddPackage "C:\MSIX\myapp.msix" -quietUX
 ```
 
