@@ -225,8 +225,8 @@ The manual setup consists of the following steps:
 
 In AWS, findings are exported by default every 6 hours. Adjust the export frequency for updated Active findings based on your environment requirements. To expedite the process, you can modify the default setting to export findings every 15 minutes.
 
-    > [!NOTE]
-    > The *TimeGenerated* field is populated with the finding's *Update at* value.
+   > [!NOTE]
+   > The *TimeGenerated* field is populated with the finding's *Update at* value.
 
 - AWS CloudTrail trails are stored in S3 buckets by default.
     - [Create a trail for a single account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html).
