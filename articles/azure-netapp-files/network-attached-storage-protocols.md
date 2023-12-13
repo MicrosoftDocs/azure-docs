@@ -57,6 +57,28 @@ NFSv3 is a basic offering of the protocol and has the following key attributes:
 * NFSv3 uses numeric IDs for its user and group authentication. Usernames and group names aren't required for communication or permissions, which can make spoofing a user easier, but configuration and management are simpler. 
 * NFSv3 can use LDAP for user and group lookups. 
 
+#### NFSv3 service version support 
+
+NFSv3 currently supports the following versions of each ancillary protocol in Azure NetApp Files:
+
+| Service | Versions supported |
+| - | - | 
+| Portmapper | 4, 3, 2 | 
+| NFS | 4, 3* | 
+| Mountd | 3, 2, 1 | 
+| Nlockmgr | 4 | 
+| Status  | 1 | 
+| Rquotas | 1 | 
+
+\* NFS supported versions display based on the version selected for the Azure NetApp Files volume. 
+
+>[!NOTE]
+> Rquotad v2 support is planned for a future release of Azure NetApp Files.
+
+This information can be gathered from your Azure NetApp Files volume with the following command:
+
+`# rpcinfo -s <Azure NetApp Files IP address>`
+
 ### NFSv4.x 
 
 *NFSv4.x* refers to all NFS versions or minor versions that are under NFSv4, including NFSv4.0, NFSv4.1, and NFSv4.2. Azure NetApp Files currently supports NFSv4.1 only. 
