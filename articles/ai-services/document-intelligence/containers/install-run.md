@@ -345,9 +345,9 @@ In addition to the [prerequisites](#prerequisites), you need to do the following
 
 #### Create a folder to store the following files
 
-* [**.env**](#-create-an-environment-file)
-* [**nginx.conf**](#-create-an-nginx-file)
-* [**docker-compose.yml**](#-create-a-docker-compose-file)
+* [**.env**](#create-an-environment-file)
+* [**nginx.conf**](#create-an-nginx-file)
+* [**docker-compose.yml**](#create-a-docker-compose-file)
 
 #### Create a folder to store your input data
 
