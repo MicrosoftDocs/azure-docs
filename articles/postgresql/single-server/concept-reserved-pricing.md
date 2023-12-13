@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.date: 06/24/2022
+ms.date: 12/12/2023
 ---
 
 # Prepay for Azure Database for PostgreSQL compute resources with reserved capacity
@@ -33,7 +33,7 @@ You can buy Azure Database for PostgreSQL reserved capacity in the [Azure portal
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 * For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Database for PostgreSQL reserved capacity. </br>
 
-The details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) and [understand Azure reservation usage for your Pay-As-You-Go subscription](../../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+For details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) and [understand Azure reservation usage for your Pay-As-You-Go subscription](../../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## Reservation exchanges and refunds
 
@@ -47,13 +47,13 @@ You may save up to 65% on compute costs with reserved instances. In order to fin
 
 The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed servers within a specific region and using the same performance tier and hardware generation.</br>
 
-For example, let's suppose that you are running one general purpose Gen5 – 32 vCore PostgreSQL database, and two memory-optimized Gen5 – 16 vCore PostgreSQL databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose Gen5 – 8 vCore database server, and one memory-optimized Gen5 – 32 vCore database server. Let's suppose that you know that you will need these resources for at least one year. In this case, you should purchase a 40 (32 + 8) vCores, one-year reservation for single database general purpose - Gen5 and a 64 (2x16 + 32) vCore one year reservation for single database memory optimized - Gen5
+For example, let's suppose that you are running one general purpose Gen5 – 32 vCore PostgreSQL database, and two memory-optimized Gen5 – 16 vCore PostgreSQL databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose Gen5 – 8 vCore database server, and one memory-optimized Gen5 – 32 vCore database server. Let's suppose that you know that you will need these resources for at least one year. In this case, you should purchase a 40 (32 + 8) vCores, one-year reservation for single database general purpose - Gen5 and a 64 (2x16 + 32) vCore one year reservation for single database memory optimized - Gen5.
 
 ## Buy Azure Database for PostgreSQL reserved capacity
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations**.
-3. Select **Add** and then in the Purchase reservations pane, select **Azure Database for PostgreSQL** to purchase a new reservation for your PostgreSQL databases.
+3. Select **Add** and then, in the Purchase reservations pane, select **Azure Database for PostgreSQL** to purchase a new reservation for your PostgreSQL databases.
 4. Fill in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Database for PostgreSQL servers that get the discount depend on the scope and quantity selected.
 
 :::image type="content" source="media/concepts-reserved-pricing/postgresql-reserved-price.png" alt-text="Overview of reserved pricing":::
@@ -67,7 +67,7 @@ The following table describes required fields.
 | Region | The Azure region that’s covered by the Azure Database for PostgreSQL reserved capacity reservation.
 | Deployment Type | The Azure Database for PostgreSQL resource type that you want to buy the reservation for.
 | Performance Tier | The service tier for the Azure Database for PostgreSQL servers.
-| Term | One year
+| Term | This can be One year or Three years.
 | Quantity | The amount of compute resources being purchased within the Azure Database for PostgreSQL reserved capacity reservation. The quantity is a number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you are running or planning to run an Azure Database for PostgreSQL servers with the total compute capacity of Gen5 16 vCores in the East US region, then you would specify quantity as 16 to maximize the benefit for all servers.
 
 ## Reserved instances API support
@@ -89,11 +89,11 @@ vCore size flexibility helps you scale up or down within a performance tier and 
 
 ## How to view reserved instance purchase details
 
-You can view your reserved instance purchase details via the [Reservations menu on the left side of the Azure portal](https://aka.ms/reservations).
+You can view your reserved instance purchase details via the [Reservations](https://aka.ms/reservations) blade in the Azure Portal.
 
 ## Reserved instance expiration
 
-You'll receive email notifications, first one 30 days prior to reservation expiry and other one at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate.
+You'll receive email notifications, first one 30 days prior to reservation expiry and another one at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate.
 
 ## Need help? Contact us
 
