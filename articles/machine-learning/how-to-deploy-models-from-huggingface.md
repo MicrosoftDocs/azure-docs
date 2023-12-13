@@ -13,16 +13,13 @@ ms.author: swatig
 ms.date: 05/15/2023
 ---
 
-# Deploy models from HuggingFace hub to Azure Machine Learning online endpoints for real-time inference (Preview)
-
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview. The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-
+# Deploy models from HuggingFace hub to Azure Machine Learning online endpoints for real-time inference 
 
 
 Microsoft has partnered with Hugging Face to bring open-source models from Hugging Face Hub to Azure Machine Learning. Hugging Face is the creator of Transformers, a widely popular library for building large language models. The Hugging Face model hub that has thousands of open-source models. The integration with Azure Machine Learning enables you to deploy open-source models of your choice to secure and scalable inference infrastructure on Azure. You can search from thousands of transformers models in Azure Machine Learning model catalog and deploy models to managed online endpoint with ease through the guided wizard. Once deployed, the managed online endpoint gives you secure REST API to score your model in real time. 
 
+> [!NOTE] 
+>Models from Hugging Face are subject to third party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
 
 ## Benefits of using online endpoints for real-time inference
 
