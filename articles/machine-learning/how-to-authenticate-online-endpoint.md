@@ -450,7 +450,7 @@ You can find the scoring URI on the `Details` tab on the endpoint's details page
 
 Key or token can be used for data plane operations, while getting it itself is a control plane operation. In other words, you will use a control plane token to get the key of token.
 
-Getting the _key_ or _Azure Machine Learning token_ will require that the right role is assigned to the user identity that is requesting for it as described in [authorization for control plane operations](concept-endpoints.online-auth.md#control-plane-operations). Getting the _Microsoft Entra token_ will not require additional role for the user identity to get it.
+Getting the _key_ or _Azure Machine Learning token_ will require that the right role is assigned to the user identity that is requesting for it as described in [authorization for control plane operations](concept-endpoints-online-auth.md#control-plane-operations). Getting the _Microsoft Entra token_ will not require additional role for the user identity to get it.
 
 ### [Azure CLI](#tab/azure-cli)
 #### Key or Azure Machine Learning token
