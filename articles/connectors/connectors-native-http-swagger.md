@@ -33,7 +33,7 @@ The **HTTP + Swagger** built-in operations currently support only OpenAPI 2.0, n
 
   * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
-  The examples in this topic uses [Azure AI Face](../ai-services/computer-vision/overview-identity.md), which requires an [Azure AI services resource key and region](../ai-services/multi-service-resource.md?pivots=azportal).
+  The examples in this guide use [Azure AI Face](../ai-services/computer-vision/overview-identity.md), which requires an [Azure AI services resource key and region](../ai-services/multi-service-resource.md?pivots=azportal).
 
   > [!NOTE]
   >
@@ -157,7 +157,7 @@ This built-in action sends an HTTP request to the URL for the Swagger file that 
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   :::image type="content" source="media/connectors-native-http-swagger/http-swagger-action-parameters-consumption.png" alt-text="Screenshot shows Consumption workflow designer with trigger named Face - Detect and action named H T T P + Swagger. The SWAGGER ENDPOINT Endpoint URL property is set to a URL value.":::
+   :::image type="content" source="media/connectors-native-http-swagger/http-swagger-action-parameters-consumption.png" alt-text="Screenshot shows Consumption workflow designer with trigger named Face - Detect and action named H T T P + Swagger. The SWAGGER ENDPOINT URL property is set to a URL value.":::
 
 1. When the designer shows the operations described by the Swagger file, select the operation that you want to use.
 
