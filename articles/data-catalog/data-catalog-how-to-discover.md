@@ -3,7 +3,7 @@ title: How to discover data sources in Azure Data Catalog
 description: This article highlights how to discover registered data assets with Azure Data Catalog, including searching and filtering and using the hit highlighting capabilities of the Azure Data Catalog portal.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 12/15/2023
+ms.date: 12/13/2023
 ---
 # How to discover data sources in Azure Data Catalog
 

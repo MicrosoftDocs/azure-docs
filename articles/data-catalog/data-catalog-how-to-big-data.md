@@ -3,7 +3,7 @@ title: How to catalog big data in Azure Data Catalog
 description: How-to article highlighting patterns for using Azure Data Catalog  with 'big data' data sources, including Azure Blob Storage, Azure Data Lake, and Hadoop HDFS.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 12/15/2023
+ms.date: 12/13/2023
 ROBOTS: NOINDEX
 ---
 # How to catalog big data in Azure Data Catalog
