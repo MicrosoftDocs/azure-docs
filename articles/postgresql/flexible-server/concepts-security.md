@@ -51,15 +51,15 @@ When you enable this plan, Defender for Cloud will provide alerts when it detect
 
 These alerts appear in Defender for Cloud's security alerts page and include:
 
-* details of the suspicious activity that triggered them
-* the associated MITRE ATT&CK tactic
-* recommended actions for how to investigate and mitigate the threat
-* options for continuing your investigations with Microsoft Sentinel
+* Details of the suspicious activity that triggered them
+* The associated MITRE ATT&CK tactic
+* Recommended actions for how to investigate and mitigate the threat
+* Options for continuing your investigations with Microsoft Sentinel
 
 > [!NOTE]
 > Microsoft Defender for Azure Database for PostgreSQL - Flexible Server currently has following limitations:
-> 1. No Azure CLI or PowerShell support.
-> 2. No ability to enable Cloud Defender for Azure Database for PostgreSQL - Flexible Server on subscription level.
+> - No Azure CLI or PowerShell support.
+> - No ability to enable Cloud Defender for Azure Database for PostgreSQL - Flexible Server on subscription level.
 
 ### Microsoft Defender for Cloud and Brute Force Attacks
 
@@ -72,7 +72,7 @@ To get alerts from the Microsoft Defender plan you'll first need to **enable it*
 2. Pick Microsoft Defender for Cloud 
 4. Click Enable in the right pane.
 
-:::image type="content" source="./media/concepts-security/defender-for-cloud-azure-portal-postgresql.png" alt-text="Screenshot of Azure Portal showing how to enable Cloud Defender.":::
+:::image type="content" source="./media/concepts-security/defender-for-cloud-azure-portal-postgresql.png" alt-text="Screenshot of Azure portal showing how to enable Cloud Defender.":::
 
 
 ## Access management
@@ -177,7 +177,7 @@ In this example, user *user1* can connect and has all privileges in our test dat
 
 ## Row  level security
 
-[Row level security (RLS)](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) is a PostgreSQL security feature that allows database administrators to define policies to control how specific rows of data display and operate for one or more roles.  Row level security is an additional filter you can apply to a PostgreSQL database table. When a user tries to perform an action on a table, this filter is applied before the query criteria or other filtering, and the data is narrowed or rejected according to your security policy. You can create row level security policies for specific commands like *SELECT*, *INSERT*, *UPDATE*, and *DELETE*, specify it for ALL commands. Use cases for row level security include PCI compliant implementations, classified environments, as well as shared hosting / multi-tenant applications. 
+[Row level security (RLS)](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) is a PostgreSQL security feature that allows database administrators to define policies to control how specific rows of data display and operate for one or more roles.  Row level security is an additional filter you can apply to a PostgreSQL database table. When a user tries to perform an action on a table, this filter is applied before the query criteria or other filtering, and the data is narrowed or rejected according to your security policy. You can create row level security policies for specific commands like *SELECT*, *INSERT*, *UPDATE*, and *DELETE*, specify it for ALL commands. Use cases for row level security include PCI compliant implementations, classified environments, as well as shared hosting / multitenant applications. 
 Only users with `SET ROW SECURITY` rights may apply row security rights to a table. The table owner may set row security on a table. Like `OVERRIDE ROW SECURITY` this is currently an implicit right. Row-level security does not override existing *GRANT* permissions, it adds a finer grained level of control. For example, setting `ROW SECURITY FOR SELECT` to allow a given user to give rows would only give that user access if the user also has *SELECT* privileges on the column or table in question.
 
 Here is an example showing how to create a policy that ensures only members of the custom created *“manager”* [role](#access-management) can access only the rows for a specific account. The code in below example was shared in the [PostgreSQL documentation](https://www.postgresql.org/docs/current/ddl-rowsecurity.html).
