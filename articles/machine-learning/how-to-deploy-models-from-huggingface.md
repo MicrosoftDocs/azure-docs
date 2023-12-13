@@ -204,4 +204,4 @@ Submit your questions in the [Azure Machine Learning discussion forum.](https://
 
 ## Learn more
 
-Learn [how to use foundation models in Azure Machine Learning](./how-to-use-foundation-models.md) for fine-tuning, evaluation and deployment using Azure Machine Learning studio UI or code based methods.
+Learn [how to use foundation models in Azure Machine Learning.](./how-to-use-foundation-models.md)
