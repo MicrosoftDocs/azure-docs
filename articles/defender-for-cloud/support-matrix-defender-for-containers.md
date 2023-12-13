@@ -108,7 +108,7 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 
 | Aspect | Details |
 |--|--|
-| Registries and images | **Unsupported** <br>• Images that have at least one layer over 2 GB<br> • Public repositories and manifest lists <br>• Images in the AWS management account aren't scanned so that we don't create resources in the management account. |
+| Registries and images | **Unsupported** <br>• Images that have at least one layer over 2 GB<br>• Public repositories and manifest lists <br> |
 
 ### Kubernetes distributions/configurations support - AWS
 
