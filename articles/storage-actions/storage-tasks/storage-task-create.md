@@ -22,12 +22,12 @@ In this how-to article, you'll learn how to create a storage task.
 
 ## Create a task
 
-In the Azure portal, search for _Storage Tasks_. Then, under **Services**, select **Storage Tasks**.
+In the Azure portal, search for _Storage Tasks_. Then, under **Services**, select **Storage tasks - Azure Storage Actions**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the search result of the string Storage Tasks.](../media/storage-tasks/storage-task-create/storage-task-search.png)
 
-On the **Storage tasks** page, select **Create**.
+On the **Azure Storage Actions | Storage Tasks** page, select **Create**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the storage task create button.](../media/storage-tasks/storage-task-create/storage-task-create-button.png)

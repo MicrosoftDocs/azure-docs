@@ -33,14 +33,14 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 ## Create a task
 
-1. In the Azure portal, search for _Storage Tasks_.
+1. In the Azure portal, search for _Storage tasks_.
 
-2. Under **Services**, select **Storage Tasks**.
+2. Under **Services**, select **Storage tasks - Azure Storage Actions**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the search result of the string storage tasks.](../media/storage-tasks/storage-task-create/storage-task-search.png)
 
-3. On the **Storage tasks** page, select **Create**.
+3. On the **Azure Storage Actions | Storage Tasks** page, select **Create**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the storage task create button.](../media/storage-tasks/storage-task-create/storage-task-create-button.png)
@@ -81,7 +81,7 @@ You can specify the conditions of a storage task by making selections in **If** 
 
 ## Add operations
 
-You can specify the operations that a storage task performs by making selections in **Then** section of the **Visual Builder** tab. Every Storage task has at least one operation to perform when a blob or container meets the specified condition.
+You can specify the operations that a storage task performs by making selections in **Then** section of the **Visual Builder** tab. Every storage task has at least one operation to perform when a blob or container meets the specified condition.
 
 1. In the **Select an operation** drop-down list of the **Then** section, select **Set blob immutability policy**.
 
@@ -113,6 +113,11 @@ A storage task _assignment_ specifies a storage account. After you enable the st
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Select scope section of the assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-select-scope.png)
+
+4. In the **Role assignment** section, in the **Role** drop-down list, select the **Storage Blob Data Contributor** to assign that role to the system-assigned managed identity of the storage task. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the Role assignment section of the assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-role.png)
 
 3. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you are using to complete this quickstart followed by the `/` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
 
