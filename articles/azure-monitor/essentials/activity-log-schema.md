@@ -18,15 +18,16 @@ The schema varies depending on how you access the log:
 - See [Azure Monitor data reference](/azure/azure-monitor/reference/) for the schema when you use a [diagnostic setting](./diagnostic-settings.md) to send the Activity log to a Log Analytics workspace.
 
 ## Severity Level
-Each entry in the activity log has a severity level. Severity level can have one of the following values:  
+Each entry in the activity log has a severity level. Severity level can have one of the following values: 
 
-| Severity | Description |
-|:---|:---|
-| Critical | Events that demand the immediate attention of a system administrator. Might indicate that an application or system failed or stopped responding.|
-| Error | Events that indicate a problem, but don't require immediate attention.|
-| Warning | Events that provide forewarning of potential problems, although not an actual error. Indicate that a resource isn't in an ideal state and may degrade later into showing errors or critical events. |
-| Informational | Events that pass noncritical information to the administrator. Similar to a note that says: "For your information".|
-The developers of each resource provider choose the severity levels of their resource entries. As a result, the actual severity to you can vary depending on how your application is built. For example, items that are "critical" to a particular resource taken in isolation might not be as important as "errors" in a resource type that is central to your Azure application. Be sure to consider this fact when deciding what events to alert on.  
+|Severity  |Description  |
+|---------|---------|
+|Critical     |Events that demand the immediate attention of a system administrator. Might indicate that an application or system failed or stopped responding.  |
+|Error     |Events that indicate a problem, but don't require immediate attention.  |
+|Warning     | Events that provide forewarning of potential problems, although not an actual error. Indicate that a resource isn't in an ideal state and may degrade later into showing errors or critical events.         |
+|Informational     | Events that pass noncritical information to the administrator. Similar to a note that says: "For your information".        |
+
+The developers of each resource provider choose the severity levels of their resource entries. As a result, the actual severity to you can vary depending on how your application is built. For example, items that are "critical" to a particular resource taken in isolation might not be as important as "errors" in a resource type that is central to your Azure application. Be sure to consider this fact when deciding what events to alert on. 
 
 ## Categories
 Each event in the Activity Log has a particular category that is described in the following table. See the sections below for more detail on each category and its schema when you access the Activity log from the portal, PowerShell, CLI, and REST API. The schema is different when you [stream the Activity log to storage or Event Hubs](./resource-logs.md#send-to-azure-event-hubs). A mapping of the properties to the [resource logs schema](./resource-logs-schema.md) is provided in the last section of the article.
