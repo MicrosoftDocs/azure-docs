@@ -95,8 +95,9 @@ Azure policies can be specified to a targeted subscription or resource group for
 
 There are some scenarios in which you may be eligible to receive Extended Security Updates patches at no additional cost. Two of these scenarios supported by Azure Arc are (1) [Dev/Test (Visual Studio)](/azure/devtest/offer/overview-what-is-devtest-offer-visual-studio) and (2) [Disaster Recovery (Entitled benefit DR instances from Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-by-benefits) or subscription only). Both of these scenarios require the customer is already using Windows Server 2012/R2 ESUs enabled by Azure Arc for billable, production machines.
 
-Don't create a Windows Server 2012/R2 ESU License for only Dev/Test or Disaster Recovery workloads. You can't provision an ESU License only for non-billable workloads. Moreover, you'll be billed fully for all of the cores provisioned with an ESU license.
-
+> [!WARNING]
+> Don't create a Windows Server 2012/R2 ESU License for only Dev/Test or Disaster Recovery workloads. You can't provision an ESU License only for non-billable workloads. Moreover, you'll be billed fully for all of the cores provisioned with an ESU license.
+> 
 To qualify for these scenarios, you must already have:
 
 - **Billable ESU License.** You must already have provisioned and activated a WS2012 Arc ESU License intended to be linked to regular Azure Arc-enabled servers running in production environments (i.e., normally billed ESU scenarios). This license should be provisioned only for billable cores, not cores that are eligible for free Extended Security Updates.
@@ -119,8 +120,11 @@ This linking will not trigger a compliance violation or enforcement block, allow
 
 **Example:**
 
-A customer has 8 Windows Server 2012 R2 Standard instances, each has 8 physical cores. 6 of these Windows Server 2012 R2 Standard machines are for production, and 2 of these Windows Server 2012 R2 Standard machines are eligible for free ESUs through the Visual Studio Dev Test subscription. The customer should first provision and activate a regular ESU License for Windows Server 2012/R2 that is Standard edition and has 48 physical cores. The customer should link this regular, production ESU license to their 6 production servers. Next, the customer should use this existing license, not add any more cores or provision a separate license, and link this license to their 2 non-production Windows Server 2012 R2 standard machines. The customer should tag the license and the 2 non-production Windows Server 2012 R2 Standard machines with Name: “ESU Usage” and Value: “WS2012 VISUAL STUDIO DEV TEST”. Note, the customer needed a regular production license to start with, and the customer will be billed only for the production cores. The customer did not and should not provision non-production cores in their license. 
+You have 8 Windows Server 2012 R2 Standard instances, each with 8 physical cores. 6 of these Windows Server 2012 R2 Standard machines are for production, and 2 of these Windows Server 2012 R2 Standard machines are eligible for free ESUs through the Visual Studio Dev Test subscription. You should first provision and activate a regular ESU License for Windows Server 2012/R2 that's Standard edition and has 48 physical cores. You should link this regular, production ESU license to your 6 production servers. Next, you should use this existing license, not add any more cores or provision a separate license, and link this license to your 2 non-production Windows Server 2012 R2 standard machines. You should tag the license and the 2 non-production Windows Server 2012 R2 Standard machines with Name: “ESU Usage” and Value: “WS2012 VISUAL STUDIO DEV TEST”.
 
+> [!NOTE]
+> You needed a regular production license to start with, and you'll be billed only for the production cores. You did not and should not provision non-production cores in your license. 
+> 
 
 
 <!--
