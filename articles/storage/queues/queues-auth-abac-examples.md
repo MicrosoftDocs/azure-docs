@@ -61,12 +61,12 @@ Select **Add action**, then select **Peek messages** and **Clear messages**:
 
 Use the values in the following table to build the expression portion of the condition:
 
-> | Setting | Value |
-> | ------- | ----- |
-> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | Attribute | [Queue name](queues-auth-abac-attributes.md#queue-name) |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Value | {queueName} |
+| Setting | Value |
+| ------- | ----- |
+| Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+| Attribute | [Queue name](queues-auth-abac-attributes.md#queue-name) |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+| Value | {queueName} |
 
 :::image type="content" source="./media/queues-auth-abac-examples/peek-clear-messages-portal.png" alt-text="Screenshot of condition editor in Azure portal showing peek or clear access to messages in a named queue." lightbox="./media/queues-auth-abac-examples/peek-clear-messages-portal.png":::
 
@@ -136,21 +136,21 @@ Select **Add action**, then select **Peek messages**:
 
 Use the values in the following table to build the expression portion of the condition:
 
-> | Setting | Value |
-> | ------- | ----- |
-> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | Attribute | [Queue name](queues-auth-abac-attributes.md#queue-name) |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Value | {queue-name} |
-> | Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
-> | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | Attribute | [UtcNow](queues-auth-abac-attributes.md#utc-now) |
-> | Operator | [DateTimeGreaterThan](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
-> | Value | `2023-05-01T13:00:00.000Z` |
+| Setting | Value |
+| ------- | ----- |
+| Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+| Attribute | [Queue name](queues-auth-abac-attributes.md#queue-name) |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+| Value | {queue-name} |
+| Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
+| Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+| Attribute | [UtcNow](queues-auth-abac-attributes.md#utc-now) |
+| Operator | [DateTimeGreaterThan](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
+| Value | `2023-05-01T13:00:00.000Z` |
 
 The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
 
-:::image type="content" source="./media/queues-auth-abac-examples/env-utcnow-queue-peek-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing peek access allowed after a specific date and time." lightbox="./media/queues-auth-abac-examples/env-utcnow-queue-peek-portal.png":::
+:::image type="content" source="./media/queues-auth-abac-examples/environment-utcnow-queue-peek-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing peek access allowed after a specific date and time." lightbox="./media/queues-auth-abac-examples/environment-utcnow-queue-peek-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
@@ -228,21 +228,21 @@ Select **Add action**, then select **Put or update a message**:
 
 Use the values in the following table to build the expression portion of the condition:
 
-> | Setting | Value |
-> | ------- | ----- |
-> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | Attribute | [Queue name](queues-auth-abac-attributes.md#queue-name) |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Value | `container1` |
-> | Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
-> | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | Attribute | [Subnet](queues-auth-abac-attributes.md#subnet) |
-> | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Value | `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/sample-vnet/subnets/default` |
+| Setting | Value |
+| ------- | ----- |
+| Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+| Attribute | [Queue name](queues-auth-abac-attributes.md#queue-name) |
+| Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+| Value | `container1` |
+| Logical operator | ['AND'](../../role-based-access-control/conditions-format.md#and) |
+| Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+| Attribute | [Subnet](queues-auth-abac-attributes.md#subnet) |
+| Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
+| Value | `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/sample-vnet/subnets/default` |
 
 The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
 
-:::image type="content" source="./media/queues-auth-abac-examples/env-subnet-queue-put-update-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access to specific queues allowed from a specific subnet." lightbox="./media/queues-auth-abac-examples/env-subnet-queue-put-update-portal.png":::
+:::image type="content" source="./media/queues-auth-abac-examples/environment-subnet-queue-put-update-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access to specific queues allowed from a specific subnet." lightbox="./media/queues-auth-abac-examples/environment-subnet-queue-put-update-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
