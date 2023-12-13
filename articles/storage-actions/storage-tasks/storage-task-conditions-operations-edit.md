@@ -125,6 +125,18 @@ The following example shows two conditions grouped together. In this example, th
 
 To ungroup clauses, select the ungroup icon (:::image type="icon" source="../media/storage-tasks/storage-task-conditions-operations-edit/ungroup-icon.png":::) or select each clause in the group, and select **Ungroup**.
 
+## Preview the effect of conditions
+
+You can view a list of blobs that would be impacted by the conditions that you've defined. In the conditions editor, select **Preview conditions**.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the Preview Conditions button.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions-button.png)
+
+In the **Preview Conditions**, you can specify a target subscription, storage account and container. Because a preview can only show up to 5000 blobs, you can also specify a prefix to narrow the list.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the Preview Conditions page.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions.png)
+
 ## Define operations
 
 An operation is an that is action taken on each object that meets the conditions defined in the task.  
