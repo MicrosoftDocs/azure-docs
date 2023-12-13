@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 12/10/2023
+ms.date: 12/13/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -25,7 +25,8 @@ If you're looking for items older than six months, you can find them in the [Arc
 | Date | Update |
 |--|--|
 | December 13 | [Deny effect - replacing deprecated policies](#deny-effect---replacing-deprecated-policies) |
-| December 12 | [Container vulnerability assesssment powered by MDVM now supports Google Distroless](#container-vulnerability-assesssment-powered-by-mdvm-now-supports-google-distroless) | 
+| December 13 | [General availability (GA) support for PostgreSQL Flexible Server in Defender for open-source relational databases plan](#general-availability-support-for-postgresql-flexible-server-in-defender-for-open-source-relational-databases-plan) |
+| December 12 | [Container vulnerability assessment powered by MDVM now supports Google Distroless](#container-vulnerability-assessment-powered-by-mdvm-now-supports-google-distroless) |
 | December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account) |
 
 ### Deny effect - replacing deprecated policies
@@ -51,7 +52,16 @@ Learn how to [Enable and configure at scale with an Azure built-in policy](defen
 
 Check out [Azure Policy built-in definitions for Microsoft Defender for Cloud](policy-reference.md).
 
-### Container vulnerability assesssment powered by MDVM now supports Google Distroless
+
+### General availability support for PostgreSQL Flexible Server in Defender for open-source relational databases plan
+
+December 13, 2023
+
+We're announcing the general availability (GA) release of PostgreSQL Flexible Server support in the [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md) plan. Microsoft Defender for open-source relational databases provides advanced threat protection to PostgreSQL Flexible Servers, by detecting anomalous activities and generating [security alerts](defender-for-databases-usage.md). 
+
+Learn how to [Enable Microsoft Defender for open-source relational databases](defender-for-databases-usage.md).
+
+### Container vulnerability assessment powered by MDVM now supports Google Distroless
 
 December 12, 2023
 

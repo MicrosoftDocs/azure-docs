@@ -32,7 +32,7 @@ The entitlements service enables three use cases for authorization:
    3. These groups enable `viewer`, `editor`, and `admin` access to call the OSDU APIs corresponding to the OSDU services.
 3. **User groups** are used for hierarchical grouping of user and service groups.
    1. Some examples are users.datalake.viewers and users.datalake.editors.
-   2. Some user groups are created by default when a data partition is provisioned. Details of these groups and their hierarchy scope is in [Bootstrapped OSDU Entitlements Groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
+   2. Some user groups are created by default when a data partition is provisioned. Details of these groups and their hierarchy scope are in [Bootstrapped OSDU Entitlements Groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
   
 Individual users can be added to a `user group`. The `user group` is then added to a `data group`. The data group is added to the ACL of the data record. It enables abstraction for the data groups since individual users need not be added one by one to the data group and instead can be added to the `user group`. This structure thus helps provide scalability to manage memberships in OSDU.
 
@@ -60,6 +60,11 @@ A full list of entitlements API endpoints can be found in [OSDU entitlement serv
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-> [!div class="nextstepaction"]
-> [How to manage users](how-to-manage-users.md)
+As the next step, you can do the following:
+- [How to manager users](how-to-manage-users.md)
+- [How to manage legal tags](how-to-manage-legal-tags.md)
+- [How to manage ACLs](how-to-manage-acls.md)
+
+You can also ingest data into your Azure Data Manager for Energy instance with
+- [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md)
+- [Tutorial on manifest ingestion](tutorial-manifest-ingestion.md)
