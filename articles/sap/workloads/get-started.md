@@ -56,8 +56,9 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- December 11, 2023: Add RHEL requirements to [HANA third site for multi-target replication](./disaster-recovery-sap-hana.md) and integrating into a Pacemaker cluster.
 - November 20, 2023: Add storage configuration for Mv3 medium memory VMs into the documents [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md), [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md), and [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md)
-- November 20, 2023: Add suppoerted storage matrix into the document [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
+- November 20, 2023: Add supported storage matrix into the document [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms-guide-oracle.md)
 - November 09, 2023: Change in [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md) to align multiple vNIC instructions with [planning guide](./planning-guide.md) and add /hana/shared on NFS on Azure Files
 - September 26, 2023: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add instructions for deploying /hana/shared (only) on NFS on Azure Files
 - September 12, 2023: Adding support to handle Azure scheduled events for [Pacemaker clusters running on RHEL](./high-availability-guide-rhel-pacemaker.md).

@@ -82,11 +82,11 @@ After you install the data gateway on a local computer, create the Azure resourc
 
 1. In the Azure portal search box, enter **on-premises data gateway**, and then select **On-premises data gateways**.
 
-   :::image type="content" source="./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png" alt-text="Screenshot shows Azure portal search box with the words, on-premises data gateway. The results list shows the selected option, On-premises data gateways.":::
+   :::image type="content" source="./media/connect-on-premises-data-sources/search-for-on-premises-data-gateway.png" alt-text="Screenshot shows Azure portal search box with the words, on-premises data gateway. The results list shows the selected option, On-premises data gateways.":::
 
 1. Under **On-premises data gateways**, select **Create**.
 
-   :::image type="content" source="./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png" alt-text="Screenshot shows the page for On-premises data gateways with the selected option for Create.":::
+   :::image type="content" source="./media/connect-on-premises-data-sources/add-azure-data-gateway-resource.png" alt-text="Screenshot shows the page for On-premises data gateways with the selected option for Create.":::
 
 1. Under **Create a gateway**, provide the following information for your gateway resource. When you're done, select **Review + create**.
 
@@ -100,7 +100,7 @@ After you install the data gateway on a local computer, create the Azure resourc
 
    The following example shows a gateway installation that's in the same region as your gateway resource and is linked to the same Azure account:
 
-   :::image type="content" source="./media/logic-apps-gateway-connection/on-premises-data-gateway-create-connection.png" alt-text="Screenshot shows the page for Create a gateway. The Name, Region, and other boxes contain values. The button, Review + create, appears selected.":::
+   :::image type="content" source="./media/connect-on-premises-data-sources/on-premises-data-gateway-create-connection.png" alt-text="Screenshot shows the page for Create a gateway. The Name, Region, and other boxes contain values. The button, Review + create, appears selected.":::
 
 1. On the validation page that appears, confirm all the information that you provided, and select **Create**.
 
@@ -145,7 +145,7 @@ After you create your gateway resource and associate your Azure subscription wit
 
       The following example for a Consumption workflow shows sample information for a SQL Server connection:
  
-      :::image type="content" source="./media/logic-apps-gateway-connection/logic-app-gateway-connection.png" alt-text="Screenshot of a SQL Server connector. The 'Subscription,' 'Connection Gateway,' 'Connection name,' and other boxes have values.":::
+      :::image type="content" source="./media/connect-on-premises-data-sources/logic-app-gateway-connection.png" alt-text="Screenshot of a SQL Server connector. The 'Subscription,' 'Connection Gateway,' 'Connection name,' and other boxes have values.":::
 
 1. When you're done, select **Create**.
 
@@ -157,7 +157,7 @@ To update the settings for a gateway connection, you can edit your connection. T
  
 1. To find all the API connections for your logic app resource, on your logic app's menu, under **Development Tools**, select **API connections**.
  
-   :::image type="content" source="./media/logic-apps-gateway-connection/logic-app-api-connections.png" alt-text="Screenshot of a logic app resource in the Azure portal. On the logic app navigation menu, 'API connections' is highlighted.":::
+   :::image type="content" source="./media/connect-on-premises-data-sources/logic-app-api-connections.png" alt-text="Screenshot of a logic app resource in the Azure portal. On the logic app navigation menu, 'API connections' is highlighted.":::
 
 1. Select the gateway connection that you want to edit, and then select **Edit API connection**.
 
@@ -181,7 +181,7 @@ To create a different gateway resource, link your gateway installation to a diff
 
 1. On the gateway resource toolbar, select **Delete**.
 
-   :::image type="content" source="./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png" alt-text="Screenshot shows on-premises data gateway resource in the Azure portal. On the toolbar, Delete is selected.":::
+   :::image type="content" source="./media/connect-on-premises-data-sources/delete-on-premises-data-gateway.png" alt-text="Screenshot shows on-premises data gateway resource in the Azure portal. On the toolbar, Delete is selected.":::
 
 <a name="faq"></a>
 

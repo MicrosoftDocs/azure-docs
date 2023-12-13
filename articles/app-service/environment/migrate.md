@@ -22,7 +22,6 @@ At this time, the migration feature doesn't support migrations to App Service En
 ### Azure Public
 
 - Jio India West
-- UAE Central
 
 ### Microsoft Azure operated by 21Vianet
 
