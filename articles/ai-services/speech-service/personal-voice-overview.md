@@ -26,13 +26,14 @@ The following table summarizes the difference between personal voice and profess
 | Comparison | Personal voice (preview) | Professional voice |
 |-------|-------------------------|-----|
 | Target scenarios | Business customers to build an app to allow their users to create and use their own personal voice in the app. | Professional scenarios like brand and character voices for chat bots, or audio content reading. |
+| Use cases | Restricted to limited use cases. See the [transparency note](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note?context=/azure/ai-services/speech-service/context/context&tabs=prebuilt-voice#intended-uses-for-personal-voice-preview). Approved customers should have a plan to support more than 1,000 personal voices.  | Restricted to limited use cases. See the [transparency note](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note?context=/azure/ai-services/speech-service/context/context&tabs=prebuilt-voice#intended-uses-for-custom-neural-voice-pro-and-custom-neural-voice-lite). |
 | Training data | Make sure you follow the code of conduct. | Bring your own data. Recording in a professional studio is recommended. |
 | Required data size | One minute of human speech. | 300-2000 utterances (about 30 minutes to 3 hours of human speech). |
 | Training time | Less than 5 seconds | Approximately 20-40 compute hours. |
 | Voice quality | Natural | Highly natural |
 | Multilingual support | Yes. The voice is able to speak about 100 languages, with automatic language detection enabled. | Yes. You need to select the "Neural – cross lingual" feature to train a model that speaks a different language from the training data. |
-| Availability | The demo on [Speech Studio](https://aka.ms/speechstudio/) is available upon registration. | Access to the API is restricted to eligible customers and approved use cases. Request access through the intake form. You can only train and deploy a CNV Pro model after access is approved. CNV Pro access is limited based on eligibility and usage criteria. Request access through the intake form. |
-| Pricing | To be announced later. | Check the pricing details [here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |
+| Availability | The demo on [Speech Studio](https://aka.ms/speechstudio/) is available upon registration. Access to the API is restricted to eligible customers and approved use cases. Request access through the intake form. | You can only train and deploy a CNV Pro model after access is approved. CNV Pro access is limited based on eligibility and usage criteria. Request access through the intake form. |
+| Pricing | “Official public preview pricing for the personal voice will be announced in January 2024. Before further announcement, using personal voice will be charged with the same price as the default neural text to speech. | Check the pricing details [here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |
 | Responsible AI requirements | Speaker's verbal statement required. No unapproved use case allowed. | Speaker's verbal statement required. No unapproved use case allowed. |
 
 ## Try the demo

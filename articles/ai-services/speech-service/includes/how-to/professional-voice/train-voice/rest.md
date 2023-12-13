@@ -250,7 +250,7 @@ curl -v -X GET "https://YourResourceRegion.api.cognitive.microsoft.com/customvoi
 
 You should receive a response body in the following format. 
 
-> [!NOTE]] 
+> [!NOTE]
 > The recipe `kind` and other properties depend on how you [trained the voice](#choose-a-training-method). In this example, the recipe kind is `Default` for neural voice training.
 
 ```json
