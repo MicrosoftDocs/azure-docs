@@ -2,7 +2,7 @@
 title: Immersive Reader Java (Android) client library quickstart 
 titleSuffix: Azure AI services
 description: In this quickstart, you build an Android app from scratch and add the Immersive Reader API functionality.
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: guillasi
 ms.service: azure-ai-immersive-reader
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You'll need some of the values created here when you configure the environment properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You'll need some of the values created here when you configure the environment properties. Save the output of your session into a text file for future reference.
 * [Git](https://git-scm.com/).
 * [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk).
 * [Android Studio](https://developer.android.com/studio).
@@ -1389,4 +1389,4 @@ Use Android Studio to run the app on a device emulator. When you select **Immers
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a resource and configure AAD](../../how-to-create-immersive-reader.md)
+> [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)

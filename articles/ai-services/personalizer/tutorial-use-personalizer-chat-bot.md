@@ -13,6 +13,8 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 # Tutorial: Use Personalizer in .NET chat bot
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 Use a C# .NET chat bot with a Personalizer loop to provide the correct content to a user. This chat bot suggests a specific coffee or tea to a user. The user can accept or reject that suggestion. This gives Personalizer information to help make the next suggestion more appropriate.
 
 **In this tutorial, you learn how to:**

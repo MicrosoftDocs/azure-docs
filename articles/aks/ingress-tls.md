@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
 author: asudbring
 ms.author: allensu
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 10/24/2023
 #Customer intent: As a cluster operator or developer, I want to use TLS with an ingress controller to handle the flow of incoming traffic and secure my apps using my own certificates or automatically generated certificates.
 ---
 
@@ -17,7 +17,9 @@ The transport layer security (TLS) protocol uses certificates to provide securit
 
 You can bring your own certificates and integrate them with the Secrets Store CSI driver. Alternatively, you can use [cert-manager][cert-manager], which automatically generates and configures [Let's Encrypt][lets-encrypt] certificates. Two applications run in the AKS cluster, each of which is accessible over a single IP address.
 
-> [!NOTE]
+> [!IMPORTANT]
+> Microsoft **_does not_** manage or support cert-manager and any issues stemming from its use. For issues with cert-manager, see [cert-manager troubleshooting][cert-manager-troubleshooting] documentation.
+>
 > There are two open source ingress controllers for Kubernetes based on Nginx: one is maintained by the Kubernetes community ([kubernetes/ingress-nginx][nginx-ingress]), and one is maintained by NGINX, Inc. ([nginxinc/kubernetes-ingress]). This article uses the *Kubernetes community ingress controller*.
 
 ## Before you begin
@@ -619,6 +621,7 @@ You can also:
 [helm]: https://helm.sh/
 [helm-cli]: ./kubernetes-helm.md
 [cert-manager]: https://github.com/jetstack/cert-manager
+[cert-manager-troubleshooting]: https://cert-manager.io/docs/troubleshooting/
 [cert-manager-certificates]: https://cert-manager.io/docs/concepts/certificate/
 [ingress-shim]: https://cert-manager.io/docs/usage/ingress/
 [cert-manager-cluster-issuer]: https://cert-manager.io/docs/concepts/issuer/

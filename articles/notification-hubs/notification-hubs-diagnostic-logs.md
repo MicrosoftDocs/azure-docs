@@ -1,11 +1,11 @@
 ---
 title: Azure Notification Hubs diagnostics logs | Microsoft Docs
 description: This article provides an overview of all the operational and diagnostics logs that are available for Azure Notification Hubs. 
-author: brannon
-ms.author: brjones
+author: sethmanheim
+ms.author: sethm
 ms.service: notification-hubs
 ms.topic: article
-ms.date: 01/29/2021
+ms.date: 10/23/2023
 ---
 
 # Enable diagnostics logs for Notification Hubs
@@ -53,6 +53,7 @@ Here's an example of an operational log JSON string:
 The `callerIdentity` field can be empty, or a JSON string with one of the following formats.
 
 For calls originating from the Azure portal the `identity` field is empty. The log can be correlated to activity logs to determine the logged in user.
+
 ```json
 {
     "identityType": "Portal",
@@ -61,6 +62,7 @@ For calls originating from the Azure portal the `identity` field is empty. The l
 ```
 
 For calls made through Azure Resource Manager the `identity` field will contain the username of the logged in user.
+
 ```json
 {
    "identityType": "Username",
@@ -69,6 +71,7 @@ For calls made through Azure Resource Manager the `identity` field will contain 
 ```
 
 For calls to the Notification Hubs REST API the `identity` field will contain the name of the access policy used to generate the SharedAccessSignature token.
+
 ```json
 {
    "identityType": "KeyName",
@@ -121,7 +124,9 @@ Operational logs are disabled by default. To enable logs, do the following:
    a. In the **Name** box, enter a name for the diagnostics settings.  
 
    b. Select one of the following three destinations for your diagnostics logs:  
-   - If you select **Send to Log Analytics workspace**, you need to specify which instance of Log Analytics the diagnostics will be sent to.  
+   - If you select **Send to Log Analytics workspace**, you need to specify which instance of Log Analytics the diagnostics will be sent to.
+     > [!NOTE]
+     > Sending to the Log Analytics workspace is currently not supported.
    - If you select **Archive to a storage account**, you need to configure the storage account where the diagnostics logs will be stored.  
    - If you select **Stream to an event hub**, you need to configure the event hub that you want to stream the diagnostics logs to.
 

@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 The table below lists the individual Gateway IP addresses and also Gateway IP address ranges per region.
 
-Periodically, we will retire Gateways using old hardware and migrate the traffic to new Gateways as per the process outlined at [Azure SQL Database traffic migration to newer Gateways](/azure/azure-sql/database/gateway-migration?view=azuresql&tabs=in-progress-ip&preserve-view=true). We strongly encourage customers to use the **Gateway IP address subnets** in order to not be impacted by this activity in a region.
+Periodically, we will retire Gateways using old hardware and migrate the traffic to new Gateways as per the process outlined at [Azure SQL Database traffic migration to newer Gateways](/azure/azure-sql/database/gateway-migration?view=azuresql&tabs=in-progress-ip). We strongly encourage customers to use the **Gateway IP address subnets** in order to not be impacted by this activity in a region.
 
 > [!IMPORTANT]  
 > - Logins for SQL Database or dedicated SQL pools (formerly SQL DW) in Azure Synapse can land on **any of the Gateways in a region**. For consistent connectivity to SQL Database or dedicated SQL pools (formerly SQL DW) in Azure Synapse, allow network traffic to and from **ALL** Gateway IP addresses and Gateway IP address subnets for the region.

@@ -9,8 +9,8 @@ ms.author: mazha
 Before writing CDN management code, you must do some preparation to enable the code to interact with the Azure Resource Manager. To do this preparation, you need to:
 
 * Create a resource group to contain the CDN profile created in this tutorial
-* Configure Azure Active Directory to provide authentication for the application
-* Apply permissions to the resource group so that only authorized users from your Azure AD tenant can interact with the CDN profile
+* Configure Microsoft Entra ID to provide authentication for the application
+* Apply permissions to the resource group so that only authorized users from your Microsoft Entra tenant can interact with the CDN profile
 
 ### Creating the resource group
 1. Sign in to the [Azure Portal](https://portal.azure.com).
@@ -25,10 +25,12 @@ Before writing CDN management code, you must do some preparation to enable the c
 
     ![Screenshot of the C D N Console Tutorial section.](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
-### Creating the Azure AD application and applying permissions
-There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, permissions are instead granted to the service principal.  Service principals are typically used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
+<a name='creating-the-azure-ad-application-and-applying-permissions'></a>
 
-Creating a service principal consists of several steps, including creating an Azure Active Directory application.  To create it, we're going to [follow this tutorial](../articles/active-directory/develop/howto-create-service-principal-portal.md).
+### Creating the Microsoft Entra application and applying permissions
+There are two approaches to app authentication with Microsoft Entra ID: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, permissions are instead granted to the service principal.  Service principals are typically used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
+
+Creating a service principal consists of several steps, including creating a Microsoft Entra application.  To create it, we're going to [follow this tutorial](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 
 > [!IMPORTANT]
 > Be sure to follow all the steps in the [linked tutorial](../articles/active-directory/develop/howto-create-service-principal-portal.md).  It is *important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **tenant domain name** (commonly a *.onmicrosoft.com* domain unless you've specified a custom domain), **client ID**, and **client authentication key**, as we need this information later.  Be careful to guard your **client ID** and **client authentication key**, as these credentials can be used by anyone to execute operations as the service principal.

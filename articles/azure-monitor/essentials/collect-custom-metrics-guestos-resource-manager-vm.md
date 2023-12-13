@@ -263,7 +263,7 @@ To deploy the ARM template, we use Azure PowerShell.
 
 1. On the **Monitor** page, select **Metrics**.
 
-   ![Screenshot that shows the Metrics page.](media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png)
+   :::image type="content" source="media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png" lightbox="media/collect-custom-metrics-guestos-resource-manager-vm/metrics.png" alt-text="Screenshot that shows the Metrics page.":::
 
 1. Change the aggregation period to **Last 30 minutes**.
 

@@ -22,7 +22,7 @@ Use the below tables to find all the relevant information on number availability
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   |-  | - | General Availability | General Availability\* |
 | Local       | -                    | -                    | General Availability | General Availability\* |
-|Alphanumeric Sender ID\**|Public Preview|-|-|-|
+|Alphanumeric Sender ID\**|General Availability|-|-|-|
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -45,11 +45,42 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Ireland phone numbers are available
 | Country/Region |
 | :---------- |
+|Australia|
+|Canada|
 |Denmark|
+|France|
+|Germany|
 |Ireland|
 |Italy|
+|Japan|
+|Netherlands|
+|Puerto Rico|
+|Spain|
 |Sweden|
+|United Kingdom|
+|United States|
 
+
+## Azure subscription billing locations where Ireland alphanumeric sender IDs are available
+| Country/Region |
+| :---------- |
+| Australia |
+| Austria |
+| Denmark |
+| France |
+| Germany |
+| India |
+| Ireland |
+| Italy |
+| Netherlands |
+| Poland |
+| Portugal |
+| Puerto Rico |
+| Spain |
+| Sweden |
+| Switzerland |
+| United Kingdom |
+| United States |
 
 
 ## Find information about other countries/regions

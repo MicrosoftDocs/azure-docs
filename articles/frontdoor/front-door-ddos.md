@@ -6,13 +6,13 @@ author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/05/2023
+ms.date: 10/23/2023
 ms.author: duau
 ---
 
 # DDoS protection on Front Door
 
-By using Azure Front Door, you can protect your application from distributed denial of service (DDoS) attacks. Azure Front Door offers several features and characteristics that can block attackers from reaching your application and affecting its availability and performance.
+Azure Front Door is a Content Delivery Network (CDN) that can help you protect your origins from HTTP(S) DDoS attacks by distributing the traffic across its 192 edge POPs worldwide. These POPs uses our large private WAN to deliver your web applications and services faster and more securely to your end users. Azure Front Door also includes layer 3, 4, and 7 DDoS protection and a web application firewall (WAF) to help protect your applications from common exploits and vulnerabilities.
 
 ## Infrastructure DDoS protection
 
@@ -46,6 +46,10 @@ Refer to [Application DDoS protection](../web-application-firewall/shared/applic
 ## Protect virtual network origins
 
 To protect your public IPs from DDoS attacks, enable [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) on the origin virtual network. DDoS Protection customers receive extra benefits such as cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate assistance during an attack.
+
+## Private Link
+
+Enhance the security of your Azure-hosted origins by restricting their access to Azure Front Door through [Azure Private Link](private-link.md). This feature enables a private network connection between Azure Front Door and your application servers, eliminating the need to expose your origins to the public internet.
 
 ## Next steps
 

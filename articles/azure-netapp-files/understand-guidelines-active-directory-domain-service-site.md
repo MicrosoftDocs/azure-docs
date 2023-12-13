@@ -30,8 +30,8 @@ Before you deploy Azure NetApp Files volumes, you must identify the AD DS integr
 Azure NetApp Files supports identity-based authentication over SMB through the following methods.   
 
 * **AD DS authentication**:  AD DS-joined Windows machines can access Azure NetApp Files shares with Active Directory credentials over SMB. Your client must have line of sight to your AD DS. If you already have AD DS set up on-premises or on a VM in Azure where your devices are domain-joined to your AD DS, you should use AD DS for Azure NetApp Files file share authentication.
-* **Azure AD DS authentication**: Cloud-based, Azure AD DS-joined Windows VMs can access Azure NetApp Files file shares with Azure AD DS credentials. In this solution, Azure AD DS runs a traditional Windows Server AD domain on behalf of the customer.
-* **Azure AD Kerberos for hybrid identities**: Using Azure AD for authenticating [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md) allows Azure AD users to access Azure NetApp Files file shares using Kerberos authentication. This means your end users can access Azure NetApp Files file shares without requiring a line-of-sight to domain controllers from hybrid Azure AD-joined and Azure AD-joined Windows or Linux virtual machines. *Cloud-only identities aren't currently supported.*
+* **Microsoft Entra Domain Services authentication**: Cloud-based, Microsoft Entra Domain Services-joined Windows VMs can access Azure NetApp Files file shares with Microsoft Entra Domain Services credentials. In this solution, Microsoft Entra Domain Services runs a traditional Windows Server AD domain on behalf of the customer.
+* **Microsoft Entra Kerberos for hybrid identities**: Using Microsoft Entra ID for authenticating [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md) allows Microsoft Entra users to access Azure NetApp Files file shares using Kerberos authentication. This means your end users can access Azure NetApp Files file shares without requiring a line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined Windows or Linux virtual machines. *Cloud-only identities aren't currently supported.*
 * **AD Kerberos authentication for Linux clients**: Linux clients can use Kerberos authentication over SMB for Azure NetApp Files using AD DS.
 
 
@@ -93,9 +93,9 @@ Azure NetApp Files uses **time.windows.com** as the time source. Ensure that the
 
 ## Decide which AD DS to use with Azure NetApp Files
 
-Azure NetApp Files supports both Active Directory Domain Services (AD DS) and Azure Active Directory Domain Services (Azure AD DS) for AD connections. Before you create an AD connection, you need to decide whether to use AD DS or Azure AD DS.
+Azure NetApp Files supports both Active Directory Domain Services (AD DS) and Microsoft Entra Domain Services for AD connections. Before you create an AD connection, you need to decide whether to use AD DS or Microsoft Entra Domain Services.
 
-For more information, see [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](../active-directory-domain-services/compare-identity-solutions.md).
+For more information, see [Compare self-managed Active Directory Domain Services, Microsoft Entra ID, and managed Microsoft Entra Domain Services](../active-directory-domain-services/compare-identity-solutions.md).
 
 ### Active Directory Domain Services considerations
 
@@ -103,27 +103,29 @@ You should use Active Directory Domain Services (AD DS) in the following scenari
 
 * You have AD DS users hosted in an on-premises AD DS domain that need access to Azure NetApp Files resources.
 * You have applications hosted partially on-premises and partially in Azure that need access to Azure NetApp Files resources.
-* You don’t need Azure AD DS integration with an Azure AD tenant in your subscription, or Azure AD DS is incompatible with your technical requirements.
+* You don’t need Microsoft Entra Domain Services integration with a Microsoft Entra tenant in your subscription, or Microsoft Entra Domain Services is incompatible with your technical requirements.
 
 > [!NOTE]
 > Azure NetApp Files doesn't support the use of AD DS Read-only Domain Controllers (RODC).
 
 If you choose to use AD DS with Azure NetApp Files, follow the guidance in [Extend AD DS into Azure Architecture Guide](/azure/architecture/reference-architectures/identity/adds-extend-domain) and ensure that you meet the Azure NetApp Files [network](#network-requirements) and [DNS requirements](#ad-ds-requirements) for AD DS.
 
-### Azure Active Directory Domain Services considerations
+<a name='azure-active-directory-domain-services-considerations'></a>
 
-[Azure Active Directory Domain Services (Azure AD DS)](../active-directory-domain-services/overview.md) is a managed AD DS domain that is synchronized with your Azure AD tenant. The main benefits to using Azure AD DS are as follows:
+### Microsoft Entra Domain Services considerations
 
-* Azure AD DS is a standalone domain. As such, there's no need to set up network connectivity between on-premises and Azure.
+[Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) is a managed AD DS domain that is synchronized with your Microsoft Entra tenant. The main benefits to using Microsoft Entra Domain Services are as follows:
+
+* Microsoft Entra Domain Services is a standalone domain. As such, there's no need to set up network connectivity between on-premises and Azure.
 * Provides simplified deployment and management experience.
 
-You should use Azure AD DS in the following scenarios:
+You should use Microsoft Entra Domain Services in the following scenarios:
 
 * There’s no need to extend AD DS from on-premises into Azure to provide access to Azure NetApp Files resources.
 * Your security policies do not allow the extension of on-premises AD DS into Azure.
-* You don’t have strong knowledge of AD DS. Azure AD DS can improve the likelihood of good outcomes with Azure NetApp Files.
+* You don’t have strong knowledge of AD DS. Microsoft Entra Domain Services can improve the likelihood of good outcomes with Azure NetApp Files.
 
-If you choose to use Azure AD DS with Azure NetApp Files, see [Azure AD DS documentation](../active-directory-domain-services/overview.md) for [architecture](../active-directory-domain-services/scenarios.md), deployment, and management guidance. Ensure that you also meet the Azure NetApp Files [Network](#network-requirements) and [DNS requirements](#ad-ds-requirements).
+If you choose to use Microsoft Entra Domain Services with Azure NetApp Files, see [Microsoft Entra Domain Services documentation](../active-directory-domain-services/overview.md) for [architecture](../active-directory-domain-services/scenarios.md), deployment, and management guidance. Ensure that you also meet the Azure NetApp Files [Network](#network-requirements) and [DNS requirements](#ad-ds-requirements).
 
 ## Design AD DS site topology for use with Azure NetApp Files
 
@@ -142,7 +144,7 @@ In addition to multiple domain controllers assigned to the AD DS site configured
 >[!NOTE]
 >It's essential that all the domain controllers and subnets assigned to the Azure NetApp Files AD DS site must be well connected (less than 10ms RTT latency) and reachable by the network interfaces used by the Azure NetApp Files volumes. 
 >
->If you're using using Standard network features, you should ensure that any User Defined Routes (UDRs) or Network Security Group (NSG) rules do not block Azure NetApp Files network communication with AD DS domain controllers assigned to the Azure NetApp Files AD DS site. 
+>If you're using Standard network features, you should ensure that any User Defined Routes (UDRs) or Network Security Group (NSG) rules do not block Azure NetApp Files network communication with AD DS domain controllers assigned to the Azure NetApp Files AD DS site. 
 >
 >If you're using Network Virtual Appliances or firewalls (such as Palo Alto Networks or Fortinet firewalls), they must be configured to not block network traffic between Azure NetApp Files and the AD DS domain controllers and subnets assigned to the Azure NetApp Files AD DS site.
 
@@ -240,4 +242,4 @@ Azure NetApp Files SMB, dual-protocol, and NFSv4.1 Kerberos volumes support cros
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Errors for SMB and dual-protocol volumes](troubleshoot-volumes.md#errors-for-smb-and-dual-protocol-volumes)
-* [Access SMB volumes from Azure AD joined Windows virtual machines](access-smb-volume-from-windows-client.md)
+* [Access SMB volumes from Microsoft Entra joined Windows virtual machines](access-smb-volume-from-windows-client.md)

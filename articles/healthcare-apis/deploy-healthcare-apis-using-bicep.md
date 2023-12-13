@@ -27,7 +27,7 @@ You can continue to work with JSON ARM templates, or use Bicep to develop your A
 
 Using Bicep parameters and variables instead of hard coding names and other values allows you to debug and reuse your Bicep templates.
 
-We first define parameters with the keyword *param* for workspace, FHIR service, DICOM service, MedTech service. Also, we define parameters for Azure subscription and Azure Active Directory (Azure AD) tenant. They’re used in the CLI command line with the "--parameters" option.
+We first define parameters with the keyword *param* for workspace, FHIR service, DICOM service, MedTech service. Also, we define parameters for Azure subscription and Microsoft Entra tenant. They’re used in the CLI command line with the "--parameters" option.
 
 We then define variables for resources with the keyword *var*. Also, we define variables for properties such as the authority and the audience for the FHIR service. They’re specified and used internally in the Bicep template, and can be used in combination of parameters, Bicep functions, and other variables. Unlike parameters, they aren’t used in the CLI command line.
 

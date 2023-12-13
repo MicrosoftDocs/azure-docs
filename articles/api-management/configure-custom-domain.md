@@ -42,7 +42,6 @@ There are several API Management endpoints to which you can assign a custom doma
 | Endpoint | Default |
 | -------- | ----------- |
 | **Gateway** | Default is: `<apim-service-name>.azure-api.net`. Gateway is the only endpoint available for configuration in the Consumption tier.<br/><br/>The default Gateway endpoint configuration remains available after a custom Gateway domain is added. |
-| **Developer portal (legacy)** | Default is: `<apim-service-name>.portal.azure-api.net` |
 | **Developer portal** | Default is: `<apim-service-name>.developer.azure-api.net` |
 | **Management** | Default is: `<apim-service-name>.management.azure-api.net` |
 | **Configuration API (v2)** | Default is: `<apim-service-name>.configuration.azure-api.net` |

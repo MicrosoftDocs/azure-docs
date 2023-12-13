@@ -2,7 +2,7 @@
 title: Text to speech overview - Speech service
 titleSuffix: Azure AI services
 description: Get an overview of the benefits and capabilities of the text to speech feature of the Speech service.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: overview
 ms.workload: infrastructure-services
-ms.date: 03/18/2023
+ms.date: 10/12/2023
 ms.author: duau
 # Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---
@@ -22,6 +22,8 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Why use Azure Front Door?
+
+> [!VIDEO https://www.youtube.com/embed/-4FQYxV9mAE]
 
 Azure Front Door enables internet-facing application to:
 

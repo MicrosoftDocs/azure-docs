@@ -1283,7 +1283,7 @@ You may encounter the following issues before the improvement, but after the imp
  After the improvement, the parsed column result should be:<br/>
   `A "" (empty string) B "" (empty string)`<br/>
 
-## Next steps
+## Related content
 
 For more help with troubleshooting, see these resources:
 

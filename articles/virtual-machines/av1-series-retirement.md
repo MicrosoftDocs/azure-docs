@@ -13,6 +13,7 @@ ms.custom: kr2b-contr-experiment
 # Av1-series retirement
 
 On August 31, 2024, we retire Basic and Standard A-series virtual machines (VMs). Before that date, migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
+The remaining VMs with these specific sizes on your subscription will be set to a deallocated state. These VMs will be stopped and removed from the host. These VMs will no longer be billed in the deallocated state.
 
 > [!NOTE]
 > In some cases, you must deallocate the VM prior to resizing. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM.

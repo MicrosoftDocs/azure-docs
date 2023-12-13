@@ -107,6 +107,9 @@ items:
           href: how-to-custom-speech-model-and-endpoint-lifecycle.md
         - name: CI/CD for Custom Speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+    - name: How to use Pronunciation Assessment
+      href: how-to-pronunciation-assessment.md
+      displayName: pronounce, language learn, assess pron, scripted, unscripted
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
     - name: Display text formatting
@@ -127,8 +130,12 @@ items:
       href: get-started-text-to-speech.md
     - name: How to synthesize speech
       href: how-to-speech-synthesis.md
-    - name: Batch synthesis API
-      href: batch-synthesis.md
+    - name: Batch synthesis
+      items:
+      - name: Use batch synthesis for text to speech
+        href: batch-synthesis.md
+      - name: Batch synthesis properties
+        href: batch-synthesis-properties.md
     - name: Improve synthesis with SSML
       items:
       - name: SSML overview
@@ -154,6 +161,8 @@ items:
           displayName: cnv
         - name: Custom Neural Voice Lite
           href: custom-neural-voice-lite.md
+        - name: Personal voice (preview)
+          href: personal-voice-overview.md
           displayName: cnv
         - name: Create a Custom Neural Voice 
           items:
@@ -172,6 +181,35 @@ items:
           href: how-to-custom-voice-training-data.md
         - name: How to record voice samples
           href: record-custom-voice-samples.md
+    - name: Text to speech avatar
+      items:
+      - name: What is text to speech avatar?
+        href: text-to-speech-avatar/what-is-text-to-speech-avatar.md
+        displayName: avatar
+      - name: How to synthesize text to speech avatar
+        items:
+        - name: Real-time synthesis
+          href: text-to-speech-avatar/real-time-synthesis-avatar.md
+          displayName: avatar
+        - name: Batch synthesis
+          items:
+          - name: Use batch synthesis for avatar
+            href: text-to-speech-avatar/batch-synthesis-avatar.md
+          - name: Batch synthesis properties
+            href: text-to-speech-avatar/batch-synthesis-avatar-properties.md
+            displayName: avatar
+        - name: Customize avatar gestures with SSML
+          href: text-to-speech-avatar/avatar-gestures-with-ssml.md
+      - name: Custom text to speech avatar
+        items:
+        - name: What is custom text to speech avatar?
+          href: text-to-speech-avatar/what-is-custom-text-to-speech-avatar.md
+          displayName: custom-tts-avatar
+        - name: Create a custom text to speech avatar
+          href: text-to-speech-avatar/custom-avatar-create.md
+        - name: How to record video samples
+          href: text-to-speech-avatar/custom-avatar-record-video-samples.md
+          displayName: avatar
     - name: Audio Content Creation
       href: how-to-audio-content-creation.md
       displayName: acc
@@ -241,11 +279,8 @@ items:
         href: language-learning-overview.md
       - name: Pronunciation Assessment with speech to text
         items:
-        - name: Pronunciation Assessment in Speech Studio
+        - name: Reading and speaking assessment in Speech Studio
           href: pronunciation-assessment-tool.md
-          displayName: pronounce, learn language, assess pron
-        - name: How to use Pronunciation Assessment
-          href: how-to-pronunciation-assessment.md
           displayName: pronounce, learn language, assess pron
     - name: Azure OpenAI speech to speech chat
       href: openai-speech.md
@@ -270,7 +305,7 @@ items:
         - name: Voice assistants FAQ
           href: faq-voice-assistants.yml
         - name: Voice Assistants Samples (GitHub)
-          href: http://aka.ms/speech/va-samples
+          href: https://aka.ms/speech/va-samples
         - name: Custom Commands
           items:
             - name: Custom Commands overview
@@ -342,9 +377,9 @@ items:
         href: how-to-select-audio-input-devices.md
     - name: Access control and authentication
       items:
-      - name: Role-based access with Azure Active Directory 
+      - name: Role-based access with Microsoft Entra ID 
         href: role-based-access-control.md
-      - name: Use Azure Active Directory Authentication
+      - name: Use Microsoft Entra authentication
         href: how-to-configure-azure-ad-auth.md
     - name: Endpoint connections
       items:
@@ -508,7 +543,7 @@ items:
         - name: Conversation transcription REST APIs
           href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html 
           displayName: reference
-- name: Responsible use of AI
+- name: Responsible AI
   items:
     - name: Speech to text
       items:
@@ -516,6 +551,32 @@ items:
         href: /legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/ai-services/speech-service/context/context
       - name: Data, privacy, and security
         href: /legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/ai-services/speech-service/context/context
+    - name: Text to speech
+      items:
+      - name: Transparency note
+        href: /legal/cognitive-services/speech-service/text-to-speech/transparency-note?context=/azure/ai-services/speech-service/context/context
+      - name: Code of conduct
+        href: /legal/cognitive-services/speech-service/text-to-speech/code-of-conduct?context=/azure/ai-services/speech-service/context/context
+      - name: Limited access
+        href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
+      - name: Disclosure for voice and avatar talent
+        href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context
+      - name: Custom neural voice
+        items:
+        - name: Responsible deployment of synthetic speech
+          href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=/azure/ai-services/speech-service/context/context
+        - name: Disclosure design guidelines
+          href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/ai-services/speech-service/context/context
+        - name: Disclosure design patterns
+          href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/ai-services/speech-service/context/context
+      - name: Text to speech avatar
+        items:
+        - name: Disclosure design guidelines
+          href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines-avatar?context=/azure/ai-services/speech-service/context/context
+        - name: Disclosure design patterns
+          href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns-avatar?context=/azure/ai-services/speech-service/context/context
+      - name: Data, privacy, and security
+        href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
     - name: Pronunciation Assessment
       items:
       - name: Transparency Note
@@ -524,30 +585,6 @@ items:
           href: /legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/ai-services/speech-service/context/context
         - name: Characteristics and limitations
           href: /legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/ai-services/speech-service/context/context
-    - name: Custom Neural Voice
-      items:
-        - name: Transparency Note
-          items:
-            - name: Use cases for Custom Neural Voice
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
-            - name: Characteristics and limitations
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
-        - name: Integration and responsible use
-          items:
-            - name: Limited access
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
-            - name: Responsible deployment of synthetic speech
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=/azure/ai-services/speech-service/context/context
-            - name: Disclosure for voice talent
-              href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context
-            - name: Disclosure design guidelines
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/ai-services/speech-service/context/context
-            - name: Disclosure design patterns
-              href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/ai-services/speech-service/context/context
-            - name: Code of conduct
-              href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/ai-services/speech-service/context/context
-        - name: Data, privacy, and security
-          href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
     - name: Speaker Recognition
       items: 
       - name: Transparency note

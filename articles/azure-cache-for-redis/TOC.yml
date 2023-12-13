@@ -1,43 +1,222 @@
 - name: Azure Cache for Redis Documentation
   href: index.yml
-- name: Overview
+- name: Get started
   items:
   - name: About Azure Cache for Redis
     href: cache-overview.md
   - name: What's new
     href: cache-whats-new.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Create a cache
-    items: 
-    - name: Create a cache in the Basic, Standard and Premium tiers
-      href: quickstart-create-redis.md
-    - name: Create a cache in the Enterprise tiers
-      href: quickstart-create-redis-enterprise.md
-  - name: Use a cache
+  - name: Quickstarts
+    expanded: true
     items:
-    - name: ASP.NET app
-      href: cache-web-app-howto.md
-    - name: ASP.NET Core app
-      href: cache-web-app-aspnet-core-howto.md
-    - name: .NET Core app
-      href: cache-dotnet-core-quickstart.md
-    - name: .NET app
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Java app
-      href: cache-java-get-started.md
-    - name: Node.js app
-      href: cache-nodejs-get-started.md
-    - name: Python app
-      href: cache-python-get-started.md
-    - name: Go app
-      href: cache-go-get-started.md
-    - name: Rust app
-      href: cache-rust-get-started.md
-- name: Tutorials
+    - name: Create a cache
+      items: 
+      - name: Create a cache in the Basic, Standard and Premium tiers
+        href: quickstart-create-redis.md
+      - name: Create a cache in the Enterprise tiers
+        href: quickstart-create-redis-enterprise.md
+      - name: Create and manage with Azure PowerShell
+        href: cache-how-to-manage-redis-cache-powershell.md
+      - name: Create and manage with Azure CLI
+        href: scripts/create-manage-cache.md
+      - name: Create and manage premium cache with Azure CLI
+        href: scripts/create-manage-premium-cache-cluster.md
+      - name: Create Redis cache - Bicep
+        displayName: ARM, Resource Manager, Template
+        href: cache-redis-cache-bicep-provision.md
+      - name: Create Redis cache - ARM template
+        displayName: Resource Manager
+        href: cache-redis-cache-arm-provision.md
+
+    - name: Use a cache
+      items:
+      - name: ASP.NET app
+        href: cache-web-app-howto.md
+      - name: ASP.NET Core app
+        href: cache-web-app-aspnet-core-howto.md
+      - name: .NET Core app
+        href: cache-dotnet-core-quickstart.md
+      - name: .NET app
+        href: cache-dotnet-how-to-use-azure-redis-cache.md
+      - name: Java app
+        href: cache-java-get-started.md
+      - name: Node.js app
+        href: cache-nodejs-get-started.md
+      - name: Python app
+        href: cache-python-get-started.md
+      - name: Go app
+        href: cache-go-get-started.md
+      - name: Rust app
+        href: cache-rust-get-started.md
+
+
+- name: Deploy and configure
   items:
-  - name: Use Azure Functions
+  - name: Choose a cache tier
+    href: cache-overview.md#choosing-the-right-tier
+  - name: Upgrade to a new version
+    href: cache-how-to-upgrade.md
+  - name: Save with reservations 
+    href: cache-reserved-pricing.md
+  - name: Migrate to Azure Cache for Redis
+    href: cache-migration-guide.md
+  - name: Planning FAQs
+    href: cache-planning-faq.yml
+  - name: Redis modules 
+    href: cache-redis-modules.md
+  - name: Caching architecture
+    href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
+  - name: Create and manage with Azure PowerShell
+    href: cache-how-to-manage-redis-cache-powershell.md
+  - name: Connect an AKS application to a cache
+    href: cache-tutorial-aks-get-started.md
+  - name: Use Azure CLI
+    items:
+    - name: Overview
+      href: cli-samples.md
+    - name: Create and manage a cache
+      href: scripts/create-manage-cache.md
+    - name: Create and manage a premium cache
+      href: scripts/create-manage-premium-cache-cluster.md
+
+
+
+- name: Development and client libraries
+  items:
+  - name: Development FAQs
+    href: cache-development-faq.yml
+  - name: Client libraries best practices
+    href: cache-best-practices-client-libraries.md
+  - name: Development best practice
+    href: cache-best-practices-development.md
+  - name: Memory management best practice
+    href: cache-best-practices-memory-management.md
+  - name: Performance testing best practice
+    href: cache-best-practices-performance.md
+  - name: Enterprise tiers best practices
+    href: cache-best-practices-enterprise-tiers.md
+  - name: Vector Search
+    href: cache-overview-vector-similarity.md
+  - name: Connection resilience best practices
+    href: cache-best-practices-connection.md
+  - name: Use Azure Functions triggers and bindings
+    items:
+    - name: Create a simple Function app for Redis triggers 
+      href: cache-tutorial-functions-getting-started.md
+
+- name: Logs and monitoring
+  items:
+  - name: Monitor in Azure portal
+    href: cache-how-to-monitor.md
+  - name: Set alerts for exceptions
+    href: cache-how-to-monitor.md#create-alerts
+  - name: Monitor with diagnostic logs
+    href: cache-monitor-diagnostic-settings.md
+  - name: Use Insights to understand performance and utilization
+    href: cache-insights-overview.md
+
+- name: Scaling and performance
+  items:
+  - name: Change the size and tier of a cache
+    href: cache-how-to-scale.md
+  - name: Development best practices
+    href: cache-best-practices-development.md
+  - name: Scaling best practices
+    href: cache-best-practices-scale.md
+  - name: Server load management best practice
+    href: cache-best-practices-server-load.md
+
+
+- name: Authentication and authorization
+  items:
+  - name: Role-based access control
+    href: cache-configure-role-based-access-control.md
+  - name: Microsoft Entra ID for authentication
+    href: cache-azure-active-directory-for-authentication.md
+  - name: Managed identity for storage accounts
+    href: cache-managed-identity.md
+
+- name: Security and networking
+  items:
+    - name: Network isolation options
+      href: cache-network-isolation.md
+    - name: Connect to cache using Private Link
+      href: cache-private-link.md
+    - name: Migrate from VNet injection to Private Link
+      href: cache-vnet-migration.md
+    - name: Secure your cache with a virtual network
+      href: cache-how-to-premium-vnet.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Remove TLS 1.0 and 1.1
+      href: cache-remove-tls-10-11.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
+
+
+- name: Cache management 
+  items:
+  - name: Configure in Azure portal
+    href: cache-configure.md
+  - name: Import/Export data
+    href: cache-how-to-import-export-data.md
+  - name: Configure disk encryption 
+    href: cache-how-to-encryption.md
+  - name: Reboot
+    href: cache-administration.md#reboot
+  - name: Update channel and schedule updates
+    href: cache-administration.md#update-channel-and-schedule-updates
+  - name: Configure redis-cli.exe access
+    href: cache-how-to-redis-cli-tool.md
+  - name: Create and manage a cache using CLI
+    href: cache-manage-cli.md
+  - name: Move between regions
+    href: cache-moving-resources.md
+  - name: Publishing Azure Cache for Redis events
+    href: cache-event-grid.md
+  - name: Management FAQs
+    href: cache-management-faq.yml
+  - name: Azure Functions
+    href: ../azure-functions/functions-bindings-cache.md
+
+- name: Resiliency
+  items:
+  - name: Persist your cache with Redis data persistence 
+    href: cache-how-to-premium-persistence.md
+  - name: Add more replicas
+    href: cache-how-to-multi-replicas.md
+  - name: Enable zone redundancy
+    href: cache-how-to-zone-redundancy.md
+  - name: Set up passive geo-replication
+    href: cache-how-to-geo-replication.md
+  - name: Set up Enterprise active geo-replication
+    href: cache-how-to-active-geo-replication.md
+  - name: Configure your cache for high availability
+    href: cache-high-availability.md
+  - name: Failover and patching
+    href: cache-failover.md
+  - name: Migrate to availability zone support
+    href: ../availability-zones/migrate-cache-redis.md
+
+- name: Diagnose and troubleshoot
+  items:
+  - name: Troubleshoot connectivity issues
+    href: cache-troubleshoot-connectivity.md
+  - name: Troubleshoot latency and timeouts
+    href: cache-troubleshoot-timeouts.md
+  - name: Troubleshoot client 
+    href: cache-troubleshoot-client.md
+  - name: Troubleshoot Redis server
+    href: cache-troubleshoot-server.md
+  - name: Troubleshoot data loss
+    href: cache-troubleshoot-data-loss.md
+  - name: Troubleshooting FAQs
+    href: cache-monitor-troubleshoot-faq.yml 
+    
+- name: Samples
+  items:
+  - name: Use Azure Functions triggers and bindings
     items:
     - name: Create a simple Function app for Redis triggers 
       href: cache-tutorial-functions-getting-started.md
@@ -48,11 +227,15 @@
     - name: Connect an AKS application to a cache
       href: cache-tutorial-aks-get-started.md
     - name: Use active geo-replication with an AKS-hosted application
-      href: cache-tutorial-active-replication.md      
+      href: cache-tutorial-active-replication.md
+    - name: Kubernetes-hosted client applications best practices
+      href: cache-best-practices-kubernetes.md
   - name: Artificial Intelligence
     items:
-    - name: Vector similarity search
-      href: cache-tutorial-vector-similarity.md
+      - name: Vector Search
+        href: cache-overview-vector-similarity.md
+      - name: Vector similarity search
+        href: cache-tutorial-vector-similarity.md
   - name: ASP.NET
     items:
     - name: Use session state provider
@@ -75,185 +258,13 @@
     href: cache-web-app-cache-aside-leaderboard.md
   - name: Deploy a machine learning model 
     href: cache-ml.md
-- name: Samples
-  items:
-  - name: PowerShell samples
-    items:
-    - name: Manage with Azure PowerShell
-      href: cache-how-to-manage-redis-cache-powershell.md
-  - name: Azure CLI samples
-    items:
-    - name: Overview
-      href: cli-samples.md
-    - name: Create and manage Azure Cache for Redis
-      href: scripts/create-manage-cache.md
-    - name: Create and managed premium Azure Cache for Redis
-      href: scripts/create-manage-premium-cache-cluster.md
-- name: Concepts
-  items:
-    - name: Artificial Intelligence
-      items:
-      - name: Vector Search
-        href: cache-overview-vector-similarity.md
-    - name: Resiliency
-      items:
-      - name: High availability
-        href: cache-high-availability.md
-      - name: Failover and patching
-        href: cache-failover.md
-      - name: Migrate to availability zone support
-        href: ../availability-zones/migrate-cache-redis.md
-    - name: Best practices
-      items:
-       - name: Client libraries
-         href: cache-best-practices-client-libraries.md
-       - name: Connection resilience
-         href: cache-best-practices-connection.md
-       - name: Development
-         href: cache-best-practices-development.md
-       - name: Enterprise tiers
-         href: cache-best-practices-enterprise-tiers.md
-       - name: Kubernetes-hosted client applications
-         href: cache-best-practices-kubernetes.md
-       - name: Memory management
-         href: cache-best-practices-memory-management.md
-       - name: Performance testing
-         href: cache-best-practices-performance.md
-       - name: Scaling
-         href: cache-best-practices-scale.md
-       - name: Server load management
-         href: cache-best-practices-server-load.md
-    - name: Security
-      items:
-      - name: Network isolation options
-        href: cache-network-isolation.md
-      - name: Security controls by Azure Policy
-        displayName: regulatory, compliance, standards, domains
-        href: ./security-controls-policy.md
-      - name: Security baseline
-        href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
-    - name: Redis modules 
-      href: cache-redis-modules.md
-    - name: Caching architecture
-      href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
-- name: How-to guides
-  items:
-  - name: Plan
-    items:
-    - name: Choose a cache tier
-      href: cache-overview.md#choosing-the-right-tier
-    - name: Upgrade to a new version
-      href: cache-how-to-upgrade.md
-    - name: Set Redis version
-      href: cache-how-to-version.md
-    - name: Distribute your cache with clustering
-      href: cache-how-to-premium-clustering.md
-    - name: Managed identity for storage accounts
-      href: cache-managed-identity.md
-    - name: Persist your cache with Redis data persistence
-      href: cache-how-to-premium-persistence.md
-    - name: Add more replicas
-      href: cache-how-to-multi-replicas.md
-    - name: Connect to cache using Private Link
-      href: cache-private-link.md
-    - name: Migrate from VNet injection to Private Link
-      href: cache-vnet-migration.md
-    - name: Enable zone redundancy 
-      href: cache-how-to-zone-redundancy.md
-    - name: Set up passive geo-replication
-      href: cache-how-to-geo-replication.md
-    - name: Set up Enterprise active geo-replication
-      href: cache-how-to-active-geo-replication.md
-    - name: Save with reservations
-      href: cache-reserved-pricing.md
-    - name: Migrate to Azure Cache for Redis
-      href: cache-migration-guide.md
-    - name: Secure your cache with a virtual network
-      href: cache-how-to-premium-vnet.md
-    - name: Planning FAQs
-      href: cache-planning-faq.yml
-  - name: Build
-    items:
-    - name: Development FAQs
-      href: cache-development-faq.yml
-  - name: Automate
-    items:
-    - name: Deploy and manage using Azure PowerShell
-      href: cache-how-to-manage-redis-cache-powershell.md
-    - name: Deploy and Manage using Azure CLI
-      href: cli-samples.md
-    - name: Create Redis cache - Bicep
-      displayName: ARM, Resource Manager, Template
-      href: cache-redis-cache-bicep-provision.md
-    - name: Create Redis cache - ARM template
-      displayName: Resource Manager
-      href: cache-redis-cache-arm-provision.md
-    - name: Create Web App with Redis cache - Bicep
-      displayName: ARM, Resource Manager, Template
-      href: cache-web-app-bicep-with-redis-cache-provision.md
-    - name: Create Web App with Redis cache - ARM template
-      displayName: Resource Manager
-      href: cache-web-app-arm-with-redis-cache-provision.md
-  - name: Manage
-    items:
-    - name: Configure in Azure portal
-      href: cache-configure.md
-    - name: Import/Export data
-      href: cache-how-to-import-export-data.md
-    - name: Configure disk encryption 
-      href: cache-how-to-encryption.md
-    - name: Reboot
-      href: cache-administration.md#reboot
-    - name: Update channel and schedule updates
-      href: cache-administration.md#update-channel-and-schedule-updates
-    - name: Configure redis-cli.exe access
-      href: cache-how-to-redis-cli-tool.md
-    - name: Create and manage a cache using CLI
-      href: cache-manage-cli.md
-    - name: Move between regions
-      href: cache-moving-resources.md
-    - name: Publishing Azure Cache for Redis events
-      href: cache-event-grid.md
-    - name: Remove TLS 1.0 and 1.1
-      href: cache-remove-tls-10-11.md
-    - name: Management FAQs
-      href: cache-management-faq.yml
-    - name: Azure Functions
-      href: ../azure-functions/functions-bindings-cache.md
-    - name: Role-based access control
-      href: cache-configure-role-based-access-control.md
-    - name: Azure AD for authentication
-      href: cache-azure-active-directory-for-authentication.md
-  - name: Monitor
-    items:
-    - name: Monitor in Azure portal
-      href: cache-how-to-monitor.md
-    - name: Set alerts for exceptions
-      href: cache-how-to-monitor.md#create-alerts
-    - name: Monitor with diagnostic logs
-      href: cache-monitor-diagnostic-settings.md
-    - name: Use Insights to understand performance and utilization
-      href: cache-insights-overview.md
-  - name: Scale
-    items:
-    - name: Change the size and tier of a cache
-      href: cache-how-to-scale.md
-    - name: Use Redis cluster to scale in/out
-      href: cache-how-to-premium-clustering.md
-  - name: Diagnose and troubleshoot
-    items:
-    - name: Troubleshoot connectivity issues
-      href: cache-troubleshoot-connectivity.md
-    - name: Troubleshoot latency and timeouts
-      href: cache-troubleshoot-timeouts.md
-    - name: Troubleshoot client 
-      href: cache-troubleshoot-client.md
-    - name: Troubleshoot Redis server
-      href: cache-troubleshoot-server.md
-    - name: Troubleshoot data loss
-      href: cache-troubleshoot-data-loss.md
-    - name: Troubleshooting FAQs
-      href: cache-monitor-troubleshoot-faq.yml
+  - name: Create Web App with Redis cache - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: cache-web-app-bicep-with-redis-cache-provision.md
+  - name: Create Web App with Redis cache - ARM template
+    displayName: Resource Manager
+    href: cache-web-app-arm-with-redis-cache-provision.md
+
 - name: Reference
   items:
   - name: Azure Cache for Redis samples
@@ -277,7 +288,8 @@
     href: ./policy-reference.md
   - name: Redis commands
     href: https://redis.io/commands#
-- name: Resources
+
+- name:  Resources
   items:
   - name: Azure Cache for Redis FAQs
     href: cache-faq.yml
@@ -293,3 +305,24 @@
     href: /training/browse/?products=azure-redis-cache
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Best practices
+    items:
+     - name: Client libraries
+       href: cache-best-practices-client-libraries.md
+     - name: Connection resilience
+       href: cache-best-practices-connection.md
+     - name: Development
+       href: cache-best-practices-development.md
+     - name: Enterprise tiers
+       href: cache-best-practices-enterprise-tiers.md
+     - name: Kubernetes-hosted client applications
+       href: cache-best-practices-kubernetes.md
+     - name: Memory management
+       href: cache-best-practices-memory-management.md
+     - name: Performance testing
+       href: cache-best-practices-performance.md
+     - name: Scaling
+       href: cache-best-practices-scale.md
+     - name: Server load management
+       href: cache-best-practices-server-load.md
+

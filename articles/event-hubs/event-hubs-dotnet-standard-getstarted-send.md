@@ -200,7 +200,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 1. [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. Authenticate to the blob container using either Azure AD (passwordless) authentication or a connection string to the namespace.
+3. Authenticate to the blob container using either Microsoft Entra ID (passwordless) authentication or a connection string to the namespace.
 
 [!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
 

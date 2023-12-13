@@ -483,5 +483,3 @@ See the following documentation and samples:
 
 [Azure SDK for Java]: /azure/developer/java/sdk/get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
-[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

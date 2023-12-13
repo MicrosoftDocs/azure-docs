@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/15/2023
+ms.date: 10/13/2023
 
 ---
 # Tutorial: Inspect private endpoint traffic with Azure Firewall
@@ -205,17 +205,19 @@ In this section, you connect the virtual networks with virtual network peering. 
     |---|---|
     | **This virtual network** |  |
     | Peering link name | Enter **vnet-firewall-to-vnet-private-endpoint**. |
-    | Traffic to remote virtual network | Select **Allow (default)**. |
-    | Traffic forwarded from remote virtual network | Select **Allow (default)**. |
-    | Virtual network gateway or Route Server | Select **None (default)**. |
+    | Allow 'vnet-1' to access 'vnet-private-endpoint' | Leave the default of selected.  |
+    | Allow 'vnet-1' to receive forwarded traffic from 'vnet-private-endpoint' | Select the checkbox. |
+    | Allow gateway in 'vnet-1' to forward traffic to 'vnet-private-endpoint' | Leave the default of cleared. |
+    | Enable 'vnet-1' to use 'vnet-private-endpoint' remote gateway | Leave the default of cleared. |
     | **Remote virtual network** |  |
     | Peering link name | Enter **vnet-private-endpoint-to-vnet-firewall**. |
     | Virtual network deployment model | Select **Resource manager**. |
     | Subscription | Select your subscription. |
     | Virtual network | Select **vnet-private-endpoint**. |
-    | Traffic to remote virtual network | Select **Allow (default)**. |
-    | Traffic forwarded from remote virtual network | Select **Allow (default)**. |
-    | Virtual network gateway or Route Server | Select **None (default)**. |
+    | Allow 'vnet-private-endpoint' to access 'vnet-1' | Leave the default of selected.  |
+    | Allow 'vnet-private-endpoint' to receive forwarded traffic from 'vnet-1' | Select the checkbox. |
+    | Allow gateway in 'vnet-private-endpoint' to forward traffic to 'vnet-1' | Leave the default of cleared. |
+    | Enable 'vnet-private-endpoint' to use 'vnet-1's' remote gateway | Leave the default of cleared. |
 
 1. Select **Add**.
 

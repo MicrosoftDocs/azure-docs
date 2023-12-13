@@ -1,11 +1,13 @@
 ---
 title: Connect to a knowledge store with Power BI
-titleSuffix: Azure Cognitive Search
-description: Connect an Azure Cognitive Search knowledge store with Power BI for analysis and exploration.
+titleSuffix: Azure AI Search
+description: Connect an Azure AI Search knowledge store with Power BI for analysis and exploration.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 01/30/2023
 ---
@@ -83,7 +85,7 @@ When creating a [knowledge store using the Azure portal](knowledge-store-create-
 
 Click **Get Power BI Template** on the **Add cognitive skills** page to retrieve and download the template from its public GitHub location. The wizard modifies the template to accommodate the shape of your data, as captured in the knowledge store projections specified in the wizard. For this reason, the template you download will vary each time you run the wizard, assuming different data inputs and skill selections.
 
-![Sample Azure Cognitive Search Power BI Template](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Sample Power BI template")
+![Sample Azure AI Search Power BI Template](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Sample Power BI template")
 
 > [!NOTE]
 > The template is downloaded while the wizard is in mid-flight. You'll have to wait until the knowledge store is actually created in Azure Table Storage before you can use it.

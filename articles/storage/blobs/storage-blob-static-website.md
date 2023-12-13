@@ -1,10 +1,10 @@
 ---
 title: Static website hosting in Azure Storage
 description: Azure Storage static website hosting, providing a cost-effective, scalable solution for hosting modern web applications.
-author: normesta
+author: stevenmatthew
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.author: normesta
+ms.author: shaas
 ms.reviewer: dineshm
 ms.date: 07/24/2023
 ms.custom:
@@ -114,7 +114,9 @@ To enable metrics on your static website pages, see [Enable metrics on static we
 
 Yes. Storage account [network security rules](../common/storage-network-security.md), including IP-based and VNET firewalls, are supported for the static website endpoint, and may be used to protect your website.
 
-##### Do static websites support Azure Active Directory (Azure AD)?
+<a name='do-static-websites-support-azure-active-directory-azure-ad'></a>
+
+##### Do static websites support Microsoft Entra ID?
 
 No. A static website only supports anonymous read access for files in the **$web** container.
 

@@ -37,7 +37,7 @@ If you're not familiar with the managed identities for Azure resources feature, 
 
 After you set up selected Azure resources with a managed identity, give the identity the access you want to another resource, just like any security principal. For example, assign a managed identity a role with pull, push and pull, or other permissions to a private registry in Azure. (For a complete list of registry roles, see [Azure Container Registry roles and permissions](container-registry-roles.md).) You can give an identity access to one or more resources.
 
-Then, use the identity to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), without any credentials in your code. Choose how to authenticate using the managed identity, depending on your scenario. To use the identity to access an Azure container registry from a virtual machine, you authenticate with Azure Resource Manager. 
+Then, use the identity to authenticate to any [service that supports Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), without any credentials in your code. Choose how to authenticate using the managed identity, depending on your scenario. To use the identity to access an Azure container registry from a virtual machine, you authenticate with Azure Resource Manager. 
 
 ## Create a container registry
 

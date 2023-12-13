@@ -135,7 +135,7 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) | |
 | [ASimAuditEventLogs](/azure/azure-monitor/reference/tables/ASimAuditEventLogs) | |
 | [ASimDnsActivityLogs](/azure/azure-monitor/reference/tables/ASimDnsActivityLogs) | |
-| ASimFileEventLogs | |
+| [ASimFileEventLogs](/azure/azure-monitor/reference/tables/asimfileeventlogs) | |
 | [ASimNetworkSessionLogs](/azure/azure-monitor/reference/tables/ASimNetworkSessionLogs) | |
 | [ASimWebSessionLogs](/azure/azure-monitor/reference/tables/ASimWebSessionLogs) | |
 | [ATCExpressRouteCircuitIpfix](/azure/azure-monitor/reference/tables/atcexpressroutecircuitipfix) | |

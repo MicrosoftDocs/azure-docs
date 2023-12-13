@@ -35,22 +35,22 @@ Automation Run As accounts will not be supported after **30 September 2023**. Co
 
 
 ## What is a managed identity?
-Applications use managed identities in Azure AD when they're connecting to resources that support Azure AD authentication. Applications can use managed identities to obtain Azure AD tokens without managing credentials, secrets, certificates, or keys. 
+Applications use managed identities in Microsoft Entra ID when they're connecting to resources that support Microsoft Entra authentication. Applications can use managed identities to obtain Microsoft Entra tokens without managing credentials, secrets, certificates, or keys. 
 
-For more information about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
+For more information about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
 ## What can I do with a managed identity in Automation accounts? 
-An Azure Automation managed identity from Azure AD allows your runbook to access other Azure AD-protected resources easily. This identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. 
+An Azure Automation managed identity from Microsoft Entra ID allows your runbook to access other Microsoft Entra protected resources easily. This identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. 
 
 Key benefits are:
-- You can use managed identities to authenticate to any Azure service that supports Azure AD authentication.
+- You can use managed identities to authenticate to any Azure service that supports Microsoft Entra authentication.
 - Managed identities eliminate the overhead associated with managing Run As accounts in your runbook code. You can access resources via a managed identity of an Automation account from a runbook without worrying about creating the service principal, Run As certificate, Run As connection, and so on.
 - You don't have to renew the certificate that the Automation Run As account uses.
  
 ## Are managed identities more secure than a Run As account?
-A Run As account creates an Azure AD app that's used to manage the resources within the subscription through a certificate that has contributor access at the subscription level by default. A malicious user could use this certificate to perform a privileged operation against resources in the subscription, leading to potential vulnerabilities. 
+A Run As account creates a Microsoft Entra app that's used to manage the resources within the subscription through a certificate that has contributor access at the subscription level by default. A malicious user could use this certificate to perform a privileged operation against resources in the subscription, leading to potential vulnerabilities. 
 
-Run As accounts also have a management overhead that involves creating a service principal, Run As certificate, Run As connection, certificate renewal, and so on. Managed identities eliminate this overhead by providing a secure method for users to authenticate and access resources that support Azure AD authentication without worrying about any certificate or credential management.
+Run As accounts also have a management overhead that involves creating a service principal, Run As certificate, Run As connection, certificate renewal, and so on. Managed identities eliminate this overhead by providing a secure method for users to authenticate and access resources that support Microsoft Entra authentication without worrying about any certificate or credential management.
 
 ## Can a managed identity be used for both cloud and hybrid jobs?
 Azure Automation supports [system-assigned managed identities](./automation-security-overview.md#managed-identities) for both cloud and hybrid jobs. Currently, Azure Automation [user-assigned managed identities](./automation-security-overview.md) can be used for cloud jobs only and can't be used for jobs that run on a hybrid worker.

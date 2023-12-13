@@ -6,8 +6,8 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022, devx-track-azurecli, build-2023
-ms.topic: quickstart
-ms.date: 04/25/2023
+ms.topic: how-to
+ms.date: 10/06/2023
 ---
 
 # Create and access an environment by using the Azure CLI
@@ -26,8 +26,7 @@ Creating an environment automatically creates the required resources and a resou
 
 Complete the following steps in the Azure CLI to create an environment and configure resources. You can view the outputs as defined in the specific Azure Resource Manager template (ARM template).
 
-> [!NOTE]
-> Only a user who has the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has the required permissions can create an environment.
+[!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
 1. Sign in to the Azure CLI:
 
@@ -71,7 +70,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
    az devcenter dev environment-definition list --dev-center <name> --project-name <name> -o table
    ```
 
-1. Create an environment by using an *environment-definition* (an infrastructure as code template defined in the [manifest.yaml](configure-environment-definition.md#add-a-new-environment-definition) file) from the list of available environment definitions:
+1. Create an environment by using an *environment-definition* (an infrastructure as code template defined in the [environment.yaml](configure-environment-definition.md#add-a-new-environment-definition) file) from the list of available environment definitions:
 
    ```azurecli
    az devcenter dev environment create --dev-center-name <devcenter-name>
@@ -106,7 +105,7 @@ Message: The environment resource was not found.
 
 To resolve the issue, assign the correct permissions: [Give access to the development team](quickstart-create-and-configure-projects.md#give-access-to-the-development-team).
 
-## Access an environment
+### Access an environment
 
 To access an environment:
 
@@ -118,6 +117,19 @@ To access an environment:
 
 1. View the access endpoints to various resources as defined in the ARM template outputs.
 1. Access the specific resources by using the endpoints.
+ 
+### Deploy an environment
+
+```azurecli
+az devcenter dev environment deploy-action --action-id "deploy" --dev-center-name <devcenter-name> \
+    -g <resource-group-name> --project-name <project-name> --environment-name <environment-name> --parameters <parameters-json-string>
+```
+
+### Delete an environment
+
+```azurecli
+az devcenter dev environment delete --dev-center-name <devcenter-name>  --project-name <project-name> --environment-name <environment-name> --user-id "me"
+```
 
 ## Next steps
 

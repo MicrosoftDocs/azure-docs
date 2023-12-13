@@ -70,7 +70,7 @@ The following table lists the ports that need to be opened in your firewall to a
 
 ## URL patterns for firewall rules
 
-Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your Data Box Gateway device and the Data Box Gateway service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. This in turn will require the network administrator to monitor and update firewall rules for your Data Box Gateway as and when needed.
+Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your Data Box Gateway device and the Data Box Gateway service depend on other Microsoft applications such as Azure Service Bus, Microsoft Entra Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. This in turn will require the network administrator to monitor and update firewall rules for your Data Box Gateway as and when needed.
 
 We recommend that you set your firewall rules for outbound traffic, based on Data Box Gateway fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
 
@@ -91,4 +91,3 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 ## Next step
 
 * [Deploy your Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
-

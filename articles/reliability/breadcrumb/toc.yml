@@ -6,6 +6,8 @@ items:
     - name: Reliability
       tocHref: /azure/virtual-machines
     - name: Reliability
+      tocHref: /azure/deployment-environments
+    - name: Reliability
       tocHref:  /azure/batch/
     - name: Reliability
       tocHref: /azure/cloud-services-extended-support

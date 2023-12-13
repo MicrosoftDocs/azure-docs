@@ -73,12 +73,12 @@ In the connector page, make sure that you meet the required prerequisites and co
 
 ### Enable data collection
 
-To enable data collection, you create a new role in Finance and Operations with permissions to view the Database Log entity. The role is then assigned to a dedicated Finance and Operations user, mapped to the Azure Active Directory client ID of the Function App's system assigned managed identity.
+To enable data collection, you create a new role in Finance and Operations with permissions to view the Database Log entity. The role is then assigned to a dedicated Finance and Operations user, mapped to the Microsoft Entra client ID of the Function App's system assigned managed identity.
 
-To collect the managed identity application ID from Azure Active Directory: 
+To collect the managed identity application ID from Microsoft Entra ID: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. Browse to **Microsoft Entra ID** > **Enterprise applications**.
 1. Change the application type filter to **Managed Identities**.
 1. Search for and open the Function App created in the [previous step](#deploy-the-azure-resource-manager-arm-template). Copy the Application ID and save it for later use. 
 
@@ -102,7 +102,7 @@ To collect the managed identity application ID from Azure Active Directory:
 
 #### Register the managed identity in Finance and Operations
 
-1. In the Finance and Operations portal, navigate to **System administration > Setup > Azure Active Directory** applications.
+1. In the Finance and Operations portal, navigate to **System administration > Setup > Microsoft Entra ID** applications.
 
 1. Create a new entry in the table: 
     - For the **Client Id**, type the application ID of the managed identity.

@@ -17,7 +17,7 @@ You can create an AKS cluster using:
 * [Azure portal][aks-quickstart-portal]
 * Template-driven deployment options, like [Azure Resource Manager templates][aks-quickstart-template], [Bicep](../azure-resource-manager/bicep/overview.md), and Terraform.
 
-When you deploy an AKS cluster, you specify the number and size of the nodes, and AKS deploys and configures the Kubernetes control plane and nodes. [Advanced networking][aks-networking], [Azure Active Directory (Azure AD) integration][aad], [monitoring][aks-monitor], and other features can be configured during the deployment process.
+When you deploy an AKS cluster, you specify the number and size of the nodes, and AKS deploys and configures the Kubernetes control plane and nodes. [Advanced networking][aks-networking], [Microsoft Entra integration][aad], [monitoring][aks-monitor], and other features can be configured during the deployment process.
 
 For more information on Kubernetes basics, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
@@ -28,7 +28,7 @@ For more information on Kubernetes basics, see [Kubernetes core concepts for AKS
 
 ## Access, security, and monitoring
 
-For improved security and management, you can integrate with [Azure AD][aad] to:
+For improved security and management, you can integrate with [Microsoft Entra ID][aad] to:
 
 * Use Kubernetes role-based access control (Kubernetes RBAC).
 * Monitor the health of your cluster and resources.
@@ -39,13 +39,15 @@ For improved security and management, you can integrate with [Azure AD][aad] to:
 
 To limit access to cluster resources, AKS supports [Kubernetes RBAC][kubernetes-rbac]. Kubernetes RBAC controls access and permissions to Kubernetes resources and namespaces.  
 
-#### Azure AD
+<a name='azure-ad'></a>
 
-You can configure an AKS cluster to integrate with Azure AD. With Azure AD integration, you can set up Kubernetes access based on existing identity and group membership. Your existing Azure AD users and groups can be provided with an integrated sign-on experience and access to AKS resources.  
+#### Microsoft Entra ID
+
+You can configure an AKS cluster to integrate with Microsoft Entra ID. With Microsoft Entra integration, you can set up Kubernetes access based on existing identity and group membership. Your existing Microsoft Entra users and groups can be provided with an integrated sign-on experience and access to AKS resources.  
 
 For more information on identity, see [Access and identity options for AKS][concepts-identity].
 
-To secure your AKS clusters, see [Integrate Azure AD with AKS][aks-aad].
+To secure your AKS clusters, see [Integrate Microsoft Entra ID with AKS][aks-aad].
 
 ### Integrated logging and monitoring
 
@@ -86,6 +88,9 @@ AKS supports the creation of Intel SGX-based, confidential computing node pools 
 For more information, see [Confidential computing nodes on AKS][conf-com-node].
 
 ### Azure Linux nodes
+
+> [!NOTE]
+> The Azure Linux node pool is now generally available (GA). To learn about the benefits and deployment steps, see the [Introduction to the Azure Linux Container Host for AKS][intro-azure-linux].
 
 The Azure Linux container host for AKS is an open-source Linux distribution created by Microsoft, and it’s available as a container host on Azure Kubernetes Service (AKS). The Azure Linux container host for AKS provides reliability and consistency from cloud to edge across the AKS, AKS-HCI, and Arc products. You can deploy Azure Linux node pools in a new cluster, add Azure Linux node pools to your existing Ubuntu clusters, or migrate your Ubuntu nodes to Azure Linux nodes.
 
@@ -179,3 +184,4 @@ Learn more about deploying and managing AKS.
 [azure-monitor-logs]: ../azure-monitor/logs/data-platform-logs.md
 [helm]: quickstart-helm.md
 [aks-best-practices]: best-practices.md
+[intro-azure-linux]: ../azure-linux/intro-azure-linux.md

@@ -2,11 +2,10 @@
 title: Migrate from v3.1 to v3.2 REST API - Speech service
 titleSuffix: Azure AI services
 description: This document helps developers migrate code from v3.1 to v3.2 of the Speech to text REST API.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 09/15/2023
 ms.author: eur
@@ -118,7 +117,7 @@ You must update the base path in your code from `/speechtotext/v3.1` to `/speech
 ## Next steps
 
 * [Speech to text REST API](rest-speech-to-text.md)
-* [Speech to text REST API v3.2 (preview) specification](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/Speech/SpeechToText/preview/v3.2-preview.1)
+* [Speech to text REST API v3.2 (preview)](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview1)
 * [Speech to text REST API v3.1 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1)
 * [Speech to text REST API v3.0 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 

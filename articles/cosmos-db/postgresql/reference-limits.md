@@ -90,12 +90,14 @@ currently **not supported**:
 
 ## Authentication
 
-### Azure Active Directory authentication
-If [Azure Active Directory (Azure AD)](./concepts-authentication.md#azure-active-directory-authentication-preview) is enabled on an Azure Cosmos DB for PostgreSQL cluster, the following is currently **not supported**:
+<a name='azure-active-directory-authentication'></a>
+
+### Microsoft Entra authentication
+If [Microsoft Entra ID](./concepts-authentication.md#azure-active-directory-authentication-preview) is enabled on an Azure Cosmos DB for PostgreSQL cluster, the following is currently **not supported**:
 
 * PostgreSQL 11, 12, and 13
 * PgBouncer
-* Azure AD groups
+* Microsoft Entra groups
 
 ### Database creation
 

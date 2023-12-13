@@ -69,18 +69,18 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 
 ### Create and authorize a service principal
 
-1. Create Azure Active Directory (AD) service principal: You can skip the redirect URL. 
+1. Create Microsoft Entra service principal: You can skip the redirect URL. 
 
-   [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
+   [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 2. Add access rights and scope for the service principal.
-   [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
+   [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 
    > [!NOTE]
    > You can limit access to only your resource group for more granular control.
 
 ### Visit partner portal
 
-1. Follow your partner provided instructions to complete the setup. This includes submitting AAD information to detect and connect to the hub, update the egress policies, and check connectivity status and logs.
+1. Follow your partner provided instructions to complete the setup. This includes submitting Microsoft Entra information to detect and connect to the hub, update the egress policies, and check connectivity status and logs.
 
    - [Zscaler: Configure Microsoft Azure Virtual WAN integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
    - [Check Point: Configure Microsoft Azure Virtual WAN integration](https://www.checkpoint.com/cloudguard/microsoft-azure-security/wan).

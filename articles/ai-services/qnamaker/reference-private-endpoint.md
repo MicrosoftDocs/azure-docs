@@ -19,7 +19,7 @@ Private endpoints are provided by [Azure Private Link](../../private-link/privat
 ## Prerequisites
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [Text Analytics resource](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) (with Custom question answering feature) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
+> * A [Text Analytics resource](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) (with Custom question answering feature) created in the Azure portal. Remember your Microsoft Entra ID, Subscription, Text Analytics resource name you selected when you created the resource.
 
 ## Steps to enable private endpoint
 1. Assign *Contributer* role to Text Analytics service in the Azure Search Service instance. This operation requires *Owner* access to the subscription. Go to Identity tab in the service resource to get the identity.
@@ -45,11 +45,11 @@ Private endpoints are provided by [Azure Private Link](../../private-link/privat
 > [!div class="mx-imgBorder"]
 > ![Text Analytics newtorking](../qnamaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-custom-qna.png)
 
-This will establish a private endpoint connection between Text Analytics service and Azure Cognitive Search service instance. You can verify the Private endpoint connection on the *Networking* tab of the Azure Cognitive Search service instance. Once the whole operation is completed, you are good to use your Text Analytics service. 
+This will establish a private endpoint connection between Text Analytics service and Azure AI Search service instance. You can verify the Private endpoint connection on the *Networking* tab of the Azure AI Search service instance. Once the whole operation is completed, you are good to use your Text Analytics service. 
 
 ![Managed Networking Service](../qnamaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-3.png)
 
 
 ## Support details
- * We don't support changes to Azure Cognitive Search service once you enable private access to your Text Analytics service. If you change the Azure Cognitive Search service via 'Features' tab after you have enabled private access, the Text Analytics service will become unusable.
- * After establishing Private Endpoint Connection, if you switch Azure Cognitive Search Service Networking to 'Public', you won't be able to use the Text Analytics service. Azure Search Service Networking needs to be 'Private' for the Private Endpoint Connection to work
+ * We don't support changes to Azure AI Search service once you enable private access to your Text Analytics service. If you change the Azure AI Search service via 'Features' tab after you have enabled private access, the Text Analytics service will become unusable.
+ * After establishing Private Endpoint Connection, if you switch Azure AI Search Service Networking to 'Public', you won't be able to use the Text Analytics service. Azure Search Service Networking needs to be 'Private' for the Private Endpoint Connection to work

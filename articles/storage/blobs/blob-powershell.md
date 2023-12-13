@@ -23,18 +23,18 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 ### Configure a context object to encapsulate credentials
 
-Every request to Azure Storage must be authorized. You can authorize a request made from PowerShell with your Azure AD account or by using the account access keys. The examples in this article use Azure AD authorization with context objects. Context objects encapsulate your Azure AD credentials and pass them during subsequent data operations.
+Every request to Azure Storage must be authorized. You can authorize a request made from PowerShell with your Microsoft Entra account or by using the account access keys. The examples in this article use Microsoft Entra authorization with context objects. Context objects encapsulate your Microsoft Entra credentials and pass them during subsequent data operations.
 
-To sign in to your Azure account with an Azure AD account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+To sign in to your Azure account with a Microsoft Entra account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```azurepowershell
 #Connect to your Azure subscription
 Connect-AzAccount
 ```
 
-After the connection has been established, create the Azure context. Authenticating with Azure AD automatically creates an Azure context for your default subscription. In some cases, you may need to access resources in a different subscription after authenticating. You can change the subscription associated with your current Azure session by modifying the active session context.
+After the connection has been established, create the Azure context. Authenticating with Microsoft Entra ID automatically creates an Azure context for your default subscription. In some cases, you may need to access resources in a different subscription after authenticating. You can change the subscription associated with your current Azure session by modifying the active session context.
 
-To use your default subscription, create the context by calling the `New-AzStorageContext` cmdlet. Include the `-UseConnectedAccount` parameter so that data operations are performed using your Azure AD credentials.
+To use your default subscription, create the context by calling the `New-AzStorageContext` cmdlet. Include the `-UseConnectedAccount` parameter so that data operations are performed using your Microsoft Entra credentials.
 
 ```azurepowershell
 #Create a context object using Azure AD credentials
@@ -584,6 +584,6 @@ else
 
 ## Next steps
 
-- [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-powershell.md)
+- [Run PowerShell commands with Microsoft Entra credentials to access blob data](./authorize-data-operations-powershell.md)
 - [Create a storage account](../common/storage-account-create.md?tabs=azure-portal&toc=/azure/storage/blobs/toc.json)
 - [Manage blob containers using PowerShell](blob-containers-powershell.md)

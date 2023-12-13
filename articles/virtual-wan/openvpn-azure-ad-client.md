@@ -1,7 +1,7 @@
 ---
-title: 'VPN client for OpenVPN protocol P2S connections: Azure AD authentication'
+title: 'VPN client for OpenVPN protocol P2S connections: Microsoft Entra authentication'
 titleSuffix: Azure Virtual WAN
-description: Learn how to use P2S VPN to connect to your VNet using Azure AD authentication.
+description: Learn how to use P2S VPN to connect to your VNet using Microsoft Entra authentication.
 services: virtual-wan
 author: cherylmc
 
@@ -11,12 +11,12 @@ ms.date: 07/28/2023
 ms.author: cherylmc
 
 ---
-# Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication
+# Configure a VPN client for P2S OpenVPN protocol connections: Microsoft Entra authentication
 
-This article helps you configure a VPN client to connect using point-to-site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
+This article helps you configure a VPN client to connect using point-to-site VPN and Microsoft Entra authentication. Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md).
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections.
+> Microsoft Entra authentication is supported only for OpenVPN® protocol connections.
 >
 
 ## <a name="profile"></a>Working with client profiles
@@ -151,4 +151,4 @@ You can configure optional settings for the Azure VPN Client, such as forced tun
 
 ## Next steps
 
-For more information, see [Create an Azure Active Directory tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).
+For more information, see [Create a Microsoft Entra tenant for P2S Open VPN connections that use Microsoft Entra authentication](openvpn-azure-ad-tenant.md).

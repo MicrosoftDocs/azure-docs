@@ -14,7 +14,7 @@ You can create a question answering project from your own content, such as FAQs 
 
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled. Remember your Azure Active Directory ID, Subscription, language resource name you selected when you created the resource.
+> * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled. Remember your Microsoft Entra ID, Subscription, language resource name you selected when you created the resource.
 
 
 
@@ -94,4 +94,3 @@ You can create a question answering project from your own content, such as FAQs 
     > ![Successful deployment](../media/create-test-deploy/successful-deployment.png)
 
     Your project is now successfully deployed. You can use the endpoint to answer questions in your own custom application to answer or in a bot.
-

@@ -2,25 +2,10 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/19/2023
+ms.date: 12/04/2023
 ms.author: davidsmatlak
 ms.custom: generated
 ---
-
-## Azure Security Benchmark v1
-
-The [Azure Security Benchmark](/security/benchmark/azure/introduction) provides recommendations on
-how you can secure your cloud solutions on Azure. To see how this service completely maps to the
-Azure Security Benchmark, see the
-[Azure Security Benchmark mapping files](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
-
-To review how the available Azure Policy built-ins for all Azure services map to this compliance
-standard, see
-[Azure Policy Regulatory Compliance - Azure Security Benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md).
-
-|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
-|---|---|---|---|---|
-|Logging and Monitoring |2.3 |Enable audit logging for Azure resources |[Resource logs in Search services should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4330a05-a843-4bc8-bf9a-cacce50c67f4) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_AuditDiagnosticLog_Audit.json) |
 
 ## CIS Microsoft Azure Foundations Benchmark 1.3.0
 
@@ -240,6 +225,21 @@ For more information about this compliance standard, see
 |System and Communications Protection |SC-7 (3) |Access Points |[Azure Cognitive Search services should disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fee980b6d-0eca-4501-8d54-f6290fd512c3) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_RequirePublicNetworkAccessDisabled_Deny.json) |
 |System and Communications Protection |SC-7 (3) |Access Points |[Azure Cognitive Search services should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0fda3595-9f2b-4592-8675-4231d6fa82fe) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_PrivateEndpoints_Audit.json) |
 
+## NL BIO Cloud Theme
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance details for NL BIO Cloud Theme](../../../../articles/governance/policy/samples/nl-bio-cloud-theme.md).
+For more information about this compliance standard, see
+[Baseline Information Security Government Cybersecurity - Digital Government (digitaleoverheid.nl)](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/cybersecurity/kaders-voor-cybersecurity/baseline-informatiebeveiliging-overheid/).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|U.07.1 Data separation  - Isolated | U.07.1 |Permanent isolation of data is a multi-tenant architecture. Patches are realized in a controlled manner. |[Azure Cognitive Search service should use a SKU that supports private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa049bf77-880b-470f-ba6d-9f21c530cf83) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_RequirePrivateLinkSupportedResource_Deny.json) |
+|U.07.1 Data separation  - Isolated | U.07.1 |Permanent isolation of data is a multi-tenant architecture. Patches are realized in a controlled manner. |[Azure Cognitive Search services should disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fee980b6d-0eca-4501-8d54-f6290fd512c3) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_RequirePublicNetworkAccessDisabled_Deny.json) |
+|U.07.1 Data separation  - Isolated | U.07.1 |Permanent isolation of data is a multi-tenant architecture. Patches are realized in a controlled manner. |[Azure Cognitive Search services should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0fda3595-9f2b-4592-8675-4231d6fa82fe) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_PrivateEndpoints_Audit.json) |
+|U.15.1 Logging and monitoring  - Events logged | U.15.1 |The violation of the policy rules is recorded by the CSP and the CSC. |[Resource logs in Search services should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4330a05-a843-4bc8-bf9a-cacce50c67f4) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_AuditDiagnosticLog_Audit.json) |
+
 ## NZ ISM Restricted v3.5
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
@@ -276,4 +276,16 @@ For more information about this compliance standard, see
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Detect Anomalous Activity to Systems or Transaction Records | 6.4 |Logging and Monitoring |[Resource logs in Search services should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4330a05-a843-4bc8-bf9a-cacce50c67f4) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_AuditDiagnosticLog_Audit.json) |
+
+## SWIFT CSP-CSCF v2022
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance details for SWIFT CSP-CSCF v2022](../../../../articles/governance/policy/samples/swift-csp-cscf-2022.md).
+For more information about this compliance standard, see
+[SWIFT CSP CSCF v2022](https://www.swift.com/myswift/customer-security-programme-csp).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|6. Detect Anomalous Activity to Systems or Transaction Records | 6.4 |Record security events and detect anomalous actions and operations within the local SWIFT environment. |[Resource logs in Search services should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4330a05-a843-4bc8-bf9a-cacce50c67f4) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Search/Search_AuditDiagnosticLog_Audit.json) |
 

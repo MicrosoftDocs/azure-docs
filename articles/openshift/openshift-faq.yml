@@ -141,9 +141,9 @@ sections:
       - question: Can an admin manage users and quotas?
         answer: Yes. An Azure Red Hat OpenShift administrator can manage users and quotas in addition to accessing all user created projects.
 
-      - question: Can I restrict a cluster to only certain Azure AD users?
+      - question: Can I restrict a cluster to only certain Microsoft Entra users?
         answer: |
-          Yes. You can restrict which Azure AD users can sign in to a cluster by configuring the Azure AD Application. For details, see [How to: Restrict your app to a set of users](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
+          Yes. You can restrict which Microsoft Entra users can sign in to a cluster by configuring the Microsoft Entra Application. For details, see [How to: Restrict your app to a set of users](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
           
       - question: Can I restrict users from creating projects?
         answer: |

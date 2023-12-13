@@ -62,19 +62,21 @@ dotnet add package Azure.Maps.Geolocation --prerelease
 
 ## Create and authenticate a MapsSearchClient
 
-The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a `TokenCredential` object with the Azure Maps client ID when authenticating using Azure Active Directory (Azure AD).  For more information on authentication, see [Authentication with Azure Maps].
+The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a `TokenCredential` object with the Azure Maps client ID when authenticating using Microsoft Entra ID.  For more information on authentication, see [Authentication with Azure Maps].
 
-### Using an Azure AD credential
+<a name='using-an-azure-ad-credential'></a>
 
-You can authenticate with Azure AD using the [Azure Identity library][Identity library .NET]. To use the [DefaultAzureCredential][defaultazurecredential.NET] provider, you need to install the Azure Identity client library for .NET:
+### Using a Microsoft Entra credential
+
+You can authenticate with Microsoft Entra ID using the [Azure Identity library][Identity library .NET]. To use the [DefaultAzureCredential][defaultazurecredential.NET] provider, you need to install the Azure Identity client library for .NET:
 
 ```powershell
 dotnet add package Azure.Identity 
 ```
 
-You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
+You need to register the new Microsoft Entra application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
-Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
+Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Microsoft Entra application, and the map resource’s client ID as environment variables:
 
 | Environment Variable | Description                                                   |
 |----------------------|---------------------------------------------------------------|
@@ -112,7 +114,7 @@ var client = new MapsSearchClient(credential, clientId);
 
 You can authenticate with your Azure Maps subscription key. Your subscription key can be found in the **Authentication** section in the Azure Maps account as shown in the following screenshot:
 
-:::image type="content" source="./media/rest-sdk-dev-guides/subscription-key.png" alt-text="A screenshot showing the subscription key in the Authentication section of an Azure Maps account." lightbox="./media/rest-sdk-dev-guides/subscription-key.png":::
+:::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 Now you can create environment variables in PowerShell to store the subscription key:
 

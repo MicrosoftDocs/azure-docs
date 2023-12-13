@@ -2,7 +2,7 @@
 title: Role-based access control for Speech resources - Speech service
 titleSuffix: Azure AI services
 description: Learn how to assign access roles for a Speech resource.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -43,25 +43,25 @@ For finer-grained resource access control, you can [add or remove roles](../../r
 
 The [roles](#roles-for-speech-resources) define what permissions you have. Authentication is required to use the Speech resource. 
 
-To authenticate with Speech resource keys, all you need is the key and region. To authenticate with an Azure AD token, the Speech resource must have a [custom subdomain](speech-services-private-link.md#create-a-custom-domain-name) and use a [private endpoint](speech-services-private-link.md#turn-on-private-endpoints). The Speech service uses custom subdomains with private endpoints only.
+To authenticate with Speech resource keys, all you need is the key and region. To authenticate with a Microsoft Entra token, the Speech resource must have a [custom subdomain](speech-services-private-link.md#create-a-custom-domain-name) and use a [private endpoint](speech-services-private-link.md#turn-on-private-endpoints). The Speech service uses custom subdomains with private endpoints only.
 
 ### Speech SDK authentication
 
-For the SDK, you configure whether to authenticate with a Speech resource key or Azure AD token. For details, see [Azure Active Directory Authentication with the Speech SDK](how-to-configure-azure-ad-auth.md).
+For the SDK, you configure whether to authenticate with a Speech resource key or Microsoft Entra token. For details, see [Microsoft Entra authentication with the Speech SDK](how-to-configure-azure-ad-auth.md).
 
 ### Speech Studio authentication
 
-Once you're signed into [Speech Studio](speech-studio-overview.md), you select a subscription and Speech resource. You don't choose whether to authenticate with a Speech resource key or Azure AD token. Speech Studio gets the key or token automatically from the Speech resource. If one of the assigned [roles](#roles-for-speech-resources) has permission to list resource keys, Speech Studio will authenticate with the key. Otherwise, Speech Studio will authenticate with the Azure AD token. 
+Once you're signed into [Speech Studio](speech-studio-overview.md), you select a subscription and Speech resource. You don't choose whether to authenticate with a Speech resource key or Microsoft Entra token. Speech Studio gets the key or token automatically from the Speech resource. If one of the assigned [roles](#roles-for-speech-resources) has permission to list resource keys, Speech Studio will authenticate with the key. Otherwise, Speech Studio will authenticate with the Microsoft Entra token. 
 
-If Speech Studio uses your Azure AD token, but the Speech resource doesn't have a custom subdomain and private endpoint, then you can't use some features in Speech Studio. In this case, for example, the Speech resource can be used to train a Custom Speech model, but you can't use a Custom Speech model to transcribe audio files.
+If Speech Studio uses your Microsoft Entra token, but the Speech resource doesn't have a custom subdomain and private endpoint, then you can't use some features in Speech Studio. In this case, for example, the Speech resource can be used to train a Custom Speech model, but you can't use a Custom Speech model to transcribe audio files.
 
 | Authentication credential | Feature availability | 
 | ---| ---|  
 |Speech resource key|Full access limited only by the assigned role permissions.|
-|Azure AD token with custom subdomain and private endpoint|Full access limited only by the assigned role permissions.|
-|Azure AD token without custom subdomain and private endpoint (not recommended)|Features are limited. For example, the Speech resource can be used to train a Custom Speech model or Custom Neural Voice. But you can't use a Custom Speech model or Custom Neural Voice.|
+|Microsoft Entra token with custom subdomain and private endpoint|Full access limited only by the assigned role permissions.|
+|Microsoft Entra token without custom subdomain and private endpoint (not recommended)|Features are limited. For example, the Speech resource can be used to train a Custom Speech model or Custom Neural Voice. But you can't use a Custom Speech model or Custom Neural Voice.|
 
 ## Next steps
 
-* [Azure Active Directory Authentication with the Speech SDK](how-to-configure-azure-ad-auth.md).
+* [Microsoft Entra authentication with the Speech SDK](how-to-configure-azure-ad-auth.md).
 * [Speech service encryption of data at rest](speech-encryption-of-data-at-rest.md).

@@ -100,7 +100,7 @@ The result, which grants access to read all device identities in the identity re
 
 For more examples, see [Generate SAS tokens](#generate-sas-tokens).
 
-For services, SAS tokens only grant permissions at the IoT Hub level. That is, a service authenticating with a token based on the **service** policy will be able to perform all the operations granted by the **ServiceConnect** permission. These operations include receiving device-to-cloud messages, sending cloud-to-device messages, and so on. If you want to grant more granular access to your services, for example, limiting a service to only sending cloud-to-device messages, you can use Azure Active Directory. To learn more, see [Authenticate with Azure AD](authenticate-authorize-azure-ad.md).
+For services, SAS tokens only grant permissions at the IoT Hub level. That is, a service authenticating with a token based on the **service** policy will be able to perform all the operations granted by the **ServiceConnect** permission. These operations include receiving device-to-cloud messages, sending cloud-to-device messages, and so on. If you want to grant more granular access to your services, for example, limiting a service to only sending cloud-to-device messages, you can use Microsoft Entra ID. To learn more, see [Authenticate with Microsoft Entra ID](authenticate-authorize-azure-ad.md).
 
 ## Use SAS tokens from devices
 

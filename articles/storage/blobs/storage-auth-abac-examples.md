@@ -2,11 +2,10 @@
 title: Example Azure role assignment conditions for Blob Storage
 titleSuffix: Azure Storage
 description: Example Azure role assignment conditions for Blob Storage.
-author: akashdubey-ms
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.author: akashdubey
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell
 ms.date: 05/09/2023
@@ -66,7 +65,7 @@ This section includes examples involving blob index tags.
 
 ### Example: Read blobs with a blob index tag
 
-This condition allows users to read blobs with a [blob index tag](storage-blob-index-how-to.md) key of Project and a value of Cascade. Attempts to access blobs without this key-value tag will not be allowed.
+This condition allows users to read blobs with a [blob index tag](storage-blob-index-how-to.md) key of Project and a value of Cascade. Attempts to access blobs without this key-value tag won't be allowed.
 
 > [!IMPORTANT]
 > For this condition to be effective for a security principal, you must add it to all role assignments for them that include the following actions.
@@ -369,7 +368,7 @@ There are five actions for read, write, and delete of existing blobs. You must a
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
-Suboperations are not used in this condition because the subOperation is needed only when conditions are authored based on tags.
+Suboperations aren't used in this condition because the suboperation is needed only when conditions are authored based on tags.
 
 ![Diagram of condition showing read, write, or delete blobs in named containers.](./media/storage-auth-abac-examples/containers-read-write-delete.png)
 
@@ -666,7 +665,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Write blobs in named containers with a path
 
-This condition allows a partner (an Azure AD guest user) to drop files into storage containers named Contosocorp with a path of uploads/contoso/*. This condition is useful for allowing other users to put data in storage containers.
+This condition allows a partner (a Microsoft Entra guest user) to drop files into storage containers named Contosocorp with a path of uploads/contoso/*. This condition is useful for allowing other users to put data in storage containers.
 
 You must add this condition to any role assignments that include the following actions.
 
@@ -858,7 +857,7 @@ This section includes examples showing how to restrict access to objects based o
 
 ### Example: Read only current blob versions
 
-This condition allows a user to only read current blob versions. The user cannot read other blob versions.
+This condition allows a user to only read current blob versions. The user can't read other blob versions.
 
 You must add this condition to any role assignments that include the following actions.
 
@@ -915,7 +914,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Read current blob versions and a specific blob version
 
-This condition allows a user to read current blob versions as well as read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user cannot read other blob versions. The [Version ID](storage-auth-abac-attributes.md#version-id) attribute is available only for storage accounts where hierarchical namespace is not enabled.
+This condition allows a user to read current blob versions as well as read blobs with a version ID of 2022-06-01T23:38:32.8883645Z. The user can't read other blob versions. The [Version ID](storage-auth-abac-attributes.md#version-id) attribute is available only for storage accounts where hierarchical namespace isn't enabled.
 
 You must add this condition to any role assignments that include the following action.
 
@@ -961,7 +960,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Delete old blob versions
 
-This condition allows a user to delete versions of a blob that are older than 06/01/2022 to perform clean up. The [Version ID](storage-auth-abac-attributes.md#version-id) attribute is available only for storage accounts where hierarchical namespace is not enabled.
+This condition allows a user to delete versions of a blob that are older than 06/01/2022 to perform cleanup. The [Version ID](storage-auth-abac-attributes.md#version-id) attribute is available only for storage accounts where hierarchical namespace isn't enabled.
 
 You must add this condition to any role assignments that include the following actions.
 
@@ -1002,7 +1001,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Read current blob versions and any blob snapshots
 
-This condition allows a user to read current blob versions and any blob snapshots. The [Version ID](storage-auth-abac-attributes.md#version-id) attribute is available only for storage accounts where hierarchical namespace is not enabled. The [Snapshot](storage-auth-abac-attributes.md#snapshot) attribute is available for storage accounts where hierarchical namespace is not enabled and currently in preview for storage accounts where hierarchical namespace is enabled.
+This condition allows a user to read current blob versions and any blob snapshots. The [Version ID](storage-auth-abac-attributes.md#version-id) attribute is available only for storage accounts where hierarchical namespace isn't enabled. The [Snapshot](storage-auth-abac-attributes.md#snapshot) attribute is available for storage accounts where hierarchical namespace isn't enabled and currently in preview for storage accounts where hierarchical namespace is enabled.
 
 You must add this condition to any role assignments that include the following action.
 
@@ -1072,7 +1071,7 @@ This section includes examples showing how to restrict access to objects based o
 
 ### Example: Read only storage accounts with hierarchical namespace enabled
 
-This condition allows a user to only read blobs in storage accounts with [hierarchical namespace](data-lake-storage-namespace.md) enabled. This condition is applicable only at resource group scope or above.
+This condition allows a user to only read blobs in storage accounts with [hierarchical namespace](data-lake-storage-namespace.md) enabled. This condition is applicable only at resource group scope or higher.
 
 You must add this condition to any role assignments that include the following actions.
 
@@ -1172,7 +1171,7 @@ Here are the settings to add this condition using the Azure portal.
 
 ### Example: Read or write blobs in named storage account with specific encryption scope
 
-This condition allows a user to read or write blobs in a storage account named `sampleaccount` and encrypted with encryption scope `ScopeCustomKey1`. If blobs are not encrypted or decrypted with `ScopeCustomKey1`, request will return forbidden.
+This condition allows a user to read or write blobs in a storage account named `sampleaccount` and encrypted with encryption scope `ScopeCustomKey1`. If blobs aren't encrypted or decrypted with `ScopeCustomKey1`, the request returns forbidden.
 
 You must add this condition to any role assignments that include the following actions.
 
@@ -1376,7 +1375,7 @@ Select **Add action**, then select only the **Read a blob** suboperation as show
 | ----------------------------------------- | ------------ |
 | All read operations                       | Read a blob  |
 
-Do not select the top-level **All read operations** action or any other suboperations as shown in the following image:
+Don't select the top-level **All read operations** action or any other suboperations as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of just the read operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
 
@@ -1396,13 +1395,13 @@ Use the values in the following table to build the expression portion of the con
 > | Operator | [DateTimeGreaterThan](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
 > | Value | `2023-05-01T13:00:00.000Z` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
+The following image shows the condition after the settings are entered into the Azure portal. You must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access allowed after a specific date and time." lightbox="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the following condition code sample and paste it into the code editor.
 
 ```
 ( 
@@ -1485,7 +1484,7 @@ Select **Add action**, then select only the top-level actions shown in the follo
 | Create a blob or snapshot, or append data | *n/a*        |
 | Delete a blob                             | *n/a*        |
 
-Do not select any individual suboperations as shown in the following image:
+Don't select any individual suboperations as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read, write, add and delete operations." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png":::
 
@@ -1505,13 +1504,13 @@ Use the values in the following table to build the expression portion of the con
 > | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | `/subscriptions/<your subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
+The following image shows the condition after the settings are entered into the Azure portal. You must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access to specific containers allowed from a specific subnet." lightbox="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the following condition code sample and paste it into the code editor.
 
 ```
 (
@@ -1580,7 +1579,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ### Example: Require private link access to read blobs with high sensitivity
 
-This condition requires requests to read blobs where blob index tag **sensitivity** has a value of `high` to be over a private link (any private link). This means all attempts to read highly sensitive blobs from the public internet will not be allowed. Users can read blobs from the public internet that have **sensitivity** set to some value other than `high`.
+This condition requires requests to read blobs where blob index tag **sensitivity** has a value of `high` to be over a private link (any private link). This means all attempts to read highly sensitive blobs from the public internet won't be allowed. Users can read blobs from the public internet that have **sensitivity** set to some value other than `high`.
 
 A truth table for this ABAC sample condition follows:
 
@@ -1612,7 +1611,7 @@ Select **Add action**, then select only the **Read a blob** suboperation as show
 | ----------------------------------------- | ------------ |
 | All read operations                       | Read a blob  |
 
-Do not select the top-level **All read operations** action of any other suboperations as shown in the following image:
+Don't select the top-level **All read operations** action of any other suboperations as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of just the read operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
 
@@ -1641,13 +1640,13 @@ Use the values in the following table to build the expression portion of the con
 > | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | | Value | `high` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
+The following image shows the condition after the settings are entered into the Azure portal. You must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring any private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the following condition code sample and paste it into the code editor.
 
 ```
 (
@@ -1709,7 +1708,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ### Example: Allow access to a container only from a specific private endpoint
 
-This condition requires that all read, write, add and delete operations for blobs in a storage container named `container1` be made through a private endpoint named `privateendpoint1`. For all other containers not named `container1`, access does not need to be through the private endpoint.
+This condition requires that all read, write, add and delete operations for blobs in a storage container named `container1` be made through a private endpoint named `privateendpoint1`. For all other containers not named `container1`, access doesn't need to be through the private endpoint.
 
 There are five potential actions for read, write and delete of existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include any of the following actions.
 
@@ -1738,7 +1737,7 @@ Select **Add action**, then select only the top-level actions shown in the follo
 | Create a blob or snapshot, or append data | *n/a*        |
 | Delete a blob                             | *n/a*        |
 
-Do not select any individual suboperations as shown in the following image:
+Don't select any individual suboperations as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read, write, add and delete operations." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png":::
 
@@ -1765,13 +1764,13 @@ Use the values in the following table to build the expression portion of the con
 > | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringnotequals) |
 > | | Value | `container1` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
+The following image shows the condition after the settings are entered into the Azure portal. You must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers with private endpoint environment attribute." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, choose one of the condition code samples below, depending on the role associated with the assignment.
+To add the condition using the code editor, choose one of the following condition code samples, depending on the role associated with the assignment.
 
 **Storage Blob Data Owner:**
 
@@ -1900,7 +1899,7 @@ Select **Add action**, then select only the **Read a blob** suboperation as show
 | ----------------------------------------- | ------------ |
 | All read operations                       | Read a blob  |
 
-Do not select the top-level action as shown in the following image:
+Don't select the top-level action as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read a blob operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
 
@@ -1932,13 +1931,13 @@ Use the values in the following table to build the expression portion of the con
 | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | | Value | `high` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
+The following image shows the condition after the settings are entered into the Azure portal. You must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read access allowed over a specific private endpoint for tagged users." lightbox="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png":::
 
 # [Portal: Code editor](#tab/portal-code-editor)
 
-To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
+To add the condition using the code editor, copy the following condition code sample and paste it into the code editor.
 
 ```
 (

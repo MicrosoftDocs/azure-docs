@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
-ms.date: 02/16/2023
+ms.date: 10/27/2023
 ms.custom: how-to, devx-track-azurecli
 ---
 
@@ -20,7 +20,7 @@ In this guide, you'll learn how to disable public access to your Azure Managed G
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An existing Managed Grafana workspace. [Create one if you haven't already](quickstart-managed-grafana-portal.md).
+- An existing Azure Managed Grafana instance in the Standard tier. [Create one if you haven't already](quickstart-managed-grafana-portal.md).
 
 ## Disable public access to a workspace
 
@@ -28,8 +28,6 @@ Public access is enabled by default when you create an Azure Grafana workspace. 
 
 > [!NOTE]
 > When private access (preview) is enabled, pinging charts using the [*Pin to Grafana*](../azure-monitor/visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana) feature will no longer work as the Azure portal can’t access a Managed Grafana workspace on a private IP address.
-
-To disable access to an Azure Managed Grafana workspace from public network, follow these steps:
 
 ### [Portal](#tab/azure-portal)
 
@@ -96,7 +94,7 @@ Once you have disabled public access, set up a [private endpoint](../private-lin
 
 1. Select **Next : DNS >** to configure a DNS record. If you don't want to make changes to the default settings, you can move forward to the next tab.
 
-   1. For **Integrate with private DNS zone**, select **Yes** to integrate your private endpoint with a private DNS zone. You may also use your own DNS servers or create DNS records using the host files on your virtual machines.
+   1. For **Integrate with private DNS zone**, select **Yes** to integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records using the host files on your virtual machines.
 
    1. A subscription and resource group for your private DNS zone are preselected. You can change them optionally.
 

@@ -59,17 +59,21 @@ Visual Studio creates a project and class that contains boilerplate code for the
 
 ## Rename the function
 
-The `FunctionName` method attribute sets the name of the function, which by default is generated as `Function1`. Since the tooling doesn't let you override the default function name when you create your project, take a minute to create a better name for the function class, file, and metadata.
+The `Function` method attribute sets the name of the function, which by default is generated as `Function1`. Since the tooling doesn't let you override the default function name when you create your project, take a minute to create a better name for the function class, file, and metadata.
 
 1. In **File Explorer**, right-click the Function1.cs file and rename it to `HttpExample.cs`.
 
 1. In the code, rename the Function1 class to `HttpExample`.
 
-1. In the `HttpTrigger` method named `Run`, rename the `FunctionName` method attribute to `HttpExample`.
+1. In the method named `Run`, rename the `Function` method attribute to `HttpExample`.
 
 Your function definition should now look like the following code:
 
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="11-13":::
+```csharp
+[Function("HttpExample")]
+public static HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
+    FunctionContext executionContext)
+```
 
 Now that you've renamed the function, you can test it on your local computer.
 

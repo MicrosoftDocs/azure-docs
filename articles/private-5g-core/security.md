@@ -67,11 +67,11 @@ For more information on how to generate a Key Vault certificate, see [Certificat
 
 ### Access authentication
 
-You can use [Azure Active Directory (Azure AD)](../active-directory/authentication/overview-authentication.md) or a local username and password to access the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). 
+You can use [Microsoft Entra ID](../active-directory/authentication/overview-authentication.md) or a local username and password to access the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md). 
 
-Azure AD allows you to natively authenticate using passwordless methods to simplify the sign-in experience and reduce the risk of attacks. Therefore, to improve security in your deployment, we recommend setting up Azure AD authentication over local usernames and passwords.
+Microsoft Entra ID allows you to natively authenticate using passwordless methods to simplify the sign-in experience and reduce the risk of attacks. Therefore, to improve security in your deployment, we recommend setting up Microsoft Entra authentication over local usernames and passwords.
 
-If you decide to set up Azure AD for local monitoring access, after deploying a mobile network site, you'll need to follow the steps in [Enable Azure Active Directory (Azure AD) for local monitoring tools](enable-azure-active-directory.md).
+If you decide to set up Microsoft Entra ID for local monitoring access, after deploying a mobile network site, you'll need to follow the steps in [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md).
 
 See [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools) for additional information on configuring local monitoring access authentication.
 

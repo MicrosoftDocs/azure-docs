@@ -35,7 +35,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Azure AD for FHIR service
+          - text: Microsoft Entra ID for FHIR service
             url: azure-active-directory-identity-configuration.md
           - text: Access token validation
             url: fhir-service-access-token-validation.md

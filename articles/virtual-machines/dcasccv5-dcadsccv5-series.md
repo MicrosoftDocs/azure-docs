@@ -32,6 +32,7 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 
 The DCas_cc_v5-series sizes offer a combination of vCPU and memory for most production workloads. These new VMs with no local disk provide a better value proposition for workloads that do not require local temp disk. 
 
+[Trusted Launch](trusted-launch.md): Not Supported - we are working to support for this feature. For now - please choose Standard security type when using this VM size) <br>
 [Premium Storage](premium-storage-performance.md): Supported <br>
 [Premium Storage caching](premium-storage-performance.md): Supported <br>
 [Live Migration](maintenance-and-updates.md): Not Supported <br>
@@ -59,6 +60,7 @@ The DCas_cc_v5-series sizes offer a combination of vCPU and memory for most prod
 
 The DCads_cc_v5-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
 
+[Trusted Launch](trusted-launch.md): Not Supported - we are working to support for this feature. For now - please choose Standard security type when using this VM size) <br>
 [Premium Storage](premium-storage-performance.md): Supported <br>
 [Premium Storage caching](premium-storage-performance.md): Supported <br>
 [Live Migration](maintenance-and-updates.md): Not Supported <br>

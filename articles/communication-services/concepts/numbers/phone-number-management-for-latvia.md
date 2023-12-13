@@ -39,7 +39,7 @@ More details on eligible subscription types are as follows:
 \* Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
 
-## Azure subscription billing locations where Alphanumeric Sender ID is available
+## Azure subscription billing locations where Latvia Alphanumeric Sender ID is available
 | Country/Region |
 | :---------- |
 |Australia|

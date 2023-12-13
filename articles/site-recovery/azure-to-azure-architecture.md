@@ -128,7 +128,7 @@ If outbound access for VMs is controlled with URLs, allow these URLs.
 | **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
-| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Microsoft Entra ID    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.us`	  | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 | Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Allows access to enable replication for ADE-enabled virtual machines via portal |
@@ -144,7 +144,7 @@ Please note that details of network connectivity requirements can be found in [n
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.\<region-name>
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD)  | AzureActiveDirectory
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Microsoft Entra ID  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the target region. | EventHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
@@ -155,7 +155,7 @@ Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automatio
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region | Storage.\<region-name>
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD  | AzureActiveDirectory
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Microsoft Entra ID  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the source region. | EventHub.\<region-name>
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault

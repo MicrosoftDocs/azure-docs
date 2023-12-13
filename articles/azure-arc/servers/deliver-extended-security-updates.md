@@ -1,7 +1,7 @@
 ---
 title: Deliver Extended Security Updates for Windows Server 2012
 description: Learn how to deliver Extended Security Updates for Windows Server 2012.
-ms.date: 10/05/2023
+ms.date: 11/07/2023
 ms.topic: conceptual
 ---
 
@@ -81,33 +81,41 @@ The status of the selected machines changes to **Enabled**.
 
 If any problems occur during the enablement process, see [Troubleshoot delivery of Extended Security Updates for Windows Server 2012](troubleshoot-extended-security-updates.md) for assistance.
 
+## At-scale Azure Policy
+
+For at-scale linking of servers to an Azure Arc Extended Security Update license and locking down license modification or creation, consider the usage of the following built-in Azure policies: 
+
+- [Enable Extended Security Updates (ESUs) license to keep Windows 2012 machines protected after their support lifecycle has ended (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4864134f-d306-4ff5-94d8-ea4553b18c97)
+
+- [Deny Extended Security Updates (ESUs) license creation or modification (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4c660f31-eafb-408d-a2b3-6ed2260bd26c)
+
+Azure policies can be specified to a targeted subscription or resource group for both auditing and management scenarios.
+
 ## Additional scenarios
 
-There are several scenarios in which you may be eligible to receive Extended Security Updates patches at no additional cost. Three of these scenarios supported by Azure Arc include the following:
+There are some scenarios in which you may be eligible to receive Extended Security Updates patches at no additional cost. Two of these scenarios supported by Azure Arc include the following:
 
-- Dev/Test
-- Visual Studio
-- Disaster Recovery
+- [Dev/Test (Visual Studio)](/azure/devtest/offer/overview-what-is-devtest-offer-visual-studio)
+- Disaster Recovery ([Entitled benefit DR instances from Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-by-benefits) or subscription only)
 
 To qualify for these scenarios, you must have:
 
-1. Provisioned and activated a WS2012 Arc ESU License intended to be linked to regular Azure Arc-enabled servers running in production environments (i.e., normally billed ESU scenarios)
+1. Provisioned and activated a WS2012 Arc ESU License intended to be linked to regular Azure Arc-enabled servers running in production environments (i.e., normally billed ESU scenarios). This license should be provisioned only for billable cores, not cores that are eligible for free Extended Security Updates.
 
-1. Onboarded your Windows Server 2012 and Windows Server 2012 R2 machines to Azure Arc-enabled servers for the purpose of Dev/Test, association with Visual Studio subscriptions, or Disaster Recovery
+1. Onboarded your Windows Server 2012 and Windows Server 2012 R2 machines to Azure Arc-enabled servers for the purpose of Dev/Test with Visual Studio subscriptions or Disaster Recovery
 
 To enroll Azure Arc-enabled servers eligible for ESUs at no additional cost, follow these steps to tag and link:
 
-1. Tag both the WS2012 Arc ESU License and the Azure Arc-enabled server with one of the following three name-value pairs, corresponding to the appropriate exception:
+1. Tag both the WS2012 Arc ESU License and the Azure Arc-enabled server with one of the following name-value pairs, corresponding to the appropriate exception:
 
-    1. Name: “ESU Usage”; Value: “WS2012 DEV TEST”
-    1. Name: “ESU Usage”; Value: “WS2012 VISUAL STUDIO”
+    1. Name: “ESU Usage”; Value: “WS2012 VISUAL STUDIO DEV TEST”
     1. Name: “ESU Usage”; Value: “WS2012 DISASTER RECOVERY”
     
     In the case that you're using the ESU License for multiple exception scenarios, mark the license with the tag: Name: “ESU Usage”; Value: “WS2012 MULTIPURPOSE”
 
-1. Link the tagged license to your tagged Azure Arc-enabled Windows Server 2012 and Windows Server 2012 R2 machines.
+1. Link the tagged license to your tagged Azure Arc-enabled Windows Server 2012 and Windows Server 2012 R2 machines. **Do not license cores for these servers**.
     
-    This linking will not trigger a compliance violation or enforcement block, allowing you to extend the application of a license beyond its provisioned cores.
+    This linking will not trigger a compliance violation or enforcement block, allowing you to extend the application of a license beyond its provisioned cores. The expectation is that the license only includes cores for production and billed servers. Any additional cores will be charged and result in over-billing.
 
 > [!NOTE]
 > The usage of these exception scenarios will be available for auditing purposes and abuse of these exceptions may result in recusal of WS2012 ESU privileges.  

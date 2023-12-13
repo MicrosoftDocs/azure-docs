@@ -1,14 +1,14 @@
 ---
-title: Remote-write in Azure Monitor Managed Service for Prometheus using Azure Active Directory
-description: Describes how to configure remote-write to send data from self-managed Prometheus running in your Kubernetes cluster running on-premises or in another cloud using Azure Active Directory authentication. 
+title: Remote-write in Azure Monitor Managed Service for Prometheus using Microsoft Entra ID
+description: Describes how to configure remote-write to send data from self-managed Prometheus running in your Kubernetes cluster running on-premises or in another cloud using Microsoft Entra authentication. 
 author: EdB-MSFT
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.date: 11/01/2022
 ---
 
-# Configure remote write for Azure Monitor managed service for Prometheus using Azure Active Directory authentication
-This article describes how to configure [remote-write](prometheus-remote-write.md) to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using Azure Active Directory authentication.
+# Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Entra authentication
+This article describes how to configure [remote-write](prometheus-remote-write.md) to send data from self-managed Prometheus running in your AKS cluster or Azure Arc-enabled Kubernetes cluster using Microsoft Entra authentication.
 
 ## Cluster configurations
 This article applies to the following cluster configurations:
@@ -23,16 +23,20 @@ This article applies to the following cluster configurations:
 ## Prerequisites
 See prerequisites at [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites).
 
-## Create Azure Active Directory application
-Follow the procedure at [Register an application with Azure AD and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) to register an application for Prometheus remote-write and create a service principal.
+<a name='create-azure-active-directory-application'></a>
+
+## Create Microsoft Entra application
+Follow the procedure at [Register an application with Microsoft Entra ID and create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) to register an application for Prometheus remote-write and create a service principal.
 
 
-## Get the client ID of the Azure Active Directory application.
+<a name='get-the-client-id-of-the-azure-active-directory-application'></a>
 
-1. From the **Azure Active Directory** menu in the Azure Portal, select **App registrations**.
+## Get the client ID of the Microsoft Entra application.
+
+1. From the **Microsoft Entra ID** menu in the Azure portal, select **App registrations**.
 2. Locate your application and note the client ID.
 
-    :::image type="content" source="media/prometheus-remote-write-active-directory/application-client-id.png" alt-text="Screenshot showing client ID of Azure Active Directory application." lightbox="media/prometheus-remote-write-active-directory/application-client-id.png":::
+    :::image type="content" source="media/prometheus-remote-write-active-directory/application-client-id.png" alt-text="Screenshot showing client ID of Microsoft Entra application." lightbox="media/prometheus-remote-write-active-directory/application-client-id.png":::
 
 ## Assign Monitoring Metrics Publisher role on the data collection rule to the application
 The application requires the *Monitoring Metrics Publisher* role on the data collection rule associated with your Azure Monitor workspace.
@@ -66,12 +70,14 @@ The application requires the *Monitoring Metrics Publisher* role on the data col
 2. Create a certificate using the guidance at [Add a certificate to Key Vault](../../key-vault/certificates/quick-create-portal.md#add-a-certificate-to-key-vault).
 3. Download the newly generated certificate in CER format using the guidance at [Export certificate from Key Vault](../../key-vault/certificates/quick-create-portal.md#export-certificate-from-key-vault).
 
-## Add certificate to the Azure Active Directory application
+<a name='add-certificate-to-the-azure-active-directory-application'></a>
 
-1. From the menu for your Azure Active Directory application, select **Certificates & secrets**.
+## Add certificate to the Microsoft Entra application
+
+1. From the menu for your Microsoft Entra application, select **Certificates & secrets**.
 2. Select **Upload certificate** and select the certificate that you downloaded.
 
-    :::image type="content" source="media/prometheus-remote-write-active-directory/upload-certificate.png" alt-text="Screenshot showing upload of certificate for Azure Active Directory application." lightbox="media/prometheus-remote-write-active-directory/upload-certificate.png":::
+    :::image type="content" source="media/prometheus-remote-write-active-directory/upload-certificate.png" alt-text="Screenshot showing upload of certificate for Microsoft Entra application." lightbox="media/prometheus-remote-write-active-directory/upload-certificate.png":::
 
 > [!WARNING]
 > Certificates have an expiration date, and it's the responsibility of the user to keep these certificates valid.
@@ -107,30 +113,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
 
 3. Create a *SecretProviderClass* by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId` and the objects to retrieve from your key vault. See [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](../../aks/csi-secrets-store-identity-access.md) for details on values to use.
 
-    ```yml
-    # This is a SecretProviderClass example using user-assigned identity to access your key vault
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: azure-kvname-user-msi
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: "false"
-        useVMManagedIdentity: "true"          # Set to true for using managed identity
-        userAssignedIdentityID: <client-id>   # Set the clientID of the user-assigned managed identity to use
-        keyvaultName: <key-vault-name>        # Set to the name of your key vault
-        cloudName: ""                         # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
-        objects:  |
-          array:
-            - |
-              objectName: <name-of-cert>
-              objectType: secret              # object types: secret, key, or cert
-              objectFormat: pfx
-              objectEncoding: base64
-              objectVersion: ""
-        tenantId: <tenant-id>                 # The tenant ID of the key vault
-    ``````
+    [!INCLUDE [secret-provider-class-yaml](../includes/secret-procider-class-yaml.md)]
 
 4. Apply the *SecretProviderClass* by running the following command on your cluster.
 
@@ -142,85 +125,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
 
 1. Copy the YAML below and save to a file. This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
 
-
-    ```yml
-    prometheus:
-      prometheusSpec:
-        externalLabels:
-          cluster: <CLUSTER-NAME>  
-  
-        ##	Azure Managed Prometheus currently exports some default mixins in Grafana.  
-        ##  These mixins are compatible with data scraped by Azure Monitor agent on your 
-        ##  Azure Kubernetes Service cluster. These mixins aren't compatible with Prometheus 
-        ##  metrics scraped by the Kube Prometheus stack. 
-        ##  To make these mixins compatible, uncomment the remote write relabel configuration below:
-
-	      ##	writeRelabelConfigs:
-	      ##	  - sourceLabels: [metrics_path]
-	      ##	    regex: /metrics/cadvisor
-	      ##	    targetLabel: job
-	      ##	    replacement: cadvisor
-	      ##	    action: replace
-	      ##	  - sourceLabels: [job]
-	      ##	    regex: 'node-exporter'
-	      ##	    targetLabel: job
-	      ##	    replacement: node
-	      ##	    action: replace  
-
-        ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write
-        remoteWrite:
-          - url: 'http://localhost:8081/api/v1/write'
-        
-        # Additional volumes on the output StatefulSet definition.
-        # Required only for AAD based auth
-        volumes:
-          - name: secrets-store-inline
-            csi:
-              driver: secrets-store.csi.k8s.io
-              readOnly: true
-              volumeAttributes:
-                secretProviderClass: azure-kvname-user-msi
-        containers:
-          - name: prom-remotewrite
-            image: <CONTAINER-IMAGE-VERSION>
-            imagePullPolicy: Always
-
-            # Required only for AAD based auth
-            volumeMounts:
-              - name: secrets-store-inline
-                mountPath: /mnt/secrets-store
-                readOnly: true
-            ports:
-              - name: rw-port
-                containerPort: 8081
-            livenessProbe:
-              httpGet:
-                path: /health
-                port: rw-port
-                initialDelaySeconds: 10
-                timeoutSeconds: 10
-            readinessProbe:
-              httpGet:
-                path: /ready
-                port: rw-port
-                initialDelaySeconds: 10
-                timeoutSeconds: 10
-            env:
-              - name: INGESTION_URL
-                value: '<INGESTION_URL>'
-              - name: LISTENING_PORT
-                value: '8081'
-              - name: IDENTITY_TYPE
-                value: aadApplication
-              - name: AZURE_CLIENT_ID
-                value: '<APP-REGISTRATION-CLIENT-ID>'
-              - name: AZURE_TENANT_ID
-                value: '<TENANT-ID>'
-              - name: AZURE_CLIENT_CERTIFICATE_PATH
-                value: /mnt/secrets-store/<CERT-NAME>
-              - name: CLUSTER
-                value: '<CLUSTER-NAME>'
-    ```
+    [!INCLUDE [prometheus-sidecar-remote-write-entra-yaml](../includes/prometheus-sidecar-remote-write-entra-yaml.md)]
 
 2. Replace the following values in the YAML.
 
@@ -230,7 +135,7 @@ This step is only required if you didn't enable Azure Key Vault Provider for Sec
     | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230906.1`<br>The remote write container image version.   |
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<APP-REGISTRATION -CLIENT-ID> ` | Client ID of your application |
-    | `<TENANT-ID> ` | Tenant ID of the Azure Active Directory application |
+    | `<TENANT-ID> ` | Tenant ID of the Microsoft Entra application |
     | `<CERT-NAME>` | Name of the certificate  |
     | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |
 
@@ -259,4 +164,4 @@ See [Azure Monitor managed service for Prometheus remote write](prometheus-remot
 - [Remote-write in Azure Monitor Managed Service for Prometheus](prometheus-remote-write.md)
 - [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md)
 - [Configure remote write for Azure Monitor managed service for Prometheus using Azure Workload Identity (preview)](./prometheus-remote-write-azure-workload-identity.md)
-- [Configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Entra pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)

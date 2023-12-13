@@ -1,28 +1,29 @@
 ---
 title: Autocomplete or typeahead
-titleSuffix: Azure Cognitive Search
-description: Enable search-as-you-type query actions in Azure Cognitive Search by creating suggesters and queries that autocomplete a search string with finished terms or phrases. You can also return suggested matches.
+titleSuffix: Azure AI Search
+description: Enable search-as-you-type query actions in Azure AI Search by creating suggesters and queries that autocomplete a search string with finished terms or phrases. You can also return suggested matches.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.custom:
+  - ignite-2023
+ms.topic: how-to
 ms.date: 10/03/2023
-ms.custom: devx-track-csharp
 ---
 
-# How to add autocomplete and search suggestions in client apps
+# Add autocomplete and search suggestions in client apps
 
-Search-as-you-type is a common technique for improving query productivity. In Azure Cognitive Search, this experience is supported through *autocomplete*, which finishes a term or phrase based on partial input (completing "micro" with "microsoft"). A second user experience is *suggestions*, or a short list of matching documents (returning book titles with an ID so that you can link to a detail page about that book). Both autocomplete and suggestions are predicated on a match in the index. The service won't offer queries that return zero results.
+Search-as-you-type is a common technique for improving query productivity. In Azure AI Search, this experience is supported through *autocomplete*, which finishes a term or phrase based on partial input (completing "micro" with "microsoft"). A second user experience is *suggestions*, or a short list of matching documents (returning book titles with an ID so that you can link to a detail page about that book). Both autocomplete and suggestions are predicated on a match in the index. The service won't offer queries that return zero results.
 
-To implement these experiences in Azure Cognitive Search:
+To implement these experiences in Azure AI Search:
 
 + Add a `suggester` to an index schema
 + Build a query that calls the [Autocomplete](/rest/api/searchservice/autocomplete) or [Suggestions](/rest/api/searchservice/suggestions) API on the request.
 + Add a UI control to handle search-as-you-type interactions in your client app. We recommend using an existing JavaScript library for this purpose.
 
-In Azure Cognitive Search, autocompleted queries and suggested results are retrieved from the search index, from selected fields that you have registered with a suggester. A suggester is part of the index, and it specifies which fields will provide content that either completes a query, suggests a result, or does both. When the index is created and loaded, a suggester data structure is created internally to store prefixes used for matching on partial queries. For suggestions, choosing suitable fields that are unique, or at least not repetitive, is essential to the experience. For more information, see [Create a suggester](index-add-suggesters.md).
+In Azure AI Search, autocompleted queries and suggested results are retrieved from the search index, from selected fields that you have registered with a suggester. A suggester is part of the index, and it specifies which fields will provide content that either completes a query, suggests a result, or does both. When the index is created and loaded, a suggester data structure is created internally to store prefixes used for matching on partial queries. For suggestions, choosing suitable fields that are unique, or at least not repetitive, is essential to the experience. For more information, see [Create a suggester](index-add-suggesters.md).
 
 The remainder of this article is focused on queries and client code. It uses JavaScript and C# to illustrate key points. REST API examples are used to concisely present each operation. For end-to-end code samples, see [Next steps](#next-steps).
 
@@ -140,9 +141,9 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### Suggest function
 
-If you are using C# and an MVC application, **HomeController.cs** file under the Controllers directory is where you might create a class for suggested results. In .NET, a Suggest function is based on the [SuggestAsync method](/dotnet/api/azure.search.documents.searchclient.suggestasync). For more information about the .NET SDK, see [How to use Azure Cognitive Search from a .NET Application](search-howto-dotnet-sdk.md).
+If you are using C# and an MVC application, **HomeController.cs** file under the Controllers directory is where you might create a class for suggested results. In .NET, a Suggest function is based on the [SuggestAsync method](/dotnet/api/azure.search.documents.searchclient.suggestasync). For more information about the .NET SDK, see [How to use Azure AI Search from a .NET Application](search-howto-dotnet-sdk.md).
 
-The `InitSearch` method creates an authenticated HTTP index client to the Azure Cognitive Search service. Properties on the [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) class determine which fields are searched and returned in the results, the number of matches, and whether fuzzy matching is used. 
+The `InitSearch` method creates an authenticated HTTP index client to the Azure AI Search service. Properties on the [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) class determine which fields are searched and returned in the results, the number of matches, and whether fuzzy matching is used. 
 
 For autocomplete, fuzzy matching is limited to one edit distance (one omitted or misplaced character). Note that fuzzy matching in autocomplete queries can sometimes produce unexpected results depending on index size and how it's sharded. For more information, see [partition and sharding concepts](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
@@ -180,7 +181,7 @@ The SuggestAsync function takes two parameters that determine whether hit highli
 
 ## Autocomplete
 
-So far, the search UX code has been centered on suggestions. The next code block shows autocomplete, using the XDSoft jQuery UI Autocomplete function, passing in a request for Azure Cognitive Search autocomplete. As with the suggestions, in a C# application, code that supports user interaction goes in **index.cshtml**.
+So far, the search UX code has been centered on suggestions. The next code block shows autocomplete, using the XDSoft jQuery UI Autocomplete function, passing in a request for Azure AI Search autocomplete. As with the suggestions, in a C# application, code that supports user interaction goes in **index.cshtml**.
 
 ```javascript
 $(function () {

@@ -2,7 +2,7 @@
 title: Add, modify, and filter Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using Azure Monitor.
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 11/15/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
@@ -12,7 +12,7 @@ ms.reviewer: mmcc
 
 This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using [Azure Monitor Application Insights](app-insights-overview.md#application-insights-overview).
 
-To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
+To learn more about OpenTelemetry concepts, see the [OpenTelemetry overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](#frequently-asked-questions).
 
 <!---NOTE TO CONTRIBUTORS: PLEASE DO NOT SEPARATE OUT JAVASCRIPT AND TYPESCRIPT INTO DIFFERENT TABS.--->
 
@@ -26,11 +26,11 @@ The distros automatically collect data by bundling OpenTelemetry instrumentation
 
 Requests
 - [ASP.NET
-  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) ¹
 
 Dependencies
-- [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-- [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup>
+- [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) ¹
+- [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) ¹
 
 Logging
 - `ILogger`
@@ -83,15 +83,15 @@ Metrics
 * JMX Metrics
 
 Logs
-* Logback (including MDC properties) [1](#FOOTNOTEONE)</sup> <sup>[3](#FOOTNOTETHREE)</sup>
-* Log4j (including MDC/Thread Context properties) [1](#FOOTNOTEONE)</sup> <sup>[3](#FOOTNOTETHREE)</sup>
-* JBoss Logging (including MDC properties) [1](#FOOTNOTEONE)</sup> <sup>[3](#FOOTNOTETHREE)</sup>
-* java.util.logging [1](#FOOTNOTEONE)</sup> <sup>[3](#FOOTNOTETHREE)</sup>
+* Logback (including MDC properties) ¹ ³
+* Log4j (including MDC/Thread Context properties) ¹ ³
+* JBoss Logging (including MDC properties) ¹ ³
+* java.util.logging ¹ ³
 
 Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 * [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
-* [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Azure AI Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
 * [Azure Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
 * [Azure Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
 * [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
@@ -142,7 +142,7 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. For more information, see [OpenTelemetry officially supported instrumentations](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#officially-supported-instrumentations).
 
 Requests
-- [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) <sup>[2](#FOOTNOTETWO)</sup>
+- [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) ²
 
 Dependencies
 - [MongoDB](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mongodb)
@@ -152,29 +152,57 @@ Dependencies
 - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
-Automatic instrumentation of Logs is currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
+Instrumentations can be configured using AzureMonitorOpenTelemetryOptions  
 
-Logs
-- [Node.js console](https://nodejs.org/api/console.html)
-- [Bunyan](https://github.com/trentm/node-bunyan#readme)
-- [Winston](https://github.com/winstonjs/winston#readme)
+```typescript
+    // Import Azure Monitor OpenTelemetry
+    const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
+    // Import OpenTelemetry HTTP Instrumentation to get config type
+    const { HttpInstrumentationConfig } = require("@azure/monitor-opentelemetry");
+     // Import HTTP to get type
+    const { IncomingMessage } = require("http");
+
+    // Specific Instrumentation configs could be added
+    const httpInstrumentationConfig: HttpInstrumentationConfig = {
+        ignoreIncomingRequestHook: (request: IncomingMessage) => {
+            return false; //Return true if you want to ignore a specific request 
+        },
+        enabled: true
+    };
+    // Instrumentations configuration
+    const options: AzureMonitorOpenTelemetryOptions = {
+    instrumentationOptions: {
+        http: httpInstrumentationConfig,
+        azureSdk: { enabled: true },
+        mongoDb: { enabled: true },
+        mySql: { enabled: true },
+        postgreSql: { enabled: true },
+        redis: { enabled: true },
+        redis4: { enabled: true },
+    }
+    };
+
+    // Enable Azure Monitor integration
+    useAzureMonitor(options);
+
+```
 
 
 #### [Python](#tab/python)
 
 Requests
-- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-- [FastApi](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-fastapi) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) ¹
+- [FastApi](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-fastapi) ¹
+- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) ¹
 
 Dependencies
 - [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2)
-- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-- [`Urllib`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-- [`Urllib3`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) ¹
+- [`Urllib`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) ¹
+- [`Urllib3`](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) ¹
 
 Logs
-- [Python logging library](https://docs.python.org/3/howto/logging.html) <sup>[4](#FOOTNOTEFOUR)</sup>
+- [Python logging library](https://docs.python.org/3/howto/logging.html) ⁴
 
 Examples of using the Python logging library can be found on [GitHub](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging).
 
@@ -183,10 +211,10 @@ Telemetry emitted by Azure SDKS is automatically [collected](https://github.com/
 ---
 
 **Footnotes**
-- <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of *unhandled/uncaught* exceptions
-- <a name="FOOTNOTETWO">2</a>: Supports OpenTelemetry Metrics
-- <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected at INFO level or higher. To change this setting, see the [configuration options](./java-standalone-config.md#autocollected-logging).
-- <a name="FOOTNOTEFOUR">4</a>: By default, logging is only collected when that logging is performed at the WARNING level or higher.
+- ¹: Supports automatic reporting of *unhandled/uncaught* exceptions
+- ²: Supports OpenTelemetry Metrics
+- ³: By default, logging is only collected at INFO level or higher. To change this setting, see the [configuration options](./java-standalone-config.md#autocollected-logging).
+- ⁴: By default, logging is only collected when that logging is performed at the WARNING level or higher.
 
 > [!NOTE]
 > The Azure Monitor OpenTelemetry Distros include custom mapping and logic to automatically emit [Application Insights standard metrics](standard-metrics.md).
@@ -332,8 +360,6 @@ The following table represents the currently supported custom telemetry types:
 |                                           |               |                |              |            |            |          |        |
 | **Node.js**                               |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;Console, Winston, Bunyan|               |                |              |            |            |          | Yes    |
-| &nbsp;&nbsp;&nbsp;AI Classic API          | Yes           | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Python**                                |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
@@ -347,8 +373,6 @@ The following table represents the currently supported custom telemetry types:
 
 > [!NOTE]
 > Custom Metrics are under preview in Azure Monitor Application Insights. Custom metrics without dimensions are available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
-Consider collecting more metrics beyond what's provided by the instrumentation libraries.
 
 The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
 
@@ -898,8 +922,8 @@ input()
 ### Add custom exceptions
 
 Select instrumentation libraries automatically report exceptions to Application Insights.
-However, you may want to manually report exceptions beyond what instrumentation libraries report.
-For instance, exceptions caught by your code aren't ordinarily reported. You may wish to report them
+However, you might want to manually report exceptions beyond what instrumentation libraries report.
+For instance, exceptions caught by your code aren't ordinarily reported. You might wish to report them
 to draw attention in relevant experiences including the failures section and end-to-end transaction views.
 
 #### [ASP.NET Core](#tab/aspnetcore)
@@ -1090,7 +1114,7 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 
 ### Add custom spans
 
-You may want to add a custom span in two scenarios. First, when there's a dependency request not already collected by an instrumentation library. Second, when you wish to model an application process as a span on the end-to-end transaction view.
+You might want to add a custom span in two scenarios. First, when there's a dependency request not already collected by an instrumentation library. Second, when you wish to model an application process as a span on the end-to-end transaction view.
   
 #### [ASP.NET Core](#tab/aspnetcore)
 
@@ -1170,13 +1194,13 @@ The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` a
 
 Spans populate the `requests` and `dependencies` tables in Application Insights.
 
-1. Add `opentelemetry-instrumentation-annotations-1.21.0.jar` (or later) to your application:
+1. Add `opentelemetry-instrumentation-annotations-1.32.0.jar` (or later) to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-instrumentation-annotations</artifactId>
-     <version>1.21.0</version>
+     <version>1.32.0</version>
    </dependency>
    ```
 
@@ -1354,15 +1378,51 @@ Currently unavailable.
   
 ### Send custom telemetry using the Application Insights Classic API
 
-We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md)s.
+We recommend you use the OpenTelemetry APIs whenever possible, but there might be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md).
   
 #### [ASP.NET Core](#tab/aspnetcore)
   
-Not available in .NET.
+##### Events
+
+1. Add `Microsoft.ApplicationInsights` to your application.
+
+2. Create a `TelemetryClient` instance.
+
+> [!NOTE]
+> It's important to only create once instance of the TelemetryClient per application.
+
+```csharp
+var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" };
+var telemetryClient = new TelemetryClient(telemetryConfiguration);
+```
+
+3. Use the client to send custom telemetry.
+
+```csharp
+telemetryClient.TrackEvent("testEvent");
+```
 
 #### [.NET](#tab/net)
 
-Not available in .NET.
+##### Events
+
+1. Add `Microsoft.ApplicationInsights` to your application.
+
+2. Create a `TelemetryClient` instance.
+
+> [!NOTE]
+> It's important to only create once instance of the TelemetryClient per application.
+
+```csharp
+var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" };
+var telemetryClient = new TelemetryClient(telemetryConfiguration);
+```
+
+3. Use the client to send custom telemetry.
+
+```csharp
+telemetryClient.TrackEvent("testEvent");
+```
 
 #### [Java](#tab/java)
 
@@ -1372,7 +1432,7 @@ Not available in .NET.
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.14</version>
+      <version>3.4.18</version>
     </dependency>
     ```
 
@@ -1889,7 +1949,7 @@ Attaching custom dimensions to logs can be accomplished using a [message templat
 
 Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
 
-* [Log4j 2.0 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
+* [Log4j 2.0 MapMessage](https://logging.apache.org/log4j/2.0/javadoc/log4j-api/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
 * [Log4j 2.0 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
@@ -2265,6 +2325,8 @@ span_id = trace.get_current_span().get_span_context().span_id
 ```
 
 ---
+
+[!INCLUDE [azure-monitor-app-insights-opentelemetry-faqs](../includes/azure-monitor-app-insights-opentelemetry-faqs.md)]
 
 [!INCLUDE [azure-monitor-app-insights-opentelemetry-support](../includes/azure-monitor-app-insights-opentelemetry-support.md)]
 

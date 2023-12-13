@@ -11,14 +11,14 @@ ms.custom: generated
 
 # Security recommendations for DevOps resources - a reference guide
 
-This article lists the recommendations you might see in Microsoft Defender for Cloud if you've [connected an Azure DevOps](quickstart-onboard-devops.md) or [GitHub](quickstart-onboard-github.md) environment from the **Environment settings** page. The recommendations shown in your environment depend on the resources you're protecting and your customized configuration.
+This article lists the recommendations you might see in Microsoft Defender for Cloud if you've connected an [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickstart-onboard-github.md), or [GitLab](quickstart-onboard-gitlab.md) environment from the **Environment settings** page. The recommendations shown in your environment depend on the resources you're protecting and your customized configuration.
 
 To learn about how to respond to these recommendations, see
 [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
 
-Learn more about [Defender for DevOps's](defender-for-devops-introduction.md) benefits and features.
+Learn more about [DevOps security](defender-for-devops-introduction.md) benefits and features.
 
-DevOps recommendations do not currently affect the [Secure Score](secure-score-security-controls.md). To prioritize recommendations, consider the number of impacted resources, the total number of findings and the level of severity.
+DevOps recommendations do not affect the [Secure score](secure-score-security-controls.md). To prioritize recommendations, consider the number of impacted resources, the total number of findings and the level of severity.
 
 [!INCLUDE [devops-recommendations](includes/defender-for-devops-recommendations.md)]
 

@@ -27,11 +27,11 @@ To enable calling and chat between your Communication Services users and Teams t
 ## Get Teams user ID
 
 To start a call or chat with a Teams user or Teams Voice application, you need an identifier of the target. You have the following options to retrieve the ID:
-- User interface of [Azure AD](../troubleshooting-info.md?#getting-user-id) or with on-premises directory synchronization [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md)
+- User interface of [Microsoft Entra ID](../troubleshooting-info.md?#getting-user-id) or with on-premises directory synchronization [Microsoft Entra Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md)
 - Programmatically via [Microsoft Graph API](/graph/api/resources/users)
 
 ## Calling
-With the Calling SDK, a Communication Services user or endpoint can start a 1:1 call with Teams users, identified by their Azure Active Directory (Azure AD) object ID. You can easily modify an existing application that calls other Communication Services users to call Teams users.
+With the Calling SDK, a Communication Services user or endpoint can start a 1:1 call with Teams users, identified by their Microsoft Entra object ID. You can easily modify an existing application that calls other Communication Services users to call Teams users.
  
 [Manage calls - An Azure Communication Services how-to guide | Microsoft Docs](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web)
 
@@ -61,7 +61,7 @@ const call = callAgent.startCall([teamsCallee]);
 - Third-party [devices for Teams](/MicrosoftTeams/devices/teams-ip-phones) and [Skype IP phones](/skypeforbusiness/certification/devices-ip-phones) aren't supported.
 
 ## Chat
-With the Chat SDK, Communication Services users or endpoints can have group chats with Teams users, identified by their Azure Active Directory (Azure AD) object ID. You can easily modify an existing application that creates chats with other Communication Services users to create chats with Teams users instead. Here is an example of how to use the Chat SDK to add Teams users as participants. To learn how to use Chat SDK to send a message, manage participants, and more, see our [quickstart](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript).
+With the Chat SDK, Communication Services users or endpoints can have group chats with Teams users, identified by their Microsoft Entra object ID. You can easily modify an existing application that creates chats with other Communication Services users to create chats with Teams users instead. Here is an example of how to use the Chat SDK to add Teams users as participants. To learn how to use Chat SDK to send a message, manage participants, and more, see our [quickstart](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript).
 
 Creating a chat with a Teams user:
 ```js
@@ -86,8 +86,9 @@ While in private preview, a Communication Services user can do various actions u
 -    Communication Services users can delete the chat. This action removes the Teams user from the chat thread and hides the message history from the Teams client.
 - Known issue: Communication Services users aren't displayed correctly in the participant list. They're currently displayed as External, but their people cards show inconsistent data. In addition, their displayname might not be shown properly in the Teams client.
 - Known issue: The typing event from Teams side might contain a blank display name.
+- Known issue: Read receipts aren't supported for Teams users.
 - Known issue: A chat can't be escalated to a call from within the Teams app. 
-- Known issue: Editing of messages by the Teams user isn't supported. 
+- Known issue: Editing of messages by the Teams user isn't supported.
 
 Please refer to [Chat Capabilities](../interop/guest/capabilities.md) to learn more. 
 

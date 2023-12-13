@@ -1,5 +1,5 @@
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 10/4/2023
 ms.author: eur

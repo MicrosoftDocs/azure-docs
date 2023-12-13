@@ -3,16 +3,12 @@ title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 11/01/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
 ---
 # Autoscale scaling plans and example scenarios in Azure Virtual Desktop
-
-> [!IMPORTANT]
-> Autoscale for personal host pools is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs.
 
@@ -32,6 +28,8 @@ Before you create your plan, keep the following things in mind:
 - You can assign one scaling plan to one or more host pools of the same host pool type. The scaling plan's schedules will be applied to all assigned host pools.
 
 - You can only associate one scaling plan per host pool. If you assign a single scaling plan to multiple host pools, those host pools can't be assigned to another scaling plan.
+
+- Hibernate (preview) is available for personal host pools. For more information, view [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume).
 
 - A scaling plan can only operate in its configured time zone.
 
@@ -158,6 +156,8 @@ In this scenario, we'll show that autoscale turns off session hosts when all of 
 - The used host pool capacity is below the capacity threshold.
 - Autoscale can turn off session hosts without exceeding the capacity threshold.
 - Autoscale only turns off session hosts with no user sessions on them (unless the scaling plan is in ramp-down phase and you've enabled the force logoff setting).
+- Pooled autoscale will not turn off session hosts in the ramp-up phase to avoid bad user experience.
+
 
 For this scenario, the host pool starts off looking like this:
 

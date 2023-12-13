@@ -31,11 +31,11 @@ This section guides you in configuring your Automation account securely.
 
 1. Limit the number of highly privileged roles such as Automation Contributor to reduce the potential for breach by a compromised owner.
 
-1. Use [Azure AD Privileged Identity Management](../active-directory/roles/security-planning.md#use-azure-ad-privileged-identity-management) to protect the privileged accounts from malicious cyber-attacks to increase your visibility into their use through reports and alerts.
+1. Use [Microsoft Entra Privileged Identity Management](../active-directory/roles/security-planning.md#use-azure-ad-privileged-identity-management) to protect the privileged accounts from malicious cyber-attacks to increase your visibility into their use through reports and alerts.
 
 ### Securing Hybrid Runbook worker role
 
-1. Install Hybrid workers using the [Hybrid Runbook Worker VM extension](./extension-based-hybrid-runbook-worker-install.md?tabs=windows), that doesn't have any dependency on the Log Analytics agent. We recommend this platform as it leverages Azure AD based authentication. 
+1. Install Hybrid workers using the [Hybrid Runbook Worker VM extension](./extension-based-hybrid-runbook-worker-install.md?tabs=windows), that doesn't have any dependency on the Log Analytics agent. We recommend this platform as it leverages Microsoft Entra ID based authentication. 
    [Hybrid Runbook Worker](./automation-hrw-run-runbooks.md) feature of Azure Automation allows you to execute runbooks directly on the machine hosting the role in Azure or non-Azure machine to execute Automation jobs in the local environment. 
     - Use only high privilege users or [Hybrid worker custom roles](./extension-based-hybrid-runbook-worker-install.md?tabs=windows) for users responsible for managing operations such as registering or unregistering Hybrid workers and hybrid groups and executing runbooks against Hybrid runbook worker groups. 
     - The same user would also require VM contributor access on the machine hosting Hybrid worker role. Since the VM contributor is a high privilege role, ensure only a limited right set of users have access to manage Hybrid works, thereby reducing the potential for breach by a compromised owner.
@@ -49,7 +49,7 @@ This section guides you in configuring your Automation account securely.
 
 ### Authentication certificate and identities
 
-1. For runbook authentication, we recommend that you use [Managed identities](./automation-security-overview.md#managed-identities) instead of Run As accounts. The Run As accounts are an administrative overhead and we plan to deprecate them. A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information about managed identities in Azure Automation, see [Managed identities for Azure Automation](./automation-security-overview.md#managed-identities)
+1. For runbook authentication, we recommend that you use [Managed identities](./automation-security-overview.md#managed-identities) instead of Run As accounts. The Run As accounts are an administrative overhead and we plan to deprecate them. A managed identity from Microsoft Entra ID allows your runbook to easily access other Microsoft Entra protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information about managed identities in Azure Automation, see [Managed identities for Azure Automation](./automation-security-overview.md#managed-identities)
 
    You can authenticate an Automation account using two types of managed identities:
    - **System-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
@@ -57,7 +57,7 @@ This section guides you in configuring your Automation account securely.
 
    Follow the [Managed identity best practice recommendations](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#choosing-system-or-user-assigned-managed-identities) for more details. 
 
-1. Rotate the [Azure Automation keys](./automation-create-standalone-account.md?tabs=azureportal#manage-automation-account-keys) periodically. The key regeneration prevents future DSC or hybrid worker node registrations from using previous keys. We recommend to use the [Extension based hybrid workers](./automation-hybrid-runbook-worker.md) that use Azure AD authentication instead of Automation keys. Azure AD centralizes the control and management of identities and resource credentials.
+1. Rotate the [Azure Automation keys](./automation-create-standalone-account.md?tabs=azureportal#manage-automation-account-keys) periodically. The key regeneration prevents future DSC or hybrid worker node registrations from using previous keys. We recommend to use the [Extension based hybrid workers](./automation-hybrid-runbook-worker.md) that use Microsoft Entra authentication instead of Automation keys. Microsoft Entra ID centralizes the control and management of identities and resource credentials.
 
 ### Data security
 1. Secure the assets in Azure Automation including credentials, certificates, connections and encrypted variables. These assets are protected in Azure Automation using multiple levels of encryption. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of Automation assets. These keys must be present in Azure Key Vault for Automation service to be able to access the keys. See [Encryption of secure assets using customer-managed keys](./automation-secure-asset-encryption.md).

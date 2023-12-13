@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-linux
-ms.date: 10/05/2023
+ms.date: 11/28/2023
 ---
 
 # Create and use a volume with Azure Files in Azure Kubernetes Service (AKS)
@@ -161,27 +161,28 @@ The following YAML creates a pod that uses the persistent volume claim *my-azure
 
     ```yaml
     kind: Pod
-apiVersion: v1
-metadata:
-  name: mypod
-spec:
-  containers:
-    - name: mypod
-      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-      resources:
-        requests:
-          cpu: 100m
-          memory: 128Mi
-        limits:
-          cpu: 250m
-          memory: 256Mi
-      volumeMounts:
-        - mountPath: /mnt/azure
-          name: volume
-  volumes:
-   - name: volume
-     persistentVolumeClaim:
-       claimName: my-azurefile
+    apiVersion: v1
+    metadata:
+      name: mypod
+    spec:
+      containers:
+        - name: mypod
+          image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          volumeMounts:
+            - mountPath: /mnt/azure
+              name: volume
+              readOnly: false
+      volumes:
+       - name: volume
+         persistentVolumeClaim:
+           claimName: my-azurefile
     ```
 
 2. Create the pod using the [`kubectl apply`][kubectl-apply] command.
@@ -343,7 +344,6 @@ Kubernetes needs credentials to access the file share created in the previous st
       storageClassName: azurefile-csi
       csi:
         driver: file.csi.azure.com
-        readOnly: false
         volumeHandle: unique-volumeid  # make sure this volumeid is unique for every identical share in the cluster
         volumeAttributes:
           resourceGroup: resourceGroupName  # optional, only set this when storage account is not in the same resource group as node
@@ -453,11 +453,11 @@ spec:
       volumeMounts:
         - name: azure
           mountPath: /mnt/azure
+          readOnly: false
   volumes:
     - name: azure
       csi: 
         driver: file.csi.azure.com
-        readOnly: false
         volumeAttributes:
           secretName: azure-secret  # required
           shareName: aksshare  # required

@@ -64,7 +64,7 @@ sections:
           | AMQP | 5671, 5672 | AMQP with TLS. See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
           | HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets |
           
-          The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
+          The HTTPS port is generally required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Microsoft Entra ID (when used) run over HTTPS. 
           
           The official Azure SDKs generally use the AMQP protocol for sending and receiving messages from Service Bus. 
           
@@ -149,13 +149,13 @@ sections:
           No. Service Bus doesn't charge for storage. However, there's a quota limiting the maximum amount of data that can be persisted per queue/topic. See the next FAQ.
 
       - question: |
-          I have a Service Bus Standard namespace. Why do I see charges under resource group '$system'?
+          I have a Service Bus Standard namespace. Why do I see charges under resource group `$system`?
         answer: |
-          Azure Service Bus recently upgraded the billing components. Because of this change, if you have a Service Bus Standard namespace, you may see line items for the resource '/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' under resource group '$system'.
+          Azure Service Bus recently upgraded the billing components. Because of this change, if you have a Service Bus Standard namespace, you may see line items for the resource `/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system` under resource group `$system`.
           
           These charges represent the base charge per Azure subscription that has provisioned a Service Bus Standard namespace. 
           
-          It's important to note that these charges aren't new, that is, they existed in the previous billing model too. The only change is that they're now listed under '$system'. It's done because of constraints in the new billing system that groups subscription level charges, not tied to a specific resource, under the '$system' resource ID.
+          It's important to note that these charges aren't new, that is, they existed in the previous billing model too. The only change is that they're now listed under `$system`. It's done because of constraints in the new billing system that groups subscription level charges, not tied to a specific resource, under the `$system` resource ID.
           
           ## Quotas
 

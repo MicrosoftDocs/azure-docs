@@ -164,13 +164,13 @@
               href: authenticate-shared-access-signature.md
             - name: Authorize access with a shared access signature
               href: authorize-access-shared-access-signature.md
-          - name: Use Azure Active Directory
+          - name: Use Microsoft Entra ID
             items:
             - name: Authenticate with a managed identity
               href: authenticate-managed-identity.md
             - name: Authenticate from an application
               href: authenticate-application.md
-            - name: Authorize access with Azure Active Directory
+            - name: Authorize access with Microsoft Entra ID
               href: authorize-access-azure-active-directory.md
         - name: Network security
           href: network-security.md

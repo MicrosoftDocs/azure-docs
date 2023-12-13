@@ -2,7 +2,7 @@
 title: Immersive Reader C# client library quickstart 
 titleSuffix: Azure AI services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: nitinme
 ms.service: azure-ai-immersive-reader
@@ -20,7 +20,7 @@ In this quickstart, you build a web app from scratch and integrate Immersive Rea
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio 2022](https://visualstudio.microsoft.com/downloads)
-* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
 
 ## Create a web app project
 
@@ -71,7 +71,7 @@ Open _Controllers\HomeController.cs_, and add the following code after the _usin
 using Microsoft.Identity.Client;
 ```
 
-Now, we'll configure the controller to obtain the Azure AD values from _secrets.json_. At the top of the _HomeController_ class, after ```public class HomeController : Controller {```, add the following code.
+Now, we'll configure the controller to obtain the Microsoft Entra ID values from _secrets.json_. At the top of the _HomeController_ class, after ```public class HomeController : Controller {```, add the following code.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -321,4 +321,4 @@ When you select the "Immersive Reader" button, you'll see the Immersive Reader l
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a resource and configure AAD](../../how-to-create-immersive-reader.md)
+> [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)

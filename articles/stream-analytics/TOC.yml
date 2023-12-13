@@ -195,6 +195,8 @@
     href: stream-analytics-stream-analytics-query-patterns.md
   - name: Parse JSON and AVRO data
     href: stream-analytics-parsing-json.md
+  - name: Parsing Protobuf
+    href: stream-analytics-parsing-protobuf.md
   - name: Event ordering
     items:
     - name: Event ordering overview
@@ -456,6 +458,12 @@
     href: stream-analytics-scale-with-machine-learning-functions.md
   - name: Run job in your virtual network
     href: run-job-in-virtual-network.md
+  - name: Connect to confluent cloud kafka
+    items:
+    - name: Connect to confluent cloud kafka as input
+      href: confluent-kafka-input.md
+    - name: Connect to confluent cloud Kafka as output
+      href: confluent-kafka-output.md
 - name: Stream Analytics Query Language
   items:
     - name: Stream Analytics Query Language overview
@@ -785,6 +793,9 @@
           maintainContext: true
         - name: Parsing JSON and AVRO data
           href: stream-analytics-parsing-json.md
+          maintainContext: true
+        - name: Parsing Protobuf
+          href: stream-analytics-parsing-protobuf.md
           maintainContext: true
     - name: Query Language Elements
       items:

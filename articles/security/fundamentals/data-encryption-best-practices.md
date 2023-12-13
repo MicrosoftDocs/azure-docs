@@ -26,6 +26,7 @@ To help protect data in the cloud, you need to account for the possible states i
 
 - At rest: This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.
 - In transit: When data is being transferred between components, locations, or programs, it's in transit. Examples are transfer over the network, across a service bus (from on-premises to cloud and vice-versa, including hybrid connections such as ExpressRoute), or during an input/output process.
+- In Use: When data is being processed, the specialized AMD & Intel chipset based Confidential compute VMs keep the data encrypted in memory using hardware managed keys.
 
 ## Choose a key management solution
 
@@ -105,13 +106,33 @@ Following are best practices specific to using Azure VPN Gateway, SSL/TLS, and H
 
 Organizations that fail to protect data in transit are more susceptible to [man-in-the-middle attacks](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [eavesdropping](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14)), and session hijacking. These attacks can be the first step in gaining access to confidential data.
 
+## Protect data in use
+
+**Lessen the need for trust**
+Running workloads on the cloud requires trust. You give this trust to various providers enabling different components of your application.
+- App software vendors: Trust software by deploying on-premises, using open-source, or by building in-house application software.
+- Hardware vendors: Trust hardware by using on-premises hardware or in-house hardware.
+- Infrastructure providers: Trust cloud providers or manage your own on-premises data centers.
+
+**Reducing the attack surface**
+The Trusted Computing Base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical." If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.
+
+Azure confidential computing can help you:
+
+- Prevent unauthorized access: Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from what gets done today.
+- Meet regulatory compliance: Migrate to the cloud and keep full control of data to satisfy government regulations for protecting personal information and secure organizational IP.
+- Ensure secure and untrusted collaboration: Tackle industry-wide work-scale problems by combing data across organizations, even competitors, to unlock broad data analytics and deeper insights.
+- Isolate processing: Offer a new wave of products that remove liability on private data with blind processing. User data can't even be retrieved by the service provider.
+
+Learn more about [Confidential computing](/azure/confidential-computing/).
+
 ## Secure email, documents, and sensitive data
 
 You want to control and secure email, documents, and sensitive data that you share outside your company. [Azure Information Protection](/azure/information-protection/what-is-information-protection) is a cloud-based solution that helps an organization to classify, label, and protect its documents and emails. This can be done automatically by administrators who define rules and conditions, manually by users, or a combination where users get recommendations.
 
 Classification is identifiable at all times, regardless of where the data is stored or with whom it's shared. The labels include visual markings such as a header, footer, or watermark. Metadata is added to files and email headers in clear text. The clear text ensures that other services, such as solutions to prevent data loss, can identify the classification and take appropriate action.
 
-The protection technology uses Azure Rights Management (Azure RMS). This technology is integrated with other Microsoft cloud services and applications, such as Microsoft 365 and Azure Active Directory. This protection technology uses encryption, identity, and authorization policies. Protection that is applied through Azure RMS stays with the documents and emails, independently of the location-inside or outside your organization, networks, file servers, and applications.
+The protection technology uses Azure Rights Management (Azure RMS). This technology is integrated with other Microsoft cloud services and applications, such as Microsoft 365 and Microsoft Entra ID. This protection technology uses encryption, identity, and authorization policies. Protection that is applied through Azure RMS stays with the documents and emails, independently of the location-inside or outside your organization, networks, file servers, and applications.
 
 This information protection solution keeps you in control of your data, even when it's shared with other people. You can also use Azure RMS with your own line-of-business applications and information protection solutions from software vendors, whether these applications and solutions are on-premises or in the cloud.
 

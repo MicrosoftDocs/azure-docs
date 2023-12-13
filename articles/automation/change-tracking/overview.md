@@ -10,6 +10,9 @@ ms.topic: conceptual
 
 # Change Tracking and Inventory overview
 
+> [!Important]
+> - Change Tracking and Inventory using Log Analytics agent will  retire on **31 August 2023** and we recommend that you use Azure Monitoring Agent as the new supporting agent. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md).
+
 This article introduces you to Change Tracking and Inventory in Azure Automation. This feature tracks changes in virtual machines hosted in Azure, on-premises, and other cloud environments to help you pinpoint operational and environmental issues with software managed by the Distribution Package Manager. Items that are tracked by Change Tracking and Inventory include:
 
 - Windows software
@@ -37,7 +40,7 @@ Machines connected to the Log Analytics workspace use the [Log Analytics agent](
 > [!NOTE]
 > Change Tracking and Inventory requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](../how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
 
-As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse allows you to perform operations at scale across several Azure Active Directory (Azure AD) tenants at once, making management tasks like Change Tracking and Inventory more efficient across those tenants you're responsible for. Change Tracking and Inventory can manage machines in multiple subscriptions in the same tenant, or across tenants using [Azure delegated resource management](../../lighthouse/concepts/architecture.md).
+As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse allows you to perform operations at scale across several Microsoft Entra tenants at once, making management tasks like Change Tracking and Inventory more efficient across those tenants you're responsible for. Change Tracking and Inventory can manage machines in multiple subscriptions in the same tenant, or across tenants using [Azure delegated resource management](../../lighthouse/concepts/architecture.md).
 
 ## Current limitations
 
@@ -201,7 +204,7 @@ The following table shows the tracked item limits per machine for Change Trackin
 |Services|250|
 |Daemons|250|
 
-The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](../../azure-monitor/usage-estimated-costs.md).
+The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](../../azure-monitor/cost-usage.md#usage-and-estimated-costs).
 
 ### Windows services data
 

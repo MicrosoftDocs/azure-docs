@@ -58,7 +58,7 @@ For a more detailed guidance, see the [checklist to deprecate older TLS versions
 * [Solving the TLS 1.0 Problem, 2nd Edition](/security/engineering/solving-tls1-problem) – deep dive into migrating to TLS 1.2.
 * [How to enable TLS 1.2 on clients](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client) – for Microsoft Configuration Manager.
 * [Configure Transport Layer Security (TLS) for a client application](../../storage/common/transport-layer-security-configure-client-version.md) – contains instructions to update TLS version in PowerShell 
-* [Enable support for TLS 1.2 in your environment for Azure AD TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment) – contains information on updating TLS version for WinHTTP.
+* [Enable support for TLS 1.2 in your environment for Microsoft Entra TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment) – contains information on updating TLS version for WinHTTP.
 * [Transport Layer Security (TLS) best practices with the .NET Framework](/dotnet/framework/network-programming/tls) – best practices when configuring security protocols for applications targeting .NET Framework.
 * [TLS best practices with the .NET Framework](https://github.com/dotnet/docs/issues/4675) – GitHub to ask questions about best practices with .NET Framework.
 * [Troubleshooting TLS 1.2 compatibility with PowerShell](https://github.com/microsoft/azure-devops-tls12) – probe to check TLS 1.2 compatibility and identify issues when incompatible with PowerShell.

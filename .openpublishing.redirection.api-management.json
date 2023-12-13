@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+        "source_path_from_root": "/articles/api-management/authorizations-overview.md",
+        "redirect_url": "/azure/api-management/credentials-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/authorizations-configure-common-providers.md",
+        "redirect_url": "/azure/api-management/credentials-configure-common-providers",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/configure-authorization-connection.md",
+        "redirect_url": "/azure/api-management/configure-credential-connection",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/authorizations-how-to-azure-ad.md",
+        "redirect_url": "/azure/api-management/credentials-how-to-azure-ad",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/api-management/authorizations-how-to-github.md",
+        "redirect_url": "/azure/api-management/credentials-how-to-github",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/api-management/powershell-samples.md",
         "redirect_url": "https://github.com/Azure/azure-docs-powershell-samples",
         "redirect_document_id": false

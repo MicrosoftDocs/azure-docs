@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 11/28/2023
 ms.author: normesta
 ms.reviewer: fryu
 ms.devlang: powershell, azurecli
@@ -99,7 +99,7 @@ az storage blob upload-batch \
 To archive a single blob on upload with AzCopy, call the [azcopy copy](../common/storage-ref-azcopy-copy.md) command. Provide a local file as the source and the target blob URI as the destination, and specify the archive tier as the target tier, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
 
 > [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Microsoft Entra ID.  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
 
 ```azcopy
 azcopy copy 'C:\temp\myTextFile.txt' 'https://<storage-account>.blob.core.windows.net/<container>/myTextFile-archived.txt' --blob-type BlockBlob --block-blob-tier Archive
@@ -180,7 +180,7 @@ To change a blob's tier from hot or cool to Archive, use the [azcopy set-propert
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Microsoft Entra ID.  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
 
 ```azcopy
 azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>' --block-blob-tier=archive
@@ -252,7 +252,7 @@ az storage blob copy start \
 To copy a blob from an online tier to the archive tier with AzCopy, specify the URI for the source blob and the URI for the destination blob. The destination blob should have a different name from the source blob, and shouldn't already exist.
 
 > [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Microsoft Entra ID.  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
 
 Remember to replace placeholders in angle brackets with your own values:
 
@@ -327,9 +327,6 @@ N/A
 ---
 
 When moving a large number of blobs to the archive tier, use a batch operation for optimal performance. A batch operation sends multiple API calls to the service with a single request. The suboperations supported by the [Blob Batch](/rest/api/storageservices/blob-batch) operation include [Delete Blob](/rest/api/storageservices/delete-blob) and [Set Blob Tier](/rest/api/storageservices/set-blob-tier).
-
-> [!NOTE]
-> The [Set Blob Tier](/rest/api/storageservices/set-blob-tier) suboperation of the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchical namespace.
 
 To archive blobs with a batch operation, use one of the Azure Storage client libraries. The following code example shows how to perform a basic batch operation with the .NET client library:
 

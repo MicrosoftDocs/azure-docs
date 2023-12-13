@@ -16,7 +16,7 @@ Learn how you can manage the pool of lab virtual machines (VMs) in Azure Lab Ser
 
 The lab virtual machine pool represents the set of lab VMs that are available for lab users to connect to. The lab VM creation starts when you publish a lab template, or when you update the lab capacity.
 
-When you synchronize the lab user list with an Azure AD group, or create a lab in Teams or Canvas, Azure Lab Services manages the lab VM pool automatically based on membership.
+When you synchronize the lab user list with a Microsoft Entra group, or create a lab in Teams or Canvas, Azure Lab Services manages the lab VM pool automatically based on membership.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ A lab VM can be in one of the following states:
 
 ## Change lab capacity
 
-When you synchronize the lab user list with an Azure AD group, or create a lab in Teams or Canvas, Azure Lab Services manages the lab VM pool automatically based on membership. When you add or remove a user, the lab capacity increases or decreases accordingly. Lab users are also automatically registered and assigned to their lab VM.
+When you synchronize the lab user list with a Microsoft Entra group, or create a lab in Teams or Canvas, Azure Lab Services manages the lab VM pool automatically based on membership. When you add or remove a user, the lab capacity increases or decreases accordingly. Lab users are also automatically registered and assigned to their lab VM.
 
 If you manage the lab user list manually, you can modify the lab capacity to modify the number of lab VMs that are available for lab users.
 

@@ -16,9 +16,9 @@ This article lists supported Azure and third-party data source schemas, with lin
 
 | Type                             | Data source             | Log Analytics tablename | Schema reference |
 | -------------------------------- | ---------------------- | ---------------------- | ---------------- |
-| **Azure**                            | Azure Active Directory | SigninEvents           | [Azure AD activity reports sign-in properties](/graph/api/resources/signin#properties) |
-| **Azure**                            | Azure Active Directory | AuditLogs              | [Azure Monitor AuditLogs reference](/azure/azure-monitor/reference/tables/auditlogs) |
-| **Azure**                            | Azure Active Directory | AzureActivity          | [Azure Monitor AzureActivity reference](/azure/azure-monitor/reference/tables/azureactivity) |
+| **Azure**                            | Microsoft Entra ID | SigninEvents           | [Microsoft Entra activity reports sign-in properties](/graph/api/resources/signin#properties) |
+| **Azure**                            | Microsoft Entra ID | AuditLogs              | [Azure Monitor AuditLogs reference](/azure/azure-monitor/reference/tables/auditlogs) |
+| **Azure**                            | Microsoft Entra ID | AzureActivity          | [Azure Monitor AzureActivity reference](/azure/azure-monitor/reference/tables/azureactivity) |
 | **Azure**                            | Office                 | OfficeActivity         | Office 365 Management Activity API schemas: <br>- [Common schema](/office/office-365-management-api/office-365-management-activity-api-schema#common-schema)   <br>- [Exchange Admin schema](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-admin-schema) <br>- [Exchange Mailbox schema](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-mailbox-schema)  <br>- [SharePoint Base schema](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-base-schema)   <br>- [SharePoint file operations](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-file-operations) |
 | **Azure**                            | Azure Key Vault         | AzureDiagnostics       | [Azure Monitor AzureDiagnostics reference](/azure/azure-monitor/reference/tables/azurediagnostics) |
 | **Host**                             | Linux                  | Syslog                 | [Azure Monitor Syslog reference](/azure/azure-monitor/reference/tables/syslog) |

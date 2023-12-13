@@ -12,6 +12,8 @@ ms.date: 02/20/2020
 
 # Analyze your learning loop with an offline evaluation
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 Learn how to create an offline evaluation and interpret the results.
 
 Offline Evaluations allow you to measure how effective Personalizer is compared to your application's default behavior over a period of logged (historical) data, and assess how well other model configuration settings may perform for your model.

@@ -16,11 +16,11 @@ Custom windows images are like marketplace images, but you create them yourself 
 
 ## Before you begin
 Ensure that you've [created a custom image](../virtual-machines/linux/tutorial-custom-images.md).
-Custom image is enabled with Service Fabric Managed Cluster (SFMC) API version 2022-08-01-preview and forward. To use custom images, you must grant SFMC First Party Azure Active Directory (Azure AD) App read access to the virtual machine (VM) Managed Image or Shared Gallery image so that SFMC has permission to read and create VM with the image.
+Custom image is enabled with Service Fabric Managed Cluster (SFMC) API version 2022-08-01-preview and forward. To use custom images, you must grant SFMC First Party Microsoft Entra App read access to the virtual machine (VM) Managed Image or Shared Gallery image so that SFMC has permission to read and create VM with the image.
 
 If you have chosen to use an Azure Marketplace image, you need to [find and use the appropriate marketplace purchase plan information](../virtual-machines/windows/cli-ps-findimage.md). You can then specify a marketplace image and plan information when you create a VM. You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com) or the [Azure CLI](../virtual-machines/linux/cli-ps-findimage.md).
 
-Check [Add a managed identity to a Service Fabric Managed Cluster node type](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md#prerequisites) as reference on how to obtain information about SFMC First Party Azure AD App and grant it access to the resources. Reader access is sufficient.
+Check [Add a managed identity to a Service Fabric Managed Cluster node type](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md#prerequisites) as reference on how to obtain information about SFMC First Party Microsoft Entra App and grant it access to the resources. Reader access is sufficient.
  
 `Role definition name: Reader`
 
