@@ -15,7 +15,9 @@ This article will guide you through how to configure the permissions required fo
 - Deploy Azure Communications Gateway through the portal
 - Raise customer support requests (support tickets)
 - Monitor Azure Communications Gateway
-- Use the Number Management Portal for provisioning
+- Use the Number Management Portal (for provisioning the Operator Connect or Teams Phone Mobile environments)
+
+For permissions for the Provisioning API, see [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md).
 
 ## Prerequisites
 
@@ -32,7 +34,7 @@ Your staff might need different user roles, depending on the tasks they need to 
 | Deploying Azure Communications Gateway |**Contributor** access to your subscription|
 | Raising support requests |**Owner**, **Contributor** or **Support Request Contributor** access to your subscription or a custom role with `Microsoft.Support/*` access at the subscription level|
 |Monitoring logs and metrics | **Reader** access to your subscription|
-|Using the Number Management Portal| **Reader** access to your subscription and appropriate roles for the Project Synergy enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br> - To view existing configuration: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Read**<br>- To configure your relationship to an enterprise (a _consent_) and numbers:  **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Write**|
+| Using the Number Management Portal for Operator Connect or Teams Phone Mobile | **Reader** access to your subscription and appropriate roles for the Project Synergy enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br> - To view existing configuration: **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Read**<br>- To configure your relationship to an enterprise (a _consent_) and numbers:  **PartnerSettings.Read**, **TrunkManagement.Read**, and **NumberManagement.Write**|
 
 > [!TIP]
 > To allow staff to  manage consents in the Number Management Portal without managing numbers, assign the **NumberManagement.Read**, **TrunkManagement.Read** and **PartnerSettings.Write** roles.
