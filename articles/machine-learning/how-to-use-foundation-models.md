@@ -14,25 +14,7 @@ ms.date: 12/05/2023
 
 # How to use Open Source foundation models curated by Azure Machine Learning 
 
-In this article, you learn how to access and evaluate foundation models using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-azure-machine-learning.md#studio). Additionally, you learn how to fine-tune each model and how to deploy the model at scale.
-
-Foundation models are machine learning models that have been pre-trained on vast amounts of data, and that can be fine tuned for specific tasks with relatively small amount of domain specific data. These models serve as a starting point for custom models and accelerate the model building process for a variety of tasks including natural language processing, computer vision, speech and generative AI tasks. Azure Machine Learning provides the capability to easily integrate these pre-trained foundation models into your applications. **Foundation models in Azure Machine Learning** provides Azure Machine Learning native capabilities that enable customers to discover, evaluate, fine tune, deploy and operationalize open-source foundation models at scale. 
-
-
-## How to access foundation models in Azure Machine Learning
-
-The 'Model catalog' in Azure Machine Learning studio is a hub for discovering foundation models. The Open Source Models collection is a repository of the most popular open source foundation models curated by Azure Machine Learning. These models are packaged for out of the box usage and are optimized for use in Azure Machine Learning. Currently, it includes the top open source large language models, with support for other tasks coming soon. You can view the complete list of supported open source foundation models in the [model catalog](https://ml.azure.com/model/catalog), under the `Open Source Models` collection.
-
-:::image type="content" source="./media/how-to-use-foundation-models/model-catalog.png" lightbox="./media/how-to-use-foundation-models/model-catalog.png" alt-text="Screenshot showing the model catalog section in Azure Machine Learning studio." :::
-
-You can filter the list of models in the model catalog by Task, or by license. Select a specific model name and the see a model card for the selected model, which lists detailed information about the model. For example:
-
-:::image type="content" source="./media/how-to-use-foundation-models\model-card.png" lightbox="./media/how-to-use-foundation-models\model-card.png" alt-text="Screenshot showing the model card for gpt2 in Azure Machine Learning studio. The model card shows a description of the model and samples of what the model outputs. ":::
-
-`Task` calls out the inferencing task that this pre-trained model can be used for. `Finetuning-tasks` list the tasks that this model can be fine tuned for. `License` calls out the licensing info.
-
-> [!NOTE] 
->Models from Hugging Face are subject to third party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
+In this article, you learn how to fine tune, evaluate and deploy foundation models in the Model Catalog. 
 
 You can quickly test out any pre-trained model using the Sample Inference widget on the model card, providing your own sample input to test the result. Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, fine-tuning and evaluation of the model.
 
@@ -115,8 +97,6 @@ To enable users to quickly get started with fine-tuning, we have published sampl
 
 You can deploy foundation models (both pre-trained models from the model catalog, and fine-tuned models, once they're registered to your workspace) to an endpoint that can then be used for inferencing. Deployment to both real time endpoints and batch endpoints is supported. You can deploy these models by using either the Deploy UI wizard or by using the code based samples linked from the model card.
 
-> [!IMPORTANT]
-> __Workspaces without public network access:__ Deploying foundational models to online endpoints without egress connectivity requires [packaging the models (preview)](how-to-package-models.md) first. By using model packaging, you can avoid the need for an internet connection, which Azure Machine Learning would otherwise require to dynamically install necessary Python packages for the MLflow models.
 
 ### Deploying using the studio
 
@@ -163,7 +143,7 @@ If you're looking to use an open source model that isn't included in the model c
 > [!NOTE] 
 > Models from Hugging Face are subject to third-party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
 
-You can select the "Import" button on the top-right of the model catalog to use the Model Import Notebook.
+You can select the **Import** button on the top-right of the model catalog to use the Model Import Notebook.
 
 :::image type="content" source="./media/how-to-use-foundation-models/model-import.png" alt-text="Screenshot showing the model import button as it's displayed in the top right corner on the foundation model catalog.":::
 
