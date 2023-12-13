@@ -356,7 +356,6 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 
 Now that you've learned about Dapr and some of the challenges it solves:
 
-- [Learn how to initialize Dapr components in your container app environment.](./dapr-init.md)
 - [Create an Azure Dapr component via the Azure Container Apps portal][dapr-component-connection]
 - Try [Deploying a Dapr application to Azure Container Apps using the Azure CLI][dapr-quickstart] or [Azure Resource Manager][dapr-arm-quickstart].
 - Learn how to [perform event-driven work using Dapr bindings][dapr-bindings-tutorial].
