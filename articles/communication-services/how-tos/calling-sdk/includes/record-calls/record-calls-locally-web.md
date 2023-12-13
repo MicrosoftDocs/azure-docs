@@ -33,7 +33,7 @@ const localCallRecordingApi = call.feature(Features.LocalRecording);
 Then, to check if the call is being recorded locally, inspect the `isRecordingActive` property of `callRecordingApi`. It returns `Boolean`.
 
 ```js
-const isLocalRecordingActive = localCallRecordingApi.isLocalRecordingActive;
+const isLocalRecordingActive = localCallRecordingApi.isRecordingActive;
 ```
 
 You can also get a list of local recordings by using the `recordings` property of `callRecordingApi`. It returns `LocalRecordingInfo[]`.
@@ -42,7 +42,7 @@ You can also get a list of local recordings by using the `recordings` property o
 const recordings = localCallRecordingApi.recordings;
 
 recordings.forEach(r => {
-    console.log("Microsoft 365 user ID: ${r.initiatorIdentifier?.microsoftTeamsUserId}, State: ${r.state});
+    console.log("Microsoft 365 user: ${r.displayName}, State: ${r.state});
 ```
 
 You can subscribe to recording changes:
@@ -61,12 +61,12 @@ You can also subscribe to 'localRecordingsUpdated' and get a collection of updat
 const localRecordingsUpdateddHandler = (args: { added: SDK.LocalRecordingInfo[], removed: SDK.LocalRecordingInfo[]}) => {
                         console.log('Local recording started by: ');
                         args.added?.forEach(a => {
-                            console.log('Microsoft 365 user ID: ${a.initiatorIdentifier?.microsoftTeamsUserId});
+                            console.log('Microsoft 365 user: ${a.displayName});
                         });
 
                         console.log('Local recording stopped by: ');
                         args.removed?.forEach(r => {
-                            console.log('Microsoft 365 user ID: ${r.initiatorIdentifier?.microsoftTeamsUserId});
+                            console.log('Microsoft 365 user ID: ${r.displayName});
                         });
                     };
 localCallRecordingApi.on('localRecordingsUpdated', localRecordingsUpdateddHandler);
