@@ -11,7 +11,7 @@ ms.date: 12/11/2023
 
 # Enable VM insights for a hybrid virtual machine
 
-If you're using [Azure Arc for servers](../../azure-arc/servers/overview.md), onboard virtual machines outside of Azure to VM insights in the same way you [enable VM insights on Azure VMs](vminsights-enable-portal.md). This article describes how to enable VM insights on a virtual machine outside of Azure, including on-premises and other cloud environments, without using Azure Arc.
+If you use [Azure Arc for servers](../../azure-arc/servers/overview.md), you can onboard hybrid virtual machines in the same way you [enable VM insights on Azure VMs](vminsights-enable-portal.md). This article describes how to enable VM insights on a virtual machine outside of Azure, including on-premises and other cloud environments, without using Azure Arc.
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-vminsights-agent.md)]
 
@@ -39,7 +39,7 @@ Azure Monitor Agent and Log Analytics agent transmit data to the Azure Monitor s
 ## Dependency agent
 
 >[!NOTE]
->The following information described in this section also applies to the [Service Map solution](./service-map.md).
+>The information in this section also applies to the [Service Map solution](./service-map.md).
 
 You can download the Dependency agent from these locations:
 
