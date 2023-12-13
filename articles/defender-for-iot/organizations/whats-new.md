@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 12/12/2023
+ms.date: 12/13/2023
 ms.custom: enterprise-iot
 ---
 
@@ -41,7 +41,6 @@ The following image shows a sample, high level architecture of our recommendatio
 :::image type="content" source="media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support.":::
 
 In this sample image, communication for alerts, syslog messages, and APIs is shown in a solid black line. On-premises management communication is shown in a solid purple line, and cloud / hybrid management communication is shown in a dotted black line.
-
 
 We recommend that existing customers who are currently using an on-premises management console to manage OT sensors transition to the updated architecture guidance.
 
