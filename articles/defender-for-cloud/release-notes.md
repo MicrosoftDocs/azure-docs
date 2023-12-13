@@ -24,19 +24,12 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| December 15 | [General availability (GA) support for PostgreSQL Flexible Server in Defender for open-source relational databases plan](#general-availability-support-for-postgresql-flexible-server-in-defender-for-open-source-relational-databases-plan) |
 | December 13 | [Retirement of AWS container vulnerability assessment powered by Trivy](#retirement-of-aws-container-vulnerability-assessment-powered-by-trivy) |
 | December 13 | [Agentless Container Posture in Defender AWS and (Preview)](#agentless-container-posture-in-defender-aws-preview) |
+| December 13 | [Deny effect - replacing deprecated policies](#deny-effect---replacing-deprecated-policies) |
+| December 13 | [General availability (GA) support for PostgreSQL Flexible Server in Defender for open-source relational databases plan](#general-availability-support-for-postgresql-flexible-server-in-defender-for-open-source-relational-databases-plan) |
 | December 12 | [Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless](#container-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-now-supports-google-distroless) |
 | December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account) |
-
-### General availability support for PostgreSQL Flexible Server in Defender for open-source relational databases plan
-
-December 15, 2023
-
-We're announcing the general availability (GA) release of PostgreSQL Flexible Server support in the [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md) plan. Microsoft Defender for open-source relational databases provides advanced threat protection to PostgreSQL Flexible Servers, by detecting anomalous activities and generating [security alerts](defender-for-databases-usage.md).
-
-Learn how to [Enable Microsoft Defender for open-source relational databases](defender-for-databases-usage.md).
 
 ### Retirement of AWS container vulnerability assessment powered by Trivy
 
@@ -49,6 +42,37 @@ The [container vulnerability assessment powered by Trivy](defender-for-container
 December 13, 2023
 
 The new Agentless Container Posture (Preview) capabilities are available for AWS. For more information, see [Agentless container posture in Defender CSPM](concept-agentless-containers.md) and [Agentless capabilities in Defender for Containers](defender-for-containers-introduction.md#agentless-capabilities).
+
+### Deny effect - replacing deprecated policies
+
+December 13, 2023
+
+The [Deny effect](manage-mcsb.md#deny-and-enforce-recommendations) is used to prevent deployment of resources that don't comply with the [Microsoft Cloud Security Benchmark (MCSB) standard](concept-regulatory-compliance.md). A change in the policy's effects requires the deprecation of the current versions of the policy.
+
+To make sure you can still use the Deny effect, you must delete the old policies and assign the new policies in their place.
+
+**Deprecated policies**:
+
+- Function apps should use the latest TLS version
+- App Service apps should have local authentication methods disabled for FTP deployments
+- Function app slots should use the latest TLS version
+- App Service app slots should have local authentication methods disabled for FTP deployments
+- App Service apps should use the latest TLS version
+- App Service apps should have local authentication methods disabled for SCM site deployments
+- App Service app slots should use the latest TLS version
+- App Service app slots should have local authentication methods disabled for SCM site deployments
+
+Learn how to [Enable and configure at scale with an Azure built-in policy](defender-for-storage-policy-enablement.md).
+
+Check out [Azure Policy built-in definitions for Microsoft Defender for Cloud](policy-reference.md).
+
+### General availability support for PostgreSQL Flexible Server in Defender for open-source relational databases plan
+
+December 13, 2023
+
+We're announcing the general availability (GA) release of PostgreSQL Flexible Server support in the [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md) plan. Microsoft Defender for open-source relational databases provides advanced threat protection to PostgreSQL Flexible Servers, by detecting anomalous activities and generating [security alerts](defender-for-databases-usage.md).
+
+Learn how to [Enable Microsoft Defender for open-source relational databases](defender-for-databases-usage.md).
 
 ### Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless
 
