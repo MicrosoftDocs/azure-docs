@@ -53,7 +53,7 @@ You can identify and resolve data issues per utterance in [Speech Studio](https:
 
    You can choose which data issues to be displayed based on your criteria.
    
-    :::image type="content" source="../../../../media/custom-voice/cnv-issues-display-criteria.png" alt-text="Screenshot of choosing which data issues to be displayed":::
+    :::image type="content" source="../../../../media/custom-voice/cnv-issues-display-criteria.png" alt-text="Screenshot of choosing which data issues to be displayed.":::
 
 1. Edit window will be displayed.
 

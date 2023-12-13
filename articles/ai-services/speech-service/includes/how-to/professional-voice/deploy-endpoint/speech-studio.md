@@ -78,7 +78,7 @@ This section describes how to suspend or resume a custom neural voice endpoint i
 
 1. To suspend and deactivate your endpoint, select **Suspend** from the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
 
-   :::image type="content" source="../../../../media/custom-voice/cnv-endpoint-suspend.png" alt-text="Screenshot of the select suspend endpoint option":::
+   :::image type="content" source="../../../../media/custom-voice/cnv-endpoint-suspend.png" alt-text="Screenshot of the select suspend endpoint option.":::
 
 1. In the dialog box that appears, select **Submit**. After the endpoint is suspended, Speech Studio will show the **Successfully suspended endpoint** notification.
 
@@ -86,7 +86,7 @@ This section describes how to suspend or resume a custom neural voice endpoint i
 
 1. To resume and activate your endpoint, select **Resume** from the **Deploy model** tab in [Speech Studio](https://aka.ms/custom-voice-portal).
 
-   :::image type="content" source="../../../../media/custom-voice/cnv-endpoint-resume.png" alt-text="Screenshot of the select resume endpoint option":::
+   :::image type="content" source="../../../../media/custom-voice/cnv-endpoint-resume.png" alt-text="Screenshot of the select resume endpoint option.":::
 
 1. In the dialog box that appears, select **Submit**. After you successfully reactivate the endpoint, the status will change from **Suspended** to **Succeeded**.
 
