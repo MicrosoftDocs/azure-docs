@@ -1,5 +1,5 @@
 ---
-title: Set up end-to-end LLMOps with prompt flow and GitHub
+title: LLMOps with prompt flow and GitHub
 titleSuffix: Azure Machine Learning
 description: Learn about using Azure Machine Learning to set up an end-to-end LLMOps pipeline that runs a web classification flow that classifies a website based on a given URL.
 services: machine-learning
@@ -8,262 +8,205 @@ ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-author: fkriti
-ms.author:  kritifaujdar
+author: jiaochenlu
+ms.author: chenlujiao
 ms.reviewer: lagayhar
 ms.date: 09/12/2023
 ---
-# Set up end-to-end LLMOps with prompt flow and GitHub
 
-Azure Machine Learning allows you to integrate with [GitHub Actions](https://docs.github.com/actions) to automate the machine learning lifecycle. Some of the operations you can automate are:
+# LLMOps with prompt flow and GitHub (preview)
 
-- Running prompt flow after a pull request
-- Running prompt flow evaluation to ensure results are high quality
-- Registering of prompt flow models
-- Deployment of prompt flow models
+Large Language Operations, or **LLMOps**, has become the cornerstone of efficient prompt engineering and LLM-infused application development and deployment. As the demand for LLM-infused applications continues to soar, organizations find themselves in need of a cohesive and streamlined process to manage their end-to-end lifecycle.
 
-In this article, you learn about using Azure Machine Learning to set up an end-to-end LLMOps pipeline that runs a web classification flow that classifies a website based on a given URL. The flow is made up of multiple LLM calls and components, each serving  different functions. All the LLMs used are managed and store in your Azure Machine Learning workspace in your prompt flow connections.
+Azure Machine Learning allows you to integrate with GitHub to automate the LLM-infused application development lifecycle with prompt flow.
+
+Azure Machine Learning Prompt Flow provides a streamlined and structured approach to developing LLM-infused applications. Its well-defined process and lifecycle guides you through the process of building, testing, optimizing, and deploying flows, culminating in the creation of fully functional LLM-infused solutions.
+
+## LLMOps Prompt Flow Features
+
+LLMOps with prompt flow is a "LLMOps template and guidance" to help you build LLM-infused apps using prompt flow. It provides the following features:
+
+- **Centralized Code Hosting**: This repo supports hosting code for multiple flows based on prompt flow, providing a single repository for all your flows. Think of this platform as a single repository where all your prompt flow code resides. It's like a library for your flows, making it easy to find, access, and collaborate on different projects.
+
+- **Lifecycle Management**: Each flow enjoys its own lifecycle, allowing for smooth transitions from local experimentation to production deployment.
+    :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/pipeline.png" alt-text="Screenshot of pipeline." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/pipeline.png":::
+
+- **Variant and Hyperparameter Experimentation**: Experiment with multiple variants and hyperparameters, evaluating flow variants with ease. Variants and hyperparameters are like ingredients in a recipe. This platform allows you to experiment with different combinations of variants across multiple nodes in a flow.
+
+- **Multiple Deployment Targets**: The repo supports deployment of flows to Kubernetes, Azure Managed computes driven through configuration ensuring that your flows can scale as needed.
+    :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/endpoints.png" alt-text="Screenshot of endpoints." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/endpoints.png":::
+
+- **A/B Deployment**: Seamlessly implement A/B deployments, enabling you to compare different flow versions effortlessly. Just as in traditional A/B testing for websites, this platform facilitates A/B deployment for prompt flow. This means you can effortlessly compare different versions of a flow in a real-world setting to determine which performs best.
+    :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/a-b-deployments.png" alt-text="Screenshot of deployments." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/a-b-deployments.png":::
+
+- **Many-to-many dataset/flow relationships**: Accommodate multiple datasets for each standard and evaluation flow, ensuring versatility in flow test and evaluation. The platform is designed to accommodate multiple datasets for each flow.
+
+- **Comprehensive Reporting**: Generate detailed reports for each variant configuration, allowing you to make informed decisions. Provides detailed Metric collection, experiment and variant bulk runs for all runs and experiments, enabling data-driven decisions in csv as well as HTML files.
+    :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/variants.png" alt-text="Screenshot of flow variants report." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/variants.png":::
+    :::image type="content" source="./media/how-to-end-to-end-azure-devops-with-prompt-flow/metrics.png" alt-text="Screenshot of metrics report." lightbox = "./media/how-to-end-to-end-azure-devops-with-prompt-flow/metrics.png":::
+
+Other features for customization:
+- Offers **BYOF** (bring-your-own-flows). A **complete platform** for developing multiple use-cases related to LLM-infused applications.
+
+- Offers **configuration based development**. No need to write extensive boiler-plate code.
+
+- Provides execution of both **prompt experimentation and evaluation** locally as well on cloud.
+
+- Provides **notebooks for local evaluation** of the prompts. Provides library of functions for local experimentation.
+
+- Endpoint testing within pipeline after deployment to check its availability and readiness.
+
+- Provides optional Human-in-loop to validate prompt metrics before deployment.
+
+LLMOps with prompt flow provides capabilities for both simple as well as complex LLM-infused apps. It's completely customizable to the needs of the application.
+
+## LLMOps Stages
+
+The lifecycle comprises four distinct stages:
+
+- **Initialization:** Clearly define the business objective, gather relevant data samples, establish a basic prompt structure, and craft a flow that enhances its capabilities.
+
+- **Experimentation:** Apply the flow to sample data, assess the prompt's performance, and refine the flow as needed. Continuously iterate until satisfied with the results.
+
+- **Evaluation & Refinement:** Benchmark the flow's performance using a larger dataset, evaluate the prompt's effectiveness, and make refinements accordingly. Progress to the next stage if the results meet the desired standards.
+
+- **Deployment:** Optimize the flow for efficiency and effectiveness, deploy it in a production environment including A/B deployment, monitor its performance, gather user feedback, and use this information to further enhance the flow.
+
+By adhering to this structured methodology, Prompt Flow empowers you to confidently develop, rigorously test, fine-tune, and deploy flows, leading to the creation of robust and sophisticated AI applications. 
+
+LLMOps Prompt Flow template formalize this structured methodology using code-first approach and helps you build LLM-infused apps using Prompt Flow using tools and process relevant to Prompt Flow. It offers a range of features including Centralized Code Hosting, Lifecycle Management, Variant and Hyperparameter Experimentation, A/B Deployment, reporting for all runs and experiments and more.
+
+The repository for this article is available at [LLMOps with Prompt flow template](https://github.com/microsoft/llmops-promptflow-template)
+
+## LLMOps process Flow
+
+:::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/large-language-model-operations-prompt-flow-process.png" alt-text="Screenshot of LLMOps prompt flow Process." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/large-language-model-operations-prompt-flow-process.png":::
+
+1. This is the initialization stage. Here, flows are developed, data is prepared and curated and LLMOps related configuration files are updated.
+2. After local development using Visual Studio Code along with Prompt Flow extension, a pull request is raised from feature branch to development branch. This results in executed the Build validation pipeline. It also executes the experimentation flows.
+3. The PR is manually approved and code is merged to the development branch
+4. After the PR is merged to the development branch, the CI pipeline for dev environment is executed. It executes both the experimentation and evaluation flows in sequence and registers the flows in Azure Machine Learning Registry apart from other steps in the pipeline. 
+5. After the completion of CI pipeline execution, a CD trigger ensures the execution of CD pipeline that deploys the standard flow from Azure Machine Learning Registry as an Azure Machine Learning online endpoint  and executed integration and smoke tests on the deployed flow. 
+6. A release branch is created from the development branch or a pull request is raised from development branch to release branch.
+7. The PR is manually approved and code is merged to the release branch. After the PR is merged to the release branch, the CI pipeline for prod environment is executed. It executes both the experimentation and evaluation flows in sequence and registers the flows in Azure Machine Learning Registry apart from other steps in the pipeline. 
+8. After the completion of CI pipeline execution, a CD trigger ensures the execution of CD pipeline that deploys the standard flow from Azure Machine Learning Registry as an Azure Machine Learning online endpoint and executed integration and smoke tests on the deployed flow. 
+
+From here on, you can learn **LLMOps with prompt flow** by following the end-to-end samples we provided, which help you build LLM-infused applications using prompt flow and GitHub. Its primary objective is to provide assistance in the development of such applications, leveraging the capabilities of prompt flow and LLMOps.
 
 > [!TIP]
 > We recommend you understand how we integrate [LLMOps with prompt flow](how-to-integrate-with-llm-app-devops.md).
 
+> [!IMPORTANT]
+> Prompt flow is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Machine Learning](https://azure.microsoft.com/free/).
-- An [Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+- An Azure Machine Learning workspace.
 - Git running on your local machine.
 - GitHub as the source control repository.
 
+
 > [!NOTE]
->Git version 2.27 or newer is required. For more information on installing the Git command, see https://git-scm.com/downloads and select your operating system.
+>
+>Git version 2.27 or newer is required. For more information on installing the Git command, see https://git-scm.com/downloads and select your operating system
 
 > [!IMPORTANT]
 >The CLI commands in this article were tested using Bash. If you use a different shell, you may encounter errors.
 
-### Set up authentication with Azure and GitHub
 
-Before you can set up a prompt flow project with Azure Machine Learning, you need to set up authentication for Azure GitHub.
+## Set up Prompt Flow
 
-#### Create service principal
+Prompt Flow uses connections resource to connect to endpoints like Azure OpenAI, OpenAI or Azure AI Search and uses runtime for the execution of the flows. These resources should be created before executing the flows in Prompt Flow.
 
-   Create one production service principal for this demo. You can add more depending on how many environments, you want to work on (development, production or both). Service principals can be created using one of the following methods:
+### Set up connections for prompt flow
 
-1. Launch the [Azure Cloud Shell](https://shell.azure.com).
+Connections can be created through **prompt flow portal UI** or using the **REST API**. Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#setup-connections-for-prompt-flow) to create connections for prompt flow. 
 
-    > [!TIP]
-    > The first time you've launched the Cloud Shell, you'll be prompted to create a storage account for the Cloud Shell.
-
-1. If prompted, choose **Bash** as the environment used in the Cloud Shell. You can also change environments in the drop-down on the top navigation bar
-
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/cli-1.png" alt-text="Screenshot of the Cloud Shell with bash selected showing connections to the PowerShell terminal. " lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/cli-1.png":::
-
-1. Copy the following bash commands to your computer and update the **projectName**, **subscriptionId**, and **environment** variables with the values for your project. This command will also grant the **Contributor** role to the service principal in the subscription provided. This is required for GitHub Actions to properly use resources in that subscription.
-
-    ``` bash
-    projectName="<your project name>"
-    roleName="Contributor"
-    subscriptionId="<subscription Id>"
-    environment="<Prod>" #First letter should be capitalized
-    servicePrincipalName="Azure-ARM-${environment}-${projectName}"
-    # Verify the ID of the active subscription
-    echo "Using subscription ID $subscriptionID"
-    echo "Creating SP for RBAC with name $servicePrincipalName, with role $roleName and in scopes     /subscriptions/$subscriptionId"
-    az ad sp create-for-rbac --name $servicePrincipalName --role $roleName --scopes /subscriptions/$subscriptionId --json-auth 
-    echo "Please ensure that the information created here is properly save for future use."
-    ```
-
-1. Copy your edited commands into the Azure Shell and run them (**Ctrl** + **Shift** + **v**).
-
-1. After running these commands, you'll be presented with information related to the service principal. Save this information to a safe location, you'll use it later in the demo to configure GitHub.
-
-    ```json
-
-      {
-      "clientId": "<service principal client id>",  
-      "clientSecret": "<service principal client secret>",
-      "subscriptionId": "<Azure subscription id>",  
-      "tenantId": "<Azure tenant id>",
-      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-      "resourceManagerEndpointUrl": "https://management.azure.com/", 
-      "activeDirectoryGraphResourceId": "https://graph.windows.net/", 
-      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-      "galleryEndpointUrl": "https://gallery.azure.com/",
-      "managementEndpointUrl": "https://management.core.windows.net/" 
-      }
-    ```
-
-1. Copy all of this output, braces included. Save this information to a safe location, it will be use later in the demo to configure GitHub repo.
-
-1. Close the Cloud Shell once the service principals are created.
-
-### Setup GitHub repo
-
-1. Fork example repo. [LLMOps Demo Template Repo](https://github.com/Azure/llmops-gha-demo/fork) in your GitHub organization. This repo has reusable LLMOps code that can be used across multiple projects. 
-
-### Add secret to GitHub repo
-
-1. From your GitHub project, select **Settings**:
-
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-settings.png" alt-text="Screenshot of the GitHub menu bar on a GitHub project with settings selected. " lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-settings.png":::
-
-1. Then select **Secrets and variables**, then **Actions**:
-
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-secrets.png" alt-text="Screenshot of on GitHub showing the security settings with security and actions highlighted." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-secrets.png":::
-
-1. Select **New repository secret**. Name this secret **AZURE_CREDENTIALS** and paste the service principal output as the content of the secret. Select **Add secret**.
-
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-secrets-string.png" alt-text="Screenshot of GitHub Action secrets when creating a new secret. " lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-secrets-string.png":::
-
-1. Add each of the following additional GitHub secrets using the corresponding values from the service principal output as the content of the secret:  
-
-    - **GROUP**: \<Resource Group Name\>
-    - **WORKSPACE**: \<Azure ML Workspace Name\>
-    - **SUBSCRIPTION**: \<Subscription ID\>
-
-    |Variable  | Description  |
-    |---------|---------|
-    |GROUP     |      Name of resource group    |
-    |SUBSCRIPTION     |    Subscription ID of your workspace    |
-    |WORKSPACE     |     Name of Azure Machine Learning workspace     |  
+Click on the link to know more about [connections](./concept-connections.md). 
 
 > [!NOTE]
-> This finishes the prerequisite section and the deployment of the solution accelerator can happen accordingly.
+>
+> The sample flows use 'aoai' connection and connection named 'aoai' should be created to execute them.
 
-## Setup connections for prompt flow
 
-Connection helps securely store and manage secret keys or other sensitive credentials required for interacting with LLM and other external tools, for example, Azure Content Safety.
+### Set up compute and runtime for prompt flow
 
-In this guide, we'll use flow `web-classification`, which uses connection `azure_open_ai_connection` inside, we need to set up the connection if we haven’t added it before.
+Runtime can be created through **prompt flow portal UI** or using the **REST API**. Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#setup-runtime-for-prompt-flow) to set up compute and runtime for prompt flow. 
 
-Go to workspace portal, select `Prompt flow` -> `Connections` -> `Create` -> `Azure OpenAI`, then follow the instruction to create your own connections. To learn more, see [connections](concept-connections.md).
+Click on the link to know more about [runtime](./concept-runtime.md).
 
-## Setup runtime for prompt flow 
-Prompt flow's runtime provides the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages.
+> [!NOTE]
+>
+> The same runtime name should be used in the LLMOps_config.json file explained later.
 
-In this guide, we will use a runtime to run your prompt flow. You need to create your own [prompt flow runtime](how-to-create-manage-runtime.md)
+## Set up GitHub Repository
 
-Go to workspace portal, select **Prompt flow** -> **Runtime** -> **Add**, then follow the instruction to create your own connections
+There are multiple steps that should be undertaken for setting up LLMOps process using GitHub Repository.
 
-## Setup variables for prompt flow and GitHub Actions
+### Fork and configure the repo
 
-Clone repo to your local machine.
+Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#set-up-github-repo) to create a forked repo in your GitHub organization. This repo uses two branches - `main` and `development` for code promotions and execution of pipelines in lieu of changes to code in them.
+
+### Set up authentication between GitHub and Azure
+
+Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#set-up-authentication-with-azure-and-github) to use the earlier created Service Principal and set up authentication between GitHub repository and Azure Services. 
+
+This step configures a GitHub Secret that stores the Service Principal information. The workflows in the repository can read the connection information using the secret name. This helps to configure GitHub workflow steps to connect to Azure automatically.
+
+
+### Cloning the repo
+
+Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#cloning-the-repo) to create a new local repository. 
+
+This will help us create a new feature branch from development branch and incorporate changes.
+
+
+## Test the pipelines
+
+Please follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#cloning-the-repos) to test the pipelines. The steps are
+
+1. Raise a PR(Pull Request) from a feature branch to development branch.
+2. The PR pipeline should execute automatically as result of branch policy configuration.
+3. The PR is then merged to the development branch.
+4. The associated 'dev' pipeline is executed. This will result in full CI and CD execution and result in provisioning or updating of existing Azure Machine Learning Endpoints. 
+
+The test outputs should be similar to ones shown at [here](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#example-prompt-run-evaluation-and-deployment-scenario).
+
+
+## Local execution
+
+To harness the capabilities of the **local execution**, follow these installation steps:
+
+1. **Clone the Repository**: Begin by cloning the template's repository from its [GitHub repository](https://github.com/microsoft/llmops-promptflow-template.git).
 
 ```bash
-    git clone https://github.com/<user-name>/llmops-gha-demo
- ```
+git clone https://github.com/microsoft/llmops-promptflow-template.git
+```
 
-### Update workflow to connect to your Azure Machine Learning workspace
+2. **Set up env file**: create .env file at top folder level and provide information for items mentioned. Add as many connection names as needed. All the flow examples in this repo use AzureOpenAI connection named `aoai`. Add a line `aoai={"api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}` with updated values for api_key and api_base. If additional connections with different names are used in your flows, they should be added accordingly. Currently, flow with AzureOpenAI as provider as supported. 
 
-1. Update `run-eval-pf-pipeline.yml` and `deploy-pf-online-endpoint-pipeline.yml` to connect to your Azure Machine Learning workspace.
-    You'll need to update the CLI setup file variables to match your workspace.
+```bash
 
-1. In your cloned repository, go to `.github/workflow/`.
-1. Verify `env` section in the `run-eval-pf-pipeline.yml` and `deploy-pf-online-endpoint-pipeline.yml` refers to the workspace secrets you added in the previous step.
+experiment_name=
+connection_name_1={ "api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}
+connection_name_2={ "api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}
+```
+3. Prepare the local conda or virtual environment to install the dependencies.
 
-### Update run.yml with your connections and runtime
+```bash
 
-You'll use a `run.yml` file to deploy your Azure Machine Learning pipeline. This is a flow run definition. You only need to make this update if you're using a name other than `pf-runtime` for your [prompt flow runtime](how-to-create-manage-runtime.md). You'll also need to update all the `connections` to match the connections in your Azure Machine Learning workspace and `deployment_name` to match the name of your GPT 3.5 Turbo deployment associate with that connection.
+python -m pip install promptflow promptflow-tools promptflow-sdk jinja2 promptflow[azure] openai promptflow-sdk[builtins] python-dotenv
 
-1. In your cloned repository, open `web-classification/run.yml` and `web-classification/run_evaluation.yml` 
-1. Each time you see `runtime: <runtime-name>`, update the value of `<runtime-name>` with your runtime name.
-1. Each time you see `connection: Default_AzureOpenAI`, update the value of `Default_AzureOpenAI`  to match the connection name in your Azure Machine Learning workspace.
-1. Each time you see `deployment_name: gpt-35-turbo-0301`, update the value of `gpt-35-turbo-0301` with the name of your GPT 3.5 Turbo deployment associate with that connection.
+```
 
-## Sample prompt run, evaluation and deployment scenario
+4. Bring or write your flows into the template based on documentation [here](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_onboard_new_flows.md).
 
-This is a flow demonstrating multi-class classification with LLM. Given an url, it will classify the url into one web category with just a few shots, simple summarization and classification prompts.
-
-This training pipeline contains the following steps:
-
-**Run prompts in flow:**
-
-- Compose a classification flow with LLM.
-- Feed few shots to LLM classifier.
-- Upload prompt test dataset.
-- Bulk run prompt flow based on dataset.
-
-**Evaluate results:**
-
-- Upload ground test dataset
-- Evaluation of the bulk run result and new uploaded ground test dataset
-
-**Register prompt flow LLM app:**
-
-- Check in logic, Customer defined logic (accuracy rate, if >=90% you can deploy)
-
-**Deploy and test LLM app:**
-
-- Deploy the PF as a model to production
-- Test the model/prompt flow real-time endpoint.
-
-## Run and evaluate prompt flow in Azure Machine Learning with GitHub Actions
-
-Using a [GitHub Action workflow](../how-to-github-actions-machine-learning.md#step-5-run-your-github-actions-workflow) we'll trigger actions to run a prompt flow job in Azure Machine Learning.
-
-This pipeline will start the prompt flow run and evaluate the results. When the job is complete, the prompt flow model will be registered in the Azure Machine Learning workspace and be available for deployment.
-
-1. In your GitHub project repository, select **Actions**  
-
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-actions.png" alt-text="Screenshot of GitHub project repository with Action page selected. " lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-actions.png":::
-
-1. Select the `run-eval-pf-pipeline.yml` from the workflows listed on the left and the select **Run Workflow** to execute the prompt flow run and evaluate workflow. This will take several minutes to run.
-
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-training-pipeline.png" alt-text="Screenshot of the pipeline run in GitHub. " lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-training-pipeline.png":::
-
-1. The workflow will only register the model for deployment, if the accuracy of the classification is greater than 60%. You can adjust the accuracy threshold in the `run-eval-pf-pipeline.yml` file in the `jobMetricAssert` section of the workflow file. The section should look like:
-
-    ```yaml
-    id: jobMetricAssert
-    run: |
-        export ASSERT=$(python promptflow/llmops-helper/assert.py result.json 0.6)
-    ```
-
-    You can update the current `0.6` number to fit your preferred threshold.
-
-1. Once completed, a successful run and all test were passed, it will register the prompt flow model in the Azure Machine Learning workspace.
-  
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-training-step.png" alt-text="Screenshot of training step in GitHub Actions. " lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-training-step.png":::
-
-    > [!NOTE]
-    > If you want to check the output of each individual step, for example to view output of a failed run, select a job output, and then select each step in the job to view any output of that step.
-
-With the prompt flow model registered in the Azure Machine Learning workspace, you're ready to deploy the model for scoring.
-
-## Deploy prompt flow in Azure Machine Learning with GitHub Actions
-
-This scenario includes prebuilt workflows for deploying a model to an endpoint for real-time scoring. You may run the workflow to test the performance of the model in your Azure Machine Learning workspace.
-
-### Online endpoint  
-
-1. In your GitHub project repository, select **Actions**.  
-
-1. Select the **deploy-pf-online-endpoint-pipeline** from the workflows listed on the left and select **Run workflow** to execute the online endpoint deployment pipeline workflow. The steps in this pipeline will create an online endpoint in your Azure Machine Learning workspace, create a deployment of your model to this endpoint, then allocate traffic to the endpoint.
-
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/github-online-endpoint.png" alt-text="Screenshot of GitHub Actions for online endpoint showing deploy prompts with prompt flow workflow." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/github-online-endpoint.png":::
-
-1. Once completed, you'll find the online endpoint deployed in the Azure Machine Learning workspace and available for testing.
-
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/web-class-online-endpoint.png" alt-text="Screenshot of Azure Machine Learning studio on the endpoints page showing real time endpoint tab." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/web-class-online-endpoint.png":::
-
-1. To test this deployment, go to the **Endpoints** tab in your Azure Machine Learning workspace, select the endpoint and select the **Test** tab. You can use the sample input data located in the cloned repo at `/deployment/sample-request.json` to test the endpoint.
-
-    :::image type="content" source="./media/how-to-end-to-end-llmops-with-prompt-flow/online-endpoint-test.png" alt-text="Screenshot of Azure Machine Learning studio on the endpoints page showing how to test the endpoint." lightbox = "./media/how-to-end-to-end-llmops-with-prompt-flow/online-endpoint-test.png":::
-
-> [!NOTE] 
-> Make sure you have already [granted permissions to the endpoint](how-to-deploy-for-real-time-inference.md#grant-permissions-to-the-endpoint) before you test or consume the endpoint.
-
-## Moving to production
-
-This example scenario can be run and deployed both for Dev and production branches and environments. When you're satisfied with the performance of the prompt evaluation pipeline, prompt flow model, deployment in testing, development pipelines, and models can be replicated and deployed in the production environment.
-
-The sample prompt flow run and evaluation and GitHub workflows can be used as a starting point to adapt your own prompt engineering code and data.
-
-## Clean up resources
-
-1. If you're not going to continue to use your pipeline, delete your GitHub project.
-1. In Azure portal, delete your resource group and Azure Machine Learning instance.
+5. Write python scripts similar to the provided examples in local_execution folder.
 
 ## Next steps
-
-- [Install and set up Python SDK v2](https://aka.ms/sdk-v2-install)
-- [Install and set up Python CLI v2](../how-to-configure-cli.md)
+* [LLMOps with Prompt flow template](https://github.com/microsoft/llmops-promptflow-template) on GitHub
+* [Prompt flow open source repository](https://github.com/microsoft/promptflow)
+* [Install and set up Python SDK v2](/python/api/overview/azure/ai-ml-readme)
+* [Install and set up Python CLI v2](../how-to-configure-cli.md)
