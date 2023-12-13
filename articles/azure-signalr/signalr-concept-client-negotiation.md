@@ -16,7 +16,7 @@ The first request between a client and a server is the negotiation request. When
 
 The response to the `POST [endpoint-base]/negotiate` request contains one of three types of responses:
 
-* A response that contains `connectionId`, which identifies the connection on the server and the list of the transports that the server supports:
+* A response that contains `connectionId`, which identifies the connection on the server and the list of transports that the server supports:
 
   ```json
   {
@@ -41,7 +41,7 @@ The response to the `POST [endpoint-base]/negotiate` request contains one of thr
 
   The payload that this endpoint returns provides the following data:
 
-  * The `connectionId` value that the Long Polling and Server-Sent Events transports require to correlate sending and receiving.
+  * The `connectionId` value is required by the `LongPolling` and `ServerSentEvents` transports to correlate sending and receiving.
   * The `negotiateVersion` value is the negotiation protocol version that you use between the server and the client.
   * The `availableTransports` list describes the transports that the server supports. For each transport, the payload lists the name of the transport (`transport`) and a list of transfer formats that the transport supports (`transferFormats`).
 
@@ -72,7 +72,7 @@ The response to the `POST [endpoint-base]/negotiate` request contains one of thr
 
   The payload that this endpoint returns provides the following data:
 
-  * The `error` string that gives details about why the negotiation failed.
+  * The `error` string gives details about why the negotiation failed.
 
 When you use Azure SignalR Service, clients connect to the service instead of the app server. There are three steps to establish persistent connections between the client and Azure SignalR Service:
 
@@ -92,7 +92,7 @@ When you use Azure SignalR Service, clients connect to the service instead of th
 1. After the client receives the redirect response, it uses the URL and access token to connect to SignalR Service. The service then routes the client to the app server.
 
 > [!IMPORTANT]
-> In self-hosted SignalR, some users might choose to skip client negotiation when clients support only WebSocket and save the round trip for negotiation. However, when you're working with Azure SignalR Service, clients should always ask a trusted server or a trusted authntication center to build the access token. So _don't_ set `SkipNegotiation` to `true` on the client side. `SkipNegotiation` means clients need to build the access token themselves. This setting brings a security risk that the client could do anything to the service endpoint.
+> In self-hosted SignalR, some users might choose to skip client negotiation when clients support only WebSocket and save the round trip for negotiation. However, when you're working with Azure SignalR Service, clients should always ask a trusted server or a trusted authentication center to build the access token. So _don't_ set `SkipNegotiation` to `true` on the client side. `SkipNegotiation` means clients need to build the access token themselves. This setting brings a security risk that the client could do anything to the service endpoint.
 
 ## What can you do during negotiation?
 
@@ -121,7 +121,7 @@ services.AddSignalR().AddAzureSignalR(options =>
 
 When you have multiple app servers, there's no guarantee (by default) that the server that does negotiation and the server that gets the hub invocation are the same. In some cases, you might want to have client state information maintained locally on the app server.
 
-For example, when you're using server-side Blazor, the UI state is maintained at server side. So you want all client requests to go to the same server, including the SignalR connection. Then you need to enable server sticky mode to `Required` during negotiation:
+For example, when you're using server-side Blazor, the UI state is maintained at the server side. So you want all client requests to go to the same server, including the SignalR connection. Then you need to enable server sticky mode to `Required` during negotiation:
 
 ```cs
 services.AddSignalR().AddAzureSignalR(options => {
@@ -131,7 +131,7 @@ services.AddSignalR().AddAzureSignalR(options => {
 
 ### Custom routing in multiple endpoints
 
-Another way that you can customize negotiation is in multiple endpoints. Because the app server provides the service URL as the negotiation response, the app server can determine which endpoint to return to clients for load balancing and communication efficiency. That is, you can let the client connect to the nearest service endpoint to save traffic cost.
+Another way that you can customize negotiation is in multiple endpoints. Because the app server provides the service URL as the negotiation response, the app server can determine which endpoint to return to clients for load balancing and communication efficiency. That is, you can let the client connect to the nearest service endpoint to save traffic costs.
 
 ```cs
 // Sample of a custom router
@@ -149,7 +149,7 @@ private class CustomRouter : EndpointRouterDecorator
             return null;
         }
 
-        return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with name that matches the incoming request
+        return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with the name that matches the incoming request
                ?? base.GetNegotiateEndpoint(context, endpoints); // Fall back to the default behavior to randomly select one from primary endpoints, or fall back to secondary when no primary ones are online
     }
 }
@@ -158,7 +158,7 @@ private class CustomRouter : EndpointRouterDecorator
 Also register the router to dependency injection:
 
 ```cs
-// Sample of configuring multiple endpoints and dependency injection CustomRouter.
+// Sample of configuring multiple endpoints and dependency injection
 services.AddSingleton(typeof(IEndpointRouter), typeof(CustomRouter));
 services.AddSignalR().AddAzureSignalR(
     options => 
