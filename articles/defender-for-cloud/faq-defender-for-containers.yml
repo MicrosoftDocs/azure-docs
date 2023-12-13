@@ -153,15 +153,15 @@ sections:
         answer: |
           We suggest that you unlock the locked resource group/subscription/cluster, make the relevant requests manually, and then relock the resource group/subscription/cluster by doing the following:
           1. Enable the feature flag manually via CLI by using [Trusted Access](/azure/aks/trusted-access-feature).
-          ``` CLI
-          “az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview” 
-          ```
+            ``` CLI
+            “az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview” 
+            ```
           1. Perform the bind operation in the CLI:
-          ``` CLI
-          az account set -s <SubscriptionId> 
-          az extension add --name aks-preview 
-          az aks trustedaccess rolebinding create --resource-group <cluster resource group> --cluster-name <cluster name> --name defender-cloudposture --source-resource-id /subscriptions/<SubscriptionId>/providers/Microsoft.Security/pricings/CloudPosture/securityOperators/DefenderCSPMSecurityOperator --roles  "Microsoft.Security/pricings/microsoft-defender-operator" 
-          ```
+            ``` CLI
+            az account set -s <SubscriptionId> 
+            az extension add --name aks-preview 
+            az aks trustedaccess rolebinding create --resource-group <cluster resource group> --cluster-name <cluster name> --name defender-cloudposture --source-resource-id /subscriptions/<SubscriptionId>/providers/Microsoft.Security/pricings/CloudPosture/securityOperators/DefenderCSPMSecurityOperator --roles  "Microsoft.Security/pricings/microsoft-defender-operator" 
+            ```
           For locked clusters, you can also do one of the following steps:
           - Remove the lock.
           - Perform the bind operation manually by making an API request.
