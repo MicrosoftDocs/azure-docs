@@ -25,7 +25,7 @@ const mediaStatsFeature = call.feature(Features.MediaStats);
 
 To receive the media statistics data, you can subscribe `sampleReported` event or `summaryReported` event.
 
-`sampleReported` event triggers every second. It is suitable as a data source for UI display or your own data pipeline.
+`sampleReported` event triggers every second. It's suitable as a data source for UI display or your own data pipeline.
 
 `summaryReported` event contains the aggregated values of the data over intervals, which is useful when you just need a summary.
 
@@ -55,13 +55,13 @@ In case you don't need to use the media statistics collector, you can call `disp
 ```js
 mediaStatsCollector.dispose();
 ```
-It is not necessary to call `dispose` method of `mediaStatsCollector` every time when the call ends, as the collectors will be reclaimed internally when the call ends.
+It's not necessary to call `dispose` method of `mediaStatsCollector` every time when the call ends, as the collectorsare reclaimed internally when the call ends.
 
 ### MediaStatsCollectorOptions
 
 The `MediaStatsCollectorOptions` is optional, and there are two optional fields in `MediaStatsCollectorOptions`.
 
-- `aggregationInterval` is the interval, in seconds, that the statistics will be aggregated. The default value is 10.
+- `aggregationInterval` is the interval, in seconds, that the statistics are aggregated. The default value is 10.
 - `dataPointsPerAggregation` defines how many data points each aggregation event has. The default value is 6.
 
 These two values determine the frequency at which the SDK emits `summaryReported` event and the number of aggregated data points included in the report.
@@ -84,7 +84,7 @@ The `summaryReported` event is raised every 60 seconds and contains 1 unique uni
 
 ## Best practices
 
-If you want to collect the data for offline inspection, we recommend that you collect the data and send it to your pipeline ingestion after your call ends. If you transmit the data during a call, it could use internet bandwidth that's needed to continue an Azure Communication Services call (especially when available bandwidth is low).
+If you want to collect the data for offline inspection, we recommend that you collect the data and send it to your pipeline ingestion after your call ends. If you transmit the data during a call, it could use internet bandwidth needed to continue an Azure Communication Services call (especially when available bandwidth is low).
 
 In either `sampleReported` event or `summaryReported` event, the media statistics data are not just a simple key-value mapping.
 
@@ -110,13 +110,13 @@ export interface MediaStatsReportSample {
 ```
 The event data provide the statistics data for each media stream in the call, including both send and receive directions.
 
-It is recommended that you print out the event using the `console.log` to observe its layout and value changes, so you can find a proper way to display or process the data according to your usage scenario.
+It's recommended that you print the event using the `console.log` to observe its layout and value changes, so you can find a proper way to display or process the data according to your usage scenario.
 
 ### Audio send metrics
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
-| `id` | Statistics ID | It's used to identify statistics across the events, especially when there are multiple statistics with the same media type and direction in an event. |
+| `id` | Statistics ID | Used to identify statistics across the events, especially when there are multiple statistics with the same media type and direction in an event. |
 | `codecName` | Codec name | OPUS, G722.|
 | `bitrate` | Audio send bit rate (bits per second) | General values are in the 24-Kbps range (36-128 Kbps is typical). |
 | `jitterInMs` | Packet jitter (milliseconds) | Lower is better. |
@@ -124,9 +124,9 @@ It is recommended that you print out the event using the `console.log` to observ
 | `packetsPerSecond` | Packet rate (packets per second) | |
 | `packetsLost` | The total number of packets lost reported from the remote end. | |
 | `packetsLostPerSecond` | Packet loss rate (packets per second) | Lower is better. |
-| `rttInMs` | Round-trip time (milliseconds) | Lower is better. It's calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
+| `rttInMs` | Round-trip time (milliseconds) | Lower is better. Calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
 | `audioInputLevel` | Audio volume level from the microphone | The value ranges from 0 to 65536. A value of 0 represents silence. |
-| `transportId` | Transport Id | It is used to associate the stats in transports.|
+| `transportId` | Transport ID | Used to associate the stats in transports.|
 
 ### Audio receive metrics
 
@@ -134,7 +134,7 @@ In the SDK versions ealier than 1.20.1, `jitterBufferDelayInMs` existed as `jitt
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
-| `id` | Statistics ID | It's used to identify statistics across the events, especially when there are multiple statistics with the same media type and direction in an event. |
+| `id` | Statistics ID | Used to identify statistics across the events, especially when there are multiple statistics with the same media type and direction in an event. |
 | `codecName` | Codec name | OPUS, G722.|
 | `bitrate` | Audio receive bitrate (bits per second) | General values are in the 24-Kbps range (36-128 Kbps is typical). |
 | `jitterInMs` | Packet jitter (milliseconds) | Lower is better. |
@@ -145,15 +145,15 @@ In the SDK versions ealier than 1.20.1, `jitterBufferDelayInMs` existed as `jitt
 | `jitterBufferDelayInMs` | Jitter buffer (milliseconds) | Lower is better. The jitter buffer is used for smooth playout. This value is how long the packets of the samples stay in the jitter buffer. |
 | `audioOutputLevel` | Audio volume level from the receiving stream | The value ranges from 0 to 65536. A value of 0 represents silence. |
 | `healedRatio` | Ratio of concealed samples (except `silentConcealedSamples`) to total received samples | Information only. |
-| `transportId` | Transport Id | It is used to associate the stats in transports.|
+| `transportId` | Transport ID | Used to associate the stats in transports.|
 
 ### Video send metrics
 
-Staring from SDK version 1.20.1, the video send metrics included the `altLayouts` metric field, which allows for a better representation of simulcast stream statistics.
+Starting from SDK version 1.20.1, the video send metrics included the `altLayouts` metric field, which allows for a better representation of simulcast stream statistics.
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
-| `id` | Statistics ID | It's used to identify statistics across the events, especially when there are multiple statistics with the same media type and direction in an event. |
+| `id` | Statistics ID | Used to identify statistics across the events, especially when there are multiple statistics with the same media type and direction in an event. |
 | `codecName` | Codec name | H264, VP8, VP9. |
 | `bitrate` | Video send bitrate (bits per second) | |
 | `jitterInMs` | Packet jitter (milliseconds) | Lower is better. |
@@ -161,7 +161,7 @@ Staring from SDK version 1.20.1, the video send metrics included the `altLayouts
 | `packetsPerSecond` | Packet rate (packets per second) | |
 | `packetsLost` | The total number of packets lost reported from the remote end. | |
 | `packetsLostPerSecond` | Packet loss rate (packets per second) | Lower is better. |
-| `rttInMs` | Round-trip time (milliseconds) | Lower is better. It's calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
+| `rttInMs` | Round-trip time (milliseconds) | Lower is better. Calculated from the RTCP receiver report. We recommend a round-trip time of 200 ms or less. |
 | `frameRateInput` | Frame rate that originates from the video source (frames per second) | |
 | `frameWidthInput` | Frame width of the last frame that originates from the video source (pixels) | |
 | `frameHeightInput` | Frame height of the last frame that originates from the video source (pixels) | |
@@ -172,16 +172,16 @@ Staring from SDK version 1.20.1, the video send metrics included the `altLayouts
 | `frameWidthSent` | Frame width of the encoded frame (pixel) | |
 | `frameHeightSent` | Frame height of the encoded frame (pixel) | |
 | `keyFramesEncoded` | Key frames successfully encoded for the RTP stream  | |
-| `transportId` | Transport Id | It is used to associate the stats in transports.|
+| `transportId` | Transport ID | Used to associate the stats in transports.|
 | `altLayouts` | Simulcast streams | `altLayouts` contains the same metrics to the video send |
 
 ### Video receive metrics
 
-In the SDK versions ealier than 1.20.1, `jitterBufferDelayInMs` existed as `jitterBufferInMs`.
+In the SDK versions earlier than 1.20.1, `jitterBufferDelayInMs` existed as `jitterBufferInMs`.
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
-| `id` | Statistics ID | It's used to identify statistics across the events, especially when there are multiple statistics with the same media type and direction in an event. |
+| `id` | Statistics ID | Used to identify statistics across the events, especially when there are multiple statistics with the same media type and direction in an event. |
 | `codecName` | Codec name | H264, VP8, VP9. |
 | `bitrate` | Video receive bitrate (bits per second) | |
 | `jitterInMs` | Packet jitter (milliseconds) | Lower is better. |
@@ -189,7 +189,7 @@ In the SDK versions ealier than 1.20.1, `jitterBufferDelayInMs` existed as `jitt
 | `packetsPerSecond` | Packet rate (packets per second) | |
 | `packetsLost` | The total number of packets lost. | |
 | `packetsLostPerSecond` | Packet loss rate (packets per second) | Lower is better. |
-| `rttInMs` | Round-trip time (milliseconds) | Lower is better. It's calculated from the RTCP sender report. We recommend a round-trip time of 200 ms or less. |
+| `rttInMs` | Round-trip time (milliseconds) | Lower is better. Calculated from the RTCP sender report. We recommend a round-trip time of 200 ms or less. |
 | `streamId` | Stream ID | The `streamId` value corresponds to `id` in `VideoStreamCommon`. It can be used to match the sender. |
 | `jitterBufferDelayInMs` | Jitter buffer (milliseconds) | Lower is better. The jitter buffer is used for smooth playout. This value is how long the packets of the frames stay in the jitter buffer. |
 | `frameRateDecoded` | Frame rate correctly decoded for the RTP stream (frames per second) | |
@@ -202,7 +202,7 @@ In the SDK versions ealier than 1.20.1, `jitterBufferDelayInMs` existed as `jitt
 | `framesDecoded` | Total number of frames correctly decoded for the RTP stream | |
 | `framesDropped` | Total number of frames dropped | |
 | `keyFramesDecoded` | Total number of key frames correctly decoded for the RTP stream | |
-| `transportId` | Transport Id | It is used to associate the stats in transports.|
+| `transportId` | Transport ID | Used to associate the stats in transports.|
 
 ### Screen-share send metrics
 
@@ -224,7 +224,7 @@ In earlier versions, `rttInMs` existed as `pairRttInMs` in the stats for audio, 
 
 | Metric name | Description | Comments |
 | ----------- | ----------- | -------- |
-| `id` | Transport ID | It is used to associate with the transportId in other stats |
+| `id` | Transport ID | Used to associate with the transportId in other stats |
 | `rttInMs` | Round-trip time (milliseconds) | The value is calculated from the STUN connectivity check. We recommend a round-trip time of 200 ms or less. |
 | `availableIncomingBitrate` | Bandwidth estimation (bits per second) | The value may not be available depending on the bandwidth estimation algorithm used in the WebRTC session |
 | `availableOutgoingBitrate` | Bandwidth estimation (bits per second) | The value may not be available depending on the bandwidth estimation algorithm used in the WebRTC session |
@@ -232,7 +232,7 @@ In earlier versions, `rttInMs` existed as `pairRttInMs` in the stats for audio, 
 ## What are changed in SDK version 1.20.1 (GA)
 
 We now support MediaStats feature API in 1.20.1 (GA).
-Compared to the previous beta versions, we have also made some minor changes to the API interface in this GA version.
+Compared to the previous beta versions, we also made some minor changes to the API interface in this GA version.
 
 In the previous beta versions, `pairRttInMs`, `availableBitrate` were included in audio, video, and screenShare statistics.
 Now, these metrics have been separated into transport metrics.
