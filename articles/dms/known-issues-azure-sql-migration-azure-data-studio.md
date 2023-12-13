@@ -259,7 +259,10 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Cause**: This error generally happens when customer uses Windows authentication to login the source. The customer provides Windows authentication credential but SHIR converts it to machine account (Domain\MachineName$).
 
-- **Recommendation**: The solution is to add machine account to the SQL Server. [How to Create a SQL Server Computer Account Login](https://stackoverflow.com/questions/38680366/how-to-add-a-new-sql-server-machine-account)
+- **Recommendation**: Possible solution for this issue are:
+  1) Add login for machine account "Domain\MachineName$" to the source SQL Server. [How to Create a SQL Server Computer Account Login](https://stackoverflow.com/questions/38680366/how-to-add-a-new-sql-server-machine-account).
+  2) Or Use SQL login to connect to source SQL Server in Azure Data Studio.
+  3) Or As an alternative, Migrate the database schema from source to target by using [Powershell](https://learn.microsoft.com/powershell/module/az.datamigration/new-azdatamigrationsqlserverschema?view=azps-11.1.0) or  the [SQL Server dacpac extension](https://learn.microsoft.com/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects](https://learn.microsoft.com/azure-data-studio/extensions/sql-database-project-extension) extension in Azure Data Studio.
   
 - **Message**: `The SELECT permission was denied on the object 'sql_logins', database 'master', schema 'sys'.`
 
