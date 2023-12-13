@@ -122,6 +122,8 @@ Here's some examples of using the `-Unpack` parameter:
    msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp\myapp.cim" -applyACLs -create -filetype CIM -rootDirectory apps
    ```
 
+Here are the optional parameters you can use with the `-Unpack` parameter:
+
 | Optional parameter | Description | Example |
 |--|--|--|
 | `-applyACLs` | Applies ACLs to the resulting package folder(s) and their parent folder. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -applyACLs` |
@@ -150,6 +152,8 @@ Here's an example of using the `-MountImage` parameter:
 msixmgr.exe -MountImage -imagePath "C:\MSIX\myapp.cim" -fileType CIM
 ```
 
+Here are the optional parameters you can use with the `-MountImage` parameter:
+
 | Optional parameter | Description | Example |
 |--|--|--|
 | `-readOnly` | Boolean (true of false) indicating whether the image should be mounted as read only. If not specified, the image is mounted as read-only by default. | `msixmgr.exe -MountImage -imagePath "C:\MSIX\myapp.cim" -filetype CIM -readOnly false` |
@@ -172,6 +176,8 @@ Here's an example of using the `-UnmountImage` parameter:
 ```
 msixmgr.exe -UnmountImage -imagePath "C:\MSIX\myapp.vhdx" -fileType VHDX
 ```
+
+Here are the optional parameters you can use with the `-UnmountImage` parameter:
 
 | Optional parameter | Description | Example |
 |--|--|--|
