@@ -79,7 +79,7 @@ The following sections detail the tools to implement at different phases of a ca
 <!-- This is not possible yet ... ~~You could also
   have callers with poor network conditions join from [PSTN (Public
   Switched Telephone Network) voice
-  calling](/en-us/azure/communication-services/concepts/telephony/telephony-concept).~~ -->
+  calling](/azure/communication-services/concepts/telephony/telephony-concept).~~ -->
 
 
 <!-- TODO need to add a Permissions section. - filippos for input
@@ -219,8 +219,8 @@ to ensure you collecting available logs and metrics. These call data aren't stor
 Review this documentation to start collecting call logs: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md)
 
 - We recommend you choose the category group "allLogs" and choose the destination detail of “Send to Log Analytics workspace" in order to view and analyze the data in Azure Monitor.
-- If you don't have a Log Analytics workspace, you will need to [create one.](../analytics/enable-logging.md#next-steps)
-- We recomment you monitor your data usage and retention policies for cost considerations as needed. See: [Controlling costs.](../../../azure-monitor/essentials/diagnostic-settings.md#controlling-costs)
+- If you don't have a Log Analytics workspace to send your data to, you will need to [create one.](../../../azure-monitor/logs/quick-create-workspace.md)
+- We recommend you monitor your data usage and retention policies for cost considerations as needed. See: [Controlling costs.](../../../azure-monitor/essentials/diagnostic-settings.md#controlling-costs)
 
 
 ## Diagnose call issues with Call Diagnostics
