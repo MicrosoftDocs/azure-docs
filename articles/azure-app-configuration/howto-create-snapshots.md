@@ -34,11 +34,6 @@ In your App Configuration store, go to **Operations** > **Configuration explorer
 
 ## Create a snapshot
 
- > [!IMPORTANT]
-   > You may see any error "You are not authorized to view this configuration store data" when you switch to the Snapshots blade in the Azure portal if you opt to use Microsoft Entra authentication in the Configuration explorer or the Feature manager blades. This is a known issue in the Azure portal, and we are working on addressing it. It doesn't affect any scenarios other than the Azure Portal regarding accessing snapshots with Microsoft Entra authentication.
-
-As a temporary workaround, you can switch to using Access keys authentication from either the Configuration explorer or the Feature manager blades. You should then see the Snapshot blade displayed properly, assuming you have permission for the access keys.
-
 Under **Operations** > **Snapshots**, select **Create a new snapshot**.
 
 1. Enter a **snapshot name** and optionally also add **Tags**.

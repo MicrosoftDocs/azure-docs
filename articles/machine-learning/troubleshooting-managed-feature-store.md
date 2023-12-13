@@ -3,6 +3,7 @@ title: Troubleshoot managed feature store errors
 description: Information required to troubleshoot common errors with the managed feature store in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
+ms.subservice: mldata
 ms.custom: build-2023, ignite-2023
 author: qjxu
 ms.author: qiax
@@ -197,7 +198,7 @@ In this example, the `feature_transformation_code.path` property in the YAML sho
 
 #### Symptom
 
-When you use the feature store CRUD client to GET a feature set -  for example, `fs_client.feature_sets.get(name, version)`”` - you might see this error:
+When you use the feature store CRUD client to GET a feature set -  for example, `fs_client.feature_sets.get(name, version)`"` - you might see this error:
 
 ```python
 
@@ -340,9 +341,9 @@ When you use a registered model as a feature retrieval job input, the job fails 
 
 ```python
 ValueError: Failed with visit error: Failed with execution error: error in streaming from input data sources
-	VisitError(ExecutionError(StreamError(NotFound)))
+    VisitError(ExecutionError(StreamError(NotFound)))
 => Failed with execution error: error in streaming from input data sources
-	ExecutionError(StreamError(NotFound)); Not able to find path: azureml://subscriptions/{sub_id}/resourcegroups/{rg}/workspaces/{ws}/datastores/workspaceblobstore/paths/LocalUpload/{guid}/feature_retrieval_spec.yaml
+    ExecutionError(StreamError(NotFound)); Not able to find path: azureml://subscriptions/{sub_id}/resourcegroups/{rg}/workspaces/{ws}/datastores/workspaceblobstore/paths/LocalUpload/{guid}/feature_retrieval_spec.yaml
 ```
 
 #### Solution:
@@ -416,12 +417,12 @@ The feature retrieval job/query fails with the following error message in the *l
 ```python
 An error occurred while calling o1025.parquet.
 : java.nio.file.AccessDeniedException: Operation failed: "This request is not authorized to perform this operation using this permission.", 403, GET, https://{storage}.dfs.core.windows.net/test?upn=false&resource=filesystem&maxResults=5000&directory=datasources&timeout=90&recursive=false, AuthorizationPermissionMismatch, "This request is not authorized to perform this operation using this permission. RequestId:63013315-e01f-005e-577b-7c63b8000000 Time:2023-05-01T22:20:51.1064935Z"
-	at org.apache.hadoop.fs.azurebfs.AzureBlobFileSystem.checkException(AzureBlobFileSystem.java:1203)
-	at org.apache.hadoop.fs.azurebfs.AzureBlobFileSystem.listStatus(AzureBlobFileSystem.java:408)
-	at org.apache.hadoop.fs.Globber.listStatus(Globber.java:128)
-	at org.apache.hadoop.fs.Globber.doGlob(Globber.java:291)
-	at org.apache.hadoop.fs.Globber.glob(Globber.java:202)
-	at org.apache.hadoop.fs.FileSystem.globStatus(FileSystem.java:2124)
+    at org.apache.hadoop.fs.azurebfs.AzureBlobFileSystem.checkException(AzureBlobFileSystem.java:1203)
+    at org.apache.hadoop.fs.azurebfs.AzureBlobFileSystem.listStatus(AzureBlobFileSystem.java:408)
+    at org.apache.hadoop.fs.Globber.listStatus(Globber.java:128)
+    at org.apache.hadoop.fs.Globber.doGlob(Globber.java:291)
+    at org.apache.hadoop.fs.Globber.glob(Globber.java:202)
+    at org.apache.hadoop.fs.FileSystem.globStatus(FileSystem.java:2124)
 ```
 
 #### Solution:
@@ -578,12 +579,12 @@ The materialization job fails with this error message in the *logs/azureml/drive
 ```python
 An error occurred while calling o1025.parquet.
 : java.nio.file.AccessDeniedException: Operation failed: "This request is not authorized to perform this operation using this permission.", 403, GET, https://{storage}.dfs.core.windows.net/test?upn=false&resource=filesystem&maxResults=5000&directory=datasources&timeout=90&recursive=false, AuthorizationPermissionMismatch, "This request is not authorized to perform this operation using this permission. RequestId:63013315-e01f-005e-577b-7c63b8000000 Time:2023-05-01T22:20:51.1064935Z"
-	at org.apache.hadoop.fs.azurebfs.AzureBlobFileSystem.checkException(AzureBlobFileSystem.java:1203)
-	at org.apache.hadoop.fs.azurebfs.AzureBlobFileSystem.listStatus(AzureBlobFileSystem.java:408)
-	at org.apache.hadoop.fs.Globber.listStatus(Globber.java:128)
-	at org.apache.hadoop.fs.Globber.doGlob(Globber.java:291)
-	at org.apache.hadoop.fs.Globber.glob(Globber.java:202)
-	at org.apache.hadoop.fs.FileSystem.globStatus(FileSystem.java:2124)
+    at org.apache.hadoop.fs.azurebfs.AzureBlobFileSystem.checkException(AzureBlobFileSystem.java:1203)
+    at org.apache.hadoop.fs.azurebfs.AzureBlobFileSystem.listStatus(AzureBlobFileSystem.java:408)
+    at org.apache.hadoop.fs.Globber.listStatus(Globber.java:128)
+    at org.apache.hadoop.fs.Globber.doGlob(Globber.java:291)
+    at org.apache.hadoop.fs.Globber.glob(Globber.java:202)
+    at org.apache.hadoop.fs.FileSystem.globStatus(FileSystem.java:2124)
 ```
 
 #### Solution:
@@ -603,13 +604,13 @@ The materialization job fails with this error message in the *logs/azureml/drive
 ```yaml
 An error occurred while calling o1162.load.
 : java.util.concurrent.ExecutionException: java.nio.file.AccessDeniedException: Operation failed: "This request is not authorized to perform this operation using this permission.", 403, HEAD, https://featuresotrestorage1.dfs.core.windows.net/offlinestore/fs_xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_fsname/transactions/1/_delta_log?upn=false&action=getStatus&timeout=90
-	at com.google.common.util.concurrent.AbstractFuture$Sync.getValue(AbstractFuture.java:306)
-	at com.google.common.util.concurrent.AbstractFuture$Sync.get(AbstractFuture.java:293)
-	at com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:116)
-	at com.google.common.util.concurrent.Uninterruptibles.getUninterruptibly(Uninterruptibles.java:135)
-	at com.google.common.cache.LocalCache$Segment.getAndRecordStats(LocalCache.java:2410)
-	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2380)
-	at com.google.common.cache.LocalCache$S
+    at com.google.common.util.concurrent.AbstractFuture$Sync.getValue(AbstractFuture.java:306)
+    at com.google.common.util.concurrent.AbstractFuture$Sync.get(AbstractFuture.java:293)
+    at com.google.common.util.concurrent.AbstractFuture.get(AbstractFuture.java:116)
+    at com.google.common.util.concurrent.Uninterruptibles.getUninterruptibly(Uninterruptibles.java:135)
+    at com.google.common.cache.LocalCache$Segment.getAndRecordStats(LocalCache.java:2410)
+    at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2380)
+    at com.google.common.cache.LocalCache$S
 ```
 
 #### Solution
@@ -624,7 +625,7 @@ For more information about RBAC configuration, see [Permissions required for the
 
 #### Symptom:
 
-When using the feature store CRUD client to stream materialization job results to notebook using `fs_client.jobs.stream(“<job_id>”)`, the SDK call fails with an error
+When using the feature store CRUD client to stream materialization job results to notebook using `fs_client.jobs.stream("<job_id>")`, the SDK call fails with an error
 ```
 HttpResponseError: (UserError) A job was found, but it is not supported in this API version and cannot be accessed.
 

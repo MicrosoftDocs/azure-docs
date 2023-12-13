@@ -79,7 +79,7 @@ The query interface is populated with the following types of queries:
 | Type | Description |
 | :--- | :--- |
 | Example queries | Example queries can provide instant insight into a resource and offer a way to start learning and using Kusto Query Language (KQL). They can help you shorten the time it takes to start using Log Analytics. We've collected and curated more than 500 example queries to provide you with instant value. The number of example queries is continually growing. |
-| Query packs | A [query pack](query-packs.md) holds a collection of log queries. Queries that you save yourself, the [default query pack](query-packs.md#default-query-pack), and query packs that your organization might have created in the subscription are included. |
+| Query packs | A [query pack](query-packs.md) holds a collection of log queries. Queries that you save yourself, the [default query pack](query-packs.md#default-query-pack), and query packs that your organization might have created in the subscription are included. To view and manage query packs, see [View query packs](./query-packs.md#view-query-packs). To add query packs to your Log Analytics workspace. see [Use multiple query packs](./query-packs.md#use-multiple-query-packs). |
 | Legacy queries | Log queries previously saved in the query explorer experience are legacy queries. Also, queries associated with Azure solutions that are installed in the workspace are legacy queries. These queries are listed in the **Queries** dialog under **Legacy queries**. |
 
 >[!TIP]

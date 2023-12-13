@@ -77,6 +77,10 @@ The alert condition for stateful alerts is `fired`, until it is considered resol
 
 For stateful alerts, while the alert itself is deleted after 30 days, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved.
 
+Stateful log alerts have these limitations:
+- they can trigger up to 300 alerts per evaluation.
+- you can have a maximum of 5000 alerts with the `fired` alert condition.
+
 This table describes when a stateful alert is considered resolved:
 
 |Alert type |The alert is resolved when |
@@ -98,6 +102,33 @@ The system compiles a list of recommended alert rules based on:
 > - Virtual machines
 > - AKS resources
 > - Log Analytics workspaces
+
+## Alerting at-scale
+
+You can use any of the following methods for creating alert rules at-scale. Each choice has advantages and disadvantages that could have an effect on cost and on maintenance of the alert rules. 
+
+### Metric alerts
+You can use [one metric alert rule to monitor multiple resources](alerts-metric-multiple-time-series-single-rule.md) of the same type that exist in the same Azure region. Individual notifications are sent for each monitored resource. For a list of Azure services that are currently supported for this feature, see [Supported resources for metric alerts in Azure Monitor](alerts-metric-near-real-time.md).
+
+For metric alert rules for Azure services that don't support multiple resources, use automation tools such as the Azure CLI, PowerShell, or Azure Resource Manager templates to create the same alert rule for multiple resources. For sample ARM templates, see [Resource Manager template samples for metric alert rules in Azure Monitor](resource-manager-alerts-metric.md).
+
+Each metric alert rule is charged based on the number of time series that are monitored.
+
+### Log alerts
+
+Use [log alert rules](alerts-create-log-alert-rule.md) to monitor all resources that send data to the Log Analytics workspace. These resources can be from any subscription or region. Use data collection rules when setting up your Log Analytics workspace to collect the required data for your log alerts rule. 
+
+You can also create resource-centric alerts instead of workspace-centric alerts by using **Split by dimensions**. When you split on the resourceId column, you will get one alert per resource that meets the condition.
+
+Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to an Log Analytics workspace, there is no additional cost. 
+
+If you use metric data at scale in the Log Analytics workspace, pricing will change based on the data ingestion.
+
+### Using Azure policies for alerting at scale
+
+You can use [Azure policies](/azure/governance/policy/overview) to set up alerts at-scale. This has the advantage of easily implementing alerts at-scale. You can see how this is implementated with [Azure Monitor baseline alerts](https://aka.ms/amba).
+
+Keep in mind that if you use policies to create alert rules, you may have the increased overhead of maintaining a large alert rule set.
 
 ## Azure role-based access control for alerts
 

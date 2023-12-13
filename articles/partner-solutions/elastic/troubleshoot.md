@@ -30,6 +30,10 @@ Only users who have *Owner* or *Contributor* access on the Azure subscription ca
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings.
 
+## Diagnostic settings are active even after disabling the Elastic resource or applying necessary tag rules
+
+If logs are being emitted and diagnostic settings remain active on monitored resources even after the Elastic resource is disabled or tag rules have been modified to exclude certain resources, it's likely that there's a delete lock applied to the resource(s) or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve this, remove the delete lock from the resource or the resource group. If the lock is removed after the Elastic resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
+
 ## Marketplace Purchase errors
 
 [!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]

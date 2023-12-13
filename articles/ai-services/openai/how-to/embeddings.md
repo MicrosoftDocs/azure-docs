@@ -15,7 +15,7 @@ keywords:
 ---
 # Learn how to generate embeddings with Azure OpenAI
 
-An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Each embedding is a vector of floating point numbers, such that the distance between two embeddings in the vector space is correlated with semantic similarity between two inputs in the original format. For example, if two texts are similar, then their vector representations should also be similar. Embeddings power vector similarity search in Azure Databases such as [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md). 
+An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Each embedding is a vector of floating point numbers, such that the distance between two embeddings in the vector space is correlated with semantic similarity between two inputs in the original format. For example, if two texts are similar, then their vector representations should also be similar. Embeddings power vector similarity search in Azure Databases such as [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md) or [Azure Database for PostgreSQL - Flexible Server](../../../postgresql/flexible-server/how-to-use-pgvector.md).
 
 
 ## How to get embeddings
@@ -94,6 +94,32 @@ foreach (float item in returnValue.Value.Data[0].Embedding.ToArray())
 }
 ```
 
+# [PowerShell](#tab/PowerShell)
+```powershell-interactive
+# Azure OpenAI metadata variables
+$openai = @{
+    api_key     = $Env:AZURE_OPENAI_KEY
+    api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+    api_version = '2023-05-15' # this may change in the future
+    name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
+}
+
+$headers = [ordered]@{
+    'api-key' = $openai.api_key
+}
+
+$text = 'Your text string goes here'
+
+$body = [ordered]@{
+    input = $text
+} | ConvertTo-Json
+
+$url = "$($openai.api_base)/openai/deployments/$($openai.name)/embeddings?api-version=$($openai.api_version)"
+
+$response = Invoke-RestMethod -Uri $url -Headers $headers -Body $body -Method Post -ContentType 'application/json'
+return $response.data.embedding
+```
+
 ---
 
 ## Best practices
@@ -115,5 +141,7 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
   * [Azure Cosmos DB for MongoDB vCore](../../../cosmos-db/mongodb/vcore/vector-search.md)
   * [Azure Cosmos DB for NoSQL](../../../cosmos-db/vector-search.md)
   * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)
+  * [Azure Database for PostgreSQL - Flexible Server](../../../postgresql/flexible-server/how-to-use-pgvector.md)  
   * [Azure Cache for Redis](../../../azure-cache-for-redis/cache-tutorial-vector-similarity.md)
+
 

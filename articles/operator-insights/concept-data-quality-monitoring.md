@@ -3,6 +3,7 @@ title: Data quality and quality monitoring
 description: This article helps you understand how data quality and quality monitoring work in Azure Operator Insights.
 author: rcdun
 ms.author: rdunstan
+ms.reviewer: sergeyche
 ms.service: operator-insights
 ms.topic: concept-article
 ms.date: 10/24/2023

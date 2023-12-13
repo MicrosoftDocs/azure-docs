@@ -340,7 +340,7 @@ To further help improve cluster resource utilization and free up CPU and memory 
 [aks-faq-node-resource-group]: faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group
 [aks-multiple-node-pools]: create-node-pools.md
 [aks-scale-apps]: tutorial-kubernetes-scale.md
-[aks-view-master-logs]: monitor-aks.md#resource-logs
+[aks-view-master-logs]: monitor-aks.md#aks-control-planeresource-logs
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az-aks-update

@@ -145,7 +145,7 @@ To avoid a deployment failure when you try to validate the custom metric's defin
 > [!NOTE]
 > Using the `skipMetricValidation` parameter might also be required when you define an alert rule on an existing custom metric that hasn't been emitted in several days.
 
-## Process data for a metric alert rule in a specific region
+## How to process data for a metric alert rule in a specific region
 
 You can make sure that an alert rule is processed in a specified region if your metric alert rule is defined with a scope of that region and if it monitors a custom metric.
 
@@ -161,13 +161,13 @@ To enable regional data processing in one of these regions, select the specified
 > [!NOTE]
 > We're continually adding more regions for regional data processing.
 
-## Alert rule with dynamic threshold fires too much or is too noisy
+## Metric alert rule with dynamic threshold fires too much or is too noisy
 
 If an alert rule that uses dynamic thresholds is too noisy or fires too much, you may need to reduce the sensitivity of your dynamic thresholds alert rule. Use one of the following options:
  - **Threshold sensitivity:** Set the sensitivity to **Low** to be more tolerant for deviations.
  - **Number of violations (under Advanced settings):** Configure the alert rule to trigger only if several deviations occur within a certain period of time. This setting makes the rule less susceptible to transient deviations.
 
-## Alert rule with dynamic threshold doesn't fire enough
+## Metric alert rule with dynamic threshold doesn't fire enough
 
 You may encounter an alert rule that uses dynamic thresholds doesn't fire or isn't sensitive enough, even though it's configured with high sensitivity. This can happen when the metric's distribution is highly irregular. Consider one of the following solutions to fix the issue:
  - Move to monitoring a complementary metric that's suitable for your scenario, if applicable. For example, check for changes in success rate rather than failure rate.
@@ -195,10 +195,21 @@ If you've reached the quota limit, the following steps might help resolve the is
        - Subscription IDs for which the quota limit needs to be increased.
        - Resource type for the quota increase. Select **Metric alerts** or **Metric alerts (Classic)**.
        - Requested quota limit.
+
 ## `Metric not found` error:
    - **For a platform metric:** Make sure you're using the **Metric** name from [the Azure Monitor supported metrics page](../essentials/metrics-supported.md) and not the **Metric Display Name**.
    - **For a custom metric:** Make sure that the metric is already being emitted because you can't create an alert rule on a custom metric that doesn't yet exist. Also ensure that you're providing the custom metric's namespace. For a Resource Manager template example, see [Create a metric alert with a Resource Manager template](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric).
 - If you're creating [metric alerts on logs](./alerts-metric-logs.md), ensure appropriate dependencies are included. For a sample template, see [Create Metric Alerts for Logs in Azure Monitor](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+
+## Network error when creating a metric alert rule using dimensions
+
+If you're creating a metric alert rule that uses dimensions, you might encounter a network error. This can happen if you create a metric alert rule that specifies a lot of dimension values. For example, if you create a metric alert rule that monitors the heartbeat metric for 200 computers, specifying each computer as a unique dimension value. This creates a payload with a large amount of text, that is too large to be sent over the network, and you may receive the following network error: `The network connectivity issue encountered for 'microsoft.insights'; cannot fulfill the request`.
+ 
+To resolve this, we recommend that you either:
+•	Define multiple rules (each with a subset of the dimension values).
+•	Use the **StartsWith** operator if the dimension values have common names.
+•	If relevant, configure the rule to monitor all dimension values if there’s no need to individually monitor the specific dimension values.
+
 
 ## No permissions to create metric alert rules
 

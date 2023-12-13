@@ -126,10 +126,6 @@ Congratulations! You've learned to use Document Intelligence models to analyze v
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v21.md)]
-::: moniker-end
-
-::: moniker range="doc-intel-2.1.0"
 In this how-to guide, you learn how to add Document Intelligence to your applications and workflows. Use a programming language of your choice or the REST API. Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, and tables from your documents. We recommend that you use the free service while you learn the technology. Remember that the number of free pages is limited to 500 per month.
 
 You use the following APIs to extract structured data from forms and documents:

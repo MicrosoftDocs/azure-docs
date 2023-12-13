@@ -1066,7 +1066,7 @@ To view log output, select the **Deployment logs** tab in the endpoint's **Detai
 
 :::image type="content" source="media/how-to-deploy-online-endpoints/deployment-logs.png" lightbox="media/how-to-deploy-online-endpoints/deployment-logs.png" alt-text="A screenshot of observing deployment logs in the studio.":::
 
-By default, logs are pulled from the inference server. To see logs from the storage initializer container, use the Azure CLI or Python SDK (see each tab for details). For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
+By default, logs are pulled from the inference server. To see logs from the storage initializer container, use the Azure CLI or Python SDK (see each tab for details). Logs from the storage initializer container provide information on whether code and model data were successfully downloaded to the container. For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 # [ARM template](#tab/arm)
 
@@ -1281,7 +1281,7 @@ If you aren't going use the deployment, you should delete it by running the foll
 
 ---
 
-## Next steps
+## Related content
 
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)

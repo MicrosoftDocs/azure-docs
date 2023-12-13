@@ -262,7 +262,7 @@ These are the currently supported maximum scale-out values for a single plan in 
 |Japan West| 100 | 20 |
 |Jio India West| 100 | 20 |
 |Korea Central| 100 | 20 |
-|Korea South| Not Available | 20 |
+|Korea South| 40 | 20 |
 |North Central US| 100 | 20 |
 |North Europe| 100 | 100 |
 |Norway East| 100 | 20 |

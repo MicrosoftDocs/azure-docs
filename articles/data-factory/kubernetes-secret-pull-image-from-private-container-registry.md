@@ -44,7 +44,7 @@ Provide the required field **Secret name**, select **Private registry auth** for
 
 Once you provide the required fields, select **Apply** to add the secret.
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)

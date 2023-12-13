@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: This article introduces the Python tool for flows in Azure AI Studio.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom: ignite-2023, devx-track-python
 ms.topic: conceptual
 ms.date: 11/15/2023
@@ -133,7 +133,7 @@ from promptflow import tool
 from promptflow.connections import CustomConnection
 
 @tool
-def my_python_tool(message:str, myconn:CustomConnection) -> str:
+def my_python_tool(message: str, myconn: CustomConnection) -> str:
     # Get authentication key-values from the custom connection
     connection_key1_value = myconn.key1
     connection_key2_value = myconn.key2

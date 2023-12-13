@@ -18,131 +18,144 @@ ms.date: 09/05/2023
 
 This article addresses frequent questions about tool usage.
 
-## Error "package tool isn't found" occurs when updating the flow for code first experience.
+## "Package tool isn't found" error occurs when you update the flow for a code-first experience
 
-When you update flows for code first experience, if the flow utilized these tools (Faiss Index Lookup, Vector Index Lookup, Vector DB Lookup, Content Safety (Text)), you may encounter the error message like below:
+When you update flows for a code-first experience, if the flow utilized the Faiss Index Lookup, Vector Index Lookup, Vector DB Lookup, or Content Safety (Text) tools, you might encounter the following error message:
 
 <code><i>Package tool 'embeddingstore.tool.faiss_index_lookup.search' is not found in the current environment.</i></code>
 
 To resolve the issue, you have two options:
 
 - **Option 1**
-  - Update your runtime to latest version. 
-  - Select on "Raw file mode" to switch to the raw code view, then open the "flow.dag.yaml" file.
-     ![how-to-switch-to-raw-file-mode](../media/faq/switch-to-raw-file-mode.png)
+  - Update your runtime to the latest version.
+  - Select **Raw file mode** to switch to the raw code view. Then open the *flow.dag.yaml* file.
+  
+     ![Screenshot that shows how to switch to Raw file mode.](../media/faq/switch-to-raw-file-mode.png)
   - Update the tool names.
-     ![how-to-update-tool-name](../media/faq/update-tool-name.png)
+  
+     ![Screenshot that shows how to update the tool name.](../media/faq/update-tool-name.png)
      
       | Tool | New tool name |
       | ---- | ---- |
-      | Faiss Index Lookup tool | promptflow_vectordb.tool.faiss_index_lookup.FaissIndexLookup.search |
+      | Faiss Index Lookup | promptflow_vectordb.tool.faiss_index_lookup.FaissIndexLookup.search |
       | Vector Index Lookup | promptflow_vectordb.tool.vector_index_lookup.VectorIndexLookup.search |
       | Vector DB Lookup | promptflow_vectordb.tool.vector_db_lookup.VectorDBLookup.search |
       | Content Safety (Text) | content_safety_text.tools.content_safety_text_tool.analyze_text |
-  - Save the "flow.dag.yaml" file.
+  - Save the *flow.dag.yaml* file.
 
 - **Option 2**
-  - Update your runtime to latest version.
+  - Update your runtime to the latest version.
   - Remove the old tool and re-create a new tool.
 
-## No such file or directory error
-Prompt flow relies on fileshare to store snapshot of flow. If fileshare has some issue, you may encounter this issue. Here are some workarounds you can try:
-- If you're using private storage account, see [Network isolation in prompt flow](../how-to-secure-prompt-flow.md) to make sure your storage account can be accessed by your workspace.
-- If the storage account is enabled public access, please check whether there are datastore named `workspaceworkingdirectory` in your workspace, it should be fileshare type.
-![workspaceworkingdirectory](../media/faq/working-directory.png) 
-    - If you didn't get this datastore, you need add it in your workspace.
-        - Create fileshare with name `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`
-        - Create data store with name `workspaceworkingdirectory` . See [Create datastores](../../how-to-datastore.md)
-    - If you have `workspaceworkingdirectory` datastore but its type is `blob` instead of `fileshare`, please create new workspace and use storage didn't enable hierarchical namespaces ADLS Gen2 as workspace default storage account. See [Create workspace](../../how-to-manage-workspace.md#create-a-workspace)
+## "No such file or directory" error
+
+Prompt flow relies on a file share storage to store a snapshot of the flow. If the file share storage has an issue, you might encounter the following problem. Here are some workarounds you can try:
+
+- If you're using a private storage account, see [Network isolation in prompt flow](../how-to-secure-prompt-flow.md) to make sure your workspace can access your storage account.
+- If the storage account is enabled for public access, check whether there's a datastore named `workspaceworkingdirectory` in your workspace. It should be a file share type.
+
+   ![Screenshot that shows workspaceworkingdirectory.](../media/faq/working-directory.png)
+    - If you didn't get this datastore, you need to add it in your workspace.
+        - Create a file share with the name `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`.
+        - Create a datastore with the name `workspaceworkingdirectory`. See [Create datastores](../../how-to-datastore.md).
+    - If you have a `workspaceworkingdirectory` datastore but its type is `blob` instead of `fileshare`, create a new workspace. Use storage that doesn't enable hierarchical namespaces for Azure Data Lake Storage Gen2 as a workspace default storage account. For more information, see [Create workspace](../../how-to-manage-workspace.md#create-a-workspace).
      
 ## Flow is missing
 
-:::image type="content" source="../media/faq/flow-missing.png" alt-text="Screenshot of a flow missing in authoring page. " lightbox = "../media/faq/flow-missing.png":::
+:::image type="content" source="../media/faq/flow-missing.png" alt-text="Screenshot that shows a flow missing an authoring page." lightbox = "../media/faq/flow-missing.png":::
 
-Prompt flow relies on fileshare to store snapshot of flow. This error mean prompt flow service can operate prompt flow folder in fileshare, but the prompt flow UI can't find folder in fileshare. There are some potential reasons:
-- Prompt flow relies datastore named `workspaceworkingdirectory` in your workspace, which using `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`, please make sure your data store using the same container. If your data store is using different fileshare name, you need use new workspace.
-![name of fileshare in datastore detail page](../media/faq/file-share-name.png) 
+Prompt flow relies on a file share to store a snapshot of a flow. This error means that prompt flow service can operate a prompt flow folder in the file share storage, but the prompt flow UI can't find the folder in the file share storage. There are some potential reasons:
 
-- If your fileshare is correctly named, then please try in different network environment, such as home network, company network, etc. There is a rare case where a fileshare can't be accessed in some network environments even if it's public-access enabled.
+- Prompt flow relies on a datastore named `workspaceworkingdirectory` in your workspace, which uses `code-391ff5ac-6576-460f-ba4d-7e03433c68b6`. Make sure your datastore uses the same container. If your datastore is using a different file share name, you need to use a new workspace.
 
-## Runtime related issues
+  ![Screenshot that shows the name of a file share in a datastore detail page.](../media/faq/file-share-name.png)
 
-### My runtime is failed with a system error **runtime not ready** when using a custom environment
+- If your file share storage is correctly named, try a different network environment, such as a home or company network. There's a rare case where a file share storage can't be accessed in some network environments even if it's enabled for public access.
 
-:::image type="content" source="../media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png" alt-text="Screenshot of a failed run on the runtime detail page. " lightbox = "../media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png":::
+## Runtime-related issues
 
-First, go to the Compute Instance terminal and run `docker ps` to find the root cause. 
+You might experience runtime issues.
 
-Use  `docker images`  to check if the image was pulled successfully. If your image was pulled successfully, check if the Docker container is running. If it's already running, locate this runtime, which will attempt to restart the runtime and compute instance.
+### Runtime failed with "system error runtime not ready" when you used a custom environment
 
-### Run failed due to "No module named XXX"
+:::image type="content" source="../media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png" alt-text="Screenshot that shows a failed run on the runtime detail page." lightbox = "../media/how-to-create-manage-runtime/ci-failed-runtime-not-ready.png":::
 
-This type error related to runtime lack required packages. If you're using default environment, make sure image of your runtime is using the latest version, learn more: [runtime update](../how-to-create-manage-runtime.md#update-runtime-from-ui), if you're using custom image and you're using conda environment, make sure you have installed all required packages in your conda environment, learn more: [customize prompt flow environment](../how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+First, go to the compute instance terminal and run `docker ps` to find the root cause.
+
+Use `docker images` to check if the image was pulled successfully. If your image was pulled successfully, check if the Docker container is running. If it's already running, locate this runtime. It attempts to restart the runtime and compute instance.
+
+### Run failed because of "No module named XXX"
+
+This type of error related to runtime lacks required packages. If you're using a default environment, make sure the image of your runtime is using the latest version. For more information, see [Runtime update](../how-to-create-manage-runtime.md#update-runtime-from-ui). If you're using a custom image and you're using a conda environment, make sure you installed all the required packages in your conda environment. For more information, see [Customize a prompt flow environment](../how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
 
 ### Request timeout issue
 
-#### Request timeout error shown in UI
+You might experience timeout issues.
+
+#### Request timeout error shown in the UI
 
 **MIR runtime request timeout error in the UI:**
 
-:::image type="content" source="../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot of a MIR runtime timeout error in the studio UI. " lightbox = "../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
+:::image type="content" source="../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png" alt-text="Screenshot that shows an MIR runtime timeout error in the studio UI." lightbox = "../media/how-to-create-manage-runtime/mir-runtime-request-timeout.png":::
 
-Error in the example says "UserError: Upstream request timeout".
+The error in the example says "UserError: Upstream request timeout."
 
 **Compute instance runtime request timeout error:**
 
-:::image type="content" source="../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot of a compute instance runtime timeout error in the studio UI. " lightbox = "../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
+:::image type="content" source="../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png" alt-text="Screenshot that shows a compute instance runtime timeout error in the studio UI." lightbox = "../media/how-to-create-manage-runtime/ci-runtime-request-timeout.png":::
 
-Error in the example says "UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing".
+The error in the example says "UserError: Invoking runtime gega-ci timeout, error message: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing."
 
-### How to identify which node consume the most time
+### Identify which node consumes the most time
 
-1. Check the runtime logs
+1. Check the runtime logs.
 
-2. Trying to find below warning log format
+1. Try to find the following warning log format:
 
     {node_name} has been running for {duration} seconds.
 
     For example:
 
-   - Case 1: Python script node running for long time.
+   - **Case 1:** Python script node runs for a long time.
 
-        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot of a timeout run logs in the studio UI. " lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
+        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png" alt-text="Screenshot that shows a timeout run log in the studio UI." lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-running-for-long-time.png":::
 
-        In this case, you can find that the `PythonScriptNode` was running for a long time (almost 300 s), then you can check the node details to see what's the problem.
+        In this case, you can find that `PythonScriptNode` was running for a long time (almost 300 seconds). Then you can check the node details to see what's the problem.
 
-   - Case 2: LLM node running for long time.
+   - **Case 2:** LLM node runs for a long time.
 
-        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png" alt-text="Screenshot of a timeout logs caused by LLM timeout in the studio UI. " lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
+        :::image type="content" source="../media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png" alt-text="Screenshot that shows timeout logs caused by an LLM timeout in the studio UI." lightbox = "../media/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
 
-        In this case, if you find the message `request canceled` in the logs, it may be due to the OpenAI API call taking too long and exceeding the runtime limit.
+        In this case, if you find the message `request canceled` in the logs, it might be because the OpenAI API call is taking too long and exceeding the runtime limit.
 
-        An OpenAI API Timeout could be caused by a network issue or a complex request that requires more processing time. For more information, see [OpenAI API Timeout](https://help.openai.com/en/articles/6897186-timeout).
+        An OpenAI API timeout could be caused by a network issue or a complex request that requires more processing time. For more information, see [OpenAI API timeout](https://help.openai.com/en/articles/6897186-timeout).
 
-        You can try waiting a few seconds and retrying your request. This usually resolves any network issues.
+        Wait a few seconds and retry your request. This action usually resolves any network issues.
 
-        If retrying doesn't work, check whether you're using a long context model, such as ‘gpt-4-32k’, and have set a large value for `max_tokens`. If so, it's expected behavior because your prompt may generate a long response that takes longer than the interactive mode upper threshold. In this situation, we recommend trying 'Bulk test', as this mode doesn't have a timeout setting.
+        If retrying doesn't work, check whether you're using a long context model, such as `gpt-4-32k`, and have set a large value for `max_tokens`. If so, the behavior is expected because your prompt might generate a long response that takes longer than the interactive mode's upper threshold. In this situation, we recommend trying `Bulk test` because this mode doesn't have a timeout setting.
 
-3. If you can't find anything in runtime logs to indicate it's a specific node issue
+1. If you can't find anything in runtime logs to indicate it's a specific node issue:
 
-    Contact the prompt flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We try to identify the root cause.
+    - Contact the prompt flow team ([promptflow-eng](mailto:aml-pt-eng@microsoft.com)) with the runtime logs. We'll try to identify the root cause.
 
-### How to find the compute instance runtime log for further investigation?
+### Find the compute instance runtime log for further investigation
 
-Go to the compute instance terminal and run  `docker logs -<runtime_container_name>`
+Go to the compute instance terminal and run `docker logs -<runtime_container_name>`.
 
-### User doesn't have access to this compute instance. Check if this compute instance is assigned to you and you have access to the workspace. Additionally, verify that you are on the correct network to access this compute instance.
+### You don't have access to this compute instance
 
-:::image type="content" source="../media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot of don't have access error on the flow page. " lightbox = "../media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
+Check if this compute instance is assigned to you and you have access to the workspace. Also, verify that you're on the correct network to access this compute instance.
 
-It's because you're cloning a flow from others that is using compute instance as runtime. As compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others. 
+:::image type="content" source="../media/how-to-create-manage-runtime/ci-flow-clone-others.png" alt-text="Screenshot that shows you don't have an access error on the flow page." lightbox = "../media/how-to-create-manage-runtime/ci-flow-clone-others.png":::
 
-### How to find python packages installed in runtime?
+This error occurs because you're cloning a flow from others that's using a compute instance as the runtime. Because the compute instance runtime is user isolated, you need to create your own compute instance runtime or select a managed online deployment/endpoint runtime, which can be shared with others.
 
-Please follow below steps to find python packages installed in runtime:
+### Find Python packages installed in runtime
 
-- Add python node in your flow.
-- Put following code to the code section.
+Follow these steps to find Python packages installed in runtime:
+
+- Add a Python node in your flow.
+- Put the following code in the code section:
 
     ```python
     from promptflow import tool
@@ -155,5 +168,6 @@ Please follow below steps to find python packages installed in runtime:
             subprocess.run(['pip', 'list'], stdout=f)    
     
     ```
-- Run the flow, then you can find `packages.txt` in the flow folder.
-  :::image type="content" source="../media/faq/list-packages.png" alt-text="Screenshot of finding python packages installed in runtime. " lightbox = "../media/faq/list-packages.png":::
+- Run the flow. Then you can find `packages.txt` in the flow folder.
+
+  :::image type="content" source="../media/faq/list-packages.png" alt-text="Screenshot that shows finding Python packages installed in runtime." lightbox = "../media/faq/list-packages.png":::

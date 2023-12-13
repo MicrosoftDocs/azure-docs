@@ -217,7 +217,6 @@ The following is an example of a middleware implementation that reads the `HttpR
  
 For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
-
 ## Methods recognized as functions
 
 A function method is a public method of a public class with a `Function` attribute applied to the method and a trigger attribute applied to an input parameter, as shown in the following example:
@@ -492,7 +491,7 @@ This section outlines options you can enable that improve performance around [co
 In general, your app should use the latest versions of its core dependencies. At a minimum, you should update your project as follows:
 
 - Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later.
-- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.2 or later.
+- Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.4 or later.
 - Add a framework reference to `Microsoft.AspNetCore.App`, unless your app targets .NET Framework.
 
 The following example shows this configuration in the context of a project file:
@@ -501,7 +500,7 @@ The following example shows this configuration in the context of a project file:
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" />
   </ItemGroup>
 ```
 

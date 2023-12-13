@@ -61,7 +61,7 @@ It is important you set the storage class right at the time you deploy a server 
    - setting the storage class for the backups has been temporarily removed as we temporarily removed the backup/restore functionalities as we finalize designs and experiences.
 
 
-## Next steps
+## Related content
 - [Manage your server using Azure Data Studio](manage-postgresql-server-with-azure-data-studio.md)
 - [Monitor your server](monitor-grafana-kibana.md)
 

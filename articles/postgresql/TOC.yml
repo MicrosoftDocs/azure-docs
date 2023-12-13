@@ -103,6 +103,8 @@
       href: flexible-server/concepts-supported-versions.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: Scaling resources
+      href: flexible-server/concepts-scaling-resources.md
     - name: Prepay for reserved capacity
       href: concept-reserved-pricing.md
     - name: Networking
@@ -338,6 +340,8 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-manage-virtual-network-private-endpoint-portal.md
+        - name: Connect to managed data factory via Private Endpoint
+          href: flexible-server/howto-connect-to-data-factory-private-endpoint.md
       - name: Public access (allowed IP addresses)
         items:
         - name: Azure portal
@@ -391,12 +395,9 @@
             href: flexible-server/how-to-enable-intelligent-performance-cli.md
     - name: Replication
       items:
-      - name: Azure portal
+      - name: Azure portal, REST API
         href: flexible-server/how-to-read-replicas-portal.md
         displayName: replica
-      - name: Azure REST API
-        href: flexible-server/how-to-read-replicas-rest-api.md
-        displayName: replica rest api
   - name: Extensions
     items:
     - name: Overview

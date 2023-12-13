@@ -107,7 +107,7 @@ The following are other tips to ensure the reliability and high support of your 
 
 ## Next steps
 
-In this guide, you learned how to improve performance when using the Face service. Next, Follow the tutorial to set up a working software solution that combines server-side and client-side logic to do face liveness detection on users.
+In this guide, you learned how to improve performance when using the Face service. Next, follow the tutorial to set up a working software solution that combines server-side and client-side logic to do face liveness detection on users.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Detect face liveness](../Tutorials/liveness.md)

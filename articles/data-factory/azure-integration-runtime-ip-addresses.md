@@ -32,6 +32,6 @@ Allow traffic from the IP addresses listed for the Azure Integration runtime in 
 
   Instead, we suggest using [trusted services while connecting to Azure Storage](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993). 
 
-## Next steps
+## Related content
 
 * [Security considerations for data movement in Azure Data Factory](data-movement-security-considerations.md)

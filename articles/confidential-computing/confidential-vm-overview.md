@@ -74,7 +74,7 @@ Azure confidential VMs feature a virtual TPM (vTPM) for Azure VMs. The vTPM is a
 
 ## Limitations
 
-The following limitations exist for confidential VMs. For frequently asked questions, see [FAQ about confidential VMs](./confidential-vm-faq-amd.yml).
+The following limitations exist for confidential VMs. For frequently asked questions, see [FAQ about confidential VMs](./confidential-vm-faq.yml).
 
 ### Size support
 
@@ -128,4 +128,4 @@ Confidential VMs *don't support*:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy a confidential VM from the Azure portal](quick-create-confidential-vm-portal-amd.md)
+> [Deploy a confidential VM from the Azure portal](quick-create-confidential-vm-portal.md)
