@@ -93,7 +93,7 @@ You can get to cost analysis from the [Azure portal](https://portal.azure.com). 
 
 In this section, assume that all Azure AI Studio resources are in the same resource group. But you can have resources in different resource groups. For example, your Azure AI Search resource might be in a different resource group than your Azure AI Studio project.
 
-To monitor costs for Azure AI Studio projects:
+To monitor costs for an Azure AI Studio project:
 
 1. Sign in to [Azure AI Studio portal](https://ai.azure.com).
 1. Select your project and then select **Settings** from the left navigation menu.
@@ -108,25 +108,25 @@ To monitor costs for Azure AI Studio projects:
 
 1. Select **Costs by resource** > **Resources**.
 
-    :::image type="content" source="../media/cost-management/project-costs/select-costs-per-resource.png" alt-text="Screenshot of the Azure portal cost analysis with the Azure AI project and associated resources." lightbox="../media/cost-management/project-costs/select-costs-per-resource.png":::
+    :::image type="content" source="../media/cost-management/project-costs/select-costs-per-resource.png" alt-text="Screenshot of the Azure portal cost analysis with the button to select costs by resources." lightbox="../media/cost-management/project-costs/select-costs-per-resource.png":::
 
 1. On the **Cost analysis** page where you're taken to, make sure the scope is set to your resource group. 
 
-    :::image type="content" source="../media/cost-management/project-costs/costs-per-resource-group-details.png" alt-text="Screenshot of the Azure portal cost analysis with the Azure AI project and associated resources." lightbox="../media/cost-management/project-costs/costs-per-resource-group-details.png":::
+    :::image type="content" source="../media/cost-management/project-costs/costs-per-resource-group-details.png" alt-text="Screenshot of the Azure portal cost analysis for a resource group." lightbox="../media/cost-management/project-costs/costs-per-resource-group-details.png":::
 
     In this example:
     - The resource group name is **rg-contosoairesource**.
     - The total cost for all resources and services in the resource group is **$222.97**. In this example, this is the total cost for your application or solution that you're building with Azure AI Studio. Again, this assumes that all Azure AI Studio resources are in the same resource group. But you can have resources in different resource groups.
     - The project name is **contoso-outdoor-proj**.
-    - The costs limited to resources and services in the [Azure AI project](../concepts/ai-resources.md#project-assets) total **$212.06**. This should be the same as the total cost for the project in the previous step.
+    - The costs that are limited to resources and services in the [Azure AI project](../concepts/ai-resources.md#project-assets) total **$212.06**. 
     
 1. Expand **contoso-outdoor-proj** to see the costs for services underlying the [Azure AI project](../concepts/ai-resources.md#project-assets) resource. 
 
-    :::image type="content" source="../media/cost-management/project-costs/costs-per-project-resource-details.png" alt-text="Screenshot of the Azure portal cost analysis with the Azure AI project and associated resources." lightbox="../media/cost-management/project-costs/costs-per-project-resource-details.png":::
+    :::image type="content" source="../media/cost-management/project-costs/costs-per-project-resource-details.png" alt-text="Screenshot of the Azure portal cost analysis with Azure AI project expanded." lightbox="../media/cost-management/project-costs/costs-per-project-resource-details.png":::
 
 1. Expand **contoso_ai_resource** to see the costs for services underlying the [Azure AI](../concepts/ai-resources.md#azure-ai-resources) resource. 
 
-    :::image type="content" source="../media/cost-management/project-costs/costs-per-ai-resource-details.png" alt-text="Screenshot of the Azure portal cost analysis with the Azure AI project and associated resources." lightbox="../media/cost-management/project-costs/costs-per-ai-resource-details.png":::
+    :::image type="content" source="../media/cost-management/project-costs/costs-per-ai-resource-details.png" alt-text="Screenshot of the Azure portal cost analysis with the Azure AI resource expanded." lightbox="../media/cost-management/project-costs/costs-per-ai-resource-details.png":::
 
 You can also view resource group costs directly from the Azure portal. To do so:
 1. Sign in to [Azure portal](https://portal.azure.com).
@@ -134,7 +134,7 @@ You can also view resource group costs directly from the Azure portal. To do so:
 1. Find and select the resource group that contains your Azure AI Studio resources.
 1. From the left navigation menu, select **Cost analysis**.
 
-    :::image type="content" source="../media/cost-management/project-costs/costs-per-resource-group.png" alt-text="Screenshot of the Azure portal cost analysis with the Azure AI project and associated resources." lightbox="../media/cost-management/project-costs/costs-per-resource-group.png":::
+    :::image type="content" source="../media/cost-management/project-costs/costs-per-resource-group.png" alt-text="Screenshot of the Azure portal cost analysis at the resource group level." lightbox="../media/cost-management/project-costs/costs-per-resource-group.png":::
 
 For more information, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
