@@ -20,7 +20,7 @@ Back up network traffic between Azure VMware Solution VMs and the backup reposit
 
 You can find more information on these backup solutions here:
 - [Cohesity](https://www.cohesity.com/blogs/expanding-cohesitys-support-for-microsofts-ecosystem-azure-stack-and-azure-vmware-solution/)
-- [Commvault](https://documentation.commvault.com/11.21/essential/128997_support_for_azure_vmware_solution.html)
+- [Commvault](https://documentation.commvault.com/v11/essential/azure_vmware_solution.html)
 - [Dell Technologies](https://www.delltechnologies.com/resources/en-us/asset/briefs-handouts/solutions/dell-emc-data-protection-for-avs.pdf)
 - [Rubrik](https://www.rubrik.com/en/products/cloud-data-management)
 - [Veeam](https://www.veeam.com/kb4012)
