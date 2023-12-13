@@ -510,11 +510,11 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 > You can find your IoT Hub connection string in the Azure portal under Azure IoT Hub > **Security settings** > **Shared access policies**.
 >
 
+1. In **Cloud Explorer**, right-click your edge device and refresh to see the new module running along with **$edgeAgent** and **$edgeHub** modules.
+
 ::: zone-end
 
 ## Debug the solution
-
-1. In **Cloud Explorer**, right-click your edge device and refresh to see the new module running along with **$edgeAgent** and **$edgeHub** modules.
 
 1. Using and elevated PowerShell session run the following commands
 
