@@ -48,7 +48,7 @@ For more information, see [Deploy hybrid or air-gapped OT sensor management](ot-
 
 #### On-premises management console retirement
 
-The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date.
+The [legacy on-premises management console](legacy-central-management/legacy-air-gapped-deploy.md) won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date.
 
 - Sensor versions released after **January 1, 2025** won't be able to be managed by an on-premises management console.
 
@@ -68,6 +68,7 @@ For more information, see [Understand multiple records per alert](iot-solution.m
 
 ## November 2023
 
+|Service area  |Updates  |
 |---------|---------|
 | **Enterprise IoT networks** | [Enterprise IoT protection now included in Microsoft 365 E5 and E5 Security licenses](#enterprise-iot-protection-now-included-in-microsoft-365-e5-and-e5-security-licenses) |
 | **OT networks** | [Updated security stack integration guidance](#updated-security-stack-integration-guidance)|

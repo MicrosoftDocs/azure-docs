@@ -104,7 +104,7 @@ The on-premises management console retirement includes the following details:
 - Sensor software versions released between **January 1st, 2024 – January 1st, 2025** will continue to support an on-premises management console release.
 - Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console, CLI, or API.
 
-For more information, see [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions).
+For more information, see [Versioning and support for on-premises software versions](/release-notes.md#versioning-and-support-for-on-premises-software-versions).
 
 ## Next steps
 
