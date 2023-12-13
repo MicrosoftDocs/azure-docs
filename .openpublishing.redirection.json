@@ -4774,6 +4774,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/nodejs-use-node-modules-azure-apps.md",
+            "redirect_url": "/training/modules/create-nodejs-project-dependencies/",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/application-gateway/application-gateway-create-gateway-cli-nodejs.md",
             "redirect_url": "/azure/application-gateway/quick-create-cli",
             "redirect_document_id": false
@@ -8847,6 +8852,26 @@
             "redirect_url": "/azure/azure-functions/update-language-versions",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/azure-functions/pricing.md",
+            "redirect_url": "https://azure.microsoft.com/pricing/details/functions/",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-student-starter.md",
+            "redirect_url": "/azure/azure-functions/functions-create-function-app-portal",
+            "redirect_document_id": false
+        },         
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-reference-fsharp.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-csharp#convert-a-c-script-app-to-a-c-project",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-kotlin-maven.md",
+            "redirect_url": "/azure/azure-functions/functions-create-maven-kotlin-intellij",
+            "redirect_document_id": false
+        }, 
         {
             "source_path_from_root": "/articles/azure-government/documentation-government-k8.md",
             "redirect_url": "/azure/azure-government",
